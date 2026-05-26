@@ -67,15 +67,7 @@
         "config": {
           "label": "Dosage",
           "placeholder": "",
-          "options": [
-            "Brut Nature",
-            "Extra Brut",
-            "Brut",
-            "Extra Sec",
-            "Sec",
-            "Demi-Sec",
-            "Doux"
-          ]
+          "options": ["Brut Nature", "Extra Brut", "Brut", "Extra Sec", "Sec", "Demi-Sec", "Doux"]
         }
       },
       "product_image": {

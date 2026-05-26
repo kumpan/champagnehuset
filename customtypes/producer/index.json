@@ -57,13 +57,7 @@
         "config": {
           "label": "Region",
           "placeholder": "",
-          "options": [
-            "Côte des Blancs",
-            "Montagne de Reims",
-            "Vallée de la Marne",
-            "Côte des Bar",
-            "Côte de Sézanne"
-          ]
+          "options": ["Côte des Blancs", "Montagne de Reims", "Vallée de la Marne", "Côte des Bar", "Côte de Sézanne"]
         }
       },
       "producer_village": {
