@@ -27,10 +27,21 @@ const themeAlias = {
   Accent: "Sunrise",
 } as const;
 
-export function StatsSplit({ slice }: StatsProps & { slice: Content.StatsSliceSplit }) {
+export function StatsSplit({
+  slice,
+}: StatsProps & { slice: Content.StatsSliceSplit }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, stats_side, center_text, section_theme, remove_top_padding, stats } =
-    slice.primary;
+  const {
+    overline,
+    title,
+    description,
+    buttons,
+    stats_side,
+    center_text,
+    section_theme,
+    remove_top_padding,
+    stats,
+  } = slice.primary;
 
   const statsCount = slice.primary.stats.length;
 
@@ -48,10 +59,13 @@ export function StatsSplit({ slice }: StatsProps & { slice: Content.StatsSliceSp
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={themeAlias[section_theme] || "Ocean"}
+      sectionTheme={themeAlias[section_theme]}
     >
       <Container
-        className={cn("flex flex-col gap-2 md:gap-2 lg:flex-row", stats_side ? "lg:flex-row" : "lg:flex-row-reverse")}
+        className={cn(
+          "flex flex-col gap-2 md:gap-2 lg:flex-row",
+          stats_side ? "lg:flex-row" : "lg:flex-row-reverse",
+        )}
       >
         {hasIntroContent && (
           <div
@@ -71,11 +85,18 @@ export function StatsSplit({ slice }: StatsProps & { slice: Content.StatsSliceSp
               className={cn(!center_text && "h-full")}
               sectionTheme={themeAlias[section_theme]}
               buttonClassName="w-full md:w-auto"
-              buttonWrapperClassName={cn(!center_text ? "mt-auto" : "mt-2 md:mt-8")}
+              buttonWrapperClassName={cn(
+                !center_text ? "mt-auto" : "mt-2 md:mt-8",
+              )}
             />
           </div>
         )}
-        <div className={cn("grid gap-2 text-center md:gap-2 lg:w-1/2", getGridClasses())}>
+        <div
+          className={cn(
+            "grid gap-2 text-center md:gap-2 lg:w-1/2",
+            getGridClasses(),
+          )}
+        >
           {stats.map((stat, index) => (
             <div
               key={`${stat.number}-${index}`}

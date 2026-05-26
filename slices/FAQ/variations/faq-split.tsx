@@ -15,15 +15,21 @@ const overlineThemeClasses = {
 
 export function FAQSplit({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, section_theme, remove_top_padding, faqlist } = slice.primary;
-  const sectionTheme = section_theme || "Ocean";
+  const {
+    overline,
+    title,
+    description,
+    section_theme,
+    remove_top_padding,
+    faqlist,
+  } = slice.primary;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={sectionTheme}
+      sectionTheme={section_theme}
     >
       <Container>
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
@@ -34,8 +40,8 @@ export function FAQSplit({ slice }: Props) {
                 title={title}
                 description={description}
                 align="left"
-                sectionTheme={sectionTheme}
-                overlineClassName={overlineThemeClasses[sectionTheme]}
+                sectionTheme={section_theme}
+                overlineClassName={overlineThemeClasses[section_theme]}
                 textBalance={true}
               />
             </div>
@@ -47,7 +53,7 @@ export function FAQSplit({ slice }: Props) {
                 key={`faq-split-${item.question}-${index}`}
                 question={item.question}
                 answer={item.answer}
-                sectionTheme={sectionTheme}
+                sectionTheme={section_theme}
               />
             ))}
           </div>

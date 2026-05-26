@@ -14,7 +14,8 @@ type Props = HeroProps & { slice: Content.HeroSliceBackdrop };
 
 export function HeroBackdrop({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { title, description, buttons, alignment, section_theme, media } = slice.primary;
+  const { title, description, buttons, alignment, section_theme, media } =
+    slice.primary;
   const { image, video } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
@@ -31,7 +32,7 @@ export function HeroBackdrop({ slice, context }: Props) {
         "border-t-0",
         "isolate",
       )}
-      sectionTheme={section_theme || "Ocean"}
+      sectionTheme={section_theme}
     >
       <Container>
         <div
@@ -39,19 +40,27 @@ export function HeroBackdrop({ slice, context }: Props) {
             "relative flex h-full 3xl:min-h-224 min-h-104 flex-col justify-end overflow-hidden rounded-5 px-4 py-4 md:min-h-144 md:px-16 md:py-16 lg:aspect-video",
             hasMedia && "min-h-128",
             !hasMedia &&
-              { Ocean: "bg-fill-raised text-ink-flip", Sunrise: "bg-accent-fill-raised text-accent-ink-flip" }[
-                section_theme || "Ocean"
-              ],
+              {
+                Ocean: "bg-fill-raised text-ink-flip",
+                Sunrise: "bg-accent-fill-raised text-accent-ink-flip",
+              }[section_theme],
             alignment ? "items-center" : "items-start",
           )}
         >
           {hasMedia && (
-            <div className="pointer-events-none absolute inset-0 bg-fill-dark" aria-hidden>
+            <div
+              className="pointer-events-none absolute inset-0 bg-fill-dark"
+              aria-hidden
+            >
               {image && isFilled.image(image) && (
                 <div className="relative h-full w-full">
                   <CustomMedia
                     imageField={image}
-                    videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
+                    videoSrc={
+                      video && isFilled.linkToMedia(video)
+                        ? video.url
+                        : undefined
+                    }
                     className="h-full w-full"
                     preload
                     sectionTheme={section_theme || "Pumpkin"}
@@ -83,7 +92,7 @@ export function HeroBackdrop({ slice, context }: Props) {
               description={description}
               buttons={buttons}
               align={alignment ? "center" : "left"}
-              sectionTheme={hasMedia ? "Night" : section_theme || "Ocean"}
+              sectionTheme={hasMedia ? "Night" : section_theme}
               className="relative w-full"
               titleMaxWidth={false}
               textBalance={true}

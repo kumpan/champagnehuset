@@ -38,7 +38,7 @@ export function TextForm({ slice }: Props) {
             submit_button_text={submit_button_text ?? undefined}
             success_message={success_message}
             className="w-full"
-            sectionTheme={section_theme || "Ocean"}
+            sectionTheme={section_theme}
           >
             {isFilled.richText(form_intro) && (
               <div className="prose">

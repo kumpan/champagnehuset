@@ -21,9 +21,19 @@ const descriptionThemeClasses = {
   Sunrise: "text-accent-ink-dim",
 };
 
-export function ValueGrid({ slice }: ValueProps & { slice: Content.ValueSliceGrid }) {
+export function ValueGrid({
+  slice,
+}: ValueProps & { slice: Content.ValueSliceGrid }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, section_theme, remove_top_padding, statement } = slice.primary;
+  const {
+    overline,
+    title,
+    description,
+    buttons,
+    section_theme,
+    remove_top_padding,
+    statement,
+  } = slice.primary;
 
   const gridCols =
     statement.length === 4
@@ -37,22 +47,27 @@ export function ValueGrid({ slice }: ValueProps & { slice: Content.ValueSliceGri
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={section_theme || "Ocean"}
+      sectionTheme={section_theme}
     >
       <Container>
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme || "Ocean"]}
+            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             buttons={buttons}
             align="center"
-            sectionTheme={section_theme || "Ocean"}
+            sectionTheme={section_theme}
           />
         )}
         {statement.length > 0 && (
-          <div className={cn("mt-8 grid gap-8 md:mt-12 md:gap-8 lg:mt-20 lg:gap-12", gridCols)}>
+          <div
+            className={cn(
+              "mt-8 grid gap-8 md:mt-12 md:gap-8 lg:mt-20 lg:gap-12",
+              gridCols,
+            )}
+          >
             {statement.map((statement, index) => {
               const Icon = iconMap[statement.icon as keyof typeof iconMap];
               return (
@@ -64,15 +79,19 @@ export function ValueGrid({ slice }: ValueProps & { slice: Content.ValueSliceGri
                     <div
                       className={cn(
                         "flex size-20 shrink-0 items-center justify-center rounded-4 transition-colors duration-500 ease-in-out md:size-22 lg:size-26",
-                        iconContainerThemeClasses[section_theme || "Ocean"],
+                        iconContainerThemeClasses[section_theme],
                       )}
                     >
                       <Icon className="icon-bold size-8 md:size-10 lg:size-12" />
                     </div>
                   )}
                   <div className="flex flex-col">
-                    <h3 className="text-balance text-2xl md:text-2xl">{statement.title}</h3>
-                    <p className={cn(descriptionThemeClasses[section_theme || "Ocean"])}>{statement.description}</p>
+                    <h3 className="text-balance text-2xl md:text-2xl">
+                      {statement.title}
+                    </h3>
+                    <p className={cn(descriptionThemeClasses[section_theme])}>
+                      {statement.description}
+                    </p>
                   </div>
                 </div>
               );

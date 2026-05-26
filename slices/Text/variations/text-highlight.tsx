@@ -15,25 +15,33 @@ const overlineThemeClasses = {
 
 export function TextHighlight({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding } = slice.primary;
+  const {
+    overline,
+    title,
+    description,
+    buttons,
+    alignment,
+    section_theme,
+    remove_top_padding,
+  } = slice.primary;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={section_theme || "Ocean"}
+      sectionTheme={section_theme}
     >
       <Container>
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme || "Ocean"]}
+            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             buttons={buttons}
             align={alignment ? "center" : "left"}
-            sectionTheme={section_theme || "Ocean"}
+            sectionTheme={section_theme}
           />
         )}
       </Container>

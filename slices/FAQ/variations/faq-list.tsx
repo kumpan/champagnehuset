@@ -15,8 +15,16 @@ const overlineThemeClasses = {
 
 export function FAQList({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, section_theme, remove_top_padding, faqlist } = slice.primary;
-  const sectionTheme = section_theme || "Ocean";
+  const {
+    overline,
+    title,
+    description,
+    alignment,
+    section_theme,
+    remove_top_padding,
+    faqlist,
+  } = slice.primary;
+  const sectionTheme = section_theme;
 
   const column1 = faqlist.filter((_, index) => index % 2 === 0);
   const column2 = faqlist.filter((_, index) => index % 2 === 1);

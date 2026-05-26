@@ -15,23 +15,30 @@ const overlineThemeClasses = {
 
 export function TextExtended({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, section_theme, remove_top_padding, rich_text } = slice.primary;
+  const {
+    overline,
+    title,
+    description,
+    section_theme,
+    remove_top_padding,
+    rich_text,
+  } = slice.primary;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={section_theme || "Ocean"}
+      sectionTheme={section_theme}
     >
       <Container>
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme || "Ocean"]}
+            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
-            sectionTheme={section_theme || "Ocean"}
+            sectionTheme={section_theme}
             align="left"
           />
         )}
@@ -39,7 +46,7 @@ export function TextExtended({ slice }: Props) {
           <div className="mt-6 md:mt-8 lg:mt-12">
             <CustomRichText
               className="ml-auto 3xl:max-w-4xl lg:max-w-2xl xl:max-w-3xl"
-              sectionTheme={section_theme || "Ocean"}
+              sectionTheme={section_theme}
               field={rich_text}
             />
           </div>

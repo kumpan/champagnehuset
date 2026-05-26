@@ -21,34 +21,40 @@ const timeThemeClasses = {
 
 export function ProcessImage({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, section_theme, remove_top_padding } = slice.primary;
+  const { overline, title, description, section_theme, remove_top_padding } =
+    slice.primary;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={section_theme || "Ocean"}
+      sectionTheme={section_theme}
     >
       <Container>
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme || "Ocean"]}
+            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             align="center"
-            sectionTheme={section_theme || "Ocean"}
+            sectionTheme={section_theme}
           />
         )}
         <div className="mt-8 flex flex-col gap-2 md:mt-12 md:gap-3 lg:gap-4">
           {slice.primary.step.map((step, index) => (
-            <div className="group flex flex-col gap-8" key={`${step.title}-${index}`}>
+            <div
+              className="group flex flex-col gap-8"
+              key={`${step.title}-${index}`}
+            >
               {/* Desktop */}
               <div
                 className={cn(
                   "hidden flex-col gap-8 lg:flex",
-                  index % 2 === 0 ? "lg:flex-row lg:text-right" : "lg:flex-row-reverse",
+                  index % 2 === 0
+                    ? "lg:flex-row lg:text-right"
+                    : "lg:flex-row-reverse",
                 )}
               >
                 <div className="w-full space-y-1.5">
@@ -60,7 +66,7 @@ export function ProcessImage({ slice }: Props) {
                   <div
                     className={cn(
                       "flex size-28 shrink-0 items-center justify-center rounded-4 text-5xl",
-                      timeThemeClasses[section_theme || "Ocean"],
+                      timeThemeClasses[section_theme],
                     )}
                   >
                     {String(index + 1)}
@@ -68,14 +74,14 @@ export function ProcessImage({ slice }: Props) {
                   <div
                     className={cn(
                       "h-full w-1 rounded-full group-last:hidden",
-                      timeThemeClasses[section_theme || "Ocean"],
+                      timeThemeClasses[section_theme],
                     )}
                   />
                 </div>
                 <CustomMedia
                   imageField={step.image}
                   className="mb-6 aspect-square w-full md:aspect-video"
-                  sectionTheme={section_theme || "Ocean"}
+                  sectionTheme={section_theme}
                   filter={step.filter}
                 />
               </div>
@@ -86,7 +92,7 @@ export function ProcessImage({ slice }: Props) {
                   <div
                     className={cn(
                       "flex size-14 shrink-0 items-center justify-center rounded-4 text-2xl md:size-22 md:text-5xl",
-                      timeThemeClasses[section_theme || "Ocean"],
+                      timeThemeClasses[section_theme],
                     )}
                   >
                     {String(index + 1)}
@@ -94,7 +100,7 @@ export function ProcessImage({ slice }: Props) {
                   <div
                     className={cn(
                       "h-full w-1 rounded-full group-last:hidden",
-                      timeThemeClasses[section_theme || "Ocean"],
+                      timeThemeClasses[section_theme],
                     )}
                   />
                 </div>
@@ -109,7 +115,7 @@ export function ProcessImage({ slice }: Props) {
                     imageField={step.image}
                     thumbnail="square md:main"
                     className="mb-8 aspect-square md:aspect-video"
-                    sectionTheme={section_theme || "Ocean"}
+                    sectionTheme={section_theme}
                     filter={step.filter}
                   />
                 </div>
