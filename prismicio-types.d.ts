@@ -1235,6 +1235,17 @@ interface ProductDocumentData {
   product_name: prismic.KeyTextField;
 
   /**
+   * Bottle Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  product_image: prismic.ImageField<never>;
+
+  /**
    * Producer field in *Product*
    *
    * - **Field Type**: Content Relationship
@@ -1246,17 +1257,6 @@ interface ProductDocumentData {
   product_producer: ContentRelationshipFieldWithData<
     [{ id: "producer"; fields: ["producer_name"] }]
   >;
-
-  /**
-   * Vintage field in *Product*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: 2018, NV
-   * - **API ID Path**: product.product_vintage
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  product_vintage: prismic.KeyTextField;
 
   /**
    * Dosage field in *Product*
@@ -1278,15 +1278,15 @@ interface ProductDocumentData {
   >;
 
   /**
-   * Bottle Image field in *Product*
+   * Vintage field in *Product*
    *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.product_image
+   * - **Field Type**: Text
+   * - **Placeholder**: 2018, NV
+   * - **API ID Path**: product.product_vintage
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  product_image: prismic.ImageField<never>;
+  product_vintage: prismic.KeyTextField;
 
   /**
    * Description field in *Product*

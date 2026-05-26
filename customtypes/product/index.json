@@ -41,6 +41,17 @@
           "placeholder": "Cuvée des Crayères Brut"
         }
       },
+      "product_image": {
+        "type": "Image",
+        "config": {
+          "label": "Bottle Image",
+          "constraint": {
+            "width": 1200,
+            "height": 1600
+          },
+          "thumbnails": []
+        }
+      },
       "product_producer": {
         "type": "Link",
         "config": {
@@ -55,13 +66,6 @@
           ]
         }
       },
-      "product_vintage": {
-        "type": "Text",
-        "config": {
-          "label": "Vintage",
-          "placeholder": "2018, NV"
-        }
-      },
       "product_dosage": {
         "type": "Select",
         "config": {
@@ -70,15 +74,11 @@
           "options": ["Brut Nature", "Extra Brut", "Brut", "Extra Sec", "Sec", "Demi-Sec", "Doux"]
         }
       },
-      "product_image": {
-        "type": "Image",
+      "product_vintage": {
+        "type": "Text",
         "config": {
-          "label": "Bottle Image",
-          "constraint": {
-            "width": 1200,
-            "height": 1600
-          },
-          "thumbnails": []
+          "label": "Vintage",
+          "placeholder": "2018, NV"
         }
       },
       "product_description": {
