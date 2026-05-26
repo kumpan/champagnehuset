@@ -1,0 +1,210 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "marquee",
+		"primary": {
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Sunrise"
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "The Team"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "shieldCheck"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "We are a big team",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"button": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "83fa5fb1-c380-4749-b725-220bdc1bd70f",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "asdf",
+										"text": "Say Hello"
+									}
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "arrowLeft"
+								}
+							],
+							[
+								"icon_right",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "phoneIncoming"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "list",
+		"primary": {
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Ocean"
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "morning",
+									"type": "Text"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "trophy",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "The Team",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"featured_employees": {
+				"__TYPE__": "GroupContentType",
+				"value": []
+			},
+			"button": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "6eba6a2b-ef6e-428e-83b9-46cdab02f98a",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "folks"
+									}
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "arrowRight",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_right",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "none",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

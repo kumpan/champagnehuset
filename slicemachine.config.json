@@ -1,0 +1,11 @@
+{
+  "repositoryName": "champagnehuset",
+  "libraries": ["./slices"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator",
+  "adapter": {
+    "resolve": "@slicemachine/adapter-next",
+    "options": {
+      "typescript": true
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "cuvee-des-crayeres-brut"
+    },
+    "slices": {
+      "__TYPE__": "SliceContentType",
+      "value": []
+    }
+  }
+]

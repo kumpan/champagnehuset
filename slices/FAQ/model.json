@@ -1,0 +1,291 @@
+{
+  "id": "faq",
+  "type": "SharedSlice",
+  "name": "FAQ",
+  "description": "FAQ",
+  "variations": [
+    {
+      "id": "list",
+      "name": "List",
+      "docURL": "...",
+      "version": "initial",
+      "description": "List",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": [
+              "Ocean",
+              "Sunrise"
+            ],
+            "default_value": "Ocean"
+          }
+        },
+        "alignment": {
+          "type": "Boolean",
+          "config": {
+            "label": "Center Text",
+            "placeholder_false": "Text is Left-Aligned",
+            "placeholder_true": "Text is Centered",
+            "default_value": true
+          }
+        },
+        "overline": {
+          "type": "Group",
+          "config": {
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "faqlist": {
+          "type": "Group",
+          "config": {
+            "label": "Questions & Answers",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "Text",
+                "config": {
+                  "label": "Question",
+                  "placeholder": "How do I get started?"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "Describe the answer to this question.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "split",
+      "name": "Split",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Intro on one side, FAQ on the other at lg+",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": [
+              "Ocean",
+              "Sunrise"
+            ],
+            "default_value": "Ocean"
+          }
+        },
+        "overline": {
+          "type": "Group",
+          "config": {
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "faqlist": {
+          "type": "Group",
+          "config": {
+            "label": "Questions & Answers",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "Text",
+                "config": {
+                  "label": "Question",
+                  "placeholder": "How do I get started?"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "Describe the answer to this question.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

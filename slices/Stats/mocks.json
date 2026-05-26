@@ -1,0 +1,487 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "split",
+    "primary": {
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Sunrise",
+        "type": "Select"
+      },
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "center_text": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "stats_side": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "handshake",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "check",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Pictured"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "In amet ea laborum proident officia. Irure sunt sunt consequat eu nisi aliqua ad id enim."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "89dbc7c6-acae-4faa-9113-23da187fb1be",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://prismic.io",
+                    "text": "yes"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "ghost",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "arrowRight",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "chevronLeft",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "frame",
+                  "type": "Text"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "poor",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "grid",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Ocean"
+      },
+      "center_text": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "stats_side": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "moonStar"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Hats"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Aliqua adipisicing ipsum Lorem. Dolor in magna deserunt quis aut",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": []
+      },
+      "stats": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "15 års"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Erfarenhet av att designa och implementera CRM-strategier för komplexa verksamheter."
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "500+"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Framgångsrika lösningar levererade till kunder inom både den privata och offentliga sektorn."
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "99%"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Framgångsrika lösningar levererade till kunder inom både den privata och offentliga sektorn."
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "backdrop",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Ocean"
+      },
+      "center_text": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "lock"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Giant"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Sweet"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Incididunt in et ex cillum culpa tempor sit elit ipsum veniam. Do ipsum anim voluptate."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": []
+      },
+      "stats": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "1234"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Abc"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "1234"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Abc"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "1234"
+                }
+              ],
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Abc"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "image": {
+        "provider": "imgix",
+        "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY5MTk3NDV8MA&ixlib=rb-4.1.0&q=85&rect=1896%2C1363%2C1896%2C1067&w=1920&h=1080",
+        "alt": "orange fruits under blue sky during daytime",
+        "origin": {
+          "id": "eaOjEz8746k",
+          "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY5MTk3NDV8MA&ixlib=rb-4.1.0&q=85",
+          "width": 5688,
+          "height": 3792
+        },
+        "width": 1920,
+        "height": 1080,
+        "edit": {
+          "background": "transparent",
+          "zoom": 3,
+          "crop": {
+            "x": 1896,
+            "y": 1363
+          }
+        },
+        "credits": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {
+          "vertical": {
+            "provider": "imgix",
+            "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY5MTk3NDV8MA&ixlib=rb-4.1.0&q=85&rect=0%2C0%2C2844%2C3792&w=1440&h=1920",
+            "alt": "orange fruits under blue sky during daytime",
+            "origin": {
+              "id": "eaOjEz8746k",
+              "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY5MTk3NDV8MA&ixlib=rb-4.1.0&q=85",
+              "width": 5688,
+              "height": 3792
+            },
+            "width": 1440,
+            "height": 1920,
+            "edit": {
+              "background": "transparent",
+              "zoom": 1,
+              "crop": {
+                "x": 0,
+                "y": 0
+              }
+            },
+            "credits": null
+          }
+        }
+      },
+      "stats_side": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

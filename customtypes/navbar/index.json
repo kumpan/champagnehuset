@@ -1,0 +1,141 @@
+{
+  "format": "custom",
+  "id": "navbar",
+  "label": "Navbar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "desktop_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Desktop Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "mobile_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Mobile Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo_color": {
+        "type": "Select",
+        "config": {
+          "label": "Logo Color",
+          "placeholder": "",
+          "options": ["System Can Override the Logo Color", "Use Original Logo Color"],
+          "default_value": "System Can Override the Logo Color"
+        }
+      },
+      "logo_link": {
+        "type": "Link",
+        "config": {
+          "label": "Logo Link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": false,
+          "repeat": false
+        }
+      },
+      "links": {
+        "type": "Group",
+        "config": {
+          "label": "Links",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": true
+              }
+            }
+          }
+        }
+      },
+      "cta_links": {
+        "type": "Group",
+        "config": {
+          "label": "CTA Links",
+          "repeat": true,
+          "fields": {
+            "show_on_mobile": {
+              "type": "Boolean",
+              "config": {
+                "label": "Show on Mobile",
+                "placeholder_false": "No",
+                "placeholder_true": "Yes",
+                "default_value": false
+              }
+            },
+            "cta_link": {
+              "type": "Link",
+              "config": {
+                "label": "CTA Link",
+                "placeholder": "Get in touch",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            },
+            "alternate_text": {
+              "type": "Text",
+              "config": {
+                "label": "Alternate Text",
+                "placeholder": "Say Hello"
+              }
+            },
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "Select an icon",
+                "options": [
+                  "arrowDown",
+                  "arrowLeft",
+                  "arrowRight",
+                  "arrowUp",
+                  "arrowUpRight",
+                  "atSign",
+                  "badgeCheck",
+                  "badgeInfo",
+                  "check",
+                  "clock",
+                  "download",
+                  "externalLink",
+                  "fileBadge",
+                  "gjensidigePlaster",
+                  "headset",
+                  "lockOpen",
+                  "phoneCall",
+                  "phoneIncoming",
+                  "phoneOutgoing",
+                  "user"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "language_switcher": {
+        "type": "Boolean",
+        "config": {
+          "label": "Language Switcher",
+          "placeholder_false": "Language Switcher is not Showing",
+          "placeholder_true": "Language Switcher is Showing",
+          "default_value": false
+        }
+      }
+    }
+  }
+}

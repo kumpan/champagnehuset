@@ -1,0 +1,105 @@
+{
+  "format": "custom",
+  "id": "cookie_banner",
+  "label": "Cookie Banner",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading3"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
+      "accept_necessary_label": {
+        "type": "Text",
+        "config": {
+          "label": "Accept necessary label",
+          "placeholder": ""
+        }
+      },
+      "accept_all_label": {
+        "type": "Text",
+        "config": {
+          "label": "Accept all label",
+          "placeholder": ""
+        }
+      },
+      "customize_label": {
+        "type": "Text",
+        "config": {
+          "label": "Customize label",
+          "placeholder": ""
+        }
+      },
+      "cookie_types": {
+        "type": "Group",
+        "config": {
+          "label": "Cookie types",
+          "repeat": true,
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "Title",
+                "placeholder": ""
+              }
+            },
+            "cookie_id": {
+              "type": "Text",
+              "config": {
+                "label": "Cookie ID",
+                "placeholder": "For example \"ad_storage\""
+              }
+            },
+            "description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Description",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+              }
+            },
+            "checked_and_disabled": {
+              "type": "Boolean",
+              "config": {
+                "label": "Checked & Disabled",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
+            }
+          }
+        }
+      },
+      "cancel_label": {
+        "type": "Text",
+        "config": {
+          "label": "Cancel label",
+          "placeholder": ""
+        }
+      },
+      "save_preferences_label": {
+        "type": "Text",
+        "config": {
+          "label": "Save preferences label",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

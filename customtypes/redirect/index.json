@@ -1,0 +1,55 @@
+{
+  "format": "custom",
+  "id": "redirect",
+  "label": "Redirects",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "redirects": {
+        "type": "Group",
+        "config": {
+          "label": "Redirects",
+          "repeat": true,
+          "fields": {
+            "from_path": {
+              "type": "Text",
+              "config": {
+                "label": "From Path",
+                "placeholder": "/old-path/here"
+              }
+            },
+            "to_url": {
+              "type": "Link",
+              "config": {
+                "label": "Redirect To",
+                "placeholder": "Select Page or Enter URL",
+                "allowTargetBlank": false,
+                "allowText": false,
+                "repeat": false
+              }
+            },
+            "active": {
+              "type": "Boolean",
+              "config": {
+                "label": "Active",
+                "placeholder_false": "Redirect is Disabled",
+                "placeholder_true": "Redirect is Active",
+                "default_value": true
+              }
+            },
+            "redirect_type": {
+              "type": "Select",
+              "config": {
+                "label": "Redirect Type",
+                "placeholder": "Choose Redirect Type",
+                "options": ["301 - Permanent", "302 - Temporary"],
+                "default_value": "301 - Permanent"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

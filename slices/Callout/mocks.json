@@ -1,0 +1,703 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "split",
+		"primary": {
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdf"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "briefcaseBusiness"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "asdf",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "asdf",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "ee59de10-b907-4075-9dfd-fc4129e1b248",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "a",
+										"text": "asdf"
+									}
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "arrowLeft"
+								}
+							]
+						]
+					}
+				]
+			},
+			"media": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"filter",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "Top Right"
+								}
+							],
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3Nzk3MTQ2Njd8MA&ixlib=rb-4.1.0&q=85&rect=948,0,3792,3792&w=1440&h=1440",
+									"alt": "orange fruits under blue sky during daytime",
+									"origin": {
+										"id": "eaOjEz8746k",
+										"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3Nzk3MTQ2Njd8MA&ixlib=rb-4.1.0&q=85",
+										"width": 5688,
+										"height": 3792
+									},
+									"width": 1440,
+									"height": 1440,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 948,
+											"y": 0
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "float",
+		"primary": {
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Organic squid"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "gem"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Single-origin coffee neutra neutral milk hotel vinyl thundercats",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Lyft organic squid yr tattooed normcore, cronut mlkshk.  Synth forage pickled, artisan stumptown jianbing biodiesel etsy polaroid distillery XOXO street art hot chicken.  Authentic cloud bread swag, mumblecore fit fingerstache pork belly hella street art.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "de93a7ce-a507-4ce2-abea-6bf2eeec5bbc",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "a",
+										"text": "asdf"
+									}
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "arrowRight"
+								}
+							]
+						]
+					}
+				]
+			},
+			"media": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1639929187047-487984cca7ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2OTE5NzQ1fDA&ixlib=rb-4.1.0&q=85&rect=0%2C509%2C6240%2C3510&w=1920&h=1080",
+									"alt": "a tree filled with lots of ripe oranges",
+									"origin": {
+										"id": "_BaXiU56vi4",
+										"url": "https://images.unsplash.com/photo-1639929187047-487984cca7ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2OTE5NzQ1fDA&ixlib=rb-4.1.0&q=85",
+										"width": 6240,
+										"height": 4160
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 509
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {
+										"vertical": {
+											"provider": "imgix",
+											"url": "https://images.unsplash.com/photo-1639929187047-487984cca7ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2OTE5NzQ1fDA&ixlib=rb-4.1.0&q=85&rect=727%2C348%2C2761%2C3681&w=1440&h=1920",
+											"alt": "a tree filled with lots of ripe oranges",
+											"origin": {
+												"id": "_BaXiU56vi4",
+												"url": "https://images.unsplash.com/photo-1639929187047-487984cca7ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2OTE5NzQ1fDA&ixlib=rb-4.1.0&q=85",
+												"width": 6240,
+												"height": 4160
+											},
+											"width": 1440,
+											"height": 1920,
+											"edit": {
+												"background": "transparent",
+												"zoom": 1.13,
+												"crop": {
+													"x": 727,
+													"y": 348
+												}
+											},
+											"credits": null
+										},
+										"square": {
+											"provider": "imgix",
+											"url": "https://images.unsplash.com/photo-1639929187047-487984cca7ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2OTE5NzQ1fDA&ixlib=rb-4.1.0&q=85&rect=802%2C1080%2C2633%2C2633&w=1440&h=1440",
+											"alt": "a tree filled with lots of ripe oranges",
+											"origin": {
+												"id": "_BaXiU56vi4",
+												"url": "https://images.unsplash.com/photo-1639929187047-487984cca7ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2OTE5NzQ1fDA&ixlib=rb-4.1.0&q=85",
+												"width": 6240,
+												"height": 4160
+											},
+											"width": 1440,
+											"height": 1440,
+											"edit": {
+												"background": "transparent",
+												"zoom": 1.58,
+												"crop": {
+													"x": 802,
+													"y": 1080
+												}
+											},
+											"credits": null
+										}
+									}
+								}
+							],
+							[
+								"filter",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "Bottom Left"
+								}
+							]
+						]
+					}
+				]
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Ocean"
+			},
+			"image_side": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"image_size": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "form",
+		"primary": {
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Sunrise"
+			},
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "circleStar"
+								}
+							],
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Hung"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Broken"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam eu cupidatat cupidatat ut labore qui sit."
+						}
+					}
+				]
+			},
+			"form_side": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"form_intro": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "asdf",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"submit_button_text": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "aaaa"
+			},
+			"success_message": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "asdf",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"consent_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"consent_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "I consent to policy and frogs.",
+												"spans": [
+													{
+														"type": "hyperlink",
+														"start": 13,
+														"end": 19,
+														"data": {
+															"__TYPE__": "ExternalLink",
+															"url": "f",
+															"target": "_self"
+														}
+													},
+													{
+														"type": "hyperlink",
+														"start": 24,
+														"end": 29,
+														"data": {
+															"__TYPE__": "ExternalLink",
+															"url": "a",
+															"target": "_self"
+														}
+													}
+												]
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"value_statements": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "atSign",
+									"type": "Select"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Thundercats semiotics kickstarter green juice, aesthetic"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "fileBadge"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Hammock fingerstache cronut, sus readymade"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "dog"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Succulents meggings jawn vinyl intelligentsia"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"field_label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Abc"
+						}
+					],
+					[
+						"new_row",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": false
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"field_type",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "text"
+						}
+					],
+					[
+						"field_required",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"new_row",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": false
+						}
+					],
+					[
+						"field_label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Abc"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"field_type",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "text"
+						}
+					],
+					[
+						"field_required",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"new_row",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"field_label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Abc"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"field_type",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "text"
+						}
+					],
+					[
+						"field_required",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"new_row",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": false
+						}
+					],
+					[
+						"field_label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Abc"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"field_type",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "textarea"
+						}
+					],
+					[
+						"field_required",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"new_row",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"field_label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Abc"
+						}
+					]
+				]
+			}
+		]
+	}
+]

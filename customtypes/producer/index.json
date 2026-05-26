@@ -1,0 +1,131 @@
+{
+  "id": "producer",
+  "label": "Producer",
+  "format": "page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "page_title": {
+        "type": "Text",
+        "config": {
+          "label": "Page Title",
+          "placeholder": "Used for Breadcrumbs"
+        }
+      },
+      "parent": {
+        "type": "Link",
+        "config": {
+          "label": "Parent",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "page",
+              "fields": ["page_title"]
+            }
+          ]
+        }
+      },
+      "producer_name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": "Maison Beauvallon"
+        }
+      },
+      "producer_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {
+            "width": 800,
+            "height": 800
+          },
+          "thumbnails": []
+        }
+      },
+      "producer_region": {
+        "type": "Select",
+        "config": {
+          "label": "Region",
+          "options": [
+            "Côte des Blancs",
+            "Montagne de Reims",
+            "Vallée de la Marne",
+            "Côte des Bar",
+            "Côte de Sézanne"
+          ]
+        }
+      },
+      "producer_village": {
+        "type": "Text",
+        "config": {
+          "label": "Village",
+          "placeholder": "Verzy, Ambonnay, Avize"
+        }
+      },
+      "producer_bio": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Bio",
+          "placeholder": "Heritage, philosophy, vineyard practices",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "faq": { "type": "SharedSlice" },
+            "value": { "type": "SharedSlice" },
+            "link": { "type": "SharedSlice" },
+            "employee": { "type": "SharedSlice" },
+            "process": { "type": "SharedSlice" },
+            "text": { "type": "SharedSlice" },
+            "callout": { "type": "SharedSlice" },
+            "hero": { "type": "SharedSlice" },
+            "image_strip": { "type": "SharedSlice" },
+            "stats": { "type": "SharedSlice" }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "Title for the Producer"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "Description for the Producer"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

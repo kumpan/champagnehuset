@@ -1,0 +1,125 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo_link": {
+        "type": "Link",
+        "config": {
+          "label": "Logo Link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": false,
+          "repeat": false
+        }
+      },
+      "logo_color": {
+        "type": "Select",
+        "config": {
+          "label": "Logo Color",
+          "placeholder": "",
+          "options": ["System Can Override the Logo Color", "Use Original Logo Color"],
+          "default_value": "System Can Override the Logo Color"
+        }
+      },
+      "call_to_action_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Call to Action Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,heading3,heading2,heading4,list-item,o-list-item,hyperlink"
+        }
+      },
+      "call_to_action_link": {
+        "type": "Link",
+        "config": {
+          "label": "Call to Action Link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true
+        }
+      },
+      "links": {
+        "type": "Group",
+        "config": {
+          "label": "Links",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "social_media": {
+        "type": "Group",
+        "config": {
+          "label": "Social Media",
+          "repeat": true,
+          "fields": {
+            "icon": {
+              "type": "Image",
+              "config": {
+                "label": "Icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": false,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "policies": {
+        "type": "Link",
+        "config": {
+          "label": "Policies",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true
+        }
+      },
+      "manage_cookies_label": {
+        "type": "Text",
+        "config": {
+          "label": "Manage Cookies Label",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

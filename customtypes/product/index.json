@@ -1,0 +1,147 @@
+{
+  "id": "product",
+  "label": "Product",
+  "format": "page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "page_title": {
+        "type": "Text",
+        "config": {
+          "label": "Page Title",
+          "placeholder": "Used for Breadcrumbs"
+        }
+      },
+      "parent": {
+        "type": "Link",
+        "config": {
+          "label": "Parent",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "page",
+              "fields": ["page_title"]
+            }
+          ]
+        }
+      },
+      "product_name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": "Cuvée des Crayères Brut"
+        }
+      },
+      "product_producer": {
+        "type": "Link",
+        "config": {
+          "label": "Producer",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "producer",
+              "fields": ["producer_name"]
+            }
+          ]
+        }
+      },
+      "product_vintage": {
+        "type": "Text",
+        "config": {
+          "label": "Vintage",
+          "placeholder": "2018, NV"
+        }
+      },
+      "product_dosage": {
+        "type": "Select",
+        "config": {
+          "label": "Dosage",
+          "options": [
+            "Brut Nature",
+            "Extra Brut",
+            "Brut",
+            "Extra Sec",
+            "Sec",
+            "Demi-Sec",
+            "Doux"
+          ]
+        }
+      },
+      "product_image": {
+        "type": "Image",
+        "config": {
+          "label": "Bottle Image",
+          "constraint": {
+            "width": 1200,
+            "height": 1600
+          },
+          "thumbnails": []
+        }
+      },
+      "product_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "Tasting notes, blend, terroir",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "faq": { "type": "SharedSlice" },
+            "value": { "type": "SharedSlice" },
+            "link": { "type": "SharedSlice" },
+            "employee": { "type": "SharedSlice" },
+            "process": { "type": "SharedSlice" },
+            "text": { "type": "SharedSlice" },
+            "callout": { "type": "SharedSlice" },
+            "hero": { "type": "SharedSlice" },
+            "image_strip": { "type": "SharedSlice" },
+            "stats": { "type": "SharedSlice" }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "Title for the Product"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "Description for the Product"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

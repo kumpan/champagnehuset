@@ -1,0 +1,515 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "backdrop",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Welcome aboard"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Duis duis tempor consectetur voluptate occaecat sit laborum nulla ex do consectetur."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "b63633a3-d86f-42e4-aa12-aa3a131978de",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://prismic.io",
+                    "text": "Get started"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "default",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "arrowRight",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Ocean"
+      },
+      "image": {
+        "provider": "imgix",
+        "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzQxOTY1Njl8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "sliced orange fruit on wooden table",
+        "origin": {
+          "id": "sQi9FM6NYVY",
+          "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzQxOTY1Njl8MA&ixlib=rb-4.1.0&q=85",
+          "width": 4000,
+          "height": 6000
+        },
+        "width": 4000,
+        "height": 6000,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "stack",
+    "primary": {
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Overline"
+                }
+              ],
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "badgeCheck"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Feature-rich text that captures attention",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "A clear, concise supporting sentence that gives the headline the context it needs to convert."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "2025c53b-9fb2-43c7-909d-a7a6e2772f61",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://prismic.io",
+                    "text": "Get started"
+                  }
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "none"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "arrowRight"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Ocean"
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Bottom Left"
+                }
+              ],
+              [
+                "image",
+                {
+                  "__TYPE__": "ImageContent",
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxwZXJzb258ZW58MHx8fHwxNzc3Mjg0Nzk2fDA&ixlib=rb-4.1.0&q=85&rect=0,270,5184,2916&w=1920&h=1080",
+                  "alt": "shallow focus photography of woman outdoor during day",
+                  "origin": {
+                    "id": "rDEOVtE7vOs",
+                    "url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxwZXJzb258ZW58MHx8fHwxNzc3Mjg0Nzk2fDA&ixlib=rb-4.1.0&q=85",
+                    "width": 5184,
+                    "height": 3456
+                  },
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 270
+                    }
+                  },
+                  "thumbnails": {
+                    "square": {
+                      "provider": "imgix",
+                      "url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxwZXJzb258ZW58MHx8fHwxNzc3Mjg0Nzk2fDA&ixlib=rb-4.1.0&q=85&rect=864,0,3456,3456&w=1440&h=1440",
+                      "alt": "shallow focus photography of woman outdoor during day",
+                      "origin": {
+                        "id": "rDEOVtE7vOs",
+                        "url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxwZXJzb258ZW58MHx8fHwxNzc3Mjg0Nzk2fDA&ixlib=rb-4.1.0&q=85",
+                        "width": 5184,
+                        "height": 3456
+                      },
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "background": "transparent",
+                        "zoom": 1,
+                        "crop": {
+                          "x": 864,
+                          "y": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "split",
+    "primary": {
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Contact",
+                  "type": "Text"
+                }
+              ],
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "mail",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Get in touch"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Have a question or want to learn more? Reach out and we'll get back to you as soon as possible."
+            }
+          }
+        ]
+      },
+      "details": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "clock"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "asdfas"
+                }
+              ],
+              [
+                "text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "asdfsadfasdf"
+                }
+              ],
+              [
+                "link",
+                {
+                  "key": "5a3d6ab0-e996-4b64-9417-42d86519ef4e",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "s"
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "circleStar"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "asdf"
+                }
+              ],
+              [
+                "text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "asdf"
+                }
+              ],
+              [
+                "link",
+                {
+                  "key": "b2658733-6842-43db-b5ff-ed0663c25ed4",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "asd"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "bc32c296-0e3c-42fb-9090-5d87694f86d8",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://prismic.io",
+                    "text": "Contact now"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "default"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "none"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "arrowRight"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Ocean"
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxjYXJ8ZW58MHx8fHwxNzc0MjY1OTg5fDA&ixlib=rb-4.1.0&q=85",
+                  "alt": "running black Porsche sedan",
+                  "origin": {
+                    "id": "3ZUsNJhi_Ik",
+                    "url": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxjYXJ8ZW58MHx8fHwxNzc0MjY1OTg5fDA&ixlib=rb-4.1.0&q=85",
+                    "width": 3709,
+                    "height": 2473
+                  },
+                  "width": 3709,
+                  "height": 2473,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ],
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Bottom Left"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]
