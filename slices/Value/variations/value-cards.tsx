@@ -26,20 +26,10 @@ const descriptionThemeClasses = {
   Sunrise: "text-accent-ink-dim",
 };
 
-export function ValueCards({
-  slice,
-}: ValueProps & { slice: Content.ValueSliceCards }) {
+export function ValueCards({ slice }: ValueProps & { slice: Content.ValueSliceCards }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const {
-    overline,
-    title,
-    description,
-    buttons,
-    alignment,
-    section_theme,
-    remove_top_padding,
-    statement,
-  } = slice.primary;
+  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding, statement } =
+    slice.primary;
 
   const gridCols =
     statement.length === 2 || statement.length === 4
@@ -66,12 +56,7 @@ export function ValueCards({
           />
         )}
         {statement.length > 0 && (
-          <div
-            className={cn(
-              "mt-8 grid gap-2 md:mt-12 lg:mt-16 lg:gap-3",
-              gridCols,
-            )}
-          >
+          <div className={cn("mt-8 grid gap-2 md:mt-12 lg:mt-16 lg:gap-3", gridCols)}>
             {statement.map((statement, index) => {
               const Icon = iconMap[statement.icon as keyof typeof iconMap];
               return (
@@ -93,12 +78,8 @@ export function ValueCards({
                     </div>
                   )}
                   <div className="flex flex-col">
-                    <h3 className="text-balance text-xl md:text-2xl">
-                      {statement.title}
-                    </h3>
-                    <p className={cn(descriptionThemeClasses[section_theme])}>
-                      {statement.description}
-                    </p>
+                    <h3 className="text-balance text-xl md:text-2xl">{statement.title}</h3>
+                    <p className={cn(descriptionThemeClasses[section_theme])}>{statement.description}</p>
                   </div>
                 </div>
               );

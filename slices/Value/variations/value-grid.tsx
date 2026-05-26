@@ -21,19 +21,9 @@ const descriptionThemeClasses = {
   Sunrise: "text-accent-ink-dim",
 };
 
-export function ValueGrid({
-  slice,
-}: ValueProps & { slice: Content.ValueSliceGrid }) {
+export function ValueGrid({ slice }: ValueProps & { slice: Content.ValueSliceGrid }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const {
-    overline,
-    title,
-    description,
-    buttons,
-    section_theme,
-    remove_top_padding,
-    statement,
-  } = slice.primary;
+  const { overline, title, description, buttons, section_theme, remove_top_padding, statement } = slice.primary;
 
   const gridCols =
     statement.length === 4
@@ -62,12 +52,7 @@ export function ValueGrid({
           />
         )}
         {statement.length > 0 && (
-          <div
-            className={cn(
-              "mt-8 grid gap-8 md:mt-12 md:gap-8 lg:mt-20 lg:gap-12",
-              gridCols,
-            )}
-          >
+          <div className={cn("mt-8 grid gap-8 md:mt-12 md:gap-8 lg:mt-20 lg:gap-12", gridCols)}>
             {statement.map((statement, index) => {
               const Icon = iconMap[statement.icon as keyof typeof iconMap];
               return (
@@ -86,12 +71,8 @@ export function ValueGrid({
                     </div>
                   )}
                   <div className="flex flex-col">
-                    <h3 className="text-balance text-2xl md:text-2xl">
-                      {statement.title}
-                    </h3>
-                    <p className={cn(descriptionThemeClasses[section_theme])}>
-                      {statement.description}
-                    </p>
+                    <h3 className="text-balance text-2xl md:text-2xl">{statement.title}</h3>
+                    <p className={cn(descriptionThemeClasses[section_theme])}>{statement.description}</p>
                   </div>
                 </div>
               );

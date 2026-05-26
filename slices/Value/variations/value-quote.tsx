@@ -19,14 +19,7 @@ const overlineThemeClasses = {
 
 export async function ValueQuote({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const {
-    overline,
-    title,
-    description,
-    quote,
-    section_theme,
-    remove_top_padding,
-  } = slice.primary;
+  const { overline, title, description, quote, section_theme, remove_top_padding } = slice.primary;
 
   const client = await createClient();
 
@@ -35,18 +28,14 @@ export async function ValueQuote({ slice }: Props) {
       quote.map(async (item) => {
         if (!isFilled.contentRelationship(item.author)) return null;
         try {
-          const employee = await client.getByID<EmployeeDocument>(
-            item.author.id,
-          );
+          const employee = await client.getByID<EmployeeDocument>(item.author.id);
           return { text: item.text, employee };
         } catch {
           return null;
         }
       }),
     )
-  ).filter(
-    (q): q is { text: string | null; employee: EmployeeDocument } => q !== null,
-  );
+  ).filter((q): q is { text: string | null; employee: EmployeeDocument } => q !== null);
 
   return (
     <Section
@@ -68,9 +57,7 @@ export async function ValueQuote({ slice }: Props) {
           />
         )}
 
-        {resolvedQuotes.length > 0 && (
-          <QuoteCarousel quotes={resolvedQuotes} sectionTheme={section_theme} />
-        )}
+        {resolvedQuotes.length > 0 && <QuoteCarousel quotes={resolvedQuotes} sectionTheme={section_theme} />}
       </Container>
     </Section>
   );

@@ -26,10 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Ocean",
-              "Sunrise"
-            ],
+            "options": ["Ocean", "Sunrise"],
             "default_value": "Ocean"
           }
         },
@@ -231,10 +228,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Ocean",
-              "Sunrise"
-            ],
+            "options": ["Ocean", "Sunrise"],
             "default_value": "Ocean"
           }
         },
@@ -426,9 +420,7 @@
                   "customtypes": [
                     {
                       "id": "employee",
-                      "fields": [
-                        "employee_name"
-                      ]
+                      "fields": ["employee_name"]
                     }
                   ]
                 }

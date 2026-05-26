@@ -26,21 +26,10 @@ const descriptionThemeClasses = {
   Sunrise: "text-accent-ink-dim",
 };
 
-export function ValueSplit({
-  slice,
-}: ValueProps & { slice: Content.ValueSliceSplit }) {
+export function ValueSplit({ slice }: ValueProps & { slice: Content.ValueSliceSplit }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const {
-    overline,
-    title,
-    description,
-    buttons,
-    alignment,
-    card_side,
-    section_theme,
-    remove_top_padding,
-    statement,
-  } = slice.primary;
+  const { overline, title, description, buttons, alignment, card_side, section_theme, remove_top_padding, statement } =
+    slice.primary;
 
   return (
     <Section
@@ -50,10 +39,7 @@ export function ValueSplit({
       sectionTheme={section_theme}
     >
       <Container
-        className={cn(
-          "flex flex-col gap-8 lg:gap-12 xl:gap-20",
-          card_side ? "lg:flex-row-reverse" : "lg:flex-row",
-        )}
+        className={cn("flex flex-col gap-8 lg:gap-12 xl:gap-20", card_side ? "lg:flex-row-reverse" : "lg:flex-row")}
       >
         {hasIntroContent && (
           <SectionIntro
@@ -90,12 +76,8 @@ export function ValueSplit({
                     </div>
                   )}
                   <div className="flex flex-col">
-                    <h3 className="text-balance text-xl md:text-2xl">
-                      {statement.title}
-                    </h3>
-                    <p className={cn(descriptionThemeClasses[section_theme])}>
-                      {statement.description}
-                    </p>
+                    <h3 className="text-balance text-xl md:text-2xl">{statement.title}</h3>
+                    <p className={cn(descriptionThemeClasses[section_theme])}>{statement.description}</p>
                   </div>
                 </div>
               );

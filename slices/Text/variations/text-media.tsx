@@ -27,16 +27,9 @@ export function TextMedia({ slice }: Props) {
       sectionTheme={section_theme}
     >
       <Container
-        className={cn(
-          "flex flex-col gap-2 md:gap-3 lg:gap-4",
-          text_side ? "md:flex-row-reverse" : "md:flex-row",
-        )}
+        className={cn("flex flex-col gap-2 md:gap-3 lg:gap-4", text_side ? "md:flex-row-reverse" : "md:flex-row")}
       >
-        <div
-          className={cn(
-            "flex w-full flex-1 shrink-0 flex-col gap-2 md:gap-1 lg:gap-2",
-          )}
-        >
+        <div className={cn("flex w-full flex-1 shrink-0 flex-col gap-2 md:gap-1 lg:gap-2")}>
           <CustomRichText
             sectionTheme={section_theme}
             className="mx-auto max-w-2xl md:p-4 lg:p-8"
@@ -49,11 +42,7 @@ export function TextMedia({ slice }: Props) {
             filter={first_image[0]?.filter}
           />
         </div>
-        <div
-          className={cn(
-            "flex w-full flex-1 shrink-0 flex-col gap-2 md:gap-1 md:pt-8 lg:gap-2 lg:pt-24",
-          )}
-        >
+        <div className={cn("flex w-full flex-1 shrink-0 flex-col gap-2 md:gap-1 md:pt-8 lg:gap-2 lg:pt-24")}>
           <CustomMedia
             className="aspect-video md:aspect-square"
             imageField={second_image[0]?.image}

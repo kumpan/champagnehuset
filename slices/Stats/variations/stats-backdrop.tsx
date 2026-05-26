@@ -42,42 +42,23 @@ const mediaNumberClasses = {
   Sunrise: "text-accent-ink-flip",
 };
 
-export function StatsBackdrop({
-  slice,
-}: StatsProps & { slice: Content.StatsSliceBackdrop }) {
+export function StatsBackdrop({ slice }: StatsProps & { slice: Content.StatsSliceBackdrop }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const {
-    overline,
-    title,
-    description,
-    buttons,
-    center_text,
-    section_theme,
-    remove_top_padding,
-    stats,
-    image,
-    video,
-  } = slice.primary;
+  const { overline, title, description, buttons, center_text, section_theme, remove_top_padding, stats, image, video } =
+    slice.primary;
 
   const theme = section_theme;
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
   const statsCount = stats.length;
 
-  const layouts: Record<
-    number,
-    { grid: string; itemSpan?: (i: number) => string }
-  > = {
+  const layouts: Record<number, { grid: string; itemSpan?: (i: number) => string }> = {
     1: { grid: "grid-cols-1" },
     2: { grid: "grid-cols-1 md:grid-cols-2" },
     3: { grid: "grid-cols-1 lg:grid-cols-3" },
     4: { grid: "grid-cols-1 md:grid-cols-2" },
     5: {
       grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-6",
-      itemSpan: (i) =>
-        cn(
-          i === 4 && "md:col-span-2",
-          i < 3 ? "lg:col-span-2" : "lg:col-span-3",
-        ),
+      itemSpan: (i) => cn(i === 4 && "md:col-span-2", i < 3 ? "lg:col-span-2" : "lg:col-span-3"),
     },
   };
   const layout = layouts[statsCount] ?? {
@@ -173,9 +154,7 @@ export function StatsBackdrop({
                   <p
                     className={cn(
                       "text-balance",
-                      hasMedia
-                        ? mediaDescriptionClasses[theme]
-                        : descriptionThemeClasses[theme],
+                      hasMedia ? mediaDescriptionClasses[theme] : descriptionThemeClasses[theme],
                     )}
                   >
                     {stat.description}

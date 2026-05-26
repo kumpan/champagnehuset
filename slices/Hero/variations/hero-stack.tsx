@@ -17,8 +17,7 @@ const overlineThemeClasses = {
 
 export function HeroStack({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, section_theme, media } =
-    slice.primary;
+  const { overline, title, description, buttons, section_theme, media } = slice.primary;
 
   const breadcrumbs = context?.breadcrumbs;
 
@@ -54,14 +53,8 @@ export function HeroStack({ slice, context }: Props) {
           <CustomMedia
             className="mt-8 aspect-video w-full"
             thumbnail="square md:main"
-            imageField={
-              isFilled.linkToMedia(media[0].video) ? undefined : media[0].image
-            }
-            videoSrc={
-              isFilled.linkToMedia(media[0].video)
-                ? media[0].video.url
-                : undefined
-            }
+            imageField={isFilled.linkToMedia(media[0].video) ? undefined : media[0].image}
+            videoSrc={isFilled.linkToMedia(media[0].video) ? media[0].video.url : undefined}
             filter={media[0].filter}
           />
         )}

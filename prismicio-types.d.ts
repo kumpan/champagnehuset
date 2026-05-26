@@ -1023,6 +1023,341 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+type ProducerDocumentDataSlicesSlice =
+  | FaqSlice
+  | ValueSlice
+  | LinkSlice
+  | EmployeeSlice
+  | ProcessSlice
+  | TextSlice
+  | CalloutSlice
+  | HeroSlice
+  | ImageStripSlice
+  | StatsSlice;
+
+/**
+ * Content for Producer documents
+ */
+interface ProducerDocumentData {
+  /**
+   * Page Title field in *Producer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Used for Breadcrumbs
+   * - **API ID Path**: producer.page_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  page_title: prismic.KeyTextField;
+
+  /**
+   * Parent field in *Producer*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: producer.parent
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  parent: ContentRelationshipFieldWithData<
+    [{ id: "page"; fields: ["page_title"] }]
+  >;
+
+  /**
+   * Name field in *Producer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Maison Beauvallon
+   * - **API ID Path**: producer.producer_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  producer_name: prismic.KeyTextField;
+
+  /**
+   * Logo field in *Producer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: producer.producer_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  producer_logo: prismic.ImageField<never>;
+
+  /**
+   * Region field in *Producer*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: producer.producer_region
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  producer_region: prismic.SelectField<
+    | "Côte des Blancs"
+    | "Montagne de Reims"
+    | "Vallée de la Marne"
+    | "Côte des Bar"
+    | "Côte de Sézanne"
+  >;
+
+  /**
+   * Village field in *Producer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Verzy, Ambonnay, Avize
+   * - **API ID Path**: producer.producer_village
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  producer_village: prismic.KeyTextField;
+
+  /**
+   * Bio field in *Producer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Heritage, philosophy, vineyard practices
+   * - **API ID Path**: producer.producer_bio
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  producer_bio: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Producer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: producer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ProducerDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Producer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Title for the Producer
+   * - **API ID Path**: producer.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Producer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Description for the Producer
+   * - **API ID Path**: producer.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Producer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: producer.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Producer document from Prismic
+ *
+ * - **API ID**: `producer`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProducerDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProducerDocumentData>,
+    "producer",
+    Lang
+  >;
+
+type ProductDocumentDataSlicesSlice =
+  | FaqSlice
+  | ValueSlice
+  | LinkSlice
+  | EmployeeSlice
+  | ProcessSlice
+  | TextSlice
+  | CalloutSlice
+  | HeroSlice
+  | ImageStripSlice
+  | StatsSlice;
+
+/**
+ * Content for Product documents
+ */
+interface ProductDocumentData {
+  /**
+   * Page Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Used for Breadcrumbs
+   * - **API ID Path**: product.page_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  page_title: prismic.KeyTextField;
+
+  /**
+   * Parent field in *Product*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.parent
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  parent: ContentRelationshipFieldWithData<
+    [{ id: "page"; fields: ["page_title"] }]
+  >;
+
+  /**
+   * Name field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Cuvée des Crayères Brut
+   * - **API ID Path**: product.product_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_name: prismic.KeyTextField;
+
+  /**
+   * Producer field in *Product*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_producer
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  product_producer: ContentRelationshipFieldWithData<
+    [{ id: "producer"; fields: ["producer_name"] }]
+  >;
+
+  /**
+   * Vintage field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 2018, NV
+   * - **API ID Path**: product.product_vintage
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_vintage: prismic.KeyTextField;
+
+  /**
+   * Dosage field in *Product*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_dosage
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  product_dosage: prismic.SelectField<
+    | "Brut Nature"
+    | "Extra Brut"
+    | "Brut"
+    | "Extra Sec"
+    | "Sec"
+    | "Demi-Sec"
+    | "Doux"
+  >;
+
+  /**
+   * Bottle Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  product_image: prismic.ImageField<never>;
+
+  /**
+   * Description field in *Product*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Tasting notes, blend, terroir
+   * - **API ID Path**: product.product_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  product_description: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Product*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Title for the Product
+   * - **API ID Path**: product.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Description for the Product
+   * - **API ID Path**: product.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Product document from Prismic
+ *
+ * - **API ID**: `product`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductDocumentData>,
+    "product",
+    Lang
+  >;
+
 /**
  * Item in *Redirects → Redirects*
  */
@@ -1113,6 +1448,8 @@ export type AllDocumentTypes =
   | FourOhFourDocument
   | NavbarDocument
   | PageDocument
+  | ProducerDocument
+  | ProductDocument
   | RedirectDocument;
 
 /**
@@ -8464,6 +8801,12 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ProducerDocument,
+      ProducerDocumentData,
+      ProducerDocumentDataSlicesSlice,
+      ProductDocument,
+      ProductDocumentData,
+      ProductDocumentDataSlicesSlice,
       RedirectDocument,
       RedirectDocumentData,
       RedirectDocumentDataRedirectsItem,

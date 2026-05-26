@@ -66,6 +66,7 @@
         "type": "Select",
         "config": {
           "label": "Dosage",
+          "placeholder": "",
           "options": [
             "Brut Nature",
             "Extra Brut",
@@ -102,16 +103,36 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "faq": { "type": "SharedSlice" },
-            "value": { "type": "SharedSlice" },
-            "link": { "type": "SharedSlice" },
-            "employee": { "type": "SharedSlice" },
-            "process": { "type": "SharedSlice" },
-            "text": { "type": "SharedSlice" },
-            "callout": { "type": "SharedSlice" },
-            "hero": { "type": "SharedSlice" },
-            "image_strip": { "type": "SharedSlice" },
-            "stats": { "type": "SharedSlice" }
+            "faq": {
+              "type": "SharedSlice"
+            },
+            "value": {
+              "type": "SharedSlice"
+            },
+            "link": {
+              "type": "SharedSlice"
+            },
+            "employee": {
+              "type": "SharedSlice"
+            },
+            "process": {
+              "type": "SharedSlice"
+            },
+            "text": {
+              "type": "SharedSlice"
+            },
+            "callout": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "image_strip": {
+              "type": "SharedSlice"
+            },
+            "stats": {
+              "type": "SharedSlice"
+            }
           }
         }
       }

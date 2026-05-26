@@ -15,14 +15,7 @@ const overlineThemeClasses = {
 
 export function FAQSplit({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const {
-    overline,
-    title,
-    description,
-    section_theme,
-    remove_top_padding,
-    faqlist,
-  } = slice.primary;
+  const { overline, title, description, section_theme, remove_top_padding, faqlist } = slice.primary;
 
   return (
     <Section

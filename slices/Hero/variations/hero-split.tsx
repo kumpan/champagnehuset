@@ -26,16 +26,7 @@ const overlineThemeClasses = {
 };
 
 export function HeroSplit({ slice, context }: Props) {
-  const {
-    overline,
-    title,
-    description,
-    alignment,
-    section_theme,
-    media,
-    details,
-    buttons,
-  } = slice.primary;
+  const { overline, title, description, alignment, section_theme, media, details, buttons } = slice.primary;
 
   const breadcrumbs = context?.breadcrumbs;
 
@@ -47,21 +38,12 @@ export function HeroSplit({ slice, context }: Props) {
       sectionTheme={section_theme}
     >
       <Container
-        className={cn(
-          "flex flex-col gap-4 lg:flex-row lg:gap-3",
-          alignment ? "lg:flex-row" : "lg:flex-row-reverse",
-        )}
+        className={cn("flex flex-col gap-4 lg:flex-row lg:gap-3", alignment ? "lg:flex-row" : "lg:flex-row-reverse")}
       >
         {media[0] && (
           <CustomMedia
-            imageField={
-              isFilled.linkToMedia(media[0].video) ? undefined : media[0].image
-            }
-            videoSrc={
-              isFilled.linkToMedia(media[0].video)
-                ? media[0].video.url
-                : undefined
-            }
+            imageField={isFilled.linkToMedia(media[0].video) ? undefined : media[0].image}
+            videoSrc={isFilled.linkToMedia(media[0].video) ? media[0].video.url : undefined}
             className="aspect-square h-auto w-full md:aspect-video lg:aspect-square lg:w-1/2"
             filter={media[0].filter}
             preload
@@ -74,11 +56,7 @@ export function HeroSplit({ slice, context }: Props) {
           )}
         >
           {breadcrumbs && breadcrumbs.length > 1 && (
-            <BreadcrumbNav
-              items={breadcrumbs}
-              className="mb-1.5 -ml-2"
-              sectionTheme={section_theme}
-            />
+            <BreadcrumbNav items={breadcrumbs} className="mb-1.5 -ml-2" sectionTheme={section_theme} />
           )}
           <SectionIntro
             overline={overline}

@@ -7,10 +7,7 @@ import { cn } from "@/lib/utils";
 
 export type ImageStripProps = SliceComponentProps<Content.ImageStripSlice>;
 
-const getMediaKey = (
-  item: Content.ImageStripSliceDefaultPrimaryMediaItem,
-  index: number,
-) => {
+const getMediaKey = (item: Content.ImageStripSliceDefaultPrimaryMediaItem, index: number) => {
   if (item.image.id) return item.image.id;
   if (isFilled.linkToMedia(item.video)) return item.video.id;
   return index;
@@ -24,9 +21,7 @@ const sectionThemeClasses = {
 
 export default function ImageStrip({ slice }: ImageStripProps) {
   const { media, remove_top_padding, section_theme } = slice.primary;
-  const filteredMedia = media.filter(
-    (item) => isFilled.image(item.image) || isFilled.linkToMedia(item.video),
-  );
+  const filteredMedia = media.filter((item) => isFilled.image(item.image) || isFilled.linkToMedia(item.video));
   const mediaCount = filteredMedia.length;
 
   return (
@@ -48,24 +43,16 @@ export default function ImageStrip({ slice }: ImageStripProps) {
         {filteredMedia.map((item, index) => (
           <CustomMedia
             key={getMediaKey(item, index)}
-            imageField={
-              isFilled.linkToMedia(item.video) ? undefined : item.image
-            }
-            videoSrc={
-              isFilled.linkToMedia(item.video) ? item.video.url : undefined
-            }
+            imageField={isFilled.linkToMedia(item.video) ? undefined : item.image}
+            videoSrc={isFilled.linkToMedia(item.video) ? item.video.url : undefined}
             indexedDelay={true}
             index={index}
             className={cn(
               "aspect-square rounded-lg",
-              mediaCount === 1 &&
-                "aspect-square md:aspect-video lg:aspect-video",
-              mediaCount === 2 &&
-                "aspect-square md:aspect-square lg:aspect-3/2",
-              mediaCount === 3 &&
-                "aspect-video md:aspect-video lg:aspect-square",
-              mediaCount === 4 &&
-                "aspect-square md:aspect-square lg:aspect-video",
+              mediaCount === 1 && "aspect-square md:aspect-video lg:aspect-video",
+              mediaCount === 2 && "aspect-square md:aspect-square lg:aspect-3/2",
+              mediaCount === 3 && "aspect-video md:aspect-video lg:aspect-square",
+              mediaCount === 4 && "aspect-square md:aspect-square lg:aspect-video",
             )}
           />
         ))}

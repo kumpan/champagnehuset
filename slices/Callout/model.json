@@ -26,10 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Ocean",
-              "Sunrise"
-            ],
+            "options": ["Ocean", "Sunrise"],
             "default_value": "Ocean"
           }
         },
@@ -151,12 +148,7 @@
                 "config": {
                   "label": "Variant",
                   "placeholder": "",
-                  "options": [
-                    "default",
-                    "secondary",
-                    "outline",
-                    "ghost"
-                  ],
+                  "options": ["default", "secondary", "outline", "ghost"],
                   "default_value": "default"
                 }
               },
@@ -240,12 +232,7 @@
                 "config": {
                   "label": "Filter",
                   "placeholder": "No Filter",
-                  "options": [
-                    "Top Left",
-                    "Top Right",
-                    "Bottom Left",
-                    "Bottom Right"
-                  ]
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
                 }
               },
               "image": {
@@ -296,10 +283,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Ocean",
-              "Sunrise"
-            ],
+            "options": ["Ocean", "Sunrise"],
             "default_value": "Ocean"
           }
         },
@@ -421,12 +405,7 @@
                 "config": {
                   "label": "Variant",
                   "placeholder": "",
-                  "options": [
-                    "default",
-                    "secondary",
-                    "outline",
-                    "ghost"
-                  ],
+                  "options": ["default", "secondary", "outline", "ghost"],
                   "default_value": "default"
                 }
               },
@@ -510,12 +489,7 @@
                 "config": {
                   "label": "Filter",
                   "placeholder": "No Filter",
-                  "options": [
-                    "Top Left",
-                    "Top Right",
-                    "Bottom Left",
-                    "Bottom Right"
-                  ]
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
                 }
               },
               "image": {
@@ -577,10 +551,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Ocean",
-              "Sunrise"
-            ],
+            "options": ["Ocean", "Sunrise"],
             "default_value": "Ocean"
           }
         },
@@ -784,13 +755,7 @@
           "config": {
             "label": "Field Type",
             "placeholder": "Select field type",
-            "options": [
-              "name",
-              "email",
-              "phone",
-              "text",
-              "textarea"
-            ],
+            "options": ["name", "email", "phone", "text", "textarea"],
             "default_value": "text"
           }
         },

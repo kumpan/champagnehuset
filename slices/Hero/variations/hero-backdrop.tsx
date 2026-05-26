@@ -14,8 +14,7 @@ type Props = HeroProps & { slice: Content.HeroSliceBackdrop };
 
 export function HeroBackdrop({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { title, description, buttons, alignment, section_theme, media } =
-    slice.primary;
+  const { title, description, buttons, alignment, section_theme, media } = slice.primary;
   const { image, video } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
@@ -48,19 +47,12 @@ export function HeroBackdrop({ slice, context }: Props) {
           )}
         >
           {hasMedia && (
-            <div
-              className="pointer-events-none absolute inset-0 bg-fill-dark"
-              aria-hidden
-            >
+            <div className="pointer-events-none absolute inset-0 bg-fill-dark" aria-hidden>
               {image && isFilled.image(image) && (
                 <div className="relative h-full w-full">
                   <CustomMedia
                     imageField={image}
-                    videoSrc={
-                      video && isFilled.linkToMedia(video)
-                        ? video.url
-                        : undefined
-                    }
+                    videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
                     className="h-full w-full"
                     preload
                     sectionTheme={section_theme || "Pumpkin"}

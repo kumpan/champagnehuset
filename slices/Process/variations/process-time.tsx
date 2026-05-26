@@ -20,8 +20,7 @@ const timeClasses = {
 
 export function ProcessTime({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, section_theme, remove_top_padding } =
-    slice.primary;
+  const { overline, title, description, section_theme, remove_top_padding } = slice.primary;
 
   return (
     <Section
@@ -43,17 +42,12 @@ export function ProcessTime({ slice }: Props) {
         )}
         <div className="mt-8 flex flex-col gap-3 md:mt-12 lg:gap-4">
           {slice.primary.step.map((step, index) => (
-            <div
-              className="group flex flex-col gap-8"
-              key={`${step.title}-${index}`}
-            >
+            <div className="group flex flex-col gap-8" key={`${step.title}-${index}`}>
               {/* Desktop */}
               <div
                 className={cn(
                   "hidden flex-col gap-8 lg:flex",
-                  index % 2 === 0
-                    ? "lg:flex-row lg:text-right"
-                    : "lg:flex-row-reverse",
+                  index % 2 === 0 ? "lg:flex-row lg:text-right" : "lg:flex-row-reverse",
                 )}
               >
                 <div className="mb-12 w-full space-y-1.5">
@@ -71,10 +65,7 @@ export function ProcessTime({ slice }: Props) {
                     {step.time}
                   </div>
                   <div
-                    className={cn(
-                      "h-full min-h-12 w-1 rounded-full group-last:hidden",
-                      timeClasses[section_theme],
-                    )}
+                    className={cn("h-full min-h-12 w-1 rounded-full group-last:hidden", timeClasses[section_theme])}
                   />
                 </div>
 
@@ -92,9 +83,7 @@ export function ProcessTime({ slice }: Props) {
                   >
                     {step.time}
                   </div>
-                  <h4 className="wrap-break-wordline-clamp-2 text-xl md:text-2xl">
-                    {step.title}
-                  </h4>
+                  <h4 className="wrap-break-wordline-clamp-2 text-xl md:text-2xl">{step.title}</h4>
                 </div>
 
                 <div className="flex flex-row">

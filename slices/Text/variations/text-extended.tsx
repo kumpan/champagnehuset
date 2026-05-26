@@ -15,14 +15,7 @@ const overlineThemeClasses = {
 
 export function TextExtended({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const {
-    overline,
-    title,
-    description,
-    section_theme,
-    remove_top_padding,
-    rich_text,
-  } = slice.primary;
+  const { overline, title, description, section_theme, remove_top_padding, rich_text } = slice.primary;
 
   return (
     <Section
