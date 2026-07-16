@@ -26,7 +26,10 @@ function parseThumbnail(value?: string) {
   const segments = value.split(/\s+/).map((part) => {
     const colonIndex = part.indexOf(":");
     if (colonIndex === -1) return { breakpoint: "base", name: part };
-    return { breakpoint: part.slice(0, colonIndex), name: part.slice(colonIndex + 1) };
+    return {
+      breakpoint: part.slice(0, colonIndex),
+      name: part.slice(colonIndex + 1),
+    };
   });
 
   return segments.map((seg, i) => {
@@ -74,7 +77,7 @@ export default function CustomMedia({
   indexedDelay = false,
   index = 0,
   thumbnail,
-  sectionTheme = "Pumpkin",
+  sectionTheme,
   filter,
 }: CustomMediaProps) {
   const [loaded, setLoaded] = useState(false);
@@ -82,12 +85,16 @@ export default function CustomMedia({
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const isActuallyVideo =
     videoSrc &&
-    (videoSrc.endsWith(".mp4") || videoSrc.endsWith(".webm") || videoSrc.endsWith(".mov") || videoSrc.endsWith(".avi"));
+    (videoSrc.endsWith(".mp4") ||
+      videoSrc.endsWith(".webm") ||
+      videoSrc.endsWith(".mov") ||
+      videoSrc.endsWith(".avi"));
 
   const getThumbnail = (name?: string) => {
     if (!imageField) return undefined;
     if (!name) return imageField;
-    const imageFieldWithThumbs = imageField as ImageFieldImage & Record<string, ImageFieldImage>;
+    const imageFieldWithThumbs = imageField as ImageFieldImage &
+      Record<string, ImageFieldImage>;
     const thumbnailImage = imageFieldWithThumbs[name];
     return thumbnailImage?.url ? thumbnailImage : imageField;
   };
@@ -101,7 +108,13 @@ export default function CustomMedia({
   const revealed = loaded && isInView;
 
   return (
-    <div className={cn("relative overflow-hidden rounded-4 md:rounded-5", className)} ref={ref}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-4 md:rounded-5",
+        className,
+      )}
+      ref={ref}
+    >
       <m.div
         variants={blockVariants}
         initial="hidden"

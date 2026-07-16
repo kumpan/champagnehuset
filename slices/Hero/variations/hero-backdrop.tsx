@@ -55,7 +55,7 @@ export function HeroBackdrop({ slice, context }: Props) {
                     videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
                     className="h-full w-full"
                     preload
-                    sectionTheme={section_theme || "Pumpkin"}
+                    sectionTheme={section_theme
                     thumbnail="horizontal md:main"
                   />
                 </div>
