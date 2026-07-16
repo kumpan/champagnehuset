@@ -1,58 +1,68 @@
 @import "tailwindcss";
 
 @theme {
-  /* Blue */
-  --color-blue-50: hsl(228, 100%, 95%);
-  --color-blue-100: hsl(228, 100%, 90%);
-  --color-blue-200: hsl(228, 60%, 75%);
-  --color-blue-500: hsl(228, 100%, 57%);
-  --color-blue-800: hsl(228, 25%, 35%);
-  --color-blue-900: hsl(228, 100%, 12%);
+  /* Green */
+  --color-green-10: hsl(135, 20%, 99%);
+  --color-green-50: hsl(135, 15%, 93%);
+  --color-green-100: hsl(131, 12%, 83%);
+  --color-green-200: hsl(130, 11%, 56%);
+  --color-green-500: hsl(129, 17%, 33%);
+  --color-green-800: hsl(127, 13%, 23%);
+  --color-green-900: hsl(127, 14%, 16%);
 
   /* Yellow */
-  --color-yellow-50: hsl(32, 40%, 94%);
-  --color-yellow-100: hsl(32, 40%, 88%);
-  --color-yellow-200: hsl(32, 40%, 80%);
-  --color-yellow-500: hsl(32, 40%, 40%);
-  --color-yellow-800: hsl(32, 25%, 35%);
-  --color-yellow-900: hsl(32, 40%, 12%);
+  --color-yellow-50: hsl(40, 46%, 95%);
+  --color-yellow-100: hsl(42, 54%, 89%);
+  --color-yellow-500: hsl(42, 61%, 63%);
+  --color-yellow-700: hsl(43, 8%, 34%);
+  --color-yellow-800: hsl(43, 27%, 28%);
+  --color-yellow-900: hsl(42, 81%, 13%);
+  --color-yellow-950: hsl(42, 33%, 10%);
 
-  /* Red */
-  --color-red-50: hsl(0, 75%, 98%);
-  --color-red-100: hsl(0, 75%, 93%);
-  --color-red-200: hsl(0, 75%, 80%);
-  --color-red-500: hsl(0, 75%, 50%);
-  --color-red-800: hsl(0, 75%, 20%);
-  --color-red-900: hsl(0, 75%,  12%);
+  /* Blue */
+  --color-blue-50: hsl(208, 37%, 93%);
+  --color-blue-100: hsl(216, 29%, 79%);
+  --color-blue-200: hsl(208, 27%, 43%);
+  --color-blue-500: hsl(208, 40%, 30%);
+  --color-blue-800: hsl(208, 28%, 25%);
+  --color-blue-900: hsl(208, 59%, 13%);
 
   /* Semantic color tokens */
-  /* Base */
-  --color-ink: var(--color-blue-900);
-  --color-ink-dim: var(--color-blue-800);
-  --color-ink-flip: var(--color-blue-50);
-  --color-fill: var(--color-blue-50);
-  --color-fill-raised: var(--color-blue-100);
-  --color-fill-dark: var(--color-blue-900);
+  /* Base — Green */
+  --color-fill: var(--color-green-50);
+  --color-fill-raised: var(--color-green-100);
+  --color-fill-dark: var(--color-green-900);
+  --color-ink: var(--color-green-900);
+  --color-ink-flip: var(--color-green-50);
+  --color-ink-dim: var(--color-green-800);
 
-  /* Brand */
-  --color-brand-ink: var(--color-blue-50);
-  --color-brand: var(--color-blue-500);
-  --color-brand-fill: var(--color-blue-900);
+  /* Accent – Blue */
+  --color-accent-fill: var(--color-blue-50);
+  --color-accent-fill-raised: var(--color-blue-100);
+  --color-accent-fill-dark: var(--color-blue-900);
+  --color-accent-ink: var(--color-blue-900);
+  --color-accent-ink-flip: var(--color-blue-50);
+  --color-accent-ink-dim: var(--color-blue-800);
 
-  /* Accent */
-  --color-accent-ink: var(--color-yellow-900);
-  --color-accent-ink-dim: var(--color-yellow-800);
-  --color-accent-ink-flip: var(--color-yellow-50);
-  --color-accent: var(--color-yellow-500);
-  --color-accent-fill: var(--color-yellow-50);
-  --color-accent-fill-raised: var(--color-yellow-100);
-  --color-accent-fill-dark: var(--color-yellow-900);
+  /* Spot – Yellow */
+  --color-spot-fill: var(--color-yellow-700);
+  --color-spot-fill-raised: var(--color-yellow-50);
+  --color-spot-fill-dark: var(--color-yellow-950);
+  --color-spot-ink: var(--color-yellow-900);
+  --color-spot-ink-flip: var(--color-yellow-50);
+  --color-spot-ink-dim: var(--color-yellow-800);
+
+  /* Brand & Accent */
+  --color-brand: var(--color-green-500);
+  --color-brand-ink: var(--color-green-50);
+  --color-brand-fill: var(--color-green-900);
+  --color-accent: var(--color-blue-500);
 
   /* Misc */
-  --color-border: var(--color-blue-200);
-  --color-error-ink: var(--color-red-500);
-  --color-error: var(--color-red-500);
-  --color-error-fill: var(--color-red-900);
+  --color-border: var(--color-green-100);
+  --color-error-fill: hsl(0, 100%, 96%);
+  --color-error: hsl(0, 100%, 45%);
+  --color-error-ink: hsl(0, 98%, 22%);
 
   /* Radius */
   --radius-0: 0rem;
@@ -76,8 +86,8 @@
   --radius-full: 9999px;
 
   /* Fonts */
-  --font-primary: var(--font-mona-sans);
-  --font-secondary: var(--font-mona-sans);
+  --font-primary: var(--font-the-portray);
+  --font-secondary: var(--font-ibm-plex-sans);
 
   /* Custom easings */
   --ease-spring-bounce: linear(
@@ -123,7 +133,7 @@
   --breakpoint-2xl: 96rem;
   --breakpoint-3xl: 128rem;
 
-  --stroke-width: 1.8; 
+  --stroke-width: 1.8;
   --default-border-width: var(--stroke-width);
 
   --animate-wiggle-grow: wiggle-grow 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
@@ -146,6 +156,16 @@ body {
   @apply font-[550] font-stretch-115%;
   background-color: var(--color-primary-50);
   color: var(--color-primary-900);
+  font-family: var(--font-secondary), sans-serif;
+}
+
+/* Headings default to the primary display font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-primary), sans-serif;
 }
 

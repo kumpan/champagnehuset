@@ -1,6 +1,7 @@
 import type { Content } from "@prismicio/client";
 import { PrismicPreview } from "@prismicio/next";
-import { Mona_Sans } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { CookieBanner } from "@/components/cookie-banner";
 import { CookieBannerProvider } from "@/components/cookie-banner-context";
 import { MotionProvider } from "@/components/motion-provider";
@@ -10,10 +11,18 @@ import { getSingleton } from "@/lib/cms";
 import { getLocales, getMasterLocale } from "@/lib/locales";
 import { repositoryName } from "@/prismicio";
 
-const monaSans = Mona_Sans({
-  variable: "--font-mona-sans",
+const thePortray = localFont({
+  variable: "--font-the-portray",
+  src: [
+    { path: "../fonts/ThePortrayRegular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/ThePortrayItalic.woff2", weight: "400", style: "italic" },
+  ],
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
   subsets: ["latin"],
-  axes: ["wdth"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export default async function LocaleLayout({
@@ -33,7 +42,11 @@ export default async function LocaleLayout({
   ]);
 
   return (
-    <html lang={lang} className={`${monaSans.variable} h-full antialiased`} data-scroll-behavior="smooth">
+    <html
+      lang={lang}
+      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+    >
       <body className="flex min-h-full flex-col">
         {/* <GoogleTagManager /> */}
         <OrganizationSchema />
