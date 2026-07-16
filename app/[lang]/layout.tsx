@@ -44,7 +44,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={lang}
-      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full antialiased`}
+      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full text-ink antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col">
