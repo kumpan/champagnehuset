@@ -14,7 +14,11 @@ import { repositoryName } from "@/prismicio";
 const thePortray = localFont({
   variable: "--font-the-portray",
   src: [
-    { path: "../fonts/ThePortrayRegular.woff2", weight: "400", style: "normal" },
+    {
+      path: "../fonts/ThePortrayRegular.woff2",
+      weight: "400",
+      style: "normal",
+    },
     { path: "../fonts/ThePortrayItalic.woff2", weight: "400", style: "italic" },
   ],
 });
@@ -44,14 +48,20 @@ export default async function LocaleLayout({
   return (
     <html
       lang={lang}
-      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full text-ink antialiased`}
+      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full text-ink antialiased bg-fill`}
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col">
         {/* <GoogleTagManager /> */}
         <OrganizationSchema />
         <MotionProvider>
-          {navbarData && <Navbar prismicData={navbarData} locales={locales} masterLocale={masterLocale} />}
+          {navbarData && (
+            <Navbar
+              prismicData={navbarData}
+              locales={locales}
+              masterLocale={masterLocale}
+            />
+          )}
           <CookieBannerProvider>
             {children}
             {cookieBanner && <CookieBanner prismicData={cookieBanner} />}
