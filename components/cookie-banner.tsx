@@ -1,14 +1,17 @@
 "use client";
 
-import { ChevronDown, Cookie, Settings, X } from "lucide-react";
+import { ChevronUp, Settings } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/button";
 import { useCookieBanner } from "@/components/cookie-banner-context";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { Switch } from "@/components/switch";
-import { cn } from "@/lib/utils";
 import type { CookieBannerDocument, CookieBannerDocumentDataCookieTypesItem } from "@/prismicio-types";
+
+// ============================================================================
+// Types
+// ============================================================================
 
 // Extend Window interface for gtag
 declare global {
@@ -29,7 +32,12 @@ interface CookiePreferences {
   personalization_storage: boolean;
 }
 
+// ============================================================================
+// Component
+// ============================================================================
+
 export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocument }) {
+  // --- State ---------------------------------------------------------------
   const { isVisible, hideCookieBanner } = useCookieBanner();
   const [showCustomize, setShowCustomize] = useState(false);
   const [expandedCookies, setExpandedCookies] = useState<Set<string>>(new Set());
@@ -44,6 +52,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     personalization_storage: false,
   });
 
+  // --- Expand / collapse cookie details ------------------------------------
   const toggleCookieExpansion = (cookieId: string) => {
     setExpandedCookies((prev) => {
       const next = new Set(prev);
@@ -56,6 +65,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     });
   };
 
+  // --- Sync consent to Google Tag Manager ----------------------------------
   const updateGtagConsent = useCallback((prefs: CookiePreferences) => {
     // Check if gtag is available
     if (typeof window !== "undefined" && window.gtag) {
@@ -86,6 +96,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     }
   }, []);
 
+  // --- Restore saved consent on mount --------------------------------------
   useEffect(() => {
     // Check if user has already made a choice
     const cookieConsent = localStorage.getItem("cookie-consent");
@@ -97,6 +108,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     }
   }, [updateGtagConsent]);
 
+  // --- Consent action handlers ---------------------------------------------
   const handleAcceptAll = () => {
     const allPreferences: CookiePreferences = {
       necessary: true,
@@ -136,6 +148,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     hideCookieBanner();
   };
 
+  // --- Persist preferences (localStorage + gtag) ---------------------------
   const saveCookiePreferences = (prefs: CookiePreferences) => {
     localStorage.setItem("cookie-consent", JSON.stringify(prefs));
     localStorage.setItem("cookie-consent-date", new Date().toISOString());
@@ -144,6 +157,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     updateGtagConsent(prefs);
   };
 
+  // --- Animation variants --------------------------------------------------
   const variants = {
     hidden: { opacity: 0, y: "5rem", scale: 0.8 },
     visible: {
@@ -158,6 +172,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     },
   };
 
+  // --- Render --------------------------------------------------------------
   return (
     <AnimatePresence mode="wait" initial={isVisible}>
       {isVisible && (
@@ -172,16 +187,16 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
             y: { type: "spring", stiffness: 250, damping: 20 },
             scale: { type: "spring", stiffness: 250, damping: 20 },
           }}
-          className="pointer-events-none fixed bottom-0 left-0 z-50 w-full origin-bottom p-2 md:origin-bottom-left md:px-6 md:pb-6"
+          className="pointer-events-none fixed bottom-0 left-0 z-50 w-full origin-bottom p-2 selection:bg-brand selection:text-brand-ink md:origin-bottom-left md:px-6 md:pb-6"
         >
           <div className="mx-auto max-w-12xl">
-            <div className="pointer-events-auto relative w-full max-w-2xl rounded-lg bg-card shadow-2xl">
-              <div className="container max-w-2xl px-4 py-4 md:py-8">
+            <div className="pointer-events-auto relative w-full max-w-2xl rounded-2 bg-fill">
+              <div className="container max-w-2xl p-4 md:p-8">
                 {!showCustomize ? (
-                  // Main cookie banner
+                  /* ===== Main cookie banner ===== */
                   <div className="flex flex-col gap-4 md:justify-between">
                     <div className="flex flex-1 flex-col items-start gap-1">
-                      <Cookie className="mt-2 mb-2 size-12 shrink-0 text-primary md:size-16" />
+                      {/* <Cookie className="mt-2 mb-2 size-12 shrink-0 md:size-16 icon-bold" /> */}
                       {/* Title from CMS */}
                       {prismicData.data.title && (
                         <CustomRichText
@@ -194,7 +209,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                       {prismicData.data.description && (
                         <CustomRichText
                           field={prismicData.data.description}
-                          className="text-foreground text-sm md:text-base"
+                          className="mb-4 text-ink text-sm md:text-base"
                         />
                       )}
                     </div>
@@ -213,19 +228,14 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                     </div>
                   </div>
                 ) : (
-                  // Customize preferences view
+                  /* ===== Customize preferences view ===== */
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Settings className="size-7 text-primary" />
                         <h4 className="mt-0.5 text-lg">
                           {prismicData.data.customize_label || "Customize Cookie Preferences"}
                         </h4>
                       </div>
-                      <Button variant="ghost" size="icon" onClick={() => setShowCustomize(false)}>
-                        <X className="size-4" />
-                        <span className="sr-only">Back</span>
-                      </Button>
                     </div>
 
                     <div className="space-y-1 overflow-hidden">
@@ -289,30 +299,23 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                           const isExpanded = expandedCookies.has(cookieId);
 
                           return (
-                            <div
-                              key={cookieId}
-                              className={cn(
-                                "rounded-md",
-                                allEnabled ? "bg-secondary" : "bg-red-600/10 opacity-80",
-                                isDisabled && "bg-secondary opacity-100",
-                              )}
-                            >
-                              <div className="flex items-center justify-between gap-4 pr-4">
+                            <div key={cookieId} className="border-fill-raised not-last:border-b">
+                              <div className="flex items-center justify-between gap-4">
                                 <button
                                   type="button"
                                   onClick={() => toggleCookieExpansion(cookieId)}
-                                  className="flex flex-1 cursor-pointer items-center gap-1.5 p-4 text-left"
+                                  className="flex flex-1 cursor-pointer items-center gap-1.5 py-4 text-left"
                                   aria-expanded={isExpanded}
                                 >
                                   <m.div
-                                    animate={{ rotate: isExpanded ? 0 : -180 }}
+                                    animate={{ rotate: isExpanded ? 180 : 0 }}
                                     transition={{
                                       type: "spring",
                                       stiffness: 250,
                                       damping: 20,
                                     }}
                                   >
-                                    <ChevronDown className="size-5.5" />
+                                    <ChevronUp className="size-5.5" />
                                   </m.div>
                                   <h5 className="font-medium text-lg">{title}</h5>
                                 </button>
@@ -343,11 +346,8 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                                     }}
                                     className="overflow-hidden"
                                   >
-                                    <div className="px-4 pb-4">
-                                      <CustomRichText
-                                        field={cookieType.description}
-                                        className="text-muted-foreground"
-                                      />
+                                    <div className="pb-4">
+                                      <CustomRichText field={cookieType.description} className="text-ink-dim" />
                                     </div>
                                   </m.div>
                                 )}
