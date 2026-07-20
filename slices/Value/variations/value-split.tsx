@@ -38,7 +38,7 @@ export function ValueSplit({ slice }: ValueProps & { slice: Content.ValueSliceSp
                 <div
                   key={`${statement.title}-${index}`}
                   className={cn(
-                    "flex flex-col gap-1 not-last:border-b border-b-current/20 pb-6 lg:not-last:pb-8 transition-colors duration-500 ease-in-out",
+                    "flex flex-col gap-1 not-last:border-b border-b-current/20 pb-6 transition-colors duration-500 ease-in-out lg:not-last:pb-8",
                   )}
                 >
                   <h3 className="text-balance text-xl md:text-2xl">{statement.title}</h3>

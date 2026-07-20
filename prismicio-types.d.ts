@@ -5327,7 +5327,7 @@ export interface HeroSliceStackPrimary {
    * - **API ID Path**: hero.stack.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Leaf" | "Dust", "filled">;
 
   /**
    * Overline field in *Hero → Stack → Primary*
@@ -7013,7 +7013,10 @@ export interface TextSliceExtendedPrimary {
    * - **API ID Path**: text.extended.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Overline field in *Text → Extended → Primary*
@@ -7093,7 +7096,10 @@ export interface TextSliceSplitPrimary {
    * - **API ID Path**: text.split.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Overline field in *Text → Split → Primary*
@@ -7234,7 +7240,10 @@ export interface TextSliceMediaPrimary {
    * - **API ID Path**: text.media.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Swap Columns field in *Text → Media → Primary*
@@ -7379,7 +7388,10 @@ export interface TextSliceInfoPrimary {
    * - **API ID Path**: text.info.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Center Text field in *Text → Info → Primary*
@@ -7745,20 +7757,6 @@ export interface ValueSliceSplitPrimaryButtonsItem {
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Variant field in *Value → Split → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: value.split.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
    * Left Icon field in *Value → Split → Primary → Buttons*
    *
    * - **Field Type**: Select
@@ -7836,55 +7834,6 @@ export interface ValueSliceSplitPrimaryButtonsItem {
  */
 export interface ValueSliceSplitPrimaryStatementItem {
   /**
-   * Icon field in *Value → Split → Primary → Statement*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.split.primary.statement[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
    * Title field in *Value → Split → Primary → Statement*
    *
    * - **Field Type**: Text
@@ -7900,245 +7849,6 @@ export interface ValueSliceSplitPrimaryStatementItem {
    * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: value.split.primary.statement[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
-}
-
-/**
- * Item in *Value → Grid → Primary → Overline*
- */
-export interface ValueSliceGridPrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Value → Grid → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.grid.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Value → Grid → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Value → Grid → Primary → Buttons*
- */
-export interface ValueSliceGridPrimaryButtonsItem {
-  /**
-   * Link field in *Value → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.buttons[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Variant field in *Value → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: value.grid.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
-   * Left Icon field in *Value → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.grid.primary.buttons[].icon_left
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_left: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-
-  /**
-   * Right Icon field in *Value → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.grid.primary.buttons[].icon_right
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_right: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-}
-
-/**
- * Item in *Value → Grid → Primary → Statement*
- */
-export interface ValueSliceGridPrimaryStatementItem {
-  /**
-   * Icon field in *Value → Grid → Primary → Statement*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.grid.primary.statement[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Title field in *Value → Grid → Primary → Statement*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.statement[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Value → Grid → Primary → Statement*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.statement[].description
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   description: prismic.KeyTextField;
@@ -8168,7 +7878,10 @@ export interface ValueSliceTextPrimary {
    * - **API ID Path**: value.text.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Center Text field in *Value → Text → Primary*
@@ -8269,7 +7982,10 @@ export interface ValueSliceSplitPrimary {
    * - **API ID Path**: value.split.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Center Text field in *Value → Split → Primary*
@@ -8358,99 +8074,9 @@ export type ValueSliceSplit = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Value → Grid → Primary*
- */
-export interface ValueSliceGridPrimary {
-  /**
-   * Remove Top Padding field in *Value → Grid → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: value.grid.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Value → Grid → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Bud
-   * - **API ID Path**: value.grid.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
-
-  /**
-   * Overline field in *Value → Grid → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<ValueSliceGridPrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Value → Grid → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Value → Grid → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Buttons field in *Value → Grid → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.buttons[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  buttons: prismic.GroupField<Simplify<ValueSliceGridPrimaryButtonsItem>>;
-
-  /**
-   * Statement field in *Value → Grid → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.grid.primary.statement[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  statement: prismic.GroupField<Simplify<ValueSliceGridPrimaryStatementItem>>;
-}
-
-/**
- * Grid variation for Value Slice
- *
- * - **API ID**: `grid`
- * - **Description**: Text
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ValueSliceGrid = prismic.SharedSliceVariation<
-  "grid",
-  Simplify<ValueSliceGridPrimary>,
-  never
->;
-
-/**
  * Slice variation for *Value*
  */
-type ValueSliceVariation = ValueSliceText | ValueSliceSplit | ValueSliceGrid;
+type ValueSliceVariation = ValueSliceText | ValueSliceSplit;
 
 /**
  * Value Shared Slice
@@ -8658,14 +8284,9 @@ declare module "@prismicio/client" {
       ValueSliceSplitPrimaryButtonsItem,
       ValueSliceSplitPrimaryStatementItem,
       ValueSliceSplitPrimary,
-      ValueSliceGridPrimaryOverlineItem,
-      ValueSliceGridPrimaryButtonsItem,
-      ValueSliceGridPrimaryStatementItem,
-      ValueSliceGridPrimary,
       ValueSliceVariation,
       ValueSliceText,
       ValueSliceSplit,
-      ValueSliceGrid,
     };
   }
 }

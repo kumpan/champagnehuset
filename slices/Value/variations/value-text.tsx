@@ -64,11 +64,11 @@ export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceTex
                   <h3 className="text-balance text-xl md:text-2xl lg:text-3xl">{item.title}</h3>
                   <div
                     className={cn(
-                      "my-4 hidden h-(--default-border-width) rounded-full md:block md:w-24 lg:w-32 transition-colors easeOut",
+                      "easeOut my-4 hidden h-(--default-border-width) rounded-full transition-colors md:block md:w-24 lg:w-32",
                       dividerThemeClasses[section_theme],
                     )}
                   />
-                  <p className={cn(statementDescriptionThemeClasses[section_theme], "transition-colors easeOut")}>
+                  <p className={cn(statementDescriptionThemeClasses[section_theme], "easeOut transition-colors")}>
                     {item.description}
                   </p>
                 </div>

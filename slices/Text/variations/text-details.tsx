@@ -38,9 +38,9 @@ export function TextDetails({ slice }: Props) {
                 <h3 className="text-base">{list.label}</h3>
                 <ul
                   className={cn(
-                    "flex list-disc flex-col gap-1 pl-5 marker:text-current/60 text-pretty",
+                    "flex list-disc flex-col gap-1 text-pretty pl-5 marker:text-current/60",
                     bodyThemeClasses[section_theme],
-                    "transition-colors duration-500 easeOut",
+                    "easeOut transition-colors duration-500",
                   )}
                 >
                   {list.items.map((item) => (
@@ -67,7 +67,7 @@ export function TextDetails({ slice }: Props) {
             className={cn(
               "flex max-w-xl flex-col gap-4 text-pretty",
               bodyThemeClasses[section_theme],
-              "transition-colors duration-500 easeOut",
+              "easeOut transition-colors duration-500",
             )}
           >
             {region.body.map((paragraph) => (
