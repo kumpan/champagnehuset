@@ -1,346 +1,6 @@
 [
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "extended",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "rich_text": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading4",
-            "content": {
-              "text": "Dynamics 365 Customer Insights Journeys",
-              "spans": [
-                {
-                  "type": "strong",
-                  "start": 0,
-                  "end": 39
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Skapa personliga och automatiserade kundresor som stärker ditt varumärke i varje detalj. Med verktyget (tidigare Dynamics 365 Marketing) hanterar du all kommunikation via mejl, SMS och push-notiser på ett enhetligt sätt genom smarta mallar och innehållsblock. Med hjälp av AI-assistenten Copilot kan du snabbt bygga målgruppssegment och få rekommendationer för både innehåll och flöden. För att du ska komma igång snabbt erbjuder CRMK ett paketerat upplägg med fem workshops där vi guidar er hela vägen från grundkonfiguration till färdig analys.",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Why it's so nice to have a dog:",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "You get many hugs",
-              "spans": [
-                {
-                  "type": "label",
-                  "start": 0,
-                  "end": 17,
-                  "data": "check"
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Free face licks (even tho its nasty)",
-              "spans": [
-                {
-                  "type": "label",
-                  "start": 0,
-                  "end": 36,
-                  "data": "check"
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "A friend in dark times",
-              "spans": [
-                {
-                  "type": "label",
-                  "start": 0,
-                  "end": 22,
-                  "data": "check"
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "heading4",
-            "content": {
-              "text": "Dynamics 365 Customer Insights Data",
-              "spans": [
-                {
-                  "type": "strong",
-                  "start": 0,
-                  "end": 35
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Få en total 360-graders vy av dina kunder genom att förena data från alla era avdelningar i en kraftfull analysplattform. Med hjälp av AI identifierar systemet trender och ger intelligenta rekommendationer som gör att ni kan agera proaktivt och personligt, samtidigt som lagar som GDPR efterlevs tryggt. Vi på CRMK hjälper er att mappa era datakällor och starta upp implementationen i en hanterbar skala. Genom ett tätt samarbete och löpande support ser vi till att er kunddata förvandlas till mätbara affärsbeslut och ökad kundlojalitet.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Dust"
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Framtidens CRM"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeCheck"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Vi bygger broarna mellan er verksamhets visioner och de tekniska lösningar som faktiskt tar er hela vägen fram",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "CRMK ett paketerat upplägg med fem workshops där vi guidar er hela vägen från grundkonfiguration till färdig analys.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      }
-    },
-    "items": []
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "split",
-    "primary": {
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Dust"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "col_one_rich_text": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Magna et sunt consequat ex reprehenderit proident est Lorem quis voluptate minim aliquip. Officia cillum nulla veniam aute excepteur ipsum ut id nostrud sint labore ad officia officia cupidatat."
-            }
-          }
-        ]
-      },
-      "first_text_block": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading4",
-            "content": {
-              "text": "Din strategiska partner för digital transformation och hållbara system",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "CRM-Konsulterna (CRMK) är ett svenskt specialistbolag som arbetar uteslutande med Microsofts ekosystem, främst Dynamics 365 och Power Platform. Sedan starten 2010 har de fokuserat på att hjälpa företag att realisera den dolda potentialen i sin kundinformation genom smarta, affärsdrivna system. Med en djup teknisk spetskompetens och certifieringar som ISO 9001:2015 säkerställer de hög kvalitet och ordning i varje projektleverans.",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Hello",
-              "spans": [
-                {
-                  "type": "label",
-                  "start": 0,
-                  "end": 5,
-                  "data": "check"
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Many things",
-              "spans": [
-                {
-                  "type": "label",
-                  "start": 0,
-                  "end": 11,
-                  "data": "check"
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Awesome stuff!",
-              "spans": [
-                {
-                  "type": "label",
-                  "start": 0,
-                  "end": 14,
-                  "data": "check"
-                }
-              ]
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "second_text_block": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading4",
-            "content": {
-              "text": "Din strategiska partner för digital transformation och hållbara system",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "CRM-Konsulterna (CRMK) är ett svenskt specialistbolag som arbetar uteslutande med Microsofts ekosystem, främst Dynamics 365 och Power Platform. Sedan starten 2010 har de fokuserat på att hjälpa företag att realisera den dolda potentialen i sin kundinformation genom smarta, affärsdrivna system. Med en djup teknisk spetskompetens och certifieringar som ISO 9001:2015 säkerställer de hög kvalitet och ordning i varje projektleverans.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Hello there guy",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "asdflökölsdkfölksfd",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfsdf"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeInfo"
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": []
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
     "variation": "longform",
     "primary": {
       "remove_top_padding": {
@@ -688,315 +348,20 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "media",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Dust"
-      },
-      "text_side": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "first_text_block": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Hello",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Nulla sint dolore est aute culpa ullamco voluptate tempor nulla consequat enim pariatur. Magna dolore ea incididunt quis magna.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "first_image": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzcyNzU2OTN8MA&ixlib=rb-4.1.0&q=85&rect=0,1875,4000,2250&w=1920&h=1080",
-                  "alt": "sliced orange fruit on brown wooden table",
-                  "origin": {
-                    "id": "sQi9FM6NYVY",
-                    "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzcyNzU2OTN8MA&ixlib=rb-4.1.0&q=85",
-                    "width": 4000,
-                    "height": 6000
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1875
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {
-                    "square": {
-                      "provider": "imgix",
-                      "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzcyNzU2OTN8MA&ixlib=rb-4.1.0&q=85&rect=0,1000,4000,4000&w=1440&h=1440",
-                      "alt": "sliced orange fruit on brown wooden table",
-                      "origin": {
-                        "id": "sQi9FM6NYVY",
-                        "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzcyNzU2OTN8MA&ixlib=rb-4.1.0&q=85",
-                        "width": 4000,
-                        "height": 6000
-                      },
-                      "width": 1440,
-                      "height": 1440,
-                      "edit": {
-                        "background": "transparent",
-                        "zoom": 1,
-                        "crop": {
-                          "x": 0,
-                          "y": 1000
-                        }
-                      },
-                      "credits": null
-                    }
-                  }
-                }
-              ],
-              [
-                "filter",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "Top Right"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "second_text_block": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "I like ice",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Magna ea sit anim incididunt occaecat velit voluptate. Dolore do id adipisicing Lorem dolor sunt excepteur aliquip minim pariatur tempor velit ex anim aliqua.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "second_image": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruits on green leaves",
-                  "origin": {
-                    "id": "_ANDM3OI4gE",
-                    "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {
-                    "square": {
-                      "provider": "imgix",
-                      "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85&rect=0,504,3024,3024&w=1440&h=1440",
-                      "alt": "orange fruits on green leaves",
-                      "origin": {
-                        "id": "_ANDM3OI4gE",
-                        "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85",
-                        "width": 3024,
-                        "height": 4032
-                      },
-                      "width": 1440,
-                      "height": 1440,
-                      "edit": {
-                        "background": "transparent",
-                        "zoom": 1,
-                        "crop": {
-                          "x": 0,
-                          "y": 504
-                        }
-                      },
-                      "credits": null
-                    }
-                  }
-                }
-              ],
-              [
-                "filter",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "Bottom Right"
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
     "variation": "details",
     "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
       "section_theme": {
         "__TYPE__": "FieldContent",
         "value": "Bud",
         "type": "Select"
       },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "plane",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "tent",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Myself"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ut in laboris Lorem laborum nostrud ullamco reprehenderit elit. In velit ad minim minim nostrud sit ut aliqua ut deserunt. Amet fugiat nulla veniam tempor laborum officia reprehenderit eiusmod commodo dolor consectetur anim officia dolore."
-            }
-          }
-        ]
-      },
-      "details": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "atSign",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "shelter",
-                  "type": "Text"
-                }
-              ],
-              [
-                "rich_text",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Ut magna exercitation nostrud minim deserunt commodo excepteur est consectetur ullamco."
-                      }
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
+      "region": {
+        "__TYPE__": "FieldContent",
+        "value": "Côte des Blancs",
+        "type": "Select"
       }
     },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
+    "items": []
   },
   {
     "__TYPE__": "SharedSliceContent",
@@ -1142,5 +507,515 @@
         "value": []
       }
     ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "extended",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "rich_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading4",
+            "content": {
+              "text": "Dynamics 365 Customer Insights Journeys",
+              "spans": [
+                {
+                  "type": "strong",
+                  "start": 0,
+                  "end": 39
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Skapa personliga och automatiserade kundresor som stärker ditt varumärke i varje detalj. Med verktyget (tidigare Dynamics 365 Marketing) hanterar du all kommunikation via mejl, SMS och push-notiser på ett enhetligt sätt genom smarta mallar och innehållsblock. Med hjälp av AI-assistenten Copilot kan du snabbt bygga målgruppssegment och få rekommendationer för både innehåll och flöden. För att du ska komma igång snabbt erbjuder CRMK ett paketerat upplägg med fem workshops där vi guidar er hela vägen från grundkonfiguration till färdig analys.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Why it's so nice to have a dog:",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "You get many hugs",
+              "spans": [
+                {
+                  "type": "label",
+                  "start": 0,
+                  "end": 17,
+                  "data": "check"
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Free face licks (even tho its nasty)",
+              "spans": [
+                {
+                  "type": "label",
+                  "start": 0,
+                  "end": 36,
+                  "data": "check"
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "A friend in dark times",
+              "spans": [
+                {
+                  "type": "label",
+                  "start": 0,
+                  "end": 22,
+                  "data": "check"
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "heading4",
+            "content": {
+              "text": "Dynamics 365 Customer Insights Data",
+              "spans": [
+                {
+                  "type": "strong",
+                  "start": 0,
+                  "end": 35
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Få en total 360-graders vy av dina kunder genom att förena data från alla era avdelningar i en kraftfull analysplattform. Med hjälp av AI identifierar systemet trender och ger intelligenta rekommendationer som gör att ni kan agera proaktivt och personligt, samtidigt som lagar som GDPR efterlevs tryggt. Vi på CRMK hjälper er att mappa era datakällor och starta upp implementationen i en hanterbar skala. Genom ett tätt samarbete och löpande support ser vi till att er kunddata förvandlas till mätbara affärsbeslut och ökad kundlojalitet.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Slate"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Framtidens CRM"
+                }
+              ],
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "badgeCheck"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading3",
+            "content": {
+              "text": "Vi bygger broarna mellan er verksamhets visioner och de tekniska lösningar som faktiskt tar er hela vägen fram",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "CRMK ett paketerat upplägg med fem workshops där vi guidar er hela vägen från grundkonfiguration till färdig analys.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "media",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Dust"
+      },
+      "text_side": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "first_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Hello",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Nulla sint dolore est aute culpa ullamco voluptate tempor nulla consequat enim pariatur. Magna dolore ea incididunt quis magna.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "first_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1543418219-44e30b057fea?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHx2aW5leWFyZHxlbnwwfHx8fDE3ODQ1Mzk5MDZ8MA&ixlib=rb-4.1.0&q=85&rect=0,264,5081,2858&w=1920&h=1080",
+                  "alt": "green grass field during golden hour",
+                  "origin": {
+                    "id": "qT515JdZNy8",
+                    "url": "https://images.unsplash.com/photo-1543418219-44e30b057fea?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHx2aW5leWFyZHxlbnwwfHx8fDE3ODQ1Mzk5MDZ8MA&ixlib=rb-4.1.0&q=85",
+                    "width": 5081,
+                    "height": 3387
+                  },
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 264
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {
+                    "square": {
+                      "provider": "imgix",
+                      "url": "https://images.unsplash.com/photo-1543418219-44e30b057fea?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHx2aW5leWFyZHxlbnwwfHx8fDE3ODQ1Mzk5MDZ8MA&ixlib=rb-4.1.0&q=85&rect=847,0,3387,3387&w=1440&h=1440",
+                      "alt": "green grass field during golden hour",
+                      "origin": {
+                        "id": "qT515JdZNy8",
+                        "url": "https://images.unsplash.com/photo-1543418219-44e30b057fea?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHx2aW5leWFyZHxlbnwwfHx8fDE3ODQ1Mzk5MDZ8MA&ixlib=rb-4.1.0&q=85",
+                        "width": 5081,
+                        "height": 3387
+                      },
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "background": "transparent",
+                        "zoom": 1,
+                        "crop": {
+                          "x": 847,
+                          "y": 0
+                        }
+                      },
+                      "credits": null
+                    }
+                  }
+                }
+              ],
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Bottom Left"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "second_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "I like ice",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Magna ea sit anim incididunt occaecat velit voluptate. Dolore do id adipisicing Lorem dolor sunt excepteur aliquip minim pariatur tempor velit ex anim aliqua.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "second_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+                  "alt": "orange fruits on green leaves",
+                  "origin": {
+                    "id": "_ANDM3OI4gE",
+                    "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85",
+                    "width": 3024,
+                    "height": 4032
+                  },
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 1166
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {
+                    "square": {
+                      "provider": "imgix",
+                      "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85&rect=0,504,3024,3024&w=1440&h=1440",
+                      "alt": "orange fruits on green leaves",
+                      "origin": {
+                        "id": "_ANDM3OI4gE",
+                        "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85",
+                        "width": 3024,
+                        "height": 4032
+                      },
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "background": "transparent",
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 504
+                        }
+                      },
+                      "credits": null
+                    }
+                  }
+                }
+              ],
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Bottom Left"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "split",
+    "primary": {
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Dust"
+      },
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "col_one_rich_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Magna et sunt consequat ex reprehenderit proident est Lorem quis voluptate minim aliquip. Officia cillum nulla veniam aute excepteur ipsum ut id nostrud sint labore ad officia officia cupidatat."
+            }
+          }
+        ]
+      },
+      "first_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Din strategiska partner för digital transformation och hållbara system",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "CRM-Konsulterna (CRMK) är ett svenskt specialistbolag som arbetar uteslutande med Microsofts ekosystem, främst Dynamics 365 och Power Platform. Sedan starten 2010 har de fokuserat på att hjälpa företag att realisera den dolda potentialen i sin kundinformation genom smarta, affärsdrivna system. Med en djup teknisk spetskompetens och certifieringar som ISO 9001:2015 säkerställer de hög kvalitet och ordning i varje projektleverans.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Hello",
+              "spans": [
+                {
+                  "type": "label",
+                  "start": 0,
+                  "end": 5,
+                  "data": "check"
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Many things",
+              "spans": [
+                {
+                  "type": "label",
+                  "start": 0,
+                  "end": 11,
+                  "data": "check"
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Awesome stuff!",
+              "spans": [
+                {
+                  "type": "label",
+                  "start": 0,
+                  "end": 14,
+                  "data": "check"
+                }
+              ]
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Lagom moln stol backlog, kräftskiva tegel julöl merge ramp agil. Krita katt vinter lättöl burköl förälskelse vante designsystem höst flinga kavelsKrita katt vinter lättöl burköl förälskelse vante designsystem höst flinga kavel.",
+              "spans": [
+                {
+                  "type": "label",
+                  "start": 0,
+                  "end": 227,
+                  "data": "check"
+                }
+              ]
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "second_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Din strategiska partner för digital transformation och hållbara system",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "CRM-Konsulterna (CRMK) är ett svenskt specialistbolag som arbetar uteslutande med Microsofts ekosystem, främst Dynamics 365 och Power Platform. Sedan starten 2010 har de fokuserat på att hjälpa företag att realisera den dolda potentialen i sin kundinformation genom smarta, affärsdrivna system. Med en djup teknisk spetskompetens och certifieringar som ISO 9001:2015 säkerställer de hög kvalitet och ordning i varje projektleverans.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": []
+      }
+    },
+    "items": []
   }
 ]

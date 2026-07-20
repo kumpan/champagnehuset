@@ -14,11 +14,6 @@ import { ProductCard } from "../product-card";
 
 type Props = ProductProps & { slice: Content.ProductSliceGrid };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const buttonThemeClasses = {
   Bud: "",
   Dust: "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
@@ -63,7 +58,6 @@ export async function ProductGrid({ slice }: Props) {
             {hasIntroContent && (
               <SectionIntro
                 overline={overline}
-                overlineClassName={overlineThemeClasses[section_theme]}
                 title={title}
                 description={description}
                 align={alignment ? "center" : "left"}

@@ -236,42 +236,42 @@ h6 {
 
 .prose {
     h1 {
-        @apply mb-4 text-4xl leading-[1.1] font-[520] font-stretch-120% md:text-5xl lg:text-7xl 2xl:text-8xl;
+        @apply mb-4 text-4xl leading-[1.1] font-stretch-120% md:text-5xl lg:text-7xl 2xl:text-8xl;
         &:not(:first-child) {
             @apply mt-12;
         }
     }
 
     h2 {
-        @apply mb-2 text-3xl leading-[1.12] font-[530] font-stretch-120% md:text-4xl lg:text-6xl 2xl:text-7xl;
+        @apply mb-2 text-3xl leading-[1.12] font-stretch-120% md:text-4xl lg:text-6xl 2xl:text-7xl;
         &:not(:first-child) {
             @apply mt-10;
         }
     }
 
     h3 {
-        @apply mb-2 text-2xl leading-[1.14] font-[535] font-stretch-120% md:text-3xl lg:text-5xl;
+        @apply mb-2 text-2xl leading-[1.14] font-stretch-120% md:text-3xl lg:text-5xl;
         &:not(:first-child) {
             @apply mt-8;
         }
     }
 
     h4 {
-        @apply mb-2 text-xl leading-[1.16] font-[540] font-stretch-120% md:text-2xl lg:text-4xl;
+        @apply mb-2 text-xl leading-[1.16] font-stretch-120% md:text-2xl lg:text-4xl;
         &:not(:first-child) {
             @apply mt-6;
         }
     }
 
     h5 {
-        @apply mb-2 text-lg leading-[1.18] font-[545] font-stretch-120% md:text-xl lg:text-3xl;
+        @apply mb-2 text-lg leading-[1.18] font-stretch-120% md:text-xl lg:text-3xl;
         &:not(:first-child) {
             @apply mt-4;
         }
     }
 
     h6 {
-        @apply mb-2 text-base leading-[1.2] font-[550] font-stretch-120% md:text-lg lg:text-2xl;
+        @apply mb-2 text-base leading-[1.2] font-stretch-120% md:text-lg lg:text-2xl;
         &:not(:first-child) {
             @apply mt-2;
         }
@@ -319,18 +319,18 @@ h6 {
     }
 
     img {
-        @apply rounded-4 first:mt-0 md:rounded-5;
+        @apply rounded-2 first:mt-0;
         &:not(.not-prose) {
             @apply mt-8 mb-8 overflow-hidden md:mt-12 md:mb-10;
         }
     }
 
     pre {
-        @apply rounded-lg bg-fill-raised text-ink;
+        @apply rounded-2 bg-fill-raised text-ink;
     }
 
     div[data-oembed] {
-        @apply mt-8 mb-8 overflow-hidden rounded-4 md:mt-12 md:mb-10 md:rounded-5;
+        @apply mt-8 mb-8 overflow-hidden rounded-2 md:mt-12 md:mb-10;
         aspect-ratio: 16 / 9;
 
         iframe {

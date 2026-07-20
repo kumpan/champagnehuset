@@ -8,7 +8,7 @@ import Accordion from "../Accordion";
 
 type Props = FAQProps & { slice: Content.FaqSliceSplit };
 
-const overlineThemeClasses = {
+const _overlineThemeClasses = {
   Bud: "bg-fill-raised text-ink",
   Dust: "bg-accent-fill-raised text-accent-ink",
 };
@@ -34,7 +34,6 @@ export function FAQSplit({ slice }: Props) {
                 description={description}
                 align="left"
                 sectionTheme={section_theme}
-                overlineClassName={overlineThemeClasses[section_theme]}
                 textBalance={true}
               />
             </div>

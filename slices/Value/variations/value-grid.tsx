@@ -6,11 +6,6 @@ import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const iconContainerThemeClasses = {
   Bud: "bg-fill-raised",
   Dust: "bg-accent-fill-raised",
@@ -43,7 +38,6 @@ export function ValueGrid({ slice }: ValueProps & { slice: Content.ValueSliceGri
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             buttons={buttons}

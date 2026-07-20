@@ -33,10 +33,11 @@ const overlineThemeClasses = {
 
 const buttonThemeClasses = {
   Bud: "",
-  Leaf: "",
-  Brand: "",
-  Dust: "",
-  Slate: "",
+  Leaf: "selection:bg-fill-raised selection:text-ink",
+  Brand: "bg-fill hover:bg-fill/90 text-ink outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
+  Dust: "bg-spot-fill-dark hover:bg-spot-fill-dark/90 outline-fill-dark/70",
+  Slate:
+    "bg-spot-fill-raised hover:bg-spot-fill-raised/90 text-spot-ink outline-spot-fill-raised/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
 };
 
 export type SectionTheme = keyof typeof overlineThemeClasses;
@@ -130,7 +131,7 @@ export function SectionIntro({
             className={cn(
               "prose-headings:mb-0! transition-colors",
               titleMaxWidth ? "max-w-4xl xl:max-w-5xl" : "max-w-none",
-              textBalance && "text-balance",
+              textBalance ? "text-balance" : "text-pretty",
               isSideBySide && "w-full",
             )}
             field={title}

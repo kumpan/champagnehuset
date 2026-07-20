@@ -9,11 +9,6 @@ import type { TextProps } from "..";
 
 type Props = TextProps & { slice: Content.TextSliceSplit };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 export function TextSplit({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, remove_top_padding, section_theme, first_text_block, second_text_block } =
@@ -30,7 +25,6 @@ export function TextSplit({ slice }: Props) {
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             align="left"

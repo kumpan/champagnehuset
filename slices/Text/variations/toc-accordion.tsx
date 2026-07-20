@@ -11,7 +11,7 @@ export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex flex-col rounded-4 bg-fill-raised p-1">
+    <div className="flex flex-col rounded-2 bg-fill-raised p-1">
       <AnimatePresence>
         {open && (
           <m.div
@@ -19,7 +19,7 @@ export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
             transition={{ duration: 0.15, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full overflow-hidden rounded-5 bg-fill-raised p-1 pt-13"
+            className="absolute top-0 left-0 w-full overflow-hidden rounded-1 bg-fill-raised p-1 pt-13"
           >
             <m.div
               initial="hidden"
@@ -59,7 +59,7 @@ export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
                       document.getElementById(toAnchorId(h.text))?.scrollIntoView({ block: "start" });
                     });
                   }}
-                  className="flex h-12 items-center gap-1.5 rounded-4 bg-fill pr-4 pl-3 text-ink leading-snug hover:text-ink-raised"
+                  className="flex h-12 items-center gap-1.5 rounded-1 bg-fill pr-4 pl-3 text-ink leading-snug hover:text-ink-raised"
                 >
                   <ChevronRight className="size-5 shrink-0" />
                   <span className="truncate">{h.text}</span>

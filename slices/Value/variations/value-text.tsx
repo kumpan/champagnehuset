@@ -6,11 +6,6 @@ import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const statementDescriptionThemeClasses = {
   Bud: "text-ink-dim",
   Dust: "text-accent-ink-dim",
@@ -42,7 +37,6 @@ export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceTex
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             buttons={buttons}

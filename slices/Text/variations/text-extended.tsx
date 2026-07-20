@@ -8,11 +8,6 @@ import type { TextProps } from "..";
 
 type Props = TextProps & { slice: Content.TextSliceExtended };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 export function TextExtended({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, section_theme, remove_top_padding, rich_text } = slice.primary;
@@ -28,7 +23,6 @@ export function TextExtended({ slice }: Props) {
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             sectionTheme={section_theme}

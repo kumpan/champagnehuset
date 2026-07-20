@@ -1,773 +1,797 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "text",
-    "primary": {
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "fileText",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "beauty",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Proud"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Consectetur occaecat elit ea ea dolor cupidatat. Cillum magna irure est id amet consectetur consectetur nostrud est culpa excepteur."
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "667889f7-5ce2-4528-99d0-4c63710daf90",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "sink"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "default",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "circleStar",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Bud",
-        "type": "Select"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "statement": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Gatekeep seitan art party"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "VHS, pinterest solarpunk swag live-edge.  Disrupt shaman slow-carb photo booth quinoa mlkshk 90's wayfarers man braid heirloom locavore YOLO tbh."
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Church-key trust fund"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Unicorn chillwave"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Polaroid copper mug tumblr VHS four dollar toast, chillwave microdosing ascot sustainable adaptogen street art kogi.  Synth humblebrag enamel pin jianbing gentrify B"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Fam drinking vinegar vaporware, roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Kickstarter mlkshk"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Tofu man bun franzen typewriter skateboard heirloom freegan praxis aesthetic."
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Marfa dreamcatcher"
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "grid",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "hold",
-                  "type": "Text"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "search",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Range"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Adipisicing id nulla elit minim. Sit labore aliqua cupidatat est commodo non ad sit deserunt esse et esse qui fugiat. Sit sint amet elit labore duis minim est adipisicing deserunt."
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "b48495f3-db29-4037-aabd-3297820325d9",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "http://google.com",
-                    "text": "change"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "default"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "arrowLeft",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "statement": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "instance",
-                  "type": "Text"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "rhythm",
-                  "type": "Text"
-                }
-              ],
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "check"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "briefcaseBusiness"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeInfo"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeCheck"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasd"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "fasdfasdfasdf"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "check"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asfasdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasdf"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "check"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasdf"
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "split",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "has",
-                  "type": "Text"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "shieldEllipsis",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Place"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Aliquip proident ullamco occaecat ullamco ullamco amet eu aute duis ullamco aliqua culpa aute eu velit. Incididunt pariatur aliqua magna."
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "bbce93c4-e090-4e2a-9ef4-7efb6358ee21",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "tried"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "secondary",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "arrowUp",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "statement": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "sun",
-                  "type": "Select"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "hand",
-                  "type": "Text"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "fell",
-                  "type": "Text"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "circleGauge"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "briefcaseBusiness"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeInfo"
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "card_side": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "text",
+		"primary": {
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fileText",
+									"type": "Select"
+								}
+							],
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "beauty",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Proud"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consectetur occaecat elit ea ea dolor cupidatat. Cillum magna irure est id amet consectetur consectetur nostrud est culpa excepteur."
+						}
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "667889f7-5ce2-4528-99d0-4c63710daf90",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "sink"
+									}
+								}
+							],
+							[
+								"variant",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "default",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "none",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_right",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "circleStar",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"value": "Bud",
+				"type": "Select"
+			},
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"statement": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Gatekeep seitan art party"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "VHS, pinterest solarpunk swag live-edge.  Disrupt shaman slow-carb photo booth quinoa mlkshk 90's wayfarers man braid heirloom locavore YOLO tbh."
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Church-key trust fund"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Unicorn chillwave"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Polaroid copper mug tumblr VHS four dollar toast, chillwave microdosing ascot sustainable adaptogen street art kogi.  Synth humblebrag enamel pin jianbing gentrify B"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Fam drinking vinegar vaporware, roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Kickstarter mlkshk"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Tofu man bun franzen typewriter skateboard heirloom freegan praxis aesthetic."
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Marfa dreamcatcher"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "grid",
+		"primary": {
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Bud"
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "hold",
+									"type": "Text"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "search",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Range"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing id nulla elit minim. Sit labore aliqua cupidatat est commodo non ad sit deserunt esse et esse qui fugiat. Sit sint amet elit labore duis minim est adipisicing deserunt."
+						}
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "b48495f3-db29-4037-aabd-3297820325d9",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "change"
+									}
+								}
+							],
+							[
+								"variant",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "default"
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "arrowLeft",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_right",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "none",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"statement": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "instance",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "rhythm",
+									"type": "Text"
+								}
+							],
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "check"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "briefcaseBusiness"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdfasdf"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdf"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "badgeInfo"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdfasdf"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdf"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "badgeCheck"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdfasd"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "fasdfasdfasdf"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "check"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asfasdf"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdfasdf"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "check"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdfasdf"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "asdfasdf"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "split",
+		"primary": {
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Brand"
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "has",
+									"type": "Text"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "shieldEllipsis",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Place is the right time in the right",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliquip proident ullamco occaecat ullamco ullamco amet eu aute duis ullamco aliqua culpa aute eu velit. Incididunt pariatur aliqua magna."
+						}
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "bbce93c4-e090-4e2a-9ef4-7efb6358ee21",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "tried"
+									}
+								}
+							],
+							[
+								"variant",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "default"
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "none",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_right",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "arrowUp",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"statement": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "sun",
+									"type": "Select"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "1. Pertois-Moriset Brut Rosé Grand Cru"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "none"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "2. Grongnet Brut Rosé"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "none"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "4. Juillet-Lallement Brut Rosé Grand Cru"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "none"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "3. Loriot-Pagel Brut Rosé"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "3. Loriot-Pagel Brut Rosé"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+								}
+							]
+						],
+						"key": "6660673e-73e1-4472-baad-a6f9ddc83fd6"
+					}
+				]
+			},
+			"card_side": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
 ]

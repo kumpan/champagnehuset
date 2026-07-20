@@ -118,7 +118,7 @@ export default function CustomMedia({
         variants={imageVariants}
         initial="hidden"
         animate={revealed ? "visible" : "hidden"}
-        transition={{ type: "tween", duration: 3, ease: "easeOut", delay }}
+        transition={{ type: "tween", duration: 4, ease: "easeInOut", delay }}
         className="relative h-full w-full"
       >
         {imageField &&
@@ -163,16 +163,16 @@ export default function CustomMedia({
         {/* Filter */}
         <div
           className={cn(
-            "absolute inset-0 bg-linear-to-br from-0% to-60% to-brand/0 mix-blend-overlay",
+            "absolute inset-0 bg-linear-to-br from-0% to-70% to-spotfrom-yellow-900/0 mix-blend-overlay",
             filterDirection,
-            hasFilter ? "from-brand/60" : "from-brand/0",
+            hasFilter ? "from-yellow-900/60" : "from-yellow-900/0",
           )}
         />
         <div
           className={cn(
-            "absolute inset-0 bg-linear-to-br from-0% to-60% to-brand/0",
+            "absolute inset-0 bg-linear-to-br from-0% to-70% to-spotfrom-yellow-900/0",
             filterDirection,
-            hasFilter ? "from-brand/10" : "from-brand/0",
+            hasFilter ? "from-yellow-900/10" : "from-yellow-900/0",
           )}
         />
       </m.div>

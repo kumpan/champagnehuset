@@ -10,11 +10,6 @@ import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceCards };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const cardThemeClasses = {
   Bud: "bg-fill-raised outline-brand/0 hover:outline-brand",
   Dust: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
@@ -51,7 +46,6 @@ export function LinkCards({ slice }: Props) {
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             align={alignment ? "center" : "left"}

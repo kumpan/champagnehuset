@@ -14,11 +14,6 @@ import { PersonCard } from "../person-card";
 
 type Props = ContactProps & { slice: Content.ContactSlicePeople };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const buttonThemeClasses = {
   Bud: "",
   Dust: "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
@@ -63,7 +58,6 @@ export async function ContactPeople({ slice }: Props) {
             {hasIntroContent && (
               <SectionIntro
                 overline={overline}
-                overlineClassName={overlineThemeClasses[section_theme]}
                 title={title}
                 description={description}
                 align={alignment ? "center" : "left"}

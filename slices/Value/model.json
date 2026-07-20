@@ -26,7 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -261,7 +261,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -378,15 +378,6 @@
                   "select": null
                 }
               },
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "label": "Variant",
-                  "placeholder": "",
-                  "options": ["default", "secondary", "outline", "ghost"],
-                  "default_value": "default"
-                }
-              },
               "icon_left": {
                 "type": "Select",
                 "config": {
@@ -462,52 +453,6 @@
             "label": "Statement",
             "repeat": true,
             "fields": {
-              "icon": {
-                "type": "Select",
-                "config": {
-                  "label": "Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "circleGauge",
-                    "circleStar",
-                    "clock",
-                    "crown",
-                    "dog",
-                    "fileBadge",
-                    "fileText",
-                    "gem",
-                    "handshake",
-                    "headset",
-                    "hourglass",
-                    "houseHeart",
-                    "layers",
-                    "lock",
-                    "lockKeyhole",
-                    "lockKeyholeOpen",
-                    "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
-                    "phoneCall",
-                    "plane",
-                    "search",
-                    "ship",
-                    "shieldCheck",
-                    "shieldEllipsis",
-                    "sun",
-                    "triangle",
-                    "trophy"
-                  ],
-                  "default_value": "none"
-                }
-              },
               "title": {
                 "type": "Text",
                 "config": {

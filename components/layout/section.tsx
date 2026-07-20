@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 const sectionThemeClasses: Record<string, string> = {
   Bud: "bg-fill text-ink selection:bg-brand selection:text-brand-ink",
   Leaf: "bg-fill-raised text-ink selection:bg-brand selection:text-brand-ink",
-  Brand: "bg-brand text-ink-flip selection:bg-brand selection:text-brand-ink-flip",
+  Brand: "bg-brand text-ink-flip selection:bg-fill-raised selection:text-ink",
   Dust: "bg-spot-fill-raised text-spot-ink selection:bg-spot-fill selection:text-spot-ink-flip",
   Slate: "bg-spot-fill text-spot-ink-flip selection:bg-spot-fill-raised selection:text-spot-ink",
 };

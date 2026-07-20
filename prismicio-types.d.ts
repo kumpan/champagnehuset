@@ -6800,144 +6800,6 @@ export interface TextSliceMediaPrimarySecondImageItem {
 }
 
 /**
- * Item in *Text → Details → Primary → Overline*
- */
-export interface TextSliceDetailsPrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Text → Details → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: text.details.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Text → Details → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.details.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Text → Details → Primary → Details*
- */
-export interface TextSliceDetailsPrimaryDetailsItem {
-  /**
-   * Overline Icon field in *Text → Details → Primary → Details*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: text.details.primary.details[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Text → Details → Primary → Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.details.primary.details[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-
-  /**
-   * Rich Text field in *Text → Details → Primary → Details*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.details.primary.details[].rich_text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  rich_text: prismic.RichTextField;
-}
-
-/**
  * Item in *Text → Info → Primary → Overline*
  */
 export interface TextSliceInfoPrimaryOverlineItem {
@@ -7448,17 +7310,6 @@ export type TextSliceMedia = prismic.SharedSliceVariation<
  */
 export interface TextSliceDetailsPrimary {
   /**
-   * Remove Top Padding field in *Text → Details → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: text.details.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
    * Section Theme field in *Text → Details → Primary*
    *
    * - **Field Type**: Select
@@ -7467,47 +7318,28 @@ export interface TextSliceDetailsPrimary {
    * - **API ID Path**: text.details.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
-   * Overline field in *Text → Details → Primary*
+   * Region field in *Text → Details → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: text.details.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   * - **Default Value**: Côte des Blancs
+   * - **API ID Path**: text.details.primary.region
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  overline: prismic.GroupField<Simplify<TextSliceDetailsPrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Text → Details → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.details.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Text → Details → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.details.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Details field in *Text → Details → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.details.primary.details[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  details: prismic.GroupField<Simplify<TextSliceDetailsPrimaryDetailsItem>>;
+  region: prismic.SelectField<
+    | "Côte des Blancs"
+    | "Montagne de Reims"
+    | "Vallée de la Marne"
+    | "Côte des Bar"
+    | "Côte de Sézanne",
+    "filled"
+  >;
 }
 
 /**
@@ -8805,8 +8637,6 @@ declare module "@prismicio/client" {
       TextSliceMediaPrimaryFirstImageItem,
       TextSliceMediaPrimarySecondImageItem,
       TextSliceMediaPrimary,
-      TextSliceDetailsPrimaryOverlineItem,
-      TextSliceDetailsPrimaryDetailsItem,
       TextSliceDetailsPrimary,
       TextSliceInfoPrimaryOverlineItem,
       TextSliceInfoPrimaryButtonsItem,

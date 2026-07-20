@@ -10,11 +10,6 @@ import { SearchGrid } from "../search-grid";
 
 type Props = ProductProps & { slice: Content.ProductSliceSearch };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 export async function ProductSearch({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const {
@@ -42,7 +37,6 @@ export async function ProductSearch({ slice }: Props) {
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             align={alignment ? "center" : "left"}

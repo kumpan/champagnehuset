@@ -10,11 +10,6 @@ import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceGrid };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const iconWrapperThemeClasses = {
   Bud: "bg-fill-raised/60 group-hover:bg-fill-raised",
   Dust: "bg-accent-fill-raised/60 group-hover:bg-accent-fill-raised",
@@ -61,7 +56,6 @@ export function LinkGrid({ slice }: Props) {
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             align={alignment ? "center" : "left"}

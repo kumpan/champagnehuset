@@ -6,11 +6,6 @@ import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { TextProps } from "..";
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const factDescriptionThemeClasses = {
   Bud: "text-ink-dim",
   Dust: "text-accent-ink-dim",
