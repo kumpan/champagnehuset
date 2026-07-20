@@ -112,7 +112,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Sunrise"
+        "value": "Dust"
       },
       "overline": {
         "__TYPE__": "GroupContentType",
@@ -171,163 +171,6 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "highlight",
-    "primary": {
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "Sample Overline",
-                  "type": "Text"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeInfo"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading4",
-            "content": {
-              "text": "Där djupt tekniskt hantverk möter en passion för att göra det svåra begripligt och det enkla skalbart",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Sample description text for this variation."
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "c7b81818-66a2-4302-aa15-99ea575034cc",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://example.com",
-                    "text": "Learn more"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "default",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "arrowRight"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "secondary"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "none"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "none"
-                }
-              ],
-              [
-                "link",
-                {
-                  "key": "10a438fa-22cc-489f-b7d2-86ca059c863d",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "s",
-                    "text": "asd"
-                  }
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Sunrise"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      }
-    },
-    "items": []
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
     "variation": "split",
     "primary": {
       "alignment": {
@@ -337,7 +180,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Sunrise"
+        "value": "Dust"
       },
       "remove_top_padding": {
         "__TYPE__": "BooleanContent",
@@ -845,783 +688,6 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "form",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Ocean"
-      },
-      "rich_text": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Sälj smart och tappa inga affärer",
-              "spans": [
-                {
-                  "type": "strong",
-                  "start": 0,
-                  "end": 33
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Fokusera på att sälja smart och var proaktiv! Här kan du få hjälp med att identifiera vilka kunder som bör kontaktas, både när och vem, och få analys om hur många (och vilka) interaktioner som krävs för att gå i mål med affärerna. Dynamics 365 Sales är i grund och botten ett processtöd för att säkerställa att alla arbetar på samma sätt och det blir enkelt att erhålla en hög kvalitet och effektivitet, från ett kallt lead till ett påskrivet avtal!",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "ssdflkjasdf lkasjdf lkasjdf llooksdf l lak jaslkdfj lkajs dflkj alskdjf lkasdj flkasjdf lksajd flkj kj",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Här finns även stöd för uppföljning och möjligheter för coachning där du som säljchef enkelt kan sätta upp mål och aktiviteter",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Här finns även stöd för uppföljning och möjligheter för coachning där du som säljchef enkelt kan sätta upp mål och aktiviteter",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "aha, a big brain",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Håll koll på samt prioritera försäljningspipelinen för alltid ligga steget före och få fokus på de aktiviteter och interaktioner som ger bäst effekt för att undvika flaskhalsar. ",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Tappa inga affärer och säkerställ att ni säljer smart som skapar fler bra och roliga affärer tillsammans som ett team!",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Här finns även stöd för uppföljning och möjligheter för coachning där du som säljchef enkelt kan sätta upp mål och aktiviteter för att hjälpa ditt säljteam till att vara produktiva.",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "En av styrkorna i Dynamics 365 Sales är den tajta integrationen med Microsoft Office 365, framförallt Outlook men även Teams och SharePoint. ",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Här kan ni arbeta som ett team – hela vägen! Dela samtlig information till dina kollegor och alla intressenter. - Emil Gaza",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ni undviker att bli personberoende och möter kunderna i de kanaler som de föredrar.\nTappa inga affärer och säkerställ att ni säljer smart som skapar fler bra och roliga affärer tillsammans som ett team!",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Här kan ni arbeta som ett team – hela vägen! Dela samtlig information till dina kollegor och alla intressenter.\nHär kan du läsa om hur Microsoft beskriver Dynamics 365 Sales.",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Så här går det till att implementera Dynamics 365 Sales",
-              "spans": [
-                {
-                  "type": "strong",
-                  "start": 0,
-                  "end": 55
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Vi startar med att genomföra ett antal workshops för att förstå hur er säljorganisation arbetar idag, men även hur ni vill arbeta i framtiden. Fokuset ligger på hur er säljprocess ser ut, hur väl den passar standarduppsättning i Dynamics 365 Sales och hur vi kan starta igång enkelt. Vi på CRMK vägleder er och tillsammans diskuterar vi vad som är en rimlig första implementation, där rekommendation är att starta enkelt som vi sedan bygger vidare. På så sätt kan vi hela tiden få input från verksamheten och se både guldkorn och flaskhalsar. ",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "embed",
-            "data": {
-              "type": "embed",
-              "embed_url": "",
-              "__TYPE__": "EmbedContent",
-              "all": []
-            }
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Genom att arbeta tätt tillsammans, både de som kan verksamheten hos er och de som kan systemet hos oss, tror vi att vi kan hitta bra funktioner som verkligen gör skillnad i vardagen hos era användare utan att vi behöver anpassa systemet till oigenkännlighet i oändlighet. Allt för att skapa förutsättningar för en lyckad implementation!",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Agilt arbetssätt",
-              "spans": [
-                {
-                  "type": "strong",
-                  "start": 0,
-                  "end": 16
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "När de initiala workshopsen är genomförda börjar arbetet med uppsättning av miljö, konfiguration och anpassning enligt den gemensamma planen för första steget. På CRMK föreslår vi ett agilt arbetssätt vilket innebär att arbetet att implementera Dynamics 365 Sales delas upp i små delar, så kallade sprintar. Varje sprint omfattar de uppgifter som är prioriterade högst. I slutet på sprinten genomförs en sprintdemo där referenspersoner får se hur framstegen ser ut. Efter varje sprint ses uppgiftslistan över för att prioritera om och lägga till nya uppgifter. Allt i nära kontakt med verksamheten för att hela tiden erhålla input från de som kommer arbeta med säljstödet dagligen.\nAtt arbeta agilt innebär att du som kund får större kontroll över utvecklingen vilket också innebär en lägre kostnad totalt sett. Det agila arbetssättet kräver ett nära samarbete mellan CRMK och er som kund.\nNär systemet bedöms uppfylla de minsta möjliga funktionerna för att fungera för verksamheten (MVP – Minimum Viable Product) så aktiveras det och eventuell gammal data förs över.",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Nästa utvecklingssteg med Dynamics 365 Sales",
-              "spans": [
-                {
-                  "type": "strong",
-                  "start": 0,
-                  "end": 44
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Efter att man infört Dynamics 365 Sales i ett så kallat MVP utförande så fortsätter resan. Med utökade förmågor genom automationer, chatbottar, integration med andra system, kundundersökningar, dataanalys med mera. CRMKs visionära experter hjälper er att se vad som är möjligt och vi hjälps åt att skapa en framtidsplan för systemet. Oavsett var ni vill ta vägen med ert nya säljstöd, så finns CRMK som er partner för att maximera den nytta ni får av systemet.",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "heading4",
-            "content": {
-              "text": "Investering",
-              "spans": [
-                {
-                  "type": "strong",
-                  "start": 0,
-                  "end": 11
-                }
-              ]
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Kontakta oss med din förfrågan för att få ett mer detaljerat svar som tar hänsyn till faktorer som:",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "list-item",
-            "content": {
-              "text": "Licenser/tjänstekostnader",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "list-item",
-            "content": {
-              "text": "Konsultkostnader",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "list-item",
-            "content": {
-              "text": "Tid som krävs av er egen personal",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "submit_button_text": {
-        "__TYPE__": "FieldContent",
-        "value": "Send message",
-        "type": "Text"
-      },
-      "success_message": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Thanks for your message!"
-            }
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "We will be in touch shortly."
-            }
-          }
-        ]
-      },
-      "accept_terms_text": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "I accept the privacy policy"
-            }
-          }
-        ]
-      },
-      "form_rows": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "fields",
-                {
-                  "__TYPE__": "GroupContentType",
-                  "value": [
-                    {
-                      "__TYPE__": "GroupItemContent",
-                      "value": [
-                        [
-                          "field_type",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "name",
-                            "type": "Select"
-                          }
-                        ],
-                        [
-                          "field_label",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "Full Name",
-                            "type": "Text"
-                          }
-                        ],
-                        [
-                          "field_placeholder",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "Jane Smith",
-                            "type": "Text"
-                          }
-                        ],
-                        [
-                          "field_required",
-                          {
-                            "__TYPE__": "BooleanContent",
-                            "value": true
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "__TYPE__": "GroupItemContent",
-                      "value": [
-                        [
-                          "field_type",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "email",
-                            "type": "Select"
-                          }
-                        ],
-                        [
-                          "field_label",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "Email",
-                            "type": "Text"
-                          }
-                        ],
-                        [
-                          "field_placeholder",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "jane@example.com",
-                            "type": "Text"
-                          }
-                        ],
-                        [
-                          "field_required",
-                          {
-                            "__TYPE__": "BooleanContent",
-                            "value": true
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "fields",
-                {
-                  "__TYPE__": "GroupContentType",
-                  "value": [
-                    {
-                      "__TYPE__": "GroupItemContent",
-                      "value": [
-                        [
-                          "field_type",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "textarea",
-                            "type": "Select"
-                          }
-                        ],
-                        [
-                          "field_label",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "Message",
-                            "type": "Text"
-                          }
-                        ],
-                        [
-                          "field_placeholder",
-                          {
-                            "__TYPE__": "FieldContent",
-                            "value": "How can we help you?",
-                            "type": "Text"
-                          }
-                        ],
-                        [
-                          "field_required",
-                          {
-                            "__TYPE__": "BooleanContent",
-                            "value": true
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "consent_items": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "consent_text",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "asdfasdf asdf asdf fffasdsf ",
-                        "spans": [
-                          {
-                            "type": "hyperlink",
-                            "start": 19,
-                            "end": 27,
-                            "data": {
-                              "__TYPE__": "ExternalLink",
-                              "url": "champagnehuset.se",
-                              "target": "_self"
-                            }
-                          }
-                        ]
-                      },
-                      "direction": "ltr"
-                    }
-                  ]
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "consent_required",
-                {
-                  "__TYPE__": "BooleanContent",
-                  "value": false
-                }
-              ],
-              [
-                "consent_text",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "I want marketing messages",
-                        "spans": []
-                      },
-                      "direction": "ltr"
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "form_intro": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Say Hi 👋",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Esse officia ut aliqua id pariatur quis veniam fugiat commodo ullamco pariatur deserunt adipisicing ipsum. Eu minim fugiat laborum consequat culpa ad minim ut anim nisi qui occaecat quis.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "field_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "text"
-            }
-          ],
-          [
-            "field_required",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "new_row",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "field_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "e"
-            }
-          ],
-          [
-            "field_placeholder",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "e"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "field_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "text"
-            }
-          ],
-          [
-            "field_required",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "new_row",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": false
-            }
-          ],
-          [
-            "field_placeholder",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "d"
-            }
-          ],
-          [
-            "field_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "d"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "field_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "text"
-            }
-          ],
-          [
-            "field_required",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "new_row",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": false
-            }
-          ],
-          [
-            "field_placeholder",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "c"
-            }
-          ],
-          [
-            "field_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "c"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "field_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "text"
-            }
-          ],
-          [
-            "field_required",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "new_row",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "field_placeholder",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "b"
-            }
-          ],
-          [
-            "field_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "b"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "field_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "text"
-            }
-          ],
-          [
-            "field_required",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "new_row",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": false
-            }
-          ],
-          [
-            "field_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "a"
-            }
-          ],
-          [
-            "field_placeholder",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "a"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "field_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "textarea"
-            }
-          ],
-          [
-            "field_required",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "new_row",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ],
-          [
-            "field_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "message"
-            }
-          ],
-          [
-            "field_placeholder",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "Get a message here please"
-            }
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
     "variation": "media",
     "primary": {
       "remove_top_padding": {
@@ -1631,7 +697,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Sunrise"
+        "value": "Dust"
       },
       "text_side": {
         "__TYPE__": "BooleanContent",
@@ -1756,7 +822,6 @@
               [
                 "image",
                 {
-                  "__TYPE__": "ImageContent",
                   "provider": "imgix",
                   "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc3Mjc1NjkzfDA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
                   "alt": "orange fruits on green leaves",
@@ -1776,6 +841,8 @@
                       "y": 1166
                     }
                   },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
                   "thumbnails": {
                     "square": {
                       "provider": "imgix",
@@ -1796,7 +863,8 @@
                           "x": 0,
                           "y": 504
                         }
-                      }
+                      },
+                      "credits": null
                     }
                   }
                 }
@@ -1809,8 +877,261 @@
                   "value": "Bottom Right"
                 }
               ]
-            ],
-            "key": "af157465-c8b9-4a4e-bd6b-3e2e2bf7be2c"
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "details",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "plane",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "tent",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Myself"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ut in laboris Lorem laborum nostrud ullamco reprehenderit elit. In velit ad minim minim nostrud sit ut aliqua ut deserunt. Amet fugiat nulla veniam tempor laborum officia reprehenderit eiusmod commodo dolor consectetur anim officia dolore."
+            }
+          }
+        ]
+      },
+      "details": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "atSign",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "shelter",
+                  "type": "Text"
+                }
+              ],
+              [
+                "rich_text",
+                {
+                  "__TYPE__": "StructuredTextContent",
+                  "value": [
+                    {
+                      "type": "paragraph",
+                      "content": {
+                        "text": "Ut magna exercitation nostrud minim deserunt commodo excepteur est consectetur ullamco."
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "info",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "husband",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Problem"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Duis sint esse anim ipsum est reprehenderit."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "8b9c7a7d-5b82-4ad4-be8e-5532327b5588",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://slicemachine.dev",
+                    "text": "slight"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "outline",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "chevronDown",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "check",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "facts": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "description",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "not",
+                  "type": "Text"
+                }
+              ],
+              [
+                "number",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "popular",
+                  "type": "Text"
+                }
+              ]
+            ]
           }
         ]
       }

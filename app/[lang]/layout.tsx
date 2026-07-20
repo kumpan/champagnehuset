@@ -48,20 +48,14 @@ export default async function LocaleLayout({
   return (
     <html
       lang={lang}
-      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full text-ink antialiased bg-fill`}
+      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full bg-fill text-ink antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col">
         {/* <GoogleTagManager /> */}
         <OrganizationSchema />
         <MotionProvider>
-          {navbarData && (
-            <Navbar
-              prismicData={navbarData}
-              locales={locales}
-              masterLocale={masterLocale}
-            />
-          )}
+          {navbarData && <Navbar prismicData={navbarData} locales={locales} masterLocale={masterLocale} />}
           <CookieBannerProvider>
             {children}
             {cookieBanner && <CookieBanner prismicData={cookieBanner} />}

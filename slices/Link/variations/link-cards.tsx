@@ -11,13 +11,13 @@ import type { LinkProps } from "..";
 type Props = LinkProps & { slice: Content.LinkSliceCards };
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const cardThemeClasses = {
-  Ocean: "bg-fill-raised outline-brand/0 hover:outline-brand",
-  Sunrise: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
+  Bud: "bg-fill-raised outline-brand/0 hover:outline-brand",
+  Dust: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
 };
 
 export function LinkCards({ slice }: Props) {
@@ -36,7 +36,9 @@ export function LinkCards({ slice }: Props) {
       itemSpan: (i) => cn(i === 4 && "md:col-span-2", i < 3 ? "lg:col-span-2" : "lg:col-span-3"),
     },
   };
-  const layout = layouts[cardsCount] ?? { grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" };
+  const layout = layouts[cardsCount] ?? {
+    grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+  };
 
   return (
     <Section

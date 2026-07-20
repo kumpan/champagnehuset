@@ -1,0 +1,365 @@
+{
+  "id": "product",
+  "type": "SharedSlice",
+  "name": "Product",
+  "description": "Product",
+  "variations": [
+    {
+      "id": "grid",
+      "name": "Grid",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Grid",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
+          }
+        },
+        "alignment": {
+          "type": "Boolean",
+          "config": {
+            "label": "Center Text",
+            "placeholder_false": "Text is Left-Aligned",
+            "placeholder_true": "Text is Centered",
+            "default_value": true
+          }
+        },
+        "overline": {
+          "type": "Group",
+          "config": {
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "button": {
+          "type": "Group",
+          "config": {
+            "label": "Button",
+            "repeat": false,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "allowText": true,
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "icon_left": {
+                "type": "Select",
+                "config": {
+                  "label": "Left Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "arrowDown",
+                    "arrowLeft",
+                    "arrowRight",
+                    "arrowUp",
+                    "arrowUpRight",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "chevronDown",
+                    "chevronLeft",
+                    "chevronRight",
+                    "circlePlay",
+                    "circleStar",
+                    "clipboardCheck",
+                    "headset",
+                    "mail",
+                    "phoneCall",
+                    "phoneIncoming",
+                    "phoneOutgoing"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "icon_right": {
+                "type": "Select",
+                "config": {
+                  "label": "Right Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "arrowDown",
+                    "arrowLeft",
+                    "arrowRight",
+                    "arrowUp",
+                    "arrowUpRight",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "chevronDown",
+                    "chevronLeft",
+                    "chevronRight",
+                    "circlePlay",
+                    "circleStar",
+                    "clipboardCheck",
+                    "headset",
+                    "mail",
+                    "phoneCall",
+                    "phoneIncoming",
+                    "phoneOutgoing"
+                  ],
+                  "default_value": "none"
+                }
+              }
+            }
+          }
+        },
+        "featured_products": {
+          "type": "Group",
+          "config": {
+            "label": "Featured Products",
+            "repeat": true,
+            "fields": {
+              "product": {
+                "type": "Link",
+                "config": {
+                  "label": "Product",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "product",
+                      "fields": ["product_name", "product_vintage"]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "search",
+      "name": "Search",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Search",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
+          }
+        },
+        "alignment": {
+          "type": "Boolean",
+          "config": {
+            "label": "Center Text",
+            "placeholder_false": "Text is Left-Aligned",
+            "placeholder_true": "Text is Centered",
+            "default_value": true
+          }
+        },
+        "overline": {
+          "type": "Group",
+          "config": {
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "search_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Search Placeholder",
+            "placeholder": ""
+          }
+        },
+        "no_results_text": {
+          "type": "Text",
+          "config": {
+            "label": "No Results Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

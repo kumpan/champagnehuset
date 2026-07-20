@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 type BreadcrumbItem = { label: string; href: string };
 
 const breadcrumbTheme: Record<string, { dark: string; light: string }> = {
-  Ocean: {
+  Bud: {
     dark: "text-ink-dim group-hover:text-brand-ink bg-brand",
     light: "text-brand-ink group-hover:text-brand-ink bg-brand",
   },
-  Sunrise: {
+  Dust: {
     dark: "text-accent-ink-dim group-hover:text-accent-ink bg-accent hover:text-accent-ink-flip",
     light: "text-accent-ink-flip group-hover:text-accent-ink bg-accent hover:text-accent-ink-flip",
   },
@@ -22,14 +22,14 @@ export function BreadcrumbNav({
   items,
   className,
   colorMode = "dark",
-  sectionTheme = "Ocean",
+  sectionTheme = "Bud",
 }: {
   items: BreadcrumbItem[];
   className?: string;
   colorMode?: "light" | "dark";
   sectionTheme?: string;
 }) {
-  const breadcrumbThemeColors = (breadcrumbTheme[sectionTheme] ?? breadcrumbTheme.Ocean)[colorMode];
+  const breadcrumbThemeColors = (breadcrumbTheme[sectionTheme] ?? breadcrumbTheme.Bud)[colorMode];
 
   return (
     <nav aria-label="Breadcrumb">

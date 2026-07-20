@@ -8,8 +8,8 @@ import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
 
 const containerClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutSliceSplit }) {

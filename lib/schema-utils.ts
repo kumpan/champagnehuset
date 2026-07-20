@@ -105,7 +105,9 @@ export function generateArticleSchema(doc: Content.ArticleDocument) {
     "@context": "https://schema.org",
     "@type": "Article",
     headline,
-    ...(doc.data.meta_description && { description: doc.data.meta_description }),
+    ...(doc.data.meta_description && {
+      description: doc.data.meta_description,
+    }),
     ...(imageUrl && { image: imageUrl }),
     ...(url && { mainEntityOfPage: { "@type": "WebPage", "@id": url } }),
     datePublished: doc.first_publication_date,

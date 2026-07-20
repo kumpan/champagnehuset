@@ -7,18 +7,18 @@ import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const iconContainerThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const descriptionThemeClasses = {
-  Ocean: "text-ink-dim",
-  Sunrise: "text-accent-ink-dim",
+  Bud: "text-ink-dim",
+  Dust: "text-accent-ink-dim",
 };
 
 export function ValueGrid({ slice }: ValueProps & { slice: Content.ValueSliceGrid }) {

@@ -11,8 +11,18 @@ export const mobileItemClass = "bg-fill-raised transition-colors duration-300 ea
 export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose: () => void }) {
   return (
     <m.ul
-      initial={{ height: 0, opacity: 0, marginBottom: "0rem", marginTop: "0rem" }}
-      animate={{ height: "auto", opacity: 1, marginBottom: "0.5rem", marginTop: "0.25rem" }}
+      initial={{
+        height: 0,
+        opacity: 0,
+        marginBottom: "0rem",
+        marginTop: "0rem",
+      }}
+      animate={{
+        height: "auto",
+        opacity: 1,
+        marginBottom: "0.5rem",
+        marginTop: "0.25rem",
+      }}
       exit={{ height: 0, opacity: 0, marginBottom: "0rem", marginTop: "0rem" }}
       transition={{ duration: 0.25, ease: "easeInOut" }}
       className="flex flex-col gap-1 overflow-hidden rounded-t-4 rounded-b-5 bg-fill-raised p-1"

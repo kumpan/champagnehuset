@@ -4,15 +4,13 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const themeClasses = {
-  Ocean:
-    "border-ink/80 bg-fill outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
-  Sunrise:
-    "border-accent-ink/80 bg-accent-fill outline-accent checked:border-accent checked:bg-accent hover:border-accent hover:outline-accent/30 focus-visible:border-accent focus-visible:outline-accent/30",
+  Bud: "border-ink/80 bg-fill outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
+  Dust: "border-accent-ink/80 bg-accent-fill outline-accent checked:border-accent checked:bg-accent hover:border-accent hover:outline-accent/30 focus-visible:border-accent focus-visible:outline-accent/30",
 };
 
 const iconThemeClasses = {
-  Ocean: "text-ink-flip",
-  Sunrise: "text-accent-ink-flip",
+  Bud: "text-ink-flip",
+  Dust: "text-accent-ink-flip",
 };
 
 type CheckboxProps = React.ComponentProps<"input"> & {
@@ -20,7 +18,7 @@ type CheckboxProps = React.ComponentProps<"input"> & {
 };
 [];
 
-function Checkbox({ className, sectionTheme = "Ocean", ...props }: CheckboxProps) {
+function Checkbox({ className, sectionTheme = "Bud", ...props }: CheckboxProps) {
   return (
     <span className="relative inline-flex shrink-0">
       <input

@@ -40,8 +40,8 @@ export function HeroBackdrop({ slice, context }: Props) {
             hasMedia && "min-h-128",
             !hasMedia &&
               {
-                Ocean: "bg-fill-raised text-ink-flip",
-                Sunrise: "bg-accent-fill-raised text-accent-ink-flip",
+                Bud: "bg-fill-raised text-ink-flip",
+                Dust: "bg-accent-fill-raised text-accent-ink-flip",
               }[section_theme],
             alignment ? "items-center" : "items-start",
           )}
@@ -55,7 +55,7 @@ export function HeroBackdrop({ slice, context }: Props) {
                     videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
                     className="h-full w-full"
                     preload
-                    sectionTheme={section_theme
+                    sectionTheme={section_theme}
                     thumbnail="horizontal md:main"
                   />
                 </div>

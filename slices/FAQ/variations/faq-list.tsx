@@ -9,8 +9,8 @@ import Accordion from "../Accordion";
 type Props = FAQProps & { slice: Content.FaqSliceList };
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised text-ink",
-  Sunrise: "bg-accent-fill-raised text-accent-ink",
+  Bud: "bg-fill-raised text-ink",
+  Dust: "bg-accent-fill-raised text-accent-ink",
 };
 
 export function FAQList({ slice }: Props) {

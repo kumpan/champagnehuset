@@ -9,8 +9,8 @@ import { Checkbox } from "./checkbox";
 import { Input } from "./input";
 import { Textarea } from "./textarea";
 
-type DynamicField = Content.TextSliceFormItem;
-type ConsentItem = Content.TextSliceFormPrimaryConsentItemsItem;
+type DynamicField = Content.ContactSliceFormItem;
+type ConsentItem = Content.ContactSliceFormPrimaryConsentItemsItem;
 
 type FormState = "initial" | "submitting" | "submitted" | "failed";
 
@@ -55,7 +55,7 @@ type Props = {
   fields?: DynamicField[];
   consentItems?: ConsentItem[];
   submit_button_text?: string | null;
-  success_message?: Content.TextSliceFormPrimary["success_message"];
+  success_message?: Content.ContactSliceFormPrimary["success_message"];
   children?: React.ReactNode;
 };
 
@@ -262,9 +262,14 @@ export default function ContactForm({
                     id={`consent-${i}`}
                     name={`consent-${i}`}
                     checked={consentValues[i] ?? false}
-                    onChange={(e) => setConsentValues((prev) => ({ ...prev, [i]: e.target.checked }))}
+                    onChange={(e) =>
+                      setConsentValues((prev) => ({
+                        ...prev,
+                        [i]: e.target.checked,
+                      }))
+                    }
                     aria-invalid={!!(submittedOnce && consentErrors[i])}
-                    sectionTheme={sectionTheme as "Ocean" | "Sunrise" | undefined}
+                    sectionTheme={sectionTheme as "Bud" | "Dust" | undefined}
                   />
                   <span>
                     {isFilled.richText(item.consent_text) ? <CustomRichText field={item.consent_text} /> : null}

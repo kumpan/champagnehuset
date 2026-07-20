@@ -7,23 +7,23 @@ import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const cardThemeClasses = {
-  Ocean: "bg-fill-raised text-ink",
-  Sunrise: "bg-accent-fill-raised text-accent-ink",
+  Bud: "bg-fill-raised text-ink",
+  Dust: "bg-accent-fill-raised text-accent-ink",
 };
 
 const iconContainerThemeClasses = {
-  Ocean: "bg-fill",
-  Sunrise: "bg-accent-fill",
+  Bud: "bg-fill",
+  Dust: "bg-accent-fill",
 };
 
 const descriptionThemeClasses = {
-  Ocean: "text-ink-dim",
-  Sunrise: "text-accent-ink-dim",
+  Bud: "text-ink-dim",
+  Dust: "text-accent-ink-dim",
 };
 
 export function ValueSplit({ slice }: ValueProps & { slice: Content.ValueSliceSplit }) {

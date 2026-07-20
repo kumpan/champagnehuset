@@ -11,23 +11,23 @@ import type { LinkProps } from "..";
 type Props = LinkProps & { slice: Content.LinkSliceGrid };
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const iconWrapperThemeClasses = {
-  Ocean: "bg-fill-raised/60 group-hover:bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised/60 group-hover:bg-accent-fill-raised",
+  Bud: "bg-fill-raised/60 group-hover:bg-fill-raised",
+  Dust: "bg-accent-fill-raised/60 group-hover:bg-accent-fill-raised",
 };
 
 const cardTitleWrapperThemeClasses = {
-  Ocean: "bg-brand text-brand-ink",
-  Sunrise: "bg-accent text-accent-ink-flip",
+  Bud: "bg-brand text-brand-ink",
+  Dust: "bg-accent text-accent-ink-flip",
 };
 
 const cardThemeClasses = {
-  Ocean: "bg-fill-raised outline-brand/0 hover:outline-brand",
-  Sunrise: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
+  Bud: "bg-fill-raised outline-brand/0 hover:outline-brand",
+  Dust: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
 };
 
 export function LinkGrid({ slice }: Props) {
@@ -46,7 +46,9 @@ export function LinkGrid({ slice }: Props) {
       itemSpan: (i) => cn(i === 4 && "md:col-span-2", i < 3 ? "lg:col-span-2" : "lg:col-span-3"),
     },
   };
-  const layout = layouts[cardsCount] ?? { grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" };
+  const layout = layouts[cardsCount] ?? {
+    grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+  };
 
   return (
     <Section

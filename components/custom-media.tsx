@@ -77,7 +77,7 @@ export default function CustomMedia({
   indexedDelay = false,
   index = 0,
   thumbnail,
-  sectionTheme,
+  sectionTheme = "Bud",
   filter,
 }: CustomMediaProps) {
   const [loaded, setLoaded] = useState(false);
@@ -85,16 +85,12 @@ export default function CustomMedia({
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const isActuallyVideo =
     videoSrc &&
-    (videoSrc.endsWith(".mp4") ||
-      videoSrc.endsWith(".webm") ||
-      videoSrc.endsWith(".mov") ||
-      videoSrc.endsWith(".avi"));
+    (videoSrc.endsWith(".mp4") || videoSrc.endsWith(".webm") || videoSrc.endsWith(".mov") || videoSrc.endsWith(".avi"));
 
   const getThumbnail = (name?: string) => {
     if (!imageField) return undefined;
     if (!name) return imageField;
-    const imageFieldWithThumbs = imageField as ImageFieldImage &
-      Record<string, ImageFieldImage>;
+    const imageFieldWithThumbs = imageField as ImageFieldImage & Record<string, ImageFieldImage>;
     const thumbnailImage = imageFieldWithThumbs[name];
     return thumbnailImage?.url ? thumbnailImage : imageField;
   };
@@ -108,13 +104,7 @@ export default function CustomMedia({
   const revealed = loaded && isInView;
 
   return (
-    <div
-      className={cn(
-        "relative overflow-hidden rounded-4 md:rounded-5",
-        className,
-      )}
-      ref={ref}
-    >
+    <div className={cn("relative overflow-hidden rounded-2", className)} ref={ref}>
       <m.div
         variants={blockVariants}
         initial="hidden"

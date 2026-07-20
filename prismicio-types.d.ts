@@ -70,16 +70,17 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type ArticleDocumentDataSlicesSlice =
-  | FaqSlice
-  | ValueSlice
-  | LinkSlice
-  | EmployeeSlice
-  | ProcessSlice
-  | TextSlice
+  | ArticleSlice
   | CalloutSlice
+  | ContactSlice
+  | FaqSlice
+  | FooterSlice
   | HeroSlice
-  | ImageStripSlice
-  | StatsSlice;
+  | ImageSlice
+  | LinkSlice
+  | ProductSlice
+  | TextSlice
+  | ValueSlice;
 
 /**
  * Content for Article documents
@@ -337,16 +338,17 @@ export type CookieBannerDocument<Lang extends string = string> =
   >;
 
 type EmployeeDocumentDataSlicesSlice =
-  | FaqSlice
-  | ValueSlice
-  | EmployeeSlice
-  | LinkSlice
-  | ProcessSlice
-  | StatsSlice
-  | TextSlice
-  | HeroSlice
+  | ArticleSlice
   | CalloutSlice
-  | ImageStripSlice;
+  | ContactSlice
+  | FaqSlice
+  | FooterSlice
+  | HeroSlice
+  | ImageSlice
+  | LinkSlice
+  | ProductSlice
+  | TextSlice
+  | ValueSlice;
 
 /**
  * Content for Employee documents
@@ -918,16 +920,17 @@ export type NavbarDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | FaqSlice
-  | LinkSlice
-  | EmployeeSlice
-  | ValueSlice
-  | ProcessSlice
-  | TextSlice
+  | ArticleSlice
   | CalloutSlice
+  | ContactSlice
+  | FaqSlice
+  | FooterSlice
   | HeroSlice
-  | ImageStripSlice
-  | StatsSlice;
+  | ImageSlice
+  | LinkSlice
+  | ProductSlice
+  | TextSlice
+  | ValueSlice;
 
 /**
  * Content for Page documents
@@ -1024,16 +1027,17 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ProducerDocumentDataSlicesSlice =
-  | FaqSlice
-  | ValueSlice
-  | LinkSlice
-  | EmployeeSlice
-  | ProcessSlice
-  | TextSlice
+  | ArticleSlice
   | CalloutSlice
+  | ContactSlice
+  | FaqSlice
+  | FooterSlice
   | HeroSlice
-  | ImageStripSlice
-  | StatsSlice;
+  | ImageSlice
+  | LinkSlice
+  | ProductSlice
+  | TextSlice
+  | ValueSlice;
 
 /**
  * Content for Producer documents
@@ -1184,16 +1188,17 @@ export type ProducerDocument<Lang extends string = string> =
   >;
 
 type ProductDocumentDataSlicesSlice =
-  | FaqSlice
-  | ValueSlice
-  | LinkSlice
-  | EmployeeSlice
-  | ProcessSlice
-  | TextSlice
+  | ArticleSlice
   | CalloutSlice
+  | ContactSlice
+  | FaqSlice
+  | FooterSlice
   | HeroSlice
-  | ImageStripSlice
-  | StatsSlice;
+  | ImageSlice
+  | LinkSlice
+  | ProductSlice
+  | TextSlice
+  | ValueSlice;
 
 /**
  * Content for Product documents
@@ -1453,6 +1458,463 @@ export type AllDocumentTypes =
   | RedirectDocument;
 
 /**
+ * Item in *Article → Feature → Primary → Overline*
+ */
+export interface ArticleSliceFeaturePrimaryOverlineItem {
+  /**
+   * Overline Icon field in *Article → Feature → Primary → Overline*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: article.feature.primary.overline[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
+
+  /**
+   * Overline Text field in *Article → Feature → Primary → Overline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.feature.primary.overline[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  overline_text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Article → List → Primary → Overline*
+ */
+export interface ArticleSliceListPrimaryOverlineItem {
+  /**
+   * Overline Icon field in *Article → List → Primary → Overline*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: article.list.primary.overline[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
+
+  /**
+   * Overline Text field in *Article → List → Primary → Overline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.overline[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  overline_text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Article → List → Primary → Button*
+ */
+export interface ArticleSliceListPrimaryButtonItem {
+  /**
+   * Link field in *Article → List → Primary → Button*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.button[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Left Icon field in *Article → List → Primary → Button*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: article.list.primary.button[].icon_left
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_left: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+
+  /**
+   * Right Icon field in *Article → List → Primary → Button*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: article.list.primary.button[].icon_right
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_right: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+}
+
+/**
+ * Item in *Article → List → Primary → Featured Articles*
+ */
+export interface ArticleSliceListPrimaryFeaturedArticlesItem {
+  /**
+   * Article field in *Article → List → Primary → Featured Articles*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.featured_articles[].article
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  article: ContentRelationshipFieldWithData<
+    [{ id: "article"; fields: ["page_title", "category"] }]
+  >;
+}
+
+/**
+ * Primary content in *Article → Feature → Primary*
+ */
+export interface ArticleSliceFeaturePrimary {
+  /**
+   * Remove Top Padding field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: article.feature.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: article.feature.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Overline field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.feature.primary.overline[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  overline: prismic.GroupField<
+    Simplify<ArticleSliceFeaturePrimaryOverlineItem>
+  >;
+
+  /**
+   * Title field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.feature.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.feature.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image Side field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: article.feature.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
+
+  /**
+   * Article field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.feature.primary.article
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  article: ContentRelationshipFieldWithData<
+    [{ id: "article"; fields: ["page_title", "category"] }]
+  >;
+
+  /**
+   * Link Label field in *Article → Feature → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Read article
+   * - **API ID Path**: article.feature.primary.link_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  link_label: prismic.KeyTextField;
+}
+
+/**
+ * Feature variation for Article Slice
+ *
+ * - **API ID**: `feature`
+ * - **Description**: Feature
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ArticleSliceFeature = prismic.SharedSliceVariation<
+  "feature",
+  Simplify<ArticleSliceFeaturePrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Article → List → Primary*
+ */
+export interface ArticleSliceListPrimary {
+  /**
+   * Remove Top Padding field in *Article → List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: article.list.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Article → List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: article.list.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Center Text field in *Article → List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: article.list.primary.alignment
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  alignment: prismic.BooleanField;
+
+  /**
+   * Overline field in *Article → List → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.overline[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  overline: prismic.GroupField<Simplify<ArticleSliceListPrimaryOverlineItem>>;
+
+  /**
+   * Title field in *Article → List → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Article → List → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button field in *Article → List → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.button[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  button: prismic.GroupField<Simplify<ArticleSliceListPrimaryButtonItem>>;
+
+  /**
+   * Featured Articles field in *Article → List → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.list.primary.featured_articles[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  featured_articles: prismic.GroupField<
+    Simplify<ArticleSliceListPrimaryFeaturedArticlesItem>
+  >;
+}
+
+/**
+ * List variation for Article Slice
+ *
+ * - **API ID**: `list`
+ * - **Description**: List
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ArticleSliceList = prismic.SharedSliceVariation<
+  "list",
+  Simplify<ArticleSliceListPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Article*
+ */
+type ArticleSliceVariation = ArticleSliceFeature | ArticleSliceList;
+
+/**
+ * Article Shared Slice
+ *
+ * - **API ID**: `article`
+ * - **Description**: Article
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ArticleSlice = prismic.SharedSlice<
+  "article",
+  ArticleSliceVariation
+>;
+
+/**
  * Item in *Callout → Split → Primary → Overline*
  */
 export interface CalloutSliceSplitPrimaryOverlineItem {
@@ -1655,16 +2117,16 @@ export interface CalloutSliceSplitPrimaryMediaItem {
 }
 
 /**
- * Item in *Callout → Float → Primary → Overline*
+ * Item in *Callout → Backdrop → Primary → Overline*
  */
-export interface CalloutSliceFloatPrimaryOverlineItem {
+export interface CalloutSliceBackdropPrimaryOverlineItem {
   /**
-   * Overline Icon field in *Callout → Float → Primary → Overline*
+   * Overline Icon field in *Callout → Backdrop → Primary → Overline*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: callout.float.primary.overline[].overline_icon
+   * - **API ID Path**: callout.backdrop.primary.overline[].overline_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   overline_icon: prismic.SelectField<
@@ -1708,37 +2170,37 @@ export interface CalloutSliceFloatPrimaryOverlineItem {
   >;
 
   /**
-   * Overline Text field in *Callout → Float → Primary → Overline*
+   * Overline Text field in *Callout → Backdrop → Primary → Overline*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.overline[].overline_text
+   * - **API ID Path**: callout.backdrop.primary.overline[].overline_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   overline_text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Callout → Float → Primary → Buttons*
+ * Item in *Callout → Backdrop → Primary → Buttons*
  */
-export interface CalloutSliceFloatPrimaryButtonsItem {
+export interface CalloutSliceBackdropPrimaryButtonsItem {
   /**
-   * Link field in *Callout → Float → Primary → Buttons*
+   * Link field in *Callout → Backdrop → Primary → Buttons*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.buttons[].link
+   * - **API ID Path**: callout.backdrop.primary.buttons[].link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Variant field in *Callout → Float → Primary → Buttons*
+   * Variant field in *Callout → Backdrop → Primary → Buttons*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: default
-   * - **API ID Path**: callout.float.primary.buttons[].variant
+   * - **API ID Path**: callout.backdrop.primary.buttons[].variant
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   variant: prismic.SelectField<
@@ -1747,12 +2209,12 @@ export interface CalloutSliceFloatPrimaryButtonsItem {
   >;
 
   /**
-   * Left Icon field in *Callout → Float → Primary → Buttons*
+   * Left Icon field in *Callout → Backdrop → Primary → Buttons*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: callout.float.primary.buttons[].icon_left
+   * - **API ID Path**: callout.backdrop.primary.buttons[].icon_left
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon_left: prismic.SelectField<
@@ -1783,12 +2245,12 @@ export interface CalloutSliceFloatPrimaryButtonsItem {
   >;
 
   /**
-   * Right Icon field in *Callout → Float → Primary → Buttons*
+   * Right Icon field in *Callout → Backdrop → Primary → Buttons*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: callout.float.primary.buttons[].icon_right
+   * - **API ID Path**: callout.backdrop.primary.buttons[].icon_right
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon_right: prismic.SelectField<
@@ -1820,15 +2282,15 @@ export interface CalloutSliceFloatPrimaryButtonsItem {
 }
 
 /**
- * Item in *Callout → Float → Primary → Media*
+ * Item in *Callout → Backdrop → Primary → Media*
  */
-export interface CalloutSliceFloatPrimaryMediaItem {
+export interface CalloutSliceBackdropPrimaryMediaItem {
   /**
-   * Filter field in *Callout → Float → Primary → Media*
+   * Filter field in *Callout → Backdrop → Primary → Media*
    *
    * - **Field Type**: Select
    * - **Placeholder**: No Filter
-   * - **API ID Path**: callout.float.primary.media[].filter
+   * - **API ID Path**: callout.backdrop.primary.media[].filter
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   filter: prismic.SelectField<
@@ -1836,37 +2298,37 @@ export interface CalloutSliceFloatPrimaryMediaItem {
   >;
 
   /**
-   * Image field in *Callout → Float → Primary → Media*
+   * Image field in *Callout → Backdrop → Primary → Media*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.media[].image
+   * - **API ID Path**: callout.backdrop.primary.media[].image
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  image: prismic.ImageField<"vertical" | "square">;
+  image: prismic.ImageField<never>;
 
   /**
-   * Video field in *Callout → Float → Primary → Media*
+   * Video field in *Callout → Backdrop → Primary → Media*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: Choose Video from the Media Library
-   * - **API ID Path**: callout.float.primary.media[].video
+   * - **API ID Path**: callout.backdrop.primary.media[].video
    * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
   video: prismic.LinkToMediaField<prismic.FieldState, never>;
 }
 
 /**
- * Item in *Callout → Form → Primary → Overline*
+ * Item in *Callout → Card → Primary → Overline*
  */
-export interface CalloutSliceFormPrimaryOverlineItem {
+export interface CalloutSliceCardPrimaryOverlineItem {
   /**
-   * Overline Icon field in *Callout → Form → Primary → Overline*
+   * Overline Icon field in *Callout → Card → Primary → Overline*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: callout.form.primary.overline[].overline_icon
+   * - **API ID Path**: callout.card.primary.overline[].overline_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   overline_icon: prismic.SelectField<
@@ -1910,30 +2372,169 @@ export interface CalloutSliceFormPrimaryOverlineItem {
   >;
 
   /**
-   * Overline Text field in *Callout → Form → Primary → Overline*
+   * Overline Text field in *Callout → Card → Primary → Overline*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.form.primary.overline[].overline_text
+   * - **API ID Path**: callout.card.primary.overline[].overline_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   overline_text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Callout → Form → Primary → Value Statements*
+ * Item in *Callout → Card → Primary → Buttons*
  */
-export interface CalloutSliceFormPrimaryValueStatementsItem {
+export interface CalloutSliceCardPrimaryButtonsItem {
   /**
-   * Icon field in *Callout → Form → Primary → Value Statements*
+   * Link field in *Callout → Card → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.card.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Callout → Card → Primary → Buttons*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: clock
-   * - **API ID Path**: callout.form.primary.value_statements[].icon
+   * - **Default Value**: default
+   * - **API ID Path**: callout.card.primary.buttons[].variant
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  icon: prismic.SelectField<
+  variant: prismic.SelectField<
+    "default" | "secondary" | "outline" | "ghost",
+    "filled"
+  >;
+
+  /**
+   * Left Icon field in *Callout → Card → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.card.primary.buttons[].icon_left
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_left: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+
+  /**
+   * Right Icon field in *Callout → Card → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.card.primary.buttons[].icon_right
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_right: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+}
+
+/**
+ * Item in *Callout → Card → Primary → Media*
+ */
+export interface CalloutSliceCardPrimaryMediaItem {
+  /**
+   * Filter field in *Callout → Card → Primary → Media*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: No Filter
+   * - **API ID Path**: callout.card.primary.media[].filter
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  filter: prismic.SelectField<
+    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
+  >;
+
+  /**
+   * Image field in *Callout → Card → Primary → Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.card.primary.media[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Callout → Card → Primary → Media*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: Choose Video from the Media Library
+   * - **API ID Path**: callout.card.primary.media[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Callout → Contact → Primary → Overline*
+ */
+export interface CalloutSliceContactPrimaryOverlineItem {
+  /**
+   * Overline Icon field in *Callout → Contact → Primary → Overline*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.contact.primary.overline[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  overline_icon: prismic.SelectField<
+    | "none"
     | "atSign"
     | "badgeCheck"
     | "badgeInfo"
@@ -1973,40 +2574,438 @@ export interface CalloutSliceFormPrimaryValueStatementsItem {
   >;
 
   /**
-   * Text field in *Callout → Form → Primary → Value Statements*
+   * Overline Text field in *Callout → Contact → Primary → Overline*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: e.g. Deep Technical Knowledge
-   * - **API ID Path**: callout.form.primary.value_statements[].text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.overline[].overline_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  text: prismic.KeyTextField;
+  overline_text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Callout → Form → Primary → Consent Items*
+ * Item in *Callout → Contact → Primary → Buttons*
  */
-export interface CalloutSliceFormPrimaryConsentItemsItem {
+export interface CalloutSliceContactPrimaryButtonsItem {
   /**
-   * Consent Text field in *Callout → Form → Primary → Consent Items*
+   * Link field in *Callout → Contact → Primary → Buttons*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: I accept the privacy policy
-   * - **API ID Path**: callout.form.primary.consent_items[].consent_text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  consent_text: prismic.RichTextField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Required field in *Callout → Form → Primary → Consent Items*
+   * Variant field in *Callout → Contact → Primary → Buttons*
    *
-   * - **Field Type**: Boolean
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: callout.form.primary.consent_items[].consent_required
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   * - **Default Value**: default
+   * - **API ID Path**: callout.contact.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  consent_required: prismic.BooleanField;
+  variant: prismic.SelectField<
+    "default" | "secondary" | "outline" | "ghost",
+    "filled"
+  >;
+
+  /**
+   * Left Icon field in *Callout → Contact → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.contact.primary.buttons[].icon_left
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_left: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+
+  /**
+   * Right Icon field in *Callout → Contact → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.contact.primary.buttons[].icon_right
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_right: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+}
+
+/**
+ * Item in *Callout → Contact → Primary → Contact Items*
+ */
+export interface CalloutSliceContactPrimaryContactItemsItem {
+  /**
+   * Overline Icon field in *Callout → Contact → Primary → Contact Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.contact.primary.contact_items[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
+
+  /**
+   * Label field in *Callout → Contact → Primary → Contact Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.contact_items[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Value field in *Callout → Contact → Primary → Contact Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.contact_items[].value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  value: prismic.KeyTextField;
+
+  /**
+   * Link field in *Callout → Contact → Primary → Contact Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. tel:+4612345678 or mailto:hello@example.com
+   * - **API ID Path**: callout.contact.primary.contact_items[].link
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  link: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Callout → Details → Primary → Overline*
+ */
+export interface CalloutSliceDetailsPrimaryOverlineItem {
+  /**
+   * Overline Icon field in *Callout → Details → Primary → Overline*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.details.primary.overline[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
+
+  /**
+   * Overline Text field in *Callout → Details → Primary → Overline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.overline[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  overline_text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Callout → Details → Primary → Buttons*
+ */
+export interface CalloutSliceDetailsPrimaryButtonsItem {
+  /**
+   * Link field in *Callout → Details → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Callout → Details → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: default
+   * - **API ID Path**: callout.details.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<
+    "default" | "secondary" | "outline" | "ghost",
+    "filled"
+  >;
+
+  /**
+   * Left Icon field in *Callout → Details → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.details.primary.buttons[].icon_left
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_left: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+
+  /**
+   * Right Icon field in *Callout → Details → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.details.primary.buttons[].icon_right
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_right: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+}
+
+/**
+ * Item in *Callout → Details → Primary → Details*
+ */
+export interface CalloutSliceDetailsPrimaryDetailsItem {
+  /**
+   * Overline Icon field in *Callout → Details → Primary → Details*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: callout.details.primary.details[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
+
+  /**
+   * Overline Text field in *Callout → Details → Primary → Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.details[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  overline_text: prismic.KeyTextField;
+
+  /**
+   * Rich Text field in *Callout → Details → Primary → Details*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.details[].rich_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  rich_text: prismic.RichTextField;
 }
 
 /**
@@ -2029,11 +3028,11 @@ export interface CalloutSliceSplitPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: callout.split.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *Callout → Split → Primary*
@@ -2122,301 +3121,393 @@ export type CalloutSliceSplit = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Callout → Float → Primary*
+ * Primary content in *Callout → Backdrop → Primary*
  */
-export interface CalloutSliceFloatPrimary {
+export interface CalloutSliceBackdropPrimary {
   /**
-   * Remove Top Padding field in *Callout → Float → Primary*
+   * Remove Top Padding field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: false
-   * - **API ID Path**: callout.float.primary.remove_top_padding
+   * - **API ID Path**: callout.backdrop.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *Callout → Float → Primary*
+   * Section Theme field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: callout.float.primary.section_theme
+   * - **Default Value**: Bud
+   * - **API ID Path**: callout.backdrop.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
-   * Image Size field in *Callout → Float → Primary*
+   * Center Text field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: true
-   * - **API ID Path**: callout.float.primary.image_size
+   * - **API ID Path**: callout.backdrop.primary.alignment
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  image_size: prismic.BooleanField;
+  alignment: prismic.BooleanField;
 
   /**
-   * Image Side field in *Callout → Float → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: callout.float.primary.image_side
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  image_side: prismic.BooleanField;
-
-  /**
-   * Overline field in *Callout → Float → Primary*
+   * Overline field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.overline[]
+   * - **API ID Path**: callout.backdrop.primary.overline[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  overline: prismic.GroupField<Simplify<CalloutSliceFloatPrimaryOverlineItem>>;
+  overline: prismic.GroupField<
+    Simplify<CalloutSliceBackdropPrimaryOverlineItem>
+  >;
 
   /**
-   * Title field in *Callout → Float → Primary*
+   * Title field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.title
+   * - **API ID Path**: callout.backdrop.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Callout → Float → Primary*
+   * Description field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.description
+   * - **API ID Path**: callout.backdrop.primary.description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
 
   /**
-   * Buttons field in *Callout → Float → Primary*
+   * Buttons field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.buttons[]
+   * - **API ID Path**: callout.backdrop.primary.buttons[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  buttons: prismic.GroupField<Simplify<CalloutSliceFloatPrimaryButtonsItem>>;
+  buttons: prismic.GroupField<Simplify<CalloutSliceBackdropPrimaryButtonsItem>>;
 
   /**
-   * Media field in *Callout → Float → Primary*
+   * Media field in *Callout → Backdrop → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.float.primary.media[]
+   * - **API ID Path**: callout.backdrop.primary.media[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  media: prismic.GroupField<Simplify<CalloutSliceFloatPrimaryMediaItem>>;
+  media: prismic.GroupField<Simplify<CalloutSliceBackdropPrimaryMediaItem>>;
 }
 
 /**
- * Float variation for Callout Slice
+ * Backdrop variation for Callout Slice
  *
- * - **API ID**: `float`
- * - **Description**: Float
+ * - **API ID**: `backdrop`
+ * - **Description**: Backdrop
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type CalloutSliceFloat = prismic.SharedSliceVariation<
-  "float",
-  Simplify<CalloutSliceFloatPrimary>,
+export type CalloutSliceBackdrop = prismic.SharedSliceVariation<
+  "backdrop",
+  Simplify<CalloutSliceBackdropPrimary>,
   never
 >;
 
 /**
- * Primary content in *Callout → Form → Primary*
+ * Primary content in *Callout → Card → Primary*
  */
-export interface CalloutSliceFormPrimary {
+export interface CalloutSliceCardPrimary {
   /**
-   * Remove Top Padding field in *Callout → Form → Primary*
+   * Remove Top Padding field in *Callout → Card → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: false
-   * - **API ID Path**: callout.form.primary.remove_top_padding
+   * - **API ID Path**: callout.card.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *Callout → Form → Primary*
+   * Section Theme field in *Callout → Card → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: callout.form.primary.section_theme
+   * - **Default Value**: Bud
+   * - **API ID Path**: callout.card.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
-   * Form Side field in *Callout → Form → Primary*
+   * Center Text field in *Callout → Card → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: callout.form.primary.form_side
+   * - **Default Value**: true
+   * - **API ID Path**: callout.card.primary.alignment
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  form_side: prismic.BooleanField;
+  alignment: prismic.BooleanField;
 
   /**
-   * Overline field in *Callout → Form → Primary*
+   * Overline field in *Callout → Card → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.form.primary.overline[]
+   * - **API ID Path**: callout.card.primary.overline[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  overline: prismic.GroupField<Simplify<CalloutSliceFormPrimaryOverlineItem>>;
+  overline: prismic.GroupField<Simplify<CalloutSliceCardPrimaryOverlineItem>>;
 
   /**
-   * Title field in *Callout → Form → Primary*
+   * Title field in *Callout → Card → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.form.primary.title
+   * - **API ID Path**: callout.card.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Callout → Form → Primary*
+   * Description field in *Callout → Card → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.form.primary.description
+   * - **API ID Path**: callout.card.primary.description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
 
   /**
-   * Value Statements field in *Callout → Form → Primary*
+   * Buttons field in *Callout → Card → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.form.primary.value_statements[]
+   * - **API ID Path**: callout.card.primary.buttons[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  value_statements: prismic.GroupField<
-    Simplify<CalloutSliceFormPrimaryValueStatementsItem>
-  >;
+  buttons: prismic.GroupField<Simplify<CalloutSliceCardPrimaryButtonsItem>>;
 
   /**
-   * Submit Button Text field in *Callout → Form → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Send message
-   * - **API ID Path**: callout.form.primary.submit_button_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  submit_button_text: prismic.KeyTextField;
-
-  /**
-   * Success Message field in *Callout → Form → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Thanks for your message!
-   * - **API ID Path**: callout.form.primary.success_message
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  success_message: prismic.RichTextField;
-
-  /**
-   * Consent Items field in *Callout → Form → Primary*
+   * Media field in *Callout → Card → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: callout.form.primary.consent_items[]
+   * - **API ID Path**: callout.card.primary.media[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  consent_items: prismic.GroupField<
-    Simplify<CalloutSliceFormPrimaryConsentItemsItem>
-  >;
+  media: prismic.GroupField<Simplify<CalloutSliceCardPrimaryMediaItem>>;
 }
 
 /**
- * Primary content in *Callout → Items*
- */
-export interface CalloutSliceFormItem {
-  /**
-   * Field Type field in *Callout → Items*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Select field type
-   * - **Default Value**: text
-   * - **API ID Path**: callout.items[].field_type
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  field_type: prismic.SelectField<
-    "name" | "email" | "phone" | "text" | "textarea",
-    "filled"
-  >;
-
-  /**
-   * Field Label field in *Callout → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g. Name, Email, Message
-   * - **API ID Path**: callout.items[].field_label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  field_label: prismic.KeyTextField;
-
-  /**
-   * Placeholder field in *Callout → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g. Enter your name
-   * - **API ID Path**: callout.items[].field_placeholder
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  field_placeholder: prismic.KeyTextField;
-
-  /**
-   * Required field in *Callout → Items*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: callout.items[].field_required
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  field_required: prismic.BooleanField;
-
-  /**
-   * Start New Row field in *Callout → Items*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: callout.items[].new_row
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  new_row: prismic.BooleanField;
-}
-
-/**
- * Form variation for Callout Slice
+ * Card variation for Callout Slice
  *
- * - **API ID**: `form`
- * - **Description**: Form
+ * - **API ID**: `card`
+ * - **Description**: Card
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type CalloutSliceForm = prismic.SharedSliceVariation<
-  "form",
-  Simplify<CalloutSliceFormPrimary>,
-  Simplify<CalloutSliceFormItem>
+export type CalloutSliceCard = prismic.SharedSliceVariation<
+  "card",
+  Simplify<CalloutSliceCardPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Callout → Contact → Primary*
+ */
+export interface CalloutSliceContactPrimary {
+  /**
+   * Remove Top Padding field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: callout.contact.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: callout.contact.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Overline field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.overline[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  overline: prismic.GroupField<
+    Simplify<CalloutSliceContactPrimaryOverlineItem>
+  >;
+
+  /**
+   * Title field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Buttons field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<Simplify<CalloutSliceContactPrimaryButtonsItem>>;
+
+  /**
+   * Contact Items field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.contact_items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  contact_items: prismic.GroupField<
+    Simplify<CalloutSliceContactPrimaryContactItemsItem>
+  >;
+}
+
+/**
+ * Contact variation for Callout Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CalloutSliceContact = prismic.SharedSliceVariation<
+  "contact",
+  Simplify<CalloutSliceContactPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Callout → Details → Primary*
+ */
+export interface CalloutSliceDetailsPrimary {
+  /**
+   * Remove Top Padding field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: callout.details.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: callout.details.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Overline field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.overline[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  overline: prismic.GroupField<
+    Simplify<CalloutSliceDetailsPrimaryOverlineItem>
+  >;
+
+  /**
+   * Title field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Buttons field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<Simplify<CalloutSliceDetailsPrimaryButtonsItem>>;
+
+  /**
+   * Details field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.details[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  details: prismic.GroupField<Simplify<CalloutSliceDetailsPrimaryDetailsItem>>;
+}
+
+/**
+ * Details variation for Callout Slice
+ *
+ * - **API ID**: `details`
+ * - **Description**: Details
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CalloutSliceDetails = prismic.SharedSliceVariation<
+  "details",
+  Simplify<CalloutSliceDetailsPrimary>,
+  never
 >;
 
 /**
@@ -2424,8 +3515,10 @@ export type CalloutSliceForm = prismic.SharedSliceVariation<
  */
 type CalloutSliceVariation =
   | CalloutSliceSplit
-  | CalloutSliceFloat
-  | CalloutSliceForm;
+  | CalloutSliceBackdrop
+  | CalloutSliceCard
+  | CalloutSliceContact
+  | CalloutSliceDetails;
 
 /**
  * Callout Shared Slice
@@ -2440,16 +3533,16 @@ export type CalloutSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Employee → Marquee → Primary → Overline*
+ * Item in *Contact → Form → Primary → Overline*
  */
-export interface EmployeeSliceMarqueePrimaryOverlineItem {
+export interface ContactSliceFormPrimaryOverlineItem {
   /**
-   * Overline Icon field in *Employee → Marquee → Primary → Overline*
+   * Overline Icon field in *Contact → Form → Primary → Overline*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: employee.marquee.primary.overline[].overline_icon
+   * - **API ID Path**: contact.form.primary.overline[].overline_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   overline_icon: prismic.SelectField<
@@ -2493,114 +3586,116 @@ export interface EmployeeSliceMarqueePrimaryOverlineItem {
   >;
 
   /**
-   * Overline Text field in *Employee → Marquee → Primary → Overline*
+   * Overline Text field in *Contact → Form → Primary → Overline*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.marquee.primary.overline[].overline_text
+   * - **API ID Path**: contact.form.primary.overline[].overline_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   overline_text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Employee → Marquee → Primary → Button*
+ * Item in *Contact → Form → Primary → Value Statements*
  */
-export interface EmployeeSliceMarqueePrimaryButtonItem {
+export interface ContactSliceFormPrimaryValueStatementsItem {
   /**
-   * Link field in *Employee → Marquee → Primary → Button*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: employee.marquee.primary.button[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Left Icon field in *Employee → Marquee → Primary → Button*
+   * Icon field in *Contact → Form → Primary → Value Statements*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: employee.marquee.primary.button[].icon_left
+   * - **Default Value**: clock
+   * - **API ID Path**: contact.form.primary.value_statements[].icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  icon_left: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
+  icon: prismic.SelectField<
     | "atSign"
     | "badgeCheck"
     | "badgeInfo"
     | "bookOpenCheck"
     | "briefcaseBusiness"
     | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
+    | "circleGauge"
     | "circleStar"
-    | "clipboardCheck"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
     | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
     | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
     | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
     "filled"
   >;
 
   /**
-   * Right Icon field in *Employee → Marquee → Primary → Button*
+   * Text field in *Contact → Form → Primary → Value Statements*
    *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: employee.marquee.primary.button[].icon_right
-   * - **Documentation**: https://prismic.io/docs/fields/select
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. Deep Technical Knowledge
+   * - **API ID Path**: contact.form.primary.value_statements[].text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  icon_right: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
+  text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Employee → List → Primary → Overline*
+ * Item in *Contact → Form → Primary → Consent Items*
  */
-export interface EmployeeSliceListPrimaryOverlineItem {
+export interface ContactSliceFormPrimaryConsentItemsItem {
   /**
-   * Overline Icon field in *Employee → List → Primary → Overline*
+   * Consent Text field in *Contact → Form → Primary → Consent Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: I accept the privacy policy
+   * - **API ID Path**: contact.form.primary.consent_items[].consent_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  consent_text: prismic.RichTextField;
+
+  /**
+   * Required field in *Contact → Form → Primary → Consent Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.form.primary.consent_items[].consent_required
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  consent_required: prismic.BooleanField;
+}
+
+/**
+ * Item in *Contact → People → Primary → Overline*
+ */
+export interface ContactSlicePeoplePrimaryOverlineItem {
+  /**
+   * Overline Icon field in *Contact → People → Primary → Overline*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: employee.list.primary.overline[].overline_icon
+   * - **API ID Path**: contact.people.primary.overline[].overline_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   overline_icon: prismic.SelectField<
@@ -2644,37 +3739,37 @@ export interface EmployeeSliceListPrimaryOverlineItem {
   >;
 
   /**
-   * Overline Text field in *Employee → List → Primary → Overline*
+   * Overline Text field in *Contact → People → Primary → Overline*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.overline[].overline_text
+   * - **API ID Path**: contact.people.primary.overline[].overline_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   overline_text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Employee → List → Primary → Button*
+ * Item in *Contact → People → Primary → Button*
  */
-export interface EmployeeSliceListPrimaryButtonItem {
+export interface ContactSlicePeoplePrimaryButtonItem {
   /**
-   * Link field in *Employee → List → Primary → Button*
+   * Link field in *Contact → People → Primary → Button*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.button[].link
+   * - **API ID Path**: contact.people.primary.button[].link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Left Icon field in *Employee → List → Primary → Button*
+   * Left Icon field in *Contact → People → Primary → Button*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: employee.list.primary.button[].icon_left
+   * - **API ID Path**: contact.people.primary.button[].icon_left
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon_left: prismic.SelectField<
@@ -2705,12 +3800,12 @@ export interface EmployeeSliceListPrimaryButtonItem {
   >;
 
   /**
-   * Right Icon field in *Employee → List → Primary → Button*
+   * Right Icon field in *Contact → People → Primary → Button*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: employee.list.primary.button[].icon_right
+   * - **API ID Path**: contact.people.primary.button[].icon_right
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon_right: prismic.SelectField<
@@ -2742,15 +3837,15 @@ export interface EmployeeSliceListPrimaryButtonItem {
 }
 
 /**
- * Item in *Employee → List → Primary → Featured Employees*
+ * Item in *Contact → People → Primary → Featured Employees*
  */
-export interface EmployeeSliceListPrimaryFeaturedEmployeesItem {
+export interface ContactSlicePeoplePrimaryFeaturedEmployeesItem {
   /**
-   * Employee field in *Employee → List → Primary → Featured Employees*
+   * Employee field in *Contact → People → Primary → Featured Employees*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.featured_employees[].employee
+   * - **API ID Path**: contact.people.primary.featured_employees[].employee
    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
   employee: ContentRelationshipFieldWithData<
@@ -2759,216 +3854,567 @@ export interface EmployeeSliceListPrimaryFeaturedEmployeesItem {
 }
 
 /**
- * Primary content in *Employee → Marquee → Primary*
+ * Item in *Contact → Register → Primary → Overline*
  */
-export interface EmployeeSliceMarqueePrimary {
+export interface ContactSliceRegisterPrimaryOverlineItem {
   /**
-   * Remove Top Padding field in *Employee → Marquee → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: employee.marquee.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Employee → Marquee → Primary*
+   * Overline Icon field in *Contact → Register → Primary → Overline*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: employee.marquee.primary.section_theme
+   * - **Default Value**: none
+   * - **API ID Path**: contact.register.primary.overline[].overline_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Center Text field in *Employee → Marquee → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: employee.marquee.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  alignment: prismic.BooleanField;
-
-  /**
-   * Overline field in *Employee → Marquee → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: employee.marquee.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<
-    Simplify<EmployeeSliceMarqueePrimaryOverlineItem>
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
   >;
 
   /**
-   * Title field in *Employee → Marquee → Primary*
+   * Overline Text field in *Contact → Register → Primary → Overline*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.marquee.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **API ID Path**: contact.register.primary.overline[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Employee → Marquee → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: employee.marquee.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Button field in *Employee → Marquee → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: employee.marquee.primary.button[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  button: prismic.GroupField<Simplify<EmployeeSliceMarqueePrimaryButtonItem>>;
+  overline_text: prismic.KeyTextField;
 }
 
 /**
- * Marquee variation for Employee Slice
- *
- * - **API ID**: `marquee`
- * - **Description**: Marquee
- * - **Documentation**: https://prismic.io/docs/slices
+ * Item in *Contact → Register → Primary → Consent Items*
  */
-export type EmployeeSliceMarquee = prismic.SharedSliceVariation<
-  "marquee",
-  Simplify<EmployeeSliceMarqueePrimary>,
-  never
->;
+export interface ContactSliceRegisterPrimaryConsentItemsItem {
+  /**
+   * Consent Text field in *Contact → Register → Primary → Consent Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: I accept the privacy policy
+   * - **API ID Path**: contact.register.primary.consent_items[].consent_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  consent_text: prismic.RichTextField;
+
+  /**
+   * Required field in *Contact → Register → Primary → Consent Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.register.primary.consent_items[].consent_required
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  consent_required: prismic.BooleanField;
+}
 
 /**
- * Primary content in *Employee → List → Primary*
+ * Primary content in *Contact → Form → Primary*
  */
-export interface EmployeeSliceListPrimary {
+export interface ContactSliceFormPrimary {
   /**
-   * Remove Top Padding field in *Employee → List → Primary*
+   * Remove Top Padding field in *Contact → Form → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: false
-   * - **API ID Path**: employee.list.primary.remove_top_padding
+   * - **API ID Path**: contact.form.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *Employee → List → Primary*
+   * Section Theme field in *Contact → Form → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: employee.list.primary.section_theme
+   * - **Default Value**: Bud
+   * - **API ID Path**: contact.form.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
-   * Center Text field in *Employee → List → Primary*
+   * Form Side field in *Contact → Form → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: employee.list.primary.alignment
+   * - **Default Value**: false
+   * - **API ID Path**: contact.form.primary.form_side
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  alignment: prismic.BooleanField;
+  form_side: prismic.BooleanField;
 
   /**
-   * Overline field in *Employee → List → Primary*
+   * Overline field in *Contact → Form → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.overline[]
+   * - **API ID Path**: contact.form.primary.overline[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  overline: prismic.GroupField<Simplify<EmployeeSliceListPrimaryOverlineItem>>;
+  overline: prismic.GroupField<Simplify<ContactSliceFormPrimaryOverlineItem>>;
 
   /**
-   * Title field in *Employee → List → Primary*
+   * Title field in *Contact → Form → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.title
+   * - **API ID Path**: contact.form.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Employee → List → Primary*
+   * Description field in *Contact → Form → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.description
+   * - **API ID Path**: contact.form.primary.description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
 
   /**
-   * Button field in *Employee → List → Primary*
+   * Value Statements field in *Contact → Form → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.button[]
+   * - **API ID Path**: contact.form.primary.value_statements[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  button: prismic.GroupField<Simplify<EmployeeSliceListPrimaryButtonItem>>;
+  value_statements: prismic.GroupField<
+    Simplify<ContactSliceFormPrimaryValueStatementsItem>
+  >;
 
   /**
-   * Featured Employees field in *Employee → List → Primary*
+   * Submit Button Text field in *Contact → Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Send message
+   * - **API ID Path**: contact.form.primary.submit_button_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  submit_button_text: prismic.KeyTextField;
+
+  /**
+   * Success Message field in *Contact → Form → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Thanks for your message!
+   * - **API ID Path**: contact.form.primary.success_message
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  success_message: prismic.RichTextField;
+
+  /**
+   * Consent Items field in *Contact → Form → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: employee.list.primary.featured_employees[]
+   * - **API ID Path**: contact.form.primary.consent_items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  consent_items: prismic.GroupField<
+    Simplify<ContactSliceFormPrimaryConsentItemsItem>
+  >;
+}
+
+/**
+ * Primary content in *Contact → Items*
+ */
+export interface ContactSliceFormItem {
+  /**
+   * Field Type field in *Contact → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select field type
+   * - **Default Value**: text
+   * - **API ID Path**: contact.items[].field_type
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  field_type: prismic.SelectField<
+    "name" | "email" | "phone" | "text" | "textarea",
+    "filled"
+  >;
+
+  /**
+   * Field Label field in *Contact → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. Name, Email, Message
+   * - **API ID Path**: contact.items[].field_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field_label: prismic.KeyTextField;
+
+  /**
+   * Placeholder field in *Contact → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. Enter your name
+   * - **API ID Path**: contact.items[].field_placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field_placeholder: prismic.KeyTextField;
+
+  /**
+   * Required field in *Contact → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.items[].field_required
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  field_required: prismic.BooleanField;
+
+  /**
+   * Start New Row field in *Contact → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.items[].new_row
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  new_row: prismic.BooleanField;
+}
+
+/**
+ * Form variation for Contact Slice
+ *
+ * - **API ID**: `form`
+ * - **Description**: Form
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSliceForm = prismic.SharedSliceVariation<
+  "form",
+  Simplify<ContactSliceFormPrimary>,
+  Simplify<ContactSliceFormItem>
+>;
+
+/**
+ * Primary content in *Contact → People → Primary*
+ */
+export interface ContactSlicePeoplePrimary {
+  /**
+   * Remove Top Padding field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: contact.people.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: contact.people.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Center Text field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.people.primary.alignment
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  alignment: prismic.BooleanField;
+
+  /**
+   * Overline field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.people.primary.overline[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  overline: prismic.GroupField<Simplify<ContactSlicePeoplePrimaryOverlineItem>>;
+
+  /**
+   * Title field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.people.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.people.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.people.primary.button[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  button: prismic.GroupField<Simplify<ContactSlicePeoplePrimaryButtonItem>>;
+
+  /**
+   * Featured Employees field in *Contact → People → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.people.primary.featured_employees[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   featured_employees: prismic.GroupField<
-    Simplify<EmployeeSliceListPrimaryFeaturedEmployeesItem>
+    Simplify<ContactSlicePeoplePrimaryFeaturedEmployeesItem>
   >;
 }
 
 /**
- * List variation for Employee Slice
+ * People variation for Contact Slice
  *
- * - **API ID**: `list`
- * - **Description**: List
+ * - **API ID**: `people`
+ * - **Description**: People
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type EmployeeSliceList = prismic.SharedSliceVariation<
-  "list",
-  Simplify<EmployeeSliceListPrimary>,
+export type ContactSlicePeople = prismic.SharedSliceVariation<
+  "people",
+  Simplify<ContactSlicePeoplePrimary>,
   never
 >;
 
 /**
- * Slice variation for *Employee*
+ * Primary content in *Contact → Register → Primary*
  */
-type EmployeeSliceVariation = EmployeeSliceMarquee | EmployeeSliceList;
+export interface ContactSliceRegisterPrimary {
+  /**
+   * Remove Top Padding field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: contact.register.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: contact.register.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Overline field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.register.primary.overline[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  overline: prismic.GroupField<
+    Simplify<ContactSliceRegisterPrimaryOverlineItem>
+  >;
+
+  /**
+   * Title field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.register.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.register.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Submit Button Text field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Send message
+   * - **API ID Path**: contact.register.primary.submit_button_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  submit_button_text: prismic.KeyTextField;
+
+  /**
+   * Success Message field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Thanks for your message!
+   * - **API ID Path**: contact.register.primary.success_message
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  success_message: prismic.RichTextField;
+
+  /**
+   * Consent Items field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.register.primary.consent_items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  consent_items: prismic.GroupField<
+    Simplify<ContactSliceRegisterPrimaryConsentItemsItem>
+  >;
+}
 
 /**
- * Employee Shared Slice
+ * Primary content in *Contact → Items*
+ */
+export interface ContactSliceRegisterItem {
+  /**
+   * Field Type field in *Contact → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select field type
+   * - **Default Value**: text
+   * - **API ID Path**: contact.items[].field_type
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  field_type: prismic.SelectField<
+    "name" | "email" | "phone" | "text" | "textarea",
+    "filled"
+  >;
+
+  /**
+   * Field Label field in *Contact → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. Name, Email, Message
+   * - **API ID Path**: contact.items[].field_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field_label: prismic.KeyTextField;
+
+  /**
+   * Placeholder field in *Contact → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. Enter your name
+   * - **API ID Path**: contact.items[].field_placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field_placeholder: prismic.KeyTextField;
+
+  /**
+   * Required field in *Contact → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.items[].field_required
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  field_required: prismic.BooleanField;
+
+  /**
+   * Start New Row field in *Contact → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.items[].new_row
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  new_row: prismic.BooleanField;
+}
+
+/**
+ * Register variation for Contact Slice
  *
- * - **API ID**: `employee`
- * - **Description**: Employee
+ * - **API ID**: `register`
+ * - **Description**: Register
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type EmployeeSlice = prismic.SharedSlice<
-  "employee",
-  EmployeeSliceVariation
+export type ContactSliceRegister = prismic.SharedSliceVariation<
+  "register",
+  Simplify<ContactSliceRegisterPrimary>,
+  Simplify<ContactSliceRegisterItem>
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation =
+  | ContactSliceForm
+  | ContactSlicePeople
+  | ContactSliceRegister;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
 >;
 
 /**
@@ -3169,11 +4615,11 @@ export interface FaqSliceListPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: faq.list.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *FAQ → List → Primary*
@@ -3260,11 +4706,11 @@ export interface FaqSliceSplitPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: faq.split.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Overline field in *FAQ → Split → Primary*
@@ -3333,6 +4779,160 @@ type FaqSliceVariation = FaqSliceList | FaqSliceSplit;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type FaqSlice = prismic.SharedSlice<"faq", FaqSliceVariation>;
+
+/**
+ * Item in *Footer → Default → Primary → Links*
+ */
+export interface FooterSliceDefaultPrimaryLinksItem {
+  /**
+   * Link field in *Footer → Default → Primary → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Footer → Default → Primary → Social Media*
+ */
+export interface FooterSliceDefaultPrimarySocialMediaItem {
+  /**
+   * Icon field in *Footer → Default → Primary → Social Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.social_media[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Link field in *Footer → Default → Primary → Social Media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.social_media[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *Footer → Default → Primary*
+ */
+export interface FooterSliceDefaultPrimary {
+  /**
+   * Logo field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Logo Link field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.logo_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  logo_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Call to Action Text field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.call_to_action_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  call_to_action_text: prismic.RichTextField;
+
+  /**
+   * Call to Action Link field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.call_to_action_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  call_to_action_link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Links field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.links[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryLinksItem>>;
+
+  /**
+   * Social Media field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.social_media[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_media: prismic.GroupField<
+    Simplify<FooterSliceDefaultPrimarySocialMediaItem>
+  >;
+
+  /**
+   * Policies field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.policies
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  policies: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
 
 /**
  * Item in *Hero → Backdrop → Primary → Buttons*
@@ -3441,243 +5041,6 @@ export interface HeroSliceBackdropPrimaryMediaItem {
    * - **Field Type**: Link to Media
    * - **Placeholder**: Choose Video from the Media Library
    * - **API ID Path**: hero.backdrop.primary.media[].video
-   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
-   */
-  video: prismic.LinkToMediaField<prismic.FieldState, never>;
-}
-
-/**
- * Item in *Hero → Split → Primary → Overline*
- */
-export interface HeroSliceSplitPrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Hero → Split → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: hero.split.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Hero → Split → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Hero → Split → Primary → Details*
- */
-export interface HeroSliceSplitPrimaryDetailsItem {
-  /**
-   * Label field in *Hero → Split → Primary → Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.details[].label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * Text field in *Hero → Split → Primary → Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.details[].text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  text: prismic.KeyTextField;
-
-  /**
-   * Link field in *Hero → Split → Primary → Details*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Add a link if this should be clickable
-   * - **API ID Path**: hero.split.primary.details[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Icon field in *Hero → Split → Primary → Details*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Select an icon
-   * - **Default Value**: none
-   * - **API ID Path**: hero.split.primary.details[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    "none" | "circleStar" | "clock" | "crown" | "trophy",
-    "filled"
-  >;
-}
-
-/**
- * Item in *Hero → Split → Primary → Buttons*
- */
-export interface HeroSliceSplitPrimaryButtonsItem {
-  /**
-   * Link field in *Hero → Split → Primary → Buttons*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.buttons[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Left Icon field in *Hero → Split → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: hero.split.primary.buttons[].icon_left
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_left: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-
-  /**
-   * Right Icon field in *Hero → Split → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: hero.split.primary.buttons[].icon_right
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_right: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-}
-
-/**
- * Item in *Hero → Split → Primary → Media*
- */
-export interface HeroSliceSplitPrimaryMediaItem {
-  /**
-   * Filter field in *Hero → Split → Primary → Media*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: No Filter
-   * - **API ID Path**: hero.split.primary.media[].filter
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  filter: prismic.SelectField<
-    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
-  >;
-
-  /**
-   * Image field in *Hero → Split → Primary → Media*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.media[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Video field in *Hero → Split → Primary → Media*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: Choose Video from the Media Library
-   * - **API ID Path**: hero.split.primary.media[].video
    * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
   video: prismic.LinkToMediaField<prismic.FieldState, never>;
@@ -3880,11 +5243,11 @@ export interface HeroSliceBackdropPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: hero.backdrop.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *Hero → Backdrop → Primary*
@@ -3952,106 +5315,6 @@ export type HeroSliceBackdrop = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Hero → Split → Primary*
- */
-export interface HeroSliceSplitPrimary {
-  /**
-   * Section Theme field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: hero.split.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Image Side field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: hero.split.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  alignment: prismic.BooleanField;
-
-  /**
-   * Overline field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<HeroSliceSplitPrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Details field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.details[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  details: prismic.GroupField<Simplify<HeroSliceSplitPrimaryDetailsItem>>;
-
-  /**
-   * Buttons field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.buttons[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  buttons: prismic.GroupField<Simplify<HeroSliceSplitPrimaryButtonsItem>>;
-
-  /**
-   * Media field in *Hero → Split → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.split.primary.media[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  media: prismic.GroupField<Simplify<HeroSliceSplitPrimaryMediaItem>>;
-}
-
-/**
- * Split variation for Hero Slice
- *
- * - **API ID**: `split`
- * - **Description**: Text on one side, media on the other
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type HeroSliceSplit = prismic.SharedSliceVariation<
-  "split",
-  Simplify<HeroSliceSplitPrimary>,
-  never
->;
-
-/**
  * Primary content in *Hero → Stack → Primary*
  */
 export interface HeroSliceStackPrimary {
@@ -4060,11 +5323,11 @@ export interface HeroSliceStackPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: hero.stack.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Overline field in *Hero → Stack → Primary*
@@ -4133,7 +5396,7 @@ export type HeroSliceStack = prismic.SharedSliceVariation<
 /**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceBackdrop | HeroSliceSplit | HeroSliceStack;
+type HeroSliceVariation = HeroSliceBackdrop | HeroSliceStack;
 
 /**
  * Hero Shared Slice
@@ -4145,96 +5408,190 @@ type HeroSliceVariation = HeroSliceBackdrop | HeroSliceSplit | HeroSliceStack;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
- * Item in *ImageStrip → Default → Primary → Media*
+ * Item in *Image → Grid → Primary → Media*
  */
-export interface ImageStripSliceDefaultPrimaryMediaItem {
+export interface ImageSliceGridPrimaryMediaItem {
   /**
-   * Image field in *ImageStrip → Default → Primary → Media*
+   * Image field in *Image → Grid → Primary → Media*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: image_strip.default.primary.media[].image
+   * - **API ID Path**: image.grid.primary.media[].image
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   image: prismic.ImageField<never>;
 
   /**
-   * Video field in *ImageStrip → Default → Primary → Media*
+   * Video field in *Image → Grid → Primary → Media*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: Choose Video from the Media Library
-   * - **API ID Path**: image_strip.default.primary.media[].video
+   * - **API ID Path**: image.grid.primary.media[].video
    * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
   video: prismic.LinkToMediaField<prismic.FieldState, never>;
 }
 
 /**
- * Primary content in *ImageStrip → Default → Primary*
+ * Item in *Image → Showcase → Primary → Media*
  */
-export interface ImageStripSliceDefaultPrimary {
+export interface ImageSliceShowcasePrimaryMediaItem {
   /**
-   * Remove Top Padding field in *ImageStrip → Default → Primary*
+   * Filter field in *Image → Showcase → Primary → Media*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: No Filter
+   * - **API ID Path**: image.showcase.primary.media[].filter
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  filter: prismic.SelectField<
+    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
+  >;
+
+  /**
+   * Image field in *Image → Showcase → Primary → Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.showcase.primary.media[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Image → Showcase → Primary → Media*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: Choose Video from the Media Library
+   * - **API ID Path**: image.showcase.primary.media[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *Image → Grid → Primary*
+ */
+export interface ImageSliceGridPrimary {
+  /**
+   * Remove Top Padding field in *Image → Grid → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: false
-   * - **API ID Path**: image_strip.default.primary.remove_top_padding
+   * - **API ID Path**: image.grid.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *ImageStrip → Default → Primary*
+   * Section Theme field in *Image → Grid → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: image_strip.default.primary.section_theme
+   * - **Default Value**: Bud
+   * - **API ID Path**: image.grid.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise" | "Night", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust" | "Night", "filled">;
 
   /**
-   * Media field in *ImageStrip → Default → Primary*
+   * Media field in *Image → Grid → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: image_strip.default.primary.media[]
+   * - **API ID Path**: image.grid.primary.media[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  media: prismic.GroupField<Simplify<ImageStripSliceDefaultPrimaryMediaItem>>;
+  media: prismic.GroupField<Simplify<ImageSliceGridPrimaryMediaItem>>;
 }
 
 /**
- * Default variation for ImageStrip Slice
+ * Grid variation for Image Slice
  *
- * - **API ID**: `default`
- * - **Description**: Default
+ * - **API ID**: `grid`
+ * - **Description**: Grid
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type ImageStripSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ImageStripSliceDefaultPrimary>,
+export type ImageSliceGrid = prismic.SharedSliceVariation<
+  "grid",
+  Simplify<ImageSliceGridPrimary>,
   never
 >;
 
 /**
- * Slice variation for *ImageStrip*
+ * Primary content in *Image → Showcase → Primary*
  */
-type ImageStripSliceVariation = ImageStripSliceDefault;
+export interface ImageSliceShowcasePrimary {
+  /**
+   * Remove Top Padding field in *Image → Showcase → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image.showcase.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Image → Showcase → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: image.showcase.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Media field in *Image → Showcase → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.showcase.primary.media[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  media: prismic.GroupField<Simplify<ImageSliceShowcasePrimaryMediaItem>>;
+
+  /**
+   * Caption field in *Image → Showcase → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.showcase.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  caption: prismic.KeyTextField;
+}
 
 /**
- * ImageStrip Shared Slice
+ * Showcase variation for Image Slice
  *
- * - **API ID**: `image_strip`
- * - **Description**: ImageStrip
+ * - **API ID**: `showcase`
+ * - **Description**: Showcase
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type ImageStripSlice = prismic.SharedSlice<
-  "image_strip",
-  ImageStripSliceVariation
+export type ImageSliceShowcase = prismic.SharedSliceVariation<
+  "showcase",
+  Simplify<ImageSliceShowcasePrimary>,
+  never
 >;
+
+/**
+ * Slice variation for *Image*
+ */
+type ImageSliceVariation = ImageSliceGrid | ImageSliceShowcase;
+
+/**
+ * Image Shared Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: Image
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
 
 /**
  * Item in *Link → Quick → Primary → Overline*
@@ -4538,11 +5895,11 @@ export interface LinkSliceQuickPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: link.quick.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *Link → Quick → Primary*
@@ -4631,11 +5988,11 @@ export interface LinkSliceGridPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: link.grid.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *Link → Grid → Primary*
@@ -4722,11 +6079,11 @@ export interface LinkSliceCardsPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: link.cards.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *Link → Cards → Primary*
@@ -4808,16 +6165,16 @@ type LinkSliceVariation = LinkSliceQuick | LinkSliceGrid | LinkSliceCards;
 export type LinkSlice = prismic.SharedSlice<"link", LinkSliceVariation>;
 
 /**
- * Item in *Process → Linear → Primary → Overline*
+ * Item in *Product → Grid → Primary → Overline*
  */
-export interface ProcessSliceLinearPrimaryOverlineItem {
+export interface ProductSliceGridPrimaryOverlineItem {
   /**
-   * Overline Icon field in *Process → Linear → Primary → Overline*
+   * Overline Icon field in *Product → Grid → Primary → Overline*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: process.linear.primary.overline[].overline_icon
+   * - **API ID Path**: product.grid.primary.overline[].overline_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   overline_icon: prismic.SelectField<
@@ -4861,610 +6218,37 @@ export interface ProcessSliceLinearPrimaryOverlineItem {
   >;
 
   /**
-   * Overline Text field in *Process → Linear → Primary → Overline*
+   * Overline Text field in *Product → Grid → Primary → Overline*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: process.linear.primary.overline[].overline_text
+   * - **API ID Path**: product.grid.primary.overline[].overline_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   overline_text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Process → Linear → Primary → Step*
+ * Item in *Product → Grid → Primary → Button*
  */
-export interface ProcessSliceLinearPrimaryStepItem {
+export interface ProductSliceGridPrimaryButtonItem {
   /**
-   * Title field in *Process → Linear → Primary → Step*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.linear.primary.step[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Process → Linear → Primary → Step*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.linear.primary.step[].description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-}
-
-/**
- * Item in *Process → Image → Primary → Overline*
- */
-export interface ProcessSliceImagePrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Process → Image → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: process.image.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Process → Image → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Process → Image → Primary → Step*
- */
-export interface ProcessSliceImagePrimaryStepItem {
-  /**
-   * Title field in *Process → Image → Primary → Step*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.step[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Process → Image → Primary → Step*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.step[].description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Filter field in *Process → Image → Primary → Step*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: No Filter
-   * - **API ID Path**: process.image.primary.step[].filter
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  filter: prismic.SelectField<
-    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
-  >;
-
-  /**
-   * Image field in *Process → Image → Primary → Step*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.step[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<"square">;
-}
-
-/**
- * Item in *Process → Time → Primary → Overline*
- */
-export interface ProcessSliceTimePrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Process → Time → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: process.time.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Process → Time → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.time.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Process → Time → Primary → Step*
- */
-export interface ProcessSliceTimePrimaryStepItem {
-  /**
-   * Time field in *Process → Time → Primary → Step*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: 10:00
-   * - **API ID Path**: process.time.primary.step[].time
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  time: prismic.KeyTextField;
-
-  /**
-   * Title field in *Process → Time → Primary → Step*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.time.primary.step[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Process → Time → Primary → Step*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.time.primary.step[].description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-}
-
-/**
- * Primary content in *Process → Linear → Primary*
- */
-export interface ProcessSliceLinearPrimary {
-  /**
-   * Remove Top Padding field in *Process → Linear → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: process.linear.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Process → Linear → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: process.linear.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Overline field in *Process → Linear → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.linear.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<ProcessSliceLinearPrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Process → Linear → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.linear.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Process → Linear → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.linear.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Step field in *Process → Linear → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.linear.primary.step[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  step: prismic.GroupField<Simplify<ProcessSliceLinearPrimaryStepItem>>;
-}
-
-/**
- * Linear variation for Process Slice
- *
- * - **API ID**: `linear`
- * - **Description**: Linear
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ProcessSliceLinear = prismic.SharedSliceVariation<
-  "linear",
-  Simplify<ProcessSliceLinearPrimary>,
-  never
->;
-
-/**
- * Primary content in *Process → Image → Primary*
- */
-export interface ProcessSliceImagePrimary {
-  /**
-   * Remove Top Padding field in *Process → Image → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: process.image.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Process → Image → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: process.image.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Overline field in *Process → Image → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<ProcessSliceImagePrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Process → Image → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Process → Image → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Step field in *Process → Image → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.image.primary.step[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  step: prismic.GroupField<Simplify<ProcessSliceImagePrimaryStepItem>>;
-}
-
-/**
- * Image variation for Process Slice
- *
- * - **API ID**: `image`
- * - **Description**: Image
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ProcessSliceImage = prismic.SharedSliceVariation<
-  "image",
-  Simplify<ProcessSliceImagePrimary>,
-  never
->;
-
-/**
- * Primary content in *Process → Time → Primary*
- */
-export interface ProcessSliceTimePrimary {
-  /**
-   * Section Theme field in *Process → Time → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: process.time.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Remove Top Padding field in *Process → Time → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: process.time.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Overline field in *Process → Time → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.time.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<ProcessSliceTimePrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Process → Time → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.time.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Process → Time → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.time.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Step field in *Process → Time → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: process.time.primary.step[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  step: prismic.GroupField<Simplify<ProcessSliceTimePrimaryStepItem>>;
-}
-
-/**
- * Time variation for Process Slice
- *
- * - **API ID**: `time`
- * - **Description**: Time
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ProcessSliceTime = prismic.SharedSliceVariation<
-  "time",
-  Simplify<ProcessSliceTimePrimary>,
-  never
->;
-
-/**
- * Slice variation for *Process*
- */
-type ProcessSliceVariation =
-  | ProcessSliceLinear
-  | ProcessSliceImage
-  | ProcessSliceTime;
-
-/**
- * Process Shared Slice
- *
- * - **API ID**: `process`
- * - **Description**: Process
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ProcessSlice = prismic.SharedSlice<
-  "process",
-  ProcessSliceVariation
->;
-
-/**
- * Item in *Stats → Split → Primary → Overline*
- */
-export interface StatsSliceSplitPrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Stats → Split → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: stats.split.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Stats → Split → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.split.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Stats → Split → Primary → Buttons*
- */
-export interface StatsSliceSplitPrimaryButtonsItem {
-  /**
-   * Link field in *Stats → Split → Primary → Buttons*
+   * Link field in *Product → Grid → Primary → Button*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.split.primary.buttons[].link
+   * - **API ID Path**: product.grid.primary.button[].link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Variant field in *Stats → Split → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: stats.split.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
-   * Left Icon field in *Stats → Split → Primary → Buttons*
+   * Left Icon field in *Product → Grid → Primary → Button*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: stats.split.primary.buttons[].icon_left
+   * - **API ID Path**: product.grid.primary.button[].icon_left
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon_left: prismic.SelectField<
@@ -5495,12 +6279,12 @@ export interface StatsSliceSplitPrimaryButtonsItem {
   >;
 
   /**
-   * Right Icon field in *Stats → Split → Primary → Buttons*
+   * Right Icon field in *Product → Grid → Primary → Button*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: stats.split.primary.buttons[].icon_right
+   * - **API ID Path**: product.grid.primary.button[].icon_right
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon_right: prismic.SelectField<
@@ -5532,41 +6316,33 @@ export interface StatsSliceSplitPrimaryButtonsItem {
 }
 
 /**
- * Item in *Stats → Split → Primary → Stats*
+ * Item in *Product → Grid → Primary → Featured Products*
  */
-export interface StatsSliceSplitPrimaryStatsItem {
+export interface ProductSliceGridPrimaryFeaturedProductsItem {
   /**
-   * Number field in *Stats → Split → Primary → Stats*
+   * Product field in *Product → Grid → Primary → Featured Products*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: 99%
-   * - **API ID Path**: stats.split.primary.stats[].number
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.grid.primary.featured_products[].product
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
-  number: prismic.KeyTextField;
-
-  /**
-   * Description field in *Stats → Split → Primary → Stats*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A short description of this stat.
-   * - **API ID Path**: stats.split.primary.stats[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
+  product: ContentRelationshipFieldWithData<
+    [{ id: "product"; fields: ["product_name", "product_vintage"] }]
+  >;
 }
 
 /**
- * Item in *Stats → Grid → Primary → Overline*
+ * Item in *Product → Search → Primary → Overline*
  */
-export interface StatsSliceGridPrimaryOverlineItem {
+export interface ProductSliceSearchPrimaryOverlineItem {
   /**
-   * Overline Icon field in *Stats → Grid → Primary → Overline*
+   * Overline Icon field in *Product → Search → Primary → Overline*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: stats.grid.primary.overline[].overline_icon
+   * - **API ID Path**: product.search.primary.overline[].overline_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   overline_icon: prismic.SelectField<
@@ -5610,696 +6386,236 @@ export interface StatsSliceGridPrimaryOverlineItem {
   >;
 
   /**
-   * Overline Text field in *Stats → Grid → Primary → Overline*
+   * Overline Text field in *Product → Search → Primary → Overline*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.grid.primary.overline[].overline_text
+   * - **API ID Path**: product.search.primary.overline[].overline_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   overline_text: prismic.KeyTextField;
 }
 
 /**
- * Item in *Stats → Grid → Primary → Buttons*
+ * Primary content in *Product → Grid → Primary*
  */
-export interface StatsSliceGridPrimaryButtonsItem {
+export interface ProductSliceGridPrimary {
   /**
-   * Link field in *Stats → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.grid.primary.buttons[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Variant field in *Stats → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: stats.grid.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
-   * Left Icon field in *Stats → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: stats.grid.primary.buttons[].icon_left
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_left: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-
-  /**
-   * Right Icon field in *Stats → Grid → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: stats.grid.primary.buttons[].icon_right
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_right: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-}
-
-/**
- * Item in *Stats → Grid → Primary → Stats*
- */
-export interface StatsSliceGridPrimaryStatsItem {
-  /**
-   * Number field in *Stats → Grid → Primary → Stats*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: 99%
-   * - **API ID Path**: stats.grid.primary.stats[].number
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  number: prismic.KeyTextField;
-
-  /**
-   * Description field in *Stats → Grid → Primary → Stats*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A short description of this stat.
-   * - **API ID Path**: stats.grid.primary.stats[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
-}
-
-/**
- * Item in *Stats → Backdrop → Primary → Overline*
- */
-export interface StatsSliceBackdropPrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Stats → Backdrop → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: stats.backdrop.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Stats → Backdrop → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Stats → Backdrop → Primary → Buttons*
- */
-export interface StatsSliceBackdropPrimaryButtonsItem {
-  /**
-   * Link field in *Stats → Backdrop → Primary → Buttons*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.buttons[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Variant field in *Stats → Backdrop → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: stats.backdrop.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
-   * Left Icon field in *Stats → Backdrop → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: stats.backdrop.primary.buttons[].icon_left
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_left: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-
-  /**
-   * Right Icon field in *Stats → Backdrop → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: stats.backdrop.primary.buttons[].icon_right
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_right: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-}
-
-/**
- * Item in *Stats → Backdrop → Primary → Stats*
- */
-export interface StatsSliceBackdropPrimaryStatsItem {
-  /**
-   * Number field in *Stats → Backdrop → Primary → Stats*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: 99%
-   * - **API ID Path**: stats.backdrop.primary.stats[].number
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  number: prismic.KeyTextField;
-
-  /**
-   * Description field in *Stats → Backdrop → Primary → Stats*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A short description of this stat.
-   * - **API ID Path**: stats.backdrop.primary.stats[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *Stats → Split → Primary*
- */
-export interface StatsSliceSplitPrimary {
-  /**
-   * Remove Top Padding field in *Stats → Split → Primary*
+   * Remove Top Padding field in *Product → Grid → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: false
-   * - **API ID Path**: stats.split.primary.remove_top_padding
+   * - **API ID Path**: product.grid.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *Stats → Split → Primary*
+   * Section Theme field in *Product → Grid → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: stats.split.primary.section_theme
+   * - **Default Value**: Bud
+   * - **API ID Path**: product.grid.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<
-    "Ocean" | "Sunrise" | "Brand" | "Accent",
-    "filled"
-  >;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
-   * Center Text field in *Stats → Split → Primary*
+   * Center Text field in *Product → Grid → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: true
-   * - **API ID Path**: stats.split.primary.center_text
+   * - **API ID Path**: product.grid.primary.alignment
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  center_text: prismic.BooleanField;
+  alignment: prismic.BooleanField;
 
   /**
-   * Stats Side field in *Stats → Split → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: stats.split.primary.stats_side
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  stats_side: prismic.BooleanField;
-
-  /**
-   * Overline field in *Stats → Split → Primary*
+   * Overline field in *Product → Grid → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.split.primary.overline[]
+   * - **API ID Path**: product.grid.primary.overline[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  overline: prismic.GroupField<Simplify<StatsSliceSplitPrimaryOverlineItem>>;
+  overline: prismic.GroupField<Simplify<ProductSliceGridPrimaryOverlineItem>>;
 
   /**
-   * Title field in *Stats → Split → Primary*
+   * Title field in *Product → Grid → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.split.primary.title
+   * - **API ID Path**: product.grid.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Stats → Split → Primary*
+   * Description field in *Product → Grid → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.split.primary.description
+   * - **API ID Path**: product.grid.primary.description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
 
   /**
-   * Buttons field in *Stats → Split → Primary*
+   * Button field in *Product → Grid → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.split.primary.buttons[]
+   * - **API ID Path**: product.grid.primary.button[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  buttons: prismic.GroupField<Simplify<StatsSliceSplitPrimaryButtonsItem>>;
+  button: prismic.GroupField<Simplify<ProductSliceGridPrimaryButtonItem>>;
 
   /**
-   * Stats field in *Stats → Split → Primary*
+   * Featured Products field in *Product → Grid → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.split.primary.stats[]
+   * - **API ID Path**: product.grid.primary.featured_products[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  stats: prismic.GroupField<Simplify<StatsSliceSplitPrimaryStatsItem>>;
+  featured_products: prismic.GroupField<
+    Simplify<ProductSliceGridPrimaryFeaturedProductsItem>
+  >;
 }
 
 /**
- * Split variation for Stats Slice
- *
- * - **API ID**: `split`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type StatsSliceSplit = prismic.SharedSliceVariation<
-  "split",
-  Simplify<StatsSliceSplitPrimary>,
-  never
->;
-
-/**
- * Primary content in *Stats → Grid → Primary*
- */
-export interface StatsSliceGridPrimary {
-  /**
-   * Remove Top Padding field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: stats.grid.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: stats.grid.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Center Text field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: stats.grid.primary.center_text
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  center_text: prismic.BooleanField;
-
-  /**
-   * Overline field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.grid.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<StatsSliceGridPrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.grid.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.grid.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Buttons field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.grid.primary.buttons[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  buttons: prismic.GroupField<Simplify<StatsSliceGridPrimaryButtonsItem>>;
-
-  /**
-   * Stats field in *Stats → Grid → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.grid.primary.stats[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  stats: prismic.GroupField<Simplify<StatsSliceGridPrimaryStatsItem>>;
-}
-
-/**
- * Grid variation for Stats Slice
+ * Grid variation for Product Slice
  *
  * - **API ID**: `grid`
- * - **Description**: Default
+ * - **Description**: Grid
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type StatsSliceGrid = prismic.SharedSliceVariation<
+export type ProductSliceGrid = prismic.SharedSliceVariation<
   "grid",
-  Simplify<StatsSliceGridPrimary>,
+  Simplify<ProductSliceGridPrimary>,
   never
 >;
 
 /**
- * Primary content in *Stats → Backdrop → Primary*
+ * Primary content in *Product → Search → Primary*
  */
-export interface StatsSliceBackdropPrimary {
+export interface ProductSliceSearchPrimary {
   /**
-   * Remove Top Padding field in *Stats → Backdrop → Primary*
+   * Remove Top Padding field in *Product → Search → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: false
-   * - **API ID Path**: stats.backdrop.primary.remove_top_padding
+   * - **API ID Path**: product.search.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *Stats → Backdrop → Primary*
+   * Section Theme field in *Product → Search → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: stats.backdrop.primary.section_theme
+   * - **Default Value**: Bud
+   * - **API ID Path**: product.search.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
-   * Center Text field in *Stats → Backdrop → Primary*
+   * Center Text field in *Product → Search → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: true
-   * - **API ID Path**: stats.backdrop.primary.center_text
+   * - **API ID Path**: product.search.primary.alignment
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  center_text: prismic.BooleanField;
+  alignment: prismic.BooleanField;
 
   /**
-   * Stats Side field in *Stats → Backdrop → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: stats.backdrop.primary.stats_side
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  stats_side: prismic.BooleanField;
-
-  /**
-   * Overline field in *Stats → Backdrop → Primary*
+   * Overline field in *Product → Search → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.overline[]
+   * - **API ID Path**: product.search.primary.overline[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  overline: prismic.GroupField<Simplify<StatsSliceBackdropPrimaryOverlineItem>>;
+  overline: prismic.GroupField<Simplify<ProductSliceSearchPrimaryOverlineItem>>;
 
   /**
-   * Title field in *Stats → Backdrop → Primary*
+   * Title field in *Product → Search → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.title
+   * - **API ID Path**: product.search.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Stats → Backdrop → Primary*
+   * Description field in *Product → Search → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.description
+   * - **API ID Path**: product.search.primary.description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
 
   /**
-   * Buttons field in *Stats → Backdrop → Primary*
+   * Search Placeholder field in *Product → Search → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.buttons[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   * - **API ID Path**: product.search.primary.search_placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  buttons: prismic.GroupField<Simplify<StatsSliceBackdropPrimaryButtonsItem>>;
+  search_placeholder: prismic.KeyTextField;
 
   /**
-   * Stats field in *Stats → Backdrop → Primary*
+   * No Results Text field in *Product → Search → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.stats[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   * - **API ID Path**: product.search.primary.no_results_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  stats: prismic.GroupField<Simplify<StatsSliceBackdropPrimaryStatsItem>>;
-
-  /**
-   * Image field in *Stats → Backdrop → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stats.backdrop.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<"vertical">;
-
-  /**
-   * Video field in *Stats → Backdrop → Primary*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: Choose Video from the Media Library
-   * - **API ID Path**: stats.backdrop.primary.video
-   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
-   */
-  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+  no_results_text: prismic.KeyTextField;
 }
 
 /**
- * Backdrop variation for Stats Slice
+ * Search variation for Product Slice
  *
- * - **API ID**: `backdrop`
- * - **Description**: Default
+ * - **API ID**: `search`
+ * - **Description**: Search
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type StatsSliceBackdrop = prismic.SharedSliceVariation<
-  "backdrop",
-  Simplify<StatsSliceBackdropPrimary>,
+export type ProductSliceSearch = prismic.SharedSliceVariation<
+  "search",
+  Simplify<ProductSliceSearchPrimary>,
   never
 >;
 
 /**
- * Slice variation for *Stats*
+ * Slice variation for *Product*
  */
-type StatsSliceVariation =
-  | StatsSliceSplit
-  | StatsSliceGrid
-  | StatsSliceBackdrop;
+type ProductSliceVariation = ProductSliceGrid | ProductSliceSearch;
 
 /**
- * Stats Shared Slice
+ * Product Shared Slice
  *
- * - **API ID**: `stats`
- * - **Description**: Stats
+ * - **API ID**: `product`
+ * - **Description**: Product
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type StatsSlice = prismic.SharedSlice<"stats", StatsSliceVariation>;
+export type ProductSlice = prismic.SharedSlice<
+  "product",
+  ProductSliceVariation
+>;
 
 /**
  * Item in *Text → Extended → Primary → Overline*
@@ -6363,168 +6679,6 @@ export interface TextSliceExtendedPrimaryOverlineItem {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Text → Highlight → Primary → Overline*
- */
-export interface TextSliceHighlightPrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Text → Highlight → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: text.highlight.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Text → Highlight → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.highlight.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Text → Highlight → Primary → Buttons*
- */
-export interface TextSliceHighlightPrimaryButtonsItem {
-  /**
-   * Link field in *Text → Highlight → Primary → Buttons*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.highlight.primary.buttons[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Variant field in *Text → Highlight → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: text.highlight.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<"default" | "secondary", "filled">;
-
-  /**
-   * Left Icon field in *Text → Highlight → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: text.highlight.primary.buttons[].icon_left
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_left: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-
-  /**
-   * Right Icon field in *Text → Highlight → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: text.highlight.primary.buttons[].icon_right
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_right: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
 }
 
 /**
@@ -6646,29 +6800,331 @@ export interface TextSliceMediaPrimarySecondImageItem {
 }
 
 /**
- * Item in *Text → Form → Primary → Consent Items*
+ * Item in *Text → Details → Primary → Overline*
  */
-export interface TextSliceFormPrimaryConsentItemsItem {
+export interface TextSliceDetailsPrimaryOverlineItem {
   /**
-   * Consent Text field in *Text → Form → Primary → Consent Items*
+   * Overline Icon field in *Text → Details → Primary → Overline*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: I accept the privacy policy
-   * - **API ID Path**: text.form.primary.consent_items[].consent_text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: text.details.primary.overline[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  consent_text: prismic.RichTextField;
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
 
   /**
-   * Required field in *Text → Form → Primary → Consent Items*
+   * Overline Text field in *Text → Details → Primary → Overline*
    *
-   * - **Field Type**: Boolean
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: text.form.primary.consent_items[].consent_required
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   * - **API ID Path**: text.details.primary.overline[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  consent_required: prismic.BooleanField;
+  overline_text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Text → Details → Primary → Details*
+ */
+export interface TextSliceDetailsPrimaryDetailsItem {
+  /**
+   * Overline Icon field in *Text → Details → Primary → Details*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: text.details.primary.details[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
+
+  /**
+   * Overline Text field in *Text → Details → Primary → Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.details.primary.details[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  overline_text: prismic.KeyTextField;
+
+  /**
+   * Rich Text field in *Text → Details → Primary → Details*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.details.primary.details[].rich_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  rich_text: prismic.RichTextField;
+}
+
+/**
+ * Item in *Text → Info → Primary → Overline*
+ */
+export interface TextSliceInfoPrimaryOverlineItem {
+  /**
+   * Overline Icon field in *Text → Info → Primary → Overline*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: text.info.primary.overline[].overline_icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  overline_icon: prismic.SelectField<
+    | "none"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "circleGauge"
+    | "circleStar"
+    | "clock"
+    | "crown"
+    | "dog"
+    | "fileBadge"
+    | "fileText"
+    | "gem"
+    | "handshake"
+    | "headset"
+    | "hourglass"
+    | "houseHeart"
+    | "layers"
+    | "lock"
+    | "lockKeyhole"
+    | "lockKeyholeOpen"
+    | "mail"
+    | "moon"
+    | "moonStar"
+    | "mountainSnow"
+    | "phoneCall"
+    | "plane"
+    | "search"
+    | "ship"
+    | "shieldCheck"
+    | "shieldEllipsis"
+    | "sun"
+    | "triangle"
+    | "trophy",
+    "filled"
+  >;
+
+  /**
+   * Overline Text field in *Text → Info → Primary → Overline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.info.primary.overline[].overline_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  overline_text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Text → Info → Primary → Buttons*
+ */
+export interface TextSliceInfoPrimaryButtonsItem {
+  /**
+   * Link field in *Text → Info → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.info.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Text → Info → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: default
+   * - **API ID Path**: text.info.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<
+    "default" | "secondary" | "outline" | "ghost",
+    "filled"
+  >;
+
+  /**
+   * Left Icon field in *Text → Info → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: text.info.primary.buttons[].icon_left
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_left: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+
+  /**
+   * Right Icon field in *Text → Info → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: text.info.primary.buttons[].icon_right
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon_right: prismic.SelectField<
+    | "none"
+    | "arrowDown"
+    | "arrowLeft"
+    | "arrowRight"
+    | "arrowUp"
+    | "arrowUpRight"
+    | "atSign"
+    | "badgeCheck"
+    | "badgeInfo"
+    | "bookOpenCheck"
+    | "briefcaseBusiness"
+    | "check"
+    | "chevronDown"
+    | "chevronLeft"
+    | "chevronRight"
+    | "circlePlay"
+    | "circleStar"
+    | "clipboardCheck"
+    | "headset"
+    | "mail"
+    | "phoneCall"
+    | "phoneIncoming"
+    | "phoneOutgoing",
+    "filled"
+  >;
+}
+
+/**
+ * Item in *Text → Info → Primary → Facts*
+ */
+export interface TextSliceInfoPrimaryFactsItem {
+  /**
+   * Number field in *Text → Info → Primary → Facts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 99%
+   * - **API ID Path**: text.info.primary.facts[].number
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  number: prismic.KeyTextField;
+
+  /**
+   * Description field in *Text → Info → Primary → Facts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A short description of this stat.
+   * - **API ID Path**: text.info.primary.facts[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
 }
 
 /**
@@ -6691,11 +7147,11 @@ export interface TextSliceExtendedPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: text.extended.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Overline field in *Text → Extended → Primary*
@@ -6752,97 +7208,6 @@ export type TextSliceExtended = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Text → Highlight → Primary*
- */
-export interface TextSliceHighlightPrimary {
-  /**
-   * Remove Top Padding field in *Text → Highlight → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: text.highlight.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Text → Highlight → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: text.highlight.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Center Text field in *Text → Highlight → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: text.highlight.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  alignment: prismic.BooleanField;
-
-  /**
-   * Overline field in *Text → Highlight → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.highlight.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<TextSliceHighlightPrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Text → Highlight → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.highlight.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Text → Highlight → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.highlight.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Buttons field in *Text → Highlight → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.highlight.primary.buttons[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  buttons: prismic.GroupField<Simplify<TextSliceHighlightPrimaryButtonsItem>>;
-}
-
-/**
- * Highlight variation for Text Slice
- *
- * - **API ID**: `highlight`
- * - **Description**: Highlight
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type TextSliceHighlight = prismic.SharedSliceVariation<
-  "highlight",
-  Simplify<TextSliceHighlightPrimary>,
-  never
->;
-
-/**
  * Primary content in *Text → Split → Primary*
  */
 export interface TextSliceSplitPrimary {
@@ -6862,11 +7227,11 @@ export interface TextSliceSplitPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: text.split.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Overline field in *Text → Split → Primary*
@@ -7003,11 +7368,11 @@ export interface TextSliceMediaPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: text.media.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Swap Columns field in *Text → Media → Primary*
@@ -7079,156 +7444,184 @@ export type TextSliceMedia = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Text → Form → Primary*
+ * Primary content in *Text → Details → Primary*
  */
-export interface TextSliceFormPrimary {
+export interface TextSliceDetailsPrimary {
   /**
-   * Remove Top Padding field in *Text → Form → Primary*
+   * Remove Top Padding field in *Text → Details → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: false
-   * - **API ID Path**: text.form.primary.remove_top_padding
+   * - **API ID Path**: text.details.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *Text → Form → Primary*
+   * Section Theme field in *Text → Details → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: text.form.primary.section_theme
+   * - **Default Value**: Bud
+   * - **API ID Path**: text.details.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
-   * Rich Text field in *Text → Form → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.form.primary.rich_text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  rich_text: prismic.RichTextField;
-
-  /**
-   * Form Intro field in *Text → Form → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Write an Intro to the Form
-   * - **API ID Path**: text.form.primary.form_intro
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  form_intro: prismic.RichTextField;
-
-  /**
-   * Submit Button Text field in *Text → Form → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Send message
-   * - **API ID Path**: text.form.primary.submit_button_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  submit_button_text: prismic.KeyTextField;
-
-  /**
-   * Success Message field in *Text → Form → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Thanks for your message!
-   * - **API ID Path**: text.form.primary.success_message
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  success_message: prismic.RichTextField;
-
-  /**
-   * Consent Items field in *Text → Form → Primary*
+   * Overline field in *Text → Details → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: text.form.primary.consent_items[]
+   * - **API ID Path**: text.details.primary.overline[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  consent_items: prismic.GroupField<
-    Simplify<TextSliceFormPrimaryConsentItemsItem>
-  >;
+  overline: prismic.GroupField<Simplify<TextSliceDetailsPrimaryOverlineItem>>;
+
+  /**
+   * Title field in *Text → Details → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.details.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Text → Details → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.details.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Details field in *Text → Details → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.details.primary.details[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  details: prismic.GroupField<Simplify<TextSliceDetailsPrimaryDetailsItem>>;
 }
 
 /**
- * Primary content in *Text → Items*
- */
-export interface TextSliceFormItem {
-  /**
-   * Field Type field in *Text → Items*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Select field type
-   * - **Default Value**: text
-   * - **API ID Path**: text.items[].field_type
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  field_type: prismic.SelectField<
-    "name" | "email" | "phone" | "text" | "textarea",
-    "filled"
-  >;
-
-  /**
-   * Field Label field in *Text → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g. Name, Email, Message
-   * - **API ID Path**: text.items[].field_label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  field_label: prismic.KeyTextField;
-
-  /**
-   * Placeholder field in *Text → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g. Enter your name
-   * - **API ID Path**: text.items[].field_placeholder
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  field_placeholder: prismic.KeyTextField;
-
-  /**
-   * Required field in *Text → Items*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: text.items[].field_required
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  field_required: prismic.BooleanField;
-
-  /**
-   * Start New Row field in *Text → Items*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: text.items[].new_row
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  new_row: prismic.BooleanField;
-}
-
-/**
- * Form variation for Text Slice
+ * Details variation for Text Slice
  *
- * - **API ID**: `form`
- * - **Description**: Form
+ * - **API ID**: `details`
+ * - **Description**: Details
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type TextSliceForm = prismic.SharedSliceVariation<
-  "form",
-  Simplify<TextSliceFormPrimary>,
-  Simplify<TextSliceFormItem>
+export type TextSliceDetails = prismic.SharedSliceVariation<
+  "details",
+  Simplify<TextSliceDetailsPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Text → Info → Primary*
+ */
+export interface TextSliceInfoPrimary {
+  /**
+   * Remove Top Padding field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: text.info.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: text.info.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+
+  /**
+   * Center Text field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: text.info.primary.alignment
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  alignment: prismic.BooleanField;
+
+  /**
+   * Overline field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.info.primary.overline[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  overline: prismic.GroupField<Simplify<TextSliceInfoPrimaryOverlineItem>>;
+
+  /**
+   * Title field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.info.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.info.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Buttons field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.info.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<Simplify<TextSliceInfoPrimaryButtonsItem>>;
+
+  /**
+   * Facts field in *Text → Info → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.info.primary.facts[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  facts: prismic.GroupField<Simplify<TextSliceInfoPrimaryFactsItem>>;
+}
+
+/**
+ * Info variation for Text Slice
+ *
+ * - **API ID**: `info`
+ * - **Description**: Info
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextSliceInfo = prismic.SharedSliceVariation<
+  "info",
+  Simplify<TextSliceInfoPrimary>,
+  never
 >;
 
 /**
@@ -7236,11 +7629,11 @@ export type TextSliceForm = prismic.SharedSliceVariation<
  */
 type TextSliceVariation =
   | TextSliceExtended
-  | TextSliceHighlight
   | TextSliceSplit
   | TextSliceLongform
   | TextSliceMedia
-  | TextSliceForm;
+  | TextSliceDetails
+  | TextSliceInfo;
 
 /**
  * Text Shared Slice
@@ -7436,341 +7829,6 @@ export interface ValueSliceTextPrimaryStatementItem {
    * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: value.text.primary.statement[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
-}
-
-/**
- * Item in *Value → Quote → Primary → Overline*
- */
-export interface ValueSliceQuotePrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Value → Quote → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.quote.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Value → Quote → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.quote.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Value → Quote → Primary → Quote*
- */
-export interface ValueSliceQuotePrimaryQuoteItem {
-  /**
-   * Text field in *Value → Quote → Primary → Quote*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: I love this place
-   * - **API ID Path**: value.quote.primary.quote[].text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  text: prismic.KeyTextField;
-
-  /**
-   * Author field in *Value → Quote → Primary → Quote*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.quote.primary.quote[].author
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  author: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "employee";
-        fields: ["employee_name", "employee_image", "employee_title"];
-      },
-    ]
-  >;
-}
-
-/**
- * Item in *Value → Cards → Primary → Overline*
- */
-export interface ValueSliceCardsPrimaryOverlineItem {
-  /**
-   * Overline Icon field in *Value → Cards → Primary → Overline*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.cards.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Overline Text field in *Value → Cards → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
-}
-
-/**
- * Item in *Value → Cards → Primary → Buttons*
- */
-export interface ValueSliceCardsPrimaryButtonsItem {
-  /**
-   * Link field in *Value → Cards → Primary → Buttons*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.buttons[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Variant field in *Value → Cards → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: value.cards.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
-   * Left Icon field in *Value → Cards → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.cards.primary.buttons[].icon_left
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_left: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-
-  /**
-   * Right Icon field in *Value → Cards → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.cards.primary.buttons[].icon_right
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_right: prismic.SelectField<
-    | "none"
-    | "arrowDown"
-    | "arrowLeft"
-    | "arrowRight"
-    | "arrowUp"
-    | "arrowUpRight"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "chevronDown"
-    | "chevronLeft"
-    | "chevronRight"
-    | "circlePlay"
-    | "circleStar"
-    | "clipboardCheck"
-    | "headset"
-    | "mail"
-    | "phoneCall"
-    | "phoneIncoming"
-    | "phoneOutgoing",
-    "filled"
-  >;
-}
-
-/**
- * Item in *Value → Cards → Primary → Statement*
- */
-export interface ValueSliceCardsPrimaryStatementItem {
-  /**
-   * Icon field in *Value → Cards → Primary → Statement*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: value.cards.primary.statement[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
-  >;
-
-  /**
-   * Title field in *Value → Cards → Primary → Statement*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.statement[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Value → Cards → Primary → Statement*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.statement[].description
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   description: prismic.KeyTextField;
@@ -8274,11 +8332,11 @@ export interface ValueSliceTextPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: value.text.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *Value → Text → Primary*
@@ -8356,187 +8414,6 @@ export type ValueSliceText = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Value → Quote → Primary*
- */
-export interface ValueSliceQuotePrimary {
-  /**
-   * Remove Top Padding field in *Value → Quote → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: value.quote.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Value → Quote → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: value.quote.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Overline field in *Value → Quote → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.quote.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<ValueSliceQuotePrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Value → Quote → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.quote.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Value → Quote → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.quote.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Quote field in *Value → Quote → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.quote.primary.quote[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  quote: prismic.GroupField<Simplify<ValueSliceQuotePrimaryQuoteItem>>;
-}
-
-/**
- * Quote variation for Value Slice
- *
- * - **API ID**: `quote`
- * - **Description**: Quote
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ValueSliceQuote = prismic.SharedSliceVariation<
-  "quote",
-  Simplify<ValueSliceQuotePrimary>,
-  never
->;
-
-/**
- * Primary content in *Value → Cards → Primary*
- */
-export interface ValueSliceCardsPrimary {
-  /**
-   * Remove Top Padding field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: value.cards.primary.remove_top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  remove_top_padding: prismic.BooleanField;
-
-  /**
-   * Section Theme field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
-   * - **API ID Path**: value.cards.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
-
-  /**
-   * Center Text field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: value.cards.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  alignment: prismic.BooleanField;
-
-  /**
-   * Overline field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.overline[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  overline: prismic.GroupField<Simplify<ValueSliceCardsPrimaryOverlineItem>>;
-
-  /**
-   * Title field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Buttons field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.buttons[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  buttons: prismic.GroupField<Simplify<ValueSliceCardsPrimaryButtonsItem>>;
-
-  /**
-   * Statement field in *Value → Cards → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: value.cards.primary.statement[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  statement: prismic.GroupField<Simplify<ValueSliceCardsPrimaryStatementItem>>;
-}
-
-/**
- * Cards variation for Value Slice
- *
- * - **API ID**: `cards`
- * - **Description**: Cards
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ValueSliceCards = prismic.SharedSliceVariation<
-  "cards",
-  Simplify<ValueSliceCardsPrimary>,
-  never
->;
-
-/**
  * Primary content in *Value → Split → Primary*
  */
 export interface ValueSliceSplitPrimary {
@@ -8556,11 +8433,11 @@ export interface ValueSliceSplitPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: value.split.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Center Text field in *Value → Split → Primary*
@@ -8668,11 +8545,11 @@ export interface ValueSliceGridPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Ocean
+   * - **Default Value**: Bud
    * - **API ID Path**: value.grid.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Ocean" | "Sunrise", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
    * Overline field in *Value → Grid → Primary*
@@ -8741,12 +8618,7 @@ export type ValueSliceGrid = prismic.SharedSliceVariation<
 /**
  * Slice variation for *Value*
  */
-type ValueSliceVariation =
-  | ValueSliceText
-  | ValueSliceQuote
-  | ValueSliceCards
-  | ValueSliceSplit
-  | ValueSliceGrid;
+type ValueSliceVariation = ValueSliceText | ValueSliceSplit | ValueSliceGrid;
 
 /**
  * Value Shared Slice
@@ -8811,35 +8683,61 @@ declare module "@prismicio/client" {
       RedirectDocumentData,
       RedirectDocumentDataRedirectsItem,
       AllDocumentTypes,
+      ArticleSlice,
+      ArticleSliceFeaturePrimaryOverlineItem,
+      ArticleSliceFeaturePrimary,
+      ArticleSliceListPrimaryOverlineItem,
+      ArticleSliceListPrimaryButtonItem,
+      ArticleSliceListPrimaryFeaturedArticlesItem,
+      ArticleSliceListPrimary,
+      ArticleSliceVariation,
+      ArticleSliceFeature,
+      ArticleSliceList,
       CalloutSlice,
       CalloutSliceSplitPrimaryOverlineItem,
       CalloutSliceSplitPrimaryButtonsItem,
       CalloutSliceSplitPrimaryMediaItem,
       CalloutSliceSplitPrimary,
-      CalloutSliceFloatPrimaryOverlineItem,
-      CalloutSliceFloatPrimaryButtonsItem,
-      CalloutSliceFloatPrimaryMediaItem,
-      CalloutSliceFloatPrimary,
-      CalloutSliceFormPrimaryOverlineItem,
-      CalloutSliceFormPrimaryValueStatementsItem,
-      CalloutSliceFormPrimaryConsentItemsItem,
-      CalloutSliceFormPrimary,
-      CalloutSliceFormItem,
+      CalloutSliceBackdropPrimaryOverlineItem,
+      CalloutSliceBackdropPrimaryButtonsItem,
+      CalloutSliceBackdropPrimaryMediaItem,
+      CalloutSliceBackdropPrimary,
+      CalloutSliceCardPrimaryOverlineItem,
+      CalloutSliceCardPrimaryButtonsItem,
+      CalloutSliceCardPrimaryMediaItem,
+      CalloutSliceCardPrimary,
+      CalloutSliceContactPrimaryOverlineItem,
+      CalloutSliceContactPrimaryButtonsItem,
+      CalloutSliceContactPrimaryContactItemsItem,
+      CalloutSliceContactPrimary,
+      CalloutSliceDetailsPrimaryOverlineItem,
+      CalloutSliceDetailsPrimaryButtonsItem,
+      CalloutSliceDetailsPrimaryDetailsItem,
+      CalloutSliceDetailsPrimary,
       CalloutSliceVariation,
       CalloutSliceSplit,
-      CalloutSliceFloat,
-      CalloutSliceForm,
-      EmployeeSlice,
-      EmployeeSliceMarqueePrimaryOverlineItem,
-      EmployeeSliceMarqueePrimaryButtonItem,
-      EmployeeSliceMarqueePrimary,
-      EmployeeSliceListPrimaryOverlineItem,
-      EmployeeSliceListPrimaryButtonItem,
-      EmployeeSliceListPrimaryFeaturedEmployeesItem,
-      EmployeeSliceListPrimary,
-      EmployeeSliceVariation,
-      EmployeeSliceMarquee,
-      EmployeeSliceList,
+      CalloutSliceBackdrop,
+      CalloutSliceCard,
+      CalloutSliceContact,
+      CalloutSliceDetails,
+      ContactSlice,
+      ContactSliceFormPrimaryOverlineItem,
+      ContactSliceFormPrimaryValueStatementsItem,
+      ContactSliceFormPrimaryConsentItemsItem,
+      ContactSliceFormPrimary,
+      ContactSliceFormItem,
+      ContactSlicePeoplePrimaryOverlineItem,
+      ContactSlicePeoplePrimaryButtonItem,
+      ContactSlicePeoplePrimaryFeaturedEmployeesItem,
+      ContactSlicePeoplePrimary,
+      ContactSliceRegisterPrimaryOverlineItem,
+      ContactSliceRegisterPrimaryConsentItemsItem,
+      ContactSliceRegisterPrimary,
+      ContactSliceRegisterItem,
+      ContactSliceVariation,
+      ContactSliceForm,
+      ContactSlicePeople,
+      ContactSliceRegister,
       FaqSlice,
       FaqSliceListPrimaryOverlineItem,
       FaqSliceListPrimaryFaqlistItem,
@@ -8850,28 +8748,31 @@ declare module "@prismicio/client" {
       FaqSliceVariation,
       FaqSliceList,
       FaqSliceSplit,
+      FooterSlice,
+      FooterSliceDefaultPrimaryLinksItem,
+      FooterSliceDefaultPrimarySocialMediaItem,
+      FooterSliceDefaultPrimary,
+      FooterSliceVariation,
+      FooterSliceDefault,
       HeroSlice,
       HeroSliceBackdropPrimaryButtonsItem,
       HeroSliceBackdropPrimaryMediaItem,
       HeroSliceBackdropPrimary,
-      HeroSliceSplitPrimaryOverlineItem,
-      HeroSliceSplitPrimaryDetailsItem,
-      HeroSliceSplitPrimaryButtonsItem,
-      HeroSliceSplitPrimaryMediaItem,
-      HeroSliceSplitPrimary,
       HeroSliceStackPrimaryOverlineItem,
       HeroSliceStackPrimaryButtonsItem,
       HeroSliceStackPrimaryMediaItem,
       HeroSliceStackPrimary,
       HeroSliceVariation,
       HeroSliceBackdrop,
-      HeroSliceSplit,
       HeroSliceStack,
-      ImageStripSlice,
-      ImageStripSliceDefaultPrimaryMediaItem,
-      ImageStripSliceDefaultPrimary,
-      ImageStripSliceVariation,
-      ImageStripSliceDefault,
+      ImageSlice,
+      ImageSliceGridPrimaryMediaItem,
+      ImageSliceGridPrimary,
+      ImageSliceShowcasePrimaryMediaItem,
+      ImageSliceShowcasePrimary,
+      ImageSliceVariation,
+      ImageSliceGrid,
+      ImageSliceShowcase,
       LinkSlice,
       LinkSliceQuickPrimaryOverlineItem,
       LinkSliceQuickPrimary,
@@ -8885,71 +8786,44 @@ declare module "@prismicio/client" {
       LinkSliceQuick,
       LinkSliceGrid,
       LinkSliceCards,
-      ProcessSlice,
-      ProcessSliceLinearPrimaryOverlineItem,
-      ProcessSliceLinearPrimaryStepItem,
-      ProcessSliceLinearPrimary,
-      ProcessSliceImagePrimaryOverlineItem,
-      ProcessSliceImagePrimaryStepItem,
-      ProcessSliceImagePrimary,
-      ProcessSliceTimePrimaryOverlineItem,
-      ProcessSliceTimePrimaryStepItem,
-      ProcessSliceTimePrimary,
-      ProcessSliceVariation,
-      ProcessSliceLinear,
-      ProcessSliceImage,
-      ProcessSliceTime,
-      StatsSlice,
-      StatsSliceSplitPrimaryOverlineItem,
-      StatsSliceSplitPrimaryButtonsItem,
-      StatsSliceSplitPrimaryStatsItem,
-      StatsSliceSplitPrimary,
-      StatsSliceGridPrimaryOverlineItem,
-      StatsSliceGridPrimaryButtonsItem,
-      StatsSliceGridPrimaryStatsItem,
-      StatsSliceGridPrimary,
-      StatsSliceBackdropPrimaryOverlineItem,
-      StatsSliceBackdropPrimaryButtonsItem,
-      StatsSliceBackdropPrimaryStatsItem,
-      StatsSliceBackdropPrimary,
-      StatsSliceVariation,
-      StatsSliceSplit,
-      StatsSliceGrid,
-      StatsSliceBackdrop,
+      ProductSlice,
+      ProductSliceGridPrimaryOverlineItem,
+      ProductSliceGridPrimaryButtonItem,
+      ProductSliceGridPrimaryFeaturedProductsItem,
+      ProductSliceGridPrimary,
+      ProductSliceSearchPrimaryOverlineItem,
+      ProductSliceSearchPrimary,
+      ProductSliceVariation,
+      ProductSliceGrid,
+      ProductSliceSearch,
       TextSlice,
       TextSliceExtendedPrimaryOverlineItem,
       TextSliceExtendedPrimary,
-      TextSliceHighlightPrimaryOverlineItem,
-      TextSliceHighlightPrimaryButtonsItem,
-      TextSliceHighlightPrimary,
       TextSliceSplitPrimaryOverlineItem,
       TextSliceSplitPrimary,
       TextSliceLongformPrimary,
       TextSliceMediaPrimaryFirstImageItem,
       TextSliceMediaPrimarySecondImageItem,
       TextSliceMediaPrimary,
-      TextSliceFormPrimaryConsentItemsItem,
-      TextSliceFormPrimary,
-      TextSliceFormItem,
+      TextSliceDetailsPrimaryOverlineItem,
+      TextSliceDetailsPrimaryDetailsItem,
+      TextSliceDetailsPrimary,
+      TextSliceInfoPrimaryOverlineItem,
+      TextSliceInfoPrimaryButtonsItem,
+      TextSliceInfoPrimaryFactsItem,
+      TextSliceInfoPrimary,
       TextSliceVariation,
       TextSliceExtended,
-      TextSliceHighlight,
       TextSliceSplit,
       TextSliceLongform,
       TextSliceMedia,
-      TextSliceForm,
+      TextSliceDetails,
+      TextSliceInfo,
       ValueSlice,
       ValueSliceTextPrimaryOverlineItem,
       ValueSliceTextPrimaryButtonsItem,
       ValueSliceTextPrimaryStatementItem,
       ValueSliceTextPrimary,
-      ValueSliceQuotePrimaryOverlineItem,
-      ValueSliceQuotePrimaryQuoteItem,
-      ValueSliceQuotePrimary,
-      ValueSliceCardsPrimaryOverlineItem,
-      ValueSliceCardsPrimaryButtonsItem,
-      ValueSliceCardsPrimaryStatementItem,
-      ValueSliceCardsPrimary,
       ValueSliceSplitPrimaryOverlineItem,
       ValueSliceSplitPrimaryButtonsItem,
       ValueSliceSplitPrimaryStatementItem,
@@ -8960,8 +8834,6 @@ declare module "@prismicio/client" {
       ValueSliceGridPrimary,
       ValueSliceVariation,
       ValueSliceText,
-      ValueSliceQuote,
-      ValueSliceCards,
       ValueSliceSplit,
       ValueSliceGrid,
     };

@@ -46,34 +46,37 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "faq": {
-              "type": "SharedSlice"
-            },
-            "value": {
-              "type": "SharedSlice"
-            },
-            "link": {
-              "type": "SharedSlice"
-            },
-            "employee": {
-              "type": "SharedSlice"
-            },
-            "process": {
-              "type": "SharedSlice"
-            },
-            "text": {
+            "article": {
               "type": "SharedSlice"
             },
             "callout": {
               "type": "SharedSlice"
             },
+            "contact": {
+              "type": "SharedSlice"
+            },
+            "faq": {
+              "type": "SharedSlice"
+            },
+            "footer": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             },
-            "image_strip": {
+            "image": {
               "type": "SharedSlice"
             },
-            "stats": {
+            "link": {
+              "type": "SharedSlice"
+            },
+            "product": {
+              "type": "SharedSlice"
+            },
+            "text": {
+              "type": "SharedSlice"
+            },
+            "value": {
               "type": "SharedSlice"
             }
           }

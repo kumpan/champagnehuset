@@ -10,11 +10,6 @@ import type { HeroProps } from "..";
 
 type Props = HeroProps & { slice: Content.HeroSliceStack };
 
-const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
-};
-
 export function HeroStack({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, section_theme, media } = slice.primary;
@@ -40,7 +35,6 @@ export function HeroStack({ slice, context }: Props) {
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             buttons={buttons}

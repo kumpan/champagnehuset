@@ -1,0 +1,136 @@
+{
+  "id": "image",
+  "type": "SharedSlice",
+  "name": "Image",
+  "description": "Image",
+  "variations": [
+    {
+      "id": "grid",
+      "name": "Grid",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Grid",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Dust", "Night"],
+            "default_value": "Bud"
+          }
+        },
+        "media": {
+          "type": "Group",
+          "config": {
+            "label": "Media",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "thumbnails": [],
+                  "constraint": {},
+                  "label": "Image"
+                }
+              },
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video",
+                  "placeholder": "Choose Video from the Media Library",
+                  "select": "media",
+                  "allowText": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "showcase",
+      "name": "Showcase",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Showcase",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
+          }
+        },
+        "media": {
+          "type": "Group",
+          "config": {
+            "label": "Media",
+            "repeat": false,
+            "fields": {
+              "filter": {
+                "type": "Select",
+                "config": {
+                  "label": "Filter",
+                  "placeholder": "No Filter",
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "thumbnails": [],
+                  "constraint": {
+                    "width": 1440,
+                    "height": 1440
+                  }
+                }
+              },
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video",
+                  "placeholder": "Choose Video from the Media Library",
+                  "select": "media",
+                  "allowText": false
+                }
+              }
+            }
+          }
+        },
+        "caption": {
+          "type": "Text",
+          "config": {
+            "label": "Caption",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

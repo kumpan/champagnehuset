@@ -26,8 +26,8 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
           }
         },
         "overline": {
@@ -124,217 +124,6 @@
       "items": {}
     },
     {
-      "id": "highlight",
-      "name": "Highlight",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Highlight",
-      "imageUrl": "",
-      "primary": {
-        "remove_top_padding": {
-          "type": "Boolean",
-          "config": {
-            "label": "Remove Top Padding",
-            "placeholder_false": "Keep Padding",
-            "placeholder_true": "Padding is Removed",
-            "default_value": false
-          }
-        },
-        "section_theme": {
-          "type": "Select",
-          "config": {
-            "label": "Section Theme",
-            "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
-          }
-        },
-        "alignment": {
-          "type": "Boolean",
-          "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
-            "default_value": true
-          }
-        },
-        "overline": {
-          "type": "Group",
-          "config": {
-            "label": "Overline",
-            "repeat": false,
-            "fields": {
-              "overline_icon": {
-                "type": "Select",
-                "config": {
-                  "label": "Overline Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "circleGauge",
-                    "circleStar",
-                    "clock",
-                    "crown",
-                    "dog",
-                    "fileBadge",
-                    "fileText",
-                    "gem",
-                    "handshake",
-                    "headset",
-                    "hourglass",
-                    "houseHeart",
-                    "layers",
-                    "lock",
-                    "lockKeyhole",
-                    "lockKeyholeOpen",
-                    "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
-                    "phoneCall",
-                    "plane",
-                    "search",
-                    "ship",
-                    "shieldCheck",
-                    "shieldEllipsis",
-                    "sun",
-                    "triangle",
-                    "trophy"
-                  ],
-                  "default_value": "none"
-                }
-              },
-              "overline_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Overline Text",
-                  "placeholder": ""
-                }
-              }
-            }
-          }
-        },
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
-          }
-        },
-        "buttons": {
-          "type": "Group",
-          "config": {
-            "label": "Buttons",
-            "repeat": true,
-            "fields": {
-              "link": {
-                "type": "Link",
-                "config": {
-                  "label": "Link",
-                  "allowText": true,
-                  "allowTargetBlank": true,
-                  "select": null
-                }
-              },
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "label": "Variant",
-                  "placeholder": "",
-                  "options": ["default", "secondary"],
-                  "default_value": "default"
-                }
-              },
-              "icon_left": {
-                "type": "Select",
-                "config": {
-                  "label": "Left Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "arrowDown",
-                    "arrowLeft",
-                    "arrowRight",
-                    "arrowUp",
-                    "arrowUpRight",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "chevronDown",
-                    "chevronLeft",
-                    "chevronRight",
-                    "circlePlay",
-                    "circleStar",
-                    "clipboardCheck",
-                    "headset",
-                    "mail",
-                    "phoneCall",
-                    "phoneIncoming",
-                    "phoneOutgoing"
-                  ],
-                  "default_value": "none"
-                }
-              },
-              "icon_right": {
-                "type": "Select",
-                "config": {
-                  "label": "Right Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "arrowDown",
-                    "arrowLeft",
-                    "arrowRight",
-                    "arrowUp",
-                    "arrowUpRight",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "chevronDown",
-                    "chevronLeft",
-                    "chevronRight",
-                    "circlePlay",
-                    "circleStar",
-                    "clipboardCheck",
-                    "headset",
-                    "mail",
-                    "phoneCall",
-                    "phoneIncoming",
-                    "phoneOutgoing"
-                  ],
-                  "default_value": "none"
-                }
-              }
-            }
-          }
-        }
-      },
-      "items": {}
-    },
-    {
       "id": "split",
       "name": "Split",
       "docURL": "...",
@@ -356,8 +145,8 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
           }
         },
         "overline": {
@@ -529,8 +318,8 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
           }
         },
         "text_side": {
@@ -634,11 +423,11 @@
       "items": {}
     },
     {
-      "id": "form",
-      "name": "Form",
+      "id": "details",
+      "name": "Details",
       "docURL": "...",
       "version": "initial",
-      "description": "Form",
+      "description": "Details",
       "imageUrl": "",
       "primary": {
         "remove_top_padding": {
@@ -655,116 +444,397 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
           }
         },
-        "rich_text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Rich Text",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-            "labels": ["info", "fact", "check", "quote", "quote-large"]
-          }
-        },
-        "form_intro": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Form Intro",
-            "placeholder": "Write an Intro to the Form",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "submit_button_text": {
-          "type": "Text",
-          "config": {
-            "label": "Submit Button Text",
-            "placeholder": "Send message"
-          }
-        },
-        "success_message": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Success Message",
-            "placeholder": "Thanks for your message!",
-            "allowTargetBlank": true,
-            "multi": "paragraph,heading3,heading4,strong,em,hyperlink"
-          }
-        },
-        "consent_items": {
+        "overline": {
           "type": "Group",
           "config": {
-            "label": "Consent Items",
-            "repeat": true,
+            "label": "Overline",
+            "repeat": false,
             "fields": {
-              "consent_text": {
-                "type": "StructuredText",
+              "overline_icon": {
+                "type": "Select",
                 "config": {
-                  "label": "Consent Text",
-                  "placeholder": "I accept the privacy policy",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,hyperlink"
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
                 }
               },
-              "consent_required": {
-                "type": "Boolean",
+              "overline_text": {
+                "type": "Text",
                 "config": {
-                  "label": "Required",
-                  "placeholder_false": "Optional",
-                  "placeholder_true": "Required",
-                  "default_value": true
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "details": {
+          "type": "Group",
+          "config": {
+            "label": "Details",
+            "repeat": true,
+            "fields": {
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              },
+              "rich_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Rich Text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,heading3,heading4"
                 }
               }
             }
           }
         }
       },
-      "items": {
-        "field_type": {
+      "items": {}
+    },
+    {
+      "id": "info",
+      "name": "Info",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Info",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
           "type": "Select",
           "config": {
-            "label": "Field Type",
-            "placeholder": "Select field type",
-            "options": ["name", "email", "phone", "text", "textarea"],
-            "default_value": "text"
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
           }
         },
-        "field_label": {
-          "type": "Text",
-          "config": {
-            "label": "Field Label",
-            "placeholder": "e.g. Name, Email, Message"
-          }
-        },
-        "field_placeholder": {
-          "type": "Text",
-          "config": {
-            "label": "Placeholder",
-            "placeholder": "e.g. Enter your name"
-          }
-        },
-        "field_required": {
+        "alignment": {
           "type": "Boolean",
           "config": {
-            "label": "Required",
-            "placeholder_false": "Optional",
-            "placeholder_true": "Required",
+            "label": "Center Text",
+            "placeholder_false": "Text is Left-Aligned",
+            "placeholder_true": "Text is Centered",
             "default_value": true
           }
         },
-        "new_row": {
-          "type": "Boolean",
+        "overline": {
+          "type": "Group",
           "config": {
-            "label": "Start New Row",
-            "placeholder_false": "Continue Previous Row",
-            "placeholder_true": "Start New Row",
-            "default_value": true
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "buttons": {
+          "type": "Group",
+          "config": {
+            "label": "Buttons",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "allowText": true,
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "label": "Variant",
+                  "placeholder": "",
+                  "options": ["default", "secondary", "outline", "ghost"],
+                  "default_value": "default"
+                }
+              },
+              "icon_left": {
+                "type": "Select",
+                "config": {
+                  "label": "Left Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "arrowDown",
+                    "arrowLeft",
+                    "arrowRight",
+                    "arrowUp",
+                    "arrowUpRight",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "chevronDown",
+                    "chevronLeft",
+                    "chevronRight",
+                    "circlePlay",
+                    "circleStar",
+                    "clipboardCheck",
+                    "headset",
+                    "mail",
+                    "phoneCall",
+                    "phoneIncoming",
+                    "phoneOutgoing"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "icon_right": {
+                "type": "Select",
+                "config": {
+                  "label": "Right Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "arrowDown",
+                    "arrowLeft",
+                    "arrowRight",
+                    "arrowUp",
+                    "arrowUpRight",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "chevronDown",
+                    "chevronLeft",
+                    "chevronRight",
+                    "circlePlay",
+                    "circleStar",
+                    "clipboardCheck",
+                    "headset",
+                    "mail",
+                    "phoneCall",
+                    "phoneIncoming",
+                    "phoneOutgoing"
+                  ],
+                  "default_value": "none"
+                }
+              }
+            }
+          }
+        },
+        "facts": {
+          "type": "Group",
+          "config": {
+            "label": "Facts",
+            "repeat": true,
+            "fields": {
+              "number": {
+                "type": "Text",
+                "config": {
+                  "label": "Number",
+                  "placeholder": "99%"
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "A short description of this stat."
+                }
+              }
+            }
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }

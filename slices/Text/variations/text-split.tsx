@@ -10,8 +10,8 @@ import type { TextProps } from "..";
 type Props = TextProps & { slice: Content.TextSliceSplit };
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 export function TextSplit({ slice }: Props) {

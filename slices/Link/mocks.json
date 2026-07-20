@@ -58,7 +58,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Ocean"
+        "value": "Bud"
       },
       "remove_top_padding": {
         "__TYPE__": "BooleanContent",
@@ -218,7 +218,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Ocean"
+        "value": "Bud"
       },
       "remove_top_padding": {
         "__TYPE__": "BooleanContent",
@@ -767,7 +767,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Ocean"
+        "value": "Bud"
       },
       "remove_top_padding": {
         "__TYPE__": "BooleanContent",

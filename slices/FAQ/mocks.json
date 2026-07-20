@@ -5,7 +5,7 @@
     "primary": {
       "section_theme": {
         "__TYPE__": "FieldContent",
-        "value": "Ocean",
+        "value": "Bud",
         "type": "Select"
       },
       "remove_top_padding": {
@@ -163,7 +163,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Sunrise"
+        "value": "Dust"
       },
       "remove_top_padding": {
         "__TYPE__": "BooleanContent",

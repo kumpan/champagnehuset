@@ -1,14 +1,15 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  article: dynamic(() => import("./Article")),
   callout: dynamic(() => import("./Callout")),
-  employee: dynamic(() => import("./Employee")),
+  contact: dynamic(() => import("./Contact")),
   faq: dynamic(() => import("./FAQ")),
+  footer: dynamic(() => import("./Footer")),
   hero: dynamic(() => import("./Hero")),
-  image_strip: dynamic(() => import("./ImageStrip")),
+  image: dynamic(() => import("./Image")),
   link: dynamic(() => import("./Link")),
-  process: dynamic(() => import("./Process")),
-  stats: dynamic(() => import("./Stats")),
+  product: dynamic(() => import("./Product")),
   text: dynamic(() => import("./Text")),
   value: dynamic(() => import("./Value")),
 };

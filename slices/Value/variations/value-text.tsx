@@ -7,18 +7,18 @@ import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const statementDescriptionThemeClasses = {
-  Ocean: "text-ink-dim",
-  Sunrise: "text-accent-ink-dim",
+  Bud: "text-ink-dim",
+  Dust: "text-accent-ink-dim",
 };
 
 const dividerThemeClasses = {
-  Ocean: "bg-brand",
-  Sunrise: "bg-accent",
+  Bud: "bg-brand",
+  Dust: "bg-accent",
 };
 
 export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceText }) {

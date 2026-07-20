@@ -5,7 +5,11 @@ import { MotionProvider } from "@/components/motion-provider";
 const thePortray = localFont({
   variable: "--font-the-portray",
   src: [
-    { path: "../fonts/ThePortrayRegular.woff2", weight: "400", style: "normal" },
+    {
+      path: "../fonts/ThePortrayRegular.woff2",
+      weight: "400",
+      style: "normal",
+    },
     { path: "../fonts/ThePortrayItalic.woff2", weight: "400", style: "italic" },
   ],
 });

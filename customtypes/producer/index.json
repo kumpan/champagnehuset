@@ -57,7 +57,13 @@
         "config": {
           "label": "Region",
           "placeholder": "",
-          "options": ["Côte des Blancs", "Montagne de Reims", "Vallée de la Marne", "Côte des Bar", "Côte de Sézanne"]
+          "options": [
+            "C\u00f4te des Blancs",
+            "Montagne de Reims",
+            "Vall\u00e9e de la Marne",
+            "C\u00f4te des Bar",
+            "C\u00f4te de S\u00e9zanne"
+          ]
         }
       },
       "producer_village": {
@@ -81,34 +87,37 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "faq": {
-              "type": "SharedSlice"
-            },
-            "value": {
-              "type": "SharedSlice"
-            },
-            "link": {
-              "type": "SharedSlice"
-            },
-            "employee": {
-              "type": "SharedSlice"
-            },
-            "process": {
-              "type": "SharedSlice"
-            },
-            "text": {
+            "article": {
               "type": "SharedSlice"
             },
             "callout": {
               "type": "SharedSlice"
             },
+            "contact": {
+              "type": "SharedSlice"
+            },
+            "faq": {
+              "type": "SharedSlice"
+            },
+            "footer": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             },
-            "image_strip": {
+            "image": {
               "type": "SharedSlice"
             },
-            "stats": {
+            "link": {
+              "type": "SharedSlice"
+            },
+            "product": {
+              "type": "SharedSlice"
+            },
+            "text": {
+              "type": "SharedSlice"
+            },
+            "value": {
               "type": "SharedSlice"
             }
           }

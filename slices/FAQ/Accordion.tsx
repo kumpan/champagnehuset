@@ -13,13 +13,13 @@ type AccordionProps = {
 };
 
 const frequentlyAskedThemeStyles: Record<string, string> = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const frequentlyAskedThemeTextColors: Record<string, string> = {
-  Ocean: "",
-  Sunrise: "text-tertiary-800 text-accent-ink-dim",
+  Bud: "",
+  Dust: "text-tertiary-800 text-accent-ink-dim",
 };
 
 const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {

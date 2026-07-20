@@ -24,18 +24,19 @@ type CmsOverlineItem = {
 };
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill text-ink",
-  Sunrise: "bg-accent-fill text-accent-ink",
-  Night: "bg-fill text-ink",
-  Dawn: "bg-accent-fill text-accent-ink",
+  Bud: "text-ink",
+  Leaf: "text-ink",
+  Brand: "text-ink-flip",
+  Dust: "text-spot-ink",
+  Slate: "text-spot-ink-flip",
 };
 
 const buttonThemeClasses = {
-  Ocean: "",
-  Sunrise:
-    "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
-  Night: "",
-  Dawn: "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
+  Bud: "",
+  Leaf: "",
+  Brand: "",
+  Dust: "",
+  Slate: "",
 };
 
 export type SectionTheme = keyof typeof overlineThemeClasses;
@@ -80,7 +81,7 @@ export function SectionIntro({
   buttons,
   align = "center",
   className,
-  sectionTheme = "Ocean",
+  sectionTheme = "Bud",
   titleMaxWidth = true,
   textBalance = false,
   buttonVariant,
@@ -141,7 +142,7 @@ export function SectionIntro({
           <CustomRichText
             sectionTheme={sectionTheme}
             className={cn(
-              "max-w-xl text-balance",
+              "max-w-xl text-pretty",
               isSideBySide && "prose-p:mt-2! prose-p:mb-0! lg:mt-4 lg:max-w-md",
               descriptionClassName,
             )}

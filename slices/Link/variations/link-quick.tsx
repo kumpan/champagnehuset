@@ -10,13 +10,13 @@ import type { LinkProps } from "..";
 type Props = LinkProps & { slice: Content.LinkSliceQuick };
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Dust: "bg-accent-fill-raised",
 };
 
 const linkThemeClasses = {
-  Ocean: "bg-fill-raised outline-brand/0 hover:outline-brand",
-  Sunrise: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
+  Bud: "bg-fill-raised outline-brand/0 hover:outline-brand",
+  Dust: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
 };
 
 export function LinkQuick({ slice }: Props) {
