@@ -50,7 +50,6 @@ export function TextInfo({ slice }: Props) {
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[theme]}
             title={title}
             description={description}
             buttons={buttons}
