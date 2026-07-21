@@ -1,5 +1,5 @@
 {
-  "format": "page",
+  "format": "custom",
   "id": "employee",
   "label": "Employee",
   "repeatable": true,
@@ -12,32 +12,11 @@
           "label": "UID"
         }
       },
-      "page_title": {
-        "type": "Text",
-        "config": {
-          "label": "Page Title",
-          "placeholder": "Used for Breadcrumbs"
-        }
-      },
-      "parent": {
-        "type": "Link",
-        "config": {
-          "label": "Parent",
-          "select": "document",
-          "repeat": false,
-          "customtypes": [
-            {
-              "id": "page",
-              "fields": ["page_title"]
-            }
-          ]
-        }
-      },
       "employee_name": {
         "type": "Text",
         "config": {
           "label": "Name",
-          "placeholder": ""
+          "placeholder": "Lars Öjerbäck"
         }
       },
       "employee_image": {
@@ -51,87 +30,40 @@
           "thumbnails": []
         }
       },
+      "employee_title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": "Brand Manager"
+        }
+      },
+      "employee_location": {
+        "type": "Text",
+        "config": {
+          "label": "Location",
+          "placeholder": "Stockholm"
+        }
+      },
+      "employee_phone": {
+        "type": "Text",
+        "config": {
+          "label": "Phone",
+          "placeholder": "0708 922 406"
+        }
+      },
+      "employee_email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": "namn@twscollective.se"
+        }
+      },
       "employee_bio": {
         "type": "Text",
         "config": {
           "label": "Bio",
           "placeholder": ""
         }
-      },
-      "employee_title": {
-        "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
-      },
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "article": {
-              "type": "SharedSlice"
-            },
-            "callout": {
-              "type": "SharedSlice"
-            },
-            "contact": {
-              "type": "SharedSlice"
-            },
-            "faq": {
-              "type": "SharedSlice"
-            },
-            "footer": {
-              "type": "SharedSlice"
-            },
-            "hero": {
-              "type": "SharedSlice"
-            },
-            "image": {
-              "type": "SharedSlice"
-            },
-            "link": {
-              "type": "SharedSlice"
-            },
-            "product": {
-              "type": "SharedSlice"
-            },
-            "text": {
-              "type": "SharedSlice"
-            },
-            "value": {
-              "type": "SharedSlice"
-            }
-          }
-        }
-      }
-    },
-    "SEO & Metadata": {
-      "meta_title": {
-        "config": {
-          "label": "Meta Title",
-          "placeholder": "Title for the Emplyee"
-        },
-        "type": "Text"
-      },
-      "meta_description": {
-        "config": {
-          "label": "Meta Description",
-          "placeholder": "Description for the Emplyee"
-        },
-        "type": "Text"
-      },
-      "meta_image": {
-        "config": {
-          "constraint": {
-            "height": 1260,
-            "width": 2400
-          },
-          "label": "Meta Image",
-          "thumbnails": []
-        },
-        "type": "Image"
       }
     }
   }
