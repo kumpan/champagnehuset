@@ -2,10 +2,7 @@ import type { Content } from "@prismicio/client";
 import { generateFaqSchema, safeJsonLd } from "@/lib/schema-utils";
 
 interface FaqSchemaProps {
-  slices:
-    | Content.PageDocumentData["slices"]
-    | Content.ArticleDocumentData["slices"]
-    | Content.EmployeeDocumentData["slices"];
+  slices: Content.PageDocumentData["slices"] | Content.ArticleDocumentData["slices"];
 }
 
 /**
