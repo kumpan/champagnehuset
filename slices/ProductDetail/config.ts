@@ -5,11 +5,7 @@
  * change them here if the rep changes.
  */
 
-export type ConsumerAvailability =
-  | "Systembolaget"
-  | "Privatimport"
-  | "Slutsåld"
-  | null;
+export type ConsumerAvailability = "Systembolaget" | "Privatimport" | "Slutsåld" | null;
 
 export type RestaurantAvailability = "Tillgänglig" | "Slutsåld" | null;
 

@@ -9,7 +9,7 @@ import { Section } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { formatAlcohol, formatDosage, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
-import { COPY, resolvePurchase, RESTAURANT_CONTACT } from "../config";
+import { COPY, RESTAURANT_CONTACT, resolvePurchase } from "../config";
 
 const ArrowRight = iconMap.arrowRight;
 const PhoneCall = iconMap.phoneCall;
@@ -62,10 +62,9 @@ export function ProductDetailDefault({ slice, context }: SliceComponentProps<Con
     hasOrderUrl,
   );
 
-  const pdfHref =
-    product && product.uid
-      ? `/api/product-pdf?uid=${encodeURIComponent(product.uid)}&lang=${encodeURIComponent(product.lang)}`
-      : null;
+  const pdfHref = product?.uid
+    ? `/api/product-pdf?uid=${encodeURIComponent(product.uid)}&lang=${encodeURIComponent(product.lang)}`
+    : null;
 
   return (
     <Section sectionTheme={theme} removeTopPadding={slice.primary.remove_top_padding}>
@@ -83,7 +82,7 @@ export function ProductDetailDefault({ slice, context }: SliceComponentProps<Con
             <div className="mt-10 lg:mt-16">
               {purchase.kind === "sold-out" ? (
                 <div>
-                  <h2 className="font-secondary text-xl font-medium">{COPY.soldOut.heading}</h2>
+                  <h2 className="font-medium font-secondary text-xl">{COPY.soldOut.heading}</h2>
                   <p className="mt-2 text-ink-dim">{COPY.soldOut.body}</p>
                 </div>
               ) : (
@@ -91,7 +90,7 @@ export function ProductDetailDefault({ slice, context }: SliceComponentProps<Con
                   {purchase.consumer ? (
                     <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                       <div className="max-w-sm">
-                        <h2 className="font-secondary text-xl font-medium">{purchase.consumer.heading}</h2>
+                        <h2 className="font-medium font-secondary text-xl">{purchase.consumer.heading}</h2>
                         <p className="mt-2 text-ink-dim">{purchase.consumer.body}</p>
                       </div>
                       {purchase.consumer.enabled && hasOrderUrl && data ? (
@@ -111,8 +110,8 @@ export function ProductDetailDefault({ slice, context }: SliceComponentProps<Con
                   ) : null}
 
                   {purchase.restaurant ? (
-                    <div className={cn(purchase.consumer && "border-t border-border pt-8")}>
-                      <h2 className="font-secondary text-xl font-medium">{COPY.restaurant.heading}</h2>
+                    <div className={cn(purchase.consumer && "border-border border-t pt-8")}>
+                      <h2 className="font-medium font-secondary text-xl">{COPY.restaurant.heading}</h2>
                       <p className="mt-2 max-w-md text-ink-dim">{COPY.restaurant.body}</p>
                       <p className="mt-4 text-ink-dim">
                         {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
@@ -145,11 +144,11 @@ export function ProductDetailDefault({ slice, context }: SliceComponentProps<Con
             ) : null}
 
             {rows.length > 0 ? (
-              <dl className="border-t border-border">
+              <dl className="border-border border-t">
                 {rows.map((row) => (
                   <div
                     key={row.label}
-                    className="flex items-baseline justify-between gap-6 border-b border-border py-4"
+                    className="flex items-baseline justify-between gap-6 border-border border-b py-4"
                   >
                     <dt className="text-ink-dim">{row.label}</dt>
                     <dd className="text-right font-medium text-ink">{row.value}</dd>

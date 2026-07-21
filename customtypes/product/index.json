@@ -38,7 +38,7 @@
         "type": "Text",
         "config": {
           "label": "Name",
-          "placeholder": "Cuv\u00e9e des Cray\u00e8res Brut"
+          "placeholder": "Cuvée des Crayères Brut"
         }
       },
       "product_image": {
@@ -66,19 +66,143 @@
           ]
         }
       },
+      "product_article_number": {
+        "type": "Text",
+        "config": {
+          "label": "Article Number",
+          "placeholder": "7721"
+        }
+      },
+      "product_price": {
+        "type": "Text",
+        "config": {
+          "label": "Price",
+          "placeholder": "995"
+        }
+      },
+      "product_volume": {
+        "type": "Select",
+        "config": {
+          "label": "Volume",
+          "placeholder": "",
+          "options": [
+            "187 ml",
+            "375 ml",
+            "750 ml",
+            "1,5 L",
+            "3 L",
+            "6 L",
+            "9 L",
+            "12 L",
+            "15 L"
+          ]
+        }
+      },
+      "product_grapes": {
+        "type": "Text",
+        "config": {
+          "label": "Grapes",
+          "placeholder": "100% Chardonnay"
+        }
+      },
       "product_dosage": {
         "type": "Select",
         "config": {
-          "label": "Dosage",
+          "label": "Dosage Level",
           "placeholder": "",
           "options": ["Brut Nature", "Extra Brut", "Brut", "Extra Sec", "Sec", "Demi-Sec", "Doux"]
         }
       },
-      "product_vintage": {
+      "product_dosage_grams": {
         "type": "Text",
         "config": {
+          "label": "Dosage (g/l)",
+          "placeholder": "6"
+        }
+      },
+      "product_alcohol": {
+        "type": "Text",
+        "config": {
+          "label": "Alcohol",
+          "placeholder": "12"
+        }
+      },
+      "product_storage": {
+        "type": "Text",
+        "config": {
+          "label": "Storage",
+          "placeholder": "Minst 36 mån på jästfällning"
+        }
+      },
+      "product_region": {
+        "type": "Select",
+        "config": {
+          "label": "Region",
+          "placeholder": "",
+          "options": [
+            "Côte des Blancs",
+            "Montagne de Reims",
+            "Vallée de la Marne",
+            "Côte des Bar",
+            "Côte de Sézanne"
+          ]
+        }
+      },
+      "product_cru": {
+        "type": "Select",
+        "config": {
+          "label": "Cru",
+          "placeholder": "",
+          "options": ["Grand Cru", "Premier Cru"]
+        }
+      },
+      "product_style": {
+        "type": "Select",
+        "config": {
+          "label": "Style",
+          "placeholder": "",
+          "options": ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Special Club"]
+        }
+      },
+      "product_special_club": {
+        "type": "Select",
+        "config": {
+          "label": "Special Club",
+          "placeholder": "",
+          "options": ["Yes", "No"]
+        }
+      },
+      "product_vintage": {
+        "type": "Select",
+        "config": {
           "label": "Vintage",
-          "placeholder": "2018, NV"
+          "placeholder": "",
+          "options": ["Yes", "No"]
+        }
+      },
+      "product_consumer_availability": {
+        "type": "Select",
+        "config": {
+          "label": "Consumer Availability",
+          "placeholder": "",
+          "options": ["Systembolaget", "Privatimport", "Slutsåld"]
+        }
+      },
+      "product_restaurant_availability": {
+        "type": "Select",
+        "config": {
+          "label": "Restaurant Availability",
+          "placeholder": "",
+          "options": ["Tillgänglig", "Slutsåld"]
+        }
+      },
+      "product_order_url": {
+        "type": "Link",
+        "config": {
+          "label": "Order URL",
+          "allowText": false,
+          "allowTargetBlank": true,
+          "select": null
         }
       },
       "product_description": {
@@ -120,6 +244,9 @@
               "type": "SharedSlice"
             },
             "product": {
+              "type": "SharedSlice"
+            },
+            "product_detail": {
               "type": "SharedSlice"
             },
             "text": {

@@ -14,7 +14,9 @@ const PAGE_TYPES = ["page", "article", "employee", "product", "producer"] as con
 
 /** Fetches a document by UID, trying each page type in order. */
 export async function getDocumentByUID(uid: string, client: prismic.Client, lang?: string) {
-  const options = lang ? { lang } : undefined;
+  // fetchLinks resolves the producer's name so the ProductDetail overline can
+  // fall back to it. Harmless for page types that don't link a producer.
+  const options = { fetchLinks: ["producer.producer_name"], ...(lang ? { lang } : {}) };
 
   for (const type of PAGE_TYPES) {
     try {
