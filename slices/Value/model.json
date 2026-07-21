@@ -26,13 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -145,12 +139,7 @@
                 "config": {
                   "label": "Variant",
                   "placeholder": "",
-                  "options": [
-                    "default",
-                    "secondary",
-                    "outline",
-                    "ghost"
-                  ],
+                  "options": ["default", "secondary", "outline", "ghost"],
                   "default_value": "default"
                 }
               },
@@ -272,13 +261,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },

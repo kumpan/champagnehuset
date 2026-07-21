@@ -1,0 +1,52 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "FieldContent",
+        "value": false,
+        "type": "Boolean"
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "FieldContent",
+        "value": "Maison Beauvallon",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Blanc de Blancs Grand Cru",
+        "type": "Text"
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading3",
+            "content": {
+              "text": "Where precision meets elegance — an expression that became a signature."
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "An unusual bottling with Chardonnay at its heart. Elegant and nuanced, with fresh acidity, red-berry notes and a minerality that mirrors its origin."
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Here precision and finesse meet the soft character of carefully selected grapes and generations of craft."
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

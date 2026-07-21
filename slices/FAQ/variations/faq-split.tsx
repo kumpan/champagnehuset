@@ -8,11 +8,6 @@ import Accordion from "../Accordion";
 
 type Props = FAQProps & { slice: Content.FaqSliceSplit };
 
-const _overlineThemeClasses = {
-  Bud: "bg-fill-raised text-ink",
-  Dust: "bg-accent-fill-raised text-accent-ink",
-};
-
 export function FAQSplit({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, section_theme, remove_top_padding, faqlist } = slice.primary;
@@ -39,7 +34,7 @@ export function FAQSplit({ slice }: Props) {
             </div>
           )}
 
-          <div className="flex flex-col gap-1.5 lg:gap-2">
+          <div className="flex flex-col">
             {faqlist.map((item, index) => (
               <Accordion
                 key={`faq-split-${item.question}-${index}`}

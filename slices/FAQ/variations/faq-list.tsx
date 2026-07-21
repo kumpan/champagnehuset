@@ -8,11 +8,6 @@ import Accordion from "../Accordion";
 
 type Props = FAQProps & { slice: Content.FaqSliceList };
 
-const overlineThemeClasses = {
-  Bud: "bg-fill-raised text-ink",
-  Dust: "bg-accent-fill-raised text-accent-ink",
-};
-
 export function FAQList({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, section_theme, remove_top_padding, faqlist } = slice.primary;
@@ -36,7 +31,6 @@ export function FAQList({ slice }: Props) {
             description={description}
             align={alignment ? "center" : "left"}
             sectionTheme={sectionTheme}
-            overlineClassName={overlineThemeClasses[sectionTheme]}
             textBalance={true}
           />
         )}
@@ -52,8 +46,8 @@ export function FAQList({ slice }: Props) {
           ))}
         </div>
 
-        <div className="mt-8 hidden gap-2 md:flex lg:mt-10">
-          <div className="flex flex-1 flex-col gap-2">
+        <div className="mt-8 hidden gap-12 md:flex lg:mt-10">
+          <div className="flex flex-1 flex-col">
             {column1.map((item, index) => (
               <Accordion
                 key={`faq-col1-${item.question}-${index * 2}`}
@@ -63,7 +57,7 @@ export function FAQList({ slice }: Props) {
               />
             ))}
           </div>
-          <div className="flex flex-1 flex-col gap-2">
+          <div className="flex flex-1 flex-col">
             {column2.map((item, index) => (
               <Accordion
                 key={`faq-col2-${item.question}-${index * 2 + 1}`}

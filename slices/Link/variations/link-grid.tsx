@@ -1,49 +1,28 @@
-import { type Content, isFilled } from "@prismicio/client";
+import type { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import type { SectionTheme } from "@/components/section-intro";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceGrid };
 
-const iconWrapperThemeClasses = {
-  Bud: "bg-fill-raised/60 group-hover:bg-fill-raised",
-  Dust: "bg-accent-fill-raised/60 group-hover:bg-accent-fill-raised",
-};
-
-const cardTitleWrapperThemeClasses = {
-  Bud: "bg-brand text-brand-ink",
-  Dust: "bg-accent text-accent-ink-flip",
-};
-
-const cardThemeClasses = {
-  Bud: "bg-fill-raised outline-brand/0 hover:outline-brand",
-  Dust: "bg-accent-fill-raised outline-accent/0 hover:outline-accent",
+/** The card itself — a label bar sitting above the image plate. */
+const cardThemeClasses: Record<SectionTheme, string> = {
+  Bud: "bg-fill-raised text-ink hover:bg-fill-raised/70",
+  Leaf: "bg-fill text-ink hover:bg-fill/70",
+  Brand: "bg-ink-flip/10 text-ink-flip hover:bg-ink-flip/20",
+  Dust: "bg-spot-ink/5 text-spot-ink hover:bg-spot-ink/10",
+  Slate: "bg-spot-ink-flip/10 text-spot-ink-flip hover:bg-spot-ink-flip/20",
 };
 
 export function LinkGrid({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, section_theme, remove_top_padding, cards } = slice.primary;
-
-  const cardsCount = cards.length;
-
-  const layouts: Record<number, { grid: string; itemSpan?: (i: number) => string }> = {
-    1: { grid: "grid-cols-1" },
-    2: { grid: "grid-cols-1 md:grid-cols-2" },
-    3: { grid: "grid-cols-1 lg:grid-cols-3" },
-    4: { grid: "grid-cols-1 md:grid-cols-2" },
-    5: {
-      grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-6",
-      itemSpan: (i) => cn(i === 4 && "md:col-span-2", i < 3 ? "lg:col-span-2" : "lg:col-span-3"),
-    },
-  };
-  const layout = layouts[cardsCount] ?? {
-    grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-  };
 
   return (
     <Section
@@ -52,7 +31,7 @@ export function LinkGrid({ slice }: Props) {
       removeTopPadding={remove_top_padding}
       sectionTheme={section_theme}
     >
-      <Container>
+      <Container className="flex flex-col gap-6 md:gap-8 lg:gap-12">
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
@@ -62,60 +41,35 @@ export function LinkGrid({ slice }: Props) {
             sectionTheme={section_theme}
           />
         )}
-        {cardsCount > 0 && (
-          <div className={cn("mt-8 grid gap-2 md:gap-3", layout.grid)}>
-            {cards.map((card, index) => {
-              const hasMedia = isFilled.image(card.image);
-              return (
+
+        {cards.length > 0 && (
+          <ul className="grid list-none grid-cols-2 gap-1 md:grid-cols-3 md:gap-2 lg:grid-cols-4">
+            {cards.map((card, index) => (
+              <li key={`${index}-${card.title}`}>
                 <PrismicNextLink
-                  key={`${index}-${card.links}`}
                   field={card.links}
                   className={cn(
-                    "group flex flex-col gap-2 rounded-t-6 rounded-b-5 p-2 outline-0 transition-all duration-300 ease-in-out hover:outline-4",
+                    "group flex h-full flex-col overflow-hidden rounded-2 transition-all duration-300 ease-in-out",
+                    "hover:[&_svg]:[animation:var(--animate-wiggle-grow)]",
                     cardThemeClasses[section_theme],
-                    layout.itemSpan?.(index),
                   )}
                 >
-                  <div className="relative overflow-hidden rounded-t-4 rounded-b-6">
-                    {hasMedia ? (
-                      <CustomMedia
-                        imageField={card.image}
-                        className="aspect-video w-full scale-100 rounded-0 transition-all duration-1000 ease-out group-hover:scale-102 md:rounded-0 lg:rounded-0"
-                        sectionTheme={section_theme}
-                      />
-                    ) : (
-                      <div
-                        className={cn(
-                          "flex aspect-4/3 w-full items-center justify-center px-4 transition-colors duration-300 ease-in-out lg:aspect-video",
-                          cardTitleWrapperThemeClasses[section_theme],
-                        )}
-                      >
-                        <h3 className="line-clamp-3 text-center text-3xl">{card.title}</h3>
-                      </div>
-                    )}
-                    <div
-                      className={cn(
-                        "absolute right-2 bottom-2 flex h-14 items-center justify-center gap-0.5 rounded-4 px-5 backdrop-blur-sm backdrop-brightness-150 transition-colors duration-300 ease-in-out",
-                        iconWrapperThemeClasses[section_theme],
-                      )}
-                    >
-                      {card.links.text}
-                      <ChevronRight className="-mr-1.5 size-6 group-hover:animate-wiggle-grow" />
-                    </div>
+                  <div className="flex items-center justify-between gap-2 px-3 py-2.5 md:px-4 md:py-3">
+                    <span className="line-clamp-1 font-medium text-xs md:text-sm">{card.title}</span>
+                    {/* Hidden on mobile — the cards are too narrow to spare the width. */}
+                    <ArrowRight className="hidden size-4 shrink-0 md:block" />
                   </div>
-                  <div
-                    className={cn(
-                      "mt-1 mb-2 flex flex-col px-2 md:mb-3 md:px-5 lg:mt-2 lg:mb-4 lg:px-6",
-                      alignment && "text-center",
-                    )}
-                  >
-                    {hasMedia && <h3 className="text-xl md:text-2xl">{card.title}</h3>}
-                    <p>{card.description}</p>
+                  <div className="px-1 md:px-2 pb-1 md:pb-2">
+                    <CustomMedia
+                      imageField={card.image}
+                      className="aspect-[4/3] w-full rounded-1 object-contain"
+                      sectionTheme={section_theme}
+                    />
                   </div>
                 </PrismicNextLink>
-              );
-            })}
-          </div>
+              </li>
+            ))}
+          </ul>
         )}
       </Container>
     </Section>

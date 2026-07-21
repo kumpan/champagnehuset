@@ -1,0 +1,60 @@
+{
+  "id": "product_detail",
+  "type": "SharedSlice",
+  "name": "ProductDetail",
+  "description": "Product detail hero — editorial title/body plus the wine's spec table, purchase actions and PDF download (reads the product document).",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Dust"],
+            "default_value": "Bud"
+          }
+        },
+        "overline": {
+          "type": "Text",
+          "config": {
+            "label": "Overline",
+            "placeholder": "Defaults to the producer name"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "Defaults to the product name"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "Lead-in heading and description shown beside the spec table",
+            "allowTargetBlank": true,
+            "multi": "heading3,heading4,heading5,paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -10,6 +10,7 @@ export const components = {
   image: dynamic(() => import("./Image")),
   link: dynamic(() => import("./Link")),
   product: dynamic(() => import("./Product")),
+  product_detail: dynamic(() => import("./ProductDetail")),
   text: dynamic(() => import("./Text")),
   value: dynamic(() => import("./Value")),
 };

@@ -1,1035 +1,1308 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "quick",
-    "primary": {
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeInfo"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Wonder"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Oldest"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ullamco commodo eu quis enim incididunt non qui fugiat."
-            }
-          }
-        ]
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "links": {
-        "__TYPE__": "RepeatableContent",
-        "type": "Link",
-        "value": [
-          {
-            "key": "1e43db0d-0b66-4b46-895b-8ee531a1da7f",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "ExternalLink",
-              "url": "a",
-              "text": "Our Offering"
-            }
-          },
-          {
-            "key": "85dd5639-90f4-4357-95a9-71f1cdda7428",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "ExternalLink",
-              "url": "s",
-              "text": "Contact Us"
-            }
-          },
-          {
-            "key": "56aba020-be9a-4ca1-af80-7fe2fda431ec",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "AnyLink",
-              "kind": "any",
-              "text": "Our Offering"
-            }
-          },
-          {
-            "key": "a80c828e-2025-4810-a3e7-6622565672f3",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "AnyLink",
-              "kind": "any",
-              "text": "Contact Us"
-            }
-          },
-          {
-            "key": "0cced32d-6770-49df-8aaa-fd70ec03f9f5",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "AnyLink",
-              "kind": "any",
-              "text": "Our Offering"
-            }
-          },
-          {
-            "key": "3c089e51-cab7-4ea0-a079-5fab36bbe89a",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "AnyLink",
-              "kind": "any",
-              "text": "Our Offering"
-            }
-          },
-          {
-            "key": "7f56fb7d-baf4-4368-84dc-b2a0a146d1f2",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "AnyLink",
-              "kind": "any",
-              "text": "Contact Us"
-            }
-          },
-          {
-            "key": "1ee55ab4-0a82-462d-8549-c0fe44dbc1c0",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "AnyLink",
-              "kind": "any",
-              "text": "Contact Us"
-            }
-          },
-          {
-            "key": "567bb37e-bba0-404b-8147-95a824db7e40",
-            "__TYPE__": "LinkContent",
-            "value": {
-              "__TYPE__": "AnyLink",
-              "kind": "any",
-              "text": "asdfasdf"
-            }
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "cards",
-    "primary": {
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Tribal Warfare"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "shieldCheck"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Depth"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Velit veniam do quis est reprehenderit deserunt ea sunt labore deserunt do adipisicing ad proident."
-            }
-          }
-        ]
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "cards": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "links",
-                {
-                  "key": "03f98107-d324-40df-97d3-b2c533d17848",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "AnyLink",
-                    "kind": "any",
-                    "text": "aaaaa"
-                  }
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfasdf"
-                }
-              ],
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruit on white ceramic plate",
-                  "origin": {
-                    "id": "Jr7t5QviCDM",
-                    "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "links",
-                {
-                  "key": "89d580b3-0e23-4f2c-9a26-06918093d78b",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "asdf"
-                  }
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "bone",
-                  "type": "Text"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "habit",
-                  "type": "Text"
-                }
-              ],
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruits on green leaves",
-                  "origin": {
-                    "id": "_ANDM3OI4gE",
-                    "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "links",
-                {
-                  "key": "6eb06dd1-ecf5-4c7a-84f3-121959e3b34d",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "asdf",
-                    "text": "sasdf"
-                  }
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdfa"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "links",
-                {
-                  "key": "906eaba5-67d1-4494-9769-d35ba9052bca",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "s",
-                    "text": "asdf"
-                  }
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Oportland authentic lyft"
-                }
-              ],
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruit on white ceramic plate",
-                  "origin": {
-                    "id": "Jr7t5QviCDM",
-                    "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Pickled activated charcoal cold-pressed, gorpcore fit wolf bushwick butcher gatekeep raclette.  Leggings farm-to-table bitters selvage neutral milk hotel.  Lomo flannel pitchfork shoreditch XOXO yr yes plz pickled."
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Vibecession semiotics iceland messenger bag, helvetica fit quinoa tofu schlitz venmo trust fund readymade.  Gorpcore four dollar toast cred fam woke banh mi sartorial 8-bit chambray portland authentic lyft."
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Vibecession semiotics iceland"
-                }
-              ],
-              [
-                "links",
-                {
-                  "key": "2858c4b9-4ff3-4562-810a-4174d121236a",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "AnyLink",
-                    "kind": "any",
-                    "text": "asdf"
-                  }
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "links",
-                {
-                  "key": "9b9c50b9-b8f6-4976-8651-761b6728e476",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "AnyLink",
-                    "kind": "any",
-                    "text": "asdf"
-                  }
-                }
-              ],
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruits on green leaves",
-                  "origin": {
-                    "id": "_ANDM3OI4gE",
-                    "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruits on green leaves",
-                  "origin": {
-                    "id": "_ANDM3OI4gE",
-                    "url": "https://images.unsplash.com/photo-1629122998682-9f01c0fa89ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1612267174385-23fbfe6fde59?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85&rect=0,1204,5504,3096&w=1920&h=1080",
-                  "alt": "sliced lemon fruit on white background",
-                  "origin": {
-                    "id": "hspehWjV4Yo",
-                    "url": "https://images.unsplash.com/photo-1612267174385-23fbfe6fde59?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85",
-                    "width": 5504,
-                    "height": 5504
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1204
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "asdf"
-                }
-              ],
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1654509480655-327cc2b46f86?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyM3x8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85&rect=0,1378,2268,1276&w=1920&h=1080",
-                  "alt": "a tree filled with lots of oranges under a blue sky",
-                  "origin": {
-                    "id": "dh75Y9YGljA",
-                    "url": "https://images.unsplash.com/photo-1654509480655-327cc2b46f86?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyM3x8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzc2ODE0OTQ4fDA&ixlib=rb-4.1.0&q=85",
-                    "width": 2268,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1378
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "grid",
-    "primary": {
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "safe",
-                  "type": "Text"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "shieldCheck",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Slipped"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Officia eu non veniam laboris ullamco ad excepteur Lorem eiusmod et."
-            }
-          }
-        ]
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "cards": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruit on white ceramic plate",
-                  "origin": {
-                    "id": "Jr7t5QviCDM",
-                    "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Sartorial single-origin"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Tumblr yes plz typewriter lomo photo booth retro tousled tumeric.  Live-edge wolf heirloom actually gastropub."
-                }
-              ],
-              [
-                "links",
-                {
-                  "key": "521cb4e9-37a3-4e24-90b1-94775cd6645a",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "asdf",
-                    "text": "Start now"
-                  }
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruit on white ceramic plate",
-                  "origin": {
-                    "id": "Jr7t5QviCDM",
-                    "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Sartorial single-origin"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Tumblr yes plz typewriter lomo photo booth retro tousled tumeric.  Live-edge wolf heirloom actually gastropub."
-                }
-              ],
-              [
-                "links",
-                {
-                  "key": "521cb4e9-37a3-4e24-90b1-94775cd6645a",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "asdf",
-                    "text": "Start now"
-                  }
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "image",
-                {
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
-                  "alt": "orange fruit on white ceramic plate",
-                  "origin": {
-                    "id": "Jr7t5QviCDM",
-                    "url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
-                    "width": 3024,
-                    "height": 4032
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 1166
-                    }
-                  },
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ],
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Sartorial single-origin"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Tumblr yes plz typewriter lomo photo booth retro tousled tumeric.  Live-edge wolf heirloom actually gastropub."
-                }
-              ],
-              [
-                "links",
-                {
-                  "key": "521cb4e9-37a3-4e24-90b1-94775cd6645a",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "asdf",
-                    "text": "Start now"
-                  }
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Sartorial single-origin"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Tumblr yes plz typewriter lomo photo booth retro tousled tumeric.  Live-edge wolf heirloom actually gastropub."
-                }
-              ],
-              [
-                "links",
-                {
-                  "key": "521cb4e9-37a3-4e24-90b1-94775cd6645a",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "asdf",
-                    "text": "Start now"
-                  }
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "title",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Sartorial single-origin"
-                }
-              ],
-              [
-                "description",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Tumblr yes plz typewriter lomo photo booth retro tousled tumeric.  Live-edge wolf heirloom actually gastropub."
-                }
-              ],
-              [
-                "links",
-                {
-                  "__TYPE__": "LinkContent",
-                  "key": "521cb4e9-37a3-4e24-90b1-94775cd6645a",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "asdf",
-                    "text": "Start now"
-                  }
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "cards",
+		"primary": {
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Discover"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "shieldCheck"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Explore what we offer"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Short supporting copy that introduces the cards below and sets context in two lines."
+						}
+					}
+				]
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Bud"
+			},
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"links",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "49926d8c-9f05-4c7b-bf5b-9d3c7925864b",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Our Story"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "How we started and the people who keep it going today."
+								}
+							],
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"links",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "7633a746-1689-415c-ad0b-01db6a5019ba",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "The Process"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "A closer look at how everything is made, step by step."
+								}
+							],
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"links",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "1ce2d276-5679-4ee1-be26-b90bee4e9554",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Journal"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "News, notes and long reads, updated at regular intervals."
+								}
+							],
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "grid",
+		"primary": {
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Our Partners"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "shieldCheck",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Everyone we work with"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "A complete index of the partners we collaborate with, presented as a browsable grid."
+						}
+					}
+				]
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Bud"
+			},
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Northfield & Co."
+								}
+							],
+							[
+								"links",
+								{
+									"key": "b15ceb3e-b2f5-467f-b370-658b360d11e2",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "disease"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "limited",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Harper Lane"
+								}
+							],
+							[
+								"links",
+								{
+									"key": "e02ba752-712e-48bf-9701-cf94e8a70067",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "opportunity"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "courage",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Ridgeway Partners"
+								}
+							],
+							[
+								"links",
+								{
+									"key": "ff875967-3d6a-436d-ac68-ddc4ee901a15",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "mice"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "model",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Alder & Sons"
+								}
+							],
+							[
+								"links",
+								{
+									"key": "288b606b-bc27-436f-a302-2e9998ff735f",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "pattern"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "band",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Brightwater"
+								}
+							],
+							[
+								"links",
+								{
+									"key": "3ff7349e-ec51-494d-b752-6a0bfff7f10a",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "go"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "group",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Kestrel Group"
+								}
+							],
+							[
+								"links",
+								{
+									"key": "d0f7d26a-6a49-4b7f-9d33-4a304a53fdd7",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "paint"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "drawn",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Marlowe & Finch"
+								}
+							],
+							[
+								"links",
+								{
+									"key": "fcf7ee5e-ed32-4f9b-a50a-e97d82f4912b",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "settlers"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "truck",
+									"type": "Text"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85&rect=0,1166,3024,1701&w=1920&h=1080",
+									"alt": "orange fruit on white ceramic plate",
+									"origin": {
+										"id": "Jr7t5QviCDM",
+										"url": "https://images.unsplash.com/photo-1616679312958-a86d9539afae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzY4MTQ5NDh8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3024,
+										"height": 4032
+									},
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1166
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Sutton Hill"
+								}
+							],
+							[
+								"links",
+								{
+									"key": "aaaa8b0d-640a-44ff-9376-078ff86aded0",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "hurt"
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "excitement",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "5b0f67c6-4c74-4a7b-a393-8352acb2037d",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "cell"
+									}
+								}
+							],
+							[
+								"variant",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "ghost",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_left",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "atSign",
+									"type": "Select"
+								}
+							],
+							[
+								"icon_right",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "circleStar",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "quick",
+		"primary": {
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "badgeInfo"
+								}
+							],
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Quick Links"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "What can we help you with?"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Point visitors straight to the pages they are most likely looking for."
+						}
+					}
+				]
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Bud"
+			},
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"links": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "b341b2a5-b984-45e6-8d15-e21698550565",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "AnyLink",
+							"kind": "any",
+							"text": "Explore Products"
+						}
+					},
+					{
+						"key": "06aab4cc-e260-4e91-91ea-c74f105f06ec",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "AnyLink",
+							"kind": "any",
+							"text": "Meet the Team"
+						}
+					},
+					{
+						"key": "f8199fc7-35fc-4e22-98ab-df9f5842d329",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "AnyLink",
+							"kind": "any",
+							"text": "Membership"
+						}
+					},
+					{
+						"key": "a5f2a414-75a5-4f46-94d9-ce132cda662b",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "AnyLink",
+							"kind": "any",
+							"text": "Learn the Basics"
+						}
+					},
+					{
+						"key": "19c674f7-b40e-4729-a2ad-c1997cdeb254",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "AnyLink",
+							"kind": "any",
+							"text": "Events & Tastings"
+						}
+					},
+					{
+						"key": "747e8731-5018-40e9-9c0e-f9564a199f55",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "AnyLink",
+							"kind": "any",
+							"text": "Contact Us"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "tiles",
+		"primary": {
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"value": "Bud",
+				"type": "Select"
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Highlights"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "hourglass",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Feature-rich text that captures attention"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "A concise value statement that highlights key features and benefits in a visually dynamic grid."
+						}
+					}
+				]
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
+										"width": 4000,
+										"height": 6000
+									},
+									"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?rect=0%2C1875%2C4000%2C2250&w=1920&h=1080",
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1875
+										},
+										"background": "transparent"
+									},
+									"alt": "organized",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Product Range"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Every item in the current collection, with details on each one."
+								}
+							],
+							[
+								"links",
+								{
+									"key": "982d3a43-bb9c-4de3-ac60-223823712824",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "AnyLink",
+										"kind": "any",
+										"text": "Product Range"
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
+										"width": 4000,
+										"height": 6000
+									},
+									"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?rect=0%2C1875%2C4000%2C2250&w=1920&h=1080",
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1875
+										},
+										"background": "transparent"
+									},
+									"alt": "organized",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Meet the Team"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "The people behind the work and the experience they bring."
+								}
+							],
+							[
+								"links",
+								{
+									"key": "087cb436-986b-4851-adb5-515b26204d16",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "AnyLink",
+										"kind": "any",
+										"text": "Meet the Team"
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
+										"width": 4000,
+										"height": 6000
+									},
+									"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?rect=0%2C1875%2C4000%2C2250&w=1920&h=1080",
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1875
+										},
+										"background": "transparent"
+									},
+									"alt": "organized",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "How It Works"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "A plain-language walkthrough of the process from start to finish."
+								}
+							],
+							[
+								"links",
+								{
+									"key": "1908a74d-a643-4c53-af62-32ad5d6db9b3",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "AnyLink",
+										"kind": "any",
+										"text": "How It Works"
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
+										"width": 4000,
+										"height": 6000
+									},
+									"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?rect=0%2C1875%2C4000%2C2250&w=1920&h=1080",
+									"width": 1920,
+									"height": 1080,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1875
+										},
+										"background": "transparent"
+									},
+									"alt": "organized",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Membership"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "What members get, how it works and how to join."
+								}
+							],
+							[
+								"links",
+								{
+									"key": "6f3853cd-2545-446e-8982-f319e82bee4f",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "AnyLink",
+										"kind": "any",
+										"text": "Membership"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
 ]

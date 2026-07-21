@@ -12,35 +12,31 @@ type AccordionProps = {
   sectionTheme: string;
 };
 
-const frequentlyAskedThemeStyles: Record<string, string> = {
-  Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
-};
-
 const frequentlyAskedThemeTextColors: Record<string, string> = {
-  Bud: "",
-  Dust: "text-tertiary-800 text-accent-ink-dim",
+  Bud: "text-ink-dim",
+  Leaf: "text-ink-dim",
+  Brand: "text-ink-flip",
+  Dust: "text-spot-ink-dim",
+  Slate: "text-spot-ink-flip",
 };
 
 const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div
-      className={cn("rounded-4 transition-colors duration-800 ease-in-out", frequentlyAskedThemeStyles[sectionTheme])}
-    >
+    <div className="not-last:border-b border-b-current/30">
       <button
-        className="flex min-h-16 w-full cursor-pointer items-center justify-between gap-4 px-4 py-3 text-left font-semibold lg:min-h-20 lg:px-7"
+        className="flex min-h-20 w-full cursor-pointer items-center justify-between gap-4 py-4 text-left font-semibold lg:min-h-22"
         onClick={() => setIsActive(!isActive)}
         type="button"
       >
-        <h4 className="font-semibold text-base lg:text-lg">{question}</h4>
+        <h4 className="text-pretty font-semibold text-base md:text-lg lg:text-xl">{question}</h4>
         <m.div
           initial={{ rotate: 0 }}
           animate={{ rotate: isActive ? -180 : 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
         >
-          <ChevronDown className="size-8 shrink-0" />
+          <ChevronDown className="size-7 md:size-8 shrink-0" />
         </m.div>
       </button>
 
@@ -53,15 +49,13 @@ const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
             transition={{ duration: 0.5, ease: [0.5, 0, 0.1, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-4 pb-4 lg:px-7 lg:pb-7">
-              <CustomRichText
-                field={answer}
-                className={cn(
-                  frequentlyAskedThemeTextColors[sectionTheme],
-                  "transition-colors duration-800 ease-in-out",
-                )}
-              />
-            </div>
+            <CustomRichText
+              field={answer}
+              className={cn(
+                frequentlyAskedThemeTextColors[sectionTheme],
+                "transition-colors duration-500 easeOut pb-7 font-medium",
+              )}
+            />
           </m.div>
         )}
       </AnimatePresence>
