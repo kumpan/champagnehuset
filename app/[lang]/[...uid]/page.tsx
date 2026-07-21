@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
       <BreadcrumbSchema breadcrumbs={breadcrumbs} />
       {isArticle(page) && <ArticleSchema doc={page} />}
       <FaqSchema slices={page.data.slices} />
-      <SliceZone slices={page.data.slices} components={components} context={{ breadcrumbs, lang }} />
+      <SliceZone slices={page.data.slices} components={components} context={{ breadcrumbs, lang, document: page }} />
     </>
   );
 }
