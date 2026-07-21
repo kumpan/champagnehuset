@@ -158,7 +158,7 @@ html {
 }
 
 body {
-    @apply font-[550] font-stretch-115%;
+    @apply font-medium font-stretch-115%;
     background-color: var(--color-fill);
     color: var(--color-fill-dark);
     font-family: var(--font-secondary), sans-serif;
@@ -185,6 +185,7 @@ h3,
 h4,
 h5,
 h6 {
+    @apply font-semibold;
     font-family: var(--font-secondary), sans-serif;
 }
 
