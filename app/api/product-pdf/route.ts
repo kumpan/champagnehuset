@@ -1,5 +1,4 @@
 import { renderToBuffer } from "@react-pdf/renderer";
-import { createElement } from "react";
 import { getDocumentByUID, isProduct } from "@/lib/cms";
 import { createClient } from "@/prismicio";
 import { ProductPdfDocument } from "./document";
@@ -22,7 +21,7 @@ export async function GET(request: Request) {
     return new Response("Product not found", { status: 404 });
   }
 
-  const buffer = await renderToBuffer(createElement(ProductPdfDocument, { product: doc }));
+  const buffer = await renderToBuffer(ProductPdfDocument({ product: doc }));
   const filename = `${doc.uid ?? "product"}.pdf`;
 
   return new Response(new Uint8Array(buffer), {
