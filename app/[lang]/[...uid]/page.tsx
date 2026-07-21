@@ -58,15 +58,14 @@ export default async function Page({ params }: Props) {
 
 export async function generateStaticParams() {
   const client = await createClient();
-  const [pages, articles, employees, products, producers] = await Promise.all([
+  const [pages, articles, products, producers] = await Promise.all([
     client.getAllByType("page", { lang: "*" }),
     client.getAllByType("article", { lang: "*" }),
-    client.getAllByType("employee", { lang: "*" }),
     client.getAllByType("product", { lang: "*" }),
     client.getAllByType("producer", { lang: "*" }),
   ]);
 
-  return [...pages, ...articles, ...employees, ...products, ...producers]
+  return [...pages, ...articles, ...products, ...producers]
     .filter((doc) => doc.uid !== "home")
     .map((doc) => {
       const url = doc.url ?? `/${doc.lang}/${doc.uid}`;
