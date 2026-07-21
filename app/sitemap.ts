@@ -12,16 +12,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const masterLocale = await getMasterLocale();
 
-  const [pages, articles, employees, products, producers] = await Promise.all([
+  const [pages, articles, products, producers] = await Promise.all([
     client.getAllByType("page", { lang: "*" }),
     client.getAllByType("article", { lang: "*" }),
-    client.getAllByType("employee", { lang: "*" }),
     client.getAllByType("product", { lang: "*" }),
     client.getAllByType("producer", { lang: "*" }),
   ]);
 
   const urlById = new Map<string, string>();
-  for (const doc of [...pages, ...articles, ...employees, ...products, ...producers]) {
+  for (const doc of [...pages, ...articles, ...products, ...producers]) {
     if (isResolvable(doc)) urlById.set(doc.id, doc.url);
   }
 
@@ -52,15 +51,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${SITE_URL}${doc.url}`,
       lastModified: new Date(doc.last_publication_date),
       priority: 0.6,
-      alternates: { languages: buildAlternates(doc) },
-    });
-  }
-
-  for (const doc of employees.filter(isResolvable)) {
-    entries.push({
-      url: `${SITE_URL}${doc.url}`,
-      lastModified: new Date(doc.last_publication_date),
-      priority: 0.4,
       alternates: { languages: buildAlternates(doc) },
     });
   }
