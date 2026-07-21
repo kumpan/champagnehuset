@@ -48,8 +48,11 @@ function parseThumbnail(value?: string) {
 }
 
 const imageThemeClasses: Record<string, string> = {
-  Pumpkin: "bg-fill-raised",
-  Viridian: "bg-accent-fill-raised",
+  Bud: "bg-fill-raised",
+  Leaf: "bg-fill",
+  Brand: "bg-fill-raised",
+  Dust: "bg-spot-fill-dark",
+  Slate: "bg-spot-fill-dark",
 };
 
 const blockVariants = {
@@ -163,16 +166,23 @@ export default function CustomMedia({
         {/* Filter */}
         <div
           className={cn(
-            "absolute inset-0 bg-linear-to-br from-0% to-70% to-spotfrom-yellow-900/0 mix-blend-overlay",
+            "absolute inset-0 bg-linear-to-br from-0% to-65% from-yellow-600/0 to-yellow-600/0  mix-blend-overlay",
             filterDirection,
-            hasFilter ? "from-yellow-900/60" : "from-yellow-900/0",
+            hasFilter ? "from-yellow-600/40" : "from-yellow-600/0",
           )}
         />
         <div
           className={cn(
-            "absolute inset-0 bg-linear-to-br from-0% to-70% to-spotfrom-yellow-900/0",
+            "absolute inset-0 bg-linear-to-br from-0% to-65% from-spot-fill/0 to-spot-fill/0  mix-blend-overlay",
             filterDirection,
-            hasFilter ? "from-yellow-900/10" : "from-yellow-900/0",
+            hasFilter ? "from-spot-fill/40" : "from-spot-fill/0",
+          )}
+        />
+        <div
+          className={cn(
+            "absolute inset-0 bg-linear-to-br from-0% to-65% from-yellow-900/0 to-yellow-900/0 ",
+            filterDirection,
+            hasFilter ? "from-yellow-900/5" : "from-yellow-900/0",
           )}
         />
       </m.div>

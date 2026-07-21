@@ -10,7 +10,7 @@ const variantClasses = {
   destructive: "bg-error text-ink-flip hover:bg-error/90 outline-error",
   outline: "border border-brand text-brand hover:bg-brand/5 outline-brand font-regular",
   secondary:
-    "bg-fill-raised text-raised-ink hover:bg-fill-raised/90 outline-fill-raised font-regular outline-fill-raised/0 outline-1 hover:outline-4 hover:outline-fill-raised/20",
+    "bg-fill-raised hover:bg-fill-raised/70 text-raised-ink outline-brand/70 font-regular selection:bg-brand selection:text-ink-flip",
   ghost: "text-ink hover:bg-fill-raised outline-brand",
   link: "text-brand underline underline-offset-4 hover:no-underline outline-brand",
 } as const;
