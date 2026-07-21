@@ -1,4 +1,4 @@
-import type { Content } from "@prismicio/client";
+import type { Content, ImageFieldImage } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
@@ -7,22 +7,56 @@ import { Section } from "@/components/layout/section";
 import type { SectionTheme } from "@/components/section-intro";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
+import { createClient } from "@/prismicio";
+import type { ProducerDocument } from "@/prismicio-types";
 import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceGrid };
 
 /** The card itself — a label bar sitting above the image plate. */
 const cardThemeClasses: Record<SectionTheme, string> = {
-  Bud: "bg-fill-raised text-ink hover:bg-fill-raised/70",
-  Leaf: "bg-fill text-ink hover:bg-fill/70",
-  Brand: "bg-ink-flip/10 text-ink-flip hover:bg-ink-flip/20",
-  Dust: "bg-spot-ink/5 text-spot-ink hover:bg-spot-ink/10",
-  Slate: "bg-spot-ink-flip/10 text-spot-ink-flip hover:bg-spot-ink-flip/20",
+  Bud: "bg-fill-raised hover:bg-fill-raised/70",
+  Leaf: "bg-fill hover:bg-fill/70",
+  Brand: "bg-fill-raised text-ink hover:bg-fill-raised/90",
+  Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90",
+  Slate: "bg-spot-fill-raised text-spot-ink hover:bg-spot-fill/90",
 };
 
-export function LinkGrid({ slice }: Props) {
+/**
+ * Each card renders the same way whether it links to a manually-authored link
+ * or a producer document — only the `PrismicNextLink` target differs, so we
+ * normalize both sources into this shape and pass the right link prop below.
+ */
+type GridItem = {
+  key: string;
+  title: string | null | undefined;
+  image: ImageFieldImage | undefined;
+  link: { document: ProducerDocument } | { field: Content.LinkSliceGridPrimaryCardsItem["links"] };
+};
+
+export async function LinkGrid({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, section_theme, remove_top_padding, cards } = slice.primary;
+  const { overline, title, description, alignment, section_theme, remove_top_padding, link_source, cards } =
+    slice.primary;
+
+  let items: GridItem[];
+  if (link_source === "All Producers") {
+    const client = await createClient();
+    const producers = await client.getAllByType("producer");
+    items = producers.map((producer) => ({
+      key: producer.id,
+      title: producer.data.producer_name,
+      image: producer.data.producer_image,
+      link: { document: producer },
+    }));
+  } else {
+    items = cards.map((card, index) => ({
+      key: `${index}-${card.title}`,
+      title: card.title,
+      image: card.image,
+      link: { field: card.links },
+    }));
+  }
 
   return (
     <Section
@@ -42,29 +76,31 @@ export function LinkGrid({ slice }: Props) {
           />
         )}
 
-        {cards.length > 0 && (
+        {items.length > 0 && (
           <ul className="grid list-none grid-cols-2 gap-1 md:grid-cols-3 md:gap-2 lg:grid-cols-4">
-            {cards.map((card, index) => (
-              <li key={`${index}-${card.title}`}>
+            {items.map((item) => (
+              <li key={item.key}>
                 <PrismicNextLink
-                  field={card.links}
+                  {...item.link}
                   className={cn(
-                    "group flex h-full flex-col overflow-hidden rounded-2 transition-all duration-300 ease-in-out",
+                    "group flex h-full flex-col overflow-hidden rounded-2 transition-all duration-500 ease-in-out",
                     "hover:[&_svg]:[animation:var(--animate-wiggle-grow)]",
                     cardThemeClasses[section_theme],
                   )}
                 >
                   <div className="flex items-center justify-between gap-2 px-3 py-2.5 md:px-4 md:py-3">
-                    <span className="line-clamp-1 font-medium text-xs md:text-sm">{card.title}</span>
+                    <span className="line-clamp-1 font-medium text-xs md:text-sm">{item.title}</span>
                     {/* Hidden on mobile — the cards are too narrow to spare the width. */}
                     <ArrowRight className="hidden size-4 shrink-0 md:block" />
                   </div>
                   <div className="px-1 md:px-2 pb-1 md:pb-2">
-                    <CustomMedia
-                      imageField={card.image}
-                      className="aspect-[4/3] w-full rounded-1 object-contain"
-                      sectionTheme={section_theme}
-                    />
+                    <div className="rounded-1 overflow-hidden">
+                      <CustomMedia
+                        imageField={item.image}
+                        className="aspect-[4/3] w-full rounded-0 object-contain group-hover:scale-103 duration-1000 ease-out"
+                        sectionTheme={section_theme}
+                      />
+                    </div>
                   </div>
                 </PrismicNextLink>
               </li>

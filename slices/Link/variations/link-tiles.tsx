@@ -11,15 +11,6 @@ import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceTiles };
 
-/** Hairline under each tile, separating it from the row below. */
-const borderThemeClasses: Record<SectionTheme, string> = {
-  Bud: "border-ink/15",
-  Leaf: "border-ink/20",
-  Brand: "border-ink-flip/25",
-  Dust: "border-spot-ink/15",
-  Slate: "border-spot-ink-flip/25",
-};
-
 const descriptionThemeClasses: Record<SectionTheme, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
@@ -60,22 +51,30 @@ export function LinkTiles({ slice }: Props) {
         )}
 
         {cards.length > 0 && (
-          <ul className={cn("grid list-none grid-cols-1 gap-x-6 gap-y-8 lg:gap-x-8", gridColumns(cards.length))}>
+          <ul
+            className={cn(
+              "grid list-none grid-cols-1 gap-x-6 gap-y-5 lg:gap-x-8 lg:gap-y-6",
+              gridColumns(cards.length),
+            )}
+          >
             {cards.map((card, index) => (
-              <li key={`${index}-${card.title}`}>
+              <li
+                key={`${index}-${card.title}`}
+                className="group border-current/20 not-last:border-b not-last:pb-4 lg:not-last:border-b-0 lg:not-last:pb-0"
+              >
                 <PrismicNextLink
                   field={card.links}
-                  className="group flex h-full flex-col gap-4 transition-all duration-300 ease-in-out hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
+                  className="flex h-full flex-col gap-3 transition-all duration-300 ease-in-out hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
                 >
                   <div className="overflow-hidden rounded-2">
                     <CustomMedia
                       imageField={card.image}
-                      className="aspect-video w-full rounded-0 object-cover transition-transform duration-1000 ease-out group-hover:scale-105 md:rounded-0 lg:rounded-0"
+                      className="aspect-video w-full rounded-0 object-cover transition-transform duration-1000 ease-out group-hover:scale-103"
                       sectionTheme={section_theme}
                     />
                   </div>
 
-                  <div className={cn("flex flex-col gap-1 border-b pb-4", borderThemeClasses[section_theme])}>
+                  <div className="flex flex-col gap-1">
                     <div className="flex items-center justify-between gap-3">
                       <h3 className="font-semibold text-base md:text-lg">{card.title}</h3>
                       <ArrowRight className="size-5 shrink-0" />

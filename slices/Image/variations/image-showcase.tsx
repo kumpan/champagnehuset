@@ -5,42 +5,54 @@ import { Section } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ImageProps } from "..";
 
-const captionThemeClasses = {
-  Bud: "text-ink-dim",
-  Dust: "text-accent-ink-dim",
+export type ImageShowcaseProps = ImageProps & { slice: Content.ImageSliceShowcase };
+
+const getMediaKey = (item: Content.ImageSliceShowcasePrimaryMediaItem, index: number) => {
+  if (item.image.id) return item.image.id;
+  if (isFilled.linkToMedia(item.video)) return item.video.id;
+  return index;
 };
 
-type Props = ImageProps & { slice: Content.ImageSliceShowcase };
-
-export function ImageShowcase({ slice }: Props) {
-  const { media, caption, remove_top_padding, section_theme } = slice.primary;
-  const { image, video, filter } = media[0] ?? {};
-
-  const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
-  if (!hasMedia) return null;
+export function ImageShowcase({ slice }: ImageShowcaseProps) {
+  const { media, remove_top_padding, section_theme } = slice.primary;
+  const filteredMedia = media.filter((item) => isFilled.image(item.image) || isFilled.linkToMedia(item.video));
+  const mediaCount = filteredMedia.length;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={section_theme}
+      className={section_theme}
     >
-      <Container>
-        <CustomMedia
-          imageField={isFilled.linkToMedia(video) ? undefined : image}
-          videoSrc={isFilled.linkToMedia(video) ? video.url : undefined}
-          className="aspect-video w-full rounded-5"
-          preload
-          sectionTheme={section_theme}
-          thumbnail="square md:main"
-          filter={filter}
-        />
-        {caption && (
-          <p className={cn("mt-3 text-balance text-sm md:mt-4 md:text-base", captionThemeClasses[section_theme])}>
-            {caption}
-          </p>
+      <Container
+        className={cn(
+          "grid gap-1 md:gap-2",
+          mediaCount === 1 && "grid-cols-1 md:grid-cols-1 lg:grid-cols-1",
+          mediaCount === 2 && "grid-cols-2 md:grid-cols-2 lg:grid-cols-2",
+          mediaCount === 3 && "grid-cols-1 md:grid-cols-1 lg:grid-cols-3",
+          mediaCount === 4 && "grid-cols-2 md:grid-cols-2 lg:grid-cols-2",
         )}
+      >
+        {filteredMedia.map((item, index) => (
+          <>
+            <CustomMedia
+              key={getMediaKey(item, index)}
+              imageField={isFilled.linkToMedia(item.video) ? undefined : item.image}
+              videoSrc={isFilled.linkToMedia(item.video) ? item.video.url : undefined}
+              indexedDelay={true}
+              filter={item.filter}
+              index={index}
+              className={cn(
+                "aspect-square rounded-lg",
+                mediaCount === 1 && "aspect-square md:aspect-video lg:aspect-video",
+                mediaCount === 2 && "aspect-square md:aspect-square lg:aspect-3/2",
+                mediaCount === 3 && "aspect-video md:aspect-video lg:aspect-square",
+                mediaCount === 4 && "aspect-square md:aspect-square lg:aspect-video",
+              )}
+            />
+          </>
+        ))}
       </Container>
     </Section>
   );

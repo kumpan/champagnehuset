@@ -26,13 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -195,13 +189,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -294,6 +282,15 @@
             "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
           }
         },
+        "link_source": {
+          "type": "Select",
+          "config": {
+            "label": "Link Source",
+            "placeholder": "",
+            "options": ["All Producers", "Manual Links"],
+            "default_value": "All Producers"
+          }
+        },
         "cards": {
           "type": "Group",
           "config": {
@@ -357,13 +354,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -492,13 +483,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -629,7 +614,7 @@
                   "placeholder": "",
                   "select": null,
                   "allowTargetBlank": false,
-                  "allowText": true,
+                  "allowText": false,
                   "repeat": false
                 }
               }

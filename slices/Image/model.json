@@ -5,61 +5,6 @@
   "description": "Image",
   "variations": [
     {
-      "id": "grid",
-      "name": "Grid",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Grid",
-      "imageUrl": "",
-      "primary": {
-        "remove_top_padding": {
-          "type": "Boolean",
-          "config": {
-            "label": "Remove Top Padding",
-            "placeholder_false": "Keep Padding",
-            "placeholder_true": "Padding is Removed",
-            "default_value": false
-          }
-        },
-        "section_theme": {
-          "type": "Select",
-          "config": {
-            "label": "Section Theme",
-            "placeholder": "",
-            "options": ["Bud", "Dust", "Night"],
-            "default_value": "Bud"
-          }
-        },
-        "media": {
-          "type": "Group",
-          "config": {
-            "label": "Media",
-            "repeat": true,
-            "fields": {
-              "image": {
-                "type": "Image",
-                "config": {
-                  "thumbnails": [],
-                  "constraint": {},
-                  "label": "Image"
-                }
-              },
-              "video": {
-                "type": "Link",
-                "config": {
-                  "label": "Video",
-                  "placeholder": "Choose Video from the Media Library",
-                  "select": "media",
-                  "allowText": false
-                }
-              }
-            }
-          }
-        }
-      },
-      "items": {}
-    },
-    {
       "id": "showcase",
       "name": "Showcase",
       "docURL": "...",
@@ -81,7 +26,13 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": [
+              "Bud",
+              "Leaf",
+              "Brand",
+              "Dust",
+              "Slate"
+            ],
             "default_value": "Bud"
           }
         },
@@ -89,24 +40,35 @@
           "type": "Group",
           "config": {
             "label": "Media",
-            "repeat": false,
+            "repeat": true,
             "fields": {
               "filter": {
                 "type": "Select",
                 "config": {
                   "label": "Filter",
                   "placeholder": "No Filter",
-                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
+                  "options": [
+                    "Top Left",
+                    "Top Right",
+                    "Bottom Left",
+                    "Bottom Right"
+                  ]
                 }
               },
               "image": {
                 "type": "Image",
                 "config": {
                   "label": "Image",
-                  "thumbnails": [],
+                  "thumbnails": [
+                    {
+                      "name": "square",
+                      "width": 1440,
+                      "height": 1440
+                    }
+                  ],
                   "constraint": {
                     "width": 1440,
-                    "height": 1440
+                    "height": 1080
                   }
                 }
               },
@@ -120,13 +82,6 @@
                 }
               }
             }
-          }
-        },
-        "caption": {
-          "type": "Text",
-          "config": {
-            "label": "Caption",
-            "placeholder": ""
           }
         }
       },

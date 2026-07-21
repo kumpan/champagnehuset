@@ -85,17 +85,7 @@
         "config": {
           "label": "Volume",
           "placeholder": "",
-          "options": [
-            "187 ml",
-            "375 ml",
-            "750 ml",
-            "1,5 L",
-            "3 L",
-            "6 L",
-            "9 L",
-            "12 L",
-            "15 L"
-          ]
+          "options": ["187 ml", "375 ml", "750 ml", "1,5 L", "3 L", "6 L", "9 L", "12 L", "15 L"]
         }
       },
       "product_grapes": {
@@ -139,13 +129,7 @@
         "config": {
           "label": "Region",
           "placeholder": "",
-          "options": [
-            "Côte des Blancs",
-            "Montagne de Reims",
-            "Vallée de la Marne",
-            "Côte des Bar",
-            "Côte de Sézanne"
-          ]
+          "options": ["Côte des Blancs", "Montagne de Reims", "Vallée de la Marne", "Côte des Bar", "Côte de Sézanne"]
         }
       },
       "product_cru": {
@@ -185,7 +169,7 @@
         "config": {
           "label": "Consumer Availability",
           "placeholder": "",
-          "options": ["Systembolaget", "Privatimport", "Slutsåld"]
+          "options": ["Systembolaget", "Private Import", "Sold Out"]
         }
       },
       "product_restaurant_availability": {
@@ -193,7 +177,7 @@
         "config": {
           "label": "Restaurant Availability",
           "placeholder": "",
-          "options": ["Tillgänglig", "Slutsåld"]
+          "options": ["Available", "Sold Out"]
         }
       },
       "product_order_url": {
@@ -244,9 +228,6 @@
               "type": "SharedSlice"
             },
             "product": {
-              "type": "SharedSlice"
-            },
-            "product_detail": {
               "type": "SharedSlice"
             },
             "text": {

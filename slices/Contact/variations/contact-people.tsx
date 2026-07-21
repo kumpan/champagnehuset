@@ -5,7 +5,7 @@ import { Button } from "@/components/button";
 import { type IconName, iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { SectionIntro } from "@/components/section-intro";
+import { SectionIntro, type SectionTheme } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { EmployeeDocument } from "@/prismicio-types";
@@ -14,9 +14,13 @@ import { PersonCard } from "../person-card";
 
 type Props = ContactProps & { slice: Content.ContactSlicePeople };
 
-const buttonThemeClasses = {
+const buttonThemeClasses: Record<SectionTheme, string> = {
   Bud: "",
-  Dust: "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
+  Leaf: "",
+  Brand: "bg-fill hover:bg-fill/90 text-ink outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
+  Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90 focus-visible:outline-spot-fill-dark hover:outline-accent/20 outline-accent/0",
+  Slate:
+    "bg-spot-fill-raised hover:bg-spot-fill-raised/90 text-spot-ink outline-spot-fill-raised/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
 };
 
 function isIconName(value: unknown): value is IconName {
@@ -33,12 +37,21 @@ export async function ContactPeople({ slice }: Props) {
   const curated = (
     await Promise.all(
       featured_employees.map((item) =>
-        isFilled.contentRelationship(item.employee) ? client.getByID<EmployeeDocument>(item.employee.id) : null,
+        isFilled.contentRelationship(item.employee)
+          ? // A featured link may point to a deleted/unpublished doc — skip it rather than throw.
+            client
+              .getByID<EmployeeDocument>(item.employee.id)
+              .catch(() => null)
+          : null,
       ),
     )
   ).filter((employee): employee is EmployeeDocument => employee !== null);
 
-  const employees = curated.length > 0 ? curated : await client.getAllByType("employee");
+  // getAllByType throws ("No documents were found") when the repo has no employees yet.
+  const employees = curated.length > 0 ? curated : await client.getAllByType("employee").catch(() => []);
+
+  // Nothing to show — render nothing rather than an empty People section.
+  if (employees.length === 0) return null;
 
   return (
     <Section
@@ -84,9 +97,9 @@ export async function ContactPeople({ slice }: Props) {
           </div>
         )}
         {employees.length > 0 && (
-          <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-6 lg:grid-cols-3 lg:gap-x-4 lg:gap-y-8">
             {employees.map((employee) => (
-              <PersonCard key={employee.id} employee={employee} sectionTheme={section_theme} className="w-full" />
+              <PersonCard key={employee.id} employee={employee} sectionTheme={section_theme} />
             ))}
           </div>
         )}

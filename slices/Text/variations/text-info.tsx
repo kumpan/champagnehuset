@@ -1,85 +1,195 @@
-import type { Content } from "@prismicio/client";
-import AnimatedNumber from "@/components/animated-number";
+import { type Content, isFilled } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
+import { Button } from "@/components/button";
+import { CustomRichText } from "@/components/custom-rich-text";
+import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { SectionIntro } from "@/components/section-intro";
-import { cn, hasSectionIntroContent } from "@/lib/utils";
+import { Overline } from "@/components/overline";
+import { formatAlcohol, formatDosage, formatPrice } from "@/lib/format";
+import { cn } from "@/lib/utils";
 import type { TextProps } from "..";
+import { COPY, RESTAURANT_CONTACT, resolvePurchase } from "../text-info-config";
 
-const factDescriptionThemeClasses = {
-  Bud: "text-ink-dim",
-  Dust: "text-accent-ink-dim",
+const ArrowRight = iconMap.arrowRight;
+const PhoneCall = iconMap.phoneCall;
+const AtSign = iconMap.atSign;
+const Download = iconMap.download;
+
+/** The dynamic-page template passes the current document in as slice context. */
+type InfoContext = {
+  lang?: string;
+  document?: Content.AllDocumentTypes;
 };
 
-const dividerThemeClasses = {
-  Bud: "bg-brand",
-  Dust: "bg-accent",
-};
+type Props = TextProps & { slice: Content.TextSliceInfo };
 
-type Props = TextProps & { slice: Content.TextSliceFacts };
+export function TextInfo({ slice, context }: Props) {
+  const ctx = context as InfoContext | undefined;
+  const doc = ctx?.document;
+  const product = doc?.type === "product" ? doc : undefined;
+  const data = product?.data;
+  const { section_theme } = slice.primary;
 
-export function TextInfo({ slice }: Props) {
-  const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding, facts } = slice.primary;
-
-  const theme = section_theme || "Bud";
-  const factCount = facts.length;
-
-  const layouts: Record<number, { grid: string; itemSpan?: (i: number) => string }> = {
-    1: { grid: "grid-cols-1" },
-    2: { grid: "grid-cols-1 md:grid-cols-2" },
-    3: { grid: "grid-cols-1 lg:grid-cols-3" },
-    4: { grid: "grid-cols-1 md:grid-cols-2" },
-    5: {
-      grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-6",
-      itemSpan: (i) => cn(i === 4 && "md:col-span-2", i < 3 ? "lg:col-span-2" : "lg:col-span-3"),
-    },
+  const buttonThemeClasses = {
+    Bud: "",
+    Leaf: "bg-fill hover:bg-fill/70",
+    Brand: "bg-fill-raised text-ink hover:bg-fill-raised/90 selection:bg-brand! selection:text-ink-flip",
+    Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90",
+    Slate:
+      "bg-spot-fill-raised text-spot-ink hover:bg-spot-fill-raised/90 selection:bg-spot-fill-dark! selection:text-spot-ink-flip",
   };
-  const layout = layouts[factCount] ?? {
-    grid: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+
+  // Editorial fields fall back to the producer / product name when left blank.
+  const producerName = isFilled.contentRelationship(data?.product_producer)
+    ? (data?.product_producer.data?.producer_name ?? undefined)
+    : undefined;
+  const overline = slice.primary.overline || producerName || "";
+  const title = slice.primary.title || data?.product_name || "";
+
+  // Spec rows — only the ones that have a value are rendered.
+  const rows: { label: string; value: string }[] = [];
+  const push = (label: string, value?: string | null) => {
+    if (value) rows.push({ label, value });
   };
+  if (data) {
+    push("Artikelnummer", data.product_article_number);
+    push("Pris", formatPrice(data.product_price));
+    push("Volym", data.product_volume);
+    push("Druvor", data.product_grapes);
+    push("Dosage", formatDosage(data.product_dosage_grams));
+    push("Alkohol", formatAlcohol(data.product_alcohol));
+    push("Lagring", data.product_storage);
+    push("Ursprung", [data.product_region, data.product_cru].filter(Boolean).join(", ") || null);
+  }
+
+  const hasOrderUrl = isFilled.link(data?.product_order_url);
+  const purchase = resolvePurchase(
+    data?.product_consumer_availability ?? null,
+    data?.product_restaurant_availability ?? null,
+    hasOrderUrl,
+  );
+
+  const pdfHref = product?.uid
+    ? `/api/product-pdf?uid=${encodeURIComponent(product.uid)}&lang=${encodeURIComponent(product.lang)}`
+    : null;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      removeTopPadding={remove_top_padding}
-      sectionTheme={theme}
+      removeTopPadding={slice.primary.remove_top_padding}
+      sectionTheme={section_theme}
     >
       <Container>
-        {hasIntroContent && (
-          <SectionIntro
-            overline={overline}
-            title={title}
-            description={description}
-            buttons={buttons}
-            align={alignment ? "center" : "left"}
-            sectionTheme={theme}
-          />
-        )}
-        {factCount > 0 && (
-          <div className={cn("mt-8 grid 3xl:gap-16 gap-8 md:mt-12 md:gap-8 lg:mt-16 lg:gap-12", layout.grid)}>
-            {facts.map((fact, index) => (
-              <div
-                key={`${fact.number}-${index}`}
-                className={cn("flex flex-row gap-4 md:flex-col", layout.itemSpan?.(index))}
-              >
-                <div className={cn("h-full w-1 shrink-0 rounded-full md:hidden", dividerThemeClasses[theme])} />
-                <div className="py-2 md:py-0">
-                  <AnimatedNumber
-                    valueText={fact.number ?? undefined}
-                    size="Large"
-                    className="font-semibold text-5xl md:text-6xl lg:text-7xl"
-                  />
-                  <div
-                    className={cn("my-4 hidden h-1 rounded-full md:block md:w-24 lg:w-32", dividerThemeClasses[theme])}
-                  />
-                  <p className={cn(factDescriptionThemeClasses[theme])}>{fact.description}</p>
+        <div className="grid gap-x-12 gap-y-14 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
+          {/* Left: overline, display title, purchase actions */}
+          <div className="flex flex-col">
+            {overline ? <Overline className="justify-start px-0 font-medium">{overline}</Overline> : null}
+            {title ? (
+              <h1 className="mt-3 font-primary text-6xl uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl xl:text-10xl">
+                {title}
+              </h1>
+            ) : null}
+
+            <div className="mt-10 lg:mt-16">
+              {purchase.kind === "sold-out" ? (
+                <div>
+                  <h3 className="font-medium text-xl">{COPY.soldOut.heading}</h3>
+                  <p className="mt-2">{COPY.soldOut.body}</p>
                 </div>
-              </div>
-            ))}
+              ) : (
+                <div className="flex flex-col gap-8">
+                  {purchase.consumer ? (
+                    <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="max-w-sm">
+                        <h3 className="font-medium text-xl">{purchase.consumer.heading}</h3>
+                        <p className="mt-2">{purchase.consumer.body}</p>
+                      </div>
+                      {purchase.consumer.enabled && hasOrderUrl && data ? (
+                        <Button
+                          asChild
+                          variant="secondary"
+                          className={cn(buttonThemeClasses[section_theme], "shrink-0")}
+                          size="lg"
+                        >
+                          <PrismicNextLink field={data.product_order_url}>
+                            {purchase.consumer.button}
+                            <ArrowRight />
+                          </PrismicNextLink>
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="secondary"
+                          size="lg"
+                          className={cn(buttonThemeClasses[section_theme], "shrink-0")}
+                          disabled
+                        >
+                          {purchase.consumer.button}
+                          <ArrowRight />
+                        </Button>
+                      )}
+                    </div>
+                  ) : null}
+
+                  {purchase.restaurant ? (
+                    <div className={cn(purchase.consumer && "border-current/20 border-t pt-8")}>
+                      <h3 className="font-medium text-xl">{COPY.restaurant.heading}</h3>
+                      <p className="mt-2 max-w-md">{COPY.restaurant.body}</p>
+                      <p className="mt-4">
+                        {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
+                      </p>
+                      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                        <Button asChild variant="secondary" className={buttonThemeClasses[section_theme]} size="lg">
+                          <a href={RESTAURANT_CONTACT.phoneHref}>
+                            <PhoneCall />
+                            {COPY.restaurant.call}
+                          </a>
+                        </Button>
+                        <Button asChild variant="secondary" className={buttonThemeClasses[section_theme]} size="lg">
+                          <a href={`mailto:${RESTAURANT_CONTACT.email}`}>
+                            <AtSign />
+                            {COPY.restaurant.mail}
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              )}
+            </div>
           </div>
-        )}
+
+          {/* Right: body copy, spec table, PDF download */}
+          <div className="flex flex-col gap-10">
+            {isFilled.richText(slice.primary.body) ? (
+              <CustomRichText field={slice.primary.body} sectionTheme={section_theme} />
+            ) : null}
+
+            {rows.length > 0 ? (
+              <dl className="border-current/20 border-t">
+                {rows.map((row) => (
+                  <div
+                    key={row.label}
+                    className="flex items-baseline justify-between gap-6 border-current/20 border-b py-4"
+                  >
+                    <dt>{row.label}</dt>
+                    <dd className="text-right font-medium">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
+
+            {pdfHref ? (
+              <Button asChild variant="secondary" className={cn(buttonThemeClasses[section_theme], "w-full")} size="lg">
+                <a href={pdfHref}>
+                  {COPY.pdf}
+                  <Download />
+                </a>
+              </Button>
+            ) : null}
+          </div>
+        </div>
       </Container>
     </Section>
   );

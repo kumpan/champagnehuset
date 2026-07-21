@@ -1,13 +1,14 @@
 /**
- * All of the purchase-flow microcopy lives here so a CMS editor only has to pick
- * the availability on the product document — they never retype this copy. The
- * sales-rep phone/email are the same for every wine, so they're constants too;
- * change them here if the rep changes.
+ * All of the purchase-flow microcopy for the Text → Info (product detail)
+ * variation lives here so a CMS editor only has to pick the availability on the
+ * product document — they never retype this copy. The sales-rep phone/email are
+ * the same for every wine, so they're constants too; change them here if the
+ * rep changes.
  */
 
-export type ConsumerAvailability = "Systembolaget" | "Privatimport" | "Slutsåld" | null;
+export type ConsumerAvailability = "Systembolaget" | "Private Import" | "Sold Out" | null;
 
-export type RestaurantAvailability = "Tillgänglig" | "Slutsåld" | null;
+export type RestaurantAvailability = "Available" | "Sold Out" | null;
 
 export const RESTAURANT_CONTACT = {
   phoneLabel: "+46 (0) 70 724 34 74",
@@ -59,10 +60,10 @@ export type PurchaseState =
 /**
  * Turns the two availability selects into what the purchase column should render.
  *
- * - Restaurant block shows unless restaurant availability is "Slutsåld".
- * - When BOTH consumer and restaurant are "Slutsåld", the whole column collapses
+ * - Restaurant block shows unless restaurant availability is "Sold Out".
+ * - When BOTH consumer and restaurant are "Sold Out", the whole column collapses
  *   to a single sold-out message.
- * - A "Slutsåld" consumer channel keeps the (disabled) Systembolaget button and
+ * - A "Sold Out" consumer channel keeps the (disabled) Systembolaget button and
  *   swaps to the sold-out copy — matching the "slutsåld hos Systembolaget" state.
  */
 export function resolvePurchase(
@@ -70,18 +71,18 @@ export function resolvePurchase(
   restaurant: RestaurantAvailability,
   hasOrderUrl: boolean,
 ): PurchaseState {
-  const restaurantSoldOut = restaurant === "Slutsåld";
+  const restaurantSoldOut = restaurant === "Sold Out";
 
-  if (consumer === "Slutsåld" && restaurantSoldOut) {
+  if (consumer === "Sold Out" && restaurantSoldOut) {
     return { kind: "sold-out" };
   }
 
   let consumerBlock: ConsumerBlock | null = null;
   if (consumer === "Systembolaget") {
     consumerBlock = { ...COPY.systembolaget, enabled: hasOrderUrl };
-  } else if (consumer === "Privatimport") {
+  } else if (consumer === "Private Import") {
     consumerBlock = { ...COPY.privatimport, enabled: hasOrderUrl };
-  } else if (consumer === "Slutsåld") {
+  } else if (consumer === "Sold Out") {
     consumerBlock = { ...COPY.systembolagetSoldOut, enabled: false };
   }
 

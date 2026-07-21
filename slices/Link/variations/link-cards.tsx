@@ -66,36 +66,29 @@ export function LinkCards({ slice }: Props) {
                 >
                   <CustomMedia
                     imageField={card.image}
-                    className="absolute inset-0 size-full rounded-0 object-cover transition-transform duration-1000 ease-out group-hover:scale-105 md:rounded-0 lg:rounded-0"
+                    className="absolute inset-0 size-full rounded-0 object-cover transition-transform duration-1500 ease-out group-hover:scale-103"
                     sectionTheme={section_theme}
                   />
-                  {/*
-                   * Color wash — a gradient that *blends* with the photo (overlay) rather than
-                   * sitting flatly on top of it. `isolate` on the card above fences the blend to
-                   * this card instead of mixing with the page behind it. Fade through a transparent
-                   * version of the same hue (yellow-800/0), not `via-transparent` — plain
-                   * transparent is transparent *black* and muddies the midpoint.
-                   */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-yellow-600/60 via-yellow-800/0 to-yellow-900/70 mix-blend-overlay" />
 
-                  {/*
-                   * Progressive blur — one backdrop-blur layer, masked so it's fully present at the
-                   * top and bottom edges and fades to nothing through the middle. The mask's alpha
-                   * ramp (opaque → transparent → opaque) is what makes the blur feel gradual.
-                   */}
-                  <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_bottom,black,transparent_25%,transparent_75%,black)]" />
-
-                  {/* Legibility fade — plain dark gradient so the title/description stay readable. */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-spot-fill-dark/30 via-spot-fill-dark/0 to-spot-fill-dark/70" />
+                  {/* Top Fade */}
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5">
+                    <div className="absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-spot-fill-dark/40 to-spot-fill-dark/0" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-yellow-600/20 to-spot-fill/0 mix-blend-overlay" />
+                  </div>
 
                   <div className="relative flex items-start justify-between gap-3">
-                    <h3 className="font-primary text-lg italic md:text-xl">{card.title}</h3>
+                    <h3 className="font-primary text-lg md:text-xl">{card.title}</h3>
                     <ArrowRight className="size-5 shrink-0" />
                   </div>
 
-                  <p className="relative text-pretty font-secondary text-sm leading-snug md:text-base">
-                    {card.description}
-                  </p>
+                  <div className="relative -mx-4 -mb-4 px-4 pb-4 pt-16 md:pt-20 md:-mx-5 md:-mb-5 md:px-5 md:pb-5">
+                    {/* Bottom Fade, responsive height */}
+                    <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />
+                    <p className="relative text-pretty leading-snug line-clamp-6">{card.description}</p>
+                  </div>
                 </PrismicNextLink>
               </li>
             ))}

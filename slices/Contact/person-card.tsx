@@ -1,73 +1,58 @@
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { isFilled } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 
+import type { SectionTheme } from "@/components/section-intro";
 import { cn } from "@/lib/utils";
 import type { EmployeeDocument } from "@/prismicio-types";
 
-const textThemeClasses = {
-  Bud: "text-ink-flip",
-  Dust: "text-accent-ink-flip",
-};
-
-const fade01ThemeClasses = {
-  Bud: "from-brand/40 to-brand/0",
-  Dust: "from-accent/40 to-accent/0",
-};
-const fade02ThemeClasses = {
-  Bud: "from-brand/10 to-brand/0",
-  Dust: "from-accent/10 to-accent/0",
-};
-const fade03ThemeClasses = {
-  Bud: "from-fill-dark/90 to-fill-dark/0",
-  Dust: "from-accent-fill-dark/90 to-accent-fill-dark/0",
+/** Contact lines sit on the section background, one step dimmer than the name. */
+const contactThemeClasses: Record<SectionTheme, string> = {
+  Bud: "text-ink-dim",
+  Leaf: "text-ink-dim",
+  Brand: "text-ink-flip",
+  Dust: "text-spot-ink-dim",
+  Slate: "text-spot-ink-flip",
 };
 
 type PersonCardProps = {
   employee: EmployeeDocument;
-  sectionTheme: "Bud" | "Dust";
+  sectionTheme: SectionTheme;
   className?: string;
 };
 
 export function PersonCard({ employee, sectionTheme, className }: PersonCardProps) {
+  const { employee_name, employee_image, employee_title, employee_location, employee_phone, employee_email } =
+    employee.data;
+
+  // Title and location are shown as a single line, e.g. "Brand Manager, Stockholm".
+  const role = [employee_title, employee_location].filter(Boolean).join(", ");
+  const hasContact = role || isFilled.keyText(employee_phone) || isFilled.keyText(employee_email);
+
   return (
-    <PrismicNextLink
-      document={employee}
-      className={cn("group relative flex aspect-4/5 shrink-0 flex-col gap-2 overflow-hidden rounded-4", className)}
-    >
-      <PrismicNextImage
-        field={employee.data.employee_image}
-        className="inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-103"
-        fallbackAlt=""
-      />
-
-      {/* Background Fade */}
-      <div
-        className={cn(
-          "absolute right-0 bottom-0 left-0 h-12 bg-linear-to-t mix-blend-overlay transition-colors duration-500 ease-out md:h-24 lg:h-40",
-          fade01ThemeClasses[sectionTheme],
-        )}
-      />
-      <div
-        className={cn(
-          "absolute right-0 bottom-0 left-0 h-12 bg-linear-to-t transition-colors duration-500 ease-out md:h-24 lg:h-40",
-          fade02ThemeClasses[sectionTheme],
-        )}
-      />
-      <div
-        className={cn(
-          "absolute right-0 bottom-0 left-0 h-20 bg-linear-to-t transition-colors duration-500 ease-out md:h-26 lg:h-32",
-          fade03ThemeClasses[sectionTheme],
-        )}
-      />
-
-      {/* Employee Data */}
-      <div className="absolute right-0 bottom-0 left-0 flex flex-col items-center px-4 pb-4 text-center">
-        <span
-          className={cn("line-clamp-2 font-semibold text-xl leading-tight lg:text-2xl", textThemeClasses[sectionTheme])}
-        >
-          {employee.data.employee_name}
-        </span>
-        <span className={cn("hidden md:block", textThemeClasses[sectionTheme])}>{employee.data.employee_title}</span>
+    <div className={cn("flex flex-col gap-2", className)}>
+      <div className="relative aspect-square w-full overflow-hidden rounded-1 bg-brand">
+        <PrismicNextImage field={employee_image} className="h-full w-full object-cover" fallbackAlt="" />
       </div>
-    </PrismicNextLink>
+
+      <div className="flex flex-col gap-1">
+        <p className="font-medium text-xl leading-tight lg:text-2xl">{employee_name}</p>
+
+        {hasContact && (
+          <div className={cn("flex flex-col text-base leading-[1.45]", contactThemeClasses[sectionTheme])}>
+            {role && <p>{role}</p>}
+            {isFilled.keyText(employee_phone) && (
+              <a href={`tel:${employee_phone.replace(/\s+/g, "")}`} className="truncate underline">
+                {employee_phone}
+              </a>
+            )}
+            {isFilled.keyText(employee_email) && (
+              <a href={`mailto:${employee_email}`} className="truncate underline">
+                {employee_email}
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

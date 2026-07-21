@@ -84,7 +84,7 @@ export function LinkQuick({ slice }: Props) {
         )}
 
         {links.length > 0 && (
-          <ul className={cn("grid list-none grid-cols-1 gap-0 md:grid-cols-2 md:gap-3", layout.grid)}>
+          <ul className={cn("grid list-none grid-cols-1 gap-0 md:grid-cols-2 md:gap-2", layout.grid)}>
             {links.map((link, index) => (
               <li key={`${index}-${link.text}`} className={layout.span(index)}>
                 {/*
@@ -94,9 +94,8 @@ export function LinkQuick({ slice }: Props) {
                 <PrismicNextLink
                   field={link}
                   className={cn(
-                    "group flex items-center justify-between gap-3 border-b px-1 py-4 text-sm transition-colors duration-300 ease-out",
-                    "md:rounded-2 md:border-0 md:px-5 md:py-4 md:text-base",
-                    borderThemeClasses[section_theme],
+                    "group flex items-center justify-between gap-3 border-b border-current/20 px-1 py-4 text-sm transition-colors duration-300 ease-out",
+                    "md:rounded-1 md:border-0 md:px-5 md:py-4 md:text-base",
                     rowThemeClasses[section_theme],
                   )}
                 >

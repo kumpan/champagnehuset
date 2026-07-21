@@ -41,13 +41,13 @@
           "placeholder": "Maison Beauvallon"
         }
       },
-      "producer_logo": {
+      "producer_image": {
         "type": "Image",
         "config": {
-          "label": "Logo",
+          "label": "Image",
           "constraint": {
             "width": 800,
-            "height": 800
+            "height": 600
           },
           "thumbnails": []
         }
@@ -58,11 +58,11 @@
           "label": "Region",
           "placeholder": "",
           "options": [
-            "C\u00f4te des Blancs",
+            "Côte des Blancs",
             "Montagne de Reims",
-            "Vall\u00e9e de la Marne",
-            "C\u00f4te des Bar",
-            "C\u00f4te de S\u00e9zanne"
+            "Vallée de la Marne",
+            "Côte des Bar",
+            "Côte de Sézanne"
           ]
         }
       },

@@ -9,7 +9,7 @@ type DocWithSeo = PrismicDocument<{
 
 /**
  * Builds Next.js Metadata from a Prismic document's SEO tab fields.
- * Reuses the same shape across pages, articles, and employees.
+ * Reuses the same shape across pages, articles, products, and producers.
  *
  * Only sets fields that have actual content so the layout's defaults
  * (title.template, fallback description, etc.) cascade through cleanly
