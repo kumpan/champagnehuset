@@ -440,6 +440,16 @@ export type EmployeeDocument<Lang extends string = string> =
  */
 export interface FooterDocumentDataLinksItem {
   /**
+   * Title field in *Footer → Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Champagner
+   * - **API ID Path**: footer.links[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
    * Link field in *Footer → Links*
    *
    * - **Field Type**: Link
@@ -447,7 +457,9 @@ export interface FooterDocumentDataLinksItem {
    * - **API ID Path**: footer.links[].link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
 }
 
 /**
@@ -1412,7 +1424,9 @@ interface ProductDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  product_restaurant_availability: prismic.SelectField<"Available" | "Sold Out">;
+  product_restaurant_availability: prismic.SelectField<
+    "Available" | "Sold Out"
+  >;
 
   /**
    * Order URL field in *Product*

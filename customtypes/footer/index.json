@@ -30,7 +30,10 @@
         "config": {
           "label": "Logo Color",
           "placeholder": "",
-          "options": ["System Can Override the Logo Color", "Use Original Logo Color"],
+          "options": [
+            "System Can Override the Logo Color",
+            "Use Original Logo Color"
+          ],
           "default_value": "System Can Override the Logo Color"
         }
       },
@@ -60,6 +63,13 @@
           "label": "Links",
           "repeat": true,
           "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "Title",
+                "placeholder": "Champagner"
+              }
+            },
             "link": {
               "type": "Link",
               "config": {
@@ -68,7 +78,7 @@
                 "select": null,
                 "allowTargetBlank": true,
                 "allowText": true,
-                "repeat": false
+                "repeat": true
               }
             }
           }
