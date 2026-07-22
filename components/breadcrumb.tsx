@@ -3,18 +3,20 @@ import { cn } from "@/lib/utils";
 
 type BreadcrumbItem = { label: string; href: string };
 
-const breadcrumbTheme: Record<string, { dark: string; light: string }> = {
+type BreadcrumbThemeColors = { base: string; hover: string };
+
+const breadcrumbTheme: Record<string, { dark: BreadcrumbThemeColors; light: BreadcrumbThemeColors }> = {
   Bud: {
-    dark: "text-ink-dim group-hover:text-brand-ink bg-brand",
-    light: "text-brand-ink group-hover:text-brand-ink bg-brand",
+    dark: { base: "text-ink-dim bg-brand", hover: "group-hover:text-brand-ink" },
+    light: { base: "text-brand-ink bg-brand", hover: "group-hover:text-brand-ink" },
+  },
+  Leaf: {
+    dark: { base: "text-ink-dim bg-brand", hover: "group-hover:text-brand-ink" },
+    light: { base: "text-ink-flip bg-brand", hover: "group-hover:text-brand-ink" },
   },
   Dust: {
-    dark: "text-accent-ink-dim group-hover:text-accent-ink bg-accent hover:text-accent-ink-flip",
-    light: "text-accent-ink-flip group-hover:text-accent-ink bg-accent hover:text-accent-ink-flip",
-  },
-  Night: {
-    dark: "text-ink-dim group-hover:text-brand-ink bg-brand",
-    light: "text-ink-flip group-hover:text-brand-ink bg-brand",
+    dark: { base: "text-spot-ink-dim bg-spot-fill-dark", hover: "group-hover:text-spot-ink-flip" },
+    light: { base: "text-spot-ink-flip bg-spot-fill-dark", hover: "group-hover:text-spot-ink-flip" },
   },
 };
 
@@ -29,7 +31,7 @@ export function BreadcrumbNav({
   colorMode?: "light" | "dark";
   sectionTheme?: string;
 }) {
-  const breadcrumbThemeColors = (breadcrumbTheme[sectionTheme] ?? breadcrumbTheme.Bud)[colorMode];
+  const { base, hover } = (breadcrumbTheme[sectionTheme] ?? breadcrumbTheme.Bud)[colorMode];
 
   return (
     <nav aria-label="Breadcrumb">
@@ -38,22 +40,23 @@ export function BreadcrumbNav({
           const isLast = i === items.length - 1;
           return (
             <li key={item.href} className="flex items-center gap-0.5">
-              {i > 0 && <span className={cn(breadcrumbThemeColors, "bg-transparent opacity-50")}>/</span>}
+              {i > 0 && <span className={cn(base, "bg-transparent opacity-50")}>/</span>}
               {isLast ? (
-                <span className={cn(breadcrumbThemeColors, "bg-transparent px-2 py-1.5 opacity-50")}>{item.label}</span>
+                <span className={cn(base, "bg-transparent px-2 py-1.5")}>{item.label}</span>
               ) : (
                 <Link href={item.href} className="group relative max-w-32 rounded-2 px-2 py-1.5">
                   <div
                     className={cn(
                       "absolute inset-1 rounded-2 opacity-0",
-                      "[transition:inset_500ms_var(--ease-spring-bounce),opacity_200ms_ease-in]",
+                      "[transition:inset_350ms_var(--ease-spring-bounce),opacity_200ms_ease-in]",
                       "group-hover:inset-0 group-hover:opacity-100",
-                      breadcrumbThemeColors,
+                      base,
                     )}
                   />
                   <div
                     className={cn(
-                      breadcrumbThemeColors,
+                      base,
+                      hover,
                       "relative truncate bg-transparent transition-colors duration-300 ease-in-out",
                     )}
                   >
