@@ -6,6 +6,7 @@ import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import type { IconName } from "@/components/icons";
 import { iconMap } from "@/components/icons";
+import type { SectionTheme } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { cn } from "@/lib/utils";
 
@@ -31,16 +32,7 @@ const overlineThemeClasses = {
   Slate: "text-spot-ink-flip",
 };
 
-const buttonThemeClasses = {
-  Bud: "",
-  Leaf: "selection:bg-fill-raised selection:text-ink",
-  Brand: "bg-fill hover:bg-fill/90 text-ink outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
-  Dust: "bg-spot-fill-dark hover:bg-spot-fill-dark/90 outline-fill-dark/70",
-  Slate:
-    "bg-spot-fill-raised hover:bg-spot-fill-raised/90 text-spot-ink outline-spot-fill-raised/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
-};
-
-export type SectionTheme = keyof typeof overlineThemeClasses;
+export type { SectionTheme };
 
 interface SectionIntroProps {
   overline?: KeyTextField | ReadonlyArray<CmsOverlineItem>;
@@ -177,7 +169,8 @@ export function SectionIntro({
             return (
               <Button
                 key={linkKey}
-                className={cn(buttonThemeClasses[sectionTheme], buttonClassName)}
+                className={buttonClassName}
+                sectionTheme={sectionTheme}
                 variant={variant}
                 size="lg"
                 asChild

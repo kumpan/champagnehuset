@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
 
+export type SectionTheme = "Bud" | "Leaf" | "Brand" | "Dust" | "Slate";
+
 const sectionThemeClasses: Record<string, string> = {
   Bud: "bg-fill text-ink selection:bg-brand selection:text-brand-ink",
   Leaf: "bg-fill-raised text-ink selection:bg-brand selection:text-brand-ink",
