@@ -49,6 +49,8 @@ Colors are **semantic tokens** defined in `app/globals.css` (`@theme`). The suff
 
 **Never use an `ink` token as a background, or a `fill` token as text.** `ink` is text, `fill` is background. Pair them: `bg-fill text-ink`, `bg-brand text-brand-ink`, `bg-brand-fill text-ink-flip`. Prefer the `Section` component (`components/layout/section.tsx`) — its theme classes already pair background + text correctly.
 
+**Buttons theme themselves.** In a themed section, pass the section's theme to `<Button sectionTheme={section_theme}>` (and to `SectionIntro`, which forwards it) — never hand-roll a per-theme button class map inside a slice. All per-theme button styling (background, hover, text, focus outline, selection) for every variant lives in the `themeClasses` block in `components/button.tsx`; retune the theme there, in one place.
+
 <!-- END:color-rules -->
 
 <!-- BEGIN:naming-rules -->
