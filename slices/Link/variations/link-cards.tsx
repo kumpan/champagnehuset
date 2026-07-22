@@ -78,8 +78,8 @@ export function LinkCards({ slice }: Props) {
                   </div>
 
                   <div className="relative flex items-start justify-between gap-3">
-                    <h3 className="font-primary text-lg md:text-xl">{card.title}</h3>
-                    <ArrowRight className="size-5 shrink-0" />
+                    <h3 className="font-primary text-lg font-medium! md:text-xl">{card.title}</h3>
+                    <ArrowRight className="size-7 shrink-0" />
                   </div>
 
                   <div className="relative -mx-4 -mb-4 px-4 pb-4 pt-16 md:pt-20 md:-mx-5 md:-mb-5 md:px-5 md:pb-5">

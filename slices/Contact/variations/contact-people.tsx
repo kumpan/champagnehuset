@@ -5,7 +5,7 @@ import { Button } from "@/components/button";
 import { type IconName, iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { SectionIntro, type SectionTheme } from "@/components/section-intro";
+import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { EmployeeDocument } from "@/prismicio-types";
@@ -13,15 +13,6 @@ import type { ContactProps } from "..";
 import { PersonCard } from "../person-card";
 
 type Props = ContactProps & { slice: Content.ContactSlicePeople };
-
-const buttonThemeClasses: Record<SectionTheme, string> = {
-  Bud: "",
-  Leaf: "",
-  Brand: "bg-fill hover:bg-fill/90 text-ink outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
-  Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90 focus-visible:outline-spot-fill-dark hover:outline-accent/20 outline-accent/0",
-  Slate:
-    "bg-spot-fill-raised hover:bg-spot-fill-raised/90 text-spot-ink outline-spot-fill-raised/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
-};
 
 function isIconName(value: unknown): value is IconName {
   return typeof value === "string" && value in iconMap;
@@ -38,7 +29,7 @@ export async function ContactPeople({ slice }: Props) {
     await Promise.all(
       featured_employees.map((item) =>
         isFilled.contentRelationship(item.employee)
-          ? // A featured link may point to a deleted/unpublished doc — skip it rather than throw.
+          ? // If featured link point to a deleted/unpublished doc, skip it rather than throw
             client
               .getByID<EmployeeDocument>(item.employee.id)
               .catch(() => null)
@@ -85,7 +76,7 @@ export async function ContactPeople({ slice }: Props) {
                 const LeftIcon = isIconName(btn.icon_left) ? iconMap[btn.icon_left] : null;
                 const RightIcon = isIconName(btn.icon_right) ? iconMap[btn.icon_right] : null;
                 return (
-                  <Button asChild size="lg" className={cn(buttonThemeClasses[section_theme], "shrink-0")}>
+                  <Button asChild size="lg" sectionTheme={section_theme} className="shrink-0">
                     <PrismicNextLink field={btn.link}>
                       {LeftIcon && <LeftIcon />}
                       <span>{btn.link.text}</span>

@@ -31,15 +31,6 @@ export function TextInfo({ slice, context }: Props) {
   const data = product?.data;
   const { section_theme } = slice.primary;
 
-  const buttonThemeClasses = {
-    Bud: "",
-    Leaf: "bg-fill hover:bg-fill/70",
-    Brand: "bg-fill-raised text-ink hover:bg-fill-raised/90 selection:bg-brand! selection:text-ink-flip",
-    Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90",
-    Slate:
-      "bg-spot-fill-raised text-spot-ink hover:bg-spot-fill-raised/90 selection:bg-spot-fill-dark! selection:text-spot-ink-flip",
-  };
-
   // Editorial fields fall back to the producer / product name when left blank.
   const producerName = isFilled.contentRelationship(data?.product_producer)
     ? (data?.product_producer.data?.producer_name ?? undefined)
@@ -107,12 +98,7 @@ export function TextInfo({ slice, context }: Props) {
                         <p className="mt-2">{purchase.consumer.body}</p>
                       </div>
                       {purchase.consumer.enabled && hasOrderUrl && data ? (
-                        <Button
-                          asChild
-                          variant="secondary"
-                          className={cn(buttonThemeClasses[section_theme], "shrink-0")}
-                          size="lg"
-                        >
+                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="shrink-0">
                           <PrismicNextLink field={data.product_order_url}>
                             {purchase.consumer.button}
                             <ArrowRight />
@@ -122,7 +108,8 @@ export function TextInfo({ slice, context }: Props) {
                         <Button
                           variant="secondary"
                           size="lg"
-                          className={cn(buttonThemeClasses[section_theme], "shrink-0")}
+                          sectionTheme={section_theme}
+                          className="shrink-0"
                           disabled
                         >
                           {purchase.consumer.button}
@@ -140,13 +127,13 @@ export function TextInfo({ slice, context }: Props) {
                         {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
                       </p>
                       <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        <Button asChild variant="secondary" className={buttonThemeClasses[section_theme]} size="lg">
+                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg">
                           <a href={RESTAURANT_CONTACT.phoneHref}>
                             <PhoneCall />
                             {COPY.restaurant.call}
                           </a>
                         </Button>
-                        <Button asChild variant="secondary" className={buttonThemeClasses[section_theme]} size="lg">
+                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg">
                           <a href={`mailto:${RESTAURANT_CONTACT.email}`}>
                             <AtSign />
                             {COPY.restaurant.mail}
@@ -181,7 +168,7 @@ export function TextInfo({ slice, context }: Props) {
             ) : null}
 
             {pdfHref ? (
-              <Button asChild variant="secondary" className={cn(buttonThemeClasses[section_theme], "w-full")} size="lg">
+              <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="w-full">
                 <a href={pdfHref}>
                   {COPY.pdf}
                   <Download />

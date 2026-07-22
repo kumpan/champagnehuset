@@ -14,11 +14,6 @@ import { ProductCard } from "../product-card";
 
 type Props = ProductProps & { slice: Content.ProductSliceGrid };
 
-const buttonThemeClasses = {
-  Bud: "",
-  Dust: "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
-};
-
 function isIconName(value: unknown): value is IconName {
   return typeof value === "string" && value in iconMap;
 }
@@ -72,7 +67,7 @@ export async function ProductGrid({ slice }: Props) {
                 const LeftIcon = isIconName(btn.icon_left) ? iconMap[btn.icon_left] : null;
                 const RightIcon = isIconName(btn.icon_right) ? iconMap[btn.icon_right] : null;
                 return (
-                  <Button asChild size="lg" className={cn(buttonThemeClasses[section_theme], "shrink-0")}>
+                  <Button asChild size="lg" sectionTheme={section_theme} className="shrink-0">
                     <PrismicNextLink field={btn.link}>
                       {LeftIcon && <LeftIcon />}
                       <span>{btn.link.text}</span>
