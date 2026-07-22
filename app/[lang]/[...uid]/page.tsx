@@ -2,9 +2,9 @@ import { SliceZone } from "@prismicio/react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AvailableLocalesSetter } from "@/components/available-locales-setter";
-import { ArticleSchema, BreadcrumbSchema, FaqSchema } from "@/components/structured-data";
+import { ArticleSchema, BreadcrumbSchema, FaqSchema, ProductSchema } from "@/components/structured-data";
 import { buildBreadcrumbs } from "@/lib/breadcrumbs";
-import { getDocumentByUID, isArticle } from "@/lib/cms";
+import { getDocumentByUID, isArticle, isProduct } from "@/lib/cms";
 import { buildPageMetadata } from "@/lib/metadata";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
@@ -50,6 +50,7 @@ export default async function Page({ params }: Props) {
       <AvailableLocalesSetter locales={availableLocales} />
       <BreadcrumbSchema breadcrumbs={breadcrumbs} />
       {isArticle(page) && <ArticleSchema doc={page} />}
+      {isProduct(page) && <ProductSchema doc={page} />}
       <FaqSchema slices={page.data.slices} />
       <SliceZone slices={page.data.slices} components={components} context={{ breadcrumbs, lang, document: page }} />
     </>

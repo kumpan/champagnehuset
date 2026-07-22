@@ -6,9 +6,10 @@ export const ORGANIZATION_CONFIG = {
   description: "Små odlare, stora champagner. Handplockade champagner från självständiga odlare i Champagne.",
   url: SITE_URL,
   logo: `${SITE_URL}/icons/icon-512x512.png`,
-  foundingDate: "2024", // TODO: confirm founding year
+  foundingDate: "2002",
 
   contactPoint: {
+    telephone: "+46 70 724 34 74",
     email: "info@champagnehuset.se",
     contactType: "Customer Support",
     availableLanguage: ["Swedish", "English"],
@@ -22,9 +23,5 @@ export const ORGANIZATION_CONFIG = {
     addressCountry: "SE",
   },
 
-  sameAs: [
-    // TODO: add the verified Facebook and Instagram URLs
-    // "https://www.facebook.com/champagnehuset",
-    // "https://www.instagram.com/champagnehuset",
-  ],
+  sameAs: ["https://www.instagram.com/champagnehuset/"],
 } as const;
