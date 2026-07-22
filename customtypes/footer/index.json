@@ -91,11 +91,11 @@
           "repeat": true,
           "fields": {
             "icon": {
-              "type": "Image",
+              "type": "Select",
               "config": {
                 "label": "Icon",
-                "constraint": {},
-                "thumbnails": []
+                "placeholder": "Select an icon",
+                "options": ["instagram", "youtube", "linkedin", "facebook", "x"]
               }
             },
             "link": {
@@ -110,6 +110,13 @@
               }
             }
           }
+        }
+      },
+      "company_name": {
+        "type": "Text",
+        "config": {
+          "label": "Company Name",
+          "placeholder": "ChampagneHuset Sweden AB"
         }
       },
       "policies": {

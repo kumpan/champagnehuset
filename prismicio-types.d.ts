@@ -74,7 +74,6 @@ type ArticleDocumentDataSlicesSlice =
   | CalloutSlice
   | ContactSlice
   | FaqSlice
-  | FooterSlice
   | HeroSlice
   | ImageSlice
   | LinkSlice
@@ -469,12 +468,14 @@ export interface FooterDocumentDataSocialMediaItem {
   /**
    * Icon field in *Footer → Social Media*
    *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
+   * - **Field Type**: Select
+   * - **Placeholder**: Select an icon
    * - **API ID Path**: footer.social_media[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/image
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  icon: prismic.ImageField<never>;
+  icon: prismic.SelectField<
+    "instagram" | "youtube" | "linkedin" | "facebook" | "x"
+  >;
 
   /**
    * Link field in *Footer → Social Media*
@@ -579,6 +580,17 @@ interface FooterDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   social_media: prismic.GroupField<Simplify<FooterDocumentDataSocialMediaItem>>;
+
+  /**
+   * Company Name field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: ChampagneHuset Sweden AB
+   * - **API ID Path**: footer.company_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  company_name: prismic.KeyTextField;
 
   /**
    * Policies field in *Footer*
@@ -890,7 +902,6 @@ type PageDocumentDataSlicesSlice =
   | CalloutSlice
   | ContactSlice
   | FaqSlice
-  | FooterSlice
   | HeroSlice
   | ImageSlice
   | LinkSlice
@@ -997,7 +1008,6 @@ type ProducerDocumentDataSlicesSlice =
   | CalloutSlice
   | ContactSlice
   | FaqSlice
-  | FooterSlice
   | HeroSlice
   | ImageSlice
   | LinkSlice
@@ -1158,7 +1168,6 @@ type ProductDocumentDataSlicesSlice =
   | CalloutSlice
   | ContactSlice
   | FaqSlice
-  | FooterSlice
   | HeroSlice
   | ImageSlice
   | LinkSlice
@@ -3184,7 +3193,10 @@ export interface CalloutSliceSplitPrimary {
    * - **API ID Path**: callout.split.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Center Text field in *Callout → Split → Primary*
@@ -3296,7 +3308,10 @@ export interface CalloutSliceBackdropPrimary {
    * - **API ID Path**: callout.backdrop.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Center Text field in *Callout → Backdrop → Primary*
@@ -3399,7 +3414,10 @@ export interface CalloutSliceCardPrimary {
    * - **API ID Path**: callout.card.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Center Text field in *Callout → Card → Primary*
@@ -3500,7 +3518,10 @@ export interface CalloutSliceContactPrimary {
    * - **API ID Path**: callout.contact.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Overline field in *Callout → Contact → Primary*
@@ -3594,7 +3615,10 @@ export interface CalloutSliceDetailsPrimary {
    * - **API ID Path**: callout.details.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Overline field in *Callout → Details → Primary*
@@ -4940,160 +4964,6 @@ type FaqSliceVariation = FaqSliceList | FaqSliceSplit;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type FaqSlice = prismic.SharedSlice<"faq", FaqSliceVariation>;
-
-/**
- * Item in *Footer → Default → Primary → Links*
- */
-export interface FooterSliceDefaultPrimaryLinksItem {
-  /**
-   * Link field in *Footer → Default → Primary → Links*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.links[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
- * Item in *Footer → Default → Primary → Social Media*
- */
-export interface FooterSliceDefaultPrimarySocialMediaItem {
-  /**
-   * Icon field in *Footer → Default → Primary → Social Media*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.social_media[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  icon: prismic.ImageField<never>;
-
-  /**
-   * Link field in *Footer → Default → Primary → Social Media*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.social_media[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
- * Primary content in *Footer → Default → Primary*
- */
-export interface FooterSliceDefaultPrimary {
-  /**
-   * Logo field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.logo
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  logo: prismic.ImageField<never>;
-
-  /**
-   * Logo Link field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.logo_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  logo_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-
-  /**
-   * Call to Action Text field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.call_to_action_text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  call_to_action_text: prismic.RichTextField;
-
-  /**
-   * Call to Action Link field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.call_to_action_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  call_to_action_link: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >;
-
-  /**
-   * Links field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.links[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  links: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryLinksItem>>;
-
-  /**
-   * Social Media field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.social_media[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  social_media: prismic.GroupField<
-    Simplify<FooterSliceDefaultPrimarySocialMediaItem>
-  >;
-
-  /**
-   * Policies field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.policies
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  policies: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >;
-}
-
-/**
- * Default variation for Footer Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type FooterSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<FooterSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Footer*
- */
-type FooterSliceVariation = FooterSliceDefault;
-
-/**
- * Footer Shared Slice
- *
- * - **API ID**: `footer`
- * - **Description**: Footer
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
 
 /**
  * Item in *Hero → Backdrop → Primary → Buttons*
@@ -8280,12 +8150,6 @@ declare module "@prismicio/client" {
       FaqSliceVariation,
       FaqSliceList,
       FaqSliceSplit,
-      FooterSlice,
-      FooterSliceDefaultPrimaryLinksItem,
-      FooterSliceDefaultPrimarySocialMediaItem,
-      FooterSliceDefaultPrimary,
-      FooterSliceVariation,
-      FooterSliceDefault,
       HeroSlice,
       HeroSliceBackdropPrimaryButtonsItem,
       HeroSliceBackdropPrimaryMediaItem,

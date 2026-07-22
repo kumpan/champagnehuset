@@ -4,6 +4,7 @@ import { IBM_Plex_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { CookieBanner } from "@/components/cookie-banner";
 import { CookieBannerProvider } from "@/components/cookie-banner-context";
+import { Footer } from "@/components/footer";
 import { MotionProvider } from "@/components/motion-provider";
 import { Navbar } from "@/components/navbar";
 import { OrganizationSchema } from "@/components/structured-data";
@@ -38,9 +39,10 @@ export default async function LocaleLayout({
 }) {
   const { lang } = await params;
 
-  const [navbarData, cookieBanner, locales, masterLocale] = await Promise.all([
+  const [navbarData, cookieBanner, footerData, locales, masterLocale] = await Promise.all([
     getSingleton<Content.NavbarDocument>("navbar"),
     getSingleton<Content.CookieBannerDocument>("cookie_banner"),
+    getSingleton<Content.FooterDocument>("footer"),
     getLocales(),
     getMasterLocale(),
   ]);
@@ -59,6 +61,7 @@ export default async function LocaleLayout({
           <CookieBannerProvider>
             {children}
             {cookieBanner && <CookieBanner prismicData={cookieBanner} />}
+            {footerData && <Footer prismicData={footerData} />}
           </CookieBannerProvider>
         </MotionProvider>
       </body>

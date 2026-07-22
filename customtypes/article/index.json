@@ -58,9 +58,6 @@
             "faq": {
               "type": "SharedSlice"
             },
-            "footer": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             },

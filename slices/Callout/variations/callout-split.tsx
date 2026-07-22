@@ -9,7 +9,10 @@ import type { CalloutProps } from "..";
 
 const containerClasses = {
   Bud: "bg-fill-raised",
+  Leaf: "bg-accent-fill-raised",
+  Brand: "bg-accent-fill-raised",
   Dust: "bg-accent-fill-raised",
+  Slate: "bg-accent-fill-raised",
 };
 
 export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutSliceSplit }) {
