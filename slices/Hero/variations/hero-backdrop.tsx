@@ -84,7 +84,7 @@ export function HeroBackdrop({ slice, context }: Props) {
               description={description}
               buttons={buttons}
               align={alignment ? "center" : "left"}
-              sectionTheme={hasMedia ? "Night" : section_theme}
+              sectionTheme={hasMedia ? "Bud" : section_theme}
               className="relative w-full"
               titleMaxWidth={false}
               textBalance={true}
