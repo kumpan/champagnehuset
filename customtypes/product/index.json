@@ -164,6 +164,13 @@
           "options": ["Yes", "No"]
         }
       },
+      "product_year": {
+        "type": "Text",
+        "config": {
+          "label": "Year",
+          "placeholder": "2015"
+        }
+      },
       "product_consumer_availability": {
         "type": "Select",
         "config": {

@@ -20,11 +20,11 @@
           "placeholder": "Used for Breadcrumbs"
         }
       },
-      "category": {
+      "tag": {
         "type": "Select",
         "config": {
-          "label": "Category",
-          "options": ["Webinar", "Article", "Event", "Case Study"]
+          "label": "Tag",
+          "options": ["Event", "News", "Guide", "Tasting"]
         }
       },
       "parent": {
