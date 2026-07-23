@@ -1,0 +1,490 @@
+{
+  "existingProducers": {
+    "roland-champion": "al8pexEAAC0AacSG",
+    "vincent-joudart": "ahU3DBEAACAAglMS",
+    "pierre-gimonnet-fils": "al8pIREAACkAacPh",
+    "henri-goutorbe": "al8pVREAACcAacRA"
+  },
+  "newProducers": [
+    {
+      "uid": "marc-hebrart",
+      "name": "Marc Hébrart",
+      "region": "Vallée de la Marne",
+      "village": "Mareuil-sur-Aÿ",
+      "bio": [
+        "Marc Hébrart håller till i byn Mareuil-sur-Aÿ, strax söder om Aÿ, där familjen sedan 1960-talet odlat sina egna druvor på några av regionens mest eftertraktade lägen. Idag drivs huset av Jean-Paul Hébrart, son till grundaren, som med varsam hand och stor respekt för jorden har lyft egendomen till en självklar plats bland Champagne-älskarnas favoriter.",
+        "I vingårdarna dominerar Pinot Noir, som får sällskap av elegant Chardonnay från noga utvalda Premier Cru-lägen. Arbetet sker hållbart och med minimal intervention – här är känslan för terroir viktigare än teknik. Resultatet blir champagner med både kraft och finess, där frukten alltid får tala först."
+      ]
+    },
+    {
+      "uid": "jose-michel-fils",
+      "name": "José Michel & Fils",
+      "region": "Vallée de la Marne",
+      "village": "Moussy",
+      "bio": [
+        "Champagne José Michel startades år 1847 och är ett av de äldsta champagnehusen i byn Moussy som ligger alldeles utanför Epernay i Côte Sud d'Epernay som hör till Vallée de la Marne. Här dominerar Pinot Meunier som man hanterar och representerar på bästa sätt.",
+        "De producerar 90 000 flaskor per år från sina 10 hektar i Moussy och några grannbyar med lika delar Pinot Meunier och Chardonnay med en mindre mängd Pinot Noir som endast används i produktionen av roséchampagne. Meunier-gurun José Michel gick bort hösten 2019, 90 år gammal. Idag drivs odlingarna och produktionen av Josés barnbarn Antonin Michel."
+      ]
+    },
+    {
+      "uid": "juillet-lallement",
+      "name": "Juillet-Lallement",
+      "region": "Montagne de Reims",
+      "village": "Verzy",
+      "bio": [
+        "Jean och Virginie Lallement fortsätter en familjetradition som spänner över tre generationer i Grand Cru-byn Verzy i hjärtat av La Montagne de Reims. Familjeföretaget Juillet-Lallement driver drygt 4 hektar, fördelat på två terroirer, Verzy och Sillery, båda klassade som 100 % Grand Cru.",
+        "Idag odlar de 45 % Chardonnay, 50 % Pinot Noir och 5 % Pinot Meunier på 9 tomter baserade på en kalkhaltig jord. Deras filosofi strävar efter att respektera naturens kretslopp genom en hållbar vinodling med respekt för miljön."
+      ]
+    },
+    {
+      "uid": "hervieux-dumez",
+      "name": "Hervieux-Dumez",
+      "region": "Montagne de Reims",
+      "village": "Sacy",
+      "bio": [
+        "Uppe i nordvästra Montagne de Reims finner vi Sacy, en Premier Cru-klassificerad by där Hervieux-Dumez håller till. Henri Hervieux var soldat och blev stationerad i den lilla byn Sacy under Första världskriget. När kriget var över gifte han sig år 1920 med en flicka från byn, Juliette Dumez. Idag är det Henri och Juliettes barnbarns-barn som styr familjeföretaget.",
+        "De äger totalt 9,5 hektar i Sacy, Chamery och Merfy, och producerar cirka 60 000 flaskor per år. Som fristående odlare arbetar Hervieux-Dumez uteslutande med egna druvor och ingår i den prestigefyllda sammanslutningen Club Trésors de Champagne. Lagringen sker i familjens källare från 1600-talet."
+      ]
+    },
+    {
+      "uid": "robert-barbichon",
+      "name": "Robert Barbichon",
+      "region": "Côte des Bar",
+      "village": "Gyé-sur-Seine",
+      "bio": [
+        "Champagne Barbichon är en liten odlare att hålla ögonen på. Stationerad i de södra delarna av Champagne, närmare bestämt Gyé-sur-Seine i Côte des Bar. Här och i Courteron samt Celles-sur-Ource odlar Thomas Barbichon 9 hektar helt efter biodynamiska principer.",
+        "Låg dosage och ytterst liten mänsklig påverkan i vingårdarna lägger grunden för spännande champagner i kraftig och intensiv stil. Förutom de tre stora druvsorterna har Champagne Barbichon även Pinot Blanc i sina ägor, något som är unikt då druvans utbredning i Champagne är minimal idag."
+      ]
+    },
+    {
+      "uid": "remy-massin",
+      "name": "Rémy Massin",
+      "region": "Côte des Bar",
+      "village": "Ville-sur-Arce",
+      "bio": [
+        "Familjens historia började med Louis-Aristide Massin 1865. Champagne Rémy Massin bildades 1974 och idag förfogar familjen över 20 hektar i Ville-sur-Arce i Côte des Bar, den södra delen av Champagne som gränsar till Chablis.",
+        "Man odlar tre druvsorter – 75 % Pinot Noir, 20 % Chardonnay och 5 % Pinot Blanc. Jordmånen i familjens odlingar är den kalkrika Kimmeridgeleran, samma jordmån som i Chablis, vilken ger en elegant Pinot Noir, en balanserad Chardonnay och en elegant Pinot Blanc."
+      ]
+    },
+    {
+      "uid": "joseph-loriot-pagel",
+      "name": "Joseph Loriot-Pagel",
+      "region": "Vallée de la Marne",
+      "village": "Festigny",
+      "bio": []
+    },
+    {
+      "uid": "pertois-moriset",
+      "name": "Pertois-Moriset",
+      "region": "Côte des Blancs",
+      "village": "Le Mesnil-sur-Oger",
+      "bio": [
+        "1951 lade ättlingarna från två vinodlarfamiljer – Yves Pertois och Janine Moriset – grunden till familjeföretaget i Le Mesnil-sur-Oger. Sedan början av 2000-talet drivs Pertois-Moriset av fjärde generationen med dottern Cécile och hennes man Vincent i spetsen.",
+        "Idag driver de dryga 20 hektar vinodlingar i Côte des Blancs och Coteaux Sézannais och producerar ungefär 80–90 000 flaskor per år. I Côte des Blancs odlar Pertois-Moriset uteslutande Chardonnay. Familjen tror på hållbart odlande – endast elektriska traktorer används och gräs tillåts växa överallt."
+      ]
+    }
+  ],
+  "products": [
+    {
+      "uid": "marc-hebrart-special-club-2018-magnum",
+      "name": "Special Club 2018 Magnum",
+      "producer": "marc-hebrart",
+      "region": "Vallée de la Marne",
+      "cru": "Premier Cru",
+      "style": "Assemblage",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2018",
+      "volume": "1,5 L",
+      "grapes": "60% Pinot Noir, 40% Chardonnay",
+      "price": "1749",
+      "consumer": "Private Import",
+      "description": [
+        "Marc Hebrart Special Club 2018 på magnumflaska är en mycket aromatisk och elegant champagne med dofter av vita blommor, grädde, bakverk och stenfrukt. Smaken är rik men frisk, med toner av vit frukt, smör och syrliga karameller. Avslutet är långt, komplext och mineraldrivet.",
+        "Denna butelj är degorgerad i november 2022."
+      ]
+    },
+    {
+      "uid": "marc-hebrart-mes-favorites",
+      "name": "Mes Favorites",
+      "producer": "marc-hebrart",
+      "region": "Vallée de la Marne",
+      "cru": "Premier Cru",
+      "style": "Assemblage",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "grapes": "75% Pinot Noir, 25% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "5,5",
+      "restaurant": "Available",
+      "description": [
+        "Marc Hebrart Brut Premier Cru Mes Favorites är gjort av gamla vinstockar från så kallad massal-selektion, planterade i ett soligt sydläge i Mareuil-sur-Aÿ.",
+        "Doften är elegant, fruktig och djup med inslag av vit persika, päron, citrus och mogna äpplen. Här finns också toner av brioche, nötter, örter, citronolja, mandelkubb och en lätt nyans av brasved.",
+        "Smaken är frisk, ren och mineralrik med rund och fyllig frukt. Den är något kraftigare och djupare än husets övriga viner, med en vinös karaktär och fin struktur. Avslutningen är krispig och syrarik med bra komplexitet och lång, nyanserad eftersmak."
+      ]
+    },
+    {
+      "uid": "pierre-gimonnet-fils-fleuron-2019",
+      "name": "Fleuron Brut Premier Cru 2019",
+      "producer": "pierre-gimonnet-fils",
+      "region": "Côte des Blancs",
+      "cru": "Premier Cru",
+      "style": "Blanc de Blancs",
+      "club": "No",
+      "vintage": "Yes",
+      "year": "2019",
+      "volume": "750 ml",
+      "grapes": "100% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "3,5",
+      "price": "549",
+      "articleNumber": "9181701",
+      "consumer": "Systembolaget",
+      "storage": "5 år på jästfällning",
+      "description": [
+        "Pierre Gimonnet Fleuron 2019 är en 100% Chardonnay som är resultatet av ett fantastiskt arbete med en komplex blandning av 39% Grand Cru Cramant, 36% Grand Cru Chouilly samt 25% Premier Cru Cuis. Vinet har lagrat på sin jästfällning i fem år och fått en dosage på 3,5 g/l.",
+        "Här får vi en fantastisk, både komplex och balanserad Blanc de Blancs, med stor mineralisk fräschör. En nyanserad, utvecklad, mycket frisk smak med inslag av gula äpplen, honung, rostat bröd, mineral, vit choklad, nötter och grillad citron."
+      ]
+    },
+    {
+      "uid": "pierre-gimonnet-special-club-2016",
+      "name": "Special Club 2016",
+      "producer": "pierre-gimonnet-fils",
+      "region": "Côte des Blancs",
+      "style": "Blanc de Blancs",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2016",
+      "volume": "750 ml",
+      "grapes": "100% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "5",
+      "price": "796",
+      "articleNumber": "7063701",
+      "consumer": "Systembolaget",
+      "storage": "Över 60 månader på jästfällning",
+      "description": [
+        "En utsökt, finstämd blend på Chardonnay från ett flertal av odlarfamiljen Gimonnets fina lägen i Côte des Blancs. Druvorna som valts ut till cuvéen kommer uteslutande från vingårdar med över 40 år gamla vinstockar, de äldsta planterade 1911 respektive 1913.",
+        "58% av druvorna kommer från fem olika lägen inom Grand Cru-byn Cramant, 27% från ett läge i Grand Cru-byn Chouilly och 15% från två olika lägen i Premier Cru-byn Cuis. Vinet har genomgått malolaktisk jäsning, är lagrat i rostfria ståltankar och sedan över 60 månader på jästfällningen."
+      ]
+    },
+    {
+      "uid": "pierre-gimonnet-rose-de-blancs",
+      "name": "Rosé de Blancs Premier Cru",
+      "producer": "pierre-gimonnet-fils",
+      "region": "Côte des Blancs",
+      "cru": "Premier Cru",
+      "style": "Rosé",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "grapes": "95% Chardonnay, 5% Pinot Noir",
+      "dosageLevel": "Brut",
+      "dosageGrams": "5",
+      "price": "549",
+      "articleNumber": "789220",
+      "consumer": "Systembolaget",
+      "storage": "Över 30 månader på jästfällning",
+      "description": [
+        "Denna roséchampagne är ovanlig i sitt slag: en rosé byggd på 95% Chardonnay och 5% Pinot Noir, där den lilla andelen rött vin (stilla Pinot Noir från Grand Cru-läget Bouzy) tillsätts för färg och struktur. Champagnen har lagrats över 30 månader på jästfällningen, vilket ger både djup och elegans.",
+        "I glaset möts du av en ljus, subtil rosa ton. Doften är finstämd med inslag av citrus, röda bär och vit persika, följt av mineralitet och en lätt brödig nyans. Smaken är frisk och livlig med fin mousse, fruktig precision och en lång, elegant avslutning."
+      ]
+    },
+    {
+      "uid": "henri-goutorbe-cuvee-prestige",
+      "name": "Cuvée Prestige Premier Cru",
+      "producer": "henri-goutorbe",
+      "region": "Vallée de la Marne",
+      "cru": "Premier Cru",
+      "style": "Assemblage",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "grapes": "70% Pinot Noir, 25% Chardonnay, 5% Pinot Meunier",
+      "dosageLevel": "Brut",
+      "dosageGrams": "6",
+      "consumer": "Sold Out",
+      "description": [
+        "Balanserad, komplex och utvecklad doft och smak, mycket frisk smak med inslag av gula äpplen, mineral, mandelmassa, vit choklad och rostat bröd."
+      ]
+    },
+    {
+      "uid": "henri-goutorbe-blanc-de-noirs-2015",
+      "name": "Blanc de Noirs 2015",
+      "producer": "henri-goutorbe",
+      "region": "Vallée de la Marne",
+      "cru": "Grand Cru",
+      "style": "Blanc de Noirs",
+      "club": "No",
+      "vintage": "Yes",
+      "year": "2015",
+      "volume": "750 ml",
+      "grapes": "100% Pinot Noir",
+      "price": "549",
+      "articleNumber": "7336001",
+      "consumer": "Systembolaget",
+      "description": [
+        "En Blanc de Noirs från Grand Cru-byn Aÿ i Champagne, gjord uteslutande på Pinot Noir. Vinet är kraftfullt och strukturerat med tydlig fruktighet.",
+        "Röda äpplen, mogna bär, citrus och lätt rostade toner med inslag av brioche. Krämig mousse, bra djup och lång, frisk avslutning."
+      ]
+    },
+    {
+      "uid": "henri-goutorbe-special-club-2012",
+      "name": "Special Club 2012",
+      "producer": "henri-goutorbe",
+      "region": "Vallée de la Marne",
+      "cru": "Grand Cru",
+      "style": "Assemblage",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2012",
+      "volume": "750 ml",
+      "grapes": "70% Pinot Noir, 30% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "8",
+      "price": "701",
+      "consumer": "Sold Out",
+      "storage": "9 år på jästfällning",
+      "description": [
+        "Vinet består av 70% Pinot Noir och 30% Chardonnay från de bästa söderlägena i Aÿ. Det jästes på tank med malolaktisk jäsning innan det tappades på flaska för flaskjäsning 2013. För sin Special Club 2012 valde familjen att låta den mogna på jästen i 9 år innan den degorgerades i oktober 2022 med en dosage på 8 g/l."
+      ]
+    },
+    {
+      "uid": "roland-champion-special-club-2019",
+      "name": "Special Club 2019",
+      "producer": "roland-champion",
+      "region": "Côte des Blancs",
+      "cru": "Grand Cru",
+      "style": "Blanc de Blancs",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2019",
+      "volume": "750 ml",
+      "grapes": "100% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "4",
+      "price": "549",
+      "articleNumber": "90479",
+      "consumer": "Sold Out",
+      "description": [
+        "Stor, öppen doft av äpple, persika, nougat, vit choklad och färsk citron. Pigga bubblor, tydlig mineralitet och ett härligt gräddigt avslut.",
+        "Årgång 2019 karaktäriseras av eleganta toner av citrus, vita blommor och mineral. Liknande 2018 så har även 2019 stor lagringspotential även om den senare årgången är lite mer sublim jämfört mot den aningen kraftigare 2018."
+      ]
+    },
+    {
+      "uid": "roland-champion-blanc-de-blancs-2012",
+      "name": "Blanc de Blancs 2012",
+      "producer": "roland-champion",
+      "region": "Côte des Blancs",
+      "cru": "Grand Cru",
+      "style": "Blanc de Blancs",
+      "club": "No",
+      "vintage": "Yes",
+      "year": "2012",
+      "volume": "750 ml",
+      "grapes": "100% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "4",
+      "consumer": "Sold Out",
+      "description": [
+        "100% Chardonnay från familjen Champions vingårdar i Chouilly.",
+        "Härligt brödig doft med inslag av fräscha, röda höstäpplen. Ung och pigg syra med ett torrt, mineraligt och läskande avslut. Servera kall, runt 8–10°C som aperitif, och 10–12°C vid måltid."
+      ]
+    },
+    {
+      "uid": "vincent-joudart-special-club-2020",
+      "name": "Special Club 2020",
+      "producer": "vincent-joudart",
+      "region": "Côte des Blancs",
+      "style": "Assemblage",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2020",
+      "volume": "750 ml",
+      "grapes": "56% Pinot Meunier, 33% Chardonnay, 11% Pinot Noir",
+      "dosageLevel": "Brut",
+      "dosageGrams": "5,4",
+      "price": "549",
+      "articleNumber": "90558",
+      "consumer": "Systembolaget",
+      "description": [
+        "Som vanligt utgör Meunier basen i denna eleganta och karaktärsfulla champagne med generös frukt, djup och ett tydligt personligt avtryck. Med stor del blå druvor och lång lagring ges vi en frisk, medelfyllig, gulfruktig årgångschampagne.",
+        "2020 har en nyanserad doft av mogna gula och röda äpplen, mandelmassa, grillad citron, brioche och havssälta. Den bjuder på en frisk och livlig mousse som backas upp av gröna och gula äpplen, nektarin, persika och aprikoskärnor med en lätt salt finish.",
+        "Vinet är vinifierat på rostfria stålfat samt stora ekfat, med genomgången malolaktisk jäsning. Vinet buteljerades i april 2021 med en dosage på 5,4 g/l."
+      ]
+    },
+    {
+      "uid": "vincent-joudart-blanc-de-blancs-2018",
+      "name": "Blanc de Blancs 2018",
+      "producer": "vincent-joudart",
+      "region": "Côte des Blancs",
+      "style": "Blanc de Blancs",
+      "club": "No",
+      "vintage": "Yes",
+      "year": "2018",
+      "volume": "750 ml",
+      "grapes": "100% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "5,4",
+      "articleNumber": "257013501",
+      "restaurant": "Available",
+      "description": [
+        "Vincent Joudart Blanc de Blancs 2018 är en aromatisk champagne med en fin fräschör och häpnadsväckande struktur, samtidigt som den erbjuder en krämig konsistens."
+      ]
+    },
+    {
+      "uid": "jose-michel-brut-meunier",
+      "name": "Brut Meunier",
+      "producer": "jose-michel-fils",
+      "region": "Vallée de la Marne",
+      "style": "Blanc de Noirs",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "grapes": "100% Pinot Meunier",
+      "dosageLevel": "Brut",
+      "dosageGrams": "8",
+      "consumer": "Sold Out",
+      "description": [
+        "100% Meunier! Generösa och komplexa toner av mogen citrus och höstäpplen. Frisk och uppiggande syra med snygg mineralitet. En ren hyllning till Pinot Meunier."
+      ]
+    },
+    {
+      "uid": "jose-michel-rose",
+      "name": "Rosé",
+      "producer": "jose-michel-fils",
+      "region": "Vallée de la Marne",
+      "style": "Rosé",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "consumer": "Sold Out",
+      "description": []
+    },
+    {
+      "uid": "juillet-lallement-special-club-2018",
+      "name": "Special Club 2018",
+      "producer": "juillet-lallement",
+      "region": "Montagne de Reims",
+      "cru": "Grand Cru",
+      "style": "Assemblage",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2018",
+      "volume": "750 ml",
+      "grapes": "60% Pinot Noir, 40% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "5,5",
+      "price": "796",
+      "consumer": "Private Import",
+      "description": [
+        "Stor, komplex doft av mogna gula äpplen, gråpäron och nybakad brioche. Kraftfull och samtidigt mycket elegant, med inslag av grillad citron, kvitten och grapefrukt samt en liten touch av svarta vinbär och vanilj."
+      ]
+    },
+    {
+      "uid": "hervieux-dumez-special-club-2018",
+      "name": "Special Club 2018",
+      "producer": "hervieux-dumez",
+      "region": "Montagne de Reims",
+      "cru": "Premier Cru",
+      "style": "Assemblage",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2018",
+      "volume": "750 ml",
+      "grapes": "50% Chardonnay, 30% Pinot Noir, 20% Pinot Meunier",
+      "dosageLevel": "Brut",
+      "dosageGrams": "7",
+      "price": "659",
+      "consumer": "Systembolaget",
+      "description": [
+        "En pärla från Montagne de Reims – smakrik och inbjudande Special Club från Hervieux-Dumez skapad av de tre klassiska champagnedruvorna – 50 % Chardonnay, 30 % Pinot Noir och 20 % Meunier – och avrundad med en fin dosage på 7 gram.",
+        "Champagnen är frisk och livfull med en mjuk, lätt fyllighet som bär upp aromerna. Toner av solmogna gula äpplen, kritig mineralitet, rostat bröd, honung och fransk nougat vävs samman med en antydan av grapefrukt, allt omslutet av en elegant och följsam mousse."
+      ]
+    },
+    {
+      "uid": "robert-barbichon-brut-reserve-4-cepages",
+      "name": "Brut Réserve 4 Cépages",
+      "producer": "robert-barbichon",
+      "region": "Côte des Bar",
+      "style": "Assemblage",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "grapes": "66% Pinot Noir, 26% Chardonnay, 5% Pinot Blanc, 3% Pinot Meunier",
+      "dosageLevel": "Brut",
+      "dosageGrams": "4,5",
+      "articleNumber": "257018101",
+      "restaurant": "Available",
+      "description": [
+        "Cuvéen är sammansatt av 66 % Pinot Noir, 3 % Pinot Meunier, 26 % Chardonnay och 5 % Pinot Blanc. Basen utgörs av 68 % från årgång 2021, kompletterat med 27 % från 2020 och 5 % från 2019. Druvorna kommer från Côte des Bar med ler- och kalkjordar av Kimmeridgien-typ, och stockarnas genomsnittliga ålder är 42 år.",
+        "Odlingen bedrivs ekologiskt och biodynamiskt. Vinet har lagrats till 86 % i tank och 14 % på ekfat. Dosagen uppgår till 4,5 g/l. Det buteljerades den 10 maj 2022 och degorgerades den 19 december 2024."
+      ]
+    },
+    {
+      "uid": "remy-massin-special-club-pinot-noir-2015",
+      "name": "Special Club Pinot Noir 2015",
+      "producer": "remy-massin",
+      "region": "Côte des Bar",
+      "style": "Blanc de Noirs",
+      "club": "Yes",
+      "vintage": "Yes",
+      "year": "2015",
+      "volume": "750 ml",
+      "grapes": "100% Pinot Noir",
+      "dosageLevel": "Brut",
+      "dosageGrams": "5",
+      "articleNumber": "95790",
+      "consumer": "Sold Out",
+      "storage": "5 år på jästfällning",
+      "description": [
+        "För den ena av sina två Special Club 2015 har familjen Massin valt 100% Pinot Noir. I Kimmeridgejorden ger denna druva en mycket elegant karaktär åt vinet, men då klimatet är varmare än i norra Champagne har vinerna också en betydande kraft.",
+        "Ljus guldfärg med pigg, gräddig mousse. Stor doft med röda bär, äpple, gul frukt och citrustoner. Fyllig, aning utvecklad smak med intensiv frukt, röda vinbär/hallon, ananas och lång mineralisk eftersmak."
+      ]
+    },
+    {
+      "uid": "joseph-loriot-pagel-brut-nature",
+      "name": "Brut Nature",
+      "producer": "joseph-loriot-pagel",
+      "region": "Vallée de la Marne",
+      "style": "Assemblage",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "grapes": "95% Pinot Meunier, 3% Pinot Noir, 2% Chardonnay",
+      "dosageLevel": "Brut Nature",
+      "dosageGrams": "0",
+      "price": "349",
+      "articleNumber": "257001901",
+      "restaurant": "Available",
+      "storage": "2 år på tank, 4 år på flaska",
+      "description": [
+        "Champagne Brut Nature, som huvudsakligen är Meunier, är en cuvée utan dosering. Reservvinerna utgör en viktig del av blandningen. Den åldras i två år i rostfria tankar och vilar sedan fyra år i flaska.",
+        "Frånvaron av dosering ger vinet ett naturligt inslag, en linjär kvalitet och en täthet, samtidigt som det ger en generös komplexitet tack vare dess robusta aromatiska egenskaper."
+      ]
+    },
+    {
+      "uid": "pertois-moriset-les-quatre-terroirs",
+      "name": "Les Quatre Terroirs Grand Cru",
+      "producer": "pertois-moriset",
+      "region": "Côte des Blancs",
+      "cru": "Grand Cru",
+      "style": "Blanc de Blancs",
+      "club": "No",
+      "vintage": "No",
+      "volume": "750 ml",
+      "grapes": "100% Chardonnay",
+      "dosageLevel": "Brut",
+      "dosageGrams": "2,5",
+      "price": "499",
+      "articleNumber": "94132",
+      "consumer": "Systembolaget",
+      "storage": "Minst 36 månader i källaren",
+      "description": [
+        "Les Quatre Terroirs är en klassisk Blanc de Blancs-champagne från Pertois-Moriset i Le Mesnil-sur-Oger. Druvorna kommer från familjens Grand Cru-vingårdar i Côte des Blancs – Le Mesnil-sur-Oger, Oger, Cramant och Chouilly. 70% av vinet kommer från aktuell årgång och 30% från reservviner.",
+        "Ljusgul färg med krämvita toner, eleganta bubblor. Citrus från citron och lime, kvitten, vita blommor och flintamineral. Medelstor och mycket fräsch, krämig, gröna päron, mogna äpplen, kvitten, lätt hint av tidiga jordgubbar, avrundas med en läcker sälta."
+      ]
+    }
+  ]
+}

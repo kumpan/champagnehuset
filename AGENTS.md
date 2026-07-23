@@ -25,8 +25,8 @@ All UI components are built from scratch using React and Tailwind.
 **`motion/react` is allowed, with constraints:**
 
 - Use the `m` component (not `motion`) — it requires `LazyMotion` to be in scope, cutting the bundle from ~34kb to ~4.6kb initial
-- `LazyMotion` with `domAnimation` is mounted once globally in `app/layout.tsx` via `components/motion-provider.tsx` — do not add it anywhere else
-- Only reach for `motion/react` where CSS genuinely cannot do the job: exit animations (`AnimatePresence`), orchestrated multi-element sequences, or physics/gesture-driven values
+- `LazyMotion` with `domMax` is mounted once globally in `app/layout.tsx` via `components/motion-provider.tsx` — do not add it anywhere else. It is `domMax` (not `domAnimation`) because layout animations (`layout` prop, `AnimatePresence mode="popLayout"`) need the layout-projection features
+- Only reach for `motion/react` where CSS genuinely cannot do the job: exit animations (`AnimatePresence`), layout/FLIP position animations (`layout`), orchestrated multi-element sequences, or physics/gesture-driven values
 - Do not use `m` for things CSS handles fine: fade-ins, slide-ins, hover scale, simple scroll reveals
 
 **Hover effects only on interactive elements:**
@@ -86,4 +86,17 @@ Colors are **semantic tokens** defined in `app/globals.css` (`@theme`). The suff
 - There is no middleware file in next16
 - Do not use Middleware
 - The correct file is Proxy.ts, it has replaced Middleware entierly
+
+# Prismic content migrations
+
+Scripts live in `scripts/prismic-migration/` (Migration API, auth via `PRISMIC_WRITE_TOKEN` in `.env.local`). All migrated documents are tagged `ai-import` and their IDs recorded in `manifest.json` so `cleanup.mjs` can delete them later.
+
+**Testing migrations (current mode):** every product field must be filled so search and filters can be exercised — when the source has no value, fill in plausible, type-appropriate data (a reasonable price, an article number, an alcohol %, an availability, etc.). The deterministic filler is `fillTestDefaults()` in `scripts/prismic-migration/lib.mjs`; both `migrate.mjs` and `repair.mjs` apply it.
+
+**Real migrations:** never invent data. Remove the `fillTestDefaults()` call and leave fields the source doesn't provide empty.
+
+Migration API gotchas learned the hard way:
+- The client creates documents as **empty shells** first and writes data in a second pass — if the run crashes mid-way, run `repair.mjs` (documents must be published first; IDs are unreachable in an unpublished Migration Release).
+- Documents whose fields hold **Unsplash-integration images** cannot be updated via the API ("Assets not found") — edit those in the Prismic UI.
+- Reference existing media library assets with a full raw image payload (`{ id, url, dimensions, edit, alt, copyright }`) — `migration.createAsset()` would re-download and duplicate them.
 <!-- END:naming-rules -->

@@ -1,0 +1,148 @@
+{
+  "createdAt": "2026-07-23T08:27:04.505Z",
+  "repository": "champagnehuset",
+  "tag": "ai-import",
+  "note": "Documents created by migrate.mjs. The pre-existing producers and the 8 bottle-0X assets are NOT listed — cleanup must never touch them.",
+  "documents": [
+    {
+      "id": "amHGQBEAACkAbi6T",
+      "type": "product",
+      "uid": "roland-champion-blanc-de-blancs-2012"
+    },
+    {
+      "id": "amHGSREAAC4Abi6r",
+      "type": "product",
+      "uid": "henri-goutorbe-cuvee-prestige"
+    },
+    {
+      "id": "amHGRxEAACwAbi6k",
+      "type": "product",
+      "uid": "henri-goutorbe-blanc-de-noirs-2015"
+    },
+    {
+      "id": "amHGRREAACkAbi6e",
+      "type": "product",
+      "uid": "henri-goutorbe-special-club-2012"
+    },
+    {
+      "id": "amHGWhEAAC0Abi7d",
+      "type": "producer",
+      "uid": "remy-massin"
+    },
+    {
+      "id": "amHGXhEAAC4Abi7q",
+      "type": "producer",
+      "uid": "hervieux-dumez"
+    },
+    {
+      "id": "amHGYREAACgAbi7v",
+      "type": "producer",
+      "uid": "juillet-lallement"
+    },
+    {
+      "id": "amHGTREAACkAbi64",
+      "type": "product",
+      "uid": "pierre-gimonnet-special-club-2016"
+    },
+    {
+      "id": "amHGKhEAAC0Abi5C",
+      "type": "product",
+      "uid": "pertois-moriset-les-quatre-terroirs"
+    },
+    {
+      "id": "amHGOBEAACgAbi50",
+      "type": "product",
+      "uid": "jose-michel-rose"
+    },
+    {
+      "id": "amHGSxEAACsAbi6y",
+      "type": "product",
+      "uid": "pierre-gimonnet-rose-de-blancs"
+    },
+    {
+      "id": "amHGTxEAAC4Abi6_",
+      "type": "product",
+      "uid": "pierre-gimonnet-fils-fleuron-2019"
+    },
+    {
+      "id": "amHGLREAACwAbi5M",
+      "type": "product",
+      "uid": "joseph-loriot-pagel-brut-nature"
+    },
+    {
+      "id": "amHGQhEAAC4Abi6Y",
+      "type": "product",
+      "uid": "roland-champion-special-club-2019"
+    },
+    {
+      "id": "amHGWBEAACgAbi7V",
+      "type": "producer",
+      "uid": "joseph-loriot-pagel"
+    },
+    {
+      "id": "amHGNhEAACkAbi5o",
+      "type": "product",
+      "uid": "juillet-lallement-special-club-2018"
+    },
+    {
+      "id": "amHGVBEAACgAbi7K",
+      "type": "product",
+      "uid": "marc-hebrart-special-club-2018-magnum"
+    },
+    {
+      "id": "amHGPBEAACsAbi6H",
+      "type": "product",
+      "uid": "vincent-joudart-blanc-de-blancs-2018"
+    },
+    {
+      "id": "amHGMREAACsAbi5Z",
+      "type": "product",
+      "uid": "robert-barbichon-brut-reserve-4-cepages"
+    },
+    {
+      "id": "amHGZREAACgAbi77",
+      "type": "producer",
+      "uid": "marc-hebrart"
+    },
+    {
+      "id": "amHGOhEAACwAbi5-",
+      "type": "product",
+      "uid": "jose-michel-brut-meunier"
+    },
+    {
+      "id": "amHGUREAACsAbi7E",
+      "type": "product",
+      "uid": "marc-hebrart-mes-favorites"
+    },
+    {
+      "id": "amHGXBEAACkAbi7i",
+      "type": "producer",
+      "uid": "robert-barbichon"
+    },
+    {
+      "id": "amHGVhEAACsAbi7Q",
+      "type": "producer",
+      "uid": "pertois-moriset"
+    },
+    {
+      "id": "amHGMxEAACwAbi5f",
+      "type": "product",
+      "uid": "hervieux-dumez-special-club-2018"
+    },
+    {
+      "id": "amHGPhEAACoAbi6M",
+      "type": "product",
+      "uid": "vincent-joudart-special-club-2020"
+    },
+    {
+      "id": "amHGLxEAAC4Abi5S",
+      "type": "product",
+      "uid": "remy-massin-special-club-pinot-noir-2015"
+    },
+    {
+      "id": "amHGYxEAACoAbi71",
+      "type": "producer",
+      "uid": "jose-michel-fils"
+    }
+  ]
+}
