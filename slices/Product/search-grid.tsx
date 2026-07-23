@@ -151,12 +151,12 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
                   transition: { duration: 0.15, ease: "easeIn" },
                 }}
                 transition={{
-                  layout: { type: "spring", stiffness: 300, damping: 30 },
+                  layout: { type: "spring", stiffness: 300, damping: 35 },
                   opacity: { duration: 0.3, ease: "easeOut", delay: enterDelay(index) },
                   y: { type: "spring", stiffness: 300, damping: 25, delay: enterDelay(index) },
                 }}
               >
-                <ProductCard product={product} />
+                <ProductCard product={product} priority={index < 6} />
               </m.div>
             ))}
           </AnimatePresence>
