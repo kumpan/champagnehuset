@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Allows a second dev server in the same folder (the dev lock lives in distDir).
+  distDir: process.env.NEXT_DIST_DIR,
   images: {
     remotePatterns: [
       {
