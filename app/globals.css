@@ -155,6 +155,12 @@
 /* Base styles */
 html {
     scroll-behavior: smooth;
+    /* Reserve the scrollbar gutter so content doesn't shift between pages
+       that scroll and pages that don't (no-op on overlay-scrollbar OSes). */
+    scrollbar-gutter: stable;
+    /* Themed scrollbars everywhere — `scrollbar-color` inherits, so inner
+       scroll areas (e.g. the product filter sidebar) pick this up too. */
+    scrollbar-color: var(--color-border) transparent;
 }
 
 body {

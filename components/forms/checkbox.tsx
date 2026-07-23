@@ -32,8 +32,8 @@ function Checkbox({ className, sectionTheme = "Bud", ...props }: CheckboxProps) 
         type="checkbox"
         data-slot="checkbox"
         className={cn(
-          "peer size-7 shrink-0 cursor-pointer appearance-none rounded-2 border transition-all duration-200 ease-in-out",
-          "outline-0 hover:outline-4 focus-visible:outline-4",
+          "peer size-6 shrink-0 cursor-pointer appearance-none rounded-2 border transition-all duration-200 ease-in-out",
+          "outline-0 hover:outline-2 focus-visible:outline-2",
           "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
           "aria-invalid:border-error aria-invalid:ring-error/20",
           themeClasses[sectionTheme],

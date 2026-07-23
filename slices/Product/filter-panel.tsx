@@ -5,6 +5,7 @@ import { AnimatePresence, m } from "motion/react";
 import { useId, useState } from "react";
 
 import { Checkbox } from "@/components/forms/checkbox";
+import { cn } from "@/lib/utils";
 import type { FilterGroup, FilterGroupId, FilterSelection } from "./search";
 
 type FilterPanelProps = {
@@ -59,13 +60,19 @@ export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["avail
                   transition={{ duration: 0.3, ease: [0.5, 0, 0.1, 1] }}
                   className="overflow-hidden"
                 >
-                  <ul className="flex flex-col px-4 pt-2 pb-4">
+                  <ul className="flex flex-col px-2 pt-2 pb-2 gap-1">
                     {group.options.map((option, index) => {
                       const isChecked = selection[group.id]?.includes(option.value) ?? false;
                       const optionId = `${panelId}-${group.id}-${index}`;
                       return (
                         <li key={option.value}>
-                          <label htmlFor={optionId} className="flex min-h-10 cursor-pointer items-center gap-2">
+                          <label
+                            htmlFor={optionId}
+                            className={cn(
+                              "flex min-h-10 hover:bg-fill rounded-1 px-2 cursor-pointer items-center gap-2 transition-colors duration-200 ease-out",
+                              isChecked && "bg-fill hover:bg-fill",
+                            )}
+                          >
                             <Checkbox
                               id={optionId}
                               checked={isChecked}

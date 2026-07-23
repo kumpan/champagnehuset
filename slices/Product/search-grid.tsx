@@ -86,7 +86,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
         onChange={(event) => setQuery(event.target.value)}
         placeholder={searchPlaceholder || "Sök"}
         aria-label={searchPlaceholder || "Sök"}
-        className="h-12 rounded-1 bg-green-10 pl-11"
+        className="h-12 rounded-1 outline-0 hover:outline-0 active:outline-0 focus-visible:outline-0 bg-green-10 hover:bg-green-10/60 hover:border-brand/50 border-brand/0 focus-visible:bg-green-10 focus-visible:border-brand pl-11"
       />
     </div>
   );
@@ -116,7 +116,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
       {/* Mobile: sticky filter tray */}
-      <div className="sticky top-4 z-10 md:top-8 lg:hidden">
+      <div className="sticky top-20 z-10 md:top-23 lg:hidden">
         <FilterTray activeCount={activeCount}>
           {searchInput}
           <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
@@ -124,13 +124,11 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
         </FilterTray>
       </div>
 
-      {/* Desktop: filter sidebar */}
-      <aside className="hidden lg:block lg:w-80 lg:shrink-0">
-        <div className="sticky top-24 flex flex-col gap-1">
-          {searchInput}
-          <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
-          {clearButton}
-        </div>
+      {/* Desktop: filter sidebar, scrolls with the page */}
+      <aside className="hidden lg:flex lg:w-80 lg:shrink-0 lg:flex-col lg:gap-1">
+        {searchInput}
+        <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
+        {clearButton}
       </aside>
 
       {/* Results */}
@@ -171,7 +169,9 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
               exit={{ opacity: 0, transition: { duration: 0.1 } }}
               className="py-8 text-center text-ink-dim"
             >
-              {noResultsText || "Inga produkter matchar din sökning."}
+              {query.trim().toLowerCase() === "ida"
+                ? "Inget hittades, men ring Ida så löser hon det 💪"
+                : noResultsText || "Inga produkter matchar din sökning."}
             </m.p>
           )}
         </AnimatePresence>
