@@ -27,13 +27,31 @@ export async function fetchBottleAssets(writeToken) {
   return assets;
 }
 
-/** Full image-field payload pointing at an existing media library asset. */
-export function imageField(asset, alt) {
+/** The product type's Bottle Image constraint (customtypes/product/index.json).
+ * Matches the uploaded assets exactly, so the computed edit is a no-op
+ * (zoom 1, no crop, no upscale) and images serve exactly as uploaded. */
+const PRODUCT_IMAGE_CONSTRAINT = { width: 640, height: 800 };
+
+/**
+ * Full image-field payload pointing at an existing media library asset.
+ *
+ * The `edit` params center-cover the asset in the type's constraint frame.
+ * With the naive `{x:0, y:0, zoom:1}`, Prismic anchors the constraint crop
+ * to the top-left corner (e.g. rect=0,0,600,800 on a 640x800 asset), which
+ * shifts the subject off-center in the served file — unfixable with CSS.
+ */
+export function imageField(asset, alt, constraint = PRODUCT_IMAGE_CONSTRAINT) {
+  const zoom = Math.max(constraint.width / asset.width, constraint.height / asset.height);
   return {
     id: asset.id,
     url: asset.url,
-    dimensions: { width: asset.width, height: asset.height },
-    edit: { x: 0, y: 0, zoom: 1, background: "transparent" },
+    dimensions: { width: constraint.width, height: constraint.height },
+    edit: {
+      x: -(asset.width * zoom - constraint.width) / 2,
+      y: -(asset.height * zoom - constraint.height) / 2,
+      zoom,
+      background: "transparent",
+    },
     alt: alt ?? null,
     copyright: null,
   };
@@ -75,6 +93,7 @@ export function fillTestDefaults(product) {
   filled.consumer ??= pickFrom(["Systembolaget", "Private Import"], `${uid}con`);
   filled.restaurant ??= pickFrom(["Available", "Sold Out"], `${uid}res`);
   filled.grapes ??= "50% Pinot Noir, 30% Chardonnay, 20% Pinot Meunier";
+  filled.year ??= String(2012 + (hash(`${uid}year`) % 10));
   filled.orderUrl ??= "https://www.systembolaget.se/";
   if (filled.description.length === 0) {
     filled.description = [

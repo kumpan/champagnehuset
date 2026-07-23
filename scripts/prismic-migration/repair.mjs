@@ -39,15 +39,10 @@ console.log(`Found ${imported.length} published ai-import documents`);
 
 const idByUid = Object.fromEntries(imported.map((doc) => [doc.uid, doc.id]));
 
-// Producer uid → document id (created this migration or pre-existing).
-const producerIds = { ...data.existingProducers };
-for (const producer of data.newProducers) {
-  producerIds[producer.uid] = idByUid[producer.uid];
-  if (!producerIds[producer.uid]) {
-    console.error(`Producer ${producer.uid} not found among published documents — aborting.`);
-    process.exit(1);
-  }
-}
+// Producer uid → document id, resolved from ALL published producers
+// (includes pre-existing ones that were never part of the migration).
+const publishedProducers = await client.getAllByType("producer", { pageSize: 100 });
+const producerIds = Object.fromEntries(publishedProducers.map((doc) => [doc.uid, doc.id]));
 
 const assets = await fetchBottleAssets(writeToken);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

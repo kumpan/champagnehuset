@@ -4,13 +4,25 @@
  * the Prismic UI). Every created document is tagged `ai-import` and recorded
  * in manifest.json so cleanup.mjs can remove them later.
  *
+ * Incremental: documents whose UID is already PUBLISHED are skipped, so
+ * data.json is cumulative and the script can be re-run per batch. Publish
+ * the previous batch before running the next one — unpublished documents
+ * in a Migration Release can't be detected and would cause duplicate-UID
+ * errors.
+ *
+ * Producer links resolve dynamically: published producers are linked by ID
+ * (including pre-existing ones not in data.json), missing ones are created.
+ *
+ * TESTING MODE: missing product fields are filled with plausible
+ * deterministic data (fillTestDefaults in lib.mjs) so search/filters can be
+ * exercised. For a REAL migration, remove that call and leave gaps empty.
+ *
  * Bottle images are NOT uploaded — each product is assigned one of the
- * existing `bottle-0X` assets already in the media library (deterministic
- * hash of the UID, so reruns pick the same image).
+ * existing `bottle-0X` assets already in the media library.
  *
  * Run: node --env-file=.env.local scripts/prismic-migration/migrate.mjs
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import * as prismic from "@prismicio/client";
 import { REPO, TAG, buildProductData, fetchBottleAssets, fillTestDefaults, richText, compact } from "./lib.mjs";
 
@@ -23,24 +35,29 @@ if (!writeToken) {
 const data = JSON.parse(readFileSync(new URL("./data.json", import.meta.url), "utf8"));
 const client = prismic.createWriteClient(REPO, { writeToken });
 
-// Master locale for new documents.
 const repository = await client.getRepository();
 const lang = repository.languages[0].id;
-console.log(`Repository master locale: ${lang}`);
 
-// Existing bottle-0X assets from the media library (reused, never re-uploaded).
+// Published documents — used to skip already-migrated UIDs and to link
+// producers (including pre-existing ones that data.json doesn't create).
+const publishedProducers = await client.getAllByType("producer", { pageSize: 100 });
+const publishedProducts = await client.getAllByType("product", { pageSize: 100 });
+const producerIdByUid = Object.fromEntries(publishedProducers.map((doc) => [doc.uid, doc.id]));
+const publishedProductUids = new Set(publishedProducts.map((doc) => doc.uid));
+console.log(`Published: ${publishedProducers.length} producers, ${publishedProducts.length} products`);
+
 const assets = await fetchBottleAssets(writeToken);
-console.log(`Found ${assets.length} bottle assets`);
-
 const migration = prismic.createMigration();
 
 // --- Producers -----------------------------------------------------------
-// Existing producers are linked by document ID; missing ones are created.
 const producerRefs = Object.fromEntries(
-  Object.entries(data.existingProducers).map(([uid, id]) => [uid, { link_type: "Document", id }]),
+  Object.entries(producerIdByUid).map(([uid, id]) => [uid, { link_type: "Document", id }]),
 );
 
-for (const producer of data.newProducers) {
+let newProducerCount = 0;
+for (const producer of data.producers) {
+  if (producerRefs[producer.uid]) continue; // already published
+  newProducerCount += 1;
   producerRefs[producer.uid] = migration.createDocument(
     {
       type: "producer",
@@ -59,14 +76,16 @@ for (const producer of data.newProducers) {
   );
 }
 
-// NOTE: the existing vincent-joudart document has a placeholder name
-// ("Producer") but cannot be updated via the Migration API — its
-// producer_image is an Unsplash-integration image, which the API rejects
-// ("Assets not found"). Rename it manually in the Prismic UI instead.
-
 // --- Products ------------------------------------------------------------
+let newProductCount = 0;
 for (const rawProduct of data.products) {
+  if (publishedProductUids.has(rawProduct.uid)) continue; // already published
   const product = fillTestDefaults(rawProduct); // TESTING ONLY — remove for real migrations
+  if (!producerRefs[product.producer]) {
+    console.error(`Unknown producer "${product.producer}" for ${product.uid} — aborting before any write.`);
+    process.exit(1);
+  }
+  newProductCount += 1;
   migration.createDocument(
     {
       type: "product",
@@ -79,39 +98,46 @@ for (const rawProduct of data.products) {
   );
 }
 
+console.log(`To create: ${newProducerCount} producers, ${newProductCount} products`);
+if (newProducerCount + newProductCount === 0) {
+  console.log("Nothing to do.");
+  process.exit(0);
+}
+
 // --- Run -----------------------------------------------------------------
 await client.migrate(migration, {
   reporter: (event) => {
     if (event.type === "documents:creating") {
       console.log(`  creating ${event.data.current}/${event.data.total}: ${event.data.document?.title ?? ""}`);
     } else if (event.type === "documents:updating") {
-      console.log(`  updating ${event.data.current}/${event.data.total}`);
-    } else if (!event.type.includes(":")) {
-      console.log(event.type);
+      if (event.data.current % 10 === 1) console.log(`  updating ${event.data.current}/${event.data.total}`);
     } else if (event.type.endsWith(":created") || event.type.endsWith(":updated")) {
       console.log(event.type, JSON.stringify(event.data));
     }
   },
 });
 
-// --- Manifest (input for cleanup.mjs) ------------------------------------
-const documents = migration._documents
+// --- Manifest (input for cleanup.mjs) — merged across batches ------------
+const manifestUrl = new URL("./manifest.json", import.meta.url);
+const previous = existsSync(manifestUrl) ? JSON.parse(readFileSync(manifestUrl, "utf8")).documents : [];
+const created = migration._documents
   .filter((doc) => doc.document.id)
   .map((doc) => ({ id: doc.document.id, type: doc.document.type, uid: doc.document.uid }));
+const documents = [...previous, ...created.filter((doc) => !previous.some((p) => p.id === doc.id))];
 
 writeFileSync(
-  new URL("./manifest.json", import.meta.url),
+  manifestUrl,
   JSON.stringify(
     {
       createdAt: new Date().toISOString(),
       repository: REPO,
       tag: TAG,
-      note: "Documents created by migrate.mjs. The vincent-joudart name fix and the 8 bottle-0X assets are NOT listed — cleanup must never touch them.",
-      documents: documents.filter((doc) => doc.id !== data.existingProducers["vincent-joudart"]),
+      note: "Documents created by migrate.mjs. The pre-existing producers and the 8 bottle-0X assets are NOT listed — cleanup must never touch them.",
+      documents,
     },
     null,
     2,
   ),
 );
-console.log(`\nDone. ${documents.length} documents in migration release. Manifest written to scripts/prismic-migration/manifest.json`);
-console.log("Review + publish the migration release in the Prismic UI to make the documents queryable.");
+console.log(`\nDone. ${created.length} documents created (${documents.length} total in manifest).`);
+console.log("Review + publish the Migration Release in the Prismic UI to make them queryable.");
