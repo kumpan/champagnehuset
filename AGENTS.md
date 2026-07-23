@@ -99,4 +99,6 @@ Migration API gotchas learned the hard way:
 - The client creates documents as **empty shells** first and writes data in a second pass — if the run crashes mid-way, run `repair.mjs` (documents must be published first; IDs are unreachable in an unpublished Migration Release).
 - Documents whose fields hold **Unsplash-integration images** cannot be updated via the API ("Assets not found") — edit those in the Prismic UI.
 - Reference existing media library assets with a full raw image payload (`{ id, url, dimensions, edit, alt, copyright }`) — `migration.createAsset()` would re-download and duplicate them.
+- When the asset's aspect ratio differs from the image field's constraint, `edit: {x:0, y:0, zoom:1}` anchors the constraint crop **top-left** (subject drifts off-center in the served URL; CSS can't fix it). Compute a center-cover `edit` instead — see `imageField()` in `scripts/prismic-migration/lib.mjs`.
+- Deleting a media library asset does not purge the CDN file — documents keep serving old URLs until re-pointed at new asset IDs (a document migration, not a library operation).
 <!-- END:naming-rules -->
