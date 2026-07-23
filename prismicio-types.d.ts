@@ -97,15 +97,15 @@ interface ArticleDocumentData {
   page_title: prismic.KeyTextField;
 
   /**
-   * Category field in *Article*
+   * Tag field in *Article*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: article.category
+   * - **API ID Path**: article.tag
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  category: prismic.SelectField<"Webinar" | "Article" | "Event" | "Case Study">;
+  tag: prismic.SelectField<"Event" | "News" | "Guide" | "Tasting">;
 
   /**
    * Parent field in *Article*
@@ -1412,6 +1412,17 @@ interface ProductDocumentData {
   product_vintage: prismic.SelectField<"Yes" | "No">;
 
   /**
+   * Year field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 2015
+   * - **API ID Path**: product.product_year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_year: prismic.KeyTextField;
+
+  /**
    * Consumer Availability field in *Product*
    *
    * - **Field Type**: Select
@@ -1619,67 +1630,20 @@ export type AllDocumentTypes =
   | RedirectDocument;
 
 /**
- * Item in *Article → Feature → Primary → Overline*
+ * Item in *Article → Feature → Primary → Featured Articles*
  */
-export interface ArticleSliceFeaturePrimaryOverlineItem {
+export interface ArticleSliceFeaturePrimaryFeaturedArticlesItem {
   /**
-   * Overline Icon field in *Article → Feature → Primary → Overline*
+   * Article field in *Article → Feature → Primary → Featured Articles*
    *
-   * - **Field Type**: Select
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **Default Value**: none
-   * - **API ID Path**: article.feature.primary.overline[].overline_icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
+   * - **API ID Path**: article.feature.primary.featured_articles[].article
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
-  overline_icon: prismic.SelectField<
-    | "none"
-    | "atSign"
-    | "badgeCheck"
-    | "badgeInfo"
-    | "bookOpenCheck"
-    | "briefcaseBusiness"
-    | "check"
-    | "circleGauge"
-    | "circleStar"
-    | "clock"
-    | "crown"
-    | "dog"
-    | "fileBadge"
-    | "fileText"
-    | "gem"
-    | "handshake"
-    | "headset"
-    | "hourglass"
-    | "houseHeart"
-    | "layers"
-    | "lock"
-    | "lockKeyhole"
-    | "lockKeyholeOpen"
-    | "mail"
-    | "moon"
-    | "moonStar"
-    | "mountainSnow"
-    | "phoneCall"
-    | "plane"
-    | "search"
-    | "ship"
-    | "shieldCheck"
-    | "shieldEllipsis"
-    | "sun"
-    | "triangle"
-    | "trophy",
-    "filled"
+  article: ContentRelationshipFieldWithData<
+    [{ id: "article"; fields: ["page_title", "tag"] }]
   >;
-
-  /**
-   * Overline Text field in *Article → Feature → Primary → Overline*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: article.feature.primary.overline[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
 }
 
 /**
@@ -1846,7 +1810,7 @@ export interface ArticleSliceListPrimaryFeaturedArticlesItem {
    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
   article: ContentRelationshipFieldWithData<
-    [{ id: "article"; fields: ["page_title", "category"] }]
+    [{ id: "article"; fields: ["page_title", "tag"] }]
   >;
 }
 
@@ -1877,65 +1841,22 @@ export interface ArticleSliceFeaturePrimary {
   section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
-   * Overline field in *Article → Feature → Primary*
+   * Featured Articles field in *Article → Feature → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: article.feature.primary.overline[]
+   * - **API ID Path**: article.feature.primary.featured_articles[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  overline: prismic.GroupField<
-    Simplify<ArticleSliceFeaturePrimaryOverlineItem>
-  >;
-
-  /**
-   * Title field in *Article → Feature → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: article.feature.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Article → Feature → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: article.feature.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Image Side field in *Article → Feature → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: article.feature.primary.image_side
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  image_side: prismic.BooleanField;
-
-  /**
-   * Article field in *Article → Feature → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: article.feature.primary.article
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  article: ContentRelationshipFieldWithData<
-    [{ id: "article"; fields: ["page_title", "category"] }]
+  featured_articles: prismic.GroupField<
+    Simplify<ArticleSliceFeaturePrimaryFeaturedArticlesItem>
   >;
 
   /**
    * Link Label field in *Article → Feature → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Read article
+   * - **Placeholder**: Read More
    * - **API ID Path**: article.feature.primary.link_label
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
@@ -6681,17 +6602,6 @@ export interface ProductSliceSearchPrimary {
   remove_top_padding: prismic.BooleanField;
 
   /**
-   * Section Theme field in *Product → Search → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Bud
-   * - **API ID Path**: product.search.primary.section_theme
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
-
-  /**
    * Center Text field in *Product → Search → Primary*
    *
    * - **Field Type**: Boolean
@@ -8086,7 +7996,7 @@ declare module "@prismicio/client" {
       RedirectDocumentDataRedirectsItem,
       AllDocumentTypes,
       ArticleSlice,
-      ArticleSliceFeaturePrimaryOverlineItem,
+      ArticleSliceFeaturePrimaryFeaturedArticlesItem,
       ArticleSliceFeaturePrimary,
       ArticleSliceListPrimaryOverlineItem,
       ArticleSliceListPrimaryButtonItem,

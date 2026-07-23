@@ -116,7 +116,7 @@ export function generateArticleSchema(doc: Content.ArticleDocument) {
     inLanguage: doc.lang,
     author: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
-    ...(doc.data.category && { articleSection: doc.data.category }),
+    ...(doc.data.tag && { articleSection: doc.data.tag }),
   };
 }
 
