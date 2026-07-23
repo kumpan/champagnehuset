@@ -8,10 +8,10 @@
       "port": 3000
     },
     {
-      "name": "next-dev-alt",
+      "name": "next-dev-auto",
       "runtimeExecutable": "env",
-      "runtimeArgs": ["NEXT_DIST_DIR=.next-alt", "npx", "next", "dev", "-p", "3100"],
-      "port": 3100
+      "runtimeArgs": ["NEXT_DIST_DIR=.next-auto", "npx", "next", "dev"],
+      "autoPort": true
     }
   ]
 }
