@@ -80,29 +80,42 @@
         "type": "Select",
         "value": "Bud"
       },
-      "image": {
-        "provider": "imgix",
-        "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzQxOTY1Njl8MA&ixlib=rb-4.1.0&q=85",
-        "alt": "sliced orange fruit on wooden table",
-        "origin": {
-          "id": "sQi9FM6NYVY",
-          "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzQxOTY1Njl8MA&ixlib=rb-4.1.0&q=85",
-          "width": 4000,
-          "height": 6000
-        },
-        "width": 4000,
-        "height": 6000,
-        "edit": {
-          "background": "transparent",
-          "zoom": 1,
-          "crop": {
-            "x": 0,
-            "y": 0
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzQxOTY1Njl8MA&ixlib=rb-4.1.0&q=85",
+                  "alt": "sliced orange fruit on wooden table",
+                  "origin": {
+                    "id": "sQi9FM6NYVY",
+                    "url": "https://images.unsplash.com/photo-1587366317133-62e39082c34d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3NzQxOTY1Njl8MA&ixlib=rb-4.1.0&q=85",
+                    "width": 4000,
+                    "height": 6000
+                  },
+                  "width": 4000,
+                  "height": 6000,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ]
+            ]
           }
-        },
-        "credits": null,
-        "__TYPE__": "ImageContent",
-        "thumbnails": {}
+        ]
       }
     },
     "items": []

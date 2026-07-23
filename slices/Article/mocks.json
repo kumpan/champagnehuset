@@ -12,69 +12,30 @@
         "__TYPE__": "BooleanContent",
         "value": false
       },
-      "overline": {
+      "featured_articles": {
         "__TYPE__": "GroupContentType",
         "value": [
           {
             "__TYPE__": "GroupItemContent",
             "value": [
               [
-                "overline_icon",
+                "article",
                 {
-                  "__TYPE__": "FieldContent",
-                  "value": "atSign",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "jack",
-                  "type": "Text"
+                  "key": "31747899-3a3a-4cff-93d0-9dc50fb395fd",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "DocumentLink",
+                    "id": "mock_document_id"
+                  }
                 }
               ]
             ]
           }
         ]
       },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Sight"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ipsum nulla laboris elit eiusmod veniam exercitation ipsum Lorem officia ut in. Proident magna irure velit proident proident proident aute labore non eu laborum tempor pariatur nisi nulla. Eiusmod fugiat consequat officia ad aliqua occaecat officia ex velit deserunt exercitation ipsum sit."
-            }
-          }
-        ]
-      },
-      "image_side": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "article": {
-        "key": "31747899-3a3a-4cff-93d0-9dc50fb395fd",
-        "__TYPE__": "LinkContent",
-        "value": {
-          "__TYPE__": "DocumentLink",
-          "id": "mock_document_id"
-        }
-      },
       "link_label": {
         "__TYPE__": "FieldContent",
-        "value": "aware",
+        "value": "Read More",
         "type": "Text"
       }
     },

@@ -30,114 +30,34 @@
             "default_value": "Bud"
           }
         },
-        "overline": {
+        "featured_articles": {
           "type": "Group",
           "config": {
-            "label": "Overline",
-            "repeat": false,
+            "label": "Featured Articles",
+            "repeat": true,
             "fields": {
-              "overline_icon": {
-                "type": "Select",
+              "article": {
+                "type": "Link",
                 "config": {
-                  "label": "Overline Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "circleGauge",
-                    "circleStar",
-                    "clock",
-                    "crown",
-                    "dog",
-                    "fileBadge",
-                    "fileText",
-                    "gem",
-                    "handshake",
-                    "headset",
-                    "hourglass",
-                    "houseHeart",
-                    "layers",
-                    "lock",
-                    "lockKeyhole",
-                    "lockKeyholeOpen",
-                    "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
-                    "phoneCall",
-                    "plane",
-                    "search",
-                    "ship",
-                    "shieldCheck",
-                    "shieldEllipsis",
-                    "sun",
-                    "triangle",
-                    "trophy"
-                  ],
-                  "default_value": "none"
-                }
-              },
-              "overline_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Overline Text",
-                  "placeholder": ""
+                  "label": "Article",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "article",
+                      "fields": ["page_title", "tag"]
+                    }
+                  ]
                 }
               }
             }
-          }
-        },
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
-          }
-        },
-        "image_side": {
-          "type": "Boolean",
-          "config": {
-            "label": "Image Side",
-            "placeholder_false": "Image is on the Left",
-            "placeholder_true": "Image is on the Right",
-            "default_value": true
-          }
-        },
-        "article": {
-          "type": "Link",
-          "config": {
-            "label": "Article",
-            "select": "document",
-            "repeat": false,
-            "customtypes": [
-              {
-                "id": "article",
-                "fields": ["page_title", "category"]
-              }
-            ]
           }
         },
         "link_label": {
           "type": "Text",
           "config": {
             "label": "Link Label",
-            "placeholder": "Read article"
+            "placeholder": "Read More"
           }
         }
       },
@@ -357,7 +277,7 @@
                   "customtypes": [
                     {
                       "id": "article",
-                      "fields": ["page_title", "category"]
+                      "fields": ["page_title", "tag"]
                     }
                   ]
                 }

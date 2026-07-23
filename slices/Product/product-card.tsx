@@ -2,46 +2,31 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 import { cn } from "@/lib/utils";
 import type { ProductDocument } from "@/prismicio-types";
-
-const cardThemeClasses = {
-  Bud: "bg-fill-raised text-ink",
-  Dust: "bg-accent-fill-raised text-accent-ink",
-};
-
-const metaThemeClasses = {
-  Bud: "text-ink-dim",
-  Dust: "text-accent-ink-dim",
-};
+import { producerNameOf } from "./search";
 
 type ProductCardProps = {
   product: ProductDocument;
-  sectionTheme: "Bud" | "Dust";
   className?: string;
 };
 
-export function ProductCard({ product, sectionTheme, className }: ProductCardProps) {
-  const { product_image, product_name, product_vintage, product_dosage } = product.data;
-  const meta = [product_vintage, product_dosage].filter(Boolean).join(" · ");
+export function ProductCard({ product, className }: ProductCardProps) {
+  const { product_image, product_name, product_year } = product.data;
+  // Requires fetchLinks: ["producer.producer_name"] on the query; renders without it otherwise.
+  const producerName = producerNameOf(product);
 
   return (
-    <PrismicNextLink
-      document={product}
-      className={cn(
-        "group flex flex-col overflow-hidden rounded-4 transition-colors duration-500",
-        cardThemeClasses[sectionTheme],
-        className,
-      )}
-    >
-      <div className="flex aspect-4/5 w-full items-center justify-center overflow-hidden p-6 md:p-8">
+    <PrismicNextLink document={product} className={cn("group flex flex-col gap-3", className)}>
+      <div className="aspect-3/4 w-full overflow-hidden rounded-1 bg-white">
         <PrismicNextImage
           field={product_image}
-          className="h-full w-auto object-contain transition-all duration-500 ease-out group-hover:scale-103"
+          className="size-full object-contain transition-transform duration-500 ease-out group-hover:scale-103"
           fallbackAlt=""
         />
       </div>
-      <div className="flex flex-1 flex-col items-start gap-1 p-4 pt-0 md:p-5 md:pt-0">
-        <span className="line-clamp-2 text-balance font-semibold text-lg leading-tight md:text-xl">{product_name}</span>
-        {meta && <span className={cn("text-sm", metaThemeClasses[sectionTheme])}>{meta}</span>}
+      <div className="flex w-full flex-col gap-1">
+        {product_year && <span className="truncate text-ink-dim italic">{product_year}</span>}
+        <span className="truncate font-medium text-ink text-xl leading-tight">{product_name}</span>
+        {producerName && <span className="truncate text-ink-dim text-xl italic leading-tight">{producerName}</span>}
       </div>
     </PrismicNextLink>
   );

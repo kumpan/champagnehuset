@@ -15,66 +15,56 @@ export function CalloutBackdrop({ slice }: Props) {
   const { image, video, filter } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
+  // With media, the image supplies the surface — force the dark Slate theme so text,
+  // buttons and selection flip to light automatically. Without media, honour the
+  // editor's chosen theme.
+  const theme = hasMedia ? "Slate" : section_theme;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={section_theme}
+      sectionTheme={theme}
+      className={cn(
+        "relative isolate flex flex-col justify-end overflow-hidden",
+        "min-h-[28rem] md:min-h-[36rem] lg:min-h-[43rem]",
+      )}
     >
-      <Container>
-        <div
-          className={cn(
-            "relative flex min-h-96 flex-col justify-end overflow-hidden rounded-5 px-4 py-4 md:min-h-120 md:px-16 md:py-16",
-            !hasMedia &&
-              {
-                Bud: "bg-fill-raised text-ink-flip",
-                Dust: "bg-accent-fill-raised text-accent-ink-flip",
-              }[section_theme],
-            alignment ? "items-center" : "items-start",
-          )}
-        >
-          {hasMedia && (
-            <div className="pointer-events-none absolute inset-0 bg-fill-dark" aria-hidden>
-              {image && isFilled.image(image) && (
-                <div className="relative h-full w-full">
-                  <CustomMedia
-                    imageField={image}
-                    videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
-                    className="h-full w-full"
-                    preload
-                    sectionTheme={section_theme}
-                    thumbnail="horizontal md:main"
-                    filter={filter}
-                  />
-                </div>
-              )}
-              {hasIntroContent && (
-                <>
-                  <div className="absolute top-40 right-0 bottom-0 left-0 bg-linear-to-t from-brand/75 to-brand/0 mix-blend-overlay" />
-                  <div className="absolute top-40 right-0 bottom-0 left-0 bg-linear-to-t from-brand/5 to-brand/0" />
-                  <div className="absolute top-32 right-0 bottom-0 left-0 bg-linear-to-t from-fill-dark/80 to-fill-dark/0" />
-                </>
-              )}
-            </div>
-          )}
-          {hasIntroContent && (
-            <SectionIntro
-              overline={overline}
-              title={title}
-              description={description}
-              buttons={buttons}
-              align={alignment ? "center" : "left"}
-              sectionTheme={hasMedia ? "Bud" : section_theme}
-              className="relative w-full"
-              titleMaxWidth={false}
-              textBalance={true}
-              buttonVariant={hasMedia ? "secondary" : "default"}
-            />
-          )}
+      {hasMedia && (
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <CustomMedia
+            imageField={image && isFilled.image(image) ? image : undefined}
+            videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
+            className="h-full w-full rounded-none"
+            preload
+            sectionTheme="Slate"
+            thumbnail="horizontal md:main"
+            filter={filter}
+          />
+
+          {/* Bottom fade — layered like custom-media (blur → overlay mix → fade), spot-fill-dark */}
+          <div className="absolute inset-x-0 top-1/3 bottom-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black,black_30%,transparent)]" />
+          <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/65 to-spot-fill-dark/0 mix-blend-overlay" />
+          <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/90 via-spot-fill-dark/40 to-spot-fill-dark/0" />
         </div>
-      </Container>
+      )}
+
+      {hasIntroContent && (
+        <Container className="relative flex w-full flex-col justify-end">
+          <SectionIntro
+            overline={overline}
+            title={title}
+            description={description}
+            buttons={buttons}
+            align={alignment ? "center" : "left"}
+            sectionTheme={theme}
+            className={cn("w-full max-w-[50rem]", alignment && "mx-auto")}
+            titleMaxWidth={false}
+            textBalance
+          />
+        </Container>
+      )}
     </Section>
   );
 }

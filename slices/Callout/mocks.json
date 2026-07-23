@@ -283,21 +283,6 @@
                   "__TYPE__": "ImageContent",
                   "thumbnails": {}
                 }
-              ],
-              [
-                "video",
-                {
-                  "key": "379fe7b3-b70f-4feb-ab3d-e47eec10c086",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "FileLink",
-                    "id": "mock_Media_link",
-                    "kind": "file",
-                    "name": "mock_name",
-                    "url": "https://source.unsplash.com/daily",
-                    "size": "0"
-                  }
-                }
               ]
             ]
           }
@@ -460,21 +445,6 @@
                   "credits": null,
                   "__TYPE__": "ImageContent",
                   "thumbnails": {}
-                }
-              ],
-              [
-                "video",
-                {
-                  "key": "ab8dba35-056d-430a-9a1e-1c3e4a31d6fc",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "FileLink",
-                    "id": "mock_Media_link",
-                    "kind": "file",
-                    "name": "mock_name",
-                    "url": "https://source.unsplash.com/daily",
-                    "size": "0"
-                  }
                 }
               ]
             ]

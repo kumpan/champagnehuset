@@ -246,15 +246,6 @@
             "default_value": false
           }
         },
-        "section_theme": {
-          "type": "Select",
-          "config": {
-            "label": "Section Theme",
-            "placeholder": "",
-            "options": ["Bud", "Dust"],
-            "default_value": "Bud"
-          }
-        },
         "alignment": {
           "type": "Boolean",
           "config": {

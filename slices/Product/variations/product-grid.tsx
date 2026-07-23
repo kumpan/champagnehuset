@@ -79,9 +79,9 @@ export async function ProductGrid({ slice }: Props) {
           </div>
         )}
         {products.length > 0 && (
-          <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4">
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} sectionTheme={section_theme} className="w-full" />
+              <ProductCard key={product.id} product={product} className="w-full" />
             ))}
           </div>
         )}
