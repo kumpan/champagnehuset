@@ -15,15 +15,15 @@ export function ProductCard({ product, className }: ProductCardProps) {
   const producerName = producerNameOf(product);
 
   return (
-    <PrismicNextLink document={product} className={cn("group flex flex-col gap-3", className)}>
-      <div className="aspect-3/4 w-full overflow-hidden rounded-1 bg-white">
+    <PrismicNextLink document={product} className={cn("group flex flex-col gap-2", className)}>
+      <div className="aspect-3/4 w-full overflow-hidden rounded-1 bg-green-10">
         <PrismicNextImage
           field={product_image}
-          className="size-full object-contain transition-transform duration-500 ease-out group-hover:scale-103"
+          className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-103"
           fallbackAlt=""
         />
       </div>
-      <div className="flex w-full flex-col gap-1">
+      <div className="flex w-full flex-col gap-0.5">
         {product_year && <span className="truncate text-ink-dim italic">{product_year}</span>}
         <span className="truncate font-medium text-ink text-xl leading-tight">{product_name}</span>
         {producerName && <span className="truncate text-ink-dim text-xl italic leading-tight">{producerName}</span>}

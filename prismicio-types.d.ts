@@ -5199,7 +5199,7 @@ export interface HeroSliceBackdropPrimary {
    * - **API ID Path**: hero.backdrop.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<"Bud" | "Leaf" | "Dust", "filled">;
 
   /**
    * Center Text field in *Hero → Backdrop → Primary*

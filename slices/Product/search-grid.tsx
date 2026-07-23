@@ -116,7 +116,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
       {/* Mobile: sticky filter tray */}
-      <div className="sticky top-21 z-10 md:top-24 lg:hidden">
+      <div className="sticky top-4 z-10 md:top-8 lg:hidden">
         <FilterTray activeCount={activeCount}>
           {searchInput}
           <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
