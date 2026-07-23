@@ -31,7 +31,7 @@ export function ProductCard({ product, className, priority = false }: ProductCar
           onLoad={() => setImageLoaded(true)}
           className={cn(
             "size-full object-cover group-hover:scale-103",
-            "[transition:opacity_300ms_ease-out,transform_500ms_ease-out]",
+            "[transition:opacity_300ms_ease-out,scale_400ms_ease-out]",
             imageLoaded ? "opacity-100" : "opacity-0",
           )}
           fallbackAlt=""
