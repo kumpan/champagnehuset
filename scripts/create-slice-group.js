@@ -202,8 +202,8 @@ const DEFAULT_PRIMARY = {
     config: {
       label: "Section Theme",
       placeholder: "",
-      options: ["Ocean", "Sunrise"],
-      default_value: "Ocean",
+      options: ["Bud", "Dust"],
+      default_value: "Bud",
     },
   },
   alignment: {

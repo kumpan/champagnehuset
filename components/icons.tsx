@@ -73,6 +73,7 @@ import {
   UserStar,
   Users,
   X,
+  Youtube,
 } from "lucide-react";
 
 export const iconMap = {
@@ -150,6 +151,7 @@ export const iconMap = {
   userStar: UserStar,
   users: Users,
   x: X,
+  youtube: Youtube,
 } as const;
 
 export type IconName = keyof typeof iconMap;

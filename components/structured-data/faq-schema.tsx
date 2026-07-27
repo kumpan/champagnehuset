@@ -5,7 +5,8 @@ interface FaqSchemaProps {
   slices:
     | Content.PageDocumentData["slices"]
     | Content.ArticleDocumentData["slices"]
-    | Content.EmployeeDocumentData["slices"];
+    | Content.ProductDocumentData["slices"]
+    | Content.ProducerDocumentData["slices"];
 }
 
 /**

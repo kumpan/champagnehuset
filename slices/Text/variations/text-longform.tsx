@@ -69,6 +69,14 @@ export async function TextLongform({ slice }: Props) {
           </aside>
         )}
 
+        {/* Desktop */}
+        {tocHeadings.length > 0 && (
+          <aside className="hidden 3xl:w-144 pb-8 lg:block lg:w-96 lg:shrink-0 xl:w-112">
+            <TocDesktop headings={tocHeadings} removeTopPadding={remove_top_padding} />
+          </aside>
+        )}
+
+        {/* Text Content */}
         {rich_text && (
           <div>
             <div className="prose w-full min-w-0">
@@ -88,13 +96,6 @@ export async function TextLongform({ slice }: Props) {
               </Link>
             )}
           </div>
-        )}
-
-        {/* Desktop */}
-        {tocHeadings.length > 0 && (
-          <aside className="hidden 3xl:w-144 pb-8 lg:block lg:w-96 lg:shrink-0 xl:w-112">
-            <TocDesktop headings={tocHeadings} removeTopPadding={remove_top_padding} />
-          </aside>
         )}
       </Container>
     </Section>

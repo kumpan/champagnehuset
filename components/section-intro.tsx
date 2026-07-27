@@ -6,6 +6,7 @@ import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import type { IconName } from "@/components/icons";
 import { iconMap } from "@/components/icons";
+import type { SectionTheme } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { cn } from "@/lib/utils";
 
@@ -24,21 +25,14 @@ type CmsOverlineItem = {
 };
 
 const overlineThemeClasses = {
-  Ocean: "bg-fill text-ink",
-  Sunrise: "bg-accent-fill text-accent-ink",
-  Night: "bg-fill text-ink",
-  Dawn: "bg-accent-fill text-accent-ink",
+  Bud: "text-ink",
+  Leaf: "text-ink",
+  Brand: "text-ink-flip",
+  Dust: "text-spot-ink",
+  Slate: "text-spot-ink-flip",
 };
 
-const buttonThemeClasses = {
-  Ocean: "",
-  Sunrise:
-    "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
-  Night: "",
-  Dawn: "bg-accent text-accent-ink-flip hover:bg-accent/90 focus-visible:outline-accent hover:outline-accent/20 outline-accent/0",
-};
-
-export type SectionTheme = keyof typeof overlineThemeClasses;
+export type { SectionTheme };
 
 interface SectionIntroProps {
   overline?: KeyTextField | ReadonlyArray<CmsOverlineItem>;
@@ -80,7 +74,7 @@ export function SectionIntro({
   buttons,
   align = "center",
   className,
-  sectionTheme = "Ocean",
+  sectionTheme = "Bud",
   titleMaxWidth = true,
   textBalance = false,
   buttonVariant,
@@ -129,7 +123,7 @@ export function SectionIntro({
             className={cn(
               "prose-headings:mb-0! transition-colors",
               titleMaxWidth ? "max-w-4xl xl:max-w-5xl" : "max-w-none",
-              textBalance && "text-balance",
+              textBalance ? "text-balance" : "text-pretty",
               isSideBySide && "w-full",
             )}
             field={title}
@@ -141,7 +135,7 @@ export function SectionIntro({
           <CustomRichText
             sectionTheme={sectionTheme}
             className={cn(
-              "max-w-xl text-balance",
+              "max-w-xl text-pretty",
               isSideBySide && "prose-p:mt-2! prose-p:mb-0! lg:mt-4 lg:max-w-md",
               descriptionClassName,
             )}
@@ -175,7 +169,8 @@ export function SectionIntro({
             return (
               <Button
                 key={linkKey}
-                className={cn(buttonThemeClasses[sectionTheme], buttonClassName)}
+                className={buttonClassName}
+                sectionTheme={sectionTheme}
                 variant={variant}
                 size="lg"
                 asChild

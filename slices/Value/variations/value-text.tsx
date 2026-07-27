@@ -6,19 +6,20 @@ import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
 
-const overlineThemeClasses = {
-  Ocean: "bg-fill-raised",
-  Sunrise: "bg-accent-fill-raised",
-};
-
 const statementDescriptionThemeClasses = {
-  Ocean: "text-ink-dim",
-  Sunrise: "text-accent-ink-dim",
+  Bud: "text-ink-dim",
+  Leaf: "text-ink-dim",
+  Brand: "text-ink-flip",
+  Dust: "text-spot-ink-dim",
+  Slate: "text-spot-ink-flip",
 };
 
 const dividerThemeClasses = {
-  Ocean: "bg-brand",
-  Sunrise: "bg-accent",
+  Bud: "bg-brand",
+  Leaf: "bg-brand",
+  Brand: "bg-current",
+  Dust: "bg-spot-ink-dim",
+  Slate: "bg-current",
 };
 
 export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceText }) {
@@ -42,7 +43,6 @@ export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceTex
         {hasIntroContent && (
           <SectionIntro
             overline={overline}
-            overlineClassName={overlineThemeClasses[section_theme]}
             title={title}
             description={description}
             buttons={buttons}
@@ -54,16 +54,23 @@ export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceTex
           <div className={cn("mt-8 grid 3xl:gap-16 gap-8 md:mt-12 md:gap-8 lg:mt-16 lg:gap-12", gridCols)}>
             {statement.map((item) => (
               <div key={item.title} className="flex flex-row gap-4 md:flex-col">
-                <div className={cn("h-full w-1 shrink-0 rounded-full md:hidden", dividerThemeClasses[section_theme])} />
+                <div
+                  className={cn(
+                    "h-full w-(--default-border-width) shrink-0 rounded-full md:hidden",
+                    dividerThemeClasses[section_theme],
+                  )}
+                />
                 <div className="py-2 md:py-0">
                   <h3 className="text-balance text-xl md:text-2xl lg:text-3xl">{item.title}</h3>
                   <div
                     className={cn(
-                      "my-4 hidden h-1 rounded-full md:block md:w-24 lg:w-32",
+                      "easeOut my-4 hidden h-(--default-border-width) rounded-full transition-colors md:block md:w-24 lg:w-32",
                       dividerThemeClasses[section_theme],
                     )}
                   />
-                  <p className={cn(statementDescriptionThemeClasses[section_theme])}>{item.description}</p>
+                  <p className={cn(statementDescriptionThemeClasses[section_theme], "easeOut transition-colors")}>
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}

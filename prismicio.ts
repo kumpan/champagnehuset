@@ -22,12 +22,6 @@ function buildRoutes(masterLocale: string): Route[] {
       path: "/:grandparent?/:parent?/:uid",
     },
     {
-      type: "employee",
-      lang: masterLocale,
-      resolvers: { parent: "parent", grandparent: "parent.parent" },
-      path: "/:grandparent?/:parent?/:uid",
-    },
-    {
       type: "product",
       lang: masterLocale,
       resolvers: { parent: "parent", grandparent: "parent.parent" },
@@ -48,11 +42,6 @@ function buildRoutes(masterLocale: string): Route[] {
     },
     {
       type: "article",
-      resolvers: { parent: "parent", grandparent: "parent.parent" },
-      path: "/:lang/:grandparent?/:parent?/:uid",
-    },
-    {
-      type: "employee",
       resolvers: { parent: "parent", grandparent: "parent.parent" },
       path: "/:lang/:grandparent?/:parent?/:uid",
     },

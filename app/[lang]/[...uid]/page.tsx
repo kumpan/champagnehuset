@@ -2,9 +2,9 @@ import { SliceZone } from "@prismicio/react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AvailableLocalesSetter } from "@/components/available-locales-setter";
-import { ArticleSchema, BreadcrumbSchema, FaqSchema } from "@/components/structured-data";
+import { ArticleSchema, BreadcrumbSchema, FaqSchema, ProductSchema } from "@/components/structured-data";
 import { buildBreadcrumbs } from "@/lib/breadcrumbs";
-import { getDocumentByUID, isArticle } from "@/lib/cms";
+import { getDocumentByUID, isArticle, isProduct } from "@/lib/cms";
 import { buildPageMetadata } from "@/lib/metadata";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
@@ -50,23 +50,23 @@ export default async function Page({ params }: Props) {
       <AvailableLocalesSetter locales={availableLocales} />
       <BreadcrumbSchema breadcrumbs={breadcrumbs} />
       {isArticle(page) && <ArticleSchema doc={page} />}
+      {isProduct(page) && <ProductSchema doc={page} />}
       <FaqSchema slices={page.data.slices} />
-      <SliceZone slices={page.data.slices} components={components} context={{ breadcrumbs, lang }} />
+      <SliceZone slices={page.data.slices} components={components} context={{ breadcrumbs, lang, document: page }} />
     </>
   );
 }
 
 export async function generateStaticParams() {
   const client = await createClient();
-  const [pages, articles, employees, products, producers] = await Promise.all([
+  const [pages, articles, products, producers] = await Promise.all([
     client.getAllByType("page", { lang: "*" }),
     client.getAllByType("article", { lang: "*" }),
-    client.getAllByType("employee", { lang: "*" }),
     client.getAllByType("product", { lang: "*" }),
     client.getAllByType("producer", { lang: "*" }),
   ]);
 
-  return [...pages, ...articles, ...employees, ...products, ...producers]
+  return [...pages, ...articles, ...products, ...producers]
     .filter((doc) => doc.uid !== "home")
     .map((doc) => {
       const url = doc.url ?? `/${doc.lang}/${doc.uid}`;

@@ -1,0 +1,183 @@
+import { type Content, isFilled } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
+import { Button } from "@/components/button";
+import { CustomRichText } from "@/components/custom-rich-text";
+import { iconMap } from "@/components/icons";
+import { Container } from "@/components/layout/container";
+import { Section } from "@/components/layout/section";
+import { Overline } from "@/components/overline";
+import { formatAlcohol, formatDosage, formatPrice } from "@/lib/format";
+import { cn } from "@/lib/utils";
+import type { TextProps } from "..";
+import { COPY, RESTAURANT_CONTACT, resolvePurchase } from "../text-info-config";
+
+const ArrowRight = iconMap.arrowRight;
+const PhoneCall = iconMap.phoneCall;
+const AtSign = iconMap.atSign;
+const Download = iconMap.download;
+
+/** The dynamic-page template passes the current document in as slice context. */
+type InfoContext = {
+  lang?: string;
+  document?: Content.AllDocumentTypes;
+};
+
+type Props = TextProps & { slice: Content.TextSliceInfo };
+
+export function TextInfo({ slice, context }: Props) {
+  const ctx = context as InfoContext | undefined;
+  const doc = ctx?.document;
+  const product = doc?.type === "product" ? doc : undefined;
+  const data = product?.data;
+  const { section_theme } = slice.primary;
+
+  // Editorial fields fall back to the producer / product name when left blank.
+  const producerName = isFilled.contentRelationship(data?.product_producer)
+    ? (data?.product_producer.data?.producer_name ?? undefined)
+    : undefined;
+  const overline = slice.primary.overline || producerName || "";
+  const title = slice.primary.title || data?.product_name || "";
+
+  // Spec rows — only the ones that have a value are rendered.
+  const rows: { label: string; value: string }[] = [];
+  const push = (label: string, value?: string | null) => {
+    if (value) rows.push({ label, value });
+  };
+  if (data) {
+    push("Artikelnummer", data.product_article_number);
+    push("Pris", formatPrice(data.product_price));
+    push("Volym", data.product_volume);
+    push("Druvor", data.product_grapes);
+    push("Dosage", formatDosage(data.product_dosage_grams));
+    push("Alkohol", formatAlcohol(data.product_alcohol));
+    push("Lagring", data.product_storage);
+    push("Ursprung", [data.product_region, data.product_cru].filter(Boolean).join(", ") || null);
+  }
+
+  const hasOrderUrl = isFilled.link(data?.product_order_url);
+  const purchase = resolvePurchase(
+    data?.product_consumer_availability ?? null,
+    data?.product_restaurant_availability ?? null,
+    hasOrderUrl,
+  );
+
+  const pdfHref = product?.uid
+    ? `/api/product-pdf?uid=${encodeURIComponent(product.uid)}&lang=${encodeURIComponent(product.lang)}`
+    : null;
+
+  return (
+    <Section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      removeTopPadding={slice.primary.remove_top_padding}
+      sectionTheme={section_theme}
+    >
+      <Container>
+        <div className="grid gap-x-12 gap-y-14 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
+          {/* Left: overline, display title, purchase actions */}
+          <div className="flex flex-col">
+            {overline ? <Overline className="justify-start px-0 font-medium">{overline}</Overline> : null}
+            {title ? (
+              <h1 className="mt-3 font-primary text-6xl uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl xl:text-10xl">
+                {title}
+              </h1>
+            ) : null}
+
+            <div className="mt-10 lg:mt-16">
+              {purchase.kind === "sold-out" ? (
+                <div>
+                  <h3 className="font-medium text-xl">{COPY.soldOut.heading}</h3>
+                  <p className="mt-2">{COPY.soldOut.body}</p>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-8">
+                  {purchase.consumer ? (
+                    <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="max-w-sm">
+                        <h3 className="font-medium text-xl">{purchase.consumer.heading}</h3>
+                        <p className="mt-2">{purchase.consumer.body}</p>
+                      </div>
+                      {purchase.consumer.enabled && hasOrderUrl && data ? (
+                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="shrink-0">
+                          <PrismicNextLink field={data.product_order_url}>
+                            {purchase.consumer.button}
+                            <ArrowRight />
+                          </PrismicNextLink>
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="secondary"
+                          size="lg"
+                          sectionTheme={section_theme}
+                          className="shrink-0"
+                          disabled
+                        >
+                          {purchase.consumer.button}
+                          <ArrowRight />
+                        </Button>
+                      )}
+                    </div>
+                  ) : null}
+
+                  {purchase.restaurant ? (
+                    <div className={cn(purchase.consumer && "border-current/20 border-t pt-8")}>
+                      <h3 className="font-medium text-xl">{COPY.restaurant.heading}</h3>
+                      <p className="mt-2 max-w-md">{COPY.restaurant.body}</p>
+                      <p className="mt-4">
+                        {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
+                      </p>
+                      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg">
+                          <a href={RESTAURANT_CONTACT.phoneHref}>
+                            <PhoneCall />
+                            {COPY.restaurant.call}
+                          </a>
+                        </Button>
+                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg">
+                          <a href={`mailto:${RESTAURANT_CONTACT.email}`}>
+                            <AtSign />
+                            {COPY.restaurant.mail}
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right: body copy, spec table, PDF download */}
+          <div className="flex flex-col gap-10">
+            {isFilled.richText(slice.primary.body) ? (
+              <CustomRichText field={slice.primary.body} sectionTheme={section_theme} />
+            ) : null}
+
+            {rows.length > 0 ? (
+              <dl className="border-current/20 border-t">
+                {rows.map((row) => (
+                  <div
+                    key={row.label}
+                    className="flex items-baseline justify-between gap-6 border-current/20 border-b py-4"
+                  >
+                    <dt>{row.label}</dt>
+                    <dd className="text-right font-medium">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
+
+            {pdfHref ? (
+              <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="w-full">
+                <a href={pdfHref}>
+                  {COPY.pdf}
+                  <Download />
+                </a>
+              </Button>
+            ) : null}
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+}

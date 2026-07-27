@@ -1,16 +1,17 @@
 "use client";
 
-import { domAnimation, LazyMotion } from "motion/react";
+import { domMax, LazyMotion } from "motion/react";
 
 /**
- * Wraps children with LazyMotion using the `domAnimation` feature bundle.
- * This covers animations, variants, and exit animations at ~15kb instead of
- * the full ~34kb `motion` component. Use the `m` component (not `motion`)
+ * Wraps children with LazyMotion using the `domMax` feature bundle: everything
+ * in `domAnimation` plus layout projection — the `layout` prop and
+ * `AnimatePresence mode="popLayout"` used by the product search grid to
+ * reposition cards when filters change. Use the `m` component (not `motion`)
  * inside any subtree wrapped by this provider.
  *
  * Place this as high in the tree as needed — typically in app/layout.tsx —
  * so all child components share a single feature bundle load.
  */
 export function MotionProvider({ children }: { children: React.ReactNode }) {
-  return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
+  return <LazyMotion features={domMax}>{children}</LazyMotion>;
 }

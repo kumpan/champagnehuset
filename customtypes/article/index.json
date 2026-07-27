@@ -20,11 +20,44 @@
           "placeholder": "Used for Breadcrumbs"
         }
       },
-      "category": {
+      "article_title": {
+        "type": "Text",
+        "config": {
+          "label": "Article Title",
+          "placeholder": "Shown on preview cards"
+        }
+      },
+      "article_description": {
+        "type": "Text",
+        "config": {
+          "label": "Article Description",
+          "placeholder": "Subtitle shown on preview cards"
+        }
+      },
+      "article_image": {
+        "type": "Image",
+        "config": {
+          "label": "Article Image",
+          "constraint": {
+            "width": 1440,
+            "height": 1080
+          },
+          "thumbnails": []
+        }
+      },
+      "article_date": {
+        "type": "Date",
+        "config": {
+          "label": "Article Date",
+          "placeholder": "Falls back to publish date if empty"
+        }
+      },
+      "tag": {
         "type": "Select",
         "config": {
-          "label": "Category",
-          "options": ["Webinar", "Article", "Event", "Case Study"]
+          "label": "Tag",
+          "options": ["Event", "News", "Guide", "Tasting"],
+          "default_value": "Event"
         }
       },
       "parent": {
@@ -46,34 +79,34 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "faq": {
-              "type": "SharedSlice"
-            },
-            "value": {
-              "type": "SharedSlice"
-            },
-            "link": {
-              "type": "SharedSlice"
-            },
-            "employee": {
-              "type": "SharedSlice"
-            },
-            "process": {
-              "type": "SharedSlice"
-            },
-            "text": {
+            "article": {
               "type": "SharedSlice"
             },
             "callout": {
               "type": "SharedSlice"
             },
+            "contact": {
+              "type": "SharedSlice"
+            },
+            "faq": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             },
-            "image_strip": {
+            "image": {
               "type": "SharedSlice"
             },
-            "stats": {
+            "link": {
+              "type": "SharedSlice"
+            },
+            "product": {
+              "type": "SharedSlice"
+            },
+            "text": {
+              "type": "SharedSlice"
+            },
+            "value": {
               "type": "SharedSlice"
             }
           }

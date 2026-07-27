@@ -9,12 +9,14 @@ export const isEmployee = (doc: prismic.PrismicDocument): doc is Content.Employe
 export const isProduct = (doc: prismic.PrismicDocument): doc is Content.ProductDocument => doc.type === "product";
 export const isProducer = (doc: prismic.PrismicDocument): doc is Content.ProducerDocument => doc.type === "producer";
 
-/** All routable page types */
-const PAGE_TYPES = ["page", "article", "employee", "product", "producer"] as const;
+/** All routable page types. Employee is a non-page custom type (data only), so it is excluded. */
+const PAGE_TYPES = ["page", "article", "product", "producer"] as const;
 
 /** Fetches a document by UID, trying each page type in order. */
 export async function getDocumentByUID(uid: string, client: prismic.Client, lang?: string) {
-  const options = lang ? { lang } : undefined;
+  // fetchLinks resolves the producer's name so the Text → Info (product detail)
+  // overline can fall back to it. Harmless for page types with no producer link.
+  const options = { fetchLinks: ["producer.producer_name"], ...(lang ? { lang } : {}) };
 
   for (const type of PAGE_TYPES) {
     try {

@@ -1,330 +1,417 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "list",
-    "primary": {
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Ocean",
-        "type": "Select"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "ship",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "birthday",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Melted"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Labore culpa reprehenderit irure incididunt sunt aliquip ex voluptate tempor officia fugiat consequat. Ut sint elit cupidatat aliqua. Ea labore deserunt tempor mollit aliquip labore duis et aliqua."
-            }
-          }
-        ]
-      },
-      "faqlist": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "question",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "correctly",
-                  "type": "Text"
-                }
-              ],
-              [
-                "answer",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Duis aliquip id laborum cillum velit occaecat. Exercitation est consequat magna duis eu elit consectetur elit pariatur laborum ex laborum."
-                      }
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "split",
-    "primary": {
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "FAQ"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Select",
-                  "value": "badgeInfo"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Curious how we work?",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "We know digital transformation can raise a lot of questions. Here you will find answers to everything from technical choices to our philosophy around client relationships.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Sunrise"
-      },
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "faqlist": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "question",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Can we hire a consultant as part of our team?"
-                }
-              ],
-              [
-                "answer",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Yes, we offer resource support where our architects, project leads or developers can step in and strengthen your existing organization for shorter or longer periods.",
-                        "spans": []
-                      },
-                      "direction": "ltr"
-                    }
-                  ]
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "question",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Do you only work with Microsoft products?"
-                }
-              ],
-              [
-                "answer",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "We work across a wide range of platforms and tailor the stack to the problem at hand.",
-                        "spans": []
-                      },
-                      "direction": "ltr"
-                    }
-                  ]
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "question",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Can you help us with AI and Microsoft Copilot?"
-                }
-              ],
-              [
-                "answer",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Absolutely — we help teams adopt AI tooling responsibly and wire it into existing workflows.",
-                        "spans": []
-                      },
-                      "direction": "ltr"
-                    }
-                  ]
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "question",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "What does a typical implementation process look like?"
-                }
-              ],
-              [
-                "answer",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Discovery, design, iterative delivery, and ongoing support — with close collaboration at every step.",
-                        "spans": []
-                      },
-                      "direction": "ltr"
-                    }
-                  ]
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "question",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "How do we kick off a collaboration?"
-                }
-              ],
-              [
-                "answer",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Reach out and we will set up a short intro call to understand your goals and propose next steps.",
-                        "spans": []
-                      },
-                      "direction": "ltr"
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "list",
+		"primary": {
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Slate"
+			},
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"alignment": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "ship",
+									"type": "Select"
+								}
+							],
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "birthday",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Melted"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Labore culpa reprehenderit irure incididunt sunt aliquip ex voluptate tempor officia fugiat consequat. Ut sint elit cupidatat aliqua. Ea labore deserunt tempor mollit aliquip labore duis et aliqua."
+						}
+					}
+				]
+			},
+			"faqlist": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Agil mysig snöig äntligen väldigt, katt folköl?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Duis aliquip id laborum cillum velit occaecat. Exercitation est consequat magna duis eu elit consectetur elit pariatur laborum ex laborum."
+											}
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "API krita snärtig vante malt väder skog gran vimpel skog, trevlig cache?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Bord fika härlig agil cykel mysig snärtig lager boll, flinga gran. Moln ljus penna kanban, katt ren lugn, malt fjäril knäckebröd. Smörgås lagom skumöl moln fika skalbar boll systemöl snärtig väldigt julöl.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Snärtig härlig vante boll snöig flinga julöl, mysig?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Cykel kavel hund pipeline, lampa kräftskiva tomte whitespace sejdel serverless grönska. Ramp katt MVP bulle backlog skål och commit tomte stånka lagom; lugn moln. Älg godis kanel; trädgård grid gran bulle, lighthouse folköl det funkar på min maskin törstig.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Krita boll kämpa agil törstig snöig, folköl härlig blåbär?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Bord lager vante ljus björn tegel, moln ramp lagård mörkrädd skalbar bord. Stuga knäckebröd smörgås godis kaffe ljus mysig stånka kär. Smörgås cykel mellanöl, ale bira edge lugn.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "split",
+		"primary": {
+			"overline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"overline_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "FAQ"
+								}
+							],
+							[
+								"overline_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "none"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Curious how we work?",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "We know digital transformation can raise a lot of questions. Here you will find answers to everything from technical choices to our philosophy around client relationships.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Bud"
+			},
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"faqlist": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Can we hire a consultant as part of our team?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Yes, we offer resource support where our architects, project leads or developers can step in and strengthen your existing organization for shorter or longer periods.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Do you only work with Microsoft products?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "We work across a wide range of platforms and tailor the stack to the problem at hand.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Can you help us with AI and Microsoft Copilot?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Absolutely — we help teams adopt AI tooling responsibly and wire it into existing workflows.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "What does a typical implementation process look like?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Discovery, design, iterative delivery, and ongoing support — with close collaboration at every step.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "How do we kick off a collaboration?"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Reach out and we will set up a short intro call to understand your goals and propose next steps.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
 ]

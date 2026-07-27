@@ -5,6 +5,334 @@
   "description": "Link",
   "variations": [
     {
+      "id": "cards",
+      "name": "Cards",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Cards",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "default_value": "Bud"
+          }
+        },
+        "alignment": {
+          "type": "Boolean",
+          "config": {
+            "label": "Center Text",
+            "placeholder_false": "Text is Left-Aligned",
+            "placeholder_true": "Text is Centered",
+            "default_value": true
+          }
+        },
+        "overline": {
+          "type": "Group",
+          "config": {
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              },
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "Cards",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {
+                    "width": 1920,
+                    "height": 1080
+                  },
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "links": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": false,
+                  "allowText": false,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "grid",
+      "name": "Grid",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Grid",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "default_value": "Bud"
+          }
+        },
+        "alignment": {
+          "type": "Boolean",
+          "config": {
+            "label": "Center Text",
+            "placeholder_false": "Text is Left-Aligned",
+            "placeholder_true": "Text is Centered",
+            "default_value": true
+          }
+        },
+        "overline": {
+          "type": "Group",
+          "config": {
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              },
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "circleGauge",
+                    "circleStar",
+                    "clock",
+                    "crown",
+                    "dog",
+                    "fileBadge",
+                    "fileText",
+                    "gem",
+                    "handshake",
+                    "headset",
+                    "hourglass",
+                    "houseHeart",
+                    "layers",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "mail",
+                    "moon",
+                    "moonStar",
+                    "mountainSnow",
+                    "phoneCall",
+                    "plane",
+                    "search",
+                    "ship",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "sun",
+                    "triangle",
+                    "trophy"
+                  ],
+                  "default_value": "none"
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "link_source": {
+          "type": "Select",
+          "config": {
+            "label": "Link Source",
+            "placeholder": "",
+            "options": ["All Producers", "Manual Links"],
+            "default_value": "All Producers"
+          }
+        },
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "Cards",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {
+                    "width": 1920,
+                    "height": 1080
+                  },
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "links": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": false,
+                  "allowText": false,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
       "id": "quick",
       "name": "Quick",
       "docURL": "...",
@@ -26,8 +354,8 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "default_value": "Bud"
           }
         },
         "alignment": {
@@ -134,11 +462,11 @@
       "items": {}
     },
     {
-      "id": "grid",
-      "name": "Grid",
+      "id": "tiles",
+      "name": "Tiles",
       "docURL": "...",
       "version": "initial",
-      "description": "Grid",
+      "description": "Tiles",
       "imageUrl": "",
       "primary": {
         "remove_top_padding": {
@@ -155,8 +483,8 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "default_value": "Bud"
           }
         },
         "alignment": {
@@ -286,170 +614,7 @@
                   "placeholder": "",
                   "select": null,
                   "allowTargetBlank": false,
-                  "allowText": true,
-                  "repeat": false
-                }
-              }
-            }
-          }
-        }
-      },
-      "items": {}
-    },
-    {
-      "id": "cards",
-      "name": "Cards",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Cards",
-      "imageUrl": "",
-      "primary": {
-        "remove_top_padding": {
-          "type": "Boolean",
-          "config": {
-            "label": "Remove Top Padding",
-            "placeholder_false": "Keep Padding",
-            "placeholder_true": "Padding is Removed",
-            "default_value": false
-          }
-        },
-        "section_theme": {
-          "type": "Select",
-          "config": {
-            "label": "Section Theme",
-            "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
-          }
-        },
-        "alignment": {
-          "type": "Boolean",
-          "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
-            "default_value": true
-          }
-        },
-        "overline": {
-          "type": "Group",
-          "config": {
-            "label": "Overline",
-            "repeat": false,
-            "fields": {
-              "overline_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Overline Text",
-                  "placeholder": ""
-                }
-              },
-              "overline_icon": {
-                "type": "Select",
-                "config": {
-                  "label": "Overline Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "circleGauge",
-                    "circleStar",
-                    "clock",
-                    "crown",
-                    "dog",
-                    "fileBadge",
-                    "fileText",
-                    "gem",
-                    "handshake",
-                    "headset",
-                    "hourglass",
-                    "houseHeart",
-                    "layers",
-                    "lock",
-                    "lockKeyhole",
-                    "lockKeyholeOpen",
-                    "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
-                    "phoneCall",
-                    "plane",
-                    "search",
-                    "ship",
-                    "shieldCheck",
-                    "shieldEllipsis",
-                    "sun",
-                    "triangle",
-                    "trophy"
-                  ],
-                  "default_value": "none"
-                }
-              }
-            }
-          }
-        },
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
-          }
-        },
-        "cards": {
-          "type": "Group",
-          "config": {
-            "label": "Cards",
-            "repeat": true,
-            "fields": {
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {
-                    "width": 1920,
-                    "height": 1080
-                  },
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
-              "description": {
-                "type": "Text",
-                "config": {
-                  "label": "Description",
-                  "placeholder": ""
-                }
-              },
-              "links": {
-                "type": "Link",
-                "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null,
-                  "allowTargetBlank": false,
-                  "allowText": true,
+                  "allowText": false,
                   "repeat": false
                 }
               }

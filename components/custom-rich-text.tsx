@@ -5,10 +5,11 @@ import { components } from "@/components/rich-text/rich-text-components";
 import { cn } from "@/lib/utils";
 
 const proseThemeClass: Record<string, string> = {
-  Ocean: "text-ink-dim",
-  Sunrise: "prose-accent text-accent-ink-dim",
-  Night: "prose-night text-ink-flip",
-  Dawn: "prose-dawn text-accent-ink-flip",
+  Bud: "text-ink-dim",
+  Leaf: "text-ink-dim",
+  Brand: "prose-flip text-ink-flip",
+  Dust: "prose-spot text-spot-ink-dim",
+  Slate: "prose-spot-flip text-spot-ink-flip",
 };
 
 interface CustomRichTextProps {
@@ -18,7 +19,7 @@ interface CustomRichTextProps {
   sectionTheme?: string;
 }
 
-export function CustomRichText({ field, className, inheritSize, sectionTheme = "Ocean" }: CustomRichTextProps) {
+export function CustomRichText({ field, className, inheritSize, sectionTheme = "Bud" }: CustomRichTextProps) {
   return (
     <div className={cn("prose", proseThemeClass[sectionTheme], inheritSize && "prose-inherit-size", className)}>
       <PrismicRichText field={field} components={components} />

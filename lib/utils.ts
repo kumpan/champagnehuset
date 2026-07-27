@@ -1,7 +1,17 @@
 import { type GroupField, isFilled, type LinkField, type RichTextField } from "@prismicio/client";
 import type { ClassValue } from "clsx";
 import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+// Teach tailwind-merge our custom numeric radius scale (see --radius-* in globals.css),
+// otherwise it can't detect rounded-* conflicts and leaves duplicate classes in place.
+const twMerge = extendTailwindMerge({
+  extend: {
+    theme: {
+      radius: ["0", "1", "1_5", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+    },
+  },
+});
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

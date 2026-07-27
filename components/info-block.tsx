@@ -21,7 +21,7 @@ export function InfoBlock({ overline_text, overline_icon, rich_text, sectionThem
   const Icon = overline_icon && isIconName(overline_icon) ? iconMap[overline_icon] : null;
 
   return (
-    <div className={cn("rounded-5 bg-fill-raised p-4", className)}>
+    <div className={cn("rounded-1 bg-fill-raised p-4 md:rounded-2", className)}>
       {overline_text && (
         <Overline className="mb-3">
           {Icon && <Icon />}

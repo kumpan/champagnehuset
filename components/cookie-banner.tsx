@@ -7,10 +7,7 @@ import { Button } from "@/components/button";
 import { useCookieBanner } from "@/components/cookie-banner-context";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { Switch } from "@/components/switch";
-import type {
-  CookieBannerDocument,
-  CookieBannerDocumentDataCookieTypesItem,
-} from "@/prismicio-types";
+import type { CookieBannerDocument, CookieBannerDocumentDataCookieTypesItem } from "@/prismicio-types";
 
 // ============================================================================
 // Types
@@ -19,11 +16,7 @@ import type {
 // Extend Window interface for gtag
 declare global {
   interface Window {
-    gtag: (
-      command: "consent" | "config" | "js",
-      action: string,
-      parameters?: Record<string, string | boolean>,
-    ) => void;
+    gtag: (command: "consent" | "config" | "js", action: string, parameters?: Record<string, string | boolean>) => void;
     dataLayer: Record<string, unknown>[];
   }
 }
@@ -43,17 +36,11 @@ interface CookiePreferences {
 // Component
 // ============================================================================
 
-export function CookieBanner({
-  prismicData,
-}: {
-  prismicData: CookieBannerDocument;
-}) {
+export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocument }) {
   // --- State ---------------------------------------------------------------
   const { isVisible, hideCookieBanner } = useCookieBanner();
   const [showCustomize, setShowCustomize] = useState(false);
-  const [expandedCookies, setExpandedCookies] = useState<Set<string>>(
-    new Set(),
-  );
+  const [expandedCookies, setExpandedCookies] = useState<Set<string>>(new Set());
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true,
     analytics_storage: false,
@@ -87,13 +74,9 @@ export function CookieBanner({
         ad_storage: prefs.ad_storage ? "granted" : "denied",
         ad_user_data: prefs.ad_user_data ? "granted" : "denied",
         ad_personalization: prefs.ad_personalization ? "granted" : "denied",
-        functionality_storage: prefs.functionality_storage
-          ? "granted"
-          : "denied",
+        functionality_storage: prefs.functionality_storage ? "granted" : "denied",
         security_storage: prefs.security_storage ? "granted" : "denied",
-        personalization_storage: prefs.personalization_storage
-          ? "granted"
-          : "denied",
+        personalization_storage: prefs.personalization_storage ? "granted" : "denied",
       });
       // Push consent event to dataLayer for GTM triggers
       window.dataLayer = window.dataLayer || [];
@@ -232,28 +215,15 @@ export function CookieBanner({
                     </div>
 
                     <div className="flex flex-col gap-2 md:flex-row">
-                      <Button
-                        variant="outline"
-                        onClick={handleCustomizePreferences}
-                        className="order-3 md:order-1"
-                      >
+                      <Button variant="outline" onClick={handleCustomizePreferences} className="order-3 md:order-1">
                         <Settings className="size-4" />
-                        {prismicData.data.customize_label ||
-                          "Customize preferences"}
+                        {prismicData.data.customize_label || "Customize preferences"}
                       </Button>
-                      <Button
-                        onClick={handleAcceptNecessaryOnly}
-                        className="order-2 md:ml-auto"
-                      >
-                        {prismicData.data.accept_necessary_label ||
-                          "Accept necessary"}
+                      <Button onClick={handleAcceptNecessaryOnly} className="order-2 md:ml-auto">
+                        {prismicData.data.accept_necessary_label || "Accept necessary"}
                       </Button>
-                      <Button
-                        onClick={handleAcceptAll}
-                        className="order-1 md:order-3"
-                      >
-                        {prismicData.data.accept_all_label ||
-                          "Accept all cookies"}
+                      <Button onClick={handleAcceptAll} className="order-1 md:order-3">
+                        {prismicData.data.accept_all_label || "Accept all cookies"}
                       </Button>
                     </div>
                   </div>
@@ -263,8 +233,7 @@ export function CookieBanner({
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <h4 className="mt-0.5 text-lg">
-                          {prismicData.data.customize_label ||
-                            "Customize Cookie Preferences"}
+                          {prismicData.data.customize_label || "Customize Cookie Preferences"}
                         </h4>
                       </div>
                     </div>
@@ -272,10 +241,7 @@ export function CookieBanner({
                     <div className="space-y-1 overflow-hidden">
                       {/* Dynamic cookie types from CMS */}
                       {prismicData.data.cookie_types?.map(
-                        (
-                          cookieType: CookieBannerDocumentDataCookieTypesItem,
-                          index: number,
-                        ) => {
+                        (cookieType: CookieBannerDocumentDataCookieTypesItem, index: number) => {
                           const title = cookieType.title || "";
                           const cookieIds = (cookieType.cookie_id || "")
                             .split(",")
@@ -283,9 +249,7 @@ export function CookieBanner({
                             .filter(Boolean);
 
                           // Helper function to get all preference keys for this cookie type
-                          const getPreferenceKeys = (
-                            ids: string[],
-                          ): (keyof CookiePreferences)[] => {
+                          const getPreferenceKeys = (ids: string[]): (keyof CookiePreferences)[] => {
                             const keys: (keyof CookiePreferences)[] = [];
                             ids.forEach((id) => {
                               switch (id) {
@@ -329,25 +293,17 @@ export function CookieBanner({
                           if (preferenceKeys.length === 0) return null;
 
                           // Check if all preference keys are enabled (for switch state)
-                          const allEnabled = preferenceKeys.every(
-                            (key) => preferences[key],
-                          );
+                          const allEnabled = preferenceKeys.every((key) => preferences[key]);
                           const isDisabled = cookieType.checked_and_disabled;
-                          const cookieId =
-                            cookieType.cookie_id || `cookie-type-${index}`;
+                          const cookieId = cookieType.cookie_id || `cookie-type-${index}`;
                           const isExpanded = expandedCookies.has(cookieId);
 
                           return (
-                            <div
-                              key={cookieId}
-                              className="border-fill-raised not-last:border-b"
-                            >
+                            <div key={cookieId} className="border-fill-raised not-last:border-b">
                               <div className="flex items-center justify-between gap-4">
                                 <button
                                   type="button"
-                                  onClick={() =>
-                                    toggleCookieExpansion(cookieId)
-                                  }
+                                  onClick={() => toggleCookieExpansion(cookieId)}
                                   className="flex flex-1 cursor-pointer items-center gap-1.5 py-4 text-left"
                                   aria-expanded={isExpanded}
                                 >
@@ -361,9 +317,7 @@ export function CookieBanner({
                                   >
                                     <ChevronUp className="size-5.5" />
                                   </m.div>
-                                  <h5 className="font-medium text-lg">
-                                    {title}
-                                  </h5>
+                                  <h5 className="font-medium text-lg">{title}</h5>
                                 </button>
                                 <Switch
                                   checked={isDisabled ? true : allEnabled}
@@ -393,10 +347,7 @@ export function CookieBanner({
                                     className="overflow-hidden"
                                   >
                                     <div className="pb-4">
-                                      <CustomRichText
-                                        field={cookieType.description}
-                                        className="text-ink-dim"
-                                      />
+                                      <CustomRichText field={cookieType.description} className="text-ink-dim" />
                                     </div>
                                   </m.div>
                                 )}
@@ -408,19 +359,11 @@ export function CookieBanner({
                     </div>
 
                     <div className="flex flex-col gap-2 pt-2 md:flex-row md:justify-end">
-                      <Button
-                        variant="outline"
-                        onClick={() => setShowCustomize(false)}
-                        className="order-2 md:order-1"
-                      >
+                      <Button variant="outline" onClick={() => setShowCustomize(false)} className="order-2 md:order-1">
                         {prismicData.data.cancel_label || "Cancel"}
                       </Button>
-                      <Button
-                        onClick={handleSaveCustomPreferences}
-                        className="order-1 md:order-2"
-                      >
-                        {prismicData.data.save_preferences_label ||
-                          "Save preferences"}
+                      <Button onClick={handleSaveCustomPreferences} className="order-1 md:order-2">
+                        {prismicData.data.save_preferences_label || "Save preferences"}
                       </Button>
                     </div>
                   </div>

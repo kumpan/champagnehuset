@@ -26,18 +26,18 @@ interface InfoItemsProps {
 }
 
 const iconThemeClasses: Record<string, string> = {
-  Ocean: "text-ink-dim",
-  Sunrise: "text-accent-ink-dim",
+  Bud: "text-ink-dim",
+  Dust: "text-accent-ink-dim",
 };
 
 const cardThemeClasses: Record<string, string> = {
-  Ocean: "bg-fill text-ink",
-  Sunrise: "bg-accent-fill text-accent-ink",
+  Bud: "bg-fill text-ink",
+  Dust: "bg-accent-fill text-accent-ink",
 };
 
 const copyBtnThemeClasses: Record<string, string> = {
-  Ocean: "bg-brand text-brand-ink hover:bg-brand/90",
-  Sunrise: "bg-accent text-accent-ink-flip hover:bg-accent/90",
+  Bud: "bg-brand text-brand-ink hover:bg-brand/90",
+  Dust: "bg-accent text-accent-ink-flip hover:bg-accent/90",
 };
 
 function CopyButton({ value, className }: { value: string; className?: string }) {
@@ -96,7 +96,7 @@ function InfoItemContent({ icon, label, value, theme }: InfoItemData) {
   return (
     <>
       {Icon && (
-        <div className={cn("relative shrink-0", iconThemeClasses[theme || "Ocean"])}>
+        <div className={cn("relative shrink-0", iconThemeClasses[theme || "Bud"])}>
           <Icon className="size-8 md:size-11" />
         </div>
       )}
@@ -108,7 +108,7 @@ function InfoItemContent({ icon, label, value, theme }: InfoItemData) {
   );
 }
 
-export function InfoItems({ items, theme = "Ocean", className, itemClassName }: InfoItemsProps) {
+export function InfoItems({ items, theme = "Bud", className, itemClassName }: InfoItemsProps) {
   return (
     <div className={cn("flex flex-col gap-1 md:gap-2", className)}>
       {items.map((item, index) => {

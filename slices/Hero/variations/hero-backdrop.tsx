@@ -1,5 +1,3 @@
-"use client";
-
 import { type Content, isFilled } from "@prismicio/client";
 
 import { BreadcrumbNav } from "@/components/breadcrumb";
@@ -18,6 +16,10 @@ export function HeroBackdrop({ slice, context }: Props) {
   const { image, video } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
+  // With media, the image supplies the surface — force the dark Slate theme so text,
+  // buttons and selection flip to light automatically. Without media, honour the
+  // editor's chosen theme, exactly like HeroStack.
+  const theme = hasMedia ? "Slate" : section_theme;
 
   const breadcrumbs = context?.breadcrumbs;
 
@@ -25,57 +27,38 @@ export function HeroBackdrop({ slice, context }: Props) {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      sectionTheme={theme}
       className={cn(
-        hasIntroContent && "items-center justify-center",
-        "pt-21 md:pt-24 lg:pt-26",
-        "border-t-0",
-        "isolate",
+        "relative isolate flex flex-col justify-end overflow-hidden border-t-0",
+        "min-h-[34rem] pt-24 pb-12 md:min-h-[42rem] md:pt-28 md:pb-16 lg:min-h-[50rem] lg:pt-32",
       )}
-      sectionTheme={section_theme}
     >
-      <Container>
-        <div
-          className={cn(
-            "relative flex h-full 3xl:min-h-224 min-h-104 flex-col justify-end overflow-hidden rounded-5 px-4 py-4 md:min-h-144 md:px-16 md:py-16 lg:aspect-video",
-            hasMedia && "min-h-128",
-            !hasMedia &&
-              {
-                Ocean: "bg-fill-raised text-ink-flip",
-                Sunrise: "bg-accent-fill-raised text-accent-ink-flip",
-              }[section_theme],
-            alignment ? "items-center" : "items-start",
-          )}
-        >
-          {hasMedia && (
-            <div className="pointer-events-none absolute inset-0 bg-fill-dark" aria-hidden>
-              {image && isFilled.image(image) && (
-                <div className="relative h-full w-full">
-                  <CustomMedia
-                    imageField={image}
-                    videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
-                    className="h-full w-full"
-                    preload
-                    sectionTheme={section_theme
-                    thumbnail="horizontal md:main"
-                  />
-                </div>
-              )}
+      {hasMedia && (
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <CustomMedia
+            imageField={image && isFilled.image(image) ? image : undefined}
+            videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
+            className="h-full w-full rounded-none"
+            preload
+            sectionTheme="Slate"
+            thumbnail="horizontal md:main"
+          />
 
-              {/* Background Fade */}
-              {hasIntroContent && (
-                <>
-                  <div className="absolute top-64 right-0 bottom-0 left-0 bg-linear-to-t from-brand/75 to-brand/0 mix-blend-overlay" />
-                  <div className="absolute top-64 right-0 bottom-0 left-0 bg-linear-to-t from-brand/5 to-brand/0" />
-                  <div className="absolute top-48 right-0 bottom-0 left-0 bg-linear-to-t from-fill-dark/80 to-fill-dark/0" />
-                </>
-              )}
-            </div>
-          )}
+          {/* Bottom fade — layered like custom-media (blur → overlay mix → fade), spot-fill-dark */}
+          <div className="absolute inset-x-0 top-1/3 bottom-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black,black_30%,transparent)]" />
+          <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/65 to-spot-fill-dark/0 mix-blend-overlay" />
+          <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/90 via-spot-fill-dark/40 to-spot-fill-dark/0" />
+        </div>
+      )}
+
+      <Container className="relative flex w-full flex-col justify-end">
+        <div className={cn("flex w-full max-w-[50rem] flex-col", alignment && "mx-auto items-center")}>
           {breadcrumbs && breadcrumbs.length > 1 && (
             <BreadcrumbNav
               items={breadcrumbs}
               colorMode={hasMedia ? "light" : "dark"}
-              className="relative mb-3 md:mb-4"
+              sectionTheme={hasMedia ? "Dust" : section_theme}
+              className={cn("mb-3 md:mb-4", alignment && "justify-center")}
             />
           )}
           {hasIntroContent && (
@@ -84,11 +67,10 @@ export function HeroBackdrop({ slice, context }: Props) {
               description={description}
               buttons={buttons}
               align={alignment ? "center" : "left"}
-              sectionTheme={hasMedia ? "Night" : section_theme}
-              className="relative w-full"
+              sectionTheme={theme}
+              className="w-full"
               titleMaxWidth={false}
-              textBalance={true}
-              buttonVariant={hasMedia ? "secondary" : "default"}
+              textBalance
             />
           )}
         </div>

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "next-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "next-dev-auto",
+      "runtimeExecutable": "env",
+      "runtimeArgs": ["NEXT_DIST_DIR=.next-auto", "npx", "next", "dev"],
+      "autoPort": true
+    }
+  ]
+}

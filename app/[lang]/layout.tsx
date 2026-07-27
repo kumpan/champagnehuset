@@ -4,6 +4,7 @@ import { IBM_Plex_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { CookieBanner } from "@/components/cookie-banner";
 import { CookieBannerProvider } from "@/components/cookie-banner-context";
+import { Footer } from "@/components/footer";
 import { MotionProvider } from "@/components/motion-provider";
 import { Navbar } from "@/components/navbar";
 import { OrganizationSchema } from "@/components/structured-data";
@@ -38,9 +39,10 @@ export default async function LocaleLayout({
 }) {
   const { lang } = await params;
 
-  const [navbarData, cookieBanner, locales, masterLocale] = await Promise.all([
+  const [navbarData, cookieBanner, footerData, locales, masterLocale] = await Promise.all([
     getSingleton<Content.NavbarDocument>("navbar"),
     getSingleton<Content.CookieBannerDocument>("cookie_banner"),
+    getSingleton<Content.FooterDocument>("footer"),
     getLocales(),
     getMasterLocale(),
   ]);
@@ -48,23 +50,18 @@ export default async function LocaleLayout({
   return (
     <html
       lang={lang}
-      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full text-ink antialiased bg-fill`}
+      className={`${thePortray.variable} ${ibmPlexSans.variable} h-full bg-fill text-ink antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col">
         {/* <GoogleTagManager /> */}
         <OrganizationSchema />
         <MotionProvider>
-          {navbarData && (
-            <Navbar
-              prismicData={navbarData}
-              locales={locales}
-              masterLocale={masterLocale}
-            />
-          )}
+          {navbarData && <Navbar prismicData={navbarData} locales={locales} masterLocale={masterLocale} />}
           <CookieBannerProvider>
             {children}
             {cookieBanner && <CookieBanner prismicData={cookieBanner} />}
+            {footerData && <Footer prismicData={footerData} />}
           </CookieBannerProvider>
         </MotionProvider>
       </body>

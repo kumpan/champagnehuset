@@ -1,0 +1,207 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "showcase",
+		"primary": {
+			"media": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+										"width": 4172,
+										"height": 4000
+									},
+									"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=0%2C436%2C4172%2C3129&w=1440&h=1080",
+									"width": 1440,
+									"height": 1080,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 436
+										},
+										"background": "transparent"
+									},
+									"alt": "know",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {
+										"square": {
+											"origin": {
+												"id": "square",
+												"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+												"width": 4160,
+												"height": 3120
+											},
+											"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?rect=520%2C0%2C3120%2C3120&w=1440&h=1440",
+											"width": 1440,
+											"height": 1440,
+											"edit": {
+												"zoom": 1,
+												"crop": {
+													"x": 520,
+													"y": 0
+												},
+												"background": "transparent"
+											},
+											"alt": "represent",
+											"credits": null
+										}
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3ODQ1NzM2MDd8MA&ixlib=rb-4.1.0&q=85&rect=0,1391,3709,2782&w=1440&h=1080",
+									"alt": "assorted sliced citrus fruits on brown wooden chopping board",
+									"origin": {
+										"id": "1CsaVdwfIew",
+										"url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3ODQ1NzM2MDd8MA&ixlib=rb-4.1.0&q=85",
+										"width": 3709,
+										"height": 5563
+									},
+									"width": 1440,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 1391
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {
+										"square": {
+											"provider": "imgix",
+											"url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3ODQ1NzM2MDd8MA&ixlib=rb-4.1.0&q=85&rect=0,927,3709,3709&w=1440&h=1440",
+											"alt": "assorted sliced citrus fruits on brown wooden chopping board",
+											"origin": {
+												"id": "1CsaVdwfIew",
+												"url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3ODQ1NzM2MDd8MA&ixlib=rb-4.1.0&q=85",
+												"width": 3709,
+												"height": 5563
+											},
+											"width": 1440,
+											"height": 1440,
+											"edit": {
+												"background": "transparent",
+												"zoom": 1,
+												"crop": {
+													"x": 0,
+													"y": 927
+												}
+											},
+											"credits": null
+										}
+									}
+								}
+							],
+							[
+								"filter",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "Bottom Right"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"filter",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "Bottom Right"
+								}
+							],
+							[
+								"image",
+								{
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1637181156153-bedd1098f8c1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8dmluZXlhcmR8ZW58MHx8fHwxNzg0NTM5OTA2fDA&ixlib=rb-4.1.0&q=85&rect=288,0,4608,3456&w=1440&h=1080",
+									"alt": "a vineyard with rows of vines and trees in the background",
+									"origin": {
+										"id": "zdbbjqfE-ZI",
+										"url": "https://images.unsplash.com/photo-1637181156153-bedd1098f8c1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8dmluZXlhcmR8ZW58MHx8fHwxNzg0NTM5OTA2fDA&ixlib=rb-4.1.0&q=85",
+										"width": 5184,
+										"height": 3456
+									},
+									"width": 1440,
+									"height": 1080,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 288,
+											"y": 0
+										}
+									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {
+										"square": {
+											"provider": "imgix",
+											"url": "https://images.unsplash.com/photo-1637181156153-bedd1098f8c1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8dmluZXlhcmR8ZW58MHx8fHwxNzg0NTM5OTA2fDA&ixlib=rb-4.1.0&q=85&rect=864,0,3456,3456&w=1440&h=1440",
+											"alt": "a vineyard with rows of vines and trees in the background",
+											"origin": {
+												"id": "zdbbjqfE-ZI",
+												"url": "https://images.unsplash.com/photo-1637181156153-bedd1098f8c1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8dmluZXlhcmR8ZW58MHx8fHwxNzg0NTM5OTA2fDA&ixlib=rb-4.1.0&q=85",
+												"width": 5184,
+												"height": 3456
+											},
+											"width": 1440,
+											"height": 1440,
+											"edit": {
+												"background": "transparent",
+												"zoom": 1,
+												"crop": {
+													"x": 864,
+													"y": 0
+												}
+											},
+											"credits": null
+										}
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"remove_top_padding": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"section_theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Brand"
+			},
+			"caption": {
+				"__TYPE__": "FieldContent",
+				"value": "realize",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

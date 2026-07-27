@@ -26,8 +26,8 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "default_value": "Bud"
           }
         },
         "alignment": {
@@ -169,8 +169,8 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Ocean", "Sunrise"],
-            "default_value": "Ocean"
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "default_value": "Bud"
           }
         },
         "overline": {
