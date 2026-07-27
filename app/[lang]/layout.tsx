@@ -2,11 +2,13 @@ import type { Content } from "@prismicio/client";
 import { PrismicPreview } from "@prismicio/next";
 import { IBM_Plex_Sans } from "next/font/google";
 import localFont from "next/font/local";
+import { AgeGate } from "@/components/age-gate";
 import { CookieBanner } from "@/components/cookie-banner";
-import { CookieBannerProvider } from "@/components/cookie-banner-context";
 import { Footer } from "@/components/footer";
+import { ModalProvider } from "@/components/modal-context";
 import { MotionProvider } from "@/components/motion-provider";
 import { Navbar } from "@/components/navbar";
+import { NewsletterModal } from "@/components/newsletter-modal";
 import { OrganizationSchema } from "@/components/structured-data";
 import { getSingleton } from "@/lib/cms";
 import { getLocales, getMasterLocale } from "@/lib/locales";
@@ -39,13 +41,19 @@ export default async function LocaleLayout({
 }) {
   const { lang } = await params;
 
-  const [navbarData, cookieBanner, footerData, locales, masterLocale] = await Promise.all([
+  const [navbarData, cookieBanner, ageGate, newsletter, footerData, locales, masterLocale] = await Promise.all([
     getSingleton<Content.NavbarDocument>("navbar"),
     getSingleton<Content.CookieBannerDocument>("cookie_banner"),
+    getSingleton<Content.AgeGateDocument>("age_gate"),
+    getSingleton<Content.NewsletterDocument>("newsletter"),
     getSingleton<Content.FooterDocument>("footer"),
     getLocales(),
     getMasterLocale(),
   ]);
+
+  const newsletterEnabled = !!newsletter?.data.enabled;
+  const newsletterDelaySeconds =
+    newsletter?.data.delay_seconds && newsletter.data.delay_seconds > 0 ? newsletter.data.delay_seconds : 45;
 
   return (
     <html
@@ -57,12 +65,19 @@ export default async function LocaleLayout({
         {/* <GoogleTagManager /> */}
         <OrganizationSchema />
         <MotionProvider>
-          {navbarData && <Navbar prismicData={navbarData} locales={locales} masterLocale={masterLocale} />}
-          <CookieBannerProvider>
+          <ModalProvider
+            localeIds={locales.map((l) => l.id)}
+            ageGateEnabled={!!ageGate}
+            newsletterEnabled={newsletterEnabled}
+            newsletterDelaySeconds={newsletterDelaySeconds}
+          >
+            {navbarData && <Navbar prismicData={navbarData} locales={locales} masterLocale={masterLocale} />}
             {children}
             {cookieBanner && <CookieBanner prismicData={cookieBanner} />}
+            {ageGate && <AgeGate prismicData={ageGate} />}
+            {newsletter && <NewsletterModal prismicData={newsletter} />}
             {footerData && <Footer prismicData={footerData} />}
-          </CookieBannerProvider>
+          </ModalProvider>
         </MotionProvider>
       </body>
       <PrismicPreview repositoryName={repositoryName} />
