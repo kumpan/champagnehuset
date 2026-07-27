@@ -1,5 +1,5 @@
 import type * as prismic from "@prismicio/client";
-import { asLink } from "@prismicio/client";
+import { asLink, NotFoundError } from "@prismicio/client";
 import { createClient } from "@/prismicio";
 
 export type RedirectEntry = {
@@ -64,7 +64,8 @@ export async function getRedirects(): Promise<Record<string, RedirectEntry>> {
 
     return map;
   } catch (error) {
-    console.error("[redirects] Failed to fetch from Prismic:", error);
+    if (error instanceof NotFoundError) return {};
+    console.error("[redirects] Failed to reirect documents fetch from Prismic:", error);
     return {};
   }
 }
