@@ -30,10 +30,7 @@
         "config": {
           "label": "Logo Color",
           "placeholder": "",
-          "options": [
-            "System Can Override the Logo Color",
-            "Use Original Logo Color"
-          ],
+          "options": ["System Can Override the Logo Color", "Use Original Logo Color"],
           "default_value": "System Can Override the Logo Color"
         }
       },

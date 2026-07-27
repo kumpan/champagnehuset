@@ -85,17 +85,7 @@
         "config": {
           "label": "Volume",
           "placeholder": "",
-          "options": [
-            "187 ml",
-            "375 ml",
-            "750 ml",
-            "1,5 L",
-            "3 L",
-            "6 L",
-            "9 L",
-            "12 L",
-            "15 L"
-          ]
+          "options": ["187 ml", "375 ml", "750 ml", "1,5 L", "3 L", "6 L", "9 L", "12 L", "15 L"]
         }
       },
       "product_grapes": {
@@ -110,15 +100,7 @@
         "config": {
           "label": "Dosage Level",
           "placeholder": "",
-          "options": [
-            "Brut Nature",
-            "Extra Brut",
-            "Brut",
-            "Extra Sec",
-            "Sec",
-            "Demi-Sec",
-            "Doux"
-          ]
+          "options": ["Brut Nature", "Extra Brut", "Brut", "Extra Sec", "Sec", "Demi-Sec", "Doux"]
         }
       },
       "product_dosage_grams": {
@@ -147,13 +129,7 @@
         "config": {
           "label": "Region",
           "placeholder": "",
-          "options": [
-            "Côte des Blancs",
-            "Montagne de Reims",
-            "Vallée de la Marne",
-            "Côte des Bar",
-            "Côte de Sézanne"
-          ]
+          "options": ["Côte des Blancs", "Montagne de Reims", "Vallée de la Marne", "Côte des Bar", "Côte de Sézanne"]
         }
       },
       "product_cru": {
@@ -169,13 +145,7 @@
         "config": {
           "label": "Style",
           "placeholder": "",
-          "options": [
-            "Blanc de Blancs",
-            "Blanc de Noirs",
-            "Rosé",
-            "Assemblage",
-            "Special Club"
-          ]
+          "options": ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Special Club"]
         }
       },
       "product_special_club": {

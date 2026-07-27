@@ -24,11 +24,13 @@
  */
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import * as prismic from "@prismicio/client";
-import { REPO, TAG, buildProductData, fetchBottleAssets, fillTestDefaults, richText, compact } from "./lib.mjs";
+import { buildProductData, compact, fetchBottleAssets, fillTestDefaults, REPO, richText, TAG } from "./lib.mjs";
 
 const writeToken = process.env.PRISMIC_WRITE_TOKEN;
 if (!writeToken) {
-  console.error("Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/migrate.mjs");
+  console.error(
+    "Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/migrate.mjs",
+  );
   process.exit(1);
 }
 

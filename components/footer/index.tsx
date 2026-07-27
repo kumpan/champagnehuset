@@ -84,7 +84,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
       <Container className="flex flex-col gap-12 md:gap-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-16 2xl:gap-32">
           {/* Brand block */}
-          <div className="flex max-w-144 lg:max-w-104 xl:max-w-128 flex-col items-start gap-6">
+          <div className="flex max-w-144 flex-col items-start gap-6 lg:max-w-104 xl:max-w-128">
             {logoNode}
 
             {isFilled.richText(call_to_action_text) && (
@@ -127,7 +127,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
           {links.length > 0 && (
             <nav
               aria-label="Footer"
-              className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3 md:gap-x-10 lg:gap-x-8 xl:gap-x-10 2xl:gap-12 w-full"
+              className="grid w-full grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3 md:gap-x-10 lg:gap-x-8 xl:gap-x-10 2xl:gap-12"
             >
               {links.map((group, index) => {
                 const groupLinks = toArray(group.link).filter((link) => isFilled.link(link));

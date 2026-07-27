@@ -49,7 +49,7 @@ export function LinkCards({ slice }: Props) {
            */
           <ul
             className={cn(
-              "-mx-4 flex snap-x snap-mandatory list-none gap-3 overflow-x-auto px-4 scroll-pl-4 md:-mx-6 md:px-6 md:scroll-pl-6",
+              "-mx-4 flex snap-x snap-mandatory scroll-pl-4 list-none gap-3 overflow-x-auto px-4 md:-mx-6 md:scroll-pl-6 md:px-6",
               "lg:mx-0 lg:grid lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0",
               "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
               gridColumns(cards.length),
@@ -78,16 +78,16 @@ export function LinkCards({ slice }: Props) {
                   </div>
 
                   <div className="relative flex items-start justify-between gap-3">
-                    <h3 className="font-primary text-lg font-medium! md:text-xl">{card.title}</h3>
+                    <h3 className="font-medium! font-primary text-lg md:text-xl">{card.title}</h3>
                     <ArrowRight className="size-7 shrink-0" />
                   </div>
 
-                  <div className="relative -mx-4 -mb-4 px-4 pb-4 pt-16 md:pt-20 md:-mx-5 md:-mb-5 md:px-5 md:pb-5">
+                  <div className="relative -mx-4 -mb-4 px-4 pt-16 pb-4 md:-mx-5 md:-mb-5 md:px-5 md:pt-20 md:pb-5">
                     {/* Bottom Fade, responsive height */}
                     <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />
-                    <p className="relative text-pretty leading-snug line-clamp-6">{card.description}</p>
+                    <p className="relative line-clamp-6 text-pretty leading-snug">{card.description}</p>
                   </div>
                 </PrismicNextLink>
               </li>

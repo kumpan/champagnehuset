@@ -23,7 +23,7 @@ const rowThemeClasses: Record<SectionTheme, string> = {
 };
 
 /** Divider between rows, mobile only — the filled rows carry their own edges. */
-const borderThemeClasses: Record<SectionTheme, string> = {
+const _borderThemeClasses: Record<SectionTheme, string> = {
   Bud: "border-ink/15",
   Leaf: "border-ink/20",
   Brand: "border-ink-flip/25",
@@ -94,7 +94,7 @@ export function LinkQuick({ slice }: Props) {
                 <PrismicNextLink
                   field={link}
                   className={cn(
-                    "group flex items-center justify-between gap-3 border-b border-current/20 px-1 py-4 text-sm transition-colors duration-300 ease-out",
+                    "group flex items-center justify-between gap-3 border-current/20 border-b px-1 py-4 text-sm transition-colors duration-300 ease-out",
                     "md:rounded-1 md:border-0 md:px-5 md:py-4 md:text-base",
                     rowThemeClasses[section_theme],
                   )}

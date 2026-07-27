@@ -166,21 +166,21 @@ export default function CustomMedia({
         {/* Filter */}
         <div
           className={cn(
-            "absolute inset-0 bg-linear-to-br from-0% to-65% from-yellow-600/0 to-yellow-600/0  mix-blend-overlay",
+            "absolute inset-0 bg-linear-to-br from-0% from-yellow-600/0 to-65% to-yellow-600/0 mix-blend-overlay",
             filterDirection,
             hasFilter ? "from-yellow-600/40" : "from-yellow-600/0",
           )}
         />
         <div
           className={cn(
-            "absolute inset-0 bg-linear-to-br from-0% to-65% from-spot-fill/0 to-spot-fill/0  mix-blend-overlay",
+            "absolute inset-0 bg-linear-to-br from-0% from-spot-fill/0 to-65% to-spot-fill/0 mix-blend-overlay",
             filterDirection,
             hasFilter ? "from-spot-fill/40" : "from-spot-fill/0",
           )}
         />
         <div
           className={cn(
-            "absolute inset-0 bg-linear-to-br from-0% to-65% from-yellow-900/0 to-yellow-900/0 ",
+            "absolute inset-0 bg-linear-to-br from-0% from-yellow-900/0 to-65% to-yellow-900/0",
             filterDirection,
             hasFilter ? "from-yellow-900/5" : "from-yellow-900/0",
           )}

@@ -43,9 +43,7 @@ export function ArticleCard({ article, sectionTheme, className }: ArticleCardPro
         {date && <span>{date}</span>}
       </div>
       <div className="flex flex-col gap-1">
-        <span className="line-clamp-2 text-balance font-medium text-xl leading-tight md:text-2xl">
-          {article_title}
-        </span>
+        <span className="line-clamp-2 text-balance font-medium text-xl leading-tight md:text-2xl">{article_title}</span>
         {article_description && <p className="line-clamp-2 text-base">{article_description}</p>}
       </div>
     </PrismicNextLink>

@@ -48,7 +48,7 @@ export function PersonCard({ employee, sectionTheme, className }: PersonCardProp
             {isFilled.keyText(employee_email) && (
               <a
                 href={`mailto:${employee_email}`}
-                className="font-medium underline underline-offset-2 transition-colors duration-200 ease-out hover:text-current/80 truncate"
+                className="truncate font-medium underline underline-offset-2 transition-colors duration-200 ease-out hover:text-current/80"
               >
                 {employee_email}
               </a>

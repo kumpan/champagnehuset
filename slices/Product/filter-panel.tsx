@@ -60,7 +60,7 @@ export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["avail
                   transition={{ duration: 0.3, ease: [0.5, 0, 0.1, 1] }}
                   className="overflow-hidden"
                 >
-                  <ul className="flex flex-col px-2 pt-2 pb-2 gap-1">
+                  <ul className="flex flex-col gap-1 px-2 pt-2 pb-2">
                     {group.options.map((option, index) => {
                       const isChecked = selection[group.id]?.includes(option.value) ?? false;
                       const optionId = `${panelId}-${group.id}-${index}`;
@@ -69,7 +69,7 @@ export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["avail
                           <label
                             htmlFor={optionId}
                             className={cn(
-                              "flex min-h-10 hover:bg-fill rounded-1 px-2 cursor-pointer items-center gap-2 transition-colors duration-200 ease-out",
+                              "flex min-h-10 cursor-pointer items-center gap-2 rounded-1 px-2 transition-colors duration-200 ease-out hover:bg-fill",
                               isChecked && "bg-fill hover:bg-fill",
                             )}
                           >

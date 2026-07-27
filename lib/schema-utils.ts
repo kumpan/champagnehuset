@@ -173,7 +173,10 @@ export function generateProductSchema(doc: Content.ProductDocument) {
     : undefined;
 
   const price = parsePrice(data.product_price);
-  const availability = resolveOfferAvailability(data.product_consumer_availability, data.product_restaurant_availability);
+  const availability = resolveOfferAvailability(
+    data.product_consumer_availability,
+    data.product_restaurant_availability,
+  );
   // Google requires a price inside an Offer, so only emit the Offer when there is
   // one. Without a price the Product is still valid structured data — it just is
   // not eligible for price/shopping rich results.

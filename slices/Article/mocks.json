@@ -1,164 +1,164 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "list",
-		"primary": {
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"value": "Bud",
-				"type": "Select"
-			},
-			"alignment": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "his",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Orbit"
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Dolore consequat veniam laborum mollit aliquip cillum sint ut culpa culpa eiusmod dolor laboris in. Pariatur laboris dolor consequat. Duis voluptate ea ad adipisicing tempor consectetur et fugiat exercitation excepteur sunt ea est id non."
-						}
-					}
-				]
-			},
-			"button": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "4d92494d-563e-49bb-858b-a27212c2a330",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "unhappy"
-									}
-								}
-							],
-							[
-								"icon_left",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "headset",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_right",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"featured_articles": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"article",
-								{
-									"key": "a5781275-fc7f-4263-9502-b9d89e014e22",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "DocumentLink",
-										"id": "mock_document_id"
-									}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "feature",
-		"primary": {
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Bud"
-			},
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"featured_articles": {
-				"__TYPE__": "GroupContentType",
-				"value": []
-			},
-			"link_label": {
-				"__TYPE__": "FieldContent",
-				"value": "Read More",
-				"type": "Text"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "list",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "his",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Orbit"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Dolore consequat veniam laborum mollit aliquip cillum sint ut culpa culpa eiusmod dolor laboris in. Pariatur laboris dolor consequat. Duis voluptate ea ad adipisicing tempor consectetur et fugiat exercitation excepteur sunt ea est id non."
+            }
+          }
+        ]
+      },
+      "button": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "4d92494d-563e-49bb-858b-a27212c2a330",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "http://twitter.com",
+                    "text": "unhappy"
+                  }
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "headset",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "featured_articles": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "article",
+                {
+                  "key": "a5781275-fc7f-4263-9502-b9d89e014e22",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "DocumentLink",
+                    "id": "mock_document_id"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "feature",
+    "primary": {
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Bud"
+      },
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "featured_articles": {
+        "__TYPE__": "GroupContentType",
+        "value": []
+      },
+      "link_label": {
+        "__TYPE__": "FieldContent",
+        "value": "Read More",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
 ]

@@ -22,13 +22,13 @@ import * as prismic from "@prismicio/client";
 import {
   ARTICLE_IMAGE_CONSTRAINT,
   ARTICLE_META_CONSTRAINT,
-  REPO,
-  TAG,
   compact,
   fetchArticleAssets,
   imageField,
   pickArticleImage,
+  REPO,
   randomDate,
+  TAG,
 } from "./lib.mjs";
 
 const writeToken = process.env.PRISMIC_WRITE_TOKEN;

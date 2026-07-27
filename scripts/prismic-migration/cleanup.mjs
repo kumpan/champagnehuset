@@ -13,7 +13,9 @@ const REPO = "champagnehuset";
 
 const writeToken = process.env.PRISMIC_WRITE_TOKEN;
 if (!writeToken) {
-  console.error("Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/cleanup.mjs");
+  console.error(
+    "Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/cleanup.mjs",
+  );
   process.exit(1);
 }
 

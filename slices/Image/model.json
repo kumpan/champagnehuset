@@ -26,13 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -47,12 +41,7 @@
                 "config": {
                   "label": "Filter",
                   "placeholder": "No Filter",
-                  "options": [
-                    "Top Left",
-                    "Top Right",
-                    "Bottom Left",
-                    "Bottom Right"
-                  ]
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
                 }
               },
               "image": {

@@ -93,11 +93,11 @@ export async function LinkGrid({ slice }: Props) {
                     {/* Hidden on mobile — the cards are too narrow to spare the width. */}
                     <ArrowRight className="hidden size-4 shrink-0 md:block" />
                   </div>
-                  <div className="px-1 md:px-2 pb-1 md:pb-2">
-                    <div className="rounded-1 overflow-hidden">
+                  <div className="px-1 pb-1 md:px-2 md:pb-2">
+                    <div className="overflow-hidden rounded-1">
                       <CustomMedia
                         imageField={item.image}
-                        className="aspect-[4/3] w-full rounded-0 object-contain group-hover:scale-103 duration-1000 ease-out"
+                        className="aspect-[4/3] w-full rounded-0 object-contain duration-1000 ease-out group-hover:scale-103"
                         sectionTheme={section_theme}
                       />
                     </div>
