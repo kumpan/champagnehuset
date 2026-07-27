@@ -10,7 +10,6 @@ import { producerNameOf } from "./search";
 type ProductCardProps = {
   product: ProductDocument;
   className?: string;
-  /** Eager-load + preload the image — pass for above-the-fold cards (the LCP candidates). */
   priority?: boolean;
 };
 
@@ -18,8 +17,6 @@ export function ProductCard({ product, className, priority = false }: ProductCar
   const { product_image, product_name, product_year } = product.data;
   // Requires fetchLinks: ["producer.producer_name"] on the query; renders without it otherwise.
   const producerName = producerNameOf(product);
-  // Fade the image in once its pixels have arrived instead of snapping.
-  // next/image fires onLoad for cached images too, so this never sticks at 0.
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -38,9 +35,9 @@ export function ProductCard({ product, className, priority = false }: ProductCar
         />
       </div>
       <div className="flex w-full flex-col gap-0.5">
-        {product_year && <span className="truncate text-ink-dim italic">{product_year}</span>}
-        <span className="truncate font-medium text-ink text-xl leading-tight">{product_name}</span>
-        {producerName && <span className="truncate text-ink-dim text-xl italic leading-tight">{producerName}</span>}
+        {product_year && <span className="truncate italic">{product_year}</span>}
+        <h4 className="truncate font-medium text-xl leading-tight">{product_name}</h4>
+        {producerName && <span className="truncate text-xl italic leading-tight">{producerName}</span>}
       </div>
     </PrismicNextLink>
   );
