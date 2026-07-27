@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-07-23T09:23:08.986Z",
+  "createdAt": "2026-07-24T06:50:42.086Z",
   "repository": "champagnehuset",
   "tag": "ai-import",
-  "note": "Documents created by migrate.mjs. The pre-existing producers and the 8 bottle-0X assets are NOT listed — cleanup must never touch them.",
+  "note": "Documents created by migrate scripts. Pre-existing producers, the Journalen page, and the media library assets are NOT listed — cleanup must never touch them.",
   "documents": [
     {
       "id": "amHTHREAACgAbkhr",
@@ -423,6 +423,156 @@
       "id": "amHTFBEAACsAbkhR",
       "type": "product",
       "uid": "charlier-fils-special-club-2006"
+    },
+    {
+      "id": "amMK-BEAACgAcD36",
+      "type": "article",
+      "uid": "blanc-de-blancs-i-fokus"
+    },
+    {
+      "id": "amMK9hEAACwAcD30",
+      "type": "article",
+      "uid": "releasekvall-argang"
+    },
+    {
+      "id": "amMK9BEAAC4AcD3u",
+      "type": "article",
+      "uid": "bubbel-och-ostron"
+    },
+    {
+      "id": "amMK8REAAC4AcD3p",
+      "type": "article",
+      "uid": "mot-odlarna"
+    },
+    {
+      "id": "amMK7xEAACcAcD3i",
+      "type": "article",
+      "uid": "magnum-under-sommarhimlen"
+    },
+    {
+      "id": "amMK7REAACgAcD3d",
+      "type": "article",
+      "uid": "julprovning-festliga-cuveer"
+    },
+    {
+      "id": "amMK6xEAACkAcD3W",
+      "type": "article",
+      "uid": "rose-i-tradgarden"
+    },
+    {
+      "id": "amMK6REAAC4AcD3R",
+      "type": "article",
+      "uid": "vertikalprovning-grand-cru"
+    },
+    {
+      "id": "amMK5xEAACoAcD3K",
+      "type": "article",
+      "uid": "nya-odlare-i-sortimentet"
+    },
+    {
+      "id": "amMK5REAACsAcD3E",
+      "type": "article",
+      "uid": "special-club-utokning"
+    },
+    {
+      "id": "amMK4xEAACcAcD2_",
+      "type": "article",
+      "uid": "ny-provningslokal"
+    },
+    {
+      "id": "amMK4BEAACsAcD24",
+      "type": "article",
+      "uid": "arets-skord-i-champagne"
+    },
+    {
+      "id": "amMK3hEAAC0AcD2z",
+      "type": "article",
+      "uid": "prismos-ny-hemsida"
+    },
+    {
+      "id": "amMK3BEAACwAcD2p",
+      "type": "article",
+      "uid": "samarbete-lokal-restaurang"
+    },
+    {
+      "id": "amMK2hEAACkAcD2j",
+      "type": "article",
+      "uid": "valj-ratt-till-maten"
+    },
+    {
+      "id": "amMK2BEAACwAcD2b",
+      "type": "article",
+      "uid": "dosagenivaer-forklarade"
+    },
+    {
+      "id": "amMK1hEAACcAcD2U",
+      "type": "article",
+      "uid": "grand-cru-vs-premier-cru"
+    },
+    {
+      "id": "amMK0xEAACgAcD2P",
+      "type": "article",
+      "uid": "servera-champagne-ratt"
+    },
+    {
+      "id": "amMK0REAACgAcD2I",
+      "type": "article",
+      "uid": "forvaring-nyborjarguide"
+    },
+    {
+      "id": "amMKzxEAACcAcD2C",
+      "type": "article",
+      "uid": "blanc-de-noirs-och-rose"
+    },
+    {
+      "id": "amMKzREAAC4AcD17",
+      "type": "article",
+      "uid": "las-etiketten"
+    },
+    {
+      "id": "amMKyxEAACcAcD12",
+      "type": "article",
+      "uid": "champagne-i-matlagning"
+    },
+    {
+      "id": "amMKyBEAAC4AcD1w",
+      "type": "article",
+      "uid": "kramig-chardonnay-cote-des-blancs"
+    },
+    {
+      "id": "amMKxhEAACwAcD1q",
+      "type": "article",
+      "uid": "kraftfull-pinot-montagne-de-reims"
+    },
+    {
+      "id": "amMKxBEAAC0AcD1k",
+      "type": "article",
+      "uid": "tre-mogna-argangar"
+    },
+    {
+      "id": "amMKwhEAAC4AcD1Z",
+      "type": "article",
+      "uid": "brut-nature-utan-dosage"
+    },
+    {
+      "id": "amMKwBEAACkAcD1T",
+      "type": "article",
+      "uid": "rose-smakprofil"
+    },
+    {
+      "id": "amMKvhEAACcAcD1M",
+      "type": "article",
+      "uid": "cote-des-bar-terroir"
+    },
+    {
+      "id": "amMKvBEAACoAcD1H",
+      "type": "article",
+      "uid": "sommar-aperitif"
+    },
+    {
+      "id": "amMKuREAAC0AcD1B",
+      "type": "article",
+      "uid": "vintervarmande-cuveer"
     }
   ]
 }

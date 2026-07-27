@@ -61,6 +61,42 @@ export function pickBottle(uid, assets) {
   return assets[hash(uid) % assets.length];
 }
 
+// --- Articles ------------------------------------------------------------
+
+/** The article type's Article Image (4:3) and Meta Image constraints. */
+export const ARTICLE_IMAGE_CONSTRAINT = { width: 1440, height: 1080 };
+export const ARTICLE_META_CONSTRAINT = { width: 2400, height: 1260 };
+
+/** Existing article-0X assets from the media library (reused, never re-uploaded). */
+export async function fetchArticleAssets(writeToken) {
+  const response = await fetch("https://asset-api.prismic.io/assets?limit=100&keyword=article", {
+    headers: { Authorization: `Bearer ${writeToken}`, repository: REPO },
+  });
+  if (!response.ok) throw new Error(`Asset API ${response.status}: ${await response.text()}`);
+  const assets = (await response.json()).items
+    .filter((asset) => /^article-\d+\.(png|jpe?g|webp)$/i.test(asset.filename))
+    .sort((a, b) => a.filename.localeCompare(b.filename));
+  if (assets.length === 0) throw new Error("No article-0X assets found in the media library");
+  return assets;
+}
+
+/** Deterministic random article image per uid (salted so it's independent of the date). */
+export function pickArticleImage(uid, assets) {
+  return assets[hash(`${uid}img`) % assets.length];
+}
+
+/**
+ * Deterministic "random" date per uid, as an ISO YYYY-MM-DD string.
+ * Spread across the window [from, to] so cards sort and read plausibly.
+ */
+export function randomDate(uid, from = "2024-08-01", to = "2026-07-20") {
+  const start = Date.parse(from);
+  const span = Date.parse(to) - start;
+  const day = 24 * 60 * 60 * 1000;
+  const offsetDays = hash(`${uid}date`) % Math.floor(span / day);
+  return new Date(start + offsetDays * day).toISOString().slice(0, 10);
+}
+
 export function richText(paragraphs) {
   return paragraphs.map((text) => ({ type: "paragraph", text, spans: [] }));
 }
