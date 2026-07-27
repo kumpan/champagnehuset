@@ -5,14 +5,14 @@ import { SITE_URL } from "@/lib/schema-config";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    template: "%s | Champagnehuset",
-    default: "Champagnehuset",
+    template: "%s | ChampagneHuset",
+    default: "ChampagneHuset",
   },
   description: "Små odlare, stora champagner. Handplockade champagner från självständiga odlare i Champagne.",
   openGraph: {
     title: {
-      template: "%s | Champagnehuset",
-      default: "Champagnehuset",
+      template: "%s | ChampagneHuset",
+      default: "ChampagneHuset",
     },
     type: "website",
     locale: "sv_SE",
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: {
-      template: "%s | Champagnehuset",
-      default: "Champagnehuset",
+      template: "%s | ChampagneHuset",
+      default: "ChampagneHuset",
     },
   },
 };

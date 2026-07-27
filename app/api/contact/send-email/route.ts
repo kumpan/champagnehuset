@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Consent is required" }, { status: 400 });
     }
 
-    // TODO: wire up the email provider for Champagnehuset (Resend recommended).
+    // TODO: wire up the email provider for ChampagneHuset (Resend recommended).
     // Inbox: info@champagnehuset.se
 
     console.log("Form submission:", { fields, fieldLabels });

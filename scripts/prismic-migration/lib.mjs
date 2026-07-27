@@ -164,7 +164,7 @@ export function buildProductData(product, producerRef, assets) {
     product_storage: product.storage,
     product_order_url: product.orderUrl ? { link_type: "Web", url: product.orderUrl, target: "_blank" } : undefined,
     product_description: product.description.length > 0 ? richText(product.description) : undefined,
-    meta_title: `${product.name} – Champagnehuset`,
+    meta_title: `${product.name} – ChampagneHuset`,
     meta_description: product.description[0]?.slice(0, 150),
   });
 }
