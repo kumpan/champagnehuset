@@ -48,20 +48,17 @@ export async function POST(req: NextRequest) {
     const normalized = email.trim().toLowerCase();
     const subscriberHash = createHash("md5").update(normalized).digest("hex");
 
-    const res = await fetch(
-      `https://${dc}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`,
-        },
-        body: JSON.stringify({
-          email_address: normalized,
-          status_if_new: "pending",
-        }),
+    const res = await fetch(`https://${dc}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`,
       },
-    );
+      body: JSON.stringify({
+        email_address: normalized,
+        status_if_new: "pending",
+      }),
+    });
 
     if (res.ok) {
       return NextResponse.json({ ok: true });
