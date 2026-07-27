@@ -1,0 +1,99 @@
+{
+  "format": "custom",
+  "id": "newsletter",
+  "label": "Newsletter Popup",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "enabled": {
+        "type": "Boolean",
+        "config": {
+          "label": "Enabled",
+          "placeholder_false": "Popup is Off",
+          "placeholder_true": "Popup is On",
+          "default_value": true
+        }
+      },
+      "delay_seconds": {
+        "type": "Number",
+        "config": {
+          "label": "Delay Seconds",
+          "placeholder": "45"
+        }
+      },
+      "tagline": {
+        "type": "Text",
+        "config": {
+          "label": "Tagline",
+          "placeholder": "Nyhetsbrev"
+        }
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "Bli en del av vår värld och få de senaste bubblande nyheterna direkt i din inkorg",
+          "allowTargetBlank": true,
+          "multi": "heading3,heading4"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "email_label": {
+        "type": "Text",
+        "config": {
+          "label": "Email Label",
+          "placeholder": "E-postadress"
+        }
+      },
+      "email_placeholder": {
+        "type": "Text",
+        "config": {
+          "label": "Email Placeholder",
+          "placeholder": "anna@foretag.se"
+        }
+      },
+      "button_label": {
+        "type": "Text",
+        "config": {
+          "label": "Button Label",
+          "placeholder": "Registrera"
+        }
+      },
+      "success_message": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Success Message",
+          "placeholder": "Tack! Kolla din inkorg för att bekräfta.",
+          "allowTargetBlank": true,
+          "multi": "paragraph,heading4,strong,em,hyperlink"
+        }
+      },
+      "consent_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Consent Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      }
+    }
+  }
+}
