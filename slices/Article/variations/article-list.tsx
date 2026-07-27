@@ -65,7 +65,7 @@ export async function ArticleList({ slice }: Props) {
     curated.length > 0
       ? curated
       : await client.getAllByType("article", {
-          orderings: [{ field: "document.first_publication_date", direction: "desc" }],
+          orderings: [{ field: "my.article.article_date", direction: "desc" }],
         });
 
   return (

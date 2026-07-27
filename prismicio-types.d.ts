@@ -97,15 +97,60 @@ interface ArticleDocumentData {
   page_title: prismic.KeyTextField;
 
   /**
+   * Article Title field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Shown on preview cards
+   * - **API ID Path**: article.article_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  article_title: prismic.KeyTextField;
+
+  /**
+   * Article Description field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Subtitle shown on preview cards
+   * - **API ID Path**: article.article_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  article_description: prismic.KeyTextField;
+
+  /**
+   * Article Image field in *Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.article_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  article_image: prismic.ImageField<never>;
+
+  /**
+   * Article Date field in *Article*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Falls back to publish date if empty
+   * - **API ID Path**: article.article_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  article_date: prismic.DateField;
+
+  /**
    * Tag field in *Article*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
+   * - **Default Value**: Event
    * - **API ID Path**: article.tag
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  tag: prismic.SelectField<"Event" | "News" | "Guide" | "Tasting">;
+  tag: prismic.SelectField<"Event" | "News" | "Guide" | "Tasting", "filled">;
 
   /**
    * Parent field in *Article*
@@ -6507,7 +6552,10 @@ export interface ProductSliceGridPrimary {
    * - **API ID Path**: product.grid.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Center Text field in *Product → Grid → Primary*
@@ -6571,6 +6619,29 @@ export interface ProductSliceGridPrimary {
   featured_products: prismic.GroupField<
     Simplify<ProductSliceGridPrimaryFeaturedProductsItem>
   >;
+
+  /**
+   * Only From Producer field in *Product → Grid → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.grid.primary.producer_filter
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  producer_filter: ContentRelationshipFieldWithData<
+    [{ id: "producer"; fields: ["producer_name"] }]
+  >;
+
+  /**
+   * Limit field in *Product → Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 4
+   * - **API ID Path**: product.grid.primary.product_limit
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  product_limit: prismic.SelectField<"4" | "8" | "No Limit", "filled">;
 }
 
 /**

@@ -44,8 +44,8 @@ export async function ArticleFeature({ slice }: Props) {
       <Container>
         <div className="flex flex-col">
           {articles.map((article) => {
-            const date = formatArticleDate(article.first_publication_date);
-            const { tag, page_title, meta_image } = article.data;
+            const { tag, article_title, article_image, article_date } = article.data;
+            const date = formatArticleDate(article_date ?? article.first_publication_date);
             return (
               <article
                 key={article.id}
@@ -58,7 +58,7 @@ export async function ArticleFeature({ slice }: Props) {
                   aria-hidden="true"
                 >
                   <PrismicNextImage
-                    field={meta_image}
+                    field={article_image}
                     className="aspect-3/2 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-103 md:aspect-5/4"
                     fallbackAlt=""
                   />
@@ -72,7 +72,7 @@ export async function ArticleFeature({ slice }: Props) {
                     </div>
                     <PrismicNextLink document={article}>
                       <h3 className="text-balance font-medium text-xl leading-tight md:font-normal md:font-primary md:text-4xl md:leading-[1.2] xl:text-5xl">
-                        {page_title}
+                        {article_title}
                       </h3>
                     </PrismicNextLink>
                   </div>

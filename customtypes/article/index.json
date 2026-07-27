@@ -20,11 +20,44 @@
           "placeholder": "Used for Breadcrumbs"
         }
       },
+      "article_title": {
+        "type": "Text",
+        "config": {
+          "label": "Article Title",
+          "placeholder": "Shown on preview cards"
+        }
+      },
+      "article_description": {
+        "type": "Text",
+        "config": {
+          "label": "Article Description",
+          "placeholder": "Subtitle shown on preview cards"
+        }
+      },
+      "article_image": {
+        "type": "Image",
+        "config": {
+          "label": "Article Image",
+          "constraint": {
+            "width": 1440,
+            "height": 1080
+          },
+          "thumbnails": []
+        }
+      },
+      "article_date": {
+        "type": "Date",
+        "config": {
+          "label": "Article Date",
+          "placeholder": "Falls back to publish date if empty"
+        }
+      },
       "tag": {
         "type": "Select",
         "config": {
           "label": "Tag",
-          "options": ["Event", "News", "Guide", "Tasting"]
+          "options": ["Event", "News", "Guide", "Tasting"],
+          "default_value": "Event"
         }
       },
       "parent": {

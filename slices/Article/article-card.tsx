@@ -22,8 +22,8 @@ type ArticleCardProps = {
 };
 
 export function ArticleCard({ article, sectionTheme, className }: ArticleCardProps) {
-  const { meta_image, meta_description, tag, page_title } = article.data;
-  const date = formatArticleDate(article.first_publication_date);
+  const { article_image, article_description, tag, article_title, article_date } = article.data;
+  const date = formatArticleDate(article_date ?? article.first_publication_date);
 
   return (
     <PrismicNextLink
@@ -32,7 +32,7 @@ export function ArticleCard({ article, sectionTheme, className }: ArticleCardPro
     >
       <div className="aspect-3/2 w-full overflow-hidden rounded-1">
         <PrismicNextImage
-          field={meta_image}
+          field={article_image}
           className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-103"
           fallbackAlt=""
         />
@@ -43,8 +43,10 @@ export function ArticleCard({ article, sectionTheme, className }: ArticleCardPro
         {date && <span>{date}</span>}
       </div>
       <div className="flex flex-col gap-1">
-        <span className="line-clamp-2 text-balance font-medium text-xl leading-tight md:text-2xl">{page_title}</span>
-        {meta_description && <p className="line-clamp-2 text-base">{meta_description}</p>}
+        <span className="line-clamp-2 text-balance font-medium text-xl leading-tight md:text-2xl">
+          {article_title}
+        </span>
+        {article_description && <p className="line-clamp-2 text-base">{article_description}</p>}
       </div>
     </PrismicNextLink>
   );
