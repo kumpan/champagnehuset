@@ -13,8 +13,8 @@ const PAGE_SIZE = 4;
 // Chip order follows the article `tag` field's option order.
 const TAG_ORDER = ["Event", "News", "Guide", "Tasting"] as const;
 
-// Active = the section's primary button surface; inactive = its secondary surface.
-// Mirrors the per-theme tokens in components/button.tsx so chips read as buttons in every theme.
+// Chips read as buttons: active = the theme's primary surface, inactive = its secondary.
+// Same per-theme tokens as button.tsx.
 const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string }> = {
   Bud: {
     active: "bg-brand text-brand-ink",
@@ -49,14 +49,14 @@ type ArticleGridProps = {
 export function ArticleGrid({ articles, sectionTheme, showPagination, showChips, className }: ArticleGridProps) {
   const reducedMotion = useReducedMotion();
   const gridRef = useRef<HTMLDivElement>(null);
-  // Latch: the cascade plays once the grid scrolls into view and stays "arrived",
-  // so later page/filter changes animate on mount instead of waiting for a scroll.
+  // once: true latches on first scroll-in, so later page/filter changes animate on mount
+  // instead of waiting for another scroll.
   const inView = useInView(gridRef, { once: true, amount: 0.15 });
 
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [page, setPage] = useState(1);
 
-  // Only tags actually present, in the canonical order — no empty chips.
+  // Only tags actually present, in canonical order, so no empty chips.
   const availableTags = useMemo(() => {
     const present = new Set(articles.map((article) => article.data.tag).filter(Boolean));
     return TAG_ORDER.filter((tag) => present.has(tag));

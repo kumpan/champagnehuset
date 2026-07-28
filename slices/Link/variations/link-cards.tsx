@@ -11,9 +11,9 @@ import type { LinkProps } from "..";
 type Props = LinkProps & { slice: Content.LinkSliceCards };
 
 /**
- * Three across on desktop, except for counts that divide evenly in two — two
- * and four look lopsided in a three-column grid, so they get their own row
- * shape. Everything else (1, 3, 5, 6, …) falls back to three.
+ * Three across on desktop, except counts that divide evenly in two: two and
+ * four look lopsided in a three-column grid, so they get their own row shape.
+ * Everything else (1, 3, 5, 6, …) falls back to three.
  */
 function gridColumns(count: number) {
   return count === 2 || count === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";

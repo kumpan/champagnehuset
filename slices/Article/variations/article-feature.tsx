@@ -12,7 +12,7 @@ import { formatArticleDate } from "../article-card";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceFeature };
 
-// TODO: placeholder — rough pass at the featured-rows layout, to be redone.
+// TODO: placeholder, rough pass at the featured-rows layout, to be redone.
 
 const dimThemeClasses = {
   Bud: "text-ink-dim",

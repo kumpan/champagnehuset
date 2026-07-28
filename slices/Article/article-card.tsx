@@ -3,8 +3,6 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 
-// TODO: placeholder — revisit once the article layout is finalized.
-
 export function formatArticleDate(date: string | null) {
   if (!date) return null;
   return new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short", year: "numeric" }).format(new Date(date));
@@ -15,8 +13,7 @@ type ArticleCardProps = {
   className?: string;
 };
 
-// Text color is inherited from the enclosing Section theme — the card stays theme-agnostic
-// so it renders correctly under every section_theme without a per-theme color map.
+// Text color comes from the section theme, so the card needs no per-theme map of its own.
 export function ArticleCard({ article, className }: ArticleCardProps) {
   const { article_image, article_description, tag, article_title, article_date } = article.data;
   const date = formatArticleDate(article_date ?? article.first_publication_date);

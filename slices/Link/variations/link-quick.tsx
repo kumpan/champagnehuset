@@ -22,7 +22,7 @@ const rowThemeClasses: Record<SectionTheme, string> = {
   Slate: "md:bg-spot-ink-flip/10 md:hover:bg-spot-ink-flip/20",
 };
 
-/** Divider between rows, mobile only — the filled rows carry their own edges. */
+/** Divider between rows, mobile only. Filled rows carry their own edges. */
 const _borderThemeClasses: Record<SectionTheme, string> = {
   Bud: "border-ink/15",
   Leaf: "border-ink/20",
@@ -32,7 +32,7 @@ const _borderThemeClasses: Record<SectionTheme, string> = {
 };
 
 /**
- * Desktop runs on a six-column grid where each link spans two — three per row.
+ * Desktop runs on a six-column grid where each link spans two, so three per row.
  * A row that would end short instead stretches its trailing links to fill the
  * remaining columns, so there is never a visible gap:
  *
@@ -87,10 +87,6 @@ export function LinkQuick({ slice }: Props) {
           <ul className={cn("grid list-none grid-cols-1 gap-0 md:grid-cols-2 md:gap-2", layout.grid)}>
             {links.map((link, index) => (
               <li key={`${index}-${link.text}`} className={layout.span(index)}>
-                {/*
-                 * Mobile reads as a divided list; from md up each link becomes its
-                 * own filled row, so the border is dropped in favour of a surface.
-                 */}
                 <PrismicNextLink
                   field={link}
                   className={cn(

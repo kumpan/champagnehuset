@@ -2,9 +2,9 @@ import { isFilled } from "@prismicio/client";
 import type { ProductDocument } from "@/prismicio-types";
 
 /**
- * Pure filter/search logic for the Product Search variation.
- * Everything is derived from the fetched products — an option no product
- * has never renders, and a group with zero options disappears entirely.
+ * Pure filter/search logic for the Product Search variation. Everything derives
+ * from the fetched products: an option no product has never renders, and a group
+ * with zero options disappears entirely.
  */
 
 export type FilterGroupId = "availability" | "producer" | "region" | "style" | "club" | "year" | "volume";
@@ -46,7 +46,7 @@ export function producerNameOf(product: ProductDocument): string | null {
   return isFilled.contentRelationship(producer) ? (producer.data?.producer_name ?? null) : null;
 }
 
-/** "187 ml" → 187, "1,5 L" → 1500 — lets volumes sort by size, not label. */
+/** "187 ml" → 187, "1,5 L" → 1500, so volumes sort by size, not label. */
 function volumeToMl(volume: string): number {
   const amount = Number.parseFloat(volume.replace(",", ".").replace(/[^\d.]/g, ""));
   return /l/i.test(volume) && !/ml/i.test(volume) ? amount * 1000 : amount;
@@ -157,7 +157,7 @@ export function normalizeText(text: string): string {
 }
 
 export type SearchDoc = {
-  /** Normalized product name — ranked highest. */
+  /** Normalized product name, ranked highest. */
   primary: string;
   primaryWords: string[];
   /** Normalized producer, region, style, grapes, dosage, article number, year. */

@@ -13,7 +13,7 @@ import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceGrid };
 
-/** The card itself — a label bar sitting above the image plate. */
+/** The card itself: a label bar sitting above the image plate. */
 const cardThemeClasses: Record<SectionTheme, string> = {
   Bud: "bg-fill-raised hover:bg-fill-raised/70",
   Leaf: "bg-fill hover:bg-fill/70",
@@ -23,9 +23,9 @@ const cardThemeClasses: Record<SectionTheme, string> = {
 };
 
 /**
- * Each card renders the same way whether it links to a manually-authored link
- * or a producer document — only the `PrismicNextLink` target differs, so we
- * normalize both sources into this shape and pass the right link prop below.
+ * Cards render the same whether they link to an authored link or a producer
+ * document; only the `PrismicNextLink` target differs. Both sources normalize
+ * into this shape.
  */
 type GridItem = {
   key: string;
@@ -90,7 +90,7 @@ export async function LinkGrid({ slice }: Props) {
                 >
                   <div className="flex items-center justify-between gap-2 px-3 py-2.5 md:px-4 md:py-3">
                     <span className="line-clamp-1 font-medium text-xs md:text-sm">{item.title}</span>
-                    {/* Hidden on mobile — the cards are too narrow to spare the width. */}
+                    {/* Hidden on mobile: cards are too narrow to spare the width. */}
                     <ArrowRight className="hidden size-4 shrink-0 md:block" />
                   </div>
                   <div className="px-1 pb-1 md:px-2 md:pb-2">

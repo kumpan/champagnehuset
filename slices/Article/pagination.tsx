@@ -3,7 +3,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// active mirrors the section's primary button, base its secondary — see components/button.tsx.
+// active = the theme's primary surface, base = its secondary. Same tokens as button.tsx.
 const pageThemeClasses = {
   Bud: {
     base: "bg-fill-raised text-ink hover:bg-brand/15",

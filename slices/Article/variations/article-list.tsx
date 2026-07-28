@@ -60,7 +60,7 @@ export async function ArticleList({ slice }: Props) {
   const tagFilter = filter_by_tag && filter_by_tag !== "All" ? filter_by_tag : null;
   const articles = tagFilter ? pool.filter((article) => article.data.tag === tagFilter) : pool;
 
-  // Chips are for the open feed — a fixed tag already narrows to one type, so hide them.
+  // Chips are for the open feed. A fixed tag already narrows to one type, so hide them.
   const showChips = Boolean(show_filter_chips) && !tagFilter;
 
   return (
