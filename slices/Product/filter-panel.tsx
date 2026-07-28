@@ -12,12 +12,12 @@ type FilterPanelProps = {
   groups: FilterGroup[];
   selection: FilterSelection;
   onToggle: (groupId: FilterGroupId, value: string) => void;
-  /** Groups expanded on first render — Tillgänglighet by default, to invite filtering. */
+  /** Groups expanded on first render. Tillgänglighet by default, to invite filtering. */
   defaultOpen?: FilterGroupId[];
 };
 
 export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["availability"] }: FilterPanelProps) {
-  // The panel renders twice (desktop sidebar + mobile tray) — ids must not collide.
+  // The panel renders twice (desktop sidebar + mobile tray), so ids must not collide.
   const panelId = useId();
   const [openGroups, setOpenGroups] = useState<FilterGroupId[]>(defaultOpen);
 

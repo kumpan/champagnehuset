@@ -4,18 +4,12 @@ import type { BreadcrumbItem } from "./breadcrumbs";
 import { formatAlcohol, formatDosage } from "./format";
 import { ORGANIZATION_CONFIG, SITE_URL } from "./schema-config";
 
-/**
- * Safely serialize JSON-LD to prevent XSS attacks.
- * Replaces < with unicode escape sequence.
- */
+/** Serialize JSON-LD, escaping `<` so it can't break out of the inline script (XSS). */
 export function safeJsonLd(schema: Record<string, unknown>): string {
   return JSON.stringify(schema).replace(/</g, "\\u003c");
 }
 
-/**
- * Generate Organization schema.
- * Use on every page for consistent brand identity in search results.
- */
+/** Organization schema, used on every page for a consistent brand identity in search. */
 export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -44,10 +38,7 @@ export function generateOrganizationSchema() {
   };
 }
 
-/**
- * Generate FAQPage schema from FAQ slice data.
- * Improves chances of showing in Google's FAQ rich results.
- */
+/** FAQPage schema from FAQ slice data, for Google's FAQ rich results. */
 export function generateFaqSchema(
   faqs: Array<{
     question: string | null | undefined;
@@ -72,10 +63,7 @@ export function generateFaqSchema(
   };
 }
 
-/**
- * Generate BreadcrumbList schema from a breadcrumb trail.
- * Skips trails with fewer than 2 items (just home — not useful as a breadcrumb).
- */
+/** BreadcrumbList schema. Skips trails under 2 items, since just home isn't useful. */
 export function generateBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]) {
   if (breadcrumbs.length < 2) return null;
 
@@ -91,10 +79,7 @@ export function generateBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]) {
   };
 }
 
-/**
- * Generate Article schema for article/blog documents.
- * Pulls headline/description from meta fields, dates from Prismic publication metadata.
- */
+/** Article schema. Headline/description from meta fields, dates from Prismic metadata. */
 export function generateArticleSchema(doc: Content.ArticleDocument) {
   const headline = doc.data.meta_title || doc.data.page_title || doc.uid;
   if (!headline) return null;
@@ -137,9 +122,9 @@ const CONSUMER_AVAILABILITY: Record<string, string> = {
 };
 
 /**
- * Resolve a single schema.org availability from the two channel selects.
- * The restaurant channel can keep a wine "in stock" even when the consumer
- * channel is sold out — mirroring `resolvePurchase` in the product detail slice.
+ * One schema.org availability from the two channel selects. The restaurant channel
+ * can keep a wine in stock even when the consumer channel is sold out, mirroring
+ * `resolvePurchase` in the product detail slice.
  */
 function resolveOfferAvailability(
   consumer: string | null | undefined,
@@ -154,10 +139,7 @@ function resolveOfferAvailability(
   return undefined;
 }
 
-/**
- * Generate Product schema (with an Offer) for product documents.
- * Powers price/availability rich results; brand is the linked producer.
- */
+/** Product schema with an Offer. Powers price/availability rich results; brand is the linked producer. */
 export function generateProductSchema(doc: Content.ProductDocument) {
   const data = doc.data;
   const name = data.product_name || data.meta_title || doc.uid;
@@ -177,9 +159,8 @@ export function generateProductSchema(doc: Content.ProductDocument) {
     data.product_consumer_availability,
     data.product_restaurant_availability,
   );
-  // Google requires a price inside an Offer, so only emit the Offer when there is
-  // one. Without a price the Product is still valid structured data — it just is
-  // not eligible for price/shopping rich results.
+  // Google needs a price inside an Offer, so only emit one when we have a price.
+  // Priceless Products are still valid schema, just not eligible for rich results.
   const offers = price
     ? {
         "@type": "Offer",

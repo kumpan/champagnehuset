@@ -65,7 +65,7 @@ export async function getRedirects(): Promise<Record<string, RedirectEntry>> {
     return map;
   } catch (error) {
     if (error instanceof NotFoundError) return {};
-    console.error("[redirects] Failed to reirect documents fetch from Prismic:", error);
+    console.error("[redirects] Failed to fetch redirect documents from Prismic:", error);
     return {};
   }
 }

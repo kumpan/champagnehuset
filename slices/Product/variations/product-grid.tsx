@@ -14,7 +14,7 @@ import { ProductCard } from "../product-card";
 
 type Props = ProductProps & { slice: Content.ProductSliceGrid };
 
-// Only what the card renders — skip fetching every product's slice zone.
+// Only what the card renders, so we skip every product's slice zone.
 const PRODUCT_FETCH = [
   "product.product_name",
   "product.product_image",
@@ -72,7 +72,7 @@ export async function ProductGrid({ slice }: Props) {
 
   let products: ProductDocument[];
   if (curated.length > 0) {
-    // Editorial order and count are intentional — the limit doesn't touch them.
+    // Editorial order and count are intentional, so the limit doesn't touch them.
     products = curated;
   } else {
     const producerId = isFilled.contentRelationship(producer_filter) ? producer_filter.id : null;

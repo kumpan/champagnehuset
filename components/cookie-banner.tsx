@@ -9,11 +9,7 @@ import { CustomRichText } from "@/components/custom-rich-text";
 import { Switch } from "@/components/switch";
 import type { CookieBannerDocument, CookieBannerDocumentDataCookieTypesItem } from "@/prismicio-types";
 
-// ============================================================================
-// Types
-// ============================================================================
-
-// Extend Window interface for gtag
+// Window extensions for gtag / GTM.
 declare global {
   interface Window {
     gtag: (command: "consent" | "config" | "js", action: string, parameters?: Record<string, string | boolean>) => void;
@@ -32,12 +28,7 @@ interface CookiePreferences {
   personalization_storage: boolean;
 }
 
-// ============================================================================
-// Component
-// ============================================================================
-
 export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocument }) {
-  // --- State ---------------------------------------------------------------
   const { isVisible, hideCookieBanner } = useCookieBanner();
   const [showCustomize, setShowCustomize] = useState(false);
   const [expandedCookies, setExpandedCookies] = useState<Set<string>>(new Set());
@@ -52,7 +43,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     personalization_storage: false,
   });
 
-  // --- Expand / collapse cookie details ------------------------------------
+  // Expand / collapse cookie details
   const toggleCookieExpansion = (cookieId: string) => {
     setExpandedCookies((prev) => {
       const next = new Set(prev);
@@ -65,9 +56,8 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     });
   };
 
-  // --- Sync consent to Google Tag Manager ----------------------------------
+  // Sync consent to Google Tag Manager
   const updateGtagConsent = useCallback((prefs: CookiePreferences) => {
-    // Check if gtag is available
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("consent", "update", {
         analytics_storage: prefs.analytics_storage ? "granted" : "denied",
@@ -78,7 +68,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
         security_storage: prefs.security_storage ? "granted" : "denied",
         personalization_storage: prefs.personalization_storage ? "granted" : "denied",
       });
-      // Push consent event to dataLayer for GTM triggers
+      // Push a consent event to dataLayer for GTM triggers
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "cookie_consent_update",
@@ -92,23 +82,21 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
         consent_necessary: prefs.necessary,
       });
     } else {
-      console.warn("gtag not available - consent not updated");
+      console.warn("gtag not available, consent not updated");
     }
   }, []);
 
-  // --- Restore saved consent on mount --------------------------------------
+  // Restore saved consent on mount
   useEffect(() => {
-    // Check if user has already made a choice
     const cookieConsent = localStorage.getItem("cookie-consent");
     if (cookieConsent) {
-      // Apply existing consent preferences
       const existingPrefs = JSON.parse(cookieConsent) as CookiePreferences;
       updateGtagConsent(existingPrefs);
       setPreferences(existingPrefs);
     }
   }, [updateGtagConsent]);
 
-  // --- Consent action handlers ---------------------------------------------
+  // Consent action handlers
   const handleAcceptAll = () => {
     const allPreferences: CookiePreferences = {
       necessary: true,
@@ -148,16 +136,14 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     hideCookieBanner();
   };
 
-  // --- Persist preferences (localStorage + gtag) ---------------------------
+  // Persist preferences (localStorage + gtag)
   const saveCookiePreferences = (prefs: CookiePreferences) => {
     localStorage.setItem("cookie-consent", JSON.stringify(prefs));
     localStorage.setItem("cookie-consent-date", new Date().toISOString());
-
-    // Update Google Tag Manager consent
     updateGtagConsent(prefs);
   };
 
-  // --- Animation variants --------------------------------------------------
+  // Animation variants
   const variants = {
     hidden: { opacity: 0, y: "5rem", scale: 0.8 },
     visible: {
@@ -172,7 +158,6 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
     },
   };
 
-  // --- Render --------------------------------------------------------------
   return (
     <AnimatePresence mode="wait" initial={isVisible}>
       {isVisible && (
@@ -193,11 +178,9 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
             <div className="pointer-events-auto relative w-full max-w-2xl rounded-2 bg-fill shadow-float">
               <div className="container max-w-2xl p-4 md:p-8">
                 {!showCustomize ? (
-                  /* ===== Main cookie banner ===== */
+                  /* Main banner */
                   <div className="flex flex-col gap-4 md:justify-between">
                     <div className="flex flex-1 flex-col items-start gap-1">
-                      {/* <Cookie className="mt-2 mb-2 size-12 shrink-0 md:size-16 icon-bold" /> */}
-                      {/* Title from CMS */}
                       {prismicData.data.title && (
                         <CustomRichText
                           field={prismicData.data.title}
@@ -205,7 +188,6 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                           inheritSize={true}
                         />
                       )}
-                      {/* Description from CMS */}
                       {prismicData.data.description && (
                         <CustomRichText
                           field={prismicData.data.description}
@@ -228,7 +210,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                     </div>
                   </div>
                 ) : (
-                  /* ===== Customize preferences view ===== */
+                  /* Customize view */
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
@@ -239,7 +221,6 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                     </div>
 
                     <div className="space-y-1 overflow-hidden">
-                      {/* Dynamic cookie types from CMS */}
                       {prismicData.data.cookie_types?.map(
                         (cookieType: CookieBannerDocumentDataCookieTypesItem, index: number) => {
                           const title = cookieType.title || "";
@@ -248,7 +229,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                             .map((id: string) => id.trim())
                             .filter(Boolean);
 
-                          // Helper function to get all preference keys for this cookie type
+                          // All preference keys this cookie type maps to
                           const getPreferenceKeys = (ids: string[]): (keyof CookiePreferences)[] => {
                             const keys: (keyof CookiePreferences)[] = [];
                             ids.forEach((id) => {
@@ -288,11 +269,9 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                           };
 
                           const preferenceKeys = getPreferenceKeys(cookieIds);
-
-                          // If no valid keys found, skip this cookie type
                           if (preferenceKeys.length === 0) return null;
 
-                          // Check if all preference keys are enabled (for switch state)
+                          // Switch is on only when every mapped key is enabled
                           const allEnabled = preferenceKeys.every((key) => preferences[key]);
                           const isDisabled = cookieType.checked_and_disabled;
                           const cookieId = cookieType.cookie_id || `cookie-type-${index}`;

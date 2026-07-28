@@ -11,7 +11,7 @@ export type BreadcrumbItem = {
  *
  *   [{ label: "Home", href: "/" }, { label: "About", href: "/about" }, { label: "Team", href: "/about/team" }]
  *
- * Works for any depth — each level is one cached API call.
+ * Works for any depth. Each level is one cached API call.
  * The current page is always the last item (non-link in the UI).
  */
 export async function buildBreadcrumbs(
@@ -31,7 +31,7 @@ export async function buildBreadcrumbs(
       });
       return buildBreadcrumbs(parent, client, trail);
     } catch {
-      // Parent document was deleted or unpublished — stop the chain here
+      // Parent document was deleted or unpublished, so stop the chain here
     }
   }
 

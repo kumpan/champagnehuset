@@ -3,9 +3,8 @@ import { Document, Image, Page, StyleSheet, Text, View } from "@react-pdf/render
 import { formatAlcohol, formatDosage, formatPrice } from "@/lib/format";
 
 /**
- * A first-pass layout so the download works end-to-end — the visual design is
- * intentionally minimal and will be revisited. Uses the built-in Helvetica so
- * no font registration is needed.
+ * First-pass layout so the download works end-to-end, visual design to be
+ * revisited. Uses built-in Helvetica, so no font registration needed.
  */
 const colors = {
   ink: "#232e24",
