@@ -4340,17 +4340,6 @@ export interface ContactSlicePeoplePrimary {
   >;
 
   /**
-   * Center Text field in *Contact → People → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: contact.people.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  alignment: prismic.BooleanField;
-
-  /**
    * Overline field in *Contact → People → Primary*
    *
    * - **Field Type**: Group
@@ -6595,17 +6584,6 @@ export interface ProductSliceGridPrimary {
     "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
     "filled"
   >;
-
-  /**
-   * Center Text field in *Product → Grid → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: product.grid.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  alignment: prismic.BooleanField;
 
   /**
    * Overline field in *Product → Grid → Primary*

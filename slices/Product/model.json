@@ -26,7 +26,13 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": [
+              "Bud",
+              "Leaf",
+              "Brand",
+              "Dust",
+              "Slate"
+            ],
             "default_value": "Bud"
           }
         },
@@ -209,7 +215,10 @@
                   "customtypes": [
                     {
                       "id": "product",
-                      "fields": ["product_name", "product_vintage"]
+                      "fields": [
+                        "product_name",
+                        "product_vintage"
+                      ]
                     }
                   ]
                 }
@@ -226,7 +235,9 @@
             "customtypes": [
               {
                 "id": "producer",
-                "fields": ["producer_name"]
+                "fields": [
+                  "producer_name"
+                ]
               }
             ]
           }
@@ -236,7 +247,11 @@
           "config": {
             "label": "Limit",
             "placeholder": "",
-            "options": ["4", "8", "No Limit"],
+            "options": [
+              "4",
+              "8",
+              "No Limit"
+            ],
             "default_value": "4"
           }
         }

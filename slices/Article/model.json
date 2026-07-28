@@ -26,7 +26,10 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": [
+              "Bud",
+              "Dust"
+            ],
             "default_value": "Bud"
           }
         },
@@ -45,7 +48,10 @@
                   "customtypes": [
                     {
                       "id": "article",
-                      "fields": ["page_title", "tag"]
+                      "fields": [
+                        "page_title",
+                        "tag"
+                      ]
                     }
                   ]
                 }
@@ -85,7 +91,13 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": [
+              "Bud",
+              "Leaf",
+              "Brand",
+              "Dust",
+              "Slate"
+            ],
             "default_value": "Bud"
           }
         },
@@ -93,8 +105,8 @@
           "type": "Boolean",
           "config": {
             "label": "Show Pagination",
-            "placeholder_false": "Pagination is Hidden",
-            "placeholder_true": "Pagination is Shown",
+            "placeholder_false": "Shows Only First 4",
+            "placeholder_true": "Pages Through 4 at a Time",
             "default_value": true
           }
         },
@@ -103,7 +115,13 @@
           "config": {
             "label": "Filter by Tag",
             "placeholder": "",
-            "options": ["All", "Event", "News", "Guide", "Tasting"],
+            "options": [
+              "All",
+              "Event",
+              "News",
+              "Guide",
+              "Tasting"
+            ],
             "default_value": "All"
           }
         },
@@ -114,6 +132,15 @@
             "placeholder_false": "Chips Hidden",
             "placeholder_true": "Chips Shown",
             "default_value": false
+          }
+        },
+        "alignment": {
+          "type": "Boolean",
+          "config": {
+            "label": "Center Text",
+            "placeholder_false": "Text is Left-Aligned",
+            "placeholder_true": "Text is Centered",
+            "default_value": true
           }
         },
         "overline": {
@@ -295,7 +322,10 @@
                   "customtypes": [
                     {
                       "id": "article",
-                      "fields": ["page_title", "tag"]
+                      "fields": [
+                        "page_title",
+                        "tag"
+                      ]
                     }
                   ]
                 }

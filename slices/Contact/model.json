@@ -26,7 +26,10 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": [
+              "Bud",
+              "Dust"
+            ],
             "default_value": "Bud"
           }
         },
@@ -230,7 +233,13 @@
           "config": {
             "label": "Field Type",
             "placeholder": "Select field type",
-            "options": ["name", "email", "phone", "text", "textarea"],
+            "options": [
+              "name",
+              "email",
+              "phone",
+              "text",
+              "textarea"
+            ],
             "default_value": "text"
           }
         },
@@ -290,7 +299,13 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": [
+              "Bud",
+              "Leaf",
+              "Brand",
+              "Dust",
+              "Slate"
+            ],
             "default_value": "Bud"
           }
         },
@@ -473,7 +488,9 @@
                   "customtypes": [
                     {
                       "id": "employee",
-                      "fields": ["employee_name"]
+                      "fields": [
+                        "employee_name"
+                      ]
                     }
                   ]
                 }
@@ -506,7 +523,10 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": [
+              "Bud",
+              "Dust"
+            ],
             "default_value": "Bud"
           }
         },
@@ -640,7 +660,13 @@
           "config": {
             "label": "Field Type",
             "placeholder": "Select field type",
-            "options": ["name", "email", "phone", "text", "textarea"],
+            "options": [
+              "name",
+              "email",
+              "phone",
+              "text",
+              "textarea"
+            ],
             "default_value": "text"
           }
         },
