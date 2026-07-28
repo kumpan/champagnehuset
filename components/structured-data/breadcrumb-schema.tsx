@@ -5,10 +5,7 @@ interface BreadcrumbSchemaProps {
   breadcrumbs: BreadcrumbItem[];
 }
 
-/**
- * Renders BreadcrumbList JSON-LD. Returns null when the trail is too short
- * (e.g. on the home page) to avoid emitting useless schema.
- */
+/** BreadcrumbList JSON-LD. Null when the trail is too short (e.g. home page) to be useful. */
 export function BreadcrumbSchema({ breadcrumbs }: BreadcrumbSchemaProps) {
   const schema = generateBreadcrumbSchema(breadcrumbs);
   if (!schema) return null;

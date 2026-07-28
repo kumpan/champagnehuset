@@ -9,10 +9,7 @@ interface FaqSchemaProps {
     | Content.ProducerDocumentData["slices"];
 }
 
-/**
- * Extracts FAQ data from FaqList slices and renders a FAQPage JSON-LD script.
- * Improves chances of FAQ rich results in Google search.
- */
+/** Pulls FAQs from FaqList slices into a FAQPage JSON-LD script, for Google FAQ rich results. */
 export function FaqSchema({ slices }: FaqSchemaProps) {
   const allFaqs = Array.from(slices)
     .filter((slice) => slice.slice_type === "faq")
