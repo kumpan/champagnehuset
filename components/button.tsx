@@ -70,6 +70,23 @@ const baseClasses =
 export type ButtonVariant = keyof typeof variantClasses;
 export type ButtonSize = keyof typeof sizeClasses;
 
+// Focus ring for whole-card links: same 2px width + offset as the buttons' focus outline,
+// with a themed outline color per section. Mirrors the per-theme outline colors above.
+const focusRingThemeClasses: Record<SectionTheme, string> = {
+  Bud: "focus-visible:outline-brand/70",
+  Leaf: "focus-visible:outline-brand/70",
+  Brand: "focus-visible:outline-fill-raised/70",
+  Dust: "focus-visible:outline-spot-fill-dark/70",
+  Slate: "focus-visible:outline-spot-fill-raised/70",
+};
+
+export function cardFocusRing(sectionTheme: SectionTheme = "Bud") {
+  return cn(
+    "rounded-1 outline-0 outline-offset-0 focus-visible:outline-2 focus-visible:outline-offset-2",
+    focusRingThemeClasses[sectionTheme],
+  );
+}
+
 export function buttonVariants({
   variant = "default",
   size = "default",
