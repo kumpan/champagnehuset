@@ -9,7 +9,7 @@ import { cn, hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
 import type { ArticleProps } from "..";
-import { ArticleCard } from "../article-card";
+import { ArticleGrid } from "../article-grid";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceList };
 
@@ -17,56 +17,51 @@ function isIconName(value: unknown): value is IconName {
   return typeof value === "string" && value in iconMap;
 }
 
-// TODO: placeholder — static markup only, wire up real page-based pagination.
-function PaginationPlaceholder() {
-  const ChevronLeft = iconMap.chevronLeft;
-  const ChevronRight = iconMap.chevronRight;
-  return (
-    <div className="flex items-center justify-center gap-4 pt-3">
-      <span className="flex size-14 items-center justify-center rounded-2 bg-fill-dark/10">
-        <ChevronLeft className="size-8 opacity-50" />
-      </span>
-      <div className="flex items-center">
-        {[1, 2, 3, 4].map((page) => (
-          <span
-            key={page}
-            className={cn(
-              "flex size-8 items-center justify-center rounded-2 font-medium text-base",
-              page === 1 && "bg-brand text-brand-ink",
-            )}
-          >
-            {page}
-          </span>
-        ))}
-      </div>
-      <span className="flex size-14 items-center justify-center rounded-2 bg-brand text-brand-ink">
-        <ChevronRight className="size-8" />
-      </span>
-    </div>
-  );
-}
-
 export async function ArticleList({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, button, section_theme, remove_top_padding, featured_articles } =
-    slice.primary;
+  const {
+    overline,
+    title,
+    description,
+    alignment,
+    button,
+    section_theme,
+    remove_top_padding,
+    featured_articles,
+    filter_by_tag,
+    show_pagination,
+    show_filter_chips,
+  } = slice.primary;
 
   const client = await createClient();
 
-  const curated = (
-    await Promise.all(
-      featured_articles.map((item) =>
-        isFilled.contentRelationship(item.article) ? client.getByID<ArticleDocument>(item.article.id) : null,
-      ),
-    )
-  ).filter((article): article is ArticleDocument => article !== null);
+  // One getByIDs (not getByID per item, which throws on any unresolved reference)
+  // so unpublished/deleted/stale featured references are dropped, not fatal.
+  // getByIDs ignores the requested order, so re-sort into the editor's curated order.
+  const curatedIds = featured_articles
+    .map((item) => item.article)
+    .filter(isFilled.contentRelationship)
+    .map((relationship) => relationship.id);
+  const curatedById = new Map(
+    curatedIds.length > 0
+      ? (await client.getByIDs<ArticleDocument>(curatedIds, { lang: "*" })).results.map((doc) => [doc.id, doc])
+      : [],
+  );
+  const curated = curatedIds.map((id) => curatedById.get(id)).filter((doc) => doc !== undefined);
 
-  const articles =
+  const pool =
     curated.length > 0
       ? curated
       : await client.getAllByType("article", {
           orderings: [{ field: "my.article.article_date", direction: "desc" }],
         });
+
+  // Fixed tag filter narrows the pool (curated or auto); "All" means no filter.
+  const tagFilter = filter_by_tag && filter_by_tag !== "All" ? filter_by_tag : null;
+  const articles = tagFilter ? pool.filter((article) => article.data.tag === tagFilter) : pool;
+
+  // Chips are for the open feed — a fixed tag already narrows to one type, so hide them.
+  const showChips = Boolean(show_filter_chips) && !tagFilter;
 
   return (
     <Section
@@ -111,14 +106,15 @@ export async function ArticleList({ slice }: Props) {
               })()}
           </div>
         )}
-        {articles.length > 0 && (
-          <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-            {articles.map((article) => (
-              <ArticleCard key={article.id} article={article} sectionTheme={section_theme} className="w-full" />
-            ))}
-          </div>
-        )}
-        <PaginationPlaceholder />
+        <ArticleGrid
+          articles={articles}
+          sectionTheme={section_theme}
+          // Defaults to true (the model default) so documents saved before this
+          // field existed keep paginating rather than silently capping at 4.
+          showPagination={show_pagination !== false}
+          showChips={showChips}
+          className="mt-8"
+        />
       </Container>
     </Section>
   );

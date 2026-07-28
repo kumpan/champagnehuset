@@ -24,13 +24,20 @@ export async function ArticleFeature({ slice }: Props) {
   const ArrowRight = iconMap.arrowRight;
 
   const client = await createClient();
-  const articles = (
-    await Promise.all(
-      featured_articles.map((item) =>
-        isFilled.contentRelationship(item.article) ? client.getByID<ArticleDocument>(item.article.id) : null,
-      ),
-    )
-  ).filter((article): article is ArticleDocument => article !== null);
+
+  // One getByIDs (not getByID per item, which throws on any unresolved reference)
+  // so unpublished/deleted/stale featured references are dropped, not fatal.
+  // getByIDs ignores the requested order, so re-sort into the editor's curated order.
+  const curatedIds = featured_articles
+    .map((item) => item.article)
+    .filter(isFilled.contentRelationship)
+    .map((relationship) => relationship.id);
+  const curatedById = new Map(
+    curatedIds.length > 0
+      ? (await client.getByIDs<ArticleDocument>(curatedIds, { lang: "*" })).results.map((doc) => [doc.id, doc])
+      : [],
+  );
+  const articles = curatedIds.map((id) => curatedById.get(id)).filter((doc) => doc !== undefined);
 
   if (articles.length === 0) return null;
 
