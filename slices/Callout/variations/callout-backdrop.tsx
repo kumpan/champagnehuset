@@ -15,9 +15,8 @@ export function CalloutBackdrop({ slice }: Props) {
   const { image, video, filter } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
-  // With media, the image supplies the surface — force the dark Slate theme so text,
-  // buttons and selection flip to light automatically. Without media, honour the
-  // editor's chosen theme.
+  // With media, the image is the surface, so force the dark Slate theme and text,
+  // buttons and selection flip to light. Without media, honour the editor's chosen theme.
   const theme = hasMedia ? "Slate" : section_theme;
 
   return (
@@ -43,7 +42,7 @@ export function CalloutBackdrop({ slice }: Props) {
             filter={filter}
           />
 
-          {/* Bottom fade — layered like custom-media (blur → overlay mix → fade), spot-fill-dark */}
+          {/* Bottom fade: layered like custom-media (blur → overlay mix → fade), spot-fill-dark */}
           <div className="absolute inset-x-0 top-1/3 bottom-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black,black_30%,transparent)]" />
           <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/65 to-spot-fill-dark/0 mix-blend-overlay" />
           <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/90 via-spot-fill-dark/40 to-spot-fill-dark/0" />

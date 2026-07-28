@@ -7,7 +7,7 @@ export const repositoryName = sm.repositoryName;
 
 function buildRoutes(masterLocale: string): Route[] {
   return [
-    // Master locale, prefix-free URLs, no /sv-se prefix
+    // Master locale: prefix-free URLs (no /sv-se)
     { type: "page", uid: "home", lang: masterLocale, path: "/" },
     {
       type: "page",
@@ -33,7 +33,7 @@ function buildRoutes(masterLocale: string): Route[] {
       resolvers: { parent: "parent", grandparent: "parent.parent" },
       path: "/:grandparent?/:parent?/:uid",
     },
-    // All other locales, lang-prefixed URLs (/en-us, /fr-fr, /fi-fi) prefix
+    // All other locales: lang-prefixed URLs (/en-us, /fr-fr, /fi-fi)
     { type: "page", uid: "home", path: "/:lang" },
     {
       type: "page",
@@ -58,10 +58,7 @@ function buildRoutes(masterLocale: string): Route[] {
   ];
 }
 
-/**
- * A minimal client without locale-specific routes.
- * Used by lib/locales.ts to fetch locale info without circular dependency.
- */
+/** Minimal client without locale routes. Used by lib/locales.ts to avoid a circular dependency. */
 export function createBaseClient(config: ClientConfig = {}) {
   return baseCreateClient(repositoryName, {
     fetchOptions:

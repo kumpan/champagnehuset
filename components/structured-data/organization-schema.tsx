@@ -1,9 +1,6 @@
 import { generateOrganizationSchema, safeJsonLd } from "@/lib/schema-utils";
 
-/**
- * Organization JSON-LD component
- * Include on every page for consistent brand identity in search results
- */
+/** Organization JSON-LD. Include on every page for a consistent brand identity in search. */
 export function OrganizationSchema() {
   const schema = generateOrganizationSchema();
 

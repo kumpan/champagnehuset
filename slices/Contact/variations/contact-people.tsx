@@ -29,7 +29,7 @@ export async function ContactPeople({ slice }: Props) {
     await Promise.all(
       featured_employees.map((item) =>
         isFilled.contentRelationship(item.employee)
-          ? // If featured link point to a deleted/unpublished doc, skip it rather than throw
+          ? // If a featured link points to a deleted/unpublished doc, skip it rather than throw
             client
               .getByID<EmployeeDocument>(item.employee.id)
               .catch(() => null)
@@ -41,7 +41,7 @@ export async function ContactPeople({ slice }: Props) {
   // getAllByType throws ("No documents were found") when the repo has no employees yet.
   const employees = curated.length > 0 ? curated : await client.getAllByType("employee").catch(() => []);
 
-  // Nothing to show — render nothing rather than an empty People section.
+  // Nothing to show, so render nothing rather than an empty People section.
   if (employees.length === 0) return null;
 
   return (
