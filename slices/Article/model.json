@@ -28,7 +28,10 @@
             "placeholder": "",
             "options": [
               "Bud",
-              "Dust"
+              "Leaf",
+              "Brand",
+              "Dust",
+              "Slate"
             ],
             "default_value": "Bud"
           }
@@ -105,8 +108,8 @@
           "type": "Boolean",
           "config": {
             "label": "Show Pagination",
-            "placeholder_false": "Shows Only First 4",
-            "placeholder_true": "Shows 4 Per Page",
+            "placeholder_false": "Pagination is Hidden",
+            "placeholder_true": "Pagination is Showing",
             "default_value": true
           }
         },
@@ -132,15 +135,6 @@
             "placeholder_false": "Filter Chips are Hidden",
             "placeholder_true": "Filter Chips are Showing",
             "default_value": false
-          }
-        },
-        "alignment": {
-          "type": "Boolean",
-          "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
-            "default_value": true
           }
         },
         "overline": {

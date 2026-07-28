@@ -1883,7 +1883,10 @@ export interface ArticleSliceFeaturePrimary {
    * - **API ID Path**: article.feature.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Featured Articles field in *Article → Feature → Primary*
@@ -1985,17 +1988,6 @@ export interface ArticleSliceListPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   show_filter_chips: prismic.BooleanField;
-
-  /**
-   * Center Text field in *Article → List → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: article.list.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  alignment: prismic.BooleanField;
 
   /**
    * Overline field in *Article → List → Primary*

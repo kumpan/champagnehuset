@@ -72,10 +72,6 @@
 				"value": "All",
 				"type": "Select"
 			},
-			"alignment": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
 			"overline": {
 				"__TYPE__": "GroupContentType",
 				"value": [
