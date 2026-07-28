@@ -10,11 +10,10 @@ import { Pagination } from "./pagination";
 
 const PAGE_SIZE = 4;
 
-// Chip order follows the article `tag` field's option order.
-const TAG_ORDER = ["Event", "News", "Guide", "Tasting"] as const;
+// Entering cards hold ENTER_LEAD before their staggered entrance.
+// Makes smoother page transitions
+const ENTER_LEAD = 0.2;
 
-// Chips read as buttons: active = the theme's primary surface, inactive = its secondary.
-// Same per-theme tokens as button.tsx.
 const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string }> = {
   Bud: {
     active: "bg-brand text-brand-ink",
@@ -40,13 +39,21 @@ const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string 
 
 type ArticleGridProps = {
   articles: ArticleDocument[];
+  tagOrder: readonly string[];
   sectionTheme: SectionTheme;
   showPagination: boolean;
   showChips: boolean;
   className?: string;
 };
 
-export function ArticleGrid({ articles, sectionTheme, showPagination, showChips, className }: ArticleGridProps) {
+export function ArticleGrid({
+  articles,
+  tagOrder,
+  sectionTheme,
+  showPagination,
+  showChips,
+  className,
+}: ArticleGridProps) {
   const reducedMotion = useReducedMotion();
   const gridRef = useRef<HTMLDivElement>(null);
   // once: true latches on first scroll-in, so later page/filter changes animate on mount
@@ -58,9 +65,9 @@ export function ArticleGrid({ articles, sectionTheme, showPagination, showChips,
 
   // Only tags actually present, in canonical order, so no empty chips.
   const availableTags = useMemo(() => {
-    const present = new Set(articles.map((article) => article.data.tag).filter(Boolean));
-    return TAG_ORDER.filter((tag) => present.has(tag));
-  }, [articles]);
+    const present = new Set<string>(articles.map((article) => article.data.tag).filter(Boolean));
+    return tagOrder.filter((tag) => present.has(tag));
+  }, [articles, tagOrder]);
 
   const filtered = useMemo(
     () => (activeTag ? articles.filter((article) => article.data.tag === activeTag) : articles),
@@ -98,26 +105,29 @@ export function ArticleGrid({ articles, sectionTheme, showPagination, showChips,
       )}
 
       <div ref={gridRef} className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-        <AnimatePresence mode="wait">
-          {visible.map((article, index) => (
-            <m.div
-              key={article.id}
-              initial={reducedMotion ? false : { opacity: 0, y: 16 }}
-              animate={inView ? { opacity: 1, y: 0 } : undefined}
-              exit={
-                reducedMotion
-                  ? undefined
-                  : { opacity: 0, y: -12, transition: { duration: 0.25, ease: [0.5, 0, 0.1, 1] } }
-              }
-              transition={{
-                duration: 0.4,
-                ease: [0.5, 0, 0.1, 1],
-                delay: reducedMotion ? 0 : Math.min(index * 0.08, 0.32),
-              }}
-            >
-              <ArticleCard article={article} className="w-full" />
-            </m.div>
-          ))}
+        <AnimatePresence mode="popLayout">
+          {visible.map((article, index) => {
+            const stagger = Math.min(index * 0.08, 0.32);
+            return (
+              <m.div
+                key={article.id}
+                initial={reducedMotion ? false : { opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : undefined}
+                exit={
+                  reducedMotion
+                    ? undefined
+                    : { opacity: 0, y: 16, transition: { duration: 0.4, ease: [0.5, 0, 0.1, 1], delay: stagger } }
+                }
+                transition={{
+                  duration: 0.4,
+                  ease: [0.5, 0, 0.1, 1],
+                  delay: reducedMotion ? 0 : ENTER_LEAD + stagger,
+                }}
+              >
+                <ArticleCard article={article} className="w-full" />
+              </m.div>
+            );
+          })}
         </AnimatePresence>
       </div>
 
