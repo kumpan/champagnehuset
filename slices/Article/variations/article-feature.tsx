@@ -56,11 +56,11 @@ export async function ArticleFeature({ slice }: Props) {
             return (
               <article
                 key={article.id}
-                className="flex flex-col gap-2 border-border border-b py-4 last:border-b-0 md:flex-row md:items-center md:gap-8 md:py-6 md:even:flex-row-reverse"
+                className="group flex flex-col gap-2 border-border border-b py-4 last:border-b-0 md:flex-row md:items-center md:gap-8 md:py-6 md:even:flex-row-reverse"
               >
                 <PrismicNextLink
                   document={article}
-                  className="group block w-full shrink-0 overflow-hidden rounded-1 md:w-2/5"
+                  className="block w-full shrink-0 overflow-hidden rounded-1 md:w-2/5"
                   tabIndex={-1}
                   aria-hidden="true"
                 >
