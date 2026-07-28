@@ -1,5 +1,7 @@
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
+import { cardFocusRing } from "@/components/button";
+import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 
@@ -10,16 +12,19 @@ export function formatArticleDate(date: string | null) {
 
 type ArticleCardProps = {
   article: ArticleDocument;
+  sectionTheme?: SectionTheme;
   className?: string;
 };
 
-// Text color comes from the section theme, so the card needs no per-theme map of its own.
-export function ArticleCard({ article, className }: ArticleCardProps) {
+export function ArticleCard({ article, sectionTheme = "Bud", className }: ArticleCardProps) {
   const { article_image, article_description, tag, article_title, article_date } = article.data;
   const date = formatArticleDate(article_date ?? article.first_publication_date);
 
   return (
-    <PrismicNextLink document={article} className={cn("group flex flex-col gap-2", className)}>
+    <PrismicNextLink
+      document={article}
+      className={cn("group flex flex-col gap-2", cardFocusRing(sectionTheme), className)}
+    >
       <div className="aspect-3/2 w-full overflow-hidden rounded-1">
         <PrismicNextImage
           field={article_image}

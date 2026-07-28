@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, m, useInView, useReducedMotion } from "motion/react";
+import { AnimatePresence, easeInOut, m, spring, useInView, useReducedMotion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,13 @@ const PAGE_SIZE = 4;
 
 // Entering cards hold ENTER_LEAD before their staggered entrance.
 // Makes smoother page transitions
-const ENTER_LEAD = 0.2;
+const ENTER_LEAD = 0.3;
+
+// Shared transition
+const cardTransition = (delay: number) => ({
+  opacity: { duration: 0.5, ease: easeInOut, delay },
+  y: { type: spring, stiffness: 220, damping: 18, delay },
+});
 
 const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string }> = {
   Bud: {
@@ -113,18 +119,10 @@ export function ArticleGrid({
                 key={article.id}
                 initial={reducedMotion ? false : { opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : undefined}
-                exit={
-                  reducedMotion
-                    ? undefined
-                    : { opacity: 0, y: 16, transition: { duration: 0.4, ease: [0.5, 0, 0.1, 1], delay: stagger } }
-                }
-                transition={{
-                  duration: 0.4,
-                  ease: [0.5, 0, 0.1, 1],
-                  delay: reducedMotion ? 0 : ENTER_LEAD + stagger,
-                }}
+                transition={cardTransition(reducedMotion ? 0 : ENTER_LEAD + stagger)}
+                exit={reducedMotion ? undefined : { opacity: 0, y: -16, transition: cardTransition(stagger) }}
               >
-                <ArticleCard article={article} className="w-full" />
+                <ArticleCard article={article} sectionTheme={sectionTheme} className="w-full" />
               </m.div>
             );
           })}
