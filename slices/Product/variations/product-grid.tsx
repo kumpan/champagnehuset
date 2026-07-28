@@ -1,8 +1,5 @@
 import { type Content, filter, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 
-import { Button } from "@/components/button";
-import { type IconName, iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
@@ -22,10 +19,6 @@ const PRODUCT_FETCH = [
   "product.product_producer",
 ];
 const PRODUCER_FETCH_LINKS = ["producer.producer_name"];
-
-function isIconName(value: unknown): value is IconName {
-  return typeof value === "string" && value in iconMap;
-}
 
 /**
  * Small, curated sets should still fill the row instead of trailing off:
@@ -110,39 +103,14 @@ export async function ProductGrid({ slice }: Props) {
     >
       <Container>
         {(hasIntroContent || (button[0] && isFilled.link(button[0].link))) && (
-          <div
-            className={cn(
-              "flex flex-col gap-4 md:gap-8",
-              alignment ? "items-center justify-center" : "items-start justify-between md:flex-row md:items-end",
-            )}
-          >
-            {hasIntroContent && (
-              <SectionIntro
-                overline={overline}
-                title={title}
-                description={description}
-                align={alignment ? "center" : "left"}
-                sectionTheme={section_theme}
-                className={alignment ? undefined : "flex-1"}
-              />
-            )}
-            {button[0] &&
-              isFilled.link(button[0].link) &&
-              (() => {
-                const btn = button[0];
-                const LeftIcon = isIconName(btn.icon_left) ? iconMap[btn.icon_left] : null;
-                const RightIcon = isIconName(btn.icon_right) ? iconMap[btn.icon_right] : null;
-                return (
-                  <Button asChild size="lg" sectionTheme={section_theme} className="shrink-0">
-                    <PrismicNextLink field={btn.link}>
-                      {LeftIcon && <LeftIcon />}
-                      <span>{btn.link.text}</span>
-                      {RightIcon && <RightIcon />}
-                    </PrismicNextLink>
-                  </Button>
-                );
-              })()}
-          </div>
+          <SectionIntro
+            overline={overline}
+            title={title}
+            description={description}
+            buttons={button}
+            align="split"
+            sectionTheme={section_theme}
+          />
         )}
         {products.length > 0 && (
           <div className={cn("mt-8 grid gap-x-3 gap-y-8 md:gap-x-4", gridColsClass(products.length))}>

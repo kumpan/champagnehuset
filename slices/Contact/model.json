@@ -294,15 +294,6 @@
             "default_value": "Bud"
           }
         },
-        "alignment": {
-          "type": "Boolean",
-          "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
-            "default_value": true
-          }
-        },
         "overline": {
           "type": "Group",
           "config": {
