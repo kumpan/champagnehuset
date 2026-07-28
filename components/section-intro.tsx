@@ -73,7 +73,6 @@ interface SectionIntroProps {
 }
 
 // Helpers
-
 function isVariant(value: unknown): value is ButtonVariant {
   return value === "default" || value === "secondary" || value === "outline" || value === "ghost";
 }
@@ -83,7 +82,6 @@ function isIconName(value: unknown): value is IconName {
 }
 
 // Component
-
 export function SectionIntro({
   overline,
   overlineClassName,
@@ -105,6 +103,7 @@ export function SectionIntro({
   const styles = alignClasses[align];
 
   const items: ReadonlyArray<CmsButtonItem> = Array.isArray(buttons) ? buttons : [];
+  const hasDescription = isFilled.richText(description);
 
   const overlineItem = Array.isArray(overline) ? overline[0] : undefined;
   const overlineText = typeof overline === "string" ? overline : overlineItem?.overline_text;
@@ -159,7 +158,7 @@ export function SectionIntro({
           />
         )}
 
-        {isFilled.richText(description) && (
+        {hasDescription && (
           <CustomRichText
             sectionTheme={sectionTheme}
             className={cn("max-w-xl text-pretty", styles.description, descriptionClassName)}
@@ -177,7 +176,7 @@ export function SectionIntro({
       <div
         className={cn(
           isSplit
-            ? "flex shrink-0 flex-col gap-2 sm:flex-row md:gap-3"
+            ? cn("flex shrink-0 flex-col gap-2 sm:flex-row md:gap-3", !hasDescription && "lg:mt-2")
             : cn(
                 "mt-2 flex w-full max-w-full flex-col flex-wrap gap-2 sm:w-auto sm:flex-row md:gap-3",
                 align === "left" ? "items-start" : "sm:justify-center md:w-auto",
@@ -194,7 +193,8 @@ export function SectionIntro({
     return (
       <div
         className={cn(
-          "flex w-full flex-col items-start gap-4 text-left md:flex-row md:items-end md:justify-between md:gap-8",
+          "flex w-full flex-col items-start gap-4 text-left md:flex-row md:justify-between md:gap-8",
+          hasDescription ? "md:items-end" : "md:items-start",
           className,
         )}
       >
