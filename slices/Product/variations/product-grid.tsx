@@ -39,7 +39,6 @@ export async function ProductGrid({ slice }: Props) {
     overline,
     title,
     description,
-    alignment,
     button,
     section_theme,
     remove_top_padding,
