@@ -1,6 +1,6 @@
 "use client";
 
-import { m, useInView, useReducedMotion } from "motion/react";
+import { AnimatePresence, m, useInView, useReducedMotion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
@@ -18,23 +18,23 @@ const TAG_ORDER = ["Event", "News", "Guide", "Tasting"] as const;
 const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string }> = {
   Bud: {
     active: "bg-brand text-brand-ink",
-    inactive: "bg-fill-raised text-ink hover:bg-brand/15",
+    inactive: "bg-fill-raised text-ink hover:bg-fill-raised/50",
   },
   Leaf: {
     active: "bg-brand text-brand-ink",
-    inactive: "bg-fill text-ink hover:bg-brand/15",
+    inactive: "bg-fill text-ink hover:bg-fill/50",
   },
   Brand: {
     active: "bg-fill text-ink",
-    inactive: "bg-brand-fill text-ink-flip hover:bg-brand-fill/90",
+    inactive: "bg-brand-fill text-ink-flip hover:bg-brand-fill/55",
   },
   Dust: {
     active: "bg-spot-fill-dark text-spot-ink-flip",
-    inactive: "bg-spot-fill-dark/10 text-spot-ink hover:bg-spot-fill-dark/20",
+    inactive: "bg-spot-fill-dark/10 text-spot-ink hover:bg-spot-fill-dark/25",
   },
   Slate: {
     active: "bg-spot-fill-raised text-spot-ink",
-    inactive: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90",
+    inactive: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/60",
   },
 };
 
@@ -98,20 +98,27 @@ export function ArticleGrid({ articles, sectionTheme, showPagination, showChips,
       )}
 
       <div ref={gridRef} className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-        {visible.map((article, index) => (
-          <m.div
-            key={article.id}
-            initial={reducedMotion ? false : { opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : undefined}
-            transition={{
-              duration: 0.4,
-              ease: [0.5, 0, 0.1, 1],
-              delay: reducedMotion ? 0 : Math.min(index * 0.08, 0.32),
-            }}
-          >
-            <ArticleCard article={article} className="w-full" />
-          </m.div>
-        ))}
+        <AnimatePresence mode="wait">
+          {visible.map((article, index) => (
+            <m.div
+              key={article.id}
+              initial={reducedMotion ? false : { opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : undefined}
+              exit={
+                reducedMotion
+                  ? undefined
+                  : { opacity: 0, y: -12, transition: { duration: 0.25, ease: [0.5, 0, 0.1, 1] } }
+              }
+              transition={{
+                duration: 0.4,
+                ease: [0.5, 0, 0.1, 1],
+                delay: reducedMotion ? 0 : Math.min(index * 0.08, 0.32),
+              }}
+            >
+              <ArticleCard article={article} className="w-full" />
+            </m.div>
+          ))}
+        </AnimatePresence>
       </div>
 
       {showPagination && totalPages > 1 && (
@@ -138,8 +145,9 @@ function ChipButton({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "h-10 cursor-pointer rounded-full px-4 font-medium text-base transition-colors duration-200 ease-out",
+        "h-12 rounded-1 px-4 font-medium text-base transition-colors duration-300 ease-out",
         active ? chipThemeClasses[theme].active : chipThemeClasses[theme].inactive,
+        !active && "cursor-pointer",
       )}
     >
       {children}
