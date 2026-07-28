@@ -50,16 +50,16 @@ export function Pagination({ currentPage, totalPages, sectionTheme, onChange }: 
   const inMobileWindow = (p: number) => p >= mobileStart && p <= mobileEnd;
 
   return (
-    <nav className="mt-8 flex items-center justify-center gap-2" aria-label="Pagination">
+    <nav className="mt-8 flex items-center justify-center gap-1.5" aria-label="Pagination">
       <button
         type="button"
         onClick={() => canPrev && onChange(currentPage - 1)}
         disabled={!canPrev}
         aria-label="Previous page"
         className={cn(
-          "flex size-14 items-center justify-center rounded-3 transition-all duration-300 ease-out",
+          "flex size-12 items-center justify-center rounded-1 transition-all duration-300 ease-out",
           canPrev ? theme.base : theme.disabled,
-          canPrev && "cursor-pointer hover:scale-105",
+          canPrev && "cursor-pointer",
         )}
       >
         <ChevronLeft aria-hidden="true" className="size-5" />
@@ -71,10 +71,11 @@ export function Pagination({ currentPage, totalPages, sectionTheme, onChange }: 
           onClick={() => onChange(page)}
           aria-current={page === currentPage ? "page" : undefined}
           className={cn(
-            "h-10 min-w-10 items-center justify-center rounded-2 px-2 transition-all duration-300 ease-out md:flex",
+            "h-12 min-w-12 items-center justify-center rounded-1 px-2 transition-all duration-300 ease-out md:flex",
             inMobileWindow(page) ? "flex" : "hidden",
             page === currentPage ? theme.active : theme.base,
-            page !== currentPage && "cursor-pointer hover:scale-105",
+            page === currentPage && "-translate-y-1",
+            page !== currentPage && "cursor-pointer",
           )}
         >
           {page}
@@ -86,9 +87,9 @@ export function Pagination({ currentPage, totalPages, sectionTheme, onChange }: 
         disabled={!canNext}
         aria-label="Next page"
         className={cn(
-          "flex size-14 items-center justify-center rounded-3 transition-all duration-300 ease-out",
+          "flex size-12 items-center justify-center rounded-1 transition-all duration-300 ease-out",
           canNext ? theme.base : theme.disabled,
-          canNext && "cursor-pointer hover:scale-105",
+          canNext && "cursor-pointer",
         )}
       >
         <ChevronRight aria-hidden="true" className="size-5" />
