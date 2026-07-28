@@ -52,7 +52,7 @@ interface SectionIntroProps {
   buttonWrapperClassName?: string;
 }
 
-// ─── Helpers ───
+// Helpers
 
 function isVariant(value: unknown): value is SectionButtonVariant {
   return value === "default" || value === "secondary" || value === "outline" || value === "ghost";
@@ -62,7 +62,7 @@ function isIconName(value: unknown): value is IconName {
   return typeof value === "string" && value in iconMap;
 }
 
-// ─── Component ───
+// Component
 
 export function SectionIntro({
   overline,

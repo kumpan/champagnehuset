@@ -2,7 +2,7 @@
  * Re-PUTs every migrated product with its full data and resolved producer
  * links. Used after migrate.mjs when documents need their data rewritten
  * (the Migration API client creates documents as empty shells and only
- * writes data in a second pass — if that pass fails, run this).
+ * writes data in a second pass, so if that pass fails, run this).
  *
  * TESTING MODE: missing fields are filled with plausible deterministic
  * data (see fillTestDefaults in lib.mjs) so search/filters can be tested.
@@ -13,7 +13,7 @@
  *
  * Run: node --env-file=.env.local scripts/prismic-migration/repair.mjs
  *
- * The PUTs land in a new Migration Release — publish it when done.
+ * The PUTs land in a new Migration Release, so publish it when done.
  * Also rewrites manifest.json with all ai-import document IDs.
  */
 import { readFileSync, writeFileSync } from "node:fs";
@@ -52,7 +52,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 console.log(`Repairing ${data.products.length} product(s)`);
 
 for (const rawProduct of data.products) {
-  const product = fillTestDefaults(rawProduct); // TESTING ONLY — remove for real migrations
+  const product = fillTestDefaults(rawProduct); // TESTING ONLY, remove for real migrations
   const id = idByUid[product.uid];
   if (!id) {
     console.error(`  SKIP ${product.uid}: not found among published documents`);
@@ -78,7 +78,7 @@ for (const rawProduct of data.products) {
   await sleep(1500);
 }
 
-// Manifest for cleanup.mjs — every ai-import document, id + type + uid.
+// Manifest for cleanup.mjs: every ai-import document, id + type + uid.
 writeFileSync(
   new URL("./manifest.json", import.meta.url),
   JSON.stringify(

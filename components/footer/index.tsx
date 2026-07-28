@@ -23,9 +23,8 @@ function isIconName(value: unknown): value is IconName {
 }
 
 /**
- * Content authored before a link field was made repeatable comes back from the API as a single
- * value rather than an array. Normalise both shapes so the footer renders regardless of when the
- * document was last saved.
+ * Link fields authored before they were made repeatable come back as a single value, not an
+ * array. Normalise both shapes so the footer renders either way.
  */
 function toArray<T>(value: T | T[]): T[] {
   if (Array.isArray(value)) return value;

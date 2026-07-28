@@ -1,6 +1,6 @@
 /**
  * Deletes the documents created by migrate.mjs (listed in manifest.json).
- * Only touches documents in the manifest — never the pre-existing producers,
+ * Only touches documents in the manifest, never the pre-existing producers,
  * the vincent-joudart name fix, or the bottle-0X media library assets.
  *
  * Dry run (default):  node --env-file=.env.local scripts/prismic-migration/cleanup.mjs
