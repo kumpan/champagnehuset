@@ -27,7 +27,7 @@ export function CalloutBackdrop({ slice }: Props) {
       sectionTheme={theme}
       className={cn(
         "relative isolate flex flex-col justify-end overflow-hidden",
-        "min-h-[28rem] md:min-h-[36rem] lg:min-h-[43rem]",
+        "min-h-112 md:min-h-144 lg:min-h-172",
       )}
     >
       {hasMedia && (
@@ -58,7 +58,7 @@ export function CalloutBackdrop({ slice }: Props) {
             buttons={buttons}
             align={alignment ? "center" : "left"}
             sectionTheme={theme}
-            className={cn("w-full max-w-[50rem]", alignment && "mx-auto")}
+            className={cn("w-full max-w-200", alignment && "mx-auto")}
             titleMaxWidth={false}
             textBalance
           />

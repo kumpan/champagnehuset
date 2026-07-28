@@ -16,9 +16,7 @@ export function HeroBackdrop({ slice, context }: Props) {
   const { image, video } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
-  // With media, the image is the surface, so force the dark Slate theme and text,
-  // buttons and selection flip to light. Without media, honour the editor's chosen
-  // theme, like HeroStack.
+  // With media, the theme is always slate so text is legible.
   const theme = hasMedia ? "Slate" : section_theme;
 
   const breadcrumbs = context?.breadcrumbs;
@@ -30,7 +28,7 @@ export function HeroBackdrop({ slice, context }: Props) {
       sectionTheme={theme}
       className={cn(
         "relative isolate flex flex-col justify-end overflow-hidden border-t-0",
-        "min-h-[34rem] pt-24 pb-12 md:min-h-[42rem] md:pt-28 md:pb-16 lg:min-h-[50rem] lg:pt-32",
+        "3xl:min-h-256 min-h-144 pt-24 pb-12 md:min-h-192 md:pt-28 md:pb-16 lg:min-h-208 lg:pt-32 xl:min-h-232",
       )}
     >
       {hasMedia && (
@@ -44,7 +42,7 @@ export function HeroBackdrop({ slice, context }: Props) {
             thumbnail="horizontal md:main"
           />
 
-          {/* Bottom fade: layered like custom-media (blur → overlay mix → fade), spot-fill-dark */}
+          {/* Bottom fade layers: blur → overlay blend → color fade */}
           <div className="absolute inset-x-0 top-1/3 bottom-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black,black_30%,transparent)]" />
           <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/65 to-spot-fill-dark/0 mix-blend-overlay" />
           <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/90 via-spot-fill-dark/40 to-spot-fill-dark/0" />
@@ -52,7 +50,7 @@ export function HeroBackdrop({ slice, context }: Props) {
       )}
 
       <Container className="relative flex w-full flex-col justify-end">
-        <div className={cn("flex w-full max-w-[50rem] flex-col", alignment && "mx-auto items-center")}>
+        <div className={cn("flex w-full max-w-200 flex-col", alignment && "mx-auto items-center")}>
           {breadcrumbs && breadcrumbs.length > 1 && (
             <BreadcrumbNav
               items={breadcrumbs}

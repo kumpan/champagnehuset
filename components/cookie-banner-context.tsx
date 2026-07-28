@@ -15,12 +15,8 @@ export function CookieBannerProvider({ children }: { children: ReactNode }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if user has already made a choice
-    const cookieConsent = localStorage.getItem("cookie-consent");
-    if (!cookieConsent) {
-      // Show banner if no consent has been given
-      setIsVisible(true);
-    }
+    // Show the banner only if no consent choice has been stored yet
+    if (!localStorage.getItem("cookie-consent")) setIsVisible(true);
   }, []);
 
   const showCookieBanner = () => setIsVisible(true);
