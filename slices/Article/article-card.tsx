@@ -5,11 +5,6 @@ import type { ArticleDocument } from "@/prismicio-types";
 
 // TODO: placeholder — revisit once the article layout is finalized.
 
-const cardThemeClasses = {
-  Bud: "text-ink",
-  Dust: "text-accent-ink",
-};
-
 export function formatArticleDate(date: string | null) {
   if (!date) return null;
   return new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short", year: "numeric" }).format(new Date(date));
@@ -17,19 +12,17 @@ export function formatArticleDate(date: string | null) {
 
 type ArticleCardProps = {
   article: ArticleDocument;
-  sectionTheme: "Bud" | "Dust";
   className?: string;
 };
 
-export function ArticleCard({ article, sectionTheme, className }: ArticleCardProps) {
+// Text color is inherited from the enclosing Section theme — the card stays theme-agnostic
+// so it renders correctly under every section_theme without a per-theme color map.
+export function ArticleCard({ article, className }: ArticleCardProps) {
   const { article_image, article_description, tag, article_title, article_date } = article.data;
   const date = formatArticleDate(article_date ?? article.first_publication_date);
 
   return (
-    <PrismicNextLink
-      document={article}
-      className={cn("group flex flex-col gap-2", cardThemeClasses[sectionTheme], className)}
-    >
+    <PrismicNextLink document={article} className={cn("group flex flex-col gap-2", className)}>
       <div className="aspect-3/2 w-full overflow-hidden rounded-1">
         <PrismicNextImage
           field={article_image}
