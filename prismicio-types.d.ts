@@ -1945,7 +1945,46 @@ export interface ArticleSliceListPrimary {
    * - **API ID Path**: article.list.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
+
+  /**
+   * Show Pagination field in *Article → List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: article.list.primary.show_pagination
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_pagination: prismic.BooleanField;
+
+  /**
+   * Filter by Tag field in *Article → List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: All
+   * - **API ID Path**: article.list.primary.filter_by_tag
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  filter_by_tag: prismic.SelectField<
+    "All" | "Event" | "News" | "Guide" | "Tasting",
+    "filled"
+  >;
+
+  /**
+   * Show Filter Chips field in *Article → List → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: article.list.primary.show_filter_chips
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  show_filter_chips: prismic.BooleanField;
 
   /**
    * Center Text field in *Article → List → Primary*
