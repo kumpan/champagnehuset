@@ -2,6 +2,7 @@ import { type Content, isFilled } from "@prismicio/client";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
+import articleModel from "@/customtypes/article/index.json";
 import { hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
@@ -9,6 +10,9 @@ import type { ArticleProps } from "..";
 import { ArticleGrid } from "../article-grid";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceList };
+
+// Canonical chip order comes from the `tag` select field model file.
+const TAG_ORDER = articleModel.json.Main.tag.config.options;
 
 export async function ArticleList({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
@@ -48,11 +52,11 @@ export async function ArticleList({ slice }: Props) {
           orderings: [{ field: "my.article.article_date", direction: "desc" }],
         });
 
-  // Fixed tag filter narrows the pool (curated or auto); "All" means no filter.
+  // Fixed tag filter narrows the pool; "All" means no filter.
   const tagFilter = filter_by_tag && filter_by_tag !== "All" ? filter_by_tag : null;
   const articles = tagFilter ? pool.filter((article) => article.data.tag === tagFilter) : pool;
 
-  // Chips are for the open feed. A fixed tag already narrows to one type, so hide them.
+  // Chips are for the open feed, when a fixed tag i set hide the filter chips
   const showChips = Boolean(show_filter_chips) && !tagFilter;
 
   return (
@@ -75,9 +79,8 @@ export async function ArticleList({ slice }: Props) {
         )}
         <ArticleGrid
           articles={articles}
+          tagOrder={TAG_ORDER}
           sectionTheme={section_theme}
-          // Defaults to true (the model default) so documents saved before this
-          // field existed keep paginating rather than silently capping at 4.
           showPagination={show_pagination !== false}
           showChips={showChips}
           className="mt-8"

@@ -106,7 +106,7 @@
           "config": {
             "label": "Show Pagination",
             "placeholder_false": "Shows Only First 4",
-            "placeholder_true": "Pages Through 4 at a Time",
+            "placeholder_true": "Shows 4 Per Page",
             "default_value": true
           }
         },
@@ -129,8 +129,8 @@
           "type": "Boolean",
           "config": {
             "label": "Show Filter Chips",
-            "placeholder_false": "Chips Hidden",
-            "placeholder_true": "Chips Shown",
+            "placeholder_false": "Filter Chips are Hidden",
+            "placeholder_true": "Filter Chips are Showing",
             "default_value": false
           }
         },
