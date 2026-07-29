@@ -117,6 +117,39 @@ export function ModalProvider({
     newsletterDelaySeconds,
   ]);
 
+  // Dev-only: manual modal triggers from the browser console. Compiled out in
+  // production. Usage: __modals.age() · __modals.cookie() · __modals.newsletter()
+  // · __modals.reset() (clears storage + reloads). Age/newsletter also need their
+  // Prismic singleton published, or the modal component isn't mounted to show.
+  useEffect(() => {
+    // if (process.env.NODE_ENV === "production") return;
+    const w = window as unknown as { __modals?: Record<string, () => void> };
+    w.__modals = {
+      age: () => setAgeDone(false),
+      cookie: () => {
+        setAgeDone(true);
+        setCookieOverride(true);
+      },
+      newsletter: () => {
+        setAgeDone(true);
+        setCookieDone(true);
+        setCookieOverride(false);
+        setNewsletterDone(false);
+        setNewsletterReady(true);
+      },
+      reset: () => {
+        localStorage.removeItem(AGE_KEY);
+        localStorage.removeItem(COOKIE_KEY);
+        localStorage.removeItem(NEWSLETTER_KEY);
+        sessionStorage.removeItem(TIMER_KEY);
+        window.location.reload();
+      },
+    };
+    return () => {
+      delete w.__modals;
+    };
+  }, []);
+
   // Priority resolution. Age can never be preempted.
   const active: ActiveModal = useMemo(() => {
     if (!hydrated) return null;
