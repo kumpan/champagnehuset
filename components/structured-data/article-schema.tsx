@@ -5,9 +5,7 @@ interface ArticleSchemaProps {
   doc: Content.ArticleDocument;
 }
 
-/**
- * Renders Article JSON-LD for article/blog documents.
- */
+/** Article JSON-LD for article/blog documents. */
 export function ArticleSchema({ doc }: ArticleSchemaProps) {
   const schema = generateArticleSchema(doc);
   if (!schema) return null;

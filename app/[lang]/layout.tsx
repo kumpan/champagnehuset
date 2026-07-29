@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { AgeGate } from "@/components/age-gate";
 import { CookieBanner } from "@/components/cookie-banner";
 import { Footer } from "@/components/footer";
+import { GoogleTagManager } from "@/components/google-tag-manager";
 import { ModalProvider } from "@/components/modal-context";
 import { MotionProvider } from "@/components/motion-provider";
 import { Navbar } from "@/components/navbar";
@@ -62,13 +63,14 @@ export default async function LocaleLayout({
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col">
-        {/* <GoogleTagManager /> */}
+        <GoogleTagManager gtmId="GTM-TZTKL247" />
         <OrganizationSchema />
         <MotionProvider>
           <ModalProvider
             localeIds={locales.map((l) => l.id)}
             ageGateEnabled={!!ageGate}
             newsletterEnabled={newsletterEnabled}
+            newsletterAvailable={!!newsletter}
             newsletterDelaySeconds={newsletterDelaySeconds}
           >
             {navbarData && <Navbar prismicData={navbarData} locales={locales} masterLocale={masterLocale} />}

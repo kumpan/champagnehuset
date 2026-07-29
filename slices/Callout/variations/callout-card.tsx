@@ -9,6 +9,11 @@ import type { CalloutProps } from "..";
 
 type Props = CalloutProps & { slice: Content.CalloutSliceCard };
 
+const cardSurfaceClasses: Record<string, string> = {
+  Bud: "bg-fill-raised text-ink-flip",
+  Dust: "bg-accent-fill-raised text-accent-ink-flip",
+};
+
 export function CalloutCard({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { title, description, buttons, overline, alignment, section_theme, remove_top_padding, media } = slice.primary;
@@ -27,11 +32,7 @@ export function CalloutCard({ slice }: Props) {
         <div
           className={cn(
             "relative flex min-h-96 flex-col justify-end overflow-hidden rounded-5 px-4 py-4 md:min-h-120 md:px-16 md:py-16",
-            !hasMedia &&
-              {
-                Bud: "bg-fill-raised text-ink-flip",
-                Dust: "bg-accent-fill-raised text-accent-ink-flip",
-              }[section_theme],
+            !hasMedia && cardSurfaceClasses[section_theme],
             alignment ? "items-center" : "items-start",
           )}
         >

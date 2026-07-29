@@ -1,19 +1,19 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "details",
-		"primary": {
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Dust"
-			},
-			"region": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Côte des Bar"
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "details",
+    "primary": {
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Dust"
+      },
+      "region": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Côte des Bar"
+      }
+    },
+    "items": []
+  }
 ]

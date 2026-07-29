@@ -1,6 +1,6 @@
 /**
  * Client-side module store for the current page's available locale variants.
- * Populated by AvailableLocalesSetter on each page mount (useEffect — never runs on server).
+ * Populated by AvailableLocalesSetter on each page mount (useEffect, never runs on server).
  * Read synchronously by LanguageSwitcher when the user switches language.
  *
  * null = not yet initialised → optimistically assume all locales are available

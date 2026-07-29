@@ -26,7 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -85,17 +85,35 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
-        "alignment": {
+        "show_pagination": {
           "type": "Boolean",
           "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
+            "label": "Show Pagination",
+            "placeholder_false": "Pagination is Hidden",
+            "placeholder_true": "Pagination is Showing",
             "default_value": true
+          }
+        },
+        "filter_by_tag": {
+          "type": "Select",
+          "config": {
+            "label": "Filter by Tag",
+            "placeholder": "",
+            "options": ["All", "Event", "News", "Guide", "Tasting"],
+            "default_value": "All"
+          }
+        },
+        "show_filter_chips": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Filter Chips",
+            "placeholder_false": "Filter Chips are Hidden",
+            "placeholder_true": "Filter Chips are Showing",
+            "default_value": false
           }
         },
         "overline": {

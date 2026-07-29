@@ -152,6 +152,14 @@
     --animate-marquee-y-slow: marquee-y 45s linear infinite;
 }
 
+/* Global focus ring */
+@layer base {
+    :focus-visible {
+        @apply rounded-1 outline-solid outline-offset-2 outline-brand;
+        outline-width: var(--default-border-width);
+    }
+}
+
 /* Base styles */
 html {
     scroll-behavior: smooth;
@@ -172,7 +180,8 @@ body {
 
 /* Headings default to the primary display font */
 h1,
-h2 {
+h2,
+h3{
     @apply italic;
     font-family: var(--font-primary), sans-serif;
 }
@@ -180,14 +189,14 @@ h2 {
 /* Prose Styles */
 .prose {
     h1,
-    h2 {
+    h2,
+    h3 {
         @apply mt-0 mb-4 tracking-tight lg:mb-6 text-ink italic;
         font-family: var(--font-primary), sans-serif;
     }
 }
 
 /* Headings default to the primary display font */
-h3,
 h4,
 h5,
 h6 {
@@ -197,7 +206,6 @@ h6 {
 
 /* Prose Styles */
 .prose {
-    h3,
     h4,
     h5,
     h6 {

@@ -1,9 +1,8 @@
 /**
- * All of the purchase-flow microcopy for the Text → Info (product detail)
- * variation lives here so a CMS editor only has to pick the availability on the
- * product document — they never retype this copy. The sales-rep phone/email are
- * the same for every wine, so they're constants too; change them here if the
- * rep changes.
+ * All purchase-flow microcopy for the Text → Info (product detail) variation
+ * lives here, so a CMS editor only picks the availability on the product
+ * document and never retypes this copy. The sales-rep phone/email are the same
+ * for every wine, so they're constants too; change them here if the rep changes.
  */
 
 export type ConsumerAvailability = "Systembolaget" | "Private Import" | "Sold Out" | null;
@@ -64,7 +63,7 @@ export type PurchaseState =
  * - When BOTH consumer and restaurant are "Sold Out", the whole column collapses
  *   to a single sold-out message.
  * - A "Sold Out" consumer channel keeps the (disabled) Systembolaget button and
- *   swaps to the sold-out copy — matching the "slutsåld hos Systembolaget" state.
+ *   swaps to the sold-out copy, matching the "slutsåld hos Systembolaget" state.
  */
 export function resolvePurchase(
   consumer: ConsumerAvailability,

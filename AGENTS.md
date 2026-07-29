@@ -1,5 +1,9 @@
 <!-- BEGIN:nextjs-agent-rules -->
 
+# Package manager: pnpm
+
+This project uses **pnpm**, not npm. Use `pnpm add <pkg>` / `pnpm install` / `pnpm <script>`. Running `npm install` here fails (it can't read the pnpm lockfile — surfaces as a cryptic `Cannot read properties of null (reading 'matches')`).
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
@@ -102,3 +106,15 @@ Migration API gotchas learned the hard way:
 - When the asset's aspect ratio differs from the image field's constraint, `edit: {x:0, y:0, zoom:1}` anchors the constraint crop **top-left** (subject drifts off-center in the served URL; CSS can't fix it). Compute a center-cover `edit` instead — see `imageField()` in `scripts/prismic-migration/lib.mjs`.
 - Deleting a media library asset does not purge the CDN file — documents keep serving old URLs until re-pointed at new asset IDs (a document migration, not a library operation).
 <!-- END:naming-rules -->
+
+<!-- BEGIN:git-rules -->
+
+# Git operations are the developer's, not the agent's
+
+Never create branches, commit, or push on the developer's behalf. The developer decides what gets staged, committed, and pushed, and which PRs get created.
+
+- Do **not** run `git commit`, `git push`, `git branch`, `git checkout -b`, `git merge`, or `gh pr create` — even when a change is finished and even with `--no-verify`.
+- Make edits in the working tree only, then stop and tell the developer what changed and what you'd suggest committing (a proposed message is fine). Leave the staging/commit/push to them.
+- If a task seems to require a commit or push, ask first — do not proceed.
+
+<!-- END:git-rules -->

@@ -18,10 +18,10 @@ export interface AnimatedNumberProps {
 }
 
 function splitTextIntoParts(input: string) {
-  // We remove any potential spaces first
+  // Strip spaces first
   const noSpaces = input.replace(/\s+/g, "");
 
-  // Find first number, while including decimals
+  // First number, decimals included
   const match = noSpaces.match(/-?[\d.,]+/);
   if (!match) {
     return { prefix: input, numberStr: "", suffix: "" };
@@ -37,11 +37,11 @@ function splitTextIntoParts(input: string) {
 }
 
 function parseNumber(numberStr: string) {
-  // Next we remove commas, keep dots for decimals
+  // Drop commas, keep dots for decimals
   const cleaned = numberStr.replace(/,/g, "");
   const value = parseFloat(cleaned);
 
-  // Finally we count decimal places from original string
+  // Count decimal places
   const dotIndex = cleaned.lastIndexOf(".");
   const decimals = dotIndex >= 0 ? cleaned.length - dotIndex - 1 : 0;
 
@@ -51,7 +51,7 @@ function parseNumber(numberStr: string) {
   };
 }
 
-// We format the number to have thousand spaces
+// Group thousands with spaces
 function formatWithSpaces(value: number, decimals: number) {
   const [intStr, fracStr = ""] = value.toFixed(decimals).split(".");
   const intWithSpaces = intStr.replace(/\B(?=(\d{3})+(?!\d))/g, " ");

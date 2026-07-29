@@ -5,9 +5,7 @@ interface ProductSchemaProps {
   doc: Content.ProductDocument;
 }
 
-/**
- * Renders Product JSON-LD, with an Offer, for product documents.
- */
+/** Product JSON-LD (with an Offer) for product documents. */
 export function ProductSchema({ doc }: ProductSchemaProps) {
   const schema = generateProductSchema(doc);
   if (!schema) return null;

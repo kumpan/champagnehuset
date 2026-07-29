@@ -36,7 +36,7 @@ const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
           animate={{ rotate: isActive ? -180 : 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
         >
-          <ChevronDown className="size-7 md:size-8 shrink-0" />
+          <ChevronDown className="size-7 shrink-0 md:size-8" />
         </m.div>
       </button>
 
@@ -53,7 +53,7 @@ const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
               field={answer}
               className={cn(
                 frequentlyAskedThemeTextColors[sectionTheme],
-                "transition-colors duration-500 easeOut pb-7 font-medium",
+                "easeOut pb-7 font-medium transition-colors duration-500",
               )}
             />
           </m.div>

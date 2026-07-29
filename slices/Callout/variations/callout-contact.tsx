@@ -7,7 +7,7 @@ import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
 
-const containerClasses = {
+const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
   Dust: "bg-accent-fill-raised",
 };

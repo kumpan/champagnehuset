@@ -1,96 +1,174 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "grid",
-		"primary": {
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Leaf"
-			},
-			"button": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "b1459c8d-6e36-4708-9f9a-60116e953c57",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "asdf",
-										"text": "asdf"
-									}
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "asd",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "sdf",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "badgeCheck"
-								}
-							],
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "asdfgasd"
-								}
-							]
-						]
-					}
-				]
-			},
-			"alignment": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "grid",
+    "primary": {
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Leaf"
+      },
+      "button": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "b1459c8d-6e36-4708-9f9a-60116e953c57",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "asdf",
+                    "text": "asdf"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "asd",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "sdf",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "badgeCheck"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "asdfgasd"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "search",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "layers",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "pipe",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Dangerous"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Nisi voluptate officia anim et qui."
+            }
+          }
+        ]
+      },
+      "search_placeholder": {
+        "__TYPE__": "FieldContent",
+        "value": "section",
+        "type": "Text"
+      },
+      "no_results_text": {
+        "__TYPE__": "FieldContent",
+        "value": "off",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
 ]

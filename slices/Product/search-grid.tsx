@@ -86,7 +86,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
         onChange={(event) => setQuery(event.target.value)}
         placeholder={searchPlaceholder || "Sök"}
         aria-label={searchPlaceholder || "Sök"}
-        className="h-12 rounded-1 outline-0 hover:outline-0 active:outline-0 focus-visible:outline-0 bg-green-10 hover:bg-green-10/60 hover:border-brand/50 border-brand/0 focus-visible:bg-green-10 focus-visible:border-brand pl-11"
+        className="h-12 rounded-1 border-brand/0 bg-green-10 pl-11 outline-0 hover:border-brand/50 hover:bg-green-10/60 hover:outline-0 focus-visible:border-brand focus-visible:bg-green-10 focus-visible:outline-0 active:outline-0"
       />
     </div>
   );

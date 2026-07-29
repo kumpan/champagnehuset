@@ -3,7 +3,7 @@ import { cloneElement, isValidElement } from "react";
 import { cn } from "./utils";
 
 /**
- * Slot — merges its props onto the single child element instead of
+ * Slot: merges its props onto the single child element instead of
  * rendering a wrapper. Used to implement the `asChild` pattern so a
  * component can render as any element (e.g. a Next.js <Link>).
  *

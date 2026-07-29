@@ -23,7 +23,7 @@ export async function proxy(request: NextRequest) {
 
   const [locales, master] = await Promise.all([getLocales(), getMasterLocale()]);
 
-  // Redirect explicit master locale prefix to clean URL — /sv-se/about → /about
+  // Redirect explicit master locale prefix to clean URL, e.g. /sv-se/about to /about
   if (pathname.startsWith(`/${master}/`) || pathname === `/${master}`) {
     const clean = pathname.slice(master.length + 1) || "/";
     return NextResponse.redirect(new URL(clean, request.url), 301);
@@ -40,7 +40,7 @@ export async function proxy(request: NextRequest) {
     return response;
   }
 
-  // No locale prefix — rewrite internally to master locale, URL stays clean
+  // No locale prefix, so rewrite internally to master locale, URL stays clean
   const response = NextResponse.rewrite(new URL(`/${master}${pathname}`, request.url));
   response.headers.set("x-locale", master);
   return response;

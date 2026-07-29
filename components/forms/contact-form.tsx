@@ -200,7 +200,7 @@ export default function ContactForm({
 
   const rows = groupIntoRows(fields);
 
-  // Track the Original Field Index Per Row for State Keys
+  // Track each field's original index across rows, for stable state keys
   let fieldCursor = 0;
 
   return (

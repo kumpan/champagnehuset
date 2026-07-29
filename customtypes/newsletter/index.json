@@ -51,7 +51,10 @@
         "type": "Image",
         "config": {
           "label": "Image",
-          "constraint": {},
+          "constraint": {
+            "width": 800,
+            "height": 800
+          },
           "thumbnails": []
         }
       },
@@ -83,15 +86,6 @@
           "placeholder": "Tack! Kolla din inkorg för att bekräfta.",
           "allowTargetBlank": true,
           "multi": "paragraph,heading4,strong,em,hyperlink"
-        }
-      },
-      "consent_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Consent Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em,hyperlink"
         }
       }
     }

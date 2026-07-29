@@ -1,6 +1,6 @@
 # Champagnehuset
 
-Next.js + Prismic site for [Champagnehuset](https://champagnehuset.se) — *små odlare, stora champagner.* Built on the Kumpan Next.js + Prismic starter template.
+Next.js + Prismic site for [ChampagneHuset](https://champagnehuset.se) — _små odlare, stora champagner._ Built on the Kumpan Next.js + Prismic starter template.
 
 ## Built With
 
@@ -61,9 +61,12 @@ In code, a single `index.tsx` file holds all the layout components and a dispatc
 ```tsx
 export default function Hero({ slice }: HeroProps) {
   switch (slice.variation) {
-    case "backdrop": return <HeroBackdrop slice={slice} />;
-    case "split":    return <HeroSplit slice={slice} />;
-    case "stack":    return <HeroStack slice={slice} />;
+    case "backdrop":
+      return <HeroBackdrop slice={slice} />;
+    case "split":
+      return <HeroSplit slice={slice} />;
+    case "stack":
+      return <HeroStack slice={slice} />;
   }
 }
 ```
@@ -72,26 +75,26 @@ export default function Hero({ slice }: HeroProps) {
 
 Semantic colors use a theme-first **ink / fill** vocabulary. `fill` = background surface, `ink` = foreground text. Theme comes first, so autocomplete groups all accent tokens together.
 
-| Token | Usage |
-| --- | --- |
-| `fill` / `fill-raised` / `fill-dark` | Page and section backgrounds |
-| `ink` / `ink-dim` / `ink-flip` | Body text, muted text, text on dark |
-| `accent-fill` / `accent-fill-raised` | Accent theme backgrounds |
-| `accent-ink` / `accent-ink-dim` / `accent-ink-flip` | Accent theme text |
-| `brand-fill` / `brand-ink` | Brand color backgrounds and text |
-| `error-fill` / `error-ink` | Error state backgrounds and text |
+| Token                                               | Usage                               |
+| --------------------------------------------------- | ----------------------------------- |
+| `fill` / `fill-raised` / `fill-dark`                | Page and section backgrounds        |
+| `ink` / `ink-dim` / `ink-flip`                      | Body text, muted text, text on dark |
+| `accent-fill` / `accent-fill-raised`                | Accent theme backgrounds            |
+| `accent-ink` / `accent-ink-dim` / `accent-ink-flip` | Accent theme text                   |
+| `brand-fill` / `brand-ink`                          | Brand color backgrounds and text    |
+| `error-fill` / `error-ink`                          | Error state backgrounds and text    |
 
 ## Section Themes
 
 Every section takes a `Section Theme` from a Prismic dropdown. Theme names are drawn from the brand guidelines and the vineyard — concrete nouns rather than color words, so the palette stays recognizable even as the underlying hex values shift.
 
-| Theme | Tone |
-| --- | --- |
-| `Bud` | Lightest green — near-white, barely tinted |
-| `Leaf` | Light green — a visible step deeper than Bud |
-| `Brand` | Colorful green — the saturated brand green |
-| `Dust` | Light yellows — warm and pale |
-| `Slate` | Dark browns — deep, grounding |
+| Theme   | Tone                                         |
+| ------- | -------------------------------------------- |
+| `Bud`   | Lightest green — near-white, barely tinted   |
+| `Leaf`  | Light green — a visible step deeper than Bud |
+| `Brand` | Colorful green — the saturated brand green   |
+| `Dust`  | Light yellows — warm and pale                |
+| `Slate` | Dark browns — deep, grounding                |
 
 `Dust` comes straight from the brand guidelines, where it stands for the origin behind the product — knowledge, craft, and time. The greens follow the vine's own growth calendar, so the names carry their own order: a bud is paler than a leaf. Editors picking from the dropdown know which is lighter without needing a preview.
 
@@ -135,15 +138,16 @@ npx start-slicemachine
 
 Already included in `pnpm dev`, but useful to run standalone when you don't need the Next.js dev server.
 
-
 ## Slice Scripts
 
 **`pnpm create-slice <Name>`** — scaffolds a single slice with one default variation.
+
 ```bash
 pnpm create-slice CalloutSplit
 ```
 
 **`pnpm create-slice-group <Name> <variation1> <variation2> ...`** — scaffolds a grouped slice with a `variations/` subfolder and one file per variation. If the slice already exists, it adds only the new variations and skips any that are already there.
+
 ```bash
 pnpm create-slice-group Text extended highlight split longform
 ```

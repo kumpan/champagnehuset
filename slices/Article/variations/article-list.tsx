@@ -1,72 +1,63 @@
 import { type Content, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
-import { Button } from "@/components/button";
-import { type IconName, iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
-import { cn, hasSectionIntroContent } from "@/lib/utils";
+import articleModel from "@/customtypes/article/index.json";
+import { hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
 import type { ArticleProps } from "..";
-import { ArticleCard } from "../article-card";
+import { ArticleGrid } from "../article-grid";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceList };
 
-function isIconName(value: unknown): value is IconName {
-  return typeof value === "string" && value in iconMap;
-}
-
-// TODO: placeholder — static markup only, wire up real page-based pagination.
-function PaginationPlaceholder() {
-  const ChevronLeft = iconMap.chevronLeft;
-  const ChevronRight = iconMap.chevronRight;
-  return (
-    <div className="flex items-center justify-center gap-4 pt-3">
-      <span className="flex size-14 items-center justify-center rounded-2 bg-fill-dark/10">
-        <ChevronLeft className="size-8 opacity-50" />
-      </span>
-      <div className="flex items-center">
-        {[1, 2, 3, 4].map((page) => (
-          <span
-            key={page}
-            className={cn(
-              "flex size-8 items-center justify-center rounded-2 font-medium text-base",
-              page === 1 && "bg-brand text-brand-ink",
-            )}
-          >
-            {page}
-          </span>
-        ))}
-      </div>
-      <span className="flex size-14 items-center justify-center rounded-2 bg-brand text-brand-ink">
-        <ChevronRight className="size-8" />
-      </span>
-    </div>
-  );
-}
+// Canonical chip order comes from the `tag` select field model file.
+const TAG_ORDER = articleModel.json.Main.tag.config.options;
 
 export async function ArticleList({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, button, section_theme, remove_top_padding, featured_articles } =
-    slice.primary;
+  const {
+    overline,
+    title,
+    description,
+    button,
+    section_theme,
+    remove_top_padding,
+    featured_articles,
+    filter_by_tag,
+    show_pagination,
+    show_filter_chips,
+  } = slice.primary;
 
   const client = await createClient();
 
-  const curated = (
-    await Promise.all(
-      featured_articles.map((item) =>
-        isFilled.contentRelationship(item.article) ? client.getByID<ArticleDocument>(item.article.id) : null,
-      ),
-    )
-  ).filter((article): article is ArticleDocument => article !== null);
+  // One getByIDs (not getByID per item, which throws on any unresolved reference)
+  // so unpublished/deleted/stale featured references are dropped, not fatal.
+  // getByIDs ignores the requested order, so re-sort into the editor's curated order.
+  const curatedIds = featured_articles
+    .map((item) => item.article)
+    .filter(isFilled.contentRelationship)
+    .map((relationship) => relationship.id);
+  const curatedById = new Map(
+    curatedIds.length > 0
+      ? (await client.getByIDs<ArticleDocument>(curatedIds, { lang: "*" })).results.map((doc) => [doc.id, doc])
+      : [],
+  );
+  const curated = curatedIds.map((id) => curatedById.get(id)).filter((doc) => doc !== undefined);
 
-  const articles =
+  const pool =
     curated.length > 0
       ? curated
       : await client.getAllByType("article", {
           orderings: [{ field: "my.article.article_date", direction: "desc" }],
         });
+
+  // Fixed tag filter narrows the pool; "All" means no filter.
+  const tagFilter = filter_by_tag && filter_by_tag !== "All" ? filter_by_tag : null;
+  const articles = tagFilter ? pool.filter((article) => article.data.tag === tagFilter) : pool;
+
+  // Chips are for the open feed, when a fixed tag i set hide the filter chips
+  const showChips = Boolean(show_filter_chips) && !tagFilter;
 
   return (
     <Section
@@ -77,48 +68,23 @@ export async function ArticleList({ slice }: Props) {
     >
       <Container>
         {(hasIntroContent || (button[0] && isFilled.link(button[0].link))) && (
-          <div
-            className={cn(
-              "flex flex-col gap-4 md:gap-8",
-              alignment ? "items-center justify-center" : "items-start justify-between md:flex-row md:items-end",
-            )}
-          >
-            {hasIntroContent && (
-              <SectionIntro
-                overline={overline}
-                title={title}
-                description={description}
-                align={alignment ? "center" : "left"}
-                sectionTheme={section_theme}
-                className={alignment ? undefined : "flex-1"}
-              />
-            )}
-            {button[0] &&
-              isFilled.link(button[0].link) &&
-              (() => {
-                const btn = button[0];
-                const LeftIcon = isIconName(btn.icon_left) ? iconMap[btn.icon_left] : null;
-                const RightIcon = isIconName(btn.icon_right) ? iconMap[btn.icon_right] : null;
-                return (
-                  <Button asChild size="lg" sectionTheme={section_theme} className="shrink-0">
-                    <PrismicNextLink field={btn.link}>
-                      {LeftIcon && <LeftIcon />}
-                      <span>{btn.link.text}</span>
-                      {RightIcon && <RightIcon />}
-                    </PrismicNextLink>
-                  </Button>
-                );
-              })()}
-          </div>
+          <SectionIntro
+            overline={overline}
+            title={title}
+            description={description}
+            buttons={button}
+            align="split"
+            sectionTheme={section_theme}
+          />
         )}
-        {articles.length > 0 && (
-          <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-            {articles.map((article) => (
-              <ArticleCard key={article.id} article={article} sectionTheme={section_theme} className="w-full" />
-            ))}
-          </div>
-        )}
-        <PaginationPlaceholder />
+        <ArticleGrid
+          articles={articles}
+          tagOrder={TAG_ORDER}
+          sectionTheme={section_theme}
+          showPagination={show_pagination !== false}
+          showChips={showChips}
+          className="mt-8"
+        />
       </Container>
     </Section>
   );

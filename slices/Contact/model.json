@@ -191,7 +191,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Success Message",
-            "placeholder": "Thanks for your message!",
+            "placeholder": "Tack för ditt meddelande!",
             "allowTargetBlank": true,
             "multi": "paragraph,heading3,heading4,strong,em,hyperlink"
           }
@@ -292,15 +292,6 @@
             "placeholder": "",
             "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
-          }
-        },
-        "alignment": {
-          "type": "Boolean",
-          "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
-            "default_value": true
           }
         },
         "overline": {
@@ -515,7 +506,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Dust"],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -532,7 +523,10 @@
           "type": "Image",
           "config": {
             "label": "Image",
-            "constraint": {},
+            "constraint": {
+              "width": 1440,
+              "height": 1440
+            },
             "thumbnails": []
           }
         },
@@ -604,7 +598,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
+            "multi": "heading2,heading3"
           }
         },
         "description": {
@@ -641,36 +635,9 @@
           "type": "StructuredText",
           "config": {
             "label": "Success Message",
-            "placeholder": "Thanks for your message!",
+            "placeholder": "Du kommer nu att få nyhetsbrev!",
             "allowTargetBlank": true,
             "multi": "paragraph,heading3,heading4,strong,em,hyperlink"
-          }
-        },
-        "consent_items": {
-          "type": "Group",
-          "config": {
-            "label": "Consent Items",
-            "repeat": true,
-            "fields": {
-              "consent_text": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Consent Text",
-                  "placeholder": "I accept the privacy policy",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,hyperlink"
-                }
-              },
-              "consent_required": {
-                "type": "Boolean",
-                "config": {
-                  "label": "Required",
-                  "placeholder_false": "Optional",
-                  "placeholder_true": "Required",
-                  "default_value": true
-                }
-              }
-            }
           }
         }
       },

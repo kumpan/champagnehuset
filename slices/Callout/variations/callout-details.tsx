@@ -7,9 +7,14 @@ import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
 
-const containerClasses = {
+const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
   Dust: "bg-accent-fill-raised",
+};
+
+const detailClasses: Record<string, string> = {
+  Bud: "bg-fill",
+  Dust: "bg-accent-fill",
 };
 
 type Props = CalloutProps & { slice: Content.CalloutSliceDetails };
@@ -54,7 +59,7 @@ export function CalloutDetails({ slice }: Props) {
                   overline_icon={detail.overline_icon}
                   rich_text={detail.rich_text}
                   sectionTheme={section_theme}
-                  className={{ Bud: "bg-fill", Dust: "bg-accent-fill" }[section_theme]}
+                  className={detailClasses[section_theme]}
                 />
               ))}
             </div>

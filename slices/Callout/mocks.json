@@ -1,774 +1,774 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "split",
-		"primary": {
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "asdf"
-								}
-							],
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "briefcaseBusiness"
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "asdf",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "asdf",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"buttons": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "ee59de10-b907-4075-9dfd-fc4129e1b248",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "a",
-										"text": "asdf"
-									}
-								}
-							],
-							[
-								"icon_left",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "arrowLeft"
-								}
-							]
-						]
-					}
-				]
-			},
-			"media": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"filter",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "Top Right"
-								}
-							],
-							[
-								"image",
-								{
-									"provider": "imgix",
-									"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3Nzk3MTQ2Njd8MA&ixlib=rb-4.1.0&q=85&rect=948,0,3792,3792&w=1440&h=1440",
-									"alt": "orange fruits under blue sky during daytime",
-									"origin": {
-										"id": "eaOjEz8746k",
-										"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3Nzk3MTQ2Njd8MA&ixlib=rb-4.1.0&q=85",
-										"width": 5688,
-										"height": 3792
-									},
-									"width": 1440,
-									"height": 1440,
-									"edit": {
-										"background": "transparent",
-										"zoom": 1,
-										"crop": {
-											"x": 948,
-											"y": 0
-										}
-									},
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": []
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "card",
-		"primary": {
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"value": "Bud",
-				"type": "Select"
-			},
-			"alignment": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "away",
-									"type": "Text"
-								}
-							],
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Swimming"
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Veniam anim adipisicing qui Lorem."
-						}
-					}
-				]
-			},
-			"buttons": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "ef46a100-8ce9-4904-b533-e20c12b3a505",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "price"
-									}
-								}
-							],
-							[
-								"variant",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "default",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_left",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_right",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "chevronLeft",
-									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"media": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"filter",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Top Left",
-									"type": "Select"
-								}
-							],
-							[
-								"image",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-										"width": 3882,
-										"height": 2584
-									},
-									"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?rect=649%2C0%2C2584%2C2584&w=1440&h=1440",
-									"width": 1440,
-									"height": 1440,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 649,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "composition",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "contact",
-		"primary": {
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"value": "Bud",
-				"type": "Select"
-			},
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "trail",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Hospital"
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Dolore exercitation do Lorem cillum esse tempor elit non commodo nisi. Ex reprehenderit aliqua eiusmod commodo culpa veniam officia non mollit occaecat sit Lorem non exercitation velit."
-						}
-					}
-				]
-			},
-			"buttons": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "6765ad6c-0e61-4c3a-9178-0974a4ae4fcf",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "https://slicemachine.dev",
-										"text": "does"
-									}
-								}
-							],
-							[
-								"variant",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "default",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_left",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "phoneCall",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_right",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"contact_items": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"label",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "lift",
-									"type": "Text"
-								}
-							],
-							[
-								"value",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "tax",
-									"type": "Text"
-								}
-							],
-							[
-								"link",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "atom",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "details",
-		"primary": {
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"value": "Bud",
-				"type": "Select"
-			},
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "fileBadge",
-									"type": "Select"
-								}
-							],
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "farm",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Shoulder"
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Occaecat do dolore elit."
-						}
-					}
-				]
-			},
-			"buttons": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "368124c8-986a-4b3a-b8da-3d54cddd61ab",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://google.com",
-										"text": "hurt"
-									}
-								}
-							],
-							[
-								"variant",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "ghost",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_left",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "phoneCall",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_right",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"details": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "noted",
-									"type": "Text"
-								}
-							],
-							[
-								"rich_text",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Occaecat tempor in Lorem aliqua. Nulla commodo culpa occaecat cillum eu duis ea anim."
-											}
-										}
-									]
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "backdrop",
-		"primary": {
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Dust"
-			},
-			"alignment": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "basket",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Found"
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Excepteur enim deserunt ut laboris sint nulla. Minim cupidatat tempor non officia enim deserunt excepteur in ipsum reprehenderit."
-						}
-					}
-				]
-			},
-			"buttons": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "4b9f4cec-db1a-42e6-98df-48807d0a24be",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "eventually"
-									}
-								}
-							],
-							[
-								"variant",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "default"
-								}
-							],
-							[
-								"icon_left",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_right",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "arrowUp",
-									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"media": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"filter",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "Bottom Right"
-								}
-							],
-							[
-								"image",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-										"width": 3212,
-										"height": 3880
-									},
-									"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?rect=0%2C334%2C3212%2C3212&w=1440&h=1440",
-									"width": 1440,
-									"height": 1440,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 334
-										},
-										"background": "transparent"
-									},
-									"alt": "guard",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "split",
+    "primary": {
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "asdf"
+                }
+              ],
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "briefcaseBusiness"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "asdf",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "asdf",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "ee59de10-b907-4075-9dfd-fc4129e1b248",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "a",
+                    "text": "asdf"
+                  }
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "arrowLeft"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Top Right"
+                }
+              ],
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3Nzk3MTQ2Njd8MA&ixlib=rb-4.1.0&q=85&rect=948,0,3792,3792&w=1440&h=1440",
+                  "alt": "orange fruits under blue sky during daytime",
+                  "origin": {
+                    "id": "eaOjEz8746k",
+                    "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3Nzk3MTQ2Njd8MA&ixlib=rb-4.1.0&q=85",
+                    "width": 5688,
+                    "height": 3792
+                  },
+                  "width": 1440,
+                  "height": 1440,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 948,
+                      "y": 0
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "card",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "away",
+                  "type": "Text"
+                }
+              ],
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Swimming"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Veniam anim adipisicing qui Lorem."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "ef46a100-8ce9-4904-b533-e20c12b3a505",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "http://twitter.com",
+                    "text": "price"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "default",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "chevronLeft",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Top Left",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+                    "width": 3882,
+                    "height": 2584
+                  },
+                  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?rect=649%2C0%2C2584%2C2584&w=1440&h=1440",
+                  "width": 1440,
+                  "height": 1440,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 649,
+                      "y": 0
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "composition",
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "contact",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "trail",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Hospital"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Dolore exercitation do Lorem cillum esse tempor elit non commodo nisi. Ex reprehenderit aliqua eiusmod commodo culpa veniam officia non mollit occaecat sit Lorem non exercitation velit."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "6765ad6c-0e61-4c3a-9178-0974a4ae4fcf",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://slicemachine.dev",
+                    "text": "does"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "default",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "phoneCall",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "contact_items": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "lift",
+                  "type": "Text"
+                }
+              ],
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "tax",
+                  "type": "Text"
+                }
+              ],
+              [
+                "link",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "atom",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "details",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "fileBadge",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "farm",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Shoulder"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Occaecat do dolore elit."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "368124c8-986a-4b3a-b8da-3d54cddd61ab",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "http://google.com",
+                    "text": "hurt"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "ghost",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "phoneCall",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "details": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "noted",
+                  "type": "Text"
+                }
+              ],
+              [
+                "rich_text",
+                {
+                  "__TYPE__": "StructuredTextContent",
+                  "value": [
+                    {
+                      "type": "paragraph",
+                      "content": {
+                        "text": "Occaecat tempor in Lorem aliqua. Nulla commodo culpa occaecat cillum eu duis ea anim."
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "backdrop",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Dust"
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "basket",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Found"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Excepteur enim deserunt ut laboris sint nulla. Minim cupidatat tempor non officia enim deserunt excepteur in ipsum reprehenderit."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "4b9f4cec-db1a-42e6-98df-48807d0a24be",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "http://twitter.com",
+                    "text": "eventually"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "default"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "arrowUp",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Bottom Right"
+                }
+              ],
+              [
+                "image",
+                {
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+                    "width": 3212,
+                    "height": 3880
+                  },
+                  "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?rect=0%2C334%2C3212%2C3212&w=1440&h=1440",
+                  "width": 1440,
+                  "height": 1440,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 334
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "guard",
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
 ]

@@ -33,8 +33,8 @@ export function LanguageSwitcher({ locales, masterLocale }: { locales: Language[
     const withoutLocale = pathname.replace(new RegExp(`^/${currentLocale}(?=/|$)`), "") || "/";
     const targetPath = targetId === masterLocale ? withoutLocale : `/${targetId}${withoutLocale}`;
     const home = targetId === masterLocale ? "/" : `/${targetId}`;
-    // Use Prismic's alternate_languages data (set on page mount) to decide
-    // whether this page exists in the target locale — no network round-trip.
+    // alternate_languages (set on page mount) tells us if the page exists in
+    // the target locale, no network round-trip.
     router.push(isLocaleAvailable(targetId) ? targetPath : home);
   }
 

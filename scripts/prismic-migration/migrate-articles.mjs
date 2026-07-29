@@ -1,10 +1,10 @@
 /**
  * Test-content migration: pushes made-up Journalen articles from articles.json
- * into a Prismic Migration Release (drafts — nothing goes live until published
+ * into a Prismic Migration Release (drafts, nothing goes live until published
  * in the Prismic UI). Every created document is tagged `ai-import` and recorded
  * in manifest.json so cleanup.mjs can remove them later.
  *
- * The articles have NO slices — only the page-type fields are filled:
+ * The articles have NO slices, only the page-type fields are filled:
  * title, description, a random date, a random article-0X image, a tag, and a
  * parent link to the Journalen page. Image/date are deterministic per uid so
  * reruns are stable.
@@ -22,13 +22,13 @@ import * as prismic from "@prismicio/client";
 import {
   ARTICLE_IMAGE_CONSTRAINT,
   ARTICLE_META_CONSTRAINT,
-  REPO,
-  TAG,
   compact,
   fetchArticleAssets,
   imageField,
   pickArticleImage,
+  REPO,
   randomDate,
+  TAG,
 } from "./lib.mjs";
 
 const writeToken = process.env.PRISMIC_WRITE_TOKEN;
@@ -47,7 +47,7 @@ const client = prismic.createWriteClient(REPO, { writeToken });
 const repository = await client.getRepository();
 const lang = repository.languages[0].id;
 
-// Parent page (Journalen) — must already be published to link by ID.
+// Parent page (Journalen) must already be published to link by ID.
 const pages = await client.getAllByType("page", { pageSize: 100 });
 const parentPage = pages.find((page) => page.uid === PARENT_PAGE_UID);
 if (!parentPage) {
@@ -85,7 +85,7 @@ for (const article of articles) {
         article_date: randomDate(article.uid),
         tag: article.tag,
         parent: parentRef,
-        meta_title: `${article.title} – Champagnehuset`,
+        meta_title: `${article.title} – ChampagneHuset`,
         meta_description: article.description.slice(0, 150),
         meta_image: imageField(asset, article.title, ARTICLE_META_CONSTRAINT),
       }),
@@ -112,7 +112,7 @@ await client.migrate(migration, {
   },
 });
 
-// --- Manifest (input for cleanup.mjs) — merged across batches ------------
+// Manifest (input for cleanup.mjs), merged across batches
 const manifestUrl = new URL("./manifest.json", import.meta.url);
 const previous = existsSync(manifestUrl) ? JSON.parse(readFileSync(manifestUrl, "utf8")).documents : [];
 const created = migration._documents

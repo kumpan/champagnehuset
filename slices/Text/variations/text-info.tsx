@@ -38,7 +38,7 @@ export function TextInfo({ slice, context }: Props) {
   const overline = slice.primary.overline || producerName || "";
   const title = slice.primary.title || data?.product_name || "";
 
-  // Spec rows — only the ones that have a value are rendered.
+  // Spec rows: only ones with a value are rendered.
   const rows: { label: string; value: string }[] = [];
   const push = (label: string, value?: string | null) => {
     if (value) rows.push({ label, value });

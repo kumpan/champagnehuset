@@ -1,6 +1,6 @@
 /**
  * Deletes the documents created by migrate.mjs (listed in manifest.json).
- * Only touches documents in the manifest — never the pre-existing producers,
+ * Only touches documents in the manifest, never the pre-existing producers,
  * the vincent-joudart name fix, or the bottle-0X media library assets.
  *
  * Dry run (default):  node --env-file=.env.local scripts/prismic-migration/cleanup.mjs
@@ -13,7 +13,9 @@ const REPO = "champagnehuset";
 
 const writeToken = process.env.PRISMIC_WRITE_TOKEN;
 if (!writeToken) {
-  console.error("Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/cleanup.mjs");
+  console.error(
+    "Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/cleanup.mjs",
+  );
   process.exit(1);
 }
 

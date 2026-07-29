@@ -16,8 +16,8 @@ export async function ProductSearch({ slice }: Props) {
     slice.primary;
 
   const client = await createClient();
-  // Only the fields the grid, filters, and search need — fetching whole
-  // documents would ship every product's slice zone to the client.
+  // Only the fields the grid, filters, and search need; whole documents would
+  // ship every product's slice zone to the client.
   // getAllByType throws ("No documents were found") when the repo has no products yet.
   const products = await client
     .getAllByType("product", {

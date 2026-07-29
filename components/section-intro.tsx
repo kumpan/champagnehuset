@@ -10,8 +10,6 @@ import type { SectionTheme } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { cn } from "@/lib/utils";
 
-type SectionButtonVariant = ButtonVariant;
-
 type CmsButtonItem = {
   link: LinkField;
   variant?: string | null;
@@ -24,12 +22,34 @@ type CmsOverlineItem = {
   overline_icon?: string | null;
 };
 
+// "center" | "left" | "side-by-side" are text-block presets; "split" places the
+// text block on the left and the buttons pinned to the side on desktop.
+type Align = "left" | "center" | "side-by-side" | "split";
+
 const overlineThemeClasses = {
   Bud: "text-ink",
   Leaf: "text-ink",
   Brand: "text-ink-flip",
   Dust: "text-spot-ink",
   Slate: "text-spot-ink-flip",
+};
+
+// Shared title width cap, applied in two spots (root and the title itself).
+const TITLE_MAX_W = "max-w-4xl xl:max-w-5xl";
+
+// Per-align class deltas. Base classes shared by every layout live inline at the
+// call site; only what differs between layouts lives here.
+const alignClasses: Record<Align, { root: string; titleDesc: string; title: string; description: string }> = {
+  center: { root: "mx-auto items-center text-center", titleDesc: "flex-col items-center", title: "", description: "" },
+  left: { root: "text-left", titleDesc: "flex-col items-start", title: "", description: "" },
+  "side-by-side": {
+    root: "w-full items-start text-left",
+    titleDesc: "flex-col items-start md:gap-2 lg:flex-row lg:gap-12",
+    title: "w-full",
+    description: "prose-p:mt-2! prose-p:mb-0! lg:mt-4 lg:max-w-md",
+  },
+  // split reuses the left-aligned text block; its row layout is handled separately.
+  split: { root: "", titleDesc: "flex-col items-start", title: "", description: "" },
 };
 
 export type { SectionTheme };
@@ -41,7 +61,7 @@ interface SectionIntroProps {
   descriptionClassName?: string;
   children?: ReactNode | ReactNode[];
   buttons?: ReadonlyArray<CmsButtonItem>;
-  align?: "left" | "center" | "side-by-side";
+  align?: Align;
   className?: string;
   overlineClassName?: string;
   sectionTheme?: SectionTheme;
@@ -52,9 +72,8 @@ interface SectionIntroProps {
   buttonWrapperClassName?: string;
 }
 
-// ─── Helpers ───
-
-function isVariant(value: unknown): value is SectionButtonVariant {
+// Helpers
+function isVariant(value: unknown): value is ButtonVariant {
   return value === "default" || value === "secondary" || value === "outline" || value === "ghost";
 }
 
@@ -62,8 +81,7 @@ function isIconName(value: unknown): value is IconName {
   return typeof value === "string" && value in iconMap;
 }
 
-// ─── Component ───
-
+// Component
 export function SectionIntro({
   overline,
   overlineClassName,
@@ -81,10 +99,11 @@ export function SectionIntro({
   buttonClassName,
   buttonWrapperClassName,
 }: SectionIntroProps) {
-  const isLeftAligned = align === "left";
-  const isSideBySide = align === "side-by-side";
+  const isSplit = align === "split";
+  const styles = alignClasses[align];
 
   const items: ReadonlyArray<CmsButtonItem> = Array.isArray(buttons) ? buttons : [];
+  const hasDescription = isFilled.richText(description);
 
   const overlineItem = Array.isArray(overline) ? overline[0] : undefined;
   const overlineText = typeof overline === "string" ? overline : overlineItem?.overline_text;
@@ -92,16 +111,32 @@ export function SectionIntro({
   const OverlineIcon =
     overlineIconKey && overlineIconKey !== "none" && isIconName(overlineIconKey) ? iconMap[overlineIconKey] : undefined;
 
-  return (
-    <div
-      className={cn(
-        "flex flex-col gap-4 md:gap-5",
-        isLeftAligned ? "text-left" : "mx-auto items-center text-center",
-        isSideBySide ? "w-full items-start text-left" : titleMaxWidth ? "max-w-4xl xl:max-w-5xl" : "max-w-none",
-        className,
-      )}
-    >
-      {/* Overline */}
+  function renderButton(btn: CmsButtonItem, index: number) {
+    const { link } = btn;
+    if (!isFilled.link(link)) return null;
+
+    const variant: ButtonVariant = buttonVariant ?? (isVariant(btn.variant) ? btn.variant : "default");
+    const LeftIcon =
+      btn.icon_left && btn.icon_left !== "none" && isIconName(btn.icon_left) ? iconMap[btn.icon_left] : undefined;
+    const RightIcon =
+      btn.icon_right && btn.icon_right !== "none" && isIconName(btn.icon_right) ? iconMap[btn.icon_right] : undefined;
+
+    const linkKey = "url" in link && link.url ? link.url : `btn-${index}`;
+    return (
+      <Button key={linkKey} className={buttonClassName} sectionTheme={sectionTheme} variant={variant} size="lg" asChild>
+        <PrismicNextLink field={link}>
+          {LeftIcon ? <LeftIcon /> : null}
+          <span>{link.text}</span>
+          {RightIcon ? <RightIcon /> : null}
+        </PrismicNextLink>
+      </Button>
+    );
+  }
+
+  // Overline + title + description + children — the text block itself, reused as-is
+  // whether it stands alone (center/left/side-by-side) or sits in the split row.
+  const introContent = (
+    <>
       {isFilled.keyText(overlineText) && (
         <Overline className={cn(overlineThemeClasses[sectionTheme], overlineClassName)}>
           {OverlineIcon && <OverlineIcon className="size-5" />}
@@ -109,82 +144,77 @@ export function SectionIntro({
         </Overline>
       )}
 
-      <div
-        className={cn(
-          "flex w-full gap-0.5 md:gap-1 lg:gap-1",
-          isLeftAligned ? "items-start" : "items-center",
-          isSideBySide ? "flex-col items-start md:gap-2 lg:flex-row lg:gap-12" : "flex-col",
-        )}
-      >
-        {/* Title */}
+      <div className={cn("flex w-full gap-0.5 md:gap-1 lg:gap-1", styles.titleDesc)}>
         {isFilled.richText(title) && (
           <CustomRichText
             sectionTheme={sectionTheme}
             className={cn(
               "prose-headings:mb-0! transition-colors",
-              titleMaxWidth ? "max-w-4xl xl:max-w-5xl" : "max-w-none",
+              titleMaxWidth ? TITLE_MAX_W : "max-w-none",
               textBalance ? "text-balance" : "text-pretty",
-              isSideBySide && "w-full",
+              styles.title,
             )}
             field={title}
           />
         )}
 
-        {/* Description */}
-        {isFilled.richText(description) && (
+        {hasDescription && (
           <CustomRichText
             sectionTheme={sectionTheme}
-            className={cn(
-              "max-w-xl text-pretty",
-              isSideBySide && "prose-p:mt-2! prose-p:mb-0! lg:mt-4 lg:max-w-md",
-              descriptionClassName,
-            )}
+            className={cn("max-w-xl text-pretty", styles.description, descriptionClassName)}
             field={description}
           />
         )}
       </div>
 
       {children}
+    </>
+  );
 
-      {/* Buttons */}
-      {items.length > 0 && (
-        <div
-          className={cn(
-            "mt-2 flex w-full max-w-full flex-col flex-wrap gap-2 sm:w-auto sm:flex-row md:gap-3",
-            isLeftAligned ? "items-start" : "sm:justify-center md:w-auto",
-            buttonWrapperClassName,
-          )}
-        >
-          {items.map((btn, index) => {
-            const { link } = btn;
-            if (!isFilled.link(link)) return null;
+  const actions =
+    items.length > 0 ? (
+      <div
+        className={cn(
+          isSplit
+            ? cn("flex shrink-0 flex-col gap-2 sm:flex-row md:gap-3", !hasDescription && "lg:mt-2")
+            : cn(
+                "mt-2 flex w-full max-w-full flex-col flex-wrap gap-2 sm:w-auto sm:flex-row md:gap-3",
+                align === "left" ? "items-start" : "sm:justify-center md:w-auto",
+              ),
+          buttonWrapperClassName,
+        )}
+      >
+        {items.map(renderButton)}
+      </div>
+    ) : null;
 
-            const variant: SectionButtonVariant = buttonVariant ?? (isVariant(btn.variant) ? btn.variant : "default");
-            const leftKey = btn.icon_left;
-            const rightKey = btn.icon_right;
-            const LeftIcon = leftKey && leftKey !== "none" && isIconName(leftKey) ? iconMap[leftKey] : undefined;
-            const RightIcon = rightKey && rightKey !== "none" && isIconName(rightKey) ? iconMap[rightKey] : undefined;
+  // Split: text block on the left, actions pinned to the side (bottom-aligned) on desktop.
+  if (isSplit) {
+    return (
+      <div
+        className={cn(
+          "flex w-full flex-col items-start gap-4 text-left md:flex-row md:justify-between md:gap-8",
+          hasDescription ? "md:items-end" : "md:items-start",
+          className,
+        )}
+      >
+        <div className="flex flex-1 flex-col gap-4 md:gap-5">{introContent}</div>
+        {actions}
+      </div>
+    );
+  }
 
-            const linkKey = "url" in link && link.url ? link.url : `btn-${index}`;
-            return (
-              <Button
-                key={linkKey}
-                className={buttonClassName}
-                sectionTheme={sectionTheme}
-                variant={variant}
-                size="lg"
-                asChild
-              >
-                <PrismicNextLink field={link}>
-                  {LeftIcon ? <LeftIcon /> : null}
-                  <span>{link.text}</span>
-                  {RightIcon ? <RightIcon /> : null}
-                </PrismicNextLink>
-              </Button>
-            );
-          })}
-        </div>
+  return (
+    <div
+      className={cn(
+        "flex flex-col gap-4 md:gap-5",
+        styles.root,
+        align !== "side-by-side" && (titleMaxWidth ? TITLE_MAX_W : "max-w-none"),
+        className,
       )}
+    >
+      {introContent}
+      {actions}
     </div>
   );
 }

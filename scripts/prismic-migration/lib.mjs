@@ -5,7 +5,7 @@
 export const REPO = "champagnehuset";
 export const TAG = "ai-import";
 
-/** Deterministic per-uid hash — keeps "random" test data stable across reruns. */
+/** Deterministic per-uid hash, so "random" test data stays stable across reruns. */
 function hash(seed) {
   return [...seed].reduce((sum, char) => sum + char.charCodeAt(0), 0);
 }
@@ -38,7 +38,7 @@ const PRODUCT_IMAGE_CONSTRAINT = { width: 640, height: 800 };
  * The `edit` params center-cover the asset in the type's constraint frame.
  * With the naive `{x:0, y:0, zoom:1}`, Prismic anchors the constraint crop
  * to the top-left corner (e.g. rect=0,0,600,800 on a 640x800 asset), which
- * shifts the subject off-center in the served file — unfixable with CSS.
+ * shifts the subject off-center in the served file, and CSS can't fix it.
  */
 export function imageField(asset, alt, constraint = PRODUCT_IMAGE_CONSTRAINT) {
   const zoom = Math.max(constraint.width / asset.width, constraint.height / asset.height);
@@ -109,7 +109,7 @@ export function compact(fields) {
 /**
  * TESTING MIGRATIONS ONLY: fills every missing product field with plausible,
  * type-appropriate data so search and filters can be exercised end to end.
- * Values are deterministic per uid. For a REAL migration, skip this step —
+ * Values are deterministic per uid. For a REAL migration, skip this step:
  * fields the source doesn't provide must stay empty.
  */
 export function fillTestDefaults(product) {
@@ -162,11 +162,9 @@ export function buildProductData(product, producerRef, assets) {
     product_consumer_availability: product.consumer,
     product_restaurant_availability: product.restaurant,
     product_storage: product.storage,
-    product_order_url: product.orderUrl
-      ? { link_type: "Web", url: product.orderUrl, target: "_blank" }
-      : undefined,
+    product_order_url: product.orderUrl ? { link_type: "Web", url: product.orderUrl, target: "_blank" } : undefined,
     product_description: product.description.length > 0 ? richText(product.description) : undefined,
-    meta_title: `${product.name} – Champagnehuset`,
+    meta_title: `${product.name} – ChampagneHuset`,
     meta_description: product.description[0]?.slice(0, 150),
   });
 }

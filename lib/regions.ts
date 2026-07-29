@@ -20,7 +20,7 @@ export type Region = {
 };
 
 /**
- * The five sub-regions of Champagne. The CMS only stores which one to show —
+ * The five sub-regions of Champagne. The CMS only stores which one to show,
  * all copy and maps live here. Keys match the `region` Select in
  * `slices/Text/model.json` and the `producer_region` Select on the producer
  * custom type.

@@ -1,14 +1,9 @@
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
+import { cardFocusRing } from "@/components/button";
+import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
-
-// TODO: placeholder — revisit once the article layout is finalized.
-
-const cardThemeClasses = {
-  Bud: "text-ink",
-  Dust: "text-accent-ink",
-};
 
 export function formatArticleDate(date: string | null) {
   if (!date) return null;
@@ -17,18 +12,18 @@ export function formatArticleDate(date: string | null) {
 
 type ArticleCardProps = {
   article: ArticleDocument;
-  sectionTheme: "Bud" | "Dust";
+  sectionTheme?: SectionTheme;
   className?: string;
 };
 
-export function ArticleCard({ article, sectionTheme, className }: ArticleCardProps) {
+export function ArticleCard({ article, sectionTheme = "Bud", className }: ArticleCardProps) {
   const { article_image, article_description, tag, article_title, article_date } = article.data;
   const date = formatArticleDate(article_date ?? article.first_publication_date);
 
   return (
     <PrismicNextLink
       document={article}
-      className={cn("group flex flex-col gap-2", cardThemeClasses[sectionTheme], className)}
+      className={cn("group flex flex-col gap-2", cardFocusRing(sectionTheme), className)}
     >
       <div className="aspect-3/2 w-full overflow-hidden rounded-1">
         <PrismicNextImage
@@ -43,9 +38,7 @@ export function ArticleCard({ article, sectionTheme, className }: ArticleCardPro
         {date && <span>{date}</span>}
       </div>
       <div className="flex flex-col gap-1">
-        <span className="line-clamp-2 text-balance font-medium text-xl leading-tight md:text-2xl">
-          {article_title}
-        </span>
+        <span className="line-clamp-2 text-balance font-medium text-xl leading-tight md:text-2xl">{article_title}</span>
         {article_description && <p className="line-clamp-2 text-base">{article_description}</p>}
       </div>
     </PrismicNextLink>

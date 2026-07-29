@@ -1,12 +1,12 @@
 /**
  * Test-content migration: pushes producers + products from data.json into a
- * Prismic Migration Release (drafts — nothing goes live until published in
+ * Prismic Migration Release (drafts, nothing goes live until published in
  * the Prismic UI). Every created document is tagged `ai-import` and recorded
  * in manifest.json so cleanup.mjs can remove them later.
  *
  * Incremental: documents whose UID is already PUBLISHED are skipped, so
  * data.json is cumulative and the script can be re-run per batch. Publish
- * the previous batch before running the next one — unpublished documents
+ * the previous batch before running the next one, since unpublished documents
  * in a Migration Release can't be detected and would cause duplicate-UID
  * errors.
  *
@@ -17,18 +17,20 @@
  * deterministic data (fillTestDefaults in lib.mjs) so search/filters can be
  * exercised. For a REAL migration, remove that call and leave gaps empty.
  *
- * Bottle images are NOT uploaded — each product is assigned one of the
+ * Bottle images are NOT uploaded: each product is assigned one of the
  * existing `bottle-0X` assets already in the media library.
  *
  * Run: node --env-file=.env.local scripts/prismic-migration/migrate.mjs
  */
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import * as prismic from "@prismicio/client";
-import { REPO, TAG, buildProductData, fetchBottleAssets, fillTestDefaults, richText, compact } from "./lib.mjs";
+import { buildProductData, compact, fetchBottleAssets, fillTestDefaults, REPO, richText, TAG } from "./lib.mjs";
 
 const writeToken = process.env.PRISMIC_WRITE_TOKEN;
 if (!writeToken) {
-  console.error("Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/migrate.mjs");
+  console.error(
+    "Missing PRISMIC_WRITE_TOKEN — run with: node --env-file=.env.local scripts/prismic-migration/migrate.mjs",
+  );
   process.exit(1);
 }
 
@@ -38,7 +40,7 @@ const client = prismic.createWriteClient(REPO, { writeToken });
 const repository = await client.getRepository();
 const lang = repository.languages[0].id;
 
-// Published documents — used to skip already-migrated UIDs and to link
+// Published documents: used to skip already-migrated UIDs and to link
 // producers (including pre-existing ones that data.json doesn't create).
 const publishedProducers = await client.getAllByType("producer", { pageSize: 100 });
 const publishedProducts = await client.getAllByType("product", { pageSize: 100 });
@@ -80,7 +82,7 @@ for (const producer of data.producers) {
 let newProductCount = 0;
 for (const rawProduct of data.products) {
   if (publishedProductUids.has(rawProduct.uid)) continue; // already published
-  const product = fillTestDefaults(rawProduct); // TESTING ONLY — remove for real migrations
+  const product = fillTestDefaults(rawProduct); // TESTING ONLY, remove for real migrations
   if (!producerRefs[product.producer]) {
     console.error(`Unknown producer "${product.producer}" for ${product.uid} — aborting before any write.`);
     process.exit(1);
@@ -117,7 +119,7 @@ await client.migrate(migration, {
   },
 });
 
-// --- Manifest (input for cleanup.mjs) — merged across batches ------------
+// Manifest (input for cleanup.mjs), merged across batches
 const manifestUrl = new URL("./manifest.json", import.meta.url);
 const previous = existsSync(manifestUrl) ? JSON.parse(readFileSync(manifestUrl, "utf8")).documents : [];
 const created = migration._documents

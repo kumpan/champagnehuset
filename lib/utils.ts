@@ -17,11 +17,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-/**
- * Returns true if any section intro field has content.
- * Each field renders independently — no field depends on another being filled.
- * Works with any slice that has overline, title, description, and buttons fields.
- */
+/** Slugify text into an anchor id: lowercase, spaces to dashes, strip non-word chars. */
 export function toAnchorId(text: string) {
   return text
     .toLowerCase()
@@ -30,6 +26,10 @@ export function toAnchorId(text: string) {
     .replace(/[^\w-]/g, "");
 }
 
+/**
+ * True if any section-intro field (overline, title, description, buttons) has
+ * content. Each renders independently, so none depends on another being filled.
+ */
 export function hasSectionIntroContent(slice: {
   primary: {
     overline?: GroupField;

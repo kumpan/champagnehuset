@@ -20,9 +20,8 @@ const descriptionThemeClasses: Record<SectionTheme, string> = {
 };
 
 /**
- * Two across by default. Counts that divide by three (3, 6) — plus 5, which
- * leaves a tidier last row at three than at two — get a third column.
- * Stays single-column through md.
+ * Two across by default. Counts divisible by three (3, 6), plus 5 (a tidier last
+ * row at three than at two), get a third column. Single-column through md.
  */
 function gridColumns(count: number) {
   return count === 3 || count === 5 || count === 6 ? "lg:grid-cols-3" : "lg:grid-cols-2";

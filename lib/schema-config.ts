@@ -1,8 +1,8 @@
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://champagnehuset.se";
 
 export const ORGANIZATION_CONFIG = {
-  name: "Champagnehuset",
-  alternateName: "Champagnehuset Stockholm",
+  name: "ChampagneHuset",
+  alternateName: "ChampagneHuset Stockholm",
   description: "Små odlare, stora champagner. Handplockade champagner från självständiga odlare i Champagne.",
   url: SITE_URL,
   logo: `${SITE_URL}/icons/icon-512x512.png`,

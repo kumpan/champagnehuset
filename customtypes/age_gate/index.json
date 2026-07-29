@@ -10,7 +10,7 @@
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "Är du 20 år eller äldre?",
+          "placeholder": "Är du 25 år eller äldre?",
           "allowTargetBlank": true,
           "multi": "heading2,heading3"
         }
@@ -38,6 +38,15 @@
           "placeholder": "Nej"
         }
       },
+      "decline_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Decline Title",
+          "placeholder": "Kom tillbaka när du fyllt 25",
+          "allowTargetBlank": true,
+          "multi": "heading2,heading3"
+        }
+      },
       "decline_message": {
         "type": "StructuredText",
         "config": {
@@ -45,15 +54,6 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em,hyperlink"
-        }
-      },
-      "info_link": {
-        "type": "Link",
-        "config": {
-          "label": "Learn More Link",
-          "allowText": true,
-          "allowTargetBlank": true,
-          "select": null
         }
       }
     }
