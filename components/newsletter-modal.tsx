@@ -45,9 +45,9 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
         >
-          {/* Backdrop — click to close */}
+          {/* Backdrop, allowing click to close */}
           <button
             type="button"
             aria-label="Stäng"
@@ -56,25 +56,25 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
           />
 
           <m.div
-            className="relative flex w-full max-w-md flex-col overflow-hidden rounded-2 bg-fill shadow-float lg:max-w-3xl lg:flex-row"
-            initial={{ opacity: 0, y: "2rem", scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: "1rem", scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 250, damping: 22 }}
+            className="relative flex w-full max-w-md flex-col overflow-hidden rounded-2 bg-fill shadow-float lg:max-w-256 lg:flex-row"
+            initial={{ y: "2rem", scale: 0.92 }}
+            animate={{ y: 0, scale: 1 }}
+            exit={{ y: "1rem", scale: 0.92 }}
+            transition={{ type: "spring", stiffness: 400, damping: 15 }}
           >
             {hasImage && (
-              <div className="relative aspect-video w-full shrink-0 lg:order-last lg:aspect-auto lg:w-1/2">
+              <div className="relative aspect-video w-full shrink-0 lg:order-last lg:aspect-square lg:w-1/2">
                 <CustomMedia imageField={image} className="h-full w-full rounded-none" preload />
               </div>
             )}
 
-            <div className="flex flex-col gap-4 p-6 lg:w-1/2 lg:justify-center lg:gap-6 lg:p-10">
+            <div className="flex flex-col gap-4 p-6 lg:w-1/2 lg:justify-center lg:gap-6 lg:p-12 2xl:p-16">
               <div className="flex flex-col gap-1">
-                {isFilled.keyText(tagline) && <span className="font-medium text-base text-ink">{tagline}</span>}
+                {isFilled.keyText(tagline) && <span className="font-medium text-base">{tagline}</span>}
                 {isFilled.richText(title) && (
-                  <CustomRichText field={title} className="text-xl leading-snug md:text-2xl" inheritSize />
+                  <CustomRichText field={title} className="text-2xl leading-snug md:text-3xl" inheritSize />
                 )}
-                {isFilled.richText(description) && <CustomRichText field={description} className="text-ink-dim" />}
+                {isFilled.richText(description) && <CustomRichText field={description} />}
               </div>
 
               <NewsletterForm
@@ -82,6 +82,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
                 emailLabel={email_label}
                 placeholder={email_placeholder}
                 buttonLabel={button_label}
+                buttonIcon
                 successMessage={success_message}
                 sectionTheme="Bud"
                 source="modal"
@@ -93,7 +94,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
               type="button"
               aria-label="Stäng"
               onClick={dismissNewsletter}
-              className="absolute top-3 right-3 z-10 rounded-full bg-fill/70 p-1.5 text-ink backdrop-blur-sm transition-colors hover:bg-fill"
+              className="absolute top-3 right-3 z-60 cursor-pointer rounded-1 bg-fill/80 p-3 text-ink backdrop-blur-sm transition-colors hover:bg-fill/60"
             >
               <X className="size-5" />
             </button>
