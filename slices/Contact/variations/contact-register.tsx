@@ -25,7 +25,6 @@ export function ContactRegister({ slice }: Props) {
     success_message,
   } = slice.primary;
 
-  // The card is a raised surface; text/buttons/form theme against it.
   const contentTheme = section_theme === "Dust" ? "Dust" : "Leaf";
   const cardSurface = section_theme === "Dust" ? "bg-spot-fill-raised" : "bg-fill-raised";
 
