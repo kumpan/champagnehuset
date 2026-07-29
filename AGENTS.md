@@ -1,5 +1,9 @@
 <!-- BEGIN:nextjs-agent-rules -->
 
+# Package manager: pnpm
+
+This project uses **pnpm**, not npm. Use `pnpm add <pkg>` / `pnpm install` / `pnpm <script>`. Running `npm install` here fails (it can't read the pnpm lockfile — surfaces as a cryptic `Cannot read properties of null (reading 'matches')`).
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
