@@ -1,9 +1,10 @@
-import type { Content } from "@prismicio/client";
-import ContactFormFields from "@/components/forms/contact-form";
+import { type Content, isFilled } from "@prismicio/client";
+import CustomMedia from "@/components/custom-media";
+import { NewsletterForm } from "@/components/forms/newsletter-form";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
-import { hasSectionIntroContent } from "@/lib/utils";
+import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ContactProps } from "..";
 
 type Props = ContactProps & { slice: Content.ContactSliceRegister };
@@ -15,11 +16,25 @@ export function ContactRegister({ slice }: Props) {
     title,
     description,
     section_theme,
+    image_side,
+    image,
     remove_top_padding,
-    submit_button_text,
+    email_label,
+    email_placeholder,
+    button_label,
     success_message,
     consent_items,
   } = slice.primary;
+
+  // The card is a raised surface; text/buttons/form theme against it.
+  const contentTheme = section_theme === "Dust" ? "Dust" : "Leaf";
+  const cardSurface = section_theme === "Dust" ? "bg-spot-fill-raised" : "bg-fill-raised";
+
+  const consentItems = (consent_items ?? [])
+    .filter((c) => isFilled.richText(c.consent_text))
+    .map((c) => ({ text: c.consent_text, required: !!c.consent_required }));
+
+  const hasImage = isFilled.image(image);
 
   return (
     <Section
@@ -27,28 +42,51 @@ export function ContactRegister({ slice }: Props) {
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
       sectionTheme={section_theme}
-      className="selection:bg-brand selection:text-ink-flip"
     >
       <Container>
-        <div className="mx-auto flex w-full max-w-2xl flex-col gap-6 rounded-5 bg-fill-raised p-4 md:gap-8 md:p-8 lg:p-12">
-          {hasIntroContent && (
-            <SectionIntro
-              overline={overline}
-              overlineClassName={section_theme}
-              title={title}
-              description={description}
-              descriptionClassName="text-pretty"
-              align="center"
-              textBalance={true}
-            />
+        <div
+          className={cn(
+            "mx-auto flex max-w-6xl flex-col overflow-hidden rounded-2 shadow-float lg:items-stretch",
+            hasImage ? (image_side ? "lg:flex-row-reverse" : "lg:flex-row") : "",
           )}
-          <ContactFormFields
-            fields={slice.items}
-            consentItems={consent_items}
-            submit_button_text={submit_button_text ?? undefined}
-            success_message={success_message}
-            className="w-full"
-          />
+        >
+          {/* Content */}
+          <div className={cn("flex flex-1 flex-col justify-center gap-8 p-6 md:p-10 lg:p-12", cardSurface)}>
+            {hasIntroContent && (
+              <SectionIntro
+                overline={overline}
+                title={title}
+                description={description}
+                descriptionClassName="text-pretty"
+                align="left"
+                sectionTheme={contentTheme}
+                titleMaxWidth={false}
+              />
+            )}
+
+            <NewsletterForm
+              layout="inline"
+              emailLabel={email_label}
+              placeholder={email_placeholder}
+              buttonLabel={button_label}
+              successMessage={success_message}
+              consentItems={consentItems}
+              sectionTheme={contentTheme}
+              buttonIcon
+            />
+          </div>
+
+          {/* Image */}
+          {hasImage && (
+            <div className="relative aspect-square w-full lg:aspect-auto lg:w-auto lg:flex-1">
+              <CustomMedia
+                imageField={image}
+                className="h-full w-full rounded-none"
+                sectionTheme={contentTheme}
+                preload
+              />
+            </div>
+          )}
         </div>
       </Container>
     </Section>

@@ -382,6 +382,236 @@ export type CookieBannerDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Age Gate documents
+ */
+interface AgeGateDocumentData {
+  /**
+   * Title field in *Age Gate*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Är du 20 år eller äldre?
+   * - **API ID Path**: age_gate.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Age Gate*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_gate.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Confirm Button Label field in *Age Gate*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Ja
+   * - **API ID Path**: age_gate.confirm_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  confirm_label: prismic.KeyTextField;
+
+  /**
+   * Decline Button Label field in *Age Gate*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nej
+   * - **API ID Path**: age_gate.decline_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  decline_label: prismic.KeyTextField;
+
+  /**
+   * Decline Message field in *Age Gate*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_gate.decline_message
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  decline_message: prismic.RichTextField;
+
+  /**
+   * Learn More Link field in *Age Gate*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: age_gate.info_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  info_link: prismic.LinkField;
+}
+
+/**
+ * Age Gate document from Prismic
+ *
+ * - **API ID**: `age_gate`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AgeGateDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AgeGateDocumentData>,
+    "age_gate",
+    Lang
+  >;
+
+/**
+ * Content for Newsletter Popup documents
+ */
+interface NewsletterDocumentData {
+  /**
+   * Enabled field in *Newsletter Popup*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: newsletter.enabled
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  enabled: prismic.BooleanField;
+
+  /**
+   * Delay Seconds field in *Newsletter Popup*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 45
+   * - **API ID Path**: newsletter.delay_seconds
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  delay_seconds: prismic.NumberField;
+
+  /**
+   * Tagline field in *Newsletter Popup*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nyhetsbrev
+   * - **API ID Path**: newsletter.tagline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Title field in *Newsletter Popup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Newsletter Popup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *Newsletter Popup*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Email Label field in *Newsletter Popup*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: E-postadress
+   * - **API ID Path**: newsletter.email_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email_label: prismic.KeyTextField;
+
+  /**
+   * Email Placeholder field in *Newsletter Popup*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: anna@foretag.se
+   * - **API ID Path**: newsletter.email_placeholder
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email_placeholder: prismic.KeyTextField;
+
+  /**
+   * Button Label field in *Newsletter Popup*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Registrera
+   * - **API ID Path**: newsletter.button_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Success Message field in *Newsletter Popup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Tack! Kolla din inkorg för att bekräfta.
+   * - **API ID Path**: newsletter.success_message
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  success_message: prismic.RichTextField;
+
+  /**
+   * Consent Text field in *Newsletter Popup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.consent_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  consent_text: prismic.RichTextField;
+}
+
+/**
+ * Newsletter Popup document from Prismic
+ *
+ * - **API ID**: `newsletter`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsletterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NewsletterDocumentData>,
+    "newsletter",
+    Lang
+  >;
+
+/**
  * Content for Employee documents
  */
 interface EmployeeDocumentData {
@@ -1663,12 +1893,14 @@ export type RedirectDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AgeGateDocument
   | ArticleDocument
   | CookieBannerDocument
   | EmployeeDocument
   | FooterDocument
   | FourOhFourDocument
   | NavbarDocument
+  | NewsletterDocument
   | PageDocument
   | ProducerDocument
   | ProductDocument
@@ -4404,6 +4636,27 @@ export interface ContactSliceRegisterPrimary {
   section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
 
   /**
+   * Image Side field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: contact.register.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
+
+  /**
+   * Image field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.register.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * Overline field in *Contact → Register → Primary*
    *
    * - **Field Type**: Group
@@ -4436,14 +4689,34 @@ export interface ContactSliceRegisterPrimary {
   description: prismic.RichTextField;
 
   /**
-   * Submit Button Text field in *Contact → Register → Primary*
+   * Email Label field in *Contact → Register → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Send message
-   * - **API ID Path**: contact.register.primary.submit_button_text
+   * - **Placeholder**: E-postadress
+   * - **API ID Path**: contact.register.primary.email_label
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  submit_button_text: prismic.KeyTextField;
+  email_label: prismic.KeyTextField;
+
+  /**
+   * Email Placeholder field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: anna@foretag.se
+   * - **API ID Path**: contact.register.primary.email_placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email_placeholder: prismic.KeyTextField;
+
+  /**
+   * Button Label field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Prenumerera nu
+   * - **API ID Path**: contact.register.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_label: prismic.KeyTextField;
 
   /**
    * Success Message field in *Contact → Register → Primary*
@@ -4469,67 +4742,6 @@ export interface ContactSliceRegisterPrimary {
 }
 
 /**
- * Primary content in *Contact → Items*
- */
-export interface ContactSliceRegisterItem {
-  /**
-   * Field Type field in *Contact → Items*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Select field type
-   * - **Default Value**: text
-   * - **API ID Path**: contact.items[].field_type
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  field_type: prismic.SelectField<
-    "name" | "email" | "phone" | "text" | "textarea",
-    "filled"
-  >;
-
-  /**
-   * Field Label field in *Contact → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g. Name, Email, Message
-   * - **API ID Path**: contact.items[].field_label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  field_label: prismic.KeyTextField;
-
-  /**
-   * Placeholder field in *Contact → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g. Enter your name
-   * - **API ID Path**: contact.items[].field_placeholder
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  field_placeholder: prismic.KeyTextField;
-
-  /**
-   * Required field in *Contact → Items*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: contact.items[].field_required
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  field_required: prismic.BooleanField;
-
-  /**
-   * Start New Row field in *Contact → Items*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: contact.items[].new_row
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  new_row: prismic.BooleanField;
-}
-
-/**
  * Register variation for Contact Slice
  *
  * - **API ID**: `register`
@@ -4539,7 +4751,7 @@ export interface ContactSliceRegisterItem {
 export type ContactSliceRegister = prismic.SharedSliceVariation<
   "register",
   Simplify<ContactSliceRegisterPrimary>,
-  Simplify<ContactSliceRegisterItem>
+  never
 >;
 
 /**
@@ -8034,12 +8246,16 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AgeGateDocument,
+      AgeGateDocumentData,
       ArticleDocument,
       ArticleDocumentData,
       ArticleDocumentDataSlicesSlice,
       CookieBannerDocument,
       CookieBannerDocumentData,
       CookieBannerDocumentDataCookieTypesItem,
+      NewsletterDocument,
+      NewsletterDocumentData,
       EmployeeDocument,
       EmployeeDocumentData,
       FooterDocument,
@@ -8116,7 +8332,6 @@ declare module "@prismicio/client" {
       ContactSliceRegisterPrimaryOverlineItem,
       ContactSliceRegisterPrimaryConsentItemsItem,
       ContactSliceRegisterPrimary,
-      ContactSliceRegisterItem,
       ContactSliceVariation,
       ContactSliceForm,
       ContactSlicePeople,

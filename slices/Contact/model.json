@@ -519,6 +519,23 @@
             "default_value": "Bud"
           }
         },
+        "image_side": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Side",
+            "placeholder_false": "Image is on the Right",
+            "placeholder_true": "Image is on the Left",
+            "default_value": false
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "overline": {
           "type": "Group",
           "config": {
@@ -599,11 +616,25 @@
             "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
           }
         },
-        "submit_button_text": {
+        "email_label": {
           "type": "Text",
           "config": {
-            "label": "Submit Button Text",
-            "placeholder": "Send message"
+            "label": "Email Label",
+            "placeholder": "E-postadress"
+          }
+        },
+        "email_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email Placeholder",
+            "placeholder": "anna@foretag.se"
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label",
+            "placeholder": "Prenumerera nu"
           }
         },
         "success_message": {
@@ -643,49 +674,7 @@
           }
         }
       },
-      "items": {
-        "field_type": {
-          "type": "Select",
-          "config": {
-            "label": "Field Type",
-            "placeholder": "Select field type",
-            "options": ["name", "email", "phone", "text", "textarea"],
-            "default_value": "text"
-          }
-        },
-        "field_label": {
-          "type": "Text",
-          "config": {
-            "label": "Field Label",
-            "placeholder": "e.g. Name, Email, Message"
-          }
-        },
-        "field_placeholder": {
-          "type": "Text",
-          "config": {
-            "label": "Placeholder",
-            "placeholder": "e.g. Enter your name"
-          }
-        },
-        "field_required": {
-          "type": "Boolean",
-          "config": {
-            "label": "Required",
-            "placeholder_false": "Optional",
-            "placeholder_true": "Required",
-            "default_value": true
-          }
-        },
-        "new_row": {
-          "type": "Boolean",
-          "config": {
-            "label": "Start New Row",
-            "placeholder_false": "Continue Previous Row",
-            "placeholder_true": "Start New Row",
-            "default_value": true
-          }
-        }
-      }
+      "items": {}
     }
   ]
 }
