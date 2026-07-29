@@ -17,7 +17,7 @@ const ENTER_LEAD = 0.3;
 // Shared transition
 const cardTransition = (delay: number) => ({
   opacity: { duration: 0.5, ease: easeInOut, delay },
-  y: { type: spring, stiffness: 220, damping: 18, delay },
+  y: { type: spring, stiffness: 180, damping: 15, delay },
 });
 
 const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string }> = {
@@ -98,7 +98,7 @@ export function ArticleGrid({
   return (
     <div className={cn("flex flex-col gap-8", className)}>
       {chips && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           <ChipButton active={activeTag === null} theme={sectionTheme} onClick={() => selectTag(null)}>
             Alla
           </ChipButton>
@@ -116,11 +116,11 @@ export function ArticleGrid({
             const stagger = Math.min(index * 0.08, 0.32);
             return (
               <m.div
-                key={article.id}
-                initial={reducedMotion ? false : { opacity: 0, y: 16 }}
+                key={`${activeTag ?? "all"}:${article.id}`}
+                initial={reducedMotion ? false : { opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : undefined}
                 transition={cardTransition(reducedMotion ? 0 : ENTER_LEAD + stagger)}
-                exit={reducedMotion ? undefined : { opacity: 0, y: -16, transition: cardTransition(stagger) }}
+                exit={reducedMotion ? undefined : { opacity: 0, y: -20, transition: cardTransition(stagger) }}
               >
                 <ArticleCard article={article} sectionTheme={sectionTheme} className="w-full" />
               </m.div>

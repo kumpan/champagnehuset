@@ -4,7 +4,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Button, cardFocusRing } from "@/components/button";
 import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { Section, type SectionTheme } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
@@ -12,13 +12,6 @@ import type { ArticleProps } from "..";
 import { formatArticleDate } from "../article-card";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceFeature };
-
-// TODO: placeholder, rough pass at the featured-rows layout, to be redone.
-
-const dimThemeClasses: Partial<Record<SectionTheme, string>> = {
-  Bud: "text-ink-dim",
-  Dust: "text-accent-ink-dim",
-};
 
 export async function ArticleFeature({ slice }: Props) {
   const { section_theme, remove_top_padding, featured_articles, link_label } = slice.primary;
@@ -59,7 +52,7 @@ export async function ArticleFeature({ slice }: Props) {
                 key={article.id}
                 document={article}
                 className={cn(
-                  "group flex flex-col gap-2 border-border border-b py-4 last:border-b-0 md:flex-row md:items-center md:gap-8 md:py-6 md:even:flex-row-reverse",
+                  "group flex flex-col gap-2 border-current/20 border-b py-4 last:border-b-0 md:flex-row md:items-center md:gap-8 md:py-6 md:even:flex-row-reverse",
                   cardFocusRing(section_theme),
                 )}
               >
@@ -72,9 +65,7 @@ export async function ArticleFeature({ slice }: Props) {
                 </div>
                 <div className="flex flex-1 flex-col items-start gap-2 md:gap-6 md:py-8">
                   <div className="flex flex-col gap-2 md:pb-4">
-                    <div
-                      className={`flex items-center gap-2 text-base md:text-lg ${dimThemeClasses[section_theme] ?? ""}`}
-                    >
+                    <div className="flex items-center gap-2 text-base md:text-lg">
                       {tag && <span>{tag}</span>}
                       {tag && date && <span aria-hidden="true">•</span>}
                       {date && <span>{date}</span>}
