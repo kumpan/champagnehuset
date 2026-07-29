@@ -48,6 +48,7 @@ export function ModalProvider({
   localeIds = [],
   ageGateEnabled = false,
   newsletterEnabled = false,
+  newsletterAvailable = false,
   newsletterDelaySeconds = 45,
 }: {
   children: ReactNode;
@@ -55,6 +56,7 @@ export function ModalProvider({
   localeIds?: string[];
   ageGateEnabled?: boolean;
   newsletterEnabled?: boolean;
+  newsletterAvailable?: boolean;
   newsletterDelaySeconds?: number;
 }) {
   const pathname = usePathname();
@@ -63,8 +65,8 @@ export function ModalProvider({
   const [ageDone, setAgeDone] = useState(false);
   const [cookieDone, setCookieDone] = useState(false);
   const [newsletterDone, setNewsletterDone] = useState(false);
-  const [cookieOverride, setCookieOverride] = useState(false); // footer re-open
-  const [newsletterReady, setNewsletterReady] = useState(false); // delay elapsed
+  const [cookieOverride, setCookieOverride] = useState(false);
+  const [newsletterReady, setNewsletterReady] = useState(false);
 
   // Landing page = the site home. The master locale serves clean URLs, so its
   // home is "/"; a non-master locale home is just its prefix (e.g. "/en-gb").
@@ -75,9 +77,7 @@ export function ModalProvider({
     return segments.length === 1 && localeIds.includes(segments[0]);
   }, [pathname, localeIds]);
 
-  // Read prior choices from storage (client only) to avoid an SSR flash. When the
-  // age gate has no CMS content it's treated as already resolved so it can't stall
-  // the rest of the chain.
+  // Read storage to avoid an SSR flash when age gate has no CMS content
   useEffect(() => {
     setAgeDone(ageGateEnabled ? !!localStorage.getItem(AGE_KEY) : true);
     setCookieDone(!!localStorage.getItem(COOKIE_KEY));
@@ -85,9 +85,7 @@ export function ModalProvider({
     setHydrated(true);
   }, [ageGateEnabled]);
 
-  // Newsletter delay: start counting once age + cookie are resolved, we're off
-  // the landing page, it's enabled and not yet seen. The start time is persisted
-  // so the countdown accumulates across page navigations rather than resetting.
+  // Newsletter delay and check if we're off the landing page
   useEffect(() => {
     if (!hydrated || !newsletterEnabled || newsletterDone || newsletterReady) return;
     if (!ageDone || !cookieDone || isLanding) return;
@@ -117,20 +115,20 @@ export function ModalProvider({
     newsletterDelaySeconds,
   ]);
 
-  // Dev-only: manual modal triggers from the browser console. Compiled out in
-  // production. Usage: __modals.age() · __modals.cookie() · __modals.newsletter()
-  // · __modals.reset() (clears storage + reloads). Age/newsletter also need their
-  // Prismic singleton published, or the modal component isn't mounted to show.
+  // Manual modal triggers from the browser console.
   useEffect(() => {
-    // if (process.env.NODE_ENV === "production") return;
     const w = window as unknown as { __modals?: Record<string, () => void> };
     w.__modals = {
-      age: () => setAgeDone(false),
+      age: () => {
+        if (!ageGateEnabled) return;
+        setAgeDone(false);
+      },
       cookie: () => {
         setAgeDone(true);
         setCookieOverride(true);
       },
       newsletter: () => {
+        if (!newsletterAvailable) return;
         setAgeDone(true);
         setCookieDone(true);
         setCookieOverride(false);
@@ -148,7 +146,7 @@ export function ModalProvider({
     return () => {
       delete w.__modals;
     };
-  }, []);
+  }, [ageGateEnabled, newsletterAvailable]);
 
   // Priority resolution. Age can never be preempted.
   const active: ActiveModal = useMemo(() => {
@@ -167,7 +165,6 @@ export function ModalProvider({
 
   const showCookieBanner = useCallback(() => setCookieOverride(true), []);
   const hideCookieBanner = useCallback(() => {
-    // The banner's accept handlers write cookie-consent before calling this.
     setCookieOverride(false);
     setCookieDone(true);
   }, []);
