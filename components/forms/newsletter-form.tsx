@@ -95,7 +95,9 @@ export function NewsletterForm({
         {isFilled.richText(successMessage) ? (
           <CustomRichText field={successMessage} sectionTheme={sectionTheme} />
         ) : (
-          <p className="rounded-1 bg-brand/20 p-4 font-medium text-lg">Tack! Kolla din inkorg för att bekräfta.</p>
+          <p className="text-pretty rounded-1 bg-brand/20 p-4 text-center font-medium">
+            Tack! Kolla din inkorg för att bekräfta.
+          </p>
         )}
       </div>
     );
