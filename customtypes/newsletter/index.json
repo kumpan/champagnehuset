@@ -51,7 +51,10 @@
         "type": "Image",
         "config": {
           "label": "Image",
-          "constraint": {},
+          "constraint": {
+            "width": 800,
+            "height": 800
+          },
           "thumbnails": []
         }
       },
