@@ -636,33 +636,6 @@
             "allowTargetBlank": true,
             "multi": "paragraph,heading3,heading4,strong,em,hyperlink"
           }
-        },
-        "consent_items": {
-          "type": "Group",
-          "config": {
-            "label": "Consent Items",
-            "repeat": true,
-            "fields": {
-              "consent_text": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Consent Text",
-                  "placeholder": "I accept the privacy policy",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,hyperlink"
-                }
-              },
-              "consent_required": {
-                "type": "Boolean",
-                "config": {
-                  "label": "Required",
-                  "placeholder_false": "Optional",
-                  "placeholder_true": "Required",
-                  "default_value": true
-                }
-              }
-            }
-          }
         }
       },
       "items": {}

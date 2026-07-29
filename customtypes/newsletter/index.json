@@ -84,15 +84,6 @@
           "allowTargetBlank": true,
           "multi": "paragraph,heading4,strong,em,hyperlink"
         }
-      },
-      "consent_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Consent Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em,hyperlink"
-        }
       }
     }
   }

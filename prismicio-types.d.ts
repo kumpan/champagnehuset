@@ -389,7 +389,7 @@ interface AgeGateDocumentData {
    * Title field in *Age Gate*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Är du 20 år eller äldre?
+   * - **Placeholder**: Är du 25 år eller äldre?
    * - **API ID Path**: age_gate.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
@@ -430,6 +430,17 @@ interface AgeGateDocumentData {
   decline_label: prismic.KeyTextField;
 
   /**
+   * Decline Title field in *Age Gate*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Kom tillbaka när du fyllt 25
+   * - **API ID Path**: age_gate.decline_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  decline_title: prismic.RichTextField;
+
+  /**
    * Decline Message field in *Age Gate*
    *
    * - **Field Type**: Rich Text
@@ -439,17 +450,6 @@ interface AgeGateDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   decline_message: prismic.RichTextField;
-
-  /**
-   * Learn More Link field in *Age Gate*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: age_gate.info_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  info_link: prismic.LinkField;
 }
 
 /**

@@ -19,20 +19,10 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
   const { active, dismissNewsletter, markNewsletterSeen } = useModal();
   const open = active === "newsletter";
 
-  const {
-    tagline,
-    title,
-    description,
-    image,
-    email_label,
-    email_placeholder,
-    button_label,
-    success_message,
-    consent_text,
-  } = prismicData.data;
+  const { tagline, title, description, image, email_label, email_placeholder, button_label, success_message } =
+    prismicData.data;
 
   const hasImage = isFilled.image(image);
-  const consentItems = isFilled.richText(consent_text) ? [{ text: consent_text, required: true }] : [];
 
   // Close on Escape.
   useEffect(() => {
@@ -93,7 +83,6 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
                 placeholder={email_placeholder}
                 buttonLabel={button_label}
                 successMessage={success_message}
-                consentItems={consentItems}
                 sectionTheme="Bud"
                 onSubscribed={markNewsletterSeen}
               />

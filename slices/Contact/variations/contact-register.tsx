@@ -23,16 +23,11 @@ export function ContactRegister({ slice }: Props) {
     email_placeholder,
     button_label,
     success_message,
-    consent_items,
   } = slice.primary;
 
   // The card is a raised surface; text/buttons/form theme against it.
   const contentTheme = section_theme === "Dust" ? "Dust" : "Leaf";
   const cardSurface = section_theme === "Dust" ? "bg-spot-fill-raised" : "bg-fill-raised";
-
-  const consentItems = (consent_items ?? [])
-    .filter((c) => isFilled.richText(c.consent_text))
-    .map((c) => ({ text: c.consent_text, required: !!c.consent_required }));
 
   const hasImage = isFilled.image(image);
 
@@ -70,7 +65,6 @@ export function ContactRegister({ slice }: Props) {
               placeholder={email_placeholder}
               buttonLabel={button_label}
               successMessage={success_message}
-              consentItems={consentItems}
               sectionTheme={contentTheme}
               buttonIcon
             />

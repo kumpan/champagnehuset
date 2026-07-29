@@ -7,15 +7,9 @@ import { Button, type ButtonVariant } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
-import { Checkbox } from "./checkbox";
 import { Input } from "./input";
 
 type FormState = "initial" | "submitting" | "submitted" | "failed";
-
-export type NewsletterConsentItem = {
-  text: RichTextField;
-  required: boolean;
-};
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -25,7 +19,6 @@ type Props = {
   placeholder?: string | null;
   buttonLabel?: string | null;
   successMessage?: RichTextField;
-  consentItems?: NewsletterConsentItem[];
   sectionTheme?: SectionTheme;
   buttonVariant?: ButtonVariant;
   buttonIcon?: boolean;
@@ -39,7 +32,6 @@ export function NewsletterForm({
   placeholder,
   buttonLabel,
   successMessage,
-  consentItems = [],
   sectionTheme = "Bud",
   buttonVariant = "default",
   buttonIcon = false,
@@ -49,8 +41,6 @@ export function NewsletterForm({
   const [formState, setFormState] = useState<FormState>("initial");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
-  const [consentValues, setConsentValues] = useState<Record<number, boolean>>({});
-  const [consentErrors, setConsentErrors] = useState<Record<number, string>>({});
   const [honeypot, setHoneypot] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -60,13 +50,8 @@ export function NewsletterForm({
 
   const validate = (): boolean => {
     const nextEmailError = EMAIL_RE.test(email.trim()) ? null : "Please enter a valid email address";
-    const nextConsentErrors: Record<number, string> = {};
-    consentItems.forEach((item, i) => {
-      if (item.required && !consentValues[i]) nextConsentErrors[i] = "This consent is required";
-    });
     setEmailError(nextEmailError);
-    setConsentErrors(nextConsentErrors);
-    return !nextEmailError && Object.keys(nextConsentErrors).length === 0;
+    return !nextEmailError;
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -160,32 +145,6 @@ export function NewsletterForm({
       </div>
 
       {showErrors && emailError && <p className="text-error text-sm">{emailError}</p>}
-
-      {/* Optional consent checkboxes */}
-      {consentItems.length > 0 && (
-        <div className="flex flex-col gap-2">
-          {consentItems.map((item, i) =>
-            isFilled.richText(item.text) ? (
-              <div key={`consent-${i}-${JSON.stringify(item.text[0])}`} className="flex flex-col gap-1">
-                <label htmlFor={`newsletter-consent-${i}`} className="flex cursor-pointer items-start gap-2">
-                  <Checkbox
-                    id={`newsletter-consent-${i}`}
-                    name={`newsletter-consent-${i}`}
-                    checked={consentValues[i] ?? false}
-                    onChange={(e) => setConsentValues((prev) => ({ ...prev, [i]: e.target.checked }))}
-                    aria-invalid={showErrors && !!consentErrors[i]}
-                    sectionTheme={sectionTheme as "Bud" | "Dust" | undefined}
-                  />
-                  <span className="text-sm">
-                    <CustomRichText field={item.text} sectionTheme={sectionTheme} />
-                  </span>
-                </label>
-                {showErrors && consentErrors[i] && <p className="text-error text-sm">{consentErrors[i]}</p>}
-              </div>
-            ) : null,
-          )}
-        </div>
-      )}
 
       {errorMessage && <p className="text-error text-sm">{errorMessage}</p>}
     </form>
