@@ -26,13 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -51,10 +45,7 @@
                   "customtypes": [
                     {
                       "id": "article",
-                      "fields": [
-                        "page_title",
-                        "tag"
-                      ]
+                      "fields": ["page_title", "tag"]
                     }
                   ]
                 }
@@ -94,13 +85,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": [
-              "Bud",
-              "Leaf",
-              "Brand",
-              "Dust",
-              "Slate"
-            ],
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -118,13 +103,7 @@
           "config": {
             "label": "Filter by Tag",
             "placeholder": "",
-            "options": [
-              "All",
-              "Event",
-              "News",
-              "Guide",
-              "Tasting"
-            ],
+            "options": ["All", "Event", "News", "Guide", "Tasting"],
             "default_value": "All"
           }
         },
@@ -316,10 +295,7 @@
                   "customtypes": [
                     {
                       "id": "article",
-                      "fields": [
-                        "page_title",
-                        "tag"
-                      ]
+                      "fields": ["page_title", "tag"]
                     }
                   ]
                 }

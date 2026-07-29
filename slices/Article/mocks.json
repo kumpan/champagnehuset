@@ -1,190 +1,190 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "feature",
-		"primary": {
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"value": "Bud",
-				"type": "Select"
-			},
-			"featured_articles": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"article",
-								{
-									"key": "2719a5c0-c587-4b67-bef0-554ec8b2fe58",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "DocumentLink",
-										"id": "mock_document_id"
-									}
-								}
-							]
-						]
-					}
-				]
-			},
-			"link_label": {
-				"__TYPE__": "FieldContent",
-				"value": "middle",
-				"type": "Text"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "list",
-		"primary": {
-			"remove_top_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"section_theme": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Bud"
-			},
-			"show_pagination": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"show_filter_chips": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"filter_by_tag": {
-				"__TYPE__": "FieldContent",
-				"value": "All",
-				"type": "Select"
-			},
-			"overline": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"overline_icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"overline_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "stretch",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Canal"
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Anim anim commodo mollit minim minim amet mollit."
-						}
-					}
-				]
-			},
-			"button": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"key": "bf1556f4-2fe3-43b3-8b50-5eec9a789314",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "still"
-									}
-								}
-							],
-							[
-								"icon_left",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							],
-							[
-								"icon_right",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "none",
-									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"featured_articles": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"article",
-								{
-									"key": "1f104657-2275-4649-83c2-569a9f098a80",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "DocumentLink",
-										"id": "mock_document_id"
-									}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "feature",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "featured_articles": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "article",
+                {
+                  "key": "2719a5c0-c587-4b67-bef0-554ec8b2fe58",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "DocumentLink",
+                    "id": "mock_document_id"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "link_label": {
+        "__TYPE__": "FieldContent",
+        "value": "middle",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "list",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Bud"
+      },
+      "show_pagination": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "show_filter_chips": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "filter_by_tag": {
+        "__TYPE__": "FieldContent",
+        "value": "All",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "stretch",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Canal"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Anim anim commodo mollit minim minim amet mollit."
+            }
+          }
+        ]
+      },
+      "button": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "bf1556f4-2fe3-43b3-8b50-5eec9a789314",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "http://twitter.com",
+                    "text": "still"
+                  }
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "featured_articles": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "article",
+                {
+                  "key": "1f104657-2275-4649-83c2-569a9f098a80",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "DocumentLink",
+                    "id": "mock_document_id"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
 ]

@@ -13,8 +13,7 @@ type Props = ContactProps & { slice: Content.ContactSlicePeople };
 
 export async function ContactPeople({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, button, section_theme, remove_top_padding, featured_employees } =
-    slice.primary;
+  const { overline, title, description, button, section_theme, remove_top_padding, featured_employees } = slice.primary;
 
   const client = await createClient();
 
