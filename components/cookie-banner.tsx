@@ -4,8 +4,8 @@ import { ChevronUp, Settings } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/button";
-import { useCookieBanner } from "@/components/cookie-banner-context";
 import { CustomRichText } from "@/components/custom-rich-text";
+import { useCookieBanner } from "@/components/modal-context";
 import { Switch } from "@/components/switch";
 import type { CookieBannerDocument, CookieBannerDocumentDataCookieTypesItem } from "@/prismicio-types";
 

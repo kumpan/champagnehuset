@@ -10,6 +10,7 @@
     "format:check": "biome format .",
     "format:all": "biome check --write --unsafe .",
     "check": "biome check .",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky",
     "slicemachine": "start-slicemachine",
     "create-slice": "node scripts/create-slice.js",

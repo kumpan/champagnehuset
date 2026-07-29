@@ -2,7 +2,7 @@
 
 import { Settings } from "lucide-react";
 import { Button } from "@/components/button";
-import { useCookieBanner } from "@/components/cookie-banner-context";
+import { useCookieBanner } from "@/components/modal-context";
 
 export function FooterCookieButton({ label }: { label: string }) {
   const { showCookieBanner } = useCookieBanner();

@@ -1,0 +1,61 @@
+{
+  "format": "custom",
+  "id": "age_gate",
+  "label": "Age Gate",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "Är du 20 år eller äldre?",
+          "allowTargetBlank": true,
+          "multi": "heading2,heading3"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "confirm_label": {
+        "type": "Text",
+        "config": {
+          "label": "Confirm Button Label",
+          "placeholder": "Ja"
+        }
+      },
+      "decline_label": {
+        "type": "Text",
+        "config": {
+          "label": "Decline Button Label",
+          "placeholder": "Nej"
+        }
+      },
+      "decline_message": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Decline Message",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "info_link": {
+        "type": "Link",
+        "config": {
+          "label": "Learn More Link",
+          "allowText": true,
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    }
+  }
+}

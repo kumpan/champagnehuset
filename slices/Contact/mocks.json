@@ -186,6 +186,124 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
+    "variation": "register",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "image_side": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "image": {
+        "provider": "imgix",
+        "url": "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1200&h=1200&fit=crop",
+        "alt": "Vineyard in Champagne",
+        "origin": {
+          "id": "placeholder",
+          "url": "https://images.unsplash.com/photo-1560493676-04071c5f467b",
+          "width": 1200,
+          "height": 1200
+        },
+        "width": 1200,
+        "height": 1200,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "plane",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "salmon",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Space"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Tempor quis nulla esse in do dolor consectetur occaecat dolor ut magna minim consectetur et."
+            }
+          }
+        ]
+      },
+      "email_label": {
+        "__TYPE__": "FieldContent",
+        "value": "E-postadress",
+        "type": "Text"
+      },
+      "email_placeholder": {
+        "__TYPE__": "FieldContent",
+        "value": "anna@foretag.se",
+        "type": "Text"
+      },
+      "button_label": {
+        "__TYPE__": "FieldContent",
+        "value": "Prenumerera nu",
+        "type": "Text"
+      },
+      "success_message": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Amet tempor sit sint incididunt sit culpa fugiat dolor aliqua reprehenderit aute. Est ut do cillum esse veniam ad excepteur consectetur consectetur sunt et anim do voluptate. In labore tempor pariatur aute aliquip est adipisicing cupidatat deserunt exercitation officia velit ea aliquip consequat."
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
     "variation": "people",
     "primary": {
       "remove_top_padding": {
@@ -296,161 +414,6 @@
       {
         "__TYPE__": "GroupItemContent",
         "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "register",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Dust",
-        "type": "Select"
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "plane",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "salmon",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Space"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Tempor quis nulla esse in do dolor consectetur occaecat dolor ut magna minim consectetur et."
-            }
-          }
-        ]
-      },
-      "submit_button_text": {
-        "__TYPE__": "FieldContent",
-        "value": "locate",
-        "type": "Text"
-      },
-      "success_message": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Amet tempor sit sint incididunt sit culpa fugiat dolor aliqua reprehenderit aute. Est ut do cillum esse veniam ad excepteur consectetur consectetur sunt et anim do voluptate. In labore tempor pariatur aute aliquip est adipisicing cupidatat deserunt exercitation officia velit ea aliquip consequat."
-            }
-          }
-        ]
-      },
-      "consent_items": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "consent_text",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Amet enim ipsum irure elit cupidatat ea officia cillum commodo sit irure amet exercitation."
-                      }
-                    }
-                  ]
-                }
-              ],
-              [
-                "consent_required",
-                {
-                  "__TYPE__": "BooleanContent",
-                  "value": false
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "field_type",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "text",
-              "type": "Select"
-            }
-          ],
-          [
-            "field_label",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "daughter",
-              "type": "Text"
-            }
-          ],
-          [
-            "field_placeholder",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "social",
-              "type": "Text"
-            }
-          ],
-          [
-            "field_required",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": false
-            }
-          ],
-          [
-            "new_row",
-            {
-              "__TYPE__": "BooleanContent",
-              "value": true
-            }
-          ]
-        ]
       }
     ]
   }
