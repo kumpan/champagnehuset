@@ -65,6 +65,7 @@ export function ContactRegister({ slice }: Props) {
               buttonLabel={button_label}
               successMessage={success_message}
               sectionTheme={contentTheme}
+              source="slice"
               buttonIcon
             />
           </div>

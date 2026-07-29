@@ -24,6 +24,8 @@ type Props = {
   buttonIcon?: boolean;
   className?: string;
   onSubscribed?: () => void;
+  /** Signup origin, forwarded to the API and tagged in Mailchimp (e.g. "slice", "modal"). */
+  source?: string;
 };
 
 export function NewsletterForm({
@@ -37,6 +39,7 @@ export function NewsletterForm({
   buttonIcon = false,
   className,
   onSubscribed,
+  source,
 }: Props) {
   const [formState, setFormState] = useState<FormState>("initial");
   const [email, setEmail] = useState("");
@@ -70,7 +73,7 @@ export function NewsletterForm({
       const res = await fetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), website: honeypot }),
+        body: JSON.stringify({ email: email.trim(), website: honeypot, source }),
       });
 
       if (!res.ok) {

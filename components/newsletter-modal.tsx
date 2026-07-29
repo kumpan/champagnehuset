@@ -84,6 +84,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
                 buttonLabel={button_label}
                 successMessage={success_message}
                 sectionTheme="Bud"
+                source="modal"
                 onSubscribed={markNewsletterSeen}
               />
             </div>

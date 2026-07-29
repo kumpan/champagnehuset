@@ -25,7 +25,7 @@ function serverPrefix(apiKey: string): string | null {
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, website } = await req.json();
+    const { email, website, source } = await req.json();
 
     // Honeypot: silently accept bots without hitting Mailchimp.
     if (typeof website === "string" && website.trim() !== "") {
@@ -47,13 +47,20 @@ export async function POST(req: NextRequest) {
 
     const normalized = email.trim().toLowerCase();
     const subscriberHash = createHash("md5").update(normalized).digest("hex");
+    const authHeader = `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`;
+    const memberUrl = `https://${dc}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`;
 
-    const res = await fetch(`https://${dc}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`, {
+    // Where the signup came from → a Mailchimp tag. Allowlisted so a client can't
+    // create arbitrary tags. Drives the Tags filter / segments in the audience.
+    const SOURCE_TAGS: Record<string, string> = {
+      slice: "Newsletter Slice",
+      modal: "Newsletter Modal",
+    };
+    const tag = typeof source === "string" ? SOURCE_TAGS[source] : undefined;
+
+    const res = await fetch(memberUrl, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`,
-      },
+      headers: { "Content-Type": "application/json", Authorization: authHeader },
       body: JSON.stringify({
         email_address: normalized,
         status_if_new: "pending",
@@ -61,6 +68,15 @@ export async function POST(req: NextRequest) {
     });
 
     if (res.ok) {
+      // Best-effort additive tag write (its own endpoint, so it never disturbs a
+      // returning subscriber's existing tags). A tag failure must not fail signup.
+      if (tag) {
+        await fetch(`${memberUrl}/tags`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: authHeader },
+          body: JSON.stringify({ tags: [{ name: tag, status: "active" }] }),
+        }).catch(() => {});
+      }
       return NextResponse.json({ ok: true });
     }
 
