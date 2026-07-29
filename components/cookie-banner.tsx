@@ -175,7 +175,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
           className="pointer-events-none fixed bottom-0 left-0 z-50 w-full origin-bottom p-2 selection:bg-brand selection:text-brand-ink md:origin-bottom-left md:px-6 md:pb-6"
         >
           <div className="mx-auto max-w-12xl">
-            <div className="pointer-events-auto relative w-full max-w-2xl rounded-2 bg-fill shadow-float">
+            <div className="pointer-events-auto relative max-h-[85dvh] w-full max-w-2xl overflow-y-auto rounded-2 bg-fill shadow-float">
               <div className="container max-w-2xl p-4 md:p-8">
                 {!showCustomize ? (
                   /* Main banner */
@@ -337,7 +337,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
                       )}
                     </div>
 
-                    <div className="flex flex-col gap-2 pt-2 md:flex-row md:justify-end">
+                    <div className="sticky bottom-0 -mx-4 -mb-4 flex flex-col gap-2 border-fill-raised border-t bg-fill px-4 pt-3 pb-4 md:static md:mx-0 md:mb-0 md:flex-row md:justify-end md:border-t-0 md:bg-transparent md:px-0 md:pt-2 md:pb-0">
                       <Button variant="outline" onClick={() => setShowCustomize(false)} className="order-2 md:order-1">
                         {prismicData.data.cancel_label || "Cancel"}
                       </Button>
