@@ -186,6 +186,121 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
+    "variation": "people",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "seed",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Similar"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Aliqua eu laboris aliqua et magna qui nisi. In sunt reprehenderit officia duis tempor ea quis adipisicing eu aliquip ullamco. Elit sunt esse aute cillum."
+            }
+          }
+        ]
+      },
+      "button": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "4871d71e-60ab-47fb-a395-da1681b901ff",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://prismic.io",
+                    "text": "north"
+                  }
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "arrowLeft",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "arrowUpRight",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "featured_employees": {
+        "__TYPE__": "GroupContentType",
+        "value": []
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
     "variation": "register",
     "primary": {
       "remove_top_padding": {
@@ -301,120 +416,5 @@
       }
     },
     "items": []
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "people",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Bud",
-        "type": "Select"
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "seed",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Similar"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Aliqua eu laboris aliqua et magna qui nisi. In sunt reprehenderit officia duis tempor ea quis adipisicing eu aliquip ullamco. Elit sunt esse aute cillum."
-            }
-          }
-        ]
-      },
-      "button": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "4871d71e-60ab-47fb-a395-da1681b901ff",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "north"
-                  }
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "arrowLeft",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "arrowUpRight",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "featured_employees": {
-        "__TYPE__": "GroupContentType",
-        "value": []
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
   }
 ]

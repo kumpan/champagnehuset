@@ -1,7 +1,7 @@
 "use client";
 
 import { isFilled, type RichTextField } from "@prismicio/client";
-import { ArrowRight } from "lucide-react";
+import { Check, LoaderCircleIcon } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { Button, type ButtonVariant } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
@@ -92,7 +92,7 @@ export function NewsletterForm({
         {isFilled.richText(successMessage) ? (
           <CustomRichText field={successMessage} sectionTheme={sectionTheme} />
         ) : (
-          <p className="font-medium text-lg">Tack! Kolla din inkorg för att bekräfta.</p>
+          <p className="rounded-1 bg-brand/20 p-4 font-medium text-lg">Tack! Kolla din inkorg för att bekräfta.</p>
         )}
       </div>
     );
@@ -114,7 +114,7 @@ export function NewsletterForm({
         style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0, pointerEvents: "none" }}
       />
 
-      <div className={cn("flex w-full gap-3", isInline ? "flex-col items-end sm:flex-row" : "flex-col")}>
+      <div className={cn("flex w-full gap-2", isInline ? "flex-col items-end sm:flex-row" : "flex-col")}>
         <div className="flex w-full flex-1 flex-col gap-1">
           <label htmlFor="newsletter-email" className="font-medium text-base">
             {emailLabel || "E-postadress"}
@@ -139,8 +139,8 @@ export function NewsletterForm({
           variant={buttonVariant}
           className={cn(!isInline && "w-full", isInline && "w-full sm:w-auto")}
         >
-          {submitting ? "…" : buttonLabel || "Prenumerera nu"}
-          {buttonIcon && !submitting && <ArrowRight />}
+          {buttonIcon && !submitting ? <Check /> : <LoaderCircleIcon className="animate-spin" />}
+          {submitting ? "Sparar" : buttonLabel || "Prenumerera nu"}
         </Button>
       </div>
 
