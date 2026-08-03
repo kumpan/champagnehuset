@@ -6,9 +6,8 @@ import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 import { ArticleCard } from "./article-card";
+import { PAGE_SIZE } from "./constants";
 import { Pagination } from "./pagination";
-
-const PAGE_SIZE = 4;
 
 // Entering cards hold ENTER_LEAD before their staggered entrance.
 // Makes smoother page transitions
