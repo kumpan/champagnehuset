@@ -27,6 +27,7 @@ export async function buildBreadcrumbs(
   if (isFilled.contentRelationship(doc.data.parent)) {
     try {
       const parent = await client.getByID(doc.data.parent.id, {
+        lang: doc.lang,
         fetchLinks: ["page.page_title"],
       });
       return buildBreadcrumbs(parent, client, trail);
