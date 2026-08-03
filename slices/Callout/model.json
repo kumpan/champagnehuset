@@ -43,8 +43,8 @@
           "type": "Boolean",
           "config": {
             "label": "Image Side",
-            "placeholder_false": "Image is on the Left",
-            "placeholder_true": "Image is on the Right",
+            "placeholder_false": "Image is on the Right",
+            "placeholder_true": "Image is on the Left",
             "default_value": true
           }
         },
@@ -783,6 +783,15 @@
             "default_value": "Bud"
           }
         },
+        "image_side": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Side",
+            "placeholder_false": "Image is on the Right",
+            "placeholder_true": "Image is on the Left",
+            "default_value": true
+          }
+        },
         "overline": {
           "type": "Group",
           "config": {
@@ -951,6 +960,43 @@
                     "phoneOutgoing"
                   ],
                   "default_value": "none"
+                }
+              }
+            }
+          }
+        },
+        "media": {
+          "type": "Group",
+          "config": {
+            "label": "Media",
+            "repeat": false,
+            "fields": {
+              "filter": {
+                "type": "Select",
+                "config": {
+                  "label": "Filter",
+                  "placeholder": "No Filter",
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "thumbnails": [],
+                  "constraint": {
+                    "width": 1440,
+                    "height": 1440
+                  }
+                }
+              },
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video",
+                  "placeholder": "Choose Video from the Media Library",
+                  "select": "media",
+                  "allowText": false
                 }
               }
             }
@@ -1061,6 +1107,15 @@
             "default_value": "Bud"
           }
         },
+        "image_side": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Side",
+            "placeholder_false": "Image is on the Right",
+            "placeholder_true": "Image is on the Left",
+            "default_value": true
+          }
+        },
         "overline": {
           "type": "Group",
           "config": {
@@ -1156,15 +1211,6 @@
                   "select": null
                 }
               },
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "label": "Variant",
-                  "placeholder": "",
-                  "options": ["default", "secondary", "outline", "ghost"],
-                  "default_value": "default"
-                }
-              },
               "icon_left": {
                 "type": "Select",
                 "config": {
@@ -1234,16 +1280,53 @@
             }
           }
         },
+        "media": {
+          "type": "Group",
+          "config": {
+            "label": "Media",
+            "repeat": false,
+            "fields": {
+              "filter": {
+                "type": "Select",
+                "config": {
+                  "label": "Filter",
+                  "placeholder": "No Filter",
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "thumbnails": [],
+                  "constraint": {
+                    "width": 1440,
+                    "height": 1440
+                  }
+                }
+              },
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video",
+                  "placeholder": "Choose Video from the Media Library",
+                  "select": "media",
+                  "allowText": false
+                }
+              }
+            }
+          }
+        },
         "details": {
           "type": "Group",
           "config": {
             "label": "Details",
             "repeat": true,
             "fields": {
-              "overline_icon": {
+              "detail_icon": {
                 "type": "Select",
                 "config": {
-                  "label": "Overline Icon",
+                  "label": "Icon",
                   "placeholder": "",
                   "options": [
                     "none",
@@ -1286,20 +1369,13 @@
                   "default_value": "none"
                 }
               },
-              "overline_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Overline Text",
-                  "placeholder": ""
-                }
-              },
               "rich_text": {
                 "type": "StructuredText",
                 "config": {
                   "label": "Rich Text",
                   "placeholder": "",
                   "allowTargetBlank": true,
-                  "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,heading3,heading4"
+                  "multi": "strong,em,paragraph,hyperlink"
                 }
               }
             }

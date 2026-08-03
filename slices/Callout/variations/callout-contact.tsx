@@ -1,5 +1,7 @@
 import type { Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 
+import CustomMedia from "@/components/custom-media";
 import { InfoItems } from "@/components/info-items";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -9,14 +11,21 @@ import type { CalloutProps } from "..";
 
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
-  Dust: "bg-accent-fill-raised",
+  Leaf: "bg-fill",
+  Brand: "bg-fill-raised/15",
+  Dust: "bg-spot-fill-dark/10",
+  Slate: "bg-spot-fill-dark",
 };
 
 type Props = CalloutProps & { slice: Content.CalloutSliceContact };
 
 export function CalloutContact({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, section_theme, remove_top_padding, contact_items } = slice.primary;
+  const { overline, title, description, buttons, section_theme, remove_top_padding, image_side, media, contact_items } =
+    slice.primary;
+
+  const mediaItem = media[0];
+  const hasMedia = mediaItem && (isFilled.image(mediaItem.image) || isFilled.linkToMedia(mediaItem.video));
 
   const items = contact_items.map((item) => ({
     icon: item.icon,
@@ -37,11 +46,17 @@ export function CalloutContact({ slice }: Props) {
       <Container>
         <div
           className={cn(
-            "flex w-full flex-col gap-6 rounded-5 p-4 md:p-6 lg:flex-row lg:gap-12 lg:p-12 xl:gap-16 xl:p-16",
+            "flex flex-col overflow-hidden rounded-2 transition-colors duration-500 ease-in-out",
             containerClasses[section_theme],
+            hasMedia && (image_side ? "lg:flex-row-reverse" : "lg:flex-row"),
           )}
         >
-          <div className="flex w-full flex-col gap-6 self-center md:gap-8">
+          <div
+            className={cn(
+              "flex flex-col justify-center gap-6 p-4 pt-6 md:gap-8 md:p-6 md:pt-8 lg:p-12",
+              hasMedia && "lg:aspect-square lg:w-1/2",
+            )}
+          >
             {hasIntroContent && (
               <SectionIntro
                 overline={overline}
@@ -56,10 +71,18 @@ export function CalloutContact({ slice }: Props) {
                 textBalance={true}
               />
             )}
+            {items.length > 0 && <InfoItems items={items} theme={section_theme} />}
           </div>
-          {items.length > 0 && (
-            <div className="w-full self-center lg:max-w-xl">
-              <InfoItems items={items} theme={section_theme} />
+          {hasMedia && mediaItem && (
+            <div className="aspect-square lg:w-1/2">
+              <CustomMedia
+                imageField={isFilled.linkToMedia(mediaItem.video) ? undefined : mediaItem.image}
+                videoSrc={isFilled.linkToMedia(mediaItem.video) ? mediaItem.video.url : undefined}
+                className="h-full w-full rounded-0"
+                preload
+                sectionTheme={section_theme}
+                filter={mediaItem.filter}
+              />
             </div>
           )}
         </div>
