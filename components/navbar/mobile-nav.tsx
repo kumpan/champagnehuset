@@ -6,7 +6,7 @@ import { m } from "motion/react";
 import { cn } from "@/lib/utils";
 import { MobileNavLink } from "./mobile-nav-link";
 
-export const mobileItemClass = "bg-fill-raised transition-colors duration-300 ease-in-out hover:bg-fill-raised/80";
+export const mobileItemClass = "bg-fill transition-colors duration-300 ease-in-out hover:bg-fill/80";
 
 export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose: () => void }) {
   return (
@@ -20,17 +20,17 @@ export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose
       animate={{
         height: "auto",
         opacity: 1,
-        marginBottom: "0.5rem",
+        marginBottom: "1rem",
         marginTop: "0.25rem",
       }}
       exit={{ height: 0, opacity: 0, marginBottom: "0rem", marginTop: "0rem" }}
       transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="flex flex-col gap-1 overflow-hidden rounded-t-4 rounded-b-5 bg-fill-raised p-1"
+      className="flex flex-col gap-2 overflow-hidden p-2"
     >
       {links.map((dropLink) => (
         <li
           key={dropLink.text}
-          className="rounded-3 bg-fill transition-colors duration-300 ease-in-out last:rounded-b-4 hover:bg-fill/80"
+          className="rounded-1 bg-fill transition-colors duration-300 ease-in-out hover:bg-fill/80"
         >
           <MobileNavLink field={dropLink} onClose={onClose}>
             <span className="text-base">{dropLink.text}</span>
@@ -45,7 +45,7 @@ export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose
 // Direct link, no sub-links
 export function MobileNavItemDirect({ label, link, onClose }: { label: string; link: LinkField; onClose: () => void }) {
   return (
-    <MobileNavLink className={cn(mobileItemClass, "rounded-3")} field={link} onClose={onClose}>
+    <MobileNavLink className={cn(mobileItemClass, "rounded-1")} field={link} onClose={onClose}>
       {label}
       <ChevronRight className="size-6" aria-hidden="true" />
     </MobileNavLink>
@@ -67,7 +67,7 @@ export function MobileNavItemSplit({
   onClose: () => void;
 }) {
   return (
-    <div className="flex items-center overflow-hidden rounded-3">
+    <div className="flex items-center overflow-hidden rounded-1">
       <MobileNavLink field={link} onClose={onClose} className={cn(mobileItemClass, "mr-1 flex-1")}>
         {label}
       </MobileNavLink>
@@ -75,7 +75,7 @@ export function MobileNavItemSplit({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex size-16 shrink-0 cursor-pointer items-center justify-center rounded-2 bg-fill-raised text-primary transition-colors duration-300 hover:bg-fill-raised/80"
+        className="flex size-16 shrink-0 cursor-pointer items-center justify-center rounded-1 bg-fill text-primary transition-colors duration-300 hover:bg-fill/80"
       >
         <ChevronDown
           aria-hidden="true"
@@ -103,7 +103,7 @@ export function MobileNavItemToggle({
       aria-expanded={isOpen}
       className={cn(
         mobileItemClass,
-        "flex h-16 w-full cursor-pointer items-center justify-between rounded-3 px-5 text-lg text-primary",
+        "flex h-16 w-full cursor-pointer items-center justify-between rounded-1 px-5 text-lg text-primary",
       )}
     >
       {label}
