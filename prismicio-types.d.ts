@@ -3065,6 +3065,43 @@ export interface CalloutSliceContactPrimaryButtonsItem {
 }
 
 /**
+ * Item in *Callout → Contact → Primary → Media*
+ */
+export interface CalloutSliceContactPrimaryMediaItem {
+  /**
+   * Filter field in *Callout → Contact → Primary → Media*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: No Filter
+   * - **API ID Path**: callout.contact.primary.media[].filter
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  filter: prismic.SelectField<
+    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
+  >;
+
+  /**
+   * Image field in *Callout → Contact → Primary → Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.media[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Callout → Contact → Primary → Media*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: Choose Video from the Media Library
+   * - **API ID Path**: callout.contact.primary.media[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
  * Item in *Callout → Contact → Primary → Contact Items*
  */
 export interface CalloutSliceContactPrimaryContactItemsItem {
@@ -3227,20 +3264,6 @@ export interface CalloutSliceDetailsPrimaryButtonsItem {
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Variant field in *Callout → Details → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: callout.details.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
    * Left Icon field in *Callout → Details → Primary → Buttons*
    *
    * - **Field Type**: Select
@@ -3314,19 +3337,56 @@ export interface CalloutSliceDetailsPrimaryButtonsItem {
 }
 
 /**
+ * Item in *Callout → Details → Primary → Media*
+ */
+export interface CalloutSliceDetailsPrimaryMediaItem {
+  /**
+   * Filter field in *Callout → Details → Primary → Media*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: No Filter
+   * - **API ID Path**: callout.details.primary.media[].filter
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  filter: prismic.SelectField<
+    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
+  >;
+
+  /**
+   * Image field in *Callout → Details → Primary → Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.media[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Callout → Details → Primary → Media*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: Choose Video from the Media Library
+   * - **API ID Path**: callout.details.primary.media[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
  * Item in *Callout → Details → Primary → Details*
  */
 export interface CalloutSliceDetailsPrimaryDetailsItem {
   /**
-   * Overline Icon field in *Callout → Details → Primary → Details*
+   * Icon field in *Callout → Details → Primary → Details*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: callout.details.primary.details[].overline_icon
+   * - **API ID Path**: callout.details.primary.details[].detail_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  overline_icon: prismic.SelectField<
+  detail_icon: prismic.SelectField<
     | "none"
     | "atSign"
     | "badgeCheck"
@@ -3365,16 +3425,6 @@ export interface CalloutSliceDetailsPrimaryDetailsItem {
     | "trophy",
     "filled"
   >;
-
-  /**
-   * Overline Text field in *Callout → Details → Primary → Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: callout.details.primary.details[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
 
   /**
    * Rich Text field in *Callout → Details → Primary → Details*
@@ -3742,6 +3792,17 @@ export interface CalloutSliceContactPrimary {
   >;
 
   /**
+   * Image Side field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: callout.contact.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
+
+  /**
    * Overline field in *Callout → Contact → Primary*
    *
    * - **Field Type**: Group
@@ -3782,6 +3843,16 @@ export interface CalloutSliceContactPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   buttons: prismic.GroupField<Simplify<CalloutSliceContactPrimaryButtonsItem>>;
+
+  /**
+   * Media field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.media[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  media: prismic.GroupField<Simplify<CalloutSliceContactPrimaryMediaItem>>;
 
   /**
    * Contact Items field in *Callout → Contact → Primary*
@@ -3839,6 +3910,17 @@ export interface CalloutSliceDetailsPrimary {
   >;
 
   /**
+   * Image Side field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: callout.details.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
+
+  /**
    * Overline field in *Callout → Details → Primary*
    *
    * - **Field Type**: Group
@@ -3879,6 +3961,16 @@ export interface CalloutSliceDetailsPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   buttons: prismic.GroupField<Simplify<CalloutSliceDetailsPrimaryButtonsItem>>;
+
+  /**
+   * Media field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.media[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  media: prismic.GroupField<Simplify<CalloutSliceDetailsPrimaryMediaItem>>;
 
   /**
    * Details field in *Callout → Details → Primary*
@@ -4616,7 +4708,10 @@ export interface ContactSliceRegisterPrimary {
    * - **API ID Path**: contact.register.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Image Side field in *Contact → Register → Primary*
@@ -8267,10 +8362,12 @@ declare module "@prismicio/client" {
       CalloutSliceCardPrimary,
       CalloutSliceContactPrimaryOverlineItem,
       CalloutSliceContactPrimaryButtonsItem,
+      CalloutSliceContactPrimaryMediaItem,
       CalloutSliceContactPrimaryContactItemsItem,
       CalloutSliceContactPrimary,
       CalloutSliceDetailsPrimaryOverlineItem,
       CalloutSliceDetailsPrimaryButtonsItem,
+      CalloutSliceDetailsPrimaryMediaItem,
       CalloutSliceDetailsPrimaryDetailsItem,
       CalloutSliceDetailsPrimary,
       CalloutSliceVariation,
