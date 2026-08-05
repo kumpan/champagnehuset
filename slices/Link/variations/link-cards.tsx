@@ -82,7 +82,7 @@ export function LinkCards({ slice }: Props) {
                     <ArrowRight className="size-6 shrink-0 md:size-7" />
                   </div>
 
-                  <div className="relative -mx-4 -mb-4 px-4 pt-16 pb-4 md:-mx-5 md:-mb-5 md:px-5 md:pt-20 md:pb-5">
+                  <div className="relative -mx-4 -mb-4 px-4 pt-18 pb-4 md:-mx-5 md:-mb-5 md:px-5 md:pt-24 md:pb-5">
                     {/* Bottom Fade, responsive height */}
                     <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
