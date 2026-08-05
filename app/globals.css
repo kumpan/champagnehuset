@@ -165,6 +165,9 @@ h3{
 
 /* Prose Styles */
 .prose {
+    /* Let long, unbreakable tokens wrap instead of */
+    overflow-wrap: break-word;
+
     h1,
     h2,
     h3 {
