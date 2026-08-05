@@ -11,15 +11,30 @@ const breadcrumbTheme: Record<string, { dark: BreadcrumbThemeColors; light: Brea
       base: "text-ink-dim bg-brand",
       hover: "group-hover:text-brand-ink",
     },
-    light: { base: "text-brand-ink bg-brand", hover: "group-hover:text-brand-ink" },
+    light: {
+      base: "text-brand-ink bg-brand",
+      hover: "group-hover:text-brand-ink",
+    },
   },
   Leaf: {
-    dark: { base: "text-ink-dim bg-brand", hover: "group-hover:text-brand-ink" },
-    light: { base: "text-ink-flip bg-brand", hover: "group-hover:text-brand-ink" },
+    dark: {
+      base: "text-ink-dim bg-brand",
+      hover: "group-hover:text-brand-ink",
+    },
+    light: {
+      base: "text-ink-flip bg-brand",
+      hover: "group-hover:text-brand-ink",
+    },
   },
   Dust: {
-    dark: { base: "text-spot-ink-dim bg-spot-fill-dark", hover: "group-hover:text-spot-ink-flip" },
-    light: { base: "text-spot-ink-flip bg-spot-fill-dark", hover: "group-hover:text-spot-ink-flip" },
+    dark: {
+      base: "text-spot-ink-dim bg-spot-fill-dark",
+      hover: "group-hover:text-spot-ink-flip",
+    },
+    light: {
+      base: "text-spot-ink-flip bg-spot-fill-dark",
+      hover: "group-hover:text-spot-ink-flip",
+    },
   },
 };
 
