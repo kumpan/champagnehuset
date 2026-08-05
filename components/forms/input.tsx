@@ -13,7 +13,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         "bg-green-10 text-base",
         "px-4 py-1",
         "placeholder:text-muted-foreground",
-        "hover:bg-green-10/80",
+        "hover:bg-green-10/80 hover:outline-2 hover:outline-brand/40",
         "focus-visible:border-brand focus-visible:bg-green-10/90 focus-visible:outline-2 focus-visible:outline-brand/50 focus-visible:outline-offset-2",
         "aria-invalid:border-error aria-invalid:ring-error/20 dark:aria-invalid:ring-error/40",
         "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
