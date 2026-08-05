@@ -40,7 +40,7 @@ export function ContactForm({ slice }: Props) {
         <div className={cn("flex flex-col gap-2 transition-colors duration-500 ease-in-out lg:gap-0")}>
           <div
             className={cn(
-              "flex w-full grow flex-col gap-6 rounded-5 bg-fill-raised p-4 md:p-6 lg:gap-12 lg:rounded-r-8 lg:rounded-l-6 lg:p-12 xl:gap-16 xl:p-16",
+              "relative flex w-full grow flex-col gap-6 overflow-hidden rounded-2 bg-fill-raised p-4 md:p-6 lg:gap-12 lg:p-12 xl:gap-16 xl:p-16",
               form_side ? "lg:flex-row" : "lg:flex-row-reverse",
             )}
           >
@@ -86,6 +86,9 @@ export function ContactForm({ slice }: Props) {
                 success_message={success_message}
                 className="w-full"
               />
+              <div className="absolute inset-0 flex items-center justify-center text-balance bg-fill-dark/70 p-4 text-center text-ink-flip text-lg backdrop-blur-lg md:text-2xl">
+                This form feature is only a placeholder. It's not functionally fully built yet.
+              </div>
             </div>
           </div>
         </div>
