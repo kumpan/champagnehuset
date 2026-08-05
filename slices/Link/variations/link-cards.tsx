@@ -62,7 +62,7 @@ export function LinkCards({ slice }: Props) {
               >
                 <PrismicNextLink
                   field={card.links}
-                  className="group relative isolate flex aspect-[3/4] flex-col justify-between overflow-hidden rounded-2 p-4 text-ink-flip transition-all duration-300 ease-in-out md:p-5 hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
+                  className="group relative isolate flex aspect-3/4 flex-col justify-between overflow-hidden rounded-2 p-4 text-ink-flip transition-all duration-300 ease-in-out md:p-5 hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
                 >
                   <CustomMedia
                     imageField={card.image}
@@ -71,15 +71,15 @@ export function LinkCards({ slice }: Props) {
                   />
 
                   {/* Top Fade */}
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5">
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-5/20">
                     <div className="absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-spot-fill-dark/40 to-spot-fill-dark/0" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-yellow-600/20 to-spot-fill/0 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-spot-fill-dark/75 to-spot-fill-dark/0" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-yellow-600/25 to-yellow-600/0 mix-blend-overlay" />
                   </div>
 
                   <div className="relative flex items-start justify-between gap-3">
-                    <h3 className="font-medium! font-primary text-lg md:text-xl">{card.title}</h3>
-                    <ArrowRight className="size-7 shrink-0" />
+                    <h3 className="mt-0.25 font-primary text-xl md:mt-0 md:text-2xl">{card.title}</h3>
+                    <ArrowRight className="size-6 shrink-0 md:size-7" />
                   </div>
 
                   <div className="relative -mx-4 -mb-4 px-4 pt-16 pb-4 md:-mx-5 md:-mb-5 md:px-5 md:pt-20 md:pb-5">
