@@ -6,7 +6,8 @@ import { m } from "motion/react";
 import { cn } from "@/lib/utils";
 import { MobileNavLink } from "./mobile-nav-link";
 
-export const mobileItemClass = "bg-fill transition-colors duration-300 ease-in-out hover:bg-fill/80";
+export const mobileItemClass =
+  "bg-fill-raised md:bg-fill transition-colors duration-300 ease-in-out hover:bg-fill-raised/60 md:hover:bg-fill/60";
 
 export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose: () => void }) {
   return (
@@ -30,7 +31,7 @@ export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose
       {links.map((dropLink) => (
         <li
           key={dropLink.text}
-          className="rounded-1 bg-fill transition-colors duration-300 ease-in-out hover:bg-fill/80"
+          className="rounded-1 bg-fill-raised transition-colors duration-300 ease-in-out hover:bg-fill-raised/60 md:bg-fill md:hover:bg-fill/60"
         >
           <MobileNavLink field={dropLink} onClose={onClose}>
             <span className="text-base">{dropLink.text}</span>
@@ -75,7 +76,7 @@ export function MobileNavItemSplit({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex size-16 shrink-0 cursor-pointer items-center justify-center rounded-1 bg-fill text-primary transition-colors duration-300 hover:bg-fill/80"
+        className="flex size-16 shrink-0 cursor-pointer items-center justify-center rounded-1 bg-fill-raised text-primary transition-colors duration-300 hover:bg-fill-raised/60 md:bg-fill md:hover:bg-fill/60"
       >
         <ChevronDown
           aria-hidden="true"

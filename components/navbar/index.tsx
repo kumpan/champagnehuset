@@ -68,7 +68,7 @@ export function Navbar({
                 opacity: { duration: 0.25, ease: "easeInOut" },
                 scale: { type: "spring", stiffness: 200, damping: 20 },
               }}
-              className="absolute top-20 right-4 left-4 z-50 mt-2 origin-top rounded-1 bg-fill-raised md:top-20 md:right-6 md:left-auto md:min-w-96 md:origin-top-right lg:top-23 lg:right-8 xl:hidden"
+              className="absolute top-20 right-4 left-4 z-50 mt-2 origin-top rounded-1 md:top-20 md:right-6 md:left-auto md:min-w-96 md:origin-top-right md:bg-fill-raised lg:top-23 lg:right-8 xl:hidden"
             >
               <ul className="flex flex-col gap-2 overflow-hidden md:p-2">
                 {prismicData.data.links.map((linkItem, index) => {
