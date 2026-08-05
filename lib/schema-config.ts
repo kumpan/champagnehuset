@@ -1,5 +1,9 @@
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://champagnehuset.se";
 
+// Fallback Open Graph and Twitter image, served from public/. Used when a
+// document doesn't have meta_image
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph-image.png`;
+
 export const ORGANIZATION_CONFIG = {
   name: "ChampagneHuset",
   alternateName: "ChampagneHuset Stockholm",
