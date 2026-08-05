@@ -5,12 +5,12 @@ import { isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
+import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/button";
 import type { IconName } from "@/components/icons";
 import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { CustomSVG } from "@/components/svg";
 import { cn } from "@/lib/utils";
 import type { NavbarDocument } from "@/prismicio-types";
 import { AnimatedCTAText, type CtaLinkItem } from "./animated-cta-button";
@@ -22,10 +22,14 @@ export function Navbar({
   prismicData,
   locales,
   masterLocale,
+  desktopLogo,
+  mobileLogo,
 }: {
   prismicData: NavbarDocument;
   locales: Language[];
   masterLocale: string;
+  desktopLogo?: ReactNode;
+  mobileLogo?: ReactNode;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<number | null>(null);
@@ -132,22 +136,8 @@ export function Navbar({
               className="h-12 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 lg:focus-visible:outline-primary-foreground"
               aria-label="Go to home page"
             >
-              {prismicData.data.desktop_logo?.url && (
-                <CustomSVG
-                  processColor={prismicData.data.logo_color === "System Can Override the Logo Color"}
-                  src={prismicData.data.desktop_logo.url}
-                  className="hidden h-full w-auto md:block md:text-brand"
-                  title={prismicData.data.desktop_logo.alt || ""}
-                />
-              )}
-              {prismicData.data.mobile_logo?.url && (
-                <CustomSVG
-                  processColor={prismicData.data.logo_color === "System Can Override the Logo Color"}
-                  src={prismicData.data.mobile_logo.url}
-                  className="h-full w-auto text-brand md:hidden"
-                  title={prismicData.data.mobile_logo.alt || ""}
-                />
-              )}
+              {desktopLogo}
+              {mobileLogo}
             </PrismicNextLink>
 
             {/* Desktop Links & buttons */}
