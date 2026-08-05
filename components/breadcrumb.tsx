@@ -7,7 +7,10 @@ type BreadcrumbThemeColors = { base: string; hover: string };
 
 const breadcrumbTheme: Record<string, { dark: BreadcrumbThemeColors; light: BreadcrumbThemeColors }> = {
   Bud: {
-    dark: { base: "text-ink-dim bg-brand", hover: "group-hover:text-brand-ink" },
+    dark: {
+      base: "text-ink-dim bg-brand",
+      hover: "group-hover:text-brand-ink",
+    },
     light: { base: "text-brand-ink bg-brand", hover: "group-hover:text-brand-ink" },
   },
   Leaf: {
