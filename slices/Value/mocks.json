@@ -21,7 +21,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "What we value",
+                  "value": "Det vi står för",
                   "type": "Text"
                 }
               ]
@@ -35,7 +35,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Built on principles that last",
+              "text": "Byggt på principer som håller, flaska efter flaska",
               "spans": []
             }
           }
@@ -47,7 +47,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A short statement of what you stand for, and why it makes a difference.",
+              "text": "En kort beskrivning av vad ChampagneHuset står för, och varför det gör skillnad i glaset.",
               "spans": []
             }
           }
@@ -66,8 +66,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "Learn more"
+                    "url": "https://champagnehuset.se/om-oss",
+                    "text": "Läs vår historia"
                   }
                 }
               ],
@@ -123,7 +123,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Quality first"
+                  "value": "Kvalitet före kvantitet"
                 }
               ],
               [
@@ -131,7 +131,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Every detail is considered, from the first impression to the finishing touch."
+                  "value": "Varje flaska är provsmakad och utvald för hand — vi tar bara in champagne vi själva vill dricka."
                 }
               ]
             ]
@@ -144,7 +144,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Honest and open"
+                  "value": "Ursprung i fokus"
                 }
               ],
               [
@@ -152,7 +152,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Clear communication and no surprises — you always know where things stand."
+                  "value": "Vi berättar alltid vem som odlat druvorna, var vinet kommer ifrån och hur det är gjort."
                 }
               ]
             ]
@@ -165,7 +165,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Built to last"
+                  "value": "Odlare, inte industri"
                 }
               ],
               [
@@ -173,7 +173,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Thoughtful choices today that keep paying off well into the future."
+                  "value": "Vi samarbetar med små familjeodlare som sätter terroir och hantverk framför storskalig produktion."
                 }
               ]
             ]
@@ -186,7 +186,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Friendly, knowledgeable support whenever you need a hand."
+                  "value": "Rådgivning från människor som verkligen kan Champagne — fråga oss om allt från årgång till servering."
                 }
               ],
               [
@@ -194,7 +194,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Here to help"
+                  "value": "Alltid nära till hands"
                 }
               ]
             ]
@@ -207,7 +207,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "We keep refining the small things so the experience gets better over time."
+                  "value": "Vi förfinar ständigt urvalet och letar upp nya odlare värda att upptäcka."
                 }
               ],
               [
@@ -215,7 +215,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Always improving"
+                  "value": "Alltid nyfikna"
                 }
               ]
             ]
@@ -257,7 +257,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "How we work",
+                  "value": "Så arbetar vi",
                   "type": "Text"
                 }
               ],
@@ -279,7 +279,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Principles we apply, consistently",
+              "text": "Principer vi tillämpar, konsekvent och med omsorg",
               "spans": []
             }
           }
@@ -291,7 +291,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "The small things, handled with care — that's what adds up to something you can rely on.",
+              "text": "De små sakerna, hanterade med omsorg — det är summan av det du kan lita på hos ChampagneHuset.",
               "spans": []
             }
           }
@@ -310,8 +310,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "Read our story"
+                    "url": "https://champagnehuset.se/om-oss",
+                    "text": "Läs vår historia"
                   }
                 }
               ],
@@ -362,7 +362,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Considered by design"
+                  "value": "Utvalt med omsorg"
                 }
               ],
               [
@@ -370,7 +370,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Nothing is left to chance — each decision is made with intention and care."
+                  "value": "Ingenting lämnas åt slumpen — varje champagne provsmakas och väljs ut med eftertanke."
                 }
               ]
             ]
@@ -391,7 +391,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Clear from the start"
+                  "value": "Tydligt från start"
                 }
               ],
               [
@@ -399,7 +399,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "You will always know what to expect, with no surprises along the way."
+                  "value": "Du vet alltid vad du får — odlare, region och stil beskrivs öppet för varje flaska."
                 }
               ]
             ]
@@ -420,7 +420,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "We build for the long term, not just the quick win."
+                  "value": "Vi bygger långa relationer med våra odlare, inte snabba affärer."
                 }
               ],
               [
@@ -428,7 +428,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Made to last"
+                  "value": "Byggt på relationer"
                 }
               ]
             ]
@@ -449,7 +449,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Real support from people who know the work and genuinely want to help."
+                  "value": "Äkta rådgivning från människor som kan Champagne och gärna delar med sig."
                 }
               ],
               [
@@ -457,7 +457,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "People first"
+                  "value": "Människan först"
                 }
               ]
             ]
@@ -470,7 +470,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Always refining"
+                  "value": "Ständigt förfinat"
                 }
               ],
               [
@@ -478,7 +478,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Small, steady improvements that add up to a better experience."
+                  "value": "Små, stadiga förbättringar som tillsammans gör upplevelsen bättre."
                 }
               ]
             ]

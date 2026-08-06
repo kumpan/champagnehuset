@@ -105,7 +105,7 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
     case "style":
       return product_style ? [product_style] : [];
     case "grape":
-      return product_grapes.flatMap((entry) => (entry.grape ? [entry.grape] : []));
+      return (product_grapes ?? []).flatMap((entry) => (entry.grape ? [entry.grape] : []));
     case "club":
       return product_special_club === "Yes" ? ["yes"] : [];
     case "ecologic":

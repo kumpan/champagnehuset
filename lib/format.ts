@@ -13,18 +13,8 @@ function extractNumber(input: string): string | null {
   return match ? match[0] : null;
 }
 
-/**
- * Join a product's grapes into "Pinot Noir, Chardonnay" (null when empty).
- *
- * `product_grapes` became a repeatable group, but documents published before
- * the schema change still return the old free-text string. Accept either shape
- * so the field renders through the migration window instead of crashing.
- */
-export function formatGrapes(
-  grapes: Content.ProductDocument["data"]["product_grapes"] | string | null | undefined,
-): string | null {
-  if (!grapes) return null;
-  if (typeof grapes === "string") return grapes.trim() || null;
+/** Join a product's grapes into "Pinot Noir, Chardonnay" (null when empty). */
+export function formatGrapes(grapes: Content.ProductDocument["data"]["product_grapes"]): string | null {
   const names = grapes.flatMap((entry) => (entry.grape ? [entry.grape] : []));
   return names.length > 0 ? names.join(", ") : null;
 }

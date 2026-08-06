@@ -14,7 +14,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Membership"
+                  "value": "Medlemskap"
                 }
               ],
               [
@@ -35,7 +35,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Join the club",
+              "text": "Bli medlem i ChampagneHusets klubb",
               "spans": []
             }
           }
@@ -47,7 +47,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A focused message with room to explain the value and invite the next step.",
+              "text": "Som medlem får du förtur till nya släpp, personliga rekommendationer och inbjudningar till våra provningar — champagne, utvald för dig.",
               "spans": []
             }
           }
@@ -66,8 +66,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "a",
-                    "text": "Get started"
+                    "url": "https://champagnehuset.se/medlemskap",
+                    "text": "Bli medlem"
                   }
                 }
               ],
@@ -166,7 +166,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Featured",
+                  "value": "Utvalt",
                   "type": "Text"
                 }
               ]
@@ -180,7 +180,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Made with intention",
+              "text": "Champagne gjord med omsorg, från odlare vi litar på",
               "spans": []
             }
           }
@@ -192,7 +192,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A focused message with room to explain the value and invite the next step.",
+              "text": "Bakom varje flaska finns en familj, ett läge och ett hantverk — vi berättar historien och bjuder in dig att smaka.",
               "spans": []
             }
           }
@@ -211,8 +211,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "Learn more"
+                    "url": "https://champagnehuset.se/journal",
+                    "text": "Läs mer om odlaren"
                   }
                 }
               ],
@@ -323,7 +323,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Highlight",
+                  "value": "Månadens flaska",
                   "type": "Text"
                 }
               ],
@@ -345,7 +345,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "A closer look",
+              "text": "Månadens flaska: en champagne värd att upptäcka",
               "spans": []
             }
           }
@@ -357,7 +357,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Everything you need, in one place.",
+              "text": "Varje månad lyfter vi fram en champagne med extra allt — odlarens historia, druvorna bakom och våra bästa serveringstips.",
               "spans": []
             }
           }
@@ -376,8 +376,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "See details"
+                    "url": "https://champagnehuset.se/champagne",
+                    "text": "Se flaskan"
                   }
                 }
               ],
@@ -540,7 +540,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Get in touch",
+                  "value": "Hör av dig",
                   "type": "Text"
                 }
               ]
@@ -554,7 +554,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Let's talk",
+              "text": "Vi hjälper dig hitta rätt champagne",
               "spans": []
             }
           }
@@ -566,7 +566,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Pair a clear headline with a few supporting sentences to guide readers toward the action that matters most. Keep it concise, specific, and easy to scan.",
+              "text": "Har du en fråga om en flaska, en beställning eller en provning? Hör av dig så återkommer vi oftast inom en arbetsdag.",
               "spans": []
             }
           }
@@ -585,8 +585,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "Contact us"
+                    "url": "https://champagnehuset.se/kontakt",
+                    "text": "Kontakta oss"
                   }
                 }
               ],
@@ -636,7 +636,7 @@
                 "label",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Phone",
+                  "value": "Telefon",
                   "type": "Text"
                 }
               ],
@@ -644,7 +644,7 @@
                 "value",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "+46 8 123 45 67",
+                  "value": "+46 8 555 123 45",
                   "type": "Text"
                 }
               ],
@@ -652,7 +652,7 @@
                 "link",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "atom",
+                  "value": "+46 8 555 123 45",
                   "type": "Text"
                 }
               ]
@@ -674,7 +674,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Email"
+                  "value": "E-post"
                 }
               ],
               [
@@ -682,7 +682,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "safasdf"
+                  "value": "hej@champagnehuset.se"
                 }
               ],
               [
@@ -690,7 +690,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "hello@example.com"
+                  "value": "hej@champagnehuset.se"
                 }
               ]
             ]
@@ -711,7 +711,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Visit"
+                  "value": "Besök oss"
                 }
               ],
               [
@@ -719,7 +719,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "1 Example Street, Stockholm"
+                  "value": "Champagnegatan 12, 114 55 Stockholm"
                 }
               ],
               [
@@ -727,7 +727,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "9018230192"
+                  "value": ""
                 }
               ]
             ]
@@ -765,7 +765,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "What's included",
+              "text": "Vad ingår i medlemskapet",
               "spans": []
             }
           }
@@ -777,7 +777,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "For people who like to discover something new.",
+              "text": "För dig som vill upptäcka nya odlare och årgångar, före alla andra.",
               "spans": []
             },
             "direction": "ltr"
@@ -813,8 +813,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "sdf",
-                    "text": "Learn more"
+                    "url": "https://champagnehuset.se/medlemskap",
+                    "text": "Bli medlem"
                   }
                 }
               ]
@@ -844,7 +844,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Early access to new arrivals",
+                        "text": "Förtur till nya släpp och begränsade partier",
                         "spans": []
                       }
                     }
@@ -872,7 +872,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Personal recommendations, chosen for you",
+                        "text": "Personliga rekommendationer, utvalda efter din smak",
                         "spans": []
                       }
                     }
@@ -900,7 +900,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Invitations to tastings and events",
+                        "text": "Inbjudningar till provningar och event",
                         "spans": []
                       }
                     }
@@ -928,7 +928,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "A simple guide to getting started",
+                        "text": "Fri leverans på beställningar över 1 500 kr",
                         "spans": []
                       }
                     }

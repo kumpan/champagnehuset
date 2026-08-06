@@ -21,8 +21,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "asdf",
-                    "text": "asdf"
+                    "url": "https://champagnehuset.se/champagne",
+                    "text": "Se hela sortimentet"
                   }
                 }
               ]
@@ -36,7 +36,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Featured bottles",
+              "text": "Utvalda flaskor ur sortimentet",
               "spans": []
             }
           }
@@ -48,7 +48,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Browse the full selection and filter by exactly what matters to you.",
+              "text": "Bläddra i hela sortimentet och filtrera på region, druva, stil och prisklass tills du hittar precis rätt flaska.",
               "spans": []
             }
           }
@@ -73,7 +73,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Selection"
+                  "value": "Ur sortimentet"
                 }
               ]
             ]
@@ -121,7 +121,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Shop",
+                  "value": "Butik",
                   "type": "Text"
                 }
               ]
@@ -135,7 +135,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Find your bottle",
+              "text": "Hitta din nästa champagne",
               "spans": []
             }
           }
@@ -147,7 +147,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Browse the full selection and filter by exactly what matters to you.",
+              "text": "Sök fritt eller filtrera på region, druva, stil och pris — hela vårt sortiment av grower champagne på ett ställe.",
               "spans": []
             }
           }
@@ -155,12 +155,12 @@
       },
       "search_placeholder": {
         "__TYPE__": "FieldContent",
-        "value": "section",
+        "value": "Sök på odlare, region eller druva…",
         "type": "Text"
       },
       "no_results_text": {
         "__TYPE__": "FieldContent",
-        "value": "off",
+        "value": "Inga viner matchade din sökning – prova att rensa filtren.",
         "type": "Text"
       }
     },

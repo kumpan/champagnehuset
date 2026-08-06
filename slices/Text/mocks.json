@@ -30,7 +30,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Overview",
+                  "value": "Översikt",
                   "type": "Text"
                 }
               ]
@@ -44,7 +44,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "A closer look at how it works",
+              "text": "Så läser du en champagneetikett",
               "spans": []
             }
           }
@@ -56,7 +56,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A short introduction that frames the section and sets up the detail that follows.",
+              "text": "Etiketten avslöjar mer än du tror. Här går vi igenom begreppen och hur du snabbt hittar rätt i sortimentet.",
               "spans": []
             }
           }
@@ -68,14 +68,14 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "This is where the longer explanation lives. Use it to walk through the details, add context, and give readers everything they need to understand the topic.",
+              "text": "Dosagen — från Brut Nature till Extra Brut och Brut — visar hur mycket socker som tillsatts och därmed vinets torrhet. Grand Cru och Premier Cru pekar ut byns klassificering, medan récoltant-manipulant (RM) betyder att odlaren själv gjort vinet.",
               "spans": []
             }
           },
           {
             "type": "paragraph",
             "content": {
-              "text": "Keep each paragraph focused on a single idea, and the whole section stays easy to read from top to bottom.",
+              "text": "När du känner igen begreppen blir det enkelt att välja champagne efter smak, tillfälle och budget.",
               "spans": []
             }
           }
@@ -120,7 +120,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Details",
+                  "value": "Fördjupning",
                   "type": "Text"
                 }
               ]
@@ -134,7 +134,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Two columns, one clear message",
+              "text": "Två spalter, en tydlig tanke om terroir",
               "spans": []
             }
           }
@@ -146,7 +146,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Introduce the topic, then let the two columns below carry the supporting detail.",
+              "text": "Introducera ämnet och låt de två spalterna nedan bära fördjupningen om jordmån och läge.",
               "spans": []
             }
           }
@@ -158,7 +158,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "The first column carries the opening thought — a focused, readable paragraph that sets up the idea and gives it room to land.",
+              "text": "Kritjorden i Champagne ger vinerna deras räta, mineraliska syra och förmåga att mogna vackert under många år på flaska.",
               "spans": []
             }
           }
@@ -170,7 +170,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "The second column continues the thread, adding the detail and context that round out the section without crowding the page.",
+              "text": "Läget avgör resten — sluttningens riktning, höjden och byns klassificering formar tillsammans druvornas mognad och vinets karaktär.",
               "spans": []
             }
           }
@@ -198,21 +198,21 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Longform is for the writing that needs room to breathe — essays, guides, and stories told at their natural length.",
+              "text": "Grower champagne — récoltant-manipulant — är viner gjorda av samma familj som odlar druvorna. Det är champagne med adress, årgångskänsla och en personlig signatur.",
               "spans": []
             }
           },
           {
             "type": "paragraph",
             "content": {
-              "text": "Set the pace with clear paragraphs, let ideas build on one another, and trust the reader to stay with a well-made argument.",
+              "text": "Där de stora husen strävar efter en jämn husstil år efter år låter odlaren varje skörd och varje läge tala. Resultatet blir viner som speglar sin plats och sitt år.",
               "spans": []
             }
           },
           {
             "type": "paragraph",
             "content": {
-              "text": "When the subject deserves depth, this is the format that gives it space.",
+              "text": "När ämnet förtjänar djup är det här formatet som ger det plats.",
               "spans": []
             }
           }
@@ -224,7 +224,7 @@
         "value": {
           "__TYPE__": "DocumentLink",
           "id": "mock_document_id",
-          "text": "The editorial team"
+          "text": "Redaktionen på ChampagneHuset"
         }
       }
     },
@@ -258,7 +258,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Pair words with a supporting image to make the point land. This first block introduces the idea alongside its visual.",
+              "text": "Ord tillsammans med en bild gör poängen tydligare. Det här blocket introducerar vinifikationen vid sidan av sin bild.",
               "spans": []
             }
           }
@@ -334,7 +334,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "The second block continues the story with its own image, keeping text and media in an easy, balanced rhythm.",
+              "text": "Det andra blocket fortsätter berättelsen med sin egen bild — från pressning till lång lagring i svala kritkällare.",
               "spans": []
             }
           }
@@ -444,12 +444,12 @@
       },
       "overline": {
         "__TYPE__": "FieldContent",
-        "value": "Good to know",
+        "value": "Bra att veta",
         "type": "Text"
       },
       "title": {
         "__TYPE__": "FieldContent",
-        "value": "Everything in one place",
+        "value": "Allt om leverans och förvaring",
         "type": "Text"
       },
       "body": {
@@ -458,7 +458,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A compact block for the practical details — hours, terms, specifications, or anything else worth keeping close at hand.",
+              "text": "Ett kompakt block för det praktiska — leveranstider, förvaringstips och serveringstemperatur, samlat på ett ställe nära till hands.",
               "spans": []
             }
           }
