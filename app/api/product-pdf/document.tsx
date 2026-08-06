@@ -89,6 +89,7 @@ const s = StyleSheet.create({
 
   body: { flex: 1 },
   sectionHeading: { fontFamily: "Helvetica-Bold", fontSize: 8.5, letterSpacing: 1.8, color: c.brand, marginBottom: 6 },
+  sectionSpaced: { marginTop: 14 },
   paragraph: { fontSize: 10, lineHeight: 1.5, color: c.inkDim, marginBottom: 6 },
   listRow: { flexDirection: "row", marginBottom: 3 },
   listBullet: { width: 14, fontSize: 10, color: c.gold },
@@ -108,7 +109,7 @@ const s = StyleSheet.create({
   },
   specCell: { width: "33.333%", paddingVertical: 11, paddingLeft: 12 },
   specLabel: { fontFamily: "Helvetica-Bold", fontSize: 7, letterSpacing: 1.4, color: c.inkMute, marginBottom: 4 },
-  specValue: { fontFamily: "Helvetica-Bold", fontSize: 11, color: c.ink },
+  specValue: { fontFamily: "Helvetica", fontSize: 11, color: c.ink },
 
   // Footer
   footer: {
@@ -127,7 +128,7 @@ const s = StyleSheet.create({
 
 type Spec = { label: string; value: string };
 
-function buildSpecs(data: Content.ProductDocument["data"], producerName?: string): Spec[] {
+function buildSpecs(data: Content.ProductDocument["data"], producerName?: string, village?: string | null): Spec[] {
   const specs: Spec[] = [];
   const push = (label: string, value?: string | null) => {
     if (value) specs.push({ label, value });
@@ -135,6 +136,7 @@ function buildSpecs(data: Content.ProductDocument["data"], producerName?: string
 
   push("Producent", producerName ?? null);
   push("Region", [data.product_region, data.product_cru].filter(Boolean).join(" · ") || null);
+  push("By", village ?? null);
   push("Druvor", formatGrapes(data.product_grapes));
   push("Stil", data.product_style);
   push("Dosage", [data.product_dosage, formatDosage(data.product_dosage_grams)].filter(Boolean).join(" · ") || null);
@@ -265,10 +267,15 @@ export function ProductPdfDocument({
   product,
   imageSrc,
   contacts,
+  producerVillage,
+  producerBio,
 }: {
   product: Content.ProductDocument;
   imageSrc?: string | null;
   contacts?: string[];
+  /** Producer's commune and bio, fetched from the linked producer document. */
+  producerVillage?: string | null;
+  producerBio?: RichTextField | null;
 }) {
   const data = product.data;
   const producerName = isFilled.contentRelationship(data.product_producer)
@@ -276,9 +283,10 @@ export function ProductPdfDocument({
     : undefined;
 
   const name = data.product_name || "Champagne";
-  const specs = buildSpecs(data, producerName);
+  const specs = buildSpecs(data, producerName, producerVillage);
   const metaLine = buildMetaLine(data);
   const badges = buildBadges(data);
+  const bio = isFilled.richText(producerBio) ? producerBio : null;
   const description = isFilled.richText(data.product_description) ? data.product_description : null;
 
   const subMeta = [data.product_dosage, data.product_vintage === "Yes" ? data.product_year : null]
@@ -341,18 +349,26 @@ export function ProductPdfDocument({
           </View>
 
           <View style={s.body}>
+            {bio ? (
+              <View>
+                <Text style={s.sectionHeading}>
+                  {producerName ? `OM ${producerName.toUpperCase()}` : "OM PRODUCENTEN"}
+                </Text>
+                <Description field={bio} />
+              </View>
+            ) : null}
             {description ? (
-              <>
-                <Text style={s.sectionHeading}>OM CHAMPAGNEN</Text>
+              <View>
+                <Text style={bio ? [s.sectionHeading, s.sectionSpaced] : s.sectionHeading}>OM CHAMPAGNEN</Text>
                 <Description field={description} />
-              </>
+              </View>
             ) : null}
           </View>
         </View>
 
         {/* Spec grid */}
         {specs.length > 0 ? (
-          <View style={s.specCard}>
+          <View style={s.specCard} wrap={false}>
             {specs.map((spec) => (
               <View key={spec.label} style={s.specCell}>
                 <Text style={s.specLabel}>{spec.label.toUpperCase()}</Text>

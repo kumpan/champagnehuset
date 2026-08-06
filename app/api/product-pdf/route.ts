@@ -1,4 +1,4 @@
-import type { Client, Content } from "@prismicio/client";
+import type { Client, Content, RichTextField } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { getDocumentByUID, isProduct } from "@/lib/cms";
@@ -6,6 +6,24 @@ import { createClient } from "@/prismicio";
 import { ProductPdfDocument } from "./document";
 
 export const runtime = "nodejs";
+
+/**
+ * Fetch the linked producer's village and bio for the sheet's "Om producenten"
+ * section. The product's producer relationship only carries the name, so the
+ * full producer document is fetched by id. Fails soft to an empty object.
+ */
+async function fetchProducer(
+  client: Client,
+  producer: Content.ProductDocument["data"]["product_producer"],
+): Promise<{ village?: string | null; bio?: RichTextField | null }> {
+  if (!isFilled.contentRelationship(producer) || !producer.id) return {};
+  try {
+    const doc = await client.getByID<Content.ProducerDocument>(producer.id);
+    return { village: doc.data.producer_village, bio: doc.data.producer_bio };
+  } catch {
+    return {};
+  }
+}
 
 /**
  * Footer contact lines (phone, address…) for the PDF footer, read from the
@@ -64,12 +82,21 @@ export async function GET(request: Request) {
     return new Response("Product not found", { status: 404 });
   }
 
-  const [imageSrc, contacts] = await Promise.all([
+  const [imageSrc, contacts, producer] = await Promise.all([
     isFilled.image(doc.data.product_image) ? fetchImageDataUri(doc.data.product_image.url) : null,
     fetchContacts(client, lang),
+    fetchProducer(client, doc.data.product_producer),
   ]);
 
-  const buffer = await renderToBuffer(ProductPdfDocument({ product: doc, imageSrc, contacts }));
+  const buffer = await renderToBuffer(
+    ProductPdfDocument({
+      product: doc,
+      imageSrc,
+      contacts,
+      producerVillage: producer.village,
+      producerBio: producer.bio,
+    }),
+  );
   const filename = `${doc.uid ?? "product"}.pdf`;
 
   return new Response(new Uint8Array(buffer), {
