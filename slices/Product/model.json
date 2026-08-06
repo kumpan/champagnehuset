@@ -275,6 +275,15 @@
             ]
           }
         },
+        "match_current_style": {
+          "type": "Boolean",
+          "config": {
+            "label": "Match Style",
+            "placeholder_false": "Showing All Champagnes",
+            "placeholder_true": "Showing Same Style Champagnes",
+            "default_value": false
+          }
+        },
         "product_limit": {
           "type": "Select",
           "config": {
