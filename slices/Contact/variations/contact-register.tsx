@@ -40,7 +40,7 @@ export function ContactRegister({ slice }: Props) {
       <Container>
         <div
           className={cn(
-            "mx-auto flex max-w-6xl flex-col overflow-hidden rounded-2 shadow-float lg:items-stretch",
+            "flex flex-col overflow-hidden rounded-2 shadow-float lg:items-stretch",
             hasImage ? (image_side ? "lg:flex-row-reverse" : "lg:flex-row") : "",
           )}
         >
@@ -72,7 +72,7 @@ export function ContactRegister({ slice }: Props) {
 
           {/* Image */}
           {hasImage && (
-            <div className="relative aspect-square w-full lg:aspect-auto lg:w-auto lg:flex-1">
+            <div className="relative aspect-square w-full md:aspect-3/2 lg:aspect-square lg:w-auto lg:flex-1">
               <CustomMedia
                 imageField={image}
                 className="h-full w-full rounded-none"
