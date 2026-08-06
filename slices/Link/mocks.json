@@ -422,7 +422,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "hourglass",
+                  "value": "circleStar",
                   "type": "Select"
                 }
               ]

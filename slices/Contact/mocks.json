@@ -356,7 +356,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "plane",
+                  "value": "mail",
                   "type": "Select"
                 }
               ],
