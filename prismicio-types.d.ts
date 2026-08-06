@@ -1906,6 +1906,57 @@ export type RedirectDocument<Lang extends string = string> =
     Lang
   >;
 
+interface SpecialClubDocumentData {
+  /**
+   * Tagline field in *Special Club Text*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Special Club
+   * - **API ID Path**: special_club.tagline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Title field in *Special Club Text*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Vad är Special Club?
+   * - **API ID Path**: special_club.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Body field in *Special Club Text*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: En kort beskrivning av Special Club-sammanslutningen och vad utmärkelsen innebär.
+   * - **API ID Path**: special_club.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Special Club Text document from Prismic
+ *
+ * - **API ID**: `special_club`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SpecialClubDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SpecialClubDocumentData>,
+    "special_club",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | AgeGateDocument
   | ArticleDocument
@@ -1918,7 +1969,8 @@ export type AllDocumentTypes =
   | PageDocument
   | ProducerDocument
   | ProductDocument
-  | RedirectDocument;
+  | RedirectDocument
+  | SpecialClubDocument;
 
 /**
  * Item in *Article → Feature → Primary → Featured Articles*
@@ -6925,6 +6977,17 @@ export interface ProductSliceGridPrimary {
   >;
 
   /**
+   * Match Current Product's Style field in *Product → Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: product.grid.primary.match_current_style
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  match_current_style: prismic.BooleanField;
+
+  /**
    * Limit field in *Product → Grid → Primary*
    *
    * - **Field Type**: Select
@@ -8362,6 +8425,8 @@ declare module "@prismicio/client" {
       RedirectDocument,
       RedirectDocumentData,
       RedirectDocumentDataRedirectsItem,
+      SpecialClubDocument,
+      SpecialClubDocumentData,
       AllDocumentTypes,
       ArticleSlice,
       ArticleSliceFeaturePrimaryFeaturedArticlesItem,
