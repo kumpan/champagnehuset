@@ -1,5 +1,6 @@
-import mocksPkg from "../node_modules/.pnpm/@prismicio+mocks@2.14.0/node_modules/@prismicio/mocks/lib/index.js";
 import fs from "node:fs";
+import mocksPkg from "../node_modules/.pnpm/@prismicio+mocks@2.14.0/node_modules/@prismicio/mocks/lib/index.js";
+
 const { generateSliceMock } = mocksPkg;
 const model = JSON.parse(fs.readFileSync("slices/Text/model.json", "utf8"));
 const existing = JSON.parse(fs.readFileSync("slices/Text/mocks.json", "utf8"));
@@ -15,5 +16,5 @@ for (const vId of missing) {
   console.log(`  + ${vId}: primary keys = ${Object.keys(mock.primary || {}).join(",")}`);
 }
 existing.sort((a, b) => want.indexOf(a.variation) - want.indexOf(b.variation));
-fs.writeFileSync("slices/Text/mocks.json", JSON.stringify(existing, null, 2) + "\n");
+fs.writeFileSync("slices/Text/mocks.json", `${JSON.stringify(existing, null, 2)}\n`);
 console.log("wrote", existing.length, "variations");

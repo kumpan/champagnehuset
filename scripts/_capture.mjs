@@ -10,12 +10,13 @@
 //   node scripts/_capture.mjs http://localhost:57285            # all slices, all variations
 //   node scripts/_capture.mjs http://localhost:57285 Hero       # one slice, all variations
 //   node scripts/_capture.mjs http://localhost:57285 Hero:backdrop Text:info
-import mocksPkg from "../node_modules/.pnpm/@prismicio+mocks@2.14.0/node_modules/@prismicio/mocks/lib/index.js";
-import lzPkg from "../node_modules/.pnpm/lz-string@1.5.0/node_modules/lz-string/libs/lz-string.js";
+
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import mocksPkg from "../node_modules/.pnpm/@prismicio+mocks@2.14.0/node_modules/@prismicio/mocks/lib/index.js";
+import lzPkg from "../node_modules/.pnpm/lz-string@1.5.0/node_modules/lz-string/libs/lz-string.js";
 
 const { renderSliceMock } = mocksPkg;
 const LZString = lzPkg;
@@ -84,7 +85,7 @@ class CDP {
         this.pending.delete(msg.id);
         msg.error ? reject(new Error(msg.error.message)) : resolve(msg.result);
       } else if (msg.method) {
-        (this.listeners.get(msg.method) || []).forEach((cb) => cb(msg.params));
+        for (const cb of this.listeners.get(msg.method) || []) cb(msg.params);
       }
     });
   }
@@ -99,7 +100,10 @@ class CDP {
     return new Promise((resolve) => {
       const cb = (p) => {
         const arr = this.listeners.get(method);
-        this.listeners.set(method, arr.filter((f) => f !== cb));
+        this.listeners.set(
+          method,
+          arr.filter((f) => f !== cb),
+        );
         resolve(p);
       };
       const arr = this.listeners.get(method) || [];
@@ -170,7 +174,7 @@ async function main() {
   rawWs.addEventListener("message", (ev) => {
     const msg = JSON.parse(ev.data);
     if (msg.sessionId === sessionId && msg.method) {
-      (session.listeners.get(msg.method) || []).forEach((cb) => cb(msg.params));
+      for (const cb of session.listeners.get(msg.method) || []) cb(msg.params);
     }
   });
 
@@ -187,14 +191,18 @@ async function main() {
     }
   } catch (e) {
     chrome.kill();
-    throw new Error(`Preflight failed against ${baseUrl} (${e.message}). Is the dev server up? Aborting so screenshots aren't clobbered.`);
+    throw new Error(
+      `Preflight failed against ${baseUrl} (${e.message}). Is the dev server up? Aborting so screenshots aren't clobbered.`,
+    );
   }
 
   const results = [];
   for (const job of jobs) {
     try {
       // Load + wait + measure, retried once to survive transient blanks / cold compiles.
-      let found = false, bottom = 0, err = false;
+      let found = false,
+        bottom = 0,
+        err = false;
       for (let attempt = 1; attempt <= 2 && !found; attempt++) {
         // Set the real capture width BEFORE loading so responsive layout reflects
         // the 1200px viewport, not the headless default. Taller "fold" here just
@@ -262,7 +270,9 @@ async function main() {
       }
       if (!found) {
         // Slice rendered nothing (null / data-driven / error) — do NOT overwrite.
-        console.error(`  ⚠ ${job.dir}/${job.variation}: no slice rendered${err ? " (error page)" : ""}; kept existing file`);
+        console.error(
+          `  ⚠ ${job.dir}/${job.variation}: no slice rendered${err ? " (error page)" : ""}; kept existing file`,
+        );
         results.push({ ...job, ok: false, error: err ? "error page" : "empty render" });
         continue;
       }
@@ -292,7 +302,9 @@ async function main() {
   }
 
   chrome.kill();
-  try { fs.rmSync(userDataDir, { recursive: true, force: true }); } catch {}
+  try {
+    fs.rmSync(userDataDir, { recursive: true, force: true });
+  } catch {}
   const ok = results.filter((r) => r.ok).length;
   console.log(`\nDone: ${ok}/${results.length} captured.`);
 }
