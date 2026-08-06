@@ -11,7 +11,10 @@ import { ProductCard } from "../product-card";
 
 type Props = ProductProps & { slice: Content.ProductSliceGrid };
 
-// Only what the card renders, so we skip every product's slice zone.
+/** The dynamic-page template passes the current document in as slice context. */
+type GridContext = { document?: Content.AllDocumentTypes };
+
+// Only what the card needs to render
 const PRODUCT_FETCH = [
   "product.product_name",
   "product.product_image",
@@ -33,7 +36,7 @@ function gridColsClass(count: number): string {
   );
 }
 
-export async function ProductGrid({ slice }: Props) {
+export async function ProductGrid({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const {
     overline,
@@ -44,11 +47,21 @@ export async function ProductGrid({ slice }: Props) {
     remove_top_padding,
     featured_products,
     producer_filter,
+    match_current_style,
     product_limit,
   } = slice.primary;
 
   // Select default is "4"; anything unexpected also falls back to 4.
   const limit = product_limit === "No Limit" ? null : product_limit === "8" ? 8 : 4;
+
+  // On a product page the current document is passed in as context; "Match
+  // Current Product's Style" narrows the auto-fetch to same-style bottles.
+  const ctx = context as GridContext | undefined;
+  const currentProduct = ctx?.document?.type === "product" ? ctx.document : undefined;
+  const styleToMatch =
+    match_current_style && currentProduct && isFilled.select(currentProduct.data.product_style)
+      ? currentProduct.data.product_style
+      : null;
 
   const client = await createClient();
 
@@ -68,7 +81,13 @@ export async function ProductGrid({ slice }: Props) {
     products = curated;
   } else {
     const producerId = isFilled.contentRelationship(producer_filter) ? producer_filter.id : null;
-    const filters = producerId ? [filter.at("my.product.product_producer", producerId)] : undefined;
+    const filterList = [
+      producerId ? filter.at("my.product.product_producer", producerId) : null,
+      // Same style as the page's product, and never list the product itself.
+      styleToMatch ? filter.at("my.product.product_style", styleToMatch) : null,
+      styleToMatch && currentProduct ? filter.not("document.id", currentProduct.id) : null,
+    ].filter((f): f is string => f !== null);
+    const filters = filterList.length > 0 ? filterList : undefined;
     // A limited grid is a "latest bottles" showcase; the full browse stays A–Z.
     const orderings = limit
       ? [{ field: "document.first_publication_date", direction: "desc" as const }]
