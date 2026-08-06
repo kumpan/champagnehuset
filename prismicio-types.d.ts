@@ -237,7 +237,7 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  tag: prismic.SelectField<"Event" | "News" | "Guide" | "Tasting", "filled">;
+  tag: prismic.SelectField<"Event" | "News" | "Tips", "filled">;
 
   /**
    * Parent field in *Article*
@@ -1440,6 +1440,29 @@ type ProductDocumentDataSlicesSlice =
   | ValueSlice;
 
 /**
+ * Item in *Product → Grapes*
+ */
+export interface ProductDocumentDataProductGrapesItem {
+  /**
+   * Grape field in *Product → Grapes*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a grape variety
+   * - **API ID Path**: product.product_grapes[].grape
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  grape: prismic.SelectField<
+    | "Chardonnay"
+    | "Pinot Noir"
+    | "Meunier"
+    | "Arbane"
+    | "Petit Meslier"
+    | "Pinot Blanc"
+    | "Pinot Gris"
+  >;
+}
+
+/**
  * Content for Product documents
  */
 interface ProductDocumentData {
@@ -1514,17 +1537,6 @@ interface ProductDocumentData {
   product_article_number: prismic.KeyTextField;
 
   /**
-   * Price field in *Product*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: 995
-   * - **API ID Path**: product.product_price
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  product_price: prismic.KeyTextField;
-
-  /**
    * Volume field in *Product*
    *
    * - **Field Type**: Select
@@ -1548,13 +1560,15 @@ interface ProductDocumentData {
   /**
    * Grapes field in *Product*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: 100% Chardonnay
-   * - **API ID Path**: product.product_grapes
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_grapes[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/group
    */
-  product_grapes: prismic.KeyTextField;
+  product_grapes: prismic.GroupField<
+    Simplify<ProductDocumentDataProductGrapesItem>
+  >;
 
   /**
    * Dosage Level field in *Product*
@@ -1663,6 +1677,17 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   product_special_club: prismic.SelectField<"Yes" | "No">;
+
+  /**
+   * Ecologic field in *Product*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_ecologic
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  product_ecologic: prismic.SelectField<"Yes" | "No">;
 
   /**
    * Vintage field in *Product*
@@ -8332,6 +8357,7 @@ declare module "@prismicio/client" {
       ProducerDocumentDataSlicesSlice,
       ProductDocument,
       ProductDocumentData,
+      ProductDocumentDataProductGrapesItem,
       ProductDocumentDataSlicesSlice,
       RedirectDocument,
       RedirectDocumentData,
