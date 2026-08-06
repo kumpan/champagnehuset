@@ -6,10 +6,7 @@ import { formatAlcohol, formatDosage, formatGrapes } from "@/lib/format";
 /**
  * ChampagneHuset "Produktblad" — a one-page product sheet in the site brand:
  * The Portray display serif (registered from the same local woff2 the site
- * ships) over a neutral sans, on the green-ink / champagne-gold palette from
- * `globals.css`. All bottle data comes from Prismic; the bottle image is
- * pre-flattened to a data URI in the route so the render never depends on a
- * live image fetch.
+ * ships) over a neutral sans, on the green-ink / champagne-gold palette from `globals.css`.
  */
 
 Font.register({
@@ -19,7 +16,7 @@ Font.register({
     { src: path.join(process.cwd(), "app/fonts/ThePortrayItalic.woff2"), fontWeight: 400, fontStyle: "italic" },
   ],
 });
-// Swedish words shouldn't be split mid-word.
+// Don't split mid-word.
 Font.registerHyphenationCallback((word) => [word]);
 
 const BRAND = {
@@ -31,13 +28,13 @@ const BRAND = {
 } as const;
 
 const c = {
-  paper: "#eef1ec", // pale green page
+  paper: "#eef1ec",
   card: "#ffffff",
-  ink: "#232f24", // green-900
+  ink: "#232f24",
   inkDim: "#59685c",
   inkMute: "#8a978c",
-  brand: "#46624a", // green-500
-  gold: "#bf9f4c", // champagne gold
+  brand: "#46624a",
+  gold: "#bf9f4c",
   line: "#d6ded7",
   hairline: "#e2e8e2",
   badgeBg: "#e3ece5",
@@ -71,7 +68,7 @@ const s = StyleSheet.create({
 
   // Title
   title: { fontFamily: "Portray", fontSize: 33, letterSpacing: 0.5, lineHeight: 1.02, marginTop: 10 },
-  subtitle: { flexDirection: "row", alignItems: "baseline", marginTop: 8 },
+  subtitle: { marginTop: 8 },
   subtitleName: { fontFamily: "Portray", fontStyle: "italic", fontSize: 14, color: c.brand },
   subtitleMeta: { fontFamily: "Helvetica", fontSize: 10, color: c.inkDim },
   accent: { width: 46, height: 2.5, backgroundColor: c.gold, marginTop: 14 },
@@ -84,12 +81,10 @@ const s = StyleSheet.create({
     borderWidth: 1,
     borderColor: c.hairline,
     borderRadius: 4,
-    height: 250,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 16,
+    overflow: "hidden",
   },
-  image: { objectFit: "contain", height: "100%" },
+  imagePanelEmpty: { height: 250, alignItems: "center", justifyContent: "center" },
+  image: { width: "100%" },
   imageCaption: { marginTop: 8, fontSize: 7.5, letterSpacing: 1, color: c.inkMute, textAlign: "center" },
 
   body: { flex: 1 },
@@ -111,7 +106,7 @@ const s = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
   },
-  specCell: { width: "33.333%", paddingVertical: 11, paddingLeft: 12, borderLeftWidth: 2, borderLeftColor: c.gold },
+  specCell: { width: "33.333%", paddingVertical: 11, paddingLeft: 12 },
   specLabel: { fontFamily: "Helvetica-Bold", fontSize: 7, letterSpacing: 1.4, color: c.inkMute, marginBottom: 4 },
   specValue: { fontFamily: "Helvetica-Bold", fontSize: 11, color: c.ink },
 
@@ -273,7 +268,6 @@ export function ProductPdfDocument({
 }: {
   product: Content.ProductDocument;
   imageSrc?: string | null;
-  /** Contact lines (phone, address…) pulled from the footer singleton. */
   contacts?: string[];
 }) {
   const data = product.data;
@@ -320,25 +314,27 @@ export function ProductPdfDocument({
         {/* Title + subtitle */}
         <Text style={s.title}>{name.toUpperCase()}</Text>
         {producerName || subMeta ? (
-          <View style={s.subtitle}>
+          <Text style={s.subtitle}>
             {producerName ? <Text style={s.subtitleName}>{producerName}</Text> : null}
             {producerName && subMeta ? <Text style={s.subtitleMeta}>{"  ·  "}</Text> : null}
             {subMeta ? <Text style={s.subtitleMeta}>{subMeta}</Text> : null}
-          </View>
+          </Text>
         ) : null}
         <View style={s.accent} />
 
         {/* Body: image + description */}
         <View style={s.columns}>
           <View style={s.imageColumn}>
-            <View style={s.imagePanel}>
-              {imageSrc ? (
-                // eslint-disable-next-line jsx-a11y/alt-text
+            {imageSrc ? (
+              <View style={s.imagePanel}>
+                {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image src={imageSrc} style={s.image} />
-              ) : (
+              </View>
+            ) : (
+              <View style={[s.imagePanel, s.imagePanelEmpty]}>
                 <Text style={{ fontSize: 8, color: c.inkMute }}>Ingen bild</Text>
-              )}
-            </View>
+              </View>
+            )}
             {data.product_article_number ? (
               <Text style={s.imageCaption}>{`ART. ${data.product_article_number}`}</Text>
             ) : null}
@@ -347,7 +343,7 @@ export function ProductPdfDocument({
           <View style={s.body}>
             {description ? (
               <>
-                <Text style={s.sectionHeading}>OM VINET</Text>
+                <Text style={s.sectionHeading}>OM CHAMPAGNEN</Text>
                 <Description field={description} />
               </>
             ) : null}
