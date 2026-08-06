@@ -6,8 +6,10 @@ import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
+import { getSingleton } from "@/lib/cms";
 import { formatAlcohol, formatDosage, formatGrapes } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import type { SpecialClubDocument } from "@/prismicio-types";
 import type { TextProps } from "..";
 import { COPY, RESTAURANT_CONTACT, resolvePurchase } from "../text-info-config";
 
@@ -24,14 +26,21 @@ type InfoContext = {
 
 type Props = TextProps & { slice: Content.TextSliceInfo };
 
-export function TextInfo({ slice, context }: Props) {
+export async function TextInfo({ slice, context }: Props) {
   const ctx = context as InfoContext | undefined;
   const doc = ctx?.document;
   const product = doc?.type === "product" ? doc : undefined;
   const data = product?.data;
   const { section_theme } = slice.primary;
 
-  // Editorial fields fall back to the producer / product name when left blank.
+  // The editable Special Club blurb only renders on product pages
+  // that are also a Special Club champagnes
+  const isSpecialClub = data?.product_special_club === "Yes";
+  const specialClub = isSpecialClub
+    ? await getSingleton<SpecialClubDocument>("special_club", ctx?.lang ? { lang: ctx.lang } : undefined)
+    : null;
+
+  // Editorial fields fall back to the producer / product name when left blank
   const producerName = isFilled.contentRelationship(data?.product_producer)
     ? (data?.product_producer.data?.producer_name ?? undefined)
     : undefined;
@@ -176,6 +185,28 @@ export function TextInfo({ slice, context }: Props) {
             ) : null}
           </div>
         </div>
+
+        {/* Special Club blurb: product pages flagged as Special Club only */}
+        {specialClub &&
+        (specialClub.data.tagline ||
+          isFilled.richText(specialClub.data.title) ||
+          isFilled.richText(specialClub.data.body)) ? (
+          <div className="mt-14 border-current/20 border-t pt-14 lg:mt-20 lg:pt-16">
+            <div className="grid gap-x-10 gap-y-4 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
+              <div className="flex flex-col">
+                {specialClub.data.tagline ? (
+                  <Overline className="justify-start px-0 font-medium">{specialClub.data.tagline}</Overline>
+                ) : null}
+                {isFilled.richText(specialClub.data.title) ? (
+                  <CustomRichText field={specialClub.data.title} sectionTheme={section_theme} className="mt-3" />
+                ) : null}
+              </div>
+              {isFilled.richText(specialClub.data.body) ? (
+                <CustomRichText className="lg:mt-1.5" field={specialClub.data.body} sectionTheme={section_theme} />
+              ) : null}
+            </div>
+          </div>
+        ) : null}
       </Container>
     </Section>
   );
