@@ -27,7 +27,7 @@ export function DesktopNavItem({ linkItem }: { linkItem: NavbarDocumentDataLinks
     <>
       <div
         className={cn(
-          "absolute rounded-2 [transition:inset_500ms_var(--ease-spring-bounce),background-color_200ms_ease-in]",
+          "absolute rounded-1 [transition:inset_400ms_var(--ease-spring-bounce),background-color_200ms_ease-in]",
           open
             ? "inset-1 bg-fill-raised group-hover:inset-0"
             : "inset-2 group-hover:inset-0 group-hover:bg-fill-raised",
@@ -72,13 +72,13 @@ export function DesktopNavItem({ linkItem }: { linkItem: NavbarDocumentDataLinks
                   scale: 1,
                   transition: {
                     opacity: { duration: 0.15, ease: "easeOut" },
-                    y: { type: "spring", stiffness: 300, damping: 12 },
-                    scale: { type: "spring", stiffness: 300, damping: 12 },
+                    y: { type: "spring", stiffness: 300, damping: 20 },
+                    scale: { type: "spring", stiffness: 300, damping: 20 },
                     staggerChildren: 0.05,
                   },
                 },
               }}
-              className="z-50 min-w-48 rounded-3 bg-fill-raised p-1"
+              className="z-50 min-w-48 rounded-2 bg-fill-raised p-1"
             >
               {dropdownLinks.map((dropLink) => (
                 <m.li
@@ -90,14 +90,14 @@ export function DesktopNavItem({ linkItem }: { linkItem: NavbarDocumentDataLinks
                       y: 0,
                       transition: {
                         opacity: { duration: 0.15, ease: "easeOut" },
-                        y: { type: "spring", stiffness: 300, damping: 15 },
+                        y: { type: "spring", stiffness: 300, damping: 20 },
                       },
                     },
                   }}
                 >
                   <PrismicNextLink
                     field={dropLink}
-                    className="flex items-center rounded-2 px-4 py-3 text-primary-foreground/80 transition-colors duration-400 ease-in-out hover:bg-fill hover:text-primary-foreground"
+                    className="flex items-center rounded-1 px-4 py-3 text-primary-foreground/80 transition-colors duration-400 ease-in-out hover:bg-fill hover:text-primary-foreground"
                   >
                     {dropLink.text}
                   </PrismicNextLink>

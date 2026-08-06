@@ -38,6 +38,7 @@ All UI components are built from scratch using React and Tailwind.
 - A hover effect is an affordance — it signals "you can interact with this." Only add hover states (scale, color shift, underline, elevation, etc.) to elements that are actually clickable: links, buttons, and other controls.
 - Never put hover effects on static content. If a card, image, or tile is not a link/button, it gets no `hover:` / `group-hover:` styling. A hover response on a non-clickable item reads as a broken or misleading affordance.
 - If you want a card to feel interactive, make the whole card a link first, then add the hover effect — don't add the effect to something inert.
+
 <!-- END:component-rules -->
 
 <!-- BEGIN:color-rules -->
@@ -87,24 +88,25 @@ Colors are **semantic tokens** defined in `app/globals.css` (`@theme`). The suff
 - Placeholder text in model fields describes what goes in the field: `"How do I get started?"`, not lorem ipsum or leftover client copy
 
 ## Middlware & Proxy
+
 - There is no middleware file in next16
 - Do not use Middleware
 - The correct file is Proxy.ts, it has replaced Middleware entierly
 
 # Prismic content migrations
 
-Scripts live in `scripts/prismic-migration/` (Migration API, auth via `PRISMIC_WRITE_TOKEN` in `.env.local`). All migrated documents are tagged `ai-import` and their IDs recorded in `manifest.json` so `cleanup.mjs` can delete them later.
-
-**Testing migrations (current mode):** every product field must be filled so search and filters can be exercised — when the source has no value, fill in plausible, type-appropriate data (a reasonable price, an article number, an alcohol %, an availability, etc.). The deterministic filler is `fillTestDefaults()` in `scripts/prismic-migration/lib.mjs`; both `migrate.mjs` and `repair.mjs` apply it.
+Scripts live in `scripts/prismic-migration/` (Migration API, auth via `PRISMIC_WRITE_TOKEN` in `.env.local`).
 
 **Real migrations:** never invent data. Remove the `fillTestDefaults()` call and leave fields the source doesn't provide empty.
 
 Migration API gotchas learned the hard way:
+
 - The client creates documents as **empty shells** first and writes data in a second pass — if the run crashes mid-way, run `repair.mjs` (documents must be published first; IDs are unreachable in an unpublished Migration Release).
 - Documents whose fields hold **Unsplash-integration images** cannot be updated via the API ("Assets not found") — edit those in the Prismic UI.
 - Reference existing media library assets with a full raw image payload (`{ id, url, dimensions, edit, alt, copyright }`) — `migration.createAsset()` would re-download and duplicate them.
 - When the asset's aspect ratio differs from the image field's constraint, `edit: {x:0, y:0, zoom:1}` anchors the constraint crop **top-left** (subject drifts off-center in the served URL; CSS can't fix it). Compute a center-cover `edit` instead — see `imageField()` in `scripts/prismic-migration/lib.mjs`.
 - Deleting a media library asset does not purge the CDN file — documents keep serving old URLs until re-pointed at new asset IDs (a document migration, not a library operation).
+
 <!-- END:naming-rules -->
 
 <!-- BEGIN:git-rules -->

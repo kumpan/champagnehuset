@@ -14,7 +14,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Discover"
+                  "value": "Upptäck"
                 }
               ],
               [
@@ -35,7 +35,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Explore what we offer"
+              "text": "Allt du behöver för att hitta rätt champagne"
             }
           }
         ]
@@ -46,7 +46,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Short supporting copy that introduces the cards below and sets context in two lines."
+              "text": "Från nästa provning till journalen där vi delar kunskap om regioner, odlare och årgångar — här hittar du vägen vidare."
             }
           }
         ]
@@ -77,7 +77,7 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://google.com"
+                    "url": "https://champagnehuset.se/journal"
                   }
                 }
               ],
@@ -86,7 +86,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Our Story"
+                  "value": "Vår historia"
                 }
               ],
               [
@@ -94,7 +94,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "How we started and the people who keep it going today."
+                  "value": "Hur ChampagneHuset började som en passion för grower champagne, och människorna som driver det vidare idag."
                 }
               ],
               [
@@ -136,7 +136,7 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://google.com"
+                    "url": "https://champagnehuset.se/journal"
                   }
                 }
               ],
@@ -145,7 +145,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "The Process"
+                  "value": "Från druva till flaska"
                 }
               ],
               [
@@ -153,7 +153,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "A closer look at how everything is made, step by step."
+                  "value": "En närmare titt på hur champagne blir till — från skörd och pressning till dosage och lång lagring på jästfällning."
                 }
               ],
               [
@@ -195,7 +195,7 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://google.com"
+                    "url": "https://champagnehuset.se/journal"
                   }
                 }
               ],
@@ -204,7 +204,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Journal"
+                  "value": "Journalen"
                 }
               ],
               [
@@ -212,7 +212,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "News, notes and long reads, updated at regular intervals."
+                  "value": "Nyheter, provningsanteckningar och längre läsning om Champagnes regioner, odlare och årgångar."
                 }
               ],
               [
@@ -277,7 +277,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Quick Links"
+                  "value": "Genvägar"
                 }
               ]
             ]
@@ -290,7 +290,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "What can we help you with?"
+              "text": "Vad är du nyfiken på idag?"
             }
           }
         ]
@@ -301,7 +301,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Point visitors straight to the pages they are most likely looking for."
+              "text": "Hitta snabbt fram till det du letar efter — sortiment, provningar och allt däremellan."
             }
           }
         ]
@@ -329,7 +329,7 @@
             "value": {
               "__TYPE__": "AnyLink",
               "kind": "any",
-              "text": "Explore Products"
+              "text": "Utforska sortimentet"
             }
           },
           {
@@ -338,7 +338,7 @@
             "value": {
               "__TYPE__": "AnyLink",
               "kind": "any",
-              "text": "Meet the Team"
+              "text": "Möt teamet"
             }
           },
           {
@@ -347,7 +347,7 @@
             "value": {
               "__TYPE__": "AnyLink",
               "kind": "any",
-              "text": "Membership"
+              "text": "Bli medlem"
             }
           },
           {
@@ -356,7 +356,7 @@
             "value": {
               "__TYPE__": "AnyLink",
               "kind": "any",
-              "text": "Learn the Basics"
+              "text": "Champagneskola"
             }
           },
           {
@@ -365,7 +365,7 @@
             "value": {
               "__TYPE__": "AnyLink",
               "kind": "any",
-              "text": "Events & Tastings"
+              "text": "Provningar & event"
             }
           },
           {
@@ -374,7 +374,7 @@
             "value": {
               "__TYPE__": "AnyLink",
               "kind": "any",
-              "text": "Contact Us"
+              "text": "Kontakta oss"
             }
           }
         ]
@@ -415,14 +415,14 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Highlights"
+                  "value": "I fokus"
                 }
               ],
               [
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "hourglass",
+                  "value": "circleStar",
                   "type": "Select"
                 }
               ]
@@ -436,7 +436,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Feature-rich text that captures attention"
+              "text": "Utforska ChampagneHuset — från sortiment till provningar"
             }
           }
         ]
@@ -447,7 +447,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A concise value statement that highlights key features and benefits in a visually dynamic grid."
+              "text": "Ett smakrikt urval av det vi brinner för — grower champagne, kunskap och stunder värda att fira."
             }
           }
         ]
@@ -489,7 +489,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Product Range"
+                  "value": "Hela sortimentet"
                 }
               ],
               [
@@ -497,7 +497,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Every item in the current collection, with details on each one."
+                  "value": "Varje flaska i sortimentet, med odlare, region och druvsammansättning noggrant beskrivna."
                 }
               ],
               [
@@ -508,7 +508,7 @@
                   "value": {
                     "__TYPE__": "AnyLink",
                     "kind": "any",
-                    "text": "Product Range"
+                    "text": "Hela sortimentet"
                   }
                 }
               ]
@@ -548,7 +548,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Meet the Team"
+                  "value": "Möt teamet"
                 }
               ],
               [
@@ -556,7 +556,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "The people behind the work and the experience they bring."
+                  "value": "Människorna bakom ChampagneHuset och passionen för Champagnes små odlare."
                 }
               ],
               [
@@ -567,7 +567,7 @@
                   "value": {
                     "__TYPE__": "AnyLink",
                     "kind": "any",
-                    "text": "Meet the Team"
+                    "text": "Möt teamet"
                   }
                 }
               ]
@@ -607,7 +607,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "How It Works"
+                  "value": "Så väljer vi våra viner"
                 }
               ],
               [
@@ -615,7 +615,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "A plain-language walkthrough of the process from start to finish."
+                  "value": "En rak genomgång av hur vi reser, provsmakar och väljer ut champagnerna som når vårt sortiment."
                 }
               ],
               [
@@ -626,7 +626,7 @@
                   "value": {
                     "__TYPE__": "AnyLink",
                     "kind": "any",
-                    "text": "How It Works"
+                    "text": "Så väljer vi våra viner"
                   }
                 }
               ]
@@ -640,7 +640,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Membership"
+                  "value": "Medlemskap i klubben"
                 }
               ],
               [
@@ -648,7 +648,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "What members get, how it works and how to join."
+                  "value": "Vad medlemskapet ger dig, hur det fungerar och hur du blir en del av klubben."
                 }
               ],
               [
@@ -658,7 +658,7 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "asdf"
+                    "url": "https://champagnehuset.se/medlemskap"
                   }
                 }
               ],
@@ -716,7 +716,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Our Partners"
+                  "value": "Våra odlare"
                 }
               ],
               [
@@ -737,7 +737,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Everyone we work with"
+              "text": "Odlarna vi samarbetar med i Champagne"
             }
           }
         ]
@@ -748,7 +748,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A complete index of the partners we collaborate with, presented as a browsable grid."
+              "text": "Ett urval av de familjeodlare vi importerar, från Côte des Blancs i väster till Côte des Bar i sydöst."
             }
           }
         ]
@@ -804,7 +804,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Northfield & Co."
+                  "value": "Domaine Laurent-Gabriel"
                 }
               ],
               [
@@ -814,8 +814,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "disease"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -823,7 +823,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "limited",
+                  "value": "Côte des Blancs · Blanc de Blancs",
                   "type": "Text"
                 }
               ]
@@ -864,7 +864,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Harper Lane"
+                  "value": "Maison Fresne-Ducret"
                 }
               ],
               [
@@ -874,8 +874,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "opportunity"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -883,7 +883,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "courage",
+                  "value": "Montagne de Reims · Grand Cru",
                   "type": "Text"
                 }
               ]
@@ -924,7 +924,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Ridgeway Partners"
+                  "value": "Champagne Vauthier & Fille"
                 }
               ],
               [
@@ -934,8 +934,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "mice"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -943,7 +943,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "model",
+                  "value": "Vallée de la Marne · Blanc de Noirs",
                   "type": "Text"
                 }
               ]
@@ -984,7 +984,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Alder & Sons"
+                  "value": "Domaine des Craies"
                 }
               ],
               [
@@ -994,8 +994,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://google.com",
-                    "text": "pattern"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -1003,7 +1003,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "band",
+                  "value": "Côte des Bar · Pinot Noir",
                   "type": "Text"
                 }
               ]
@@ -1044,7 +1044,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Brightwater"
+                  "value": "Champagne Rousseaux-Batteux"
                 }
               ],
               [
@@ -1054,8 +1054,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "go"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -1063,7 +1063,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "group",
+                  "value": "Côte des Blancs · Grand Cru",
                   "type": "Text"
                 }
               ]
@@ -1104,7 +1104,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Kestrel Group"
+                  "value": "Maison Perrin-Colas"
                 }
               ],
               [
@@ -1114,8 +1114,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "paint"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -1123,7 +1123,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "drawn",
+                  "value": "Montagne de Reims · Premier Cru",
                   "type": "Text"
                 }
               ]
@@ -1164,7 +1164,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Marlowe & Finch"
+                  "value": "Domaine Hébrart-Millot"
                 }
               ],
               [
@@ -1174,8 +1174,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "settlers"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -1183,7 +1183,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "truck",
+                  "value": "Vallée de la Marne · Meunier",
                   "type": "Text"
                 }
               ]
@@ -1224,7 +1224,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Sutton Hill"
+                  "value": "Champagne Godefroy-Aubry"
                 }
               ],
               [
@@ -1234,8 +1234,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "hurt"
+                    "url": "https://champagnehuset.se",
+                    "text": "Besök odlaren"
                   }
                 }
               ],
@@ -1243,7 +1243,7 @@
                 "description",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "excitement",
+                  "value": "Côte des Bar · Rosé de saignée",
                   "type": "Text"
                 }
               ]
@@ -1264,8 +1264,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "cell"
+                    "url": "https://champagnehuset.se",
+                    "text": "Visa alla odlare"
                   }
                 }
               ],

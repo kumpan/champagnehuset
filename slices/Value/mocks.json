@@ -21,7 +21,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "beauty",
+                  "value": "Det vi står för",
                   "type": "Text"
                 }
               ]
@@ -35,7 +35,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Proud"
+              "text": "Byggt på principer som håller, flaska efter flaska",
+              "spans": []
             }
           }
         ]
@@ -46,7 +47,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Consectetur occaecat elit ea ea dolor cupidatat. Cillum magna irure est id amet consectetur consectetur nostrud est culpa excepteur."
+              "text": "En kort beskrivning av vad ChampagneHuset står för, och varför det gör skillnad i glaset.",
+              "spans": []
             }
           }
         ]
@@ -64,8 +66,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "sink"
+                    "url": "https://champagnehuset.se/om-oss",
+                    "text": "Läs vår historia"
                   }
                 }
               ],
@@ -121,7 +123,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Gatekeep seitan art party"
+                  "value": "Kvalitet före kvantitet"
                 }
               ],
               [
@@ -129,7 +131,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "VHS, pinterest solarpunk swag live-edge.  Disrupt shaman slow-carb photo booth quinoa mlkshk 90's wayfarers man braid heirloom locavore YOLO tbh."
+                  "value": "Varje flaska är provsmakad och utvald för hand — vi tar bara in champagne vi själva vill dricka."
                 }
               ]
             ]
@@ -142,7 +144,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Church-key trust fund"
+                  "value": "Ursprung i fokus"
                 }
               ],
               [
@@ -150,7 +152,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
+                  "value": "Vi berättar alltid vem som odlat druvorna, var vinet kommer ifrån och hur det är gjort."
                 }
               ]
             ]
@@ -163,7 +165,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Unicorn chillwave"
+                  "value": "Odlare, inte industri"
                 }
               ],
               [
@@ -171,7 +173,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Polaroid copper mug tumblr VHS four dollar toast, chillwave microdosing ascot sustainable adaptogen street art kogi.  Synth humblebrag enamel pin jianbing gentrify B"
+                  "value": "Vi samarbetar med små familjeodlare som sätter terroir och hantverk framför storskalig produktion."
                 }
               ]
             ]
@@ -184,7 +186,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Fam drinking vinegar vaporware, roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
+                  "value": "Rådgivning från människor som verkligen kan Champagne — fråga oss om allt från årgång till servering."
                 }
               ],
               [
@@ -192,7 +194,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Kickstarter mlkshk"
+                  "value": "Alltid nära till hands"
                 }
               ]
             ]
@@ -205,7 +207,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Tofu man bun franzen typewriter skateboard heirloom freegan praxis aesthetic."
+                  "value": "Vi förfinar ständigt urvalet och letar upp nya odlare värda att upptäcka."
                 }
               ],
               [
@@ -213,7 +215,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Marfa dreamcatcher"
+                  "value": "Alltid nyfikna"
                 }
               ]
             ]
@@ -255,7 +257,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "has",
+                  "value": "Så arbetar vi",
                   "type": "Text"
                 }
               ],
@@ -277,10 +279,9 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Place is the right time in the right",
+              "text": "Principer vi tillämpar, konsekvent och med omsorg",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -290,7 +291,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aliquip proident ullamco occaecat ullamco ullamco amet eu aute duis ullamco aliqua culpa aute eu velit. Incididunt pariatur aliqua magna."
+              "text": "De små sakerna, hanterade med omsorg — det är summan av det du kan lita på hos ChampagneHuset.",
+              "spans": []
             }
           }
         ]
@@ -308,8 +310,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "tried"
+                    "url": "https://champagnehuset.se/om-oss",
+                    "text": "Läs vår historia"
                   }
                 }
               ],
@@ -360,7 +362,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "1. Pertois-Moriset Brut Rosé Grand Cru"
+                  "value": "Utvalt med omsorg"
                 }
               ],
               [
@@ -368,7 +370,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Ingenting lämnas åt slumpen — varje champagne provsmakas och väljs ut med eftertanke."
                 }
               ]
             ]
@@ -389,7 +391,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "2. Grongnet Brut Rosé"
+                  "value": "Tydligt från start"
                 }
               ],
               [
@@ -397,7 +399,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Du vet alltid vad du får — odlare, region och stil beskrivs öppet för varje flaska."
                 }
               ]
             ]
@@ -418,7 +420,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Vi bygger långa relationer med våra odlare, inte snabba affärer."
                 }
               ],
               [
@@ -426,7 +428,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "4. Juillet-Lallement Brut Rosé Grand Cru"
+                  "value": "Byggt på relationer"
                 }
               ]
             ]
@@ -447,7 +449,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Äkta rådgivning från människor som kan Champagne och gärna delar med sig."
                 }
               ],
               [
@@ -455,7 +457,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "3. Loriot-Pagel Brut Rosé"
+                  "value": "Människan först"
                 }
               ]
             ]
@@ -468,7 +470,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "3. Loriot-Pagel Brut Rosé"
+                  "value": "Ständigt förfinat"
                 }
               ],
               [
@@ -476,7 +478,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Små, stadiga förbättringar som tillsammans gör upplevelsen bättre."
                 }
               ]
             ]

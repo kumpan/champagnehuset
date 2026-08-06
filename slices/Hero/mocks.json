@@ -14,7 +14,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Overline"
+                  "value": "Välkommen till ChampagneHuset"
                 }
               ],
               [
@@ -35,7 +35,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Feature-rich text that captures attention",
+              "text": "Grower champagne från familjeodlare, utvald flaska för flaska",
               "spans": []
             }
           }
@@ -47,7 +47,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "A clear, concise supporting sentence that gives the headline the context it needs to convert."
+              "text": "Vi arbetar direkt med små odlare i Champagne och väljer ut viner med själ, ursprung och lagringspotential — champagne som berättar var den kommer ifrån."
             }
           }
         ]
@@ -65,8 +65,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "Get started"
+                    "url": "https://champagnehuset.se/champagne",
+                    "text": "Utforska sortimentet"
                   }
                 }
               ],
@@ -176,7 +176,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Welcome aboard"
+              "text": "Champagne med ursprung, hantverk och tålamod"
             }
           }
         ]
@@ -187,7 +187,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Duis duis tempor consectetur voluptate occaecat sit laborum nulla ex do consectetur."
+              "text": "Från de krithaltiga sluttningarna i Côte des Blancs till Montagne de Reims krönta byar — upptäck ett noggrant utvalt sortiment av grower champagne, mognadslagrad och redo att avnjutas.",
+              "spans": []
             }
           }
         ]
@@ -205,8 +206,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "Get started"
+                    "url": "https://champagnehuset.se/champagne",
+                    "text": "Upptäck husets favoriter"
                   }
                 }
               ],

@@ -11,6 +11,7 @@ import { MotionProvider } from "@/components/motion-provider";
 import { Navbar } from "@/components/navbar";
 import { NewsletterModal } from "@/components/newsletter-modal";
 import { OrganizationSchema } from "@/components/structured-data";
+import { CustomSVG } from "@/components/svg";
 import { getSingleton } from "@/lib/cms";
 import { getLocales, getMasterLocale } from "@/lib/locales";
 import { repositoryName } from "@/prismicio";
@@ -56,6 +57,11 @@ export default async function LocaleLayout({
   const newsletterDelaySeconds =
     newsletter?.data.delay_seconds && newsletter.data.delay_seconds > 0 ? newsletter.data.delay_seconds : 45;
 
+  // The navbar is a Client Component, so its logo is inlined here server-side rendering
+  const logoColorOverride = navbarData?.data.logo_color === "System Can Override the Logo Color";
+  const desktopLogoUrl = navbarData?.data.desktop_logo?.url;
+  const mobileLogoUrl = navbarData?.data.mobile_logo?.url;
+
   return (
     <html
       lang={lang}
@@ -73,7 +79,33 @@ export default async function LocaleLayout({
             newsletterAvailable={!!newsletter}
             newsletterDelaySeconds={newsletterDelaySeconds}
           >
-            {navbarData && <Navbar prismicData={navbarData} locales={locales} masterLocale={masterLocale} />}
+            {navbarData && (
+              <Navbar
+                prismicData={navbarData}
+                locales={locales}
+                masterLocale={masterLocale}
+                desktopLogo={
+                  desktopLogoUrl ? (
+                    <CustomSVG
+                      src={desktopLogoUrl}
+                      processColor={logoColorOverride}
+                      title={navbarData.data.desktop_logo.alt}
+                      className="hidden h-full w-auto md:block md:text-brand"
+                    />
+                  ) : null
+                }
+                mobileLogo={
+                  mobileLogoUrl ? (
+                    <CustomSVG
+                      src={mobileLogoUrl}
+                      processColor={logoColorOverride}
+                      title={navbarData.data.mobile_logo.alt}
+                      className="h-full w-auto text-brand md:hidden"
+                    />
+                  ) : null
+                }
+              />
+            )}
             {children}
             {cookieBanner && <CookieBanner prismicData={cookieBanner} />}
             {ageGate && <AgeGate prismicData={ageGate} />}

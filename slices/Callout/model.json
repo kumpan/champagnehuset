@@ -43,8 +43,8 @@
           "type": "Boolean",
           "config": {
             "label": "Image Side",
-            "placeholder_false": "Image is on the Left",
-            "placeholder_true": "Image is on the Right",
+            "placeholder_false": "Image is on the Right",
+            "placeholder_true": "Image is on the Left",
             "default_value": true
           }
         },
@@ -61,41 +61,87 @@
                   "placeholder": "",
                   "options": [
                     "none",
+                    "amphora",
+                    "apple",
                     "atSign",
+                    "award",
                     "badgeCheck",
                     "badgeInfo",
+                    "banana",
                     "bookOpenCheck",
+                    "bottleWine",
                     "briefcaseBusiness",
+                    "calendarCheck",
+                    "calendarDays",
                     "check",
-                    "circleGauge",
+                    "chefHat",
+                    "cherry",
+                    "circlePlay",
                     "circleStar",
+                    "citrus",
+                    "clipboardCheck",
                     "clock",
+                    "conciergeBell",
+                    "cookie",
+                    "copy",
+                    "croissant",
                     "crown",
-                    "dog",
+                    "download",
+                    "droplets",
+                    "externalLink",
+                    "facebook",
                     "fileBadge",
                     "fileText",
+                    "fish",
+                    "flame",
+                    "flaskConical",
+                    "flower2",
                     "gem",
+                    "glassWater",
+                    "globe",
+                    "grape",
                     "handshake",
-                    "headset",
-                    "hourglass",
                     "houseHeart",
+                    "instagram",
                     "layers",
+                    "leaf",
+                    "linkedin",
+                    "list",
                     "lock",
                     "lockKeyhole",
                     "lockKeyholeOpen",
+                    "lockOpen",
+                    "logIn",
                     "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
+                    "mapPin",
+                    "martini",
+                    "medal",
+                    "mountain",
+                    "nut",
                     "phoneCall",
-                    "plane",
+                    "phoneIncoming",
+                    "phoneOutgoing",
+                    "plus",
                     "search",
-                    "ship",
                     "shieldCheck",
                     "shieldEllipsis",
+                    "snowflake",
+                    "sparkles",
+                    "sprout",
+                    "star",
                     "sun",
-                    "triangle",
-                    "trophy"
+                    "thermometerSnowflake",
+                    "trash",
+                    "trophy",
+                    "user",
+                    "userCog",
+                    "userRoundCheck",
+                    "users",
+                    "userStar",
+                    "utensilsCrossed",
+                    "wheat",
+                    "wine",
+                    "youtube"
                   ],
                   "default_value": "none"
                 }
@@ -176,7 +222,6 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -209,7 +254,6 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -309,41 +353,87 @@
                   "placeholder": "",
                   "options": [
                     "none",
+                    "amphora",
+                    "apple",
                     "atSign",
+                    "award",
                     "badgeCheck",
                     "badgeInfo",
+                    "banana",
                     "bookOpenCheck",
+                    "bottleWine",
                     "briefcaseBusiness",
+                    "calendarCheck",
+                    "calendarDays",
                     "check",
-                    "circleGauge",
+                    "chefHat",
+                    "cherry",
+                    "circlePlay",
                     "circleStar",
+                    "citrus",
+                    "clipboardCheck",
                     "clock",
+                    "conciergeBell",
+                    "cookie",
+                    "copy",
+                    "croissant",
                     "crown",
-                    "dog",
+                    "download",
+                    "droplets",
+                    "externalLink",
+                    "facebook",
                     "fileBadge",
                     "fileText",
+                    "fish",
+                    "flame",
+                    "flaskConical",
+                    "flower2",
                     "gem",
+                    "glassWater",
+                    "globe",
+                    "grape",
                     "handshake",
-                    "headset",
-                    "hourglass",
                     "houseHeart",
+                    "instagram",
                     "layers",
+                    "leaf",
+                    "linkedin",
+                    "list",
                     "lock",
                     "lockKeyhole",
                     "lockKeyholeOpen",
+                    "lockOpen",
+                    "logIn",
                     "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
+                    "mapPin",
+                    "martini",
+                    "medal",
+                    "mountain",
+                    "nut",
                     "phoneCall",
-                    "plane",
+                    "phoneIncoming",
+                    "phoneOutgoing",
+                    "plus",
                     "search",
-                    "ship",
                     "shieldCheck",
                     "shieldEllipsis",
+                    "snowflake",
+                    "sparkles",
+                    "sprout",
+                    "star",
                     "sun",
-                    "triangle",
-                    "trophy"
+                    "thermometerSnowflake",
+                    "trash",
+                    "trophy",
+                    "user",
+                    "userCog",
+                    "userRoundCheck",
+                    "users",
+                    "userStar",
+                    "utensilsCrossed",
+                    "wheat",
+                    "wine",
+                    "youtube"
                   ],
                   "default_value": "none"
                 }
@@ -424,7 +514,6 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -457,7 +546,6 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -536,12 +624,12 @@
           }
         },
         "alignment": {
-          "type": "Boolean",
+          "type": "Select",
           "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
-            "default_value": true
+            "label": "Alignment",
+            "placeholder": "",
+            "options": ["Left", "Center", "Right"],
+            "default_value": "Left"
           }
         },
         "overline": {
@@ -557,41 +645,87 @@
                   "placeholder": "",
                   "options": [
                     "none",
+                    "amphora",
+                    "apple",
                     "atSign",
+                    "award",
                     "badgeCheck",
                     "badgeInfo",
+                    "banana",
                     "bookOpenCheck",
+                    "bottleWine",
                     "briefcaseBusiness",
+                    "calendarCheck",
+                    "calendarDays",
                     "check",
-                    "circleGauge",
+                    "chefHat",
+                    "cherry",
+                    "circlePlay",
                     "circleStar",
+                    "citrus",
+                    "clipboardCheck",
                     "clock",
+                    "conciergeBell",
+                    "cookie",
+                    "copy",
+                    "croissant",
                     "crown",
-                    "dog",
+                    "download",
+                    "droplets",
+                    "externalLink",
+                    "facebook",
                     "fileBadge",
                     "fileText",
+                    "fish",
+                    "flame",
+                    "flaskConical",
+                    "flower2",
                     "gem",
+                    "glassWater",
+                    "globe",
+                    "grape",
                     "handshake",
-                    "headset",
-                    "hourglass",
                     "houseHeart",
+                    "instagram",
                     "layers",
+                    "leaf",
+                    "linkedin",
+                    "list",
                     "lock",
                     "lockKeyhole",
                     "lockKeyholeOpen",
+                    "lockOpen",
+                    "logIn",
                     "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
+                    "mapPin",
+                    "martini",
+                    "medal",
+                    "mountain",
+                    "nut",
                     "phoneCall",
-                    "plane",
+                    "phoneIncoming",
+                    "phoneOutgoing",
+                    "plus",
                     "search",
-                    "ship",
                     "shieldCheck",
                     "shieldEllipsis",
+                    "snowflake",
+                    "sparkles",
+                    "sprout",
+                    "star",
                     "sun",
-                    "triangle",
-                    "trophy"
+                    "thermometerSnowflake",
+                    "trash",
+                    "trophy",
+                    "user",
+                    "userCog",
+                    "userRoundCheck",
+                    "users",
+                    "userStar",
+                    "utensilsCrossed",
+                    "wheat",
+                    "wine",
+                    "youtube"
                   ],
                   "default_value": "none"
                 }
@@ -672,7 +806,6 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -705,7 +838,304 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
+                    "mail",
+                    "phoneCall",
+                    "phoneIncoming",
+                    "phoneOutgoing"
+                  ],
+                  "default_value": "none"
+                }
+              }
+            }
+          }
+        },
+        "media": {
+          "type": "Group",
+          "config": {
+            "label": "Media",
+            "repeat": false,
+            "fields": {
+              "filter": {
+                "type": "Select",
+                "config": {
+                  "label": "Filter",
+                  "placeholder": "No Filter",
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "thumbnails": [
+                    {
+                      "name": "square",
+                      "width": 1440,
+                      "height": 1440
+                    }
+                  ],
+                  "constraint": {
+                    "width": 1440,
+                    "height": 960
+                  }
+                }
+              },
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video",
+                  "placeholder": "Choose Video from the Media Library",
+                  "select": "media",
+                  "allowText": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "contact",
+      "name": "Contact",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Contact",
+      "imageUrl": "",
+      "primary": {
+        "remove_top_padding": {
+          "type": "Boolean",
+          "config": {
+            "label": "Remove Top Padding",
+            "placeholder_false": "Keep Padding",
+            "placeholder_true": "Padding is Removed",
+            "default_value": false
+          }
+        },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "default_value": "Bud"
+          }
+        },
+        "image_side": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Side",
+            "placeholder_false": "Image is on the Right",
+            "placeholder_true": "Image is on the Left",
+            "default_value": true
+          }
+        },
+        "overline": {
+          "type": "Group",
+          "config": {
+            "label": "Overline",
+            "repeat": false,
+            "fields": {
+              "overline_icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Overline Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "amphora",
+                    "apple",
+                    "atSign",
+                    "award",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "banana",
+                    "bookOpenCheck",
+                    "bottleWine",
+                    "briefcaseBusiness",
+                    "calendarCheck",
+                    "calendarDays",
+                    "check",
+                    "chefHat",
+                    "cherry",
+                    "circlePlay",
+                    "circleStar",
+                    "citrus",
+                    "clipboardCheck",
+                    "clock",
+                    "conciergeBell",
+                    "cookie",
+                    "copy",
+                    "croissant",
+                    "crown",
+                    "download",
+                    "droplets",
+                    "externalLink",
+                    "facebook",
+                    "fileBadge",
+                    "fileText",
+                    "fish",
+                    "flame",
+                    "flaskConical",
+                    "flower2",
+                    "gem",
+                    "glassWater",
+                    "globe",
+                    "grape",
+                    "handshake",
+                    "houseHeart",
+                    "instagram",
+                    "layers",
+                    "leaf",
+                    "linkedin",
+                    "list",
+                    "lock",
+                    "lockKeyhole",
+                    "lockKeyholeOpen",
+                    "lockOpen",
+                    "logIn",
+                    "mail",
+                    "mapPin",
+                    "martini",
+                    "medal",
+                    "mountain",
+                    "nut",
+                    "phoneCall",
+                    "phoneIncoming",
+                    "phoneOutgoing",
+                    "plus",
+                    "search",
+                    "shieldCheck",
+                    "shieldEllipsis",
+                    "snowflake",
+                    "sparkles",
+                    "sprout",
+                    "star",
+                    "sun",
+                    "thermometerSnowflake",
+                    "trash",
+                    "trophy",
+                    "user",
+                    "userCog",
+                    "userRoundCheck",
+                    "users",
+                    "userStar",
+                    "utensilsCrossed",
+                    "wheat",
+                    "wine",
+                    "youtube"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "overline_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Overline Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+          }
+        },
+        "buttons": {
+          "type": "Group",
+          "config": {
+            "label": "Buttons",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "allowText": true,
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "label": "Variant",
+                  "placeholder": "",
+                  "options": ["default", "secondary", "outline", "ghost"],
+                  "default_value": "default"
+                }
+              },
+              "icon_left": {
+                "type": "Select",
+                "config": {
+                  "label": "Left Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "arrowDown",
+                    "arrowLeft",
+                    "arrowRight",
+                    "arrowUp",
+                    "arrowUpRight",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "chevronDown",
+                    "chevronLeft",
+                    "chevronRight",
+                    "circlePlay",
+                    "circleStar",
+                    "clipboardCheck",
+                    "mail",
+                    "phoneCall",
+                    "phoneIncoming",
+                    "phoneOutgoing"
+                  ],
+                  "default_value": "none"
+                }
+              },
+              "icon_right": {
+                "type": "Select",
+                "config": {
+                  "label": "Right Icon",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "arrowDown",
+                    "arrowLeft",
+                    "arrowRight",
+                    "arrowUp",
+                    "arrowUpRight",
+                    "atSign",
+                    "badgeCheck",
+                    "badgeInfo",
+                    "bookOpenCheck",
+                    "briefcaseBusiness",
+                    "check",
+                    "chevronDown",
+                    "chevronLeft",
+                    "chevronRight",
+                    "circlePlay",
+                    "circleStar",
+                    "clipboardCheck",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -753,208 +1183,6 @@
               }
             }
           }
-        }
-      },
-      "items": {}
-    },
-    {
-      "id": "contact",
-      "name": "Contact",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Contact",
-      "imageUrl": "",
-      "primary": {
-        "remove_top_padding": {
-          "type": "Boolean",
-          "config": {
-            "label": "Remove Top Padding",
-            "placeholder_false": "Keep Padding",
-            "placeholder_true": "Padding is Removed",
-            "default_value": false
-          }
-        },
-        "section_theme": {
-          "type": "Select",
-          "config": {
-            "label": "Section Theme",
-            "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
-            "default_value": "Bud"
-          }
-        },
-        "overline": {
-          "type": "Group",
-          "config": {
-            "label": "Overline",
-            "repeat": false,
-            "fields": {
-              "overline_icon": {
-                "type": "Select",
-                "config": {
-                  "label": "Overline Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "circleGauge",
-                    "circleStar",
-                    "clock",
-                    "crown",
-                    "dog",
-                    "fileBadge",
-                    "fileText",
-                    "gem",
-                    "handshake",
-                    "headset",
-                    "hourglass",
-                    "houseHeart",
-                    "layers",
-                    "lock",
-                    "lockKeyhole",
-                    "lockKeyholeOpen",
-                    "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
-                    "phoneCall",
-                    "plane",
-                    "search",
-                    "ship",
-                    "shieldCheck",
-                    "shieldEllipsis",
-                    "sun",
-                    "triangle",
-                    "trophy"
-                  ],
-                  "default_value": "none"
-                }
-              },
-              "overline_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Overline Text",
-                  "placeholder": ""
-                }
-              }
-            }
-          }
-        },
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
-          }
-        },
-        "buttons": {
-          "type": "Group",
-          "config": {
-            "label": "Buttons",
-            "repeat": true,
-            "fields": {
-              "link": {
-                "type": "Link",
-                "config": {
-                  "label": "Link",
-                  "allowText": true,
-                  "allowTargetBlank": true,
-                  "select": null
-                }
-              },
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "label": "Variant",
-                  "placeholder": "",
-                  "options": ["default", "secondary", "outline", "ghost"],
-                  "default_value": "default"
-                }
-              },
-              "icon_left": {
-                "type": "Select",
-                "config": {
-                  "label": "Left Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "arrowDown",
-                    "arrowLeft",
-                    "arrowRight",
-                    "arrowUp",
-                    "arrowUpRight",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "chevronDown",
-                    "chevronLeft",
-                    "chevronRight",
-                    "circlePlay",
-                    "circleStar",
-                    "clipboardCheck",
-                    "headset",
-                    "mail",
-                    "phoneCall",
-                    "phoneIncoming",
-                    "phoneOutgoing"
-                  ],
-                  "default_value": "none"
-                }
-              },
-              "icon_right": {
-                "type": "Select",
-                "config": {
-                  "label": "Right Icon",
-                  "placeholder": "",
-                  "options": [
-                    "none",
-                    "arrowDown",
-                    "arrowLeft",
-                    "arrowRight",
-                    "arrowUp",
-                    "arrowUpRight",
-                    "atSign",
-                    "badgeCheck",
-                    "badgeInfo",
-                    "bookOpenCheck",
-                    "briefcaseBusiness",
-                    "check",
-                    "chevronDown",
-                    "chevronLeft",
-                    "chevronRight",
-                    "circlePlay",
-                    "circleStar",
-                    "clipboardCheck",
-                    "headset",
-                    "mail",
-                    "phoneCall",
-                    "phoneIncoming",
-                    "phoneOutgoing"
-                  ],
-                  "default_value": "none"
-                }
-              }
-            }
-          }
         },
         "contact_items": {
           "type": "Group",
@@ -969,41 +1197,87 @@
                   "placeholder": "",
                   "options": [
                     "none",
+                    "amphora",
+                    "apple",
                     "atSign",
+                    "award",
                     "badgeCheck",
                     "badgeInfo",
+                    "banana",
                     "bookOpenCheck",
+                    "bottleWine",
                     "briefcaseBusiness",
+                    "calendarCheck",
+                    "calendarDays",
                     "check",
-                    "circleGauge",
+                    "chefHat",
+                    "cherry",
+                    "circlePlay",
                     "circleStar",
+                    "citrus",
+                    "clipboardCheck",
                     "clock",
+                    "conciergeBell",
+                    "cookie",
+                    "copy",
+                    "croissant",
                     "crown",
-                    "dog",
+                    "download",
+                    "droplets",
+                    "externalLink",
+                    "facebook",
                     "fileBadge",
                     "fileText",
+                    "fish",
+                    "flame",
+                    "flaskConical",
+                    "flower2",
                     "gem",
+                    "glassWater",
+                    "globe",
+                    "grape",
                     "handshake",
-                    "headset",
-                    "hourglass",
                     "houseHeart",
+                    "instagram",
                     "layers",
+                    "leaf",
+                    "linkedin",
+                    "list",
                     "lock",
                     "lockKeyhole",
                     "lockKeyholeOpen",
+                    "lockOpen",
+                    "logIn",
                     "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
+                    "mapPin",
+                    "martini",
+                    "medal",
+                    "mountain",
+                    "nut",
                     "phoneCall",
-                    "plane",
+                    "phoneIncoming",
+                    "phoneOutgoing",
+                    "plus",
                     "search",
-                    "ship",
                     "shieldCheck",
                     "shieldEllipsis",
+                    "snowflake",
+                    "sparkles",
+                    "sprout",
+                    "star",
                     "sun",
-                    "triangle",
-                    "trophy"
+                    "thermometerSnowflake",
+                    "trash",
+                    "trophy",
+                    "user",
+                    "userCog",
+                    "userRoundCheck",
+                    "users",
+                    "userStar",
+                    "utensilsCrossed",
+                    "wheat",
+                    "wine",
+                    "youtube"
                   ],
                   "default_value": "none"
                 }
@@ -1061,6 +1335,15 @@
             "default_value": "Bud"
           }
         },
+        "image_side": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Side",
+            "placeholder_false": "Image is on the Right",
+            "placeholder_true": "Image is on the Left",
+            "default_value": true
+          }
+        },
         "overline": {
           "type": "Group",
           "config": {
@@ -1074,41 +1357,87 @@
                   "placeholder": "",
                   "options": [
                     "none",
+                    "amphora",
+                    "apple",
                     "atSign",
+                    "award",
                     "badgeCheck",
                     "badgeInfo",
+                    "banana",
                     "bookOpenCheck",
+                    "bottleWine",
                     "briefcaseBusiness",
+                    "calendarCheck",
+                    "calendarDays",
                     "check",
-                    "circleGauge",
+                    "chefHat",
+                    "cherry",
+                    "circlePlay",
                     "circleStar",
+                    "citrus",
+                    "clipboardCheck",
                     "clock",
+                    "conciergeBell",
+                    "cookie",
+                    "copy",
+                    "croissant",
                     "crown",
-                    "dog",
+                    "download",
+                    "droplets",
+                    "externalLink",
+                    "facebook",
                     "fileBadge",
                     "fileText",
+                    "fish",
+                    "flame",
+                    "flaskConical",
+                    "flower2",
                     "gem",
+                    "glassWater",
+                    "globe",
+                    "grape",
                     "handshake",
-                    "headset",
-                    "hourglass",
                     "houseHeart",
+                    "instagram",
                     "layers",
+                    "leaf",
+                    "linkedin",
+                    "list",
                     "lock",
                     "lockKeyhole",
                     "lockKeyholeOpen",
+                    "lockOpen",
+                    "logIn",
                     "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
+                    "mapPin",
+                    "martini",
+                    "medal",
+                    "mountain",
+                    "nut",
                     "phoneCall",
-                    "plane",
+                    "phoneIncoming",
+                    "phoneOutgoing",
+                    "plus",
                     "search",
-                    "ship",
                     "shieldCheck",
                     "shieldEllipsis",
+                    "snowflake",
+                    "sparkles",
+                    "sprout",
+                    "star",
                     "sun",
-                    "triangle",
-                    "trophy"
+                    "thermometerSnowflake",
+                    "trash",
+                    "trophy",
+                    "user",
+                    "userCog",
+                    "userRoundCheck",
+                    "users",
+                    "userStar",
+                    "utensilsCrossed",
+                    "wheat",
+                    "wine",
+                    "youtube"
                   ],
                   "default_value": "none"
                 }
@@ -1156,15 +1485,6 @@
                   "select": null
                 }
               },
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "label": "Variant",
-                  "placeholder": "",
-                  "options": ["default", "secondary", "outline", "ghost"],
-                  "default_value": "default"
-                }
-              },
               "icon_left": {
                 "type": "Select",
                 "config": {
@@ -1189,7 +1509,6 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -1222,7 +1541,6 @@
                     "circlePlay",
                     "circleStar",
                     "clipboardCheck",
-                    "headset",
                     "mail",
                     "phoneCall",
                     "phoneIncoming",
@@ -1234,63 +1552,139 @@
             }
           }
         },
+        "media": {
+          "type": "Group",
+          "config": {
+            "label": "Media",
+            "repeat": false,
+            "fields": {
+              "filter": {
+                "type": "Select",
+                "config": {
+                  "label": "Filter",
+                  "placeholder": "No Filter",
+                  "options": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "thumbnails": [],
+                  "constraint": {
+                    "width": 1440,
+                    "height": 1440
+                  }
+                }
+              },
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video",
+                  "placeholder": "Choose Video from the Media Library",
+                  "select": "media",
+                  "allowText": false
+                }
+              }
+            }
+          }
+        },
         "details": {
           "type": "Group",
           "config": {
             "label": "Details",
             "repeat": true,
             "fields": {
-              "overline_icon": {
+              "detail_icon": {
                 "type": "Select",
                 "config": {
-                  "label": "Overline Icon",
+                  "label": "Icon",
                   "placeholder": "",
                   "options": [
                     "none",
+                    "amphora",
+                    "apple",
                     "atSign",
+                    "award",
                     "badgeCheck",
                     "badgeInfo",
+                    "banana",
                     "bookOpenCheck",
+                    "bottleWine",
                     "briefcaseBusiness",
+                    "calendarCheck",
+                    "calendarDays",
                     "check",
-                    "circleGauge",
+                    "chefHat",
+                    "cherry",
+                    "circlePlay",
                     "circleStar",
+                    "citrus",
+                    "clipboardCheck",
                     "clock",
+                    "conciergeBell",
+                    "cookie",
+                    "copy",
+                    "croissant",
                     "crown",
-                    "dog",
+                    "download",
+                    "droplets",
+                    "externalLink",
+                    "facebook",
                     "fileBadge",
                     "fileText",
+                    "fish",
+                    "flame",
+                    "flaskConical",
+                    "flower2",
                     "gem",
+                    "glassWater",
+                    "globe",
+                    "grape",
                     "handshake",
-                    "headset",
-                    "hourglass",
                     "houseHeart",
+                    "instagram",
                     "layers",
+                    "leaf",
+                    "linkedin",
+                    "list",
                     "lock",
                     "lockKeyhole",
                     "lockKeyholeOpen",
+                    "lockOpen",
+                    "logIn",
                     "mail",
-                    "moon",
-                    "moonStar",
-                    "mountainSnow",
+                    "mapPin",
+                    "martini",
+                    "medal",
+                    "mountain",
+                    "nut",
                     "phoneCall",
-                    "plane",
+                    "phoneIncoming",
+                    "phoneOutgoing",
+                    "plus",
                     "search",
-                    "ship",
                     "shieldCheck",
                     "shieldEllipsis",
+                    "snowflake",
+                    "sparkles",
+                    "sprout",
+                    "star",
                     "sun",
-                    "triangle",
-                    "trophy"
+                    "thermometerSnowflake",
+                    "trash",
+                    "trophy",
+                    "user",
+                    "userCog",
+                    "userRoundCheck",
+                    "users",
+                    "userStar",
+                    "utensilsCrossed",
+                    "wheat",
+                    "wine",
+                    "youtube"
                   ],
                   "default_value": "none"
-                }
-              },
-              "overline_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Overline Text",
-                  "placeholder": ""
                 }
               },
               "rich_text": {
@@ -1299,7 +1693,7 @@
                   "label": "Rich Text",
                   "placeholder": "",
                   "allowTargetBlank": true,
-                  "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,heading3,heading4"
+                  "multi": "strong,em,paragraph,hyperlink"
                 }
               }
             }

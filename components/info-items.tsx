@@ -25,19 +25,28 @@ interface InfoItemsProps {
   itemClassName?: string;
 }
 
-const iconThemeClasses: Record<string, string> = {
+const textThemeClasses: Record<string, string> = {
   Bud: "text-ink-dim",
-  Dust: "text-accent-ink-dim",
+  Leaf: "text-ink-dim",
+  Brand: "text-ink-dim",
+  Dust: "text-spot-ink",
+  Slate: "text-spot-ink-flip",
 };
 
 const cardThemeClasses: Record<string, string> = {
   Bud: "bg-fill text-ink",
-  Dust: "bg-accent-fill text-accent-ink",
+  Leaf: "bg-fill-raised text-ink",
+  Brand: "bg-fill text-ink",
+  Dust: "bg-spot-fill/20 text-spot-ink-flip",
+  Slate: "bg-spot-fill text-accent-ink",
 };
 
 const copyBtnThemeClasses: Record<string, string> = {
   Bud: "bg-brand text-brand-ink hover:bg-brand/90",
-  Dust: "bg-accent text-accent-ink-flip hover:bg-accent/90",
+  Leaf: "bg-brand text-brand-ink hover:bg-brand/90",
+  Brand: "bg-brand text-brand-ink hover:bg-brand/90",
+  Dust: "bg-spot-fill-dark text-accent-ink-flip hover:bg-spot-fill-dark/80",
+  Slate: "bg-spot-fill-dark text-accent-ink-flip hover:bg-accent/90",
 };
 
 function CopyButton({ value, className }: { value: string; className?: string }) {
@@ -59,7 +68,7 @@ function CopyButton({ value, className }: { value: string; className?: string })
       onClick={handleCopy}
       aria-label={copied ? "Copied" : "Copy to clipboard"}
       className={cn(
-        "group flex size-12 shrink-0 cursor-pointer items-center justify-center rounded-3 transition-all duration-300 ease-in-out hover:scale-105 md:size-14",
+        "group flex size-12 shrink-0 cursor-pointer items-center justify-center rounded-1 transition-all duration-300 ease-in-out md:size-14",
         className,
       )}
     >
@@ -82,7 +91,7 @@ function CopyButton({ value, className }: { value: string; className?: string })
             exit={{ opacity: 0, scale: 0.85 }}
             transition={{ duration: 0.1, ease: "easeInOut" }}
           >
-            <CopyIcon className="size-5.5 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:animate-wiggle-grow" />
+            <CopyIcon className="size-5.5 transition-all duration-300 ease-in-out group-hover:animate-wiggle-grow" />
           </m.div>
         )}
       </AnimatePresence>
@@ -96,13 +105,17 @@ function InfoItemContent({ icon, label, value, theme }: InfoItemData) {
   return (
     <>
       {Icon && (
-        <div className={cn("relative shrink-0", iconThemeClasses[theme || "Bud"])}>
+        <div className={cn("relative shrink-0", textThemeClasses[theme || "Bud"])}>
           <Icon className="size-8 md:size-11" />
         </div>
       )}
       <div className="flex min-w-0 flex-1 flex-col">
-        {label && <p className="text-sm leading-tight opacity-60">{label}</p>}
-        {value && <p className="truncate font-semibold">{value}</p>}
+        {label && (
+          <p className={cn("font-medium leading-snug md:text-lg", textThemeClasses[theme || "Bud"])}>{label}</p>
+        )}
+        {value && (
+          <p className={cn("truncate text-sm opacity-80 md:text-base", textThemeClasses[theme || "Bud"])}>{value}</p>
+        )}
       </div>
     </>
   );
@@ -118,7 +131,7 @@ export function InfoItems({ items, theme = "Bud", className, itemClassName }: In
           <div
             key={`${index}-${label}`}
             className={cn(
-              "flex items-center gap-3 rounded-4 py-2 pr-2 pl-4 transition-colors duration-500 md:gap-4 md:rounded-5 md:py-3 md:pr-3",
+              "flex items-center gap-3 rounded-2 py-2 pr-2 pl-4 transition-colors duration-500 md:py-3 md:pr-3",
               cardThemeClasses[theme],
               itemClassName,
             )}

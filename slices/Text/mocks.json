@@ -1,6 +1,419 @@
 [
   {
     "__TYPE__": "SharedSliceContent",
+    "variation": "extended",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Översikt",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Så läser du en champagneetikett",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Etiketten avslöjar mer än du tror. Här går vi igenom begreppen och hur du snabbt hittar rätt i sortimentet.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "rich_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Dosagen — från Brut Nature till Extra Brut och Brut — visar hur mycket socker som tillsatts och därmed vinets torrhet. Grand Cru och Premier Cru pekar ut byns klassificering, medan récoltant-manipulant (RM) betyder att odlaren själv gjort vinet.",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "När du känner igen begreppen blir det enkelt att välja champagne efter smak, tillfälle och budget.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "split",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Brand",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Fördjupning",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Två spalter, en tydlig tanke om terroir",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Introducera ämnet och låt de två spalterna nedan bära fördjupningen om jordmån och läge.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "first_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Kritjorden i Champagne ger vinerna deras räta, mineraliska syra och förmåga att mogna vackert under många år på flaska.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "second_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Läget avgör resten — sluttningens riktning, höjden och byns klassificering formar tillsammans druvornas mognad och vinets karaktär.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "longform",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "rich_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Grower champagne — récoltant-manipulant — är viner gjorda av samma familj som odlar druvorna. Det är champagne med adress, årgångskänsla och en personlig signatur.",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Där de stora husen strävar efter en jämn husstil år efter år låter odlaren varje skörd och varje läge tala. Resultatet blir viner som speglar sin plats och sitt år.",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "När ämnet förtjänar djup är det här formatet som ger det plats.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "author": {
+        "__TYPE__": "LinkContent",
+        "key": "9eb089e5-982f-4cb1-a69a-41e6fd965729",
+        "value": {
+          "__TYPE__": "DocumentLink",
+          "id": "mock_document_id",
+          "text": "Redaktionen på ChampagneHuset"
+        }
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "media",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "text_side": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "first_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ord tillsammans med en bild gör poängen tydligare. Det här blocket introducerar vinifikationen vid sidan av sin bild.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "first_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Top Right",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "__TYPE__": "ImageContent",
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                    "width": 3277,
+                    "height": 4092
+                  },
+                  "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C1124%2C3277%2C1843&w=1920&h=1080",
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 1124
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "weather",
+                  "thumbnails": {
+                    "square": {
+                      "origin": {
+                        "id": "square",
+                        "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                        "width": 3277,
+                        "height": 4092
+                      },
+                      "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C408%2C3277%2C3277&w=1440&h=1440",
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 408
+                        },
+                        "background": "transparent"
+                      },
+                      "alt": "rubbed"
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "second_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Det andra blocket fortsätter berättelsen med sin egen bild — från pressning till lång lagring i svala kritkällare.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "second_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Bottom Left",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "__TYPE__": "ImageContent",
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+                    "width": 3199,
+                    "height": 3199
+                  },
+                  "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C700%2C3199%2C1799&w=1920&h=1080",
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 700
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "law",
+                  "thumbnails": {
+                    "square": {
+                      "origin": {
+                        "id": "square",
+                        "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                        "width": 3277,
+                        "height": 4092
+                      },
+                      "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C408%2C3277%2C3277&w=1440&h=1440",
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 408
+                        },
+                        "background": "transparent"
+                      },
+                      "alt": "catch"
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
     "variation": "details",
     "primary": {
       "section_theme": {
@@ -15,5 +428,48 @@
       }
     },
     "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "info",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Dust",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "FieldContent",
+        "value": "Bra att veta",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Allt om leverans och förvaring",
+        "type": "Text"
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ett kompakt block för det praktiska — leveranstider, förvaringstips och serveringstemperatur, samlat på ett ställe nära till hands.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
   }
 ]

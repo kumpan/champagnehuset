@@ -1,4 +1,5 @@
 import { type Content, isFilled } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
@@ -8,6 +9,7 @@ import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
 import type { ArticleProps } from "..";
 import { ArticleGrid } from "../article-grid";
+import { PAGE_SIZE } from "../constants";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceList };
 
@@ -59,6 +61,15 @@ export async function ArticleList({ slice }: Props) {
   // Chips are for the open feed, when a fixed tag i set hide the filter chips
   const showChips = Boolean(show_filter_chips) && !tagFilter;
 
+  // ArticleGrid paginates client-side and only renders the current page into the
+  // DOM, so a crawler would otherwise see just the first page of article links.
+  // When this is a full paginated feed with more articles than fit on page one,
+  // emit a server-rendered crawlable <a href> to every article. display:none
+  // keeps it out of the tab order and the a11y tree (the visible grid already
+  // serves those users) while Googlebot still reads the links from the HTML.
+  const showPagination = show_pagination !== false;
+  const showCrawlableIndex = showPagination && articles.length > PAGE_SIZE;
+
   return (
     <Section
       data-slice-type={slice.slice_type}
@@ -81,10 +92,21 @@ export async function ArticleList({ slice }: Props) {
           articles={articles}
           tagOrder={TAG_ORDER}
           sectionTheme={section_theme}
-          showPagination={show_pagination !== false}
+          showPagination={showPagination}
           showChips={showChips}
           className="mt-8"
         />
+        {showCrawlableIndex && (
+          <nav aria-hidden="true" className="hidden">
+            <ul>
+              {articles.map((article) => (
+                <li key={article.id}>
+                  <PrismicNextLink document={article}>{article.data.article_title}</PrismicNextLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </Container>
     </Section>
   );

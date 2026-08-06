@@ -73,13 +73,6 @@
           "placeholder": "7721"
         }
       },
-      "product_price": {
-        "type": "Text",
-        "config": {
-          "label": "Price",
-          "placeholder": "995"
-        }
-      },
       "product_volume": {
         "type": "Select",
         "config": {
@@ -89,10 +82,28 @@
         }
       },
       "product_grapes": {
-        "type": "Text",
+        "type": "Group",
         "config": {
           "label": "Grapes",
-          "placeholder": "100% Chardonnay"
+          "repeat": true,
+          "fields": {
+            "grape": {
+              "type": "Select",
+              "config": {
+                "label": "Grape",
+                "placeholder": "Select a grape variety",
+                "options": [
+                  "Chardonnay",
+                  "Pinot Noir",
+                  "Meunier",
+                  "Arbane",
+                  "Petit Meslier",
+                  "Pinot Blanc",
+                  "Pinot Gris"
+                ]
+              }
+            }
+          }
         }
       },
       "product_dosage": {
@@ -152,6 +163,14 @@
         "type": "Select",
         "config": {
           "label": "Special Club",
+          "placeholder": "",
+          "options": ["Yes", "No"]
+        }
+      },
+      "product_ecologic": {
+        "type": "Select",
+        "config": {
+          "label": "Ecologic",
           "placeholder": "",
           "options": ["Yes", "No"]
         }

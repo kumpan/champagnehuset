@@ -237,7 +237,7 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  tag: prismic.SelectField<"Event" | "News" | "Guide" | "Tasting", "filled">;
+  tag: prismic.SelectField<"Event" | "News" | "Tips", "filled">;
 
   /**
    * Parent field in *Article*
@@ -1440,6 +1440,29 @@ type ProductDocumentDataSlicesSlice =
   | ValueSlice;
 
 /**
+ * Item in *Product → Grapes*
+ */
+export interface ProductDocumentDataProductGrapesItem {
+  /**
+   * Grape field in *Product → Grapes*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a grape variety
+   * - **API ID Path**: product.product_grapes[].grape
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  grape: prismic.SelectField<
+    | "Chardonnay"
+    | "Pinot Noir"
+    | "Meunier"
+    | "Arbane"
+    | "Petit Meslier"
+    | "Pinot Blanc"
+    | "Pinot Gris"
+  >;
+}
+
+/**
  * Content for Product documents
  */
 interface ProductDocumentData {
@@ -1514,17 +1537,6 @@ interface ProductDocumentData {
   product_article_number: prismic.KeyTextField;
 
   /**
-   * Price field in *Product*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: 995
-   * - **API ID Path**: product.product_price
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  product_price: prismic.KeyTextField;
-
-  /**
    * Volume field in *Product*
    *
    * - **Field Type**: Select
@@ -1548,13 +1560,15 @@ interface ProductDocumentData {
   /**
    * Grapes field in *Product*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: 100% Chardonnay
-   * - **API ID Path**: product.product_grapes
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_grapes[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/group
    */
-  product_grapes: prismic.KeyTextField;
+  product_grapes: prismic.GroupField<
+    Simplify<ProductDocumentDataProductGrapesItem>
+  >;
 
   /**
    * Dosage Level field in *Product*
@@ -1663,6 +1677,17 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   product_special_club: prismic.SelectField<"Yes" | "No">;
+
+  /**
+   * Ecologic field in *Product*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_ecologic
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  product_ecologic: prismic.SelectField<"Yes" | "No">;
 
   /**
    * Vintage field in *Product*
@@ -1881,6 +1906,57 @@ export type RedirectDocument<Lang extends string = string> =
     Lang
   >;
 
+interface SpecialClubDocumentData {
+  /**
+   * Tagline field in *Special Club Text*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Special Club
+   * - **API ID Path**: special_club.tagline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Title field in *Special Club Text*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Vad är Special Club?
+   * - **API ID Path**: special_club.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Body field in *Special Club Text*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: En kort beskrivning av Special Club-sammanslutningen och vad utmärkelsen innebär.
+   * - **API ID Path**: special_club.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Special Club Text document from Prismic
+ *
+ * - **API ID**: `special_club`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SpecialClubDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SpecialClubDocumentData>,
+    "special_club",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | AgeGateDocument
   | ArticleDocument
@@ -1893,7 +1969,8 @@ export type AllDocumentTypes =
   | PageDocument
   | ProducerDocument
   | ProductDocument
-  | RedirectDocument;
+  | RedirectDocument
+  | SpecialClubDocument;
 
 /**
  * Item in *Article → Feature → Primary → Featured Articles*
@@ -3065,6 +3142,43 @@ export interface CalloutSliceContactPrimaryButtonsItem {
 }
 
 /**
+ * Item in *Callout → Contact → Primary → Media*
+ */
+export interface CalloutSliceContactPrimaryMediaItem {
+  /**
+   * Filter field in *Callout → Contact → Primary → Media*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: No Filter
+   * - **API ID Path**: callout.contact.primary.media[].filter
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  filter: prismic.SelectField<
+    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
+  >;
+
+  /**
+   * Image field in *Callout → Contact → Primary → Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.media[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Callout → Contact → Primary → Media*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: Choose Video from the Media Library
+   * - **API ID Path**: callout.contact.primary.media[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
  * Item in *Callout → Contact → Primary → Contact Items*
  */
 export interface CalloutSliceContactPrimaryContactItemsItem {
@@ -3227,20 +3341,6 @@ export interface CalloutSliceDetailsPrimaryButtonsItem {
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Variant field in *Callout → Details → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: default
-   * - **API ID Path**: callout.details.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<
-    "default" | "secondary" | "outline" | "ghost",
-    "filled"
-  >;
-
-  /**
    * Left Icon field in *Callout → Details → Primary → Buttons*
    *
    * - **Field Type**: Select
@@ -3314,19 +3414,56 @@ export interface CalloutSliceDetailsPrimaryButtonsItem {
 }
 
 /**
+ * Item in *Callout → Details → Primary → Media*
+ */
+export interface CalloutSliceDetailsPrimaryMediaItem {
+  /**
+   * Filter field in *Callout → Details → Primary → Media*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: No Filter
+   * - **API ID Path**: callout.details.primary.media[].filter
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  filter: prismic.SelectField<
+    "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right"
+  >;
+
+  /**
+   * Image field in *Callout → Details → Primary → Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.media[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Callout → Details → Primary → Media*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: Choose Video from the Media Library
+   * - **API ID Path**: callout.details.primary.media[].video
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
  * Item in *Callout → Details → Primary → Details*
  */
 export interface CalloutSliceDetailsPrimaryDetailsItem {
   /**
-   * Overline Icon field in *Callout → Details → Primary → Details*
+   * Icon field in *Callout → Details → Primary → Details*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: none
-   * - **API ID Path**: callout.details.primary.details[].overline_icon
+   * - **API ID Path**: callout.details.primary.details[].detail_icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  overline_icon: prismic.SelectField<
+  detail_icon: prismic.SelectField<
     | "none"
     | "atSign"
     | "badgeCheck"
@@ -3365,16 +3502,6 @@ export interface CalloutSliceDetailsPrimaryDetailsItem {
     | "trophy",
     "filled"
   >;
-
-  /**
-   * Overline Text field in *Callout → Details → Primary → Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: callout.details.primary.details[].overline_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  overline_text: prismic.KeyTextField;
 
   /**
    * Rich Text field in *Callout → Details → Primary → Details*
@@ -3638,15 +3765,15 @@ export interface CalloutSliceCardPrimary {
   >;
 
   /**
-   * Center Text field in *Callout → Card → Primary*
+   * Alignment field in *Callout → Card → Primary*
    *
-   * - **Field Type**: Boolean
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: true
+   * - **Default Value**: Left
    * - **API ID Path**: callout.card.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  alignment: prismic.BooleanField;
+  alignment: prismic.SelectField<"Left" | "Center" | "Right", "filled">;
 
   /**
    * Overline field in *Callout → Card → Primary*
@@ -3742,6 +3869,17 @@ export interface CalloutSliceContactPrimary {
   >;
 
   /**
+   * Image Side field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: callout.contact.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
+
+  /**
    * Overline field in *Callout → Contact → Primary*
    *
    * - **Field Type**: Group
@@ -3782,6 +3920,16 @@ export interface CalloutSliceContactPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   buttons: prismic.GroupField<Simplify<CalloutSliceContactPrimaryButtonsItem>>;
+
+  /**
+   * Media field in *Callout → Contact → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.contact.primary.media[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  media: prismic.GroupField<Simplify<CalloutSliceContactPrimaryMediaItem>>;
 
   /**
    * Contact Items field in *Callout → Contact → Primary*
@@ -3839,6 +3987,17 @@ export interface CalloutSliceDetailsPrimary {
   >;
 
   /**
+   * Image Side field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: callout.details.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
+
+  /**
    * Overline field in *Callout → Details → Primary*
    *
    * - **Field Type**: Group
@@ -3879,6 +4038,16 @@ export interface CalloutSliceDetailsPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   buttons: prismic.GroupField<Simplify<CalloutSliceDetailsPrimaryButtonsItem>>;
+
+  /**
+   * Media field in *Callout → Details → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: callout.details.primary.media[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  media: prismic.GroupField<Simplify<CalloutSliceDetailsPrimaryMediaItem>>;
 
   /**
    * Details field in *Callout → Details → Primary*
@@ -4616,7 +4785,10 @@ export interface ContactSliceRegisterPrimary {
    * - **API ID Path**: contact.register.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<"Bud" | "Dust", "filled">;
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "filled"
+  >;
 
   /**
    * Image Side field in *Contact → Register → Primary*
@@ -6805,6 +6977,17 @@ export interface ProductSliceGridPrimary {
   >;
 
   /**
+   * Match Current Product's Style field in *Product → Grid → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: product.grid.primary.match_current_style
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  match_current_style: prismic.BooleanField;
+
+  /**
    * Limit field in *Product → Grid → Primary*
    *
    * - **Field Type**: Select
@@ -8237,10 +8420,13 @@ declare module "@prismicio/client" {
       ProducerDocumentDataSlicesSlice,
       ProductDocument,
       ProductDocumentData,
+      ProductDocumentDataProductGrapesItem,
       ProductDocumentDataSlicesSlice,
       RedirectDocument,
       RedirectDocumentData,
       RedirectDocumentDataRedirectsItem,
+      SpecialClubDocument,
+      SpecialClubDocumentData,
       AllDocumentTypes,
       ArticleSlice,
       ArticleSliceFeaturePrimaryFeaturedArticlesItem,
@@ -8267,10 +8453,12 @@ declare module "@prismicio/client" {
       CalloutSliceCardPrimary,
       CalloutSliceContactPrimaryOverlineItem,
       CalloutSliceContactPrimaryButtonsItem,
+      CalloutSliceContactPrimaryMediaItem,
       CalloutSliceContactPrimaryContactItemsItem,
       CalloutSliceContactPrimary,
       CalloutSliceDetailsPrimaryOverlineItem,
       CalloutSliceDetailsPrimaryButtonsItem,
+      CalloutSliceDetailsPrimaryMediaItem,
       CalloutSliceDetailsPrimaryDetailsItem,
       CalloutSliceDetailsPrimary,
       CalloutSliceVariation,

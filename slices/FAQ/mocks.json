@@ -26,7 +26,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "ship",
+                  "value": "badgeInfo",
                   "type": "Select"
                 }
               ],
@@ -34,7 +34,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "birthday",
+                  "value": "Vanliga frågor",
                   "type": "Text"
                 }
               ]
@@ -48,7 +48,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Melted"
+              "text": "Vanliga frågor om beställning och leverans",
+              "spans": []
             }
           }
         ]
@@ -59,7 +60,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Labore culpa reprehenderit irure incididunt sunt aliquip ex voluptate tempor officia fugiat consequat. Ut sint elit cupidatat aliqua. Ea labore deserunt tempor mollit aliquip labore duis et aliqua."
+              "text": "Svar på det vi får höra oftast. Hittar du inte det du söker? Hör av dig så hjälper vi dig.",
+              "spans": []
             }
           }
         ]
@@ -75,7 +77,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Agil mysig snöig äntligen väldigt, katt folköl?"
+                  "value": "Hur levererar ni och hur lång tid tar det?"
                 }
               ],
               [
@@ -86,7 +88,8 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Duis aliquip id laborum cillum velit occaecat. Exercitation est consequat magna duis eu elit consectetur elit pariatur laborum ex laborum."
+                        "text": "Vi skickar med spårbar frakt i hela Sverige, oftast med leverans inom 2–4 arbetsdagar. Beställningar över 1 500 kr levereras fraktfritt.",
+                        "spans": []
                       }
                     }
                   ]
@@ -102,7 +105,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "API krita snärtig vante malt väder skog gran vimpel skog, trevlig cache?"
+                  "value": "Kan jag hämta min beställning själv?"
                 }
               ],
               [
@@ -113,10 +116,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Bord fika härlig agil cykel mysig snärtig lager boll, flinga gran. Moln ljus penna kanban, katt ren lugn, malt fjäril knäckebröd. Smörgås lagom skumöl moln fika skalbar boll systemöl snärtig väldigt julöl.",
+                        "text": "Ja, du kan välja upphämtning i vår butik i Stockholm utan fraktkostnad — välj det i kassan så hör vi av oss när ordern är redo.",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -131,7 +133,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Snärtig härlig vante boll snöig flinga julöl, mysig?"
+                  "value": "Hur ska champagnen förvaras?"
                 }
               ],
               [
@@ -142,10 +144,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Cykel kavel hund pipeline, lampa kräftskiva tomte whitespace sejdel serverless grönska. Ramp katt MVP bulle backlog skål och commit tomte stånka lagom; lugn moln. Älg godis kanel; trädgård grid gran bulle, lighthouse folköl det funkar på min maskin törstig.",
+                        "text": "Förvara flaskorna mörkt och svalt, gärna liggande vid 8–12 °C. De flesta av våra grower champagner mår bra av ytterligare några års lagring.",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -160,7 +161,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Krita boll kämpa agil törstig snöig, folköl härlig blåbär?"
+                  "value": "Kan ni hjälpa mig att välja rätt champagne?"
                 }
               ],
               [
@@ -171,10 +172,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Bord lager vante ljus björn tegel, moln ramp lagård mörkrädd skalbar bord. Stuga knäckebröd smörgås godis kaffe ljus mysig stånka kär. Smörgås cykel mellanöl, ale bira edge lugn.",
+                        "text": "Absolut. Hör av dig med tillfälle och smakpreferenser så ger vårt team personliga rekommendationer ur sortimentet.",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -206,7 +206,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "FAQ"
+                  "value": "Vanliga frågor"
                 }
               ],
               [
@@ -227,7 +227,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Curious how we work?",
+              "text": "Nyfiken på hur vi väljer våra viner?",
               "spans": []
             },
             "direction": "ltr"
@@ -240,7 +240,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "We know digital transformation can raise a lot of questions. Here you will find answers to everything from technical choices to our philosophy around client relationships.",
+              "text": "Vi vet att grower champagne väcker frågor. Här hittar du svar på allt från hur vi väljer odlare till vår syn på ursprung och hantverk.",
               "spans": []
             },
             "direction": "ltr"
@@ -267,7 +267,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Can we hire a consultant as part of our team?"
+                  "value": "Vad är grower champagne, egentligen?"
                 }
               ],
               [
@@ -278,7 +278,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Yes, we offer resource support where our architects, project leads or developers can step in and strengthen your existing organization for shorter or longer periods.",
+                        "text": "Grower champagne (récoltant-manipulant) är gjord av samma familj som odlar druvorna. Det är champagne med tydligt ursprung, ofta från en enda by eller ett enda läge.",
                         "spans": []
                       },
                       "direction": "ltr"
@@ -296,7 +296,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Do you only work with Microsoft products?"
+                  "value": "Importerar ni bara från små odlare?"
                 }
               ],
               [
@@ -307,7 +307,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "We work across a wide range of platforms and tailor the stack to the problem at hand.",
+                        "text": "Vi fokuserar på familjeodlare, men tar också in enstaka mindre maisons vi tror på — alltid utifrån kvalitet, ursprung och hantverk snarare än storlek.",
                         "spans": []
                       },
                       "direction": "ltr"
@@ -325,7 +325,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Can you help us with AI and Microsoft Copilot?"
+                  "value": "Hjälper ni till att sätta ihop en provning hemma?"
                 }
               ],
               [
@@ -336,7 +336,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Absolutely — we help teams adopt AI tooling responsibly and wire it into existing workflows.",
+                        "text": "Gärna. Vi sätter samman smakpaket efter tema — region, druva eller stil — så att du kan utforska Champagne i egen takt hemma.",
                         "spans": []
                       },
                       "direction": "ltr"
@@ -354,7 +354,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "What does a typical implementation process look like?"
+                  "value": "Hur väljer ni ut vinerna i sortimentet?"
                 }
               ],
               [
@@ -365,7 +365,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Discovery, design, iterative delivery, and ongoing support — with close collaboration at every step.",
+                        "text": "Vi reser till Champagne flera gånger om året, träffar odlarna, smakar i källaren och tar bara in de viner vi själva skulle bjuda vänner på.",
                         "spans": []
                       },
                       "direction": "ltr"
@@ -383,7 +383,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "How do we kick off a collaboration?"
+                  "value": "Kan jag beställa som företag eller till event?"
                 }
               ],
               [
@@ -394,7 +394,7 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Reach out and we will set up a short intro call to understand your goals and propose next steps.",
+                        "text": "Absolut — hör av dig så hjälper vi till med större beställningar, företagsgåvor och champagne till bröllop och event.",
                         "spans": []
                       },
                       "direction": "ltr"

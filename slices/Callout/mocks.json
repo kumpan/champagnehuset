@@ -14,7 +14,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "asdf"
+                  "value": "Medlemskap"
                 }
               ],
               [
@@ -35,10 +35,9 @@
           {
             "type": "heading2",
             "content": {
-              "text": "asdf",
+              "text": "Bli medlem i ChampagneHusets klubb",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -48,10 +47,9 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "asdf",
+              "text": "Som medlem får du förtur till nya släpp, personliga rekommendationer och inbjudningar till våra provningar — champagne, utvald för dig.",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -68,8 +66,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "a",
-                    "text": "asdf"
+                    "url": "https://champagnehuset.se/medlemskap",
+                    "text": "Bli medlem"
                   }
                 }
               ],
@@ -135,481 +133,6 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "card",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Bud",
-        "type": "Select"
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "away",
-                  "type": "Text"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Swimming"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Veniam anim adipisicing qui Lorem."
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "ef46a100-8ce9-4904-b533-e20c12b3a505",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "price"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "default",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "chevronLeft",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "media": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "filter",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "Top Left",
-                  "type": "Select"
-                }
-              ],
-              [
-                "image",
-                {
-                  "origin": {
-                    "id": "main",
-                    "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-                    "width": 3882,
-                    "height": 2584
-                  },
-                  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?rect=649%2C0%2C2584%2C2584&w=1440&h=1440",
-                  "width": 1440,
-                  "height": 1440,
-                  "edit": {
-                    "zoom": 1,
-                    "crop": {
-                      "x": 649,
-                      "y": 0
-                    },
-                    "background": "transparent"
-                  },
-                  "alt": "composition",
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "contact",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Bud",
-        "type": "Select"
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "trail",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Hospital"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Dolore exercitation do Lorem cillum esse tempor elit non commodo nisi. Ex reprehenderit aliqua eiusmod commodo culpa veniam officia non mollit occaecat sit Lorem non exercitation velit."
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "6765ad6c-0e61-4c3a-9178-0974a4ae4fcf",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://slicemachine.dev",
-                    "text": "does"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "default",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "phoneCall",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "contact_items": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "label",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "lift",
-                  "type": "Text"
-                }
-              ],
-              [
-                "value",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "tax",
-                  "type": "Text"
-                }
-              ],
-              [
-                "link",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "atom",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "details",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Bud",
-        "type": "Select"
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "fileBadge",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "farm",
-                  "type": "Text"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Shoulder"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Occaecat do dolore elit."
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "368124c8-986a-4b3a-b8da-3d54cddd61ab",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "http://google.com",
-                    "text": "hurt"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "ghost",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "phoneCall",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "details": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "noted",
-                  "type": "Text"
-                }
-              ],
-              [
-                "rich_text",
-                {
-                  "__TYPE__": "StructuredTextContent",
-                  "value": [
-                    {
-                      "type": "paragraph",
-                      "content": {
-                        "text": "Occaecat tempor in Lorem aliqua. Nulla commodo culpa occaecat cillum eu duis ea anim."
-                      }
-                    }
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
     "variation": "backdrop",
     "primary": {
       "remove_top_padding": {
@@ -643,7 +166,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "basket",
+                  "value": "Utvalt",
                   "type": "Text"
                 }
               ]
@@ -657,7 +180,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Found"
+              "text": "Champagne gjord med omsorg, från odlare vi litar på",
+              "spans": []
             }
           }
         ]
@@ -668,7 +192,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Excepteur enim deserunt ut laboris sint nulla. Minim cupidatat tempor non officia enim deserunt excepteur in ipsum reprehenderit."
+              "text": "Bakom varje flaska finns en familj, ett läge och ett hantverk — vi berättar historien och bjuder in dig att smaka.",
+              "spans": []
             }
           }
         ]
@@ -686,8 +211,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "eventually"
+                    "url": "https://champagnehuset.se/journal",
+                    "text": "Läs mer om odlaren"
                   }
                 }
               ],
@@ -754,6 +279,709 @@
                     "background": "transparent"
                   },
                   "alt": "guard",
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "contact",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Slate"
+      },
+      "image_side": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Bottom Left"
+                }
+              ],
+              [
+                "image",
+                {
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1524594152303-9fd13543fe6e",
+                    "width": 3870,
+                    "height": 2580
+                  },
+                  "url": "https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?rect=645%2C0%2C2580%2C2580&w=1440&h=1440",
+                  "width": 1440,
+                  "height": 1440,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 645,
+                      "y": 0
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "portrait",
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Hör av dig",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Vi hjälper dig hitta rätt champagne",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Har du en fråga om en flaska, en beställning eller en provning? Hör av dig så återkommer vi oftast inom en arbetsdag.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "6765ad6c-0e61-4c3a-9178-0974a4ae4fcf",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://champagnehuset.se/kontakt",
+                    "text": "Kontakta oss"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "default",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "phoneCall",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "contact_items": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "phoneCall"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Telefon",
+                  "type": "Text"
+                }
+              ],
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "+46 8 555 123 45",
+                  "type": "Text"
+                }
+              ],
+              [
+                "link",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "+46 8 555 123 45",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "mail"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "E-post"
+                }
+              ],
+              [
+                "link",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "hej@champagnehuset.se"
+                }
+              ],
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "hej@champagnehuset.se"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "houseHeart"
+                }
+              ],
+              [
+                "label",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Besök oss"
+                }
+              ],
+              [
+                "value",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Champagnegatan 12, 114 55 Stockholm"
+                }
+              ],
+              [
+                "link",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": ""
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "details",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Bud"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": []
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Vad ingår i medlemskapet",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "För dig som vill upptäcka nya odlare och årgångar, före alla andra.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "none"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "badgeInfo"
+                }
+              ],
+              [
+                "link",
+                {
+                  "key": "c23cfe70-406a-465a-9e50-917b357a4f93",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://champagnehuset.se/medlemskap",
+                    "text": "Bli medlem"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "details": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "detail_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "check"
+                }
+              ],
+              [
+                "rich_text",
+                {
+                  "__TYPE__": "StructuredTextContent",
+                  "value": [
+                    {
+                      "type": "paragraph",
+                      "content": {
+                        "text": "Förtur till nya släpp och begränsade partier",
+                        "spans": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "detail_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "check"
+                }
+              ],
+              [
+                "rich_text",
+                {
+                  "__TYPE__": "StructuredTextContent",
+                  "value": [
+                    {
+                      "type": "paragraph",
+                      "content": {
+                        "text": "Personliga rekommendationer, utvalda efter din smak",
+                        "spans": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "detail_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "check"
+                }
+              ],
+              [
+                "rich_text",
+                {
+                  "__TYPE__": "StructuredTextContent",
+                  "value": [
+                    {
+                      "type": "paragraph",
+                      "content": {
+                        "text": "Inbjudningar till provningar och event",
+                        "spans": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "detail_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "bookOpenCheck"
+                }
+              ],
+              [
+                "rich_text",
+                {
+                  "__TYPE__": "StructuredTextContent",
+                  "value": [
+                    {
+                      "type": "paragraph",
+                      "content": {
+                        "text": "Fri leverans på beställningar över 1 500 kr",
+                        "spans": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1629923464290-008980c6c083?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3ODUzMzEwNjN8MA&ixlib=rb-4.1.0&q=85&rect=0,1000,4000,4000&w=1440&h=1440",
+                  "alt": "sliced orange and green citrus fruits",
+                  "origin": {
+                    "id": "3jnQVF-cV7w",
+                    "url": "https://images.unsplash.com/photo-1629923464290-008980c6c083?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3ODUzMzEwNjN8MA&ixlib=rb-4.1.0&q=85",
+                    "width": 4000,
+                    "height": 6000
+                  },
+                  "width": 1440,
+                  "height": 1440,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 1000
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ],
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Bottom Left"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "image_side": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "card",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Bud"
+      },
+      "alignment": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Center"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Månadens flaska",
+                  "type": "Text"
+                }
+              ],
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "cherry"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading3",
+            "content": {
+              "text": "Kämpa grönska agil trevlig vinter kämpa, pilsner fredagsöl vatten",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Varje månad lyfter vi fram en champagne med extra allt — odlarens historia, druvorna bakom och våra bästa serveringstips.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "ef46a100-8ce9-4904-b533-e20c12b3a505",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://champagnehuset.se/champagne",
+                    "text": "Se flaskan"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "default",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "circleStar"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Top Left",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1639048759498-22f2068d00ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1OTY2NTc2fDA&ixlib=rb-4.1.0&q=85&rect=0%2C896%2C3585%2C3585&w=1440&h=1440",
+                  "alt": "a table topped with glasses of wine and lemons",
+                  "origin": {
+                    "id": "cNxObP-3HPE",
+                    "url": "https://images.unsplash.com/photo-1639048759498-22f2068d00ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1OTY2NTc2fDA&ixlib=rb-4.1.0&q=85",
+                    "width": 3585,
+                    "height": 5377
+                  },
+                  "width": 1440,
+                  "height": 1440,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 896
+                    }
+                  },
                   "credits": null,
                   "__TYPE__": "ImageContent",
                   "thumbnails": {}

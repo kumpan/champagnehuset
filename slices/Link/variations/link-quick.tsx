@@ -91,12 +91,12 @@ export function LinkQuick({ slice }: Props) {
                   field={link}
                   className={cn(
                     "group flex items-center justify-between gap-3 border-current/20 border-b px-1 py-4 text-sm transition-colors duration-300 ease-out",
-                    "md:rounded-1 md:border-0 md:px-5 md:py-4 md:text-base",
+                    "md:rounded-1 md:border-0 md:px-6 md:py-5 md:text-base",
                     rowThemeClasses[section_theme],
                   )}
                 >
-                  <span className="text-pretty">{link.text}</span>
-                  <ChevronRight className="size-4 shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-1 md:size-5" />
+                  <span className="text-pretty md:text-lg">{link.text}</span>
+                  <ChevronRight className="size-5 shrink-0 opacity-65 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 md:size-6" />
                 </PrismicNextLink>
               </li>
             ))}

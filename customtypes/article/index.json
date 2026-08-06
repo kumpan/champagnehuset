@@ -56,7 +56,7 @@
         "type": "Select",
         "config": {
           "label": "Tag",
-          "options": ["Event", "News", "Guide", "Tasting"],
+          "options": ["Event", "News", "Tips"],
           "default_value": "Event"
         }
       },

@@ -21,11 +21,55 @@
               [
                 "article",
                 {
-                  "key": "2719a5c0-c587-4b67-bef0-554ec8b2fe58",
+                  "key": "feat-0",
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "DocumentLink",
-                    "id": "mock_document_id"
+                    "id": "amMK2BEAACwAcD2b",
+                    "type": "article",
+                    "tags": [],
+                    "lang": "sv-se",
+                    "isBroken": false
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "article",
+                {
+                  "key": "feat-1",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "DocumentLink",
+                    "id": "amMK2hEAACkAcD2j",
+                    "type": "article",
+                    "tags": [],
+                    "lang": "sv-se",
+                    "isBroken": false
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "article",
+                {
+                  "key": "feat-2",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "DocumentLink",
+                    "id": "amMK3hEAAC0AcD2z",
+                    "type": "article",
+                    "tags": [],
+                    "lang": "sv-se",
+                    "isBroken": false
                   }
                 }
               ]
@@ -35,7 +79,7 @@
       },
       "link_label": {
         "__TYPE__": "FieldContent",
-        "value": "middle",
+        "value": "Läs hela artikeln",
         "type": "Text"
       }
     },
@@ -90,7 +134,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "stretch",
+                  "value": "Journalen",
                   "type": "Text"
                 }
               ]
@@ -104,7 +148,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Canal"
+              "text": "Berättelser och guider från Champagnes värld",
+              "spans": []
             }
           }
         ]
@@ -115,7 +160,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Anim anim commodo mollit minim minim amet mollit."
+              "text": "Tankeväckande texter om regionerna, odlarna och hantverket bakom champagnen i ditt glas.",
+              "spans": []
             }
           }
         ]
@@ -133,8 +179,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "still"
+                    "url": "https://champagnehuset.se/journal",
+                    "text": "Läs alla artiklar"
                   }
                 }
               ],

@@ -1,8 +1,9 @@
+import type { Content } from "@prismicio/client";
+
 /**
- * CMS values for price, dosage and alcohol are free-text so editors can type
- * "350", "350 kr", "6 g/l", "12%" and so on. We strip whatever unit they typed
- * and re-format consistently. A non-breaking space keeps the number and unit
- * (and thousands groups) from wrapping.
+ * CMS values for dosage and alcohol are free-text so editors can type
+ * "6 g/l", "12%" and so on. We strip whatever unit they typed and re-format
+ * consistently. A non-breaking space keeps the number and unit from wrapping.
  */
 const NBSP = " ";
 
@@ -12,17 +13,10 @@ function extractNumber(input: string): string | null {
   return match ? match[0] : null;
 }
 
-/** "350kr" | "1200" | "1 200 kr" → "1 200 kr" (thousands grouped, decimals dropped). */
-export function formatPrice(input: string | null | undefined): string | null {
-  if (!input) return null;
-  const num = extractNumber(input);
-  if (num === null) return null;
-
-  const intPart = num.replace(/[.,]\d+$/, "").replace(/\D/g, "");
-  if (!intPart) return null;
-
-  const grouped = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, NBSP);
-  return `${grouped}${NBSP}kr`;
+/** Join a product's grapes into "Pinot Noir, Chardonnay" (null when empty). */
+export function formatGrapes(grapes: Content.ProductDocument["data"]["product_grapes"]): string | null {
+  const names = grapes.flatMap((entry) => (entry.grape ? [entry.grape] : []));
+  return names.length > 0 ? names.join(", ") : null;
 }
 
 /** "6" | "6 g/l" | "6g/l" → "6 g/l". Preserves decimals ("4,5" → "4,5 g/l"). */

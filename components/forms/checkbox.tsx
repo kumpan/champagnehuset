@@ -4,10 +4,10 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const themeClasses = {
-  Bud: "border-ink/80 bg-fill outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
-  Leaf: "border-ink/80 bg-fill outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
+  Bud: "border-ink/80 bg-green-10 outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
+  Leaf: "border-ink/80 bg-green-10 outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
   Brand:
-    "border-ink/80 bg-fill outline-brand-fill checked:border-brand-fill checked:bg-brand-fill hover:border-brand-fill hover:outline-brand-fill/30 focus-visible:border-brand-fill focus-visible:outline-brand-fill/30",
+    "border-ink/80 bg-green-10 outline-brand-fill checked:border-brand-fill checked:bg-brand-fill hover:border-brand-fill hover:outline-brand-fill/30 focus-visible:border-brand-fill focus-visible:outline-brand-fill/30",
   Dust: "border-spot-ink/80 bg-spot-fill-raised outline-spot-fill checked:border-spot-fill checked:bg-spot-fill hover:border-spot-fill hover:outline-spot-fill/30 focus-visible:border-spot-fill focus-visible:outline-spot-fill/30",
   Slate:
     "border-spot-ink-flip/80 bg-spot-fill outline-spot-fill-dark checked:border-spot-fill-dark checked:bg-spot-fill-dark hover:border-spot-fill-dark hover:outline-spot-fill-dark/30 focus-visible:border-spot-fill-dark focus-visible:outline-spot-fill-dark/30",
@@ -32,7 +32,7 @@ function Checkbox({ className, sectionTheme = "Bud", ...props }: CheckboxProps) 
         type="checkbox"
         data-slot="checkbox"
         className={cn(
-          "peer size-6 shrink-0 cursor-pointer appearance-none rounded-2 border transition-all duration-200 ease-in-out",
+          "peer size-6 shrink-0 cursor-pointer appearance-none rounded-1 border transition-all duration-200 ease-in-out",
           "outline-0 hover:outline-2 focus-visible:outline-2",
           "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
           "aria-invalid:border-error aria-invalid:ring-error/20",

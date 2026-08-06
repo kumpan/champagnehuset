@@ -1,0 +1,36 @@
+{
+  "format": "custom",
+  "id": "special_club",
+  "label": "Special Club Text",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "tagline": {
+        "type": "Text",
+        "config": {
+          "label": "Tagline",
+          "placeholder": "Special Club"
+        }
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "Vad är Special Club?",
+          "allowTargetBlank": true,
+          "multi": "heading3,heading4"
+        }
+      },
+      "body": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Body",
+          "placeholder": "En kort beskrivning av Special Club-sammanslutningen och vad utmärkelsen innebär.",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      }
+    }
+  }
+}

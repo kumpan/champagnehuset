@@ -34,7 +34,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "call",
+                  "value": "Kontakt",
                   "type": "Text"
                 }
               ]
@@ -48,7 +48,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Straw"
+              "text": "Skicka ett meddelande till oss",
+              "spans": []
             }
           }
         ]
@@ -59,7 +60,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aute sint fugiat occaecat esse qui non fugiat eiusmod eu exercitation."
+              "text": "Har du en fråga? Vi svarar oftast inom en arbetsdag.",
+              "spans": []
             }
           }
         ]
@@ -82,7 +84,49 @@
                 "text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "peace",
+                  "value": "Svar inom en arbetsdag",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "bottleWine",
+                  "type": "Select"
+                }
+              ],
+              [
+                "text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Personlig rådgivning ur hela sortimentet",
+                  "type": "Text"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "handshake",
+                  "type": "Select"
+                }
+              ],
+              [
+                "text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Hjälp med event, företagsgåvor och större beställningar",
                   "type": "Text"
                 }
               ]
@@ -92,7 +136,7 @@
       },
       "submit_button_text": {
         "__TYPE__": "FieldContent",
-        "value": "unusual",
+        "value": "Skicka meddelande",
         "type": "Text"
       },
       "success_message": {
@@ -101,7 +145,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Esse incididunt minim esse fugiat velit laborum pariatur velit incididunt velit. Ea deserunt aliquip enim excepteur laborum et adipisicing adipisicing eiusmod ea ullamco mollit ex. Dolor dolor laborum velit ipsum tempor."
+              "text": "Tack för ditt meddelande! Vårt team återkommer inom kort — vare sig det gäller en beställning, ett samarbete eller en allmän fråga hjälper vi dig gärna.",
+              "spans": []
             }
           }
         ]
@@ -120,7 +165,8 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Ex laborum incididunt consequat."
+                        "text": "Jag godkänner att ChampagneHuset behandlar mina uppgifter för att kunna svara på min förfrågan.",
+                        "spans": []
                       }
                     }
                   ]
@@ -154,7 +200,7 @@
             "field_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "other",
+              "value": "E-post",
               "type": "Text"
             }
           ],
@@ -162,7 +208,7 @@
             "field_placeholder",
             {
               "__TYPE__": "FieldContent",
-              "value": "merely",
+              "value": "namn@exempel.se",
               "type": "Text"
             }
           ],
@@ -219,7 +265,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "seed",
+                  "value": "Vårt team",
                   "type": "Text"
                 }
               ]
@@ -233,7 +279,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Similar"
+              "text": "Människorna bakom ChampagneHuset",
+              "spans": []
             }
           }
         ]
@@ -244,7 +291,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aliqua eu laboris aliqua et magna qui nisi. In sunt reprehenderit officia duis tempor ea quis adipisicing eu aliquip ullamco. Elit sunt esse aute cillum."
+              "text": "Nå rätt person direkt. Vårt team hjälper dig med beställningar, leveranser, provningar och allt annat på vägen.",
+              "spans": []
             }
           }
         ]
@@ -262,8 +310,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://prismic.io",
-                    "text": "north"
+                    "url": "https://champagnehuset.se",
+                    "text": "Se hela teamet"
                   }
                 }
               ],
@@ -350,7 +398,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "plane",
+                  "value": "mail",
                   "type": "Select"
                 }
               ],
@@ -358,7 +406,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "salmon",
+                  "value": "Nyhetsbrev",
                   "type": "Text"
                 }
               ]
@@ -372,7 +420,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Space"
+              "text": "Missa inga nya släpp",
+              "spans": []
             }
           }
         ]
@@ -383,7 +432,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Tempor quis nulla esse in do dolor consectetur occaecat dolor ut magna minim consectetur et."
+              "text": "Anmäl dig och bli först att få veta om nya viner, provningar och begränsade släpp.",
+              "spans": []
             }
           }
         ]
@@ -395,12 +445,12 @@
       },
       "email_placeholder": {
         "__TYPE__": "FieldContent",
-        "value": "anna@foretag.se",
+        "value": "namn@exempel.se",
         "type": "Text"
       },
       "button_label": {
         "__TYPE__": "FieldContent",
-        "value": "Prenumerera nu",
+        "value": "Anmäl dig",
         "type": "Text"
       },
       "success_message": {
@@ -409,7 +459,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Amet tempor sit sint incididunt sit culpa fugiat dolor aliqua reprehenderit aute. Est ut do cillum esse veniam ad excepteur consectetur consectetur sunt et anim do voluptate. In labore tempor pariatur aute aliquip est adipisicing cupidatat deserunt exercitation officia velit ea aliquip consequat."
+              "text": "Gå med i vår lista för sparsamma utskick värda att läsa — inget spam, bara nyheter som betyder något, och du kan avsluta prenumerationen när du vill.",
+              "spans": []
             }
           }
         ]

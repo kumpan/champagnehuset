@@ -1,7 +1,7 @@
 import type { Content, ImageField, RichTextField } from "@prismicio/client";
 import { asImageSrc, asText, isFilled } from "@prismicio/client";
 import type { BreadcrumbItem } from "./breadcrumbs";
-import { formatAlcohol, formatDosage } from "./format";
+import { formatAlcohol, formatDosage, formatGrapes } from "./format";
 import { ORGANIZATION_CONFIG, SITE_URL } from "./schema-config";
 
 /** Serialize JSON-LD, escaping `<` so it can't break out of the inline script (XSS). */
@@ -105,41 +105,7 @@ export function generateArticleSchema(doc: Content.ArticleDocument) {
   };
 }
 
-/** "995" | "1 200 kr" → "1200" (integer string) for a schema.org Offer.price. */
-function parsePrice(input: string | null | undefined): string | null {
-  if (!input) return null;
-  const match = input.replace(/\s+/g, "").match(/\d+(?:[.,]\d+)?/);
-  if (!match) return null;
-  const intPart = match[0].replace(/[.,]\d+$/, "").replace(/\D/g, "");
-  return intPart || null;
-}
-
-/** schema.org URLs for the consumer availability select. */
-const CONSUMER_AVAILABILITY: Record<string, string> = {
-  Systembolaget: "https://schema.org/InStock",
-  "Private Import": "https://schema.org/LimitedAvailability",
-  "Sold Out": "https://schema.org/SoldOut",
-};
-
-/**
- * One schema.org availability from the two channel selects. The restaurant channel
- * can keep a wine in stock even when the consumer channel is sold out, mirroring
- * `resolvePurchase` in the product detail slice.
- */
-function resolveOfferAvailability(
-  consumer: string | null | undefined,
-  restaurant: string | null | undefined,
-): string | undefined {
-  const restaurantAvailable = restaurant === "Available";
-  if (consumer === "Sold Out") {
-    return restaurantAvailable ? "https://schema.org/InStock" : "https://schema.org/SoldOut";
-  }
-  if (consumer && CONSUMER_AVAILABILITY[consumer]) return CONSUMER_AVAILABILITY[consumer];
-  if (restaurantAvailable) return "https://schema.org/InStock";
-  return undefined;
-}
-
-/** Product schema with an Offer. Powers price/availability rich results; brand is the linked producer. */
+/** Product schema. Brand is the linked producer; no price/offer is emitted. */
 export function generateProductSchema(doc: Content.ProductDocument) {
   const data = doc.data;
   const name = data.product_name || data.meta_title || doc.uid;
@@ -154,29 +120,12 @@ export function generateProductSchema(doc: Content.ProductDocument) {
     ? data.product_producer.data?.producer_name
     : undefined;
 
-  const price = parsePrice(data.product_price);
-  const availability = resolveOfferAvailability(
-    data.product_consumer_availability,
-    data.product_restaurant_availability,
-  );
-  // Google needs a price inside an Offer, so only emit one when we have a price.
-  // Priceless Products are still valid schema, just not eligible for rich results.
-  const offers = price
-    ? {
-        "@type": "Offer",
-        price,
-        priceCurrency: "SEK",
-        ...(availability && { availability }),
-        ...(url && { url }),
-        itemCondition: "https://schema.org/NewCondition",
-      }
-    : undefined;
-
+  const grapes = formatGrapes(data.product_grapes);
   const origin = [data.product_region, data.product_cru].filter(Boolean).join(", ");
   const dosage = formatDosage(data.product_dosage_grams);
   const alcohol = formatAlcohol(data.product_alcohol);
   const additionalProperty = [
-    data.product_grapes && { "@type": "PropertyValue", name: "Druvor", value: data.product_grapes },
+    grapes && { "@type": "PropertyValue", name: "Druvor", value: grapes },
     data.product_volume && { "@type": "PropertyValue", name: "Volym", value: data.product_volume },
     origin && { "@type": "PropertyValue", name: "Ursprung", value: origin },
     dosage && { "@type": "PropertyValue", name: "Dosage", value: dosage },
@@ -193,7 +142,6 @@ export function generateProductSchema(doc: Content.ProductDocument) {
     ...(producerName && { brand: { "@type": "Brand", name: producerName } }),
     ...(data.product_article_number && { sku: data.product_article_number }),
     ...(data.product_style && { category: data.product_style }),
-    ...(offers && { offers }),
     ...(additionalProperty.length > 0 && { additionalProperty }),
   };
 }
