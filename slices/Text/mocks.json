@@ -203,6 +203,27 @@
             }
           },
           {
+            "type": "heading2",
+            "content": {
+              "text": "Vad récoltant-manipulant betyder",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Bokstäverna RM på etiketten betyder att odlaren själv gör vinet av egna druvor. Där de stora husen köper in must från hundratals håll kommer allt här från samma händer — från snittet i vingården till dosagen i källaren.",
+              "spans": []
+            }
+          },
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Terroir framför husstil",
+              "spans": []
+            }
+          },
+          {
             "type": "paragraph",
             "content": {
               "text": "Där de stora husen strävar efter en jämn husstil år efter år låter odlaren varje skörd och varje läge tala. Resultatet blir viner som speglar sin plats och sitt år.",
@@ -210,9 +231,30 @@
             }
           },
           {
+            "type": "heading2",
+            "content": {
+              "text": "Årgången i flaskan",
+              "spans": []
+            }
+          },
+          {
             "type": "paragraph",
             "content": {
-              "text": "När ämnet förtjänar djup är det här formatet som ger det plats.",
+              "text": "En sval, sen skörd smakar inte som ett soligt år, och odlaren döljer det inte. Många buteljerar enskilda årgångar och lägen var för sig, så att skillnaderna får höras.",
+              "spans": []
+            }
+          },
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Så läser du etiketten",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "RM, årtal och by säger ofta mer än prislappen. När ämnet förtjänar djup är det här formatet som ger det plats.",
               "spans": []
             }
           }
@@ -380,18 +422,18 @@
                     "square": {
                       "origin": {
                         "id": "square",
-                        "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
-                        "width": 3277,
-                        "height": 4092
+                        "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+                        "width": 3199,
+                        "height": 3199
                       },
-                      "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C408%2C3277%2C3277&w=1440&h=1440",
+                      "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C0%2C3199%2C3199&w=1440&h=1440",
                       "width": 1440,
                       "height": 1440,
                       "edit": {
                         "zoom": 1,
                         "crop": {
                           "x": 0,
-                          "y": 408
+                          "y": 0
                         },
                         "background": "transparent"
                       },
