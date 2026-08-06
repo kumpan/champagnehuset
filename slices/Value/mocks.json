@@ -21,7 +21,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "beauty",
+                  "value": "What we value",
                   "type": "Text"
                 }
               ]
@@ -35,7 +35,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Proud"
+              "text": "Built on principles that last",
+              "spans": []
             }
           }
         ]
@@ -46,7 +47,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Consectetur occaecat elit ea ea dolor cupidatat. Cillum magna irure est id amet consectetur consectetur nostrud est culpa excepteur."
+              "text": "A short statement of what you stand for, and why it makes a difference.",
+              "spans": []
             }
           }
         ]
@@ -65,7 +67,7 @@
                   "value": {
                     "__TYPE__": "ExternalLink",
                     "url": "https://prismic.io",
-                    "text": "sink"
+                    "text": "Learn more"
                   }
                 }
               ],
@@ -121,7 +123,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Gatekeep seitan art party"
+                  "value": "Quality first"
                 }
               ],
               [
@@ -129,7 +131,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "VHS, pinterest solarpunk swag live-edge.  Disrupt shaman slow-carb photo booth quinoa mlkshk 90's wayfarers man braid heirloom locavore YOLO tbh."
+                  "value": "Every detail is considered, from the first impression to the finishing touch."
                 }
               ]
             ]
@@ -142,7 +144,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Church-key trust fund"
+                  "value": "Honest and open"
                 }
               ],
               [
@@ -150,7 +152,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
+                  "value": "Clear communication and no surprises — you always know where things stand."
                 }
               ]
             ]
@@ -163,7 +165,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Unicorn chillwave"
+                  "value": "Built to last"
                 }
               ],
               [
@@ -171,7 +173,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Polaroid copper mug tumblr VHS four dollar toast, chillwave microdosing ascot sustainable adaptogen street art kogi.  Synth humblebrag enamel pin jianbing gentrify B"
+                  "value": "Thoughtful choices today that keep paying off well into the future."
                 }
               ]
             ]
@@ -184,7 +186,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Fam drinking vinegar vaporware, roof party neutra jawn salvia lumbersexual paleo godard.  Vinyl fingerstache subway tile salvia kickstarter, raw denim cold-pressed."
+                  "value": "Friendly, knowledgeable support whenever you need a hand."
                 }
               ],
               [
@@ -192,7 +194,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Kickstarter mlkshk"
+                  "value": "Here to help"
                 }
               ]
             ]
@@ -205,7 +207,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Tofu man bun franzen typewriter skateboard heirloom freegan praxis aesthetic."
+                  "value": "We keep refining the small things so the experience gets better over time."
                 }
               ],
               [
@@ -213,7 +215,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Marfa dreamcatcher"
+                  "value": "Always improving"
                 }
               ]
             ]
@@ -255,7 +257,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "has",
+                  "value": "How we work",
                   "type": "Text"
                 }
               ],
@@ -277,10 +279,9 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Place is the right time in the right",
+              "text": "Principles we apply, consistently",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -290,7 +291,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aliquip proident ullamco occaecat ullamco ullamco amet eu aute duis ullamco aliqua culpa aute eu velit. Incididunt pariatur aliqua magna."
+              "text": "The small things, handled with care — that's what adds up to something you can rely on.",
+              "spans": []
             }
           }
         ]
@@ -309,7 +311,7 @@
                   "value": {
                     "__TYPE__": "ExternalLink",
                     "url": "https://slicemachine.dev",
-                    "text": "tried"
+                    "text": "Read our story"
                   }
                 }
               ],
@@ -360,7 +362,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "1. Pertois-Moriset Brut Rosé Grand Cru"
+                  "value": "Considered by design"
                 }
               ],
               [
@@ -368,7 +370,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Nothing is left to chance — each decision is made with intention and care."
                 }
               ]
             ]
@@ -389,7 +391,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "2. Grongnet Brut Rosé"
+                  "value": "Clear from the start"
                 }
               ],
               [
@@ -397,7 +399,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "You will always know what to expect, with no surprises along the way."
                 }
               ]
             ]
@@ -418,7 +420,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "We build for the long term, not just the quick win."
                 }
               ],
               [
@@ -426,7 +428,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "4. Juillet-Lallement Brut Rosé Grand Cru"
+                  "value": "Made to last"
                 }
               ]
             ]
@@ -447,7 +449,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Real support from people who know the work and genuinely want to help."
                 }
               ],
               [
@@ -455,7 +457,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "3. Loriot-Pagel Brut Rosé"
+                  "value": "People first"
                 }
               ]
             ]
@@ -468,7 +470,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "3. Loriot-Pagel Brut Rosé"
+                  "value": "Always refining"
                 }
               ],
               [
@@ -476,7 +478,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Från byn Etoges skapar Cécile Grongnet en blandrosé med elegans och finess. Frisk fin syra som gör den perfekt till desserter med röda bär."
+                  "value": "Small, steady improvements that add up to a better experience."
                 }
               ]
             ]

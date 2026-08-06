@@ -34,7 +34,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "call",
+                  "value": "Contact",
                   "type": "Text"
                 }
               ]
@@ -48,7 +48,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Straw"
+              "text": "Send us a message",
+              "spans": []
             }
           }
         ]
@@ -59,7 +60,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aute sint fugiat occaecat esse qui non fugiat eiusmod eu exercitation."
+              "text": "Have a question? We usually reply within one business day.",
+              "spans": []
             }
           }
         ]
@@ -101,7 +103,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Esse incididunt minim esse fugiat velit laborum pariatur velit incididunt velit. Ea deserunt aliquip enim excepteur laborum et adipisicing adipisicing eiusmod ea ullamco mollit ex. Dolor dolor laborum velit ipsum tempor."
+              "text": "Fill in the form and our team will get back to you shortly — whether it's an order, a partnership, or a general enquiry, we're happy to help.",
+              "spans": []
             }
           }
         ]
@@ -120,7 +123,8 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Ex laborum incididunt consequat."
+                        "text": "We'd love to hear from you.",
+                        "spans": []
                       }
                     }
                   ]
@@ -219,7 +223,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "seed",
+                  "value": "Our team",
                   "type": "Text"
                 }
               ]
@@ -233,7 +237,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Similar"
+              "text": "The people behind it",
+              "spans": []
             }
           }
         ]
@@ -244,7 +249,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aliqua eu laboris aliqua et magna qui nisi. In sunt reprehenderit officia duis tempor ea quis adipisicing eu aliquip ullamco. Elit sunt esse aute cillum."
+              "text": "Reach the right person directly. Our team is here to help with orders, deliveries, and anything else you need along the way.",
+              "spans": []
             }
           }
         ]
@@ -358,7 +364,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "salmon",
+                  "value": "Newsletter",
                   "type": "Text"
                 }
               ]
@@ -372,7 +378,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Space"
+              "text": "Stay in the loop",
+              "spans": []
             }
           }
         ]
@@ -383,7 +390,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Tempor quis nulla esse in do dolor consectetur occaecat dolor ut magna minim consectetur et."
+              "text": "Sign up to be the first to hear about new arrivals, events, and limited releases.",
+              "spans": []
             }
           }
         ]
@@ -409,7 +417,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Amet tempor sit sint incididunt sit culpa fugiat dolor aliqua reprehenderit aute. Est ut do cillum esse veniam ad excepteur consectetur consectetur sunt et anim do voluptate. In labore tempor pariatur aute aliquip est adipisicing cupidatat deserunt exercitation officia velit ea aliquip consequat."
+              "text": "Join our list for occasional updates worth reading — no spam, just the news that matters, and you can unsubscribe at any time.",
+              "spans": []
             }
           }
         ]

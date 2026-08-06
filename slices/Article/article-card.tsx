@@ -4,6 +4,7 @@ import { cardFocusRing } from "@/components/button";
 import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
+import { tagLabel } from "./constants";
 
 export function formatArticleDate(date: string | null) {
   if (!date) return null;
@@ -33,7 +34,7 @@ export function ArticleCard({ article, sectionTheme = "Bud", className }: Articl
         />
       </div>
       <div className="flex items-center gap-2 font-medium text-base">
-        {tag && <span>{tag}</span>}
+        {tag && <span>{tagLabel(tag)}</span>}
         {tag && date && <span aria-hidden="true">•</span>}
         {date && <span>{date}</span>}
       </div>

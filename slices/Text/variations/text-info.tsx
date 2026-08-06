@@ -6,7 +6,7 @@ import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
-import { formatAlcohol, formatDosage, formatPrice } from "@/lib/format";
+import { formatAlcohol, formatDosage, formatGrapes } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { TextProps } from "..";
 import { COPY, RESTAURANT_CONTACT, resolvePurchase } from "../text-info-config";
@@ -45,9 +45,8 @@ export function TextInfo({ slice, context }: Props) {
   };
   if (data) {
     push("Artikelnummer", data.product_article_number);
-    push("Pris", formatPrice(data.product_price));
     push("Volym", data.product_volume);
-    push("Druvor", data.product_grapes);
+    push("Druvor", formatGrapes(data.product_grapes));
     push("Dosage", formatDosage(data.product_dosage_grams));
     push("Alkohol", formatAlcohol(data.product_alcohol));
     push("Lagring", data.product_storage);

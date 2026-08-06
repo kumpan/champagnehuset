@@ -34,7 +34,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "birthday",
+                  "value": "FAQ",
                   "type": "Text"
                 }
               ]
@@ -48,7 +48,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Melted"
+              "text": "Frequently asked questions",
+              "spans": []
             }
           }
         ]
@@ -59,7 +60,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Labore culpa reprehenderit irure incididunt sunt aliquip ex voluptate tempor officia fugiat consequat. Ut sint elit cupidatat aliqua. Ea labore deserunt tempor mollit aliquip labore duis et aliqua."
+              "text": "Answers to the questions we hear most often. Can't find what you're looking for? Get in touch.",
+              "spans": []
             }
           }
         ]
@@ -75,7 +77,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Agil mysig snöig äntligen väldigt, katt folköl?"
+                  "value": "What's included?"
                 }
               ],
               [
@@ -86,7 +88,8 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Duis aliquip id laborum cillum velit occaecat. Exercitation est consequat magna duis eu elit consectetur elit pariatur laborum ex laborum."
+                        "text": "Everything you need to get started is included, and our team is on hand if any questions come up along the way.",
+                        "spans": []
                       }
                     }
                   ]
@@ -102,7 +105,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "API krita snärtig vante malt väder skog gran vimpel skog, trevlig cache?"
+                  "value": "How quickly will I hear back?"
                 }
               ],
               [
@@ -113,10 +116,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Bord fika härlig agil cykel mysig snärtig lager boll, flinga gran. Moln ljus penna kanban, katt ren lugn, malt fjäril knäckebröd. Smörgås lagom skumöl moln fika skalbar boll systemöl snärtig väldigt julöl.",
+                        "text": "Most requests are answered within one business day, and often much sooner.",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -131,7 +133,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Snärtig härlig vante boll snöig flinga julöl, mysig?"
+                  "value": "Can I make changes later?"
                 }
               ],
               [
@@ -142,10 +144,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Cykel kavel hund pipeline, lampa kräftskiva tomte whitespace sejdel serverless grönska. Ramp katt MVP bulle backlog skål och commit tomte stånka lagom; lugn moln. Älg godis kanel; trädgård grid gran bulle, lighthouse folköl det funkar på min maskin törstig.",
+                        "text": "Absolutely — you can update or cancel at any time from your account, no questions asked.",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -160,7 +161,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Krita boll kämpa agil törstig snöig, folköl härlig blåbär?"
+                  "value": "Do you offer support?"
                 }
               ],
               [
@@ -171,10 +172,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Bord lager vante ljus björn tegel, moln ramp lagård mörkrädd skalbar bord. Stuga knäckebröd smörgås godis kaffe ljus mysig stånka kär. Smörgås cykel mellanöl, ale bira edge lugn.",
+                        "text": "Yes. Friendly, knowledgeable support is available whenever you need a hand.",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }

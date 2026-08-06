@@ -14,7 +14,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "Overline"
+                  "value": "Welcome"
                 }
               ],
               [
@@ -187,7 +187,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Duis duis tempor consectetur voluptate occaecat sit laborum nulla ex do consectetur."
+              "text": "A clear, confident introduction that sets the tone and gives visitors a reason to keep exploring.",
+              "spans": []
             }
           }
         ]

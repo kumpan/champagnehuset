@@ -1,6 +1,419 @@
 [
   {
     "__TYPE__": "SharedSliceContent",
+    "variation": "extended",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Overview",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "A closer look at how it works",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "A short introduction that frames the section and sets up the detail that follows.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "rich_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "This is where the longer explanation lives. Use it to walk through the details, add context, and give readers everything they need to understand the topic.",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Keep each paragraph focused on a single idea, and the whole section stays easy to read from top to bottom.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "split",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Brand",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Details",
+                  "type": "Text"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Two columns, one clear message",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Introduce the topic, then let the two columns below carry the supporting detail.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "first_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "The first column carries the opening thought — a focused, readable paragraph that sets up the idea and gives it room to land.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "second_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "The second column continues the thread, adding the detail and context that round out the section without crowding the page.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "longform",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "rich_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Longform is for the writing that needs room to breathe — essays, guides, and stories told at their natural length.",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Set the pace with clear paragraphs, let ideas build on one another, and trust the reader to stay with a well-made argument.",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "When the subject deserves depth, this is the format that gives it space.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "author": {
+        "__TYPE__": "LinkContent",
+        "key": "9eb089e5-982f-4cb1-a69a-41e6fd965729",
+        "value": {
+          "__TYPE__": "DocumentLink",
+          "id": "mock_document_id",
+          "text": "The editorial team"
+        }
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "media",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "text_side": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "first_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Pair words with a supporting image to make the point land. This first block introduces the idea alongside its visual.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "first_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Top Right",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "__TYPE__": "ImageContent",
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                    "width": 3277,
+                    "height": 4092
+                  },
+                  "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C1124%2C3277%2C1843&w=1920&h=1080",
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 1124
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "weather",
+                  "thumbnails": {
+                    "square": {
+                      "origin": {
+                        "id": "square",
+                        "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                        "width": 3277,
+                        "height": 4092
+                      },
+                      "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C408%2C3277%2C3277&w=1440&h=1440",
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 408
+                        },
+                        "background": "transparent"
+                      },
+                      "alt": "rubbed"
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "second_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "The second block continues the story with its own image, keeping text and media in an easy, balanced rhythm.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "second_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Bottom Left",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "__TYPE__": "ImageContent",
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+                    "width": 3199,
+                    "height": 3199
+                  },
+                  "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C700%2C3199%2C1799&w=1920&h=1080",
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 700
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "law",
+                  "thumbnails": {
+                    "square": {
+                      "origin": {
+                        "id": "square",
+                        "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+                        "width": 3277,
+                        "height": 4092
+                      },
+                      "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C408%2C3277%2C3277&w=1440&h=1440",
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 408
+                        },
+                        "background": "transparent"
+                      },
+                      "alt": "catch"
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
     "variation": "details",
     "primary": {
       "section_theme": {
@@ -15,5 +428,48 @@
       }
     },
     "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "info",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Dust",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "FieldContent",
+        "value": "Good to know",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Everything in one place",
+        "type": "Text"
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "A compact block for the practical details — hours, terms, specifications, or anything else worth keeping close at hand.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
   }
 ]

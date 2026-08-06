@@ -36,10 +36,9 @@
           {
             "type": "heading2",
             "content": {
-              "text": "asd",
+              "text": "Featured bottles",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -49,10 +48,9 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "sdf",
+              "text": "Browse the full selection and filter by exactly what matters to you.",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -75,7 +73,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "asdfgasd"
+                  "value": "Selection"
                 }
               ]
             ]
@@ -123,7 +121,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "pipe",
+                  "value": "Shop",
                   "type": "Text"
                 }
               ]
@@ -137,7 +135,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Dangerous"
+              "text": "Find your bottle",
+              "spans": []
             }
           }
         ]
@@ -148,7 +147,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Nisi voluptate officia anim et qui."
+              "text": "Browse the full selection and filter by exactly what matters to you.",
+              "spans": []
             }
           }
         ]

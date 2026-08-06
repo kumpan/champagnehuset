@@ -7,14 +7,33 @@ import type { ProductDocument } from "@/prismicio-types";
  * with zero options disappears entirely.
  */
 
-export type FilterGroupId = "availability" | "producer" | "region" | "style" | "club" | "year" | "volume";
+export type FilterGroupId =
+  | "availability"
+  | "producer"
+  | "region"
+  | "style"
+  | "grape"
+  | "club"
+  | "ecologic"
+  | "year"
+  | "volume";
 
 export type FilterOption = { value: string; label: string };
 export type FilterGroup = { id: FilterGroupId; label: string; options: FilterOption[] };
 export type FilterSelection = Partial<Record<FilterGroupId, string[]>>;
 
 /** Design order for the sidebar, top to bottom. */
-const GROUP_IDS: FilterGroupId[] = ["availability", "producer", "region", "style", "club", "year", "volume"];
+const GROUP_IDS: FilterGroupId[] = [
+  "availability",
+  "producer",
+  "region",
+  "style",
+  "grape",
+  "club",
+  "ecologic",
+  "year",
+  "volume",
+];
 
 /** Visitor-facing group labels (site language). */
 const GROUP_LABELS: Record<FilterGroupId, string> = {
@@ -22,7 +41,9 @@ const GROUP_LABELS: Record<FilterGroupId, string> = {
   producer: "Odlare",
   region: "Region",
   style: "Stil",
+  grape: "Druva",
   club: "Special Club",
+  ecologic: "Ekologisk",
   year: "Årgång",
   volume: "Volym",
 };
@@ -40,6 +61,7 @@ const AVAILABILITY_OPTIONS: FilterOption[] = [
 /** Mirrors the curated option order in the product custom type selects. */
 const REGION_ORDER = ["Côte des Blancs", "Montagne de Reims", "Vallée de la Marne", "Côte des Bar", "Côte de Sézanne"];
 const STYLE_ORDER = ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Special Club"];
+const GRAPE_ORDER = ["Chardonnay", "Pinot Noir", "Meunier", "Arbane", "Petit Meslier", "Pinot Blanc", "Pinot Gris"];
 
 export function producerNameOf(product: ProductDocument): string | null {
   const producer = product.data.product_producer;
@@ -59,7 +81,9 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
     product_restaurant_availability,
     product_region,
     product_style,
+    product_grapes,
     product_special_club,
+    product_ecologic,
     product_year,
     product_volume,
   } = product.data;
@@ -80,8 +104,12 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
       return product_region ? [product_region] : [];
     case "style":
       return product_style ? [product_style] : [];
+    case "grape":
+      return product_grapes.flatMap((entry) => (entry.grape ? [entry.grape] : []));
     case "club":
       return product_special_club === "Yes" ? ["yes"] : [];
+    case "ecologic":
+      return product_ecologic === "Yes" ? ["yes"] : [];
     case "year":
       return product_year?.trim() ? [product_year.trim()] : [];
     case "volume":
@@ -107,7 +135,13 @@ export function deriveFilterGroups(products: ProductDocument[]): FilterGroup[] {
       case "availability":
         options = AVAILABILITY_OPTIONS.filter((option) => present.has(option.value));
         break;
+      case "grape":
+        options = sortByKnownOrder([...present], GRAPE_ORDER).map((value) => ({ value, label: value }));
+        break;
       case "club":
+        options = present.has("yes") ? [{ value: "yes", label: "Ja" }] : [];
+        break;
+      case "ecologic":
         options = present.has("yes") ? [{ value: "yes", label: "Ja" }] : [];
         break;
       case "year":
@@ -166,17 +200,16 @@ export type SearchDoc = {
 
 export function buildSearchIndex(products: ProductDocument[]): SearchDoc[] {
   return products.map((product) => {
-    const { product_name, product_region, product_style, product_grapes, product_dosage, product_article_number } =
-      product.data;
+    const { product_name, product_region, product_style, product_dosage, product_article_number } = product.data;
     const primary = normalizeText(product_name ?? "");
     const secondary = normalizeText(
       [
         producerNameOf(product),
         product_region,
         product_style,
-        product_grapes,
         product_dosage,
         product_article_number,
+        ...facetValues(product, "grape"),
         ...facetValues(product, "year"),
       ]
         .filter(Boolean)

@@ -14,7 +14,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "asdf"
+                  "value": "Membership"
                 }
               ],
               [
@@ -35,10 +35,9 @@
           {
             "type": "heading2",
             "content": {
-              "text": "asdf",
+              "text": "Join the club",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -48,10 +47,9 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "asdf",
+              "text": "A focused message with room to explain the value and invite the next step.",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -69,7 +67,7 @@
                   "value": {
                     "__TYPE__": "ExternalLink",
                     "url": "a",
-                    "text": "asdf"
+                    "text": "Get started"
                   }
                 }
               ],
@@ -168,7 +166,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "basket",
+                  "value": "Featured",
                   "type": "Text"
                 }
               ]
@@ -182,7 +180,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Found"
+              "text": "Made with intention",
+              "spans": []
             }
           }
         ]
@@ -193,7 +192,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Excepteur enim deserunt ut laboris sint nulla. Minim cupidatat tempor non officia enim deserunt excepteur in ipsum reprehenderit."
+              "text": "A focused message with room to explain the value and invite the next step.",
+              "spans": []
             }
           }
         ]
@@ -212,7 +212,7 @@
                   "value": {
                     "__TYPE__": "ExternalLink",
                     "url": "http://twitter.com",
-                    "text": "eventually"
+                    "text": "Learn more"
                   }
                 }
               ],
@@ -323,7 +323,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "away",
+                  "value": "Highlight",
                   "type": "Text"
                 }
               ],
@@ -345,7 +345,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Swimming"
+              "text": "A closer look",
+              "spans": []
             }
           }
         ]
@@ -356,7 +357,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Veniam anim adipisicing qui Lorem."
+              "text": "Everything you need, in one place.",
+              "spans": []
             }
           }
         ]
@@ -375,7 +377,7 @@
                   "value": {
                     "__TYPE__": "ExternalLink",
                     "url": "http://twitter.com",
-                    "text": "price"
+                    "text": "See details"
                   }
                 }
               ],
@@ -538,7 +540,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "trail",
+                  "value": "Get in touch",
                   "type": "Text"
                 }
               ]
@@ -552,7 +554,8 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Hospital"
+              "text": "Let's talk",
+              "spans": []
             }
           }
         ]
@@ -563,7 +566,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Dolore exercitation do Lorem cillum esse tempor elit non commodo nisi. Ex reprehenderit aliqua eiusmod commodo culpa veniam officia non mollit occaecat sit Lorem non exercitation velit."
+              "text": "Pair a clear headline with a few supporting sentences to guide readers toward the action that matters most. Keep it concise, specific, and easy to scan.",
+              "spans": []
             }
           }
         ]
@@ -582,7 +586,7 @@
                   "value": {
                     "__TYPE__": "ExternalLink",
                     "url": "https://slicemachine.dev",
-                    "text": "does"
+                    "text": "Contact us"
                   }
                 }
               ],
@@ -625,14 +629,14 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "lockKeyholeOpen"
+                  "value": "phoneCall"
                 }
               ],
               [
                 "label",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "lift",
+                  "value": "Phone",
                   "type": "Text"
                 }
               ],
@@ -640,7 +644,7 @@
                 "value",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "tax",
+                  "value": "+46 8 123 45 67",
                   "type": "Text"
                 }
               ],
@@ -662,7 +666,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "crown"
+                  "value": "mail"
                 }
               ],
               [
@@ -670,7 +674,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "safsdf"
+                  "value": "Email"
                 }
               ],
               [
@@ -686,7 +690,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "sadf"
+                  "value": "hello@example.com"
                 }
               ]
             ]
@@ -699,7 +703,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "briefcaseBusiness"
+                  "value": "houseHeart"
                 }
               ],
               [
@@ -707,7 +711,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "sfasdf"
+                  "value": "Visit"
                 }
               ],
               [
@@ -715,7 +719,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Text",
-                  "value": "aaaa"
+                  "value": "1 Example Street, Stockholm"
                 }
               ],
               [
@@ -761,10 +765,9 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Champagnehusets vinklubb",
+              "text": "What's included",
               "spans": []
-            },
-            "direction": "ltr"
+            }
           }
         ]
       },
@@ -774,7 +777,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "För människor som vill upptäcka mer.",
+              "text": "For people who like to discover something new.",
               "spans": []
             },
             "direction": "ltr"
@@ -811,7 +814,7 @@
                   "value": {
                     "__TYPE__": "ExternalLink",
                     "url": "sdf",
-                    "text": "asf"
+                    "text": "Learn more"
                   }
                 }
               ]
@@ -841,10 +844,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Nyheter",
+                        "text": "Early access to new arrivals",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -870,10 +872,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Rekommendationer",
+                        "text": "Personal recommendations, chosen for you",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -899,10 +900,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Inbjudningar",
+                        "text": "Invitations to tastings and events",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }
@@ -928,10 +928,9 @@
                     {
                       "type": "paragraph",
                       "content": {
-                        "text": "Rekommendationer",
+                        "text": "A simple guide to getting started",
                         "spans": []
-                      },
-                      "direction": "ltr"
+                      }
                     }
                   ]
                 }

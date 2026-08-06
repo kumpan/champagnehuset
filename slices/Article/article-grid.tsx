@@ -6,7 +6,7 @@ import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 import { ArticleCard } from "./article-card";
-import { PAGE_SIZE } from "./constants";
+import { PAGE_SIZE, tagLabel } from "./constants";
 import { Pagination } from "./pagination";
 
 // Entering cards hold ENTER_LEAD before their staggered entrance.
@@ -103,7 +103,7 @@ export function ArticleGrid({
           </ChipButton>
           {availableTags.map((tag) => (
             <ChipButton key={tag} active={activeTag === tag} theme={sectionTheme} onClick={() => selectTag(tag)}>
-              {tag}
+              {tagLabel(tag)}
             </ChipButton>
           ))}
         </div>
