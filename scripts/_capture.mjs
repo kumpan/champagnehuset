@@ -1,7 +1,9 @@
 // TEMPORARY slice-screenshot engine — safe to delete.
 // Renders each slice variation via /slice-simulator/shot?state=... in headless
 // Chrome (CDP over Node's built-in WebSocket — no npm deps), waits for fonts +
-// images, then captures the FULL slice height to slices/<Slice>/screenshot-<id>.png.
+// images, then captures a fixed 1200x700 top-aligned frame to
+// slices/<Slice>/screenshot-<id>.png. Slices taller than 700px are cropped at
+// the bottom; shorter slices sit at the top of the frame.
 //
 // Usage:
 //   node scripts/_capture.mjs <baseUrl> [SliceDir[:variation] ...]
@@ -19,7 +21,8 @@ const { renderSliceMock } = mocksPkg;
 const LZString = lzPkg;
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const WIDTH = 1280;
+const WIDTH = 1200; // fixed capture width
+const HEIGHT = 700; // fixed capture height — every screenshot is 1200x700, top-aligned
 const SCALE = 1; // 1x keeps committed screenshots lean; plenty for thumbnails
 const baseUrl = process.argv[2] || "http://localhost:57285";
 const filters = process.argv.slice(3); // e.g. "Hero" or "Hero:backdrop"
@@ -121,7 +124,7 @@ async function main() {
     console.error("No jobs matched.");
     process.exit(1);
   }
-  console.log(`Capturing ${jobs.length} slice screenshots @ ${WIDTH}px x${SCALE} ...`);
+  console.log(`Capturing ${jobs.length} slice screenshots @ ${WIDTH}x${HEIGHT} x${SCALE} ...`);
 
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "shot-chrome-"));
   const port = 9333;
@@ -193,11 +196,13 @@ async function main() {
       // Load + wait + measure, retried once to survive transient blanks / cold compiles.
       let found = false, bottom = 0, err = false;
       for (let attempt = 1; attempt <= 2 && !found; attempt++) {
-        // Set the real capture width BEFORE loading so responsive layout (and thus
-        // measured height) reflects the 1280px breakpoint, not the headless default.
+        // Set the real capture width BEFORE loading so responsive layout reflects
+        // the 1200px viewport, not the headless default. Taller "fold" here just
+        // lets content-height detection see the full slice; the final capture is
+        // always clipped to a fixed HEIGHT.
         await session.send("Emulation.setDeviceMetricsOverride", {
           width: WIDTH,
-          height: 900, // working "fold" — viewport-bound slices capture at this
+          height: 900, // working "fold" — viewport-bound slices render into this
           deviceScaleFactor: SCALE,
           mobile: false,
         });
@@ -261,11 +266,12 @@ async function main() {
         results.push({ ...job, ok: false, error: err ? "error page" : "empty render" });
         continue;
       }
-      const height = Math.max(320, Math.min(bottom, 6000));
-
+      // Fixed 1200x700 frame, top-aligned. Resize the viewport to HEIGHT so
+      // viewport-bound slices (min-h-screen / 100vh) fill exactly the frame, then
+      // clip the top HEIGHT px — anything below is cropped off.
       await session.send("Emulation.setDeviceMetricsOverride", {
         width: WIDTH,
-        height,
+        height: HEIGHT,
         deviceScaleFactor: SCALE,
         mobile: false,
       });
@@ -273,11 +279,12 @@ async function main() {
       const shot = await session.send("Page.captureScreenshot", {
         format: "png",
         captureBeyondViewport: true,
-        clip: { x: 0, y: 0, width: WIDTH, height, scale: 1 },
+        clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT, scale: 1 },
       });
       fs.writeFileSync(job.out, Buffer.from(shot.data, "base64"));
-      console.log(`  ✓ ${job.dir}/${job.variation}  (${WIDTH}x${height})  -> ${job.out}`);
-      results.push({ ...job, height, ok: true });
+      const cropped = bottom > HEIGHT ? ` (cropped from ${bottom}px)` : "";
+      console.log(`  ✓ ${job.dir}/${job.variation}  (${WIDTH}x${HEIGHT})${cropped}  -> ${job.out}`);
+      results.push({ ...job, height: HEIGHT, ok: true });
     } catch (e) {
       console.error(`  ✗ ${job.dir}/${job.variation}: ${e.message}`);
       results.push({ ...job, ok: false, error: e.message });
