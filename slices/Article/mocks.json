@@ -79,7 +79,7 @@
       },
       "link_label": {
         "__TYPE__": "FieldContent",
-        "value": "Read more",
+        "value": "Läs hela artikeln",
         "type": "Text"
       }
     },
@@ -134,7 +134,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Journal",
+                  "value": "Journalen",
                   "type": "Text"
                 }
               ]
@@ -148,7 +148,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Stories & guides",
+              "text": "Berättelser och guider från Champagnes värld",
               "spans": []
             }
           }
@@ -160,7 +160,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Thoughtful writing on the ideas, people, and craft behind what we do.",
+              "text": "Tankeväckande texter om regionerna, odlarna och hantverket bakom champagnen i ditt glas.",
               "spans": []
             }
           }
@@ -179,8 +179,8 @@
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "http://twitter.com",
-                    "text": "still"
+                    "url": "https://champagnehuset.se/journal",
+                    "text": "Läs alla artiklar"
                   }
                 }
               ],
