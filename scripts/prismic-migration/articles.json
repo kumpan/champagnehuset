@@ -87,97 +87,97 @@
     },
     {
       "uid": "valj-ratt-till-maten",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Så väljer du rätt champagne till maten",
       "description": "Från friterat till fint marmorerat kött – en praktisk guide till hur syra, dosage och mognad samspelar med tallriken."
     },
     {
       "uid": "dosagenivaer-forklarade",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Guide: dosagenivåerna förklarade",
       "description": "Brut nature, extra brut, brut, sec... Vad betyder egentligen orden på etiketten? Vi reder ut sötman från torrast till sötast."
     },
     {
       "uid": "grand-cru-vs-premier-cru",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Grand Cru vs Premier Cru – vad är skillnaden?",
       "description": "Klassificeringen bygger på byn där druvorna växer. Vi förklarar systemet och vad det betyder för det du häller upp i glaset."
     },
     {
       "uid": "servera-champagne-ratt",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Så serverar du champagne på bästa sätt",
       "description": "Rätt temperatur, rätt glas och konsten att öppna flaskan utan smäll. Små detaljer som gör stor skillnad för smaken."
     },
     {
       "uid": "forvaring-nyborjarguide",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Förvaring av champagne – en nybörjarguide",
       "description": "Mörkt, svalt och liggande? Vi går igenom hur du förvarar dina flaskor och hur länge de faktiskt mår bra av att vänta."
     },
     {
       "uid": "blanc-de-noirs-och-rose",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Blanc de Blancs, Blanc de Noirs och rosé",
       "description": "Tre stilar, tre karaktärer. En introduktion till hur druvvalet formar allt från färg till fyllighet och doft."
     },
     {
       "uid": "las-etiketten",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Lär dig läsa champagneetiketten",
       "description": "RM, NM, brut, millésime – etiketten är full av ledtrådar. Vi tyder koderna så att du vet vad du köper."
     },
     {
       "uid": "champagne-i-matlagning",
-      "tag": "Guide",
+      "tag": "Tips",
       "title": "Champagne i matlagningen",
       "description": "Bubblet gör sig lika bra i grytan som i glaset. Tips på hur du använder champagne i såser, buljonger och desserter."
     },
     {
       "uid": "kramig-chardonnay-cote-des-blancs",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Provningsnoter: krämig Chardonnay från Côte des Blancs",
       "description": "Citrus, gröna äpplen och en fläkt av brioche. Vi sätter ord på en elegant Blanc de Blancs med lång, mineralisk avslutning."
     },
     {
       "uid": "kraftfull-pinot-montagne-de-reims",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Smakprofil: kraftfull Pinot Noir från Montagne de Reims",
       "description": "Röda bär, brödskorpa och en stram struktur. En champagne med tyngd och längd som klarar rejäl mat."
     },
     {
       "uid": "tre-mogna-argangar",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Tre mogna årgångar i jämförelse",
       "description": "Vi öppnar tre vintagechampagner med tio års skillnad och följer hur nötighet, honung och mognad utvecklas över tid."
     },
     {
       "uid": "brut-nature-utan-dosage",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Brut nature: champagne helt utan dosage",
       "description": "Raka, salta och kompromisslösa. Vi provar en handfull cuvéer utan tillsatt socker och utforskar vad terroiren har att säga."
     },
     {
       "uid": "rose-smakprofil",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Rosé i glaset: från bär till struktur",
       "description": "Smultron, blodapelsin och en aning örter. Vi beskriver hur en välgjord rosé balanserar frukt och friskhet."
     },
     {
       "uid": "cote-des-bar-terroir",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Côte des Bar i glaset – terroir längst i söder",
       "description": "Den sydligaste delen av Champagne ger fylliga, solmogna uttryck. Vi provar oss fram genom regionens karaktär."
     },
     {
       "uid": "sommar-aperitif",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Fem bubblor för sommarens aperitif",
       "description": "Lätta, friska och lättdruckna. Vårt urval av champagner som lyfter den ljumma kvällen innan maten ens serverats."
     },
     {
       "uid": "vintervarmande-cuveer",
-      "tag": "Tasting",
+      "tag": "Event",
       "title": "Vintervärmande cuvéer med mognad",
       "description": "När kylan biter passar de fylliga, nötiga champagnerna bäst. Vi tipsar om flaskor med värme, djup och lång eftersmak."
     }
