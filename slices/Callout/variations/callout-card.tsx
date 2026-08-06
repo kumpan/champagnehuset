@@ -2,24 +2,53 @@ import { type Content, isFilled } from "@prismicio/client";
 
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { Section, type SectionTheme } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
 
 type Props = CalloutProps & { slice: Content.CalloutSliceCard };
 
-const cardSurfaceClasses: Record<string, string> = {
-  Bud: "bg-fill-raised text-ink-flip",
-  Dust: "bg-accent-fill-raised text-accent-ink-flip",
+const containerClasses: Record<string, string> = {
+  Bud: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
+  Leaf: "bg-fill md:bg-fill/85 md:backdrop-brightness-110",
+  Brand: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
+  Dust: "bg-spot-fill md:bg-spot-fill/92 md:backdrop-brightness-50",
+  Slate: "bg-spot-fill-raised md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
+};
+
+const introClasses: Record<SectionTheme, SectionTheme> = {
+  Bud: "Bud",
+  Leaf: "Leaf",
+  Brand: "Leaf",
+  Dust: "Slate",
+  Slate: "Dust",
 };
 
 export function CalloutCard({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { title, description, buttons, overline, alignment, section_theme, remove_top_padding, media } = slice.primary;
+  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding, media } = slice.primary;
   const { image, video, filter } = media[0] ?? {};
-
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
+
+  // Card horizontal placement over the media (desktop). Text (and the card's items)
+  // are centered only when the card is centered; left and right keep text left-aligned.
+  const isCenter = alignment === "Center";
+  const isRight = alignment === "Right";
+
+  const intro = hasIntroContent && (
+    <SectionIntro
+      overline={overline}
+      title={title}
+      description={description}
+      buttons={buttons}
+      align={isCenter ? "center" : "left"}
+      sectionTheme={introClasses[section_theme]}
+      className="w-full"
+      titleMaxWidth={false}
+      textBalance
+    />
+  );
 
   return (
     <Section
@@ -29,52 +58,49 @@ export function CalloutCard({ slice }: Props) {
       sectionTheme={section_theme}
     >
       <Container>
-        <div
-          className={cn(
-            "relative flex min-h-96 flex-col justify-end overflow-hidden rounded-5 px-4 py-4 md:min-h-120 md:px-16 md:py-16",
-            !hasMedia && cardSurfaceClasses[section_theme],
-            alignment ? "items-center" : "items-start",
-          )}
-        >
-          {hasMedia && (
-            <div className="pointer-events-none absolute inset-0 bg-fill-dark" aria-hidden>
-              {image && isFilled.image(image) && (
-                <div className="relative h-full w-full">
-                  <CustomMedia
-                    imageField={image}
-                    videoSrc={video && isFilled.linkToMedia(video) ? video.url : undefined}
-                    className="h-full w-full"
-                    preload
-                    sectionTheme={section_theme}
-                    thumbnail="horizontal md:main"
-                    filter={filter}
-                  />
-                </div>
-              )}
-              {hasIntroContent && (
-                <>
-                  <div className="absolute top-40 right-0 bottom-0 left-0 bg-linear-to-t from-brand/75 to-brand/0 mix-blend-overlay" />
-                  <div className="absolute top-40 right-0 bottom-0 left-0 bg-linear-to-t from-brand/5 to-brand/0" />
-                  <div className="absolute top-32 right-0 bottom-0 left-0 bg-linear-to-t from-fill-dark/80 to-fill-dark/0" />
-                </>
-              )}
+        {hasMedia ? (
+          <div
+            className={cn(
+              "flex flex-col gap-2 md:relative md:min-h-136 md:flex-row md:items-center md:gap-0 md:overflow-hidden md:rounded-2 md:p-6 lg:min-h-152",
+              isCenter ? "md:justify-center" : isRight ? "md:justify-end" : "md:justify-start",
+            )}
+          >
+            <div className="relative aspect-square w-full overflow-hidden rounded-2 md:absolute md:inset-0 md:aspect-auto md:h-full md:rounded-0">
+              <CustomMedia
+                imageField={isFilled.linkToMedia(video) ? undefined : image}
+                videoSrc={isFilled.linkToMedia(video) ? video.url : undefined}
+                className="h-full w-full rounded-0"
+                preload
+                sectionTheme={section_theme}
+                thumbnail="square md:main"
+                filter={filter}
+              />
             </div>
-          )}
-          {hasIntroContent && (
-            <SectionIntro
-              overline={overline}
-              title={title}
-              description={description}
-              buttons={buttons}
-              align={alignment ? "center" : "left"}
-              sectionTheme={hasMedia ? "Bud" : section_theme}
-              className="relative w-full"
-              titleMaxWidth={false}
-              textBalance={true}
-              buttonVariant={hasMedia ? "secondary" : "default"}
-            />
-          )}
-        </div>
+
+            {intro && (
+              <div
+                className={cn(
+                  "relative z-20 w-full rounded-2 p-4 md:w-auto md:p-8 md:backdrop-blur-md",
+                  containerClasses[section_theme],
+                  isCenter ? "md:max-w-lg" : "md:max-w-md",
+                )}
+              >
+                {intro}
+              </div>
+            )}
+          </div>
+        ) : (
+          // No media
+          <div
+            className={cn(
+              "flex min-h-96 items-center rounded-2 p-6 md:min-h-120 md:p-12",
+              containerClasses[section_theme],
+              isCenter ? "justify-center text-center" : isRight ? "justify-end" : "justify-start",
+            )}
+          >
+            {intro && <div className={cn("w-full", isCenter ? "max-w-3xl" : "max-w-2xl")}>{intro}</div>}
+          </div>
+        )}
       </Container>
     </Section>
   );

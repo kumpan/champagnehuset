@@ -3713,15 +3713,15 @@ export interface CalloutSliceCardPrimary {
   >;
 
   /**
-   * Center Text field in *Callout → Card → Primary*
+   * Alignment field in *Callout → Card → Primary*
    *
-   * - **Field Type**: Boolean
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: true
+   * - **Default Value**: Left
    * - **API ID Path**: callout.card.primary.alignment
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  alignment: prismic.BooleanField;
+  alignment: prismic.SelectField<"Left" | "Center" | "Right", "filled">;
 
   /**
    * Overline field in *Callout → Card → Primary*

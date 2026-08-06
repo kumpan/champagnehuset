@@ -624,12 +624,12 @@
           }
         },
         "alignment": {
-          "type": "Boolean",
+          "type": "Select",
           "config": {
-            "label": "Center Text",
-            "placeholder_false": "Text is Left-Aligned",
-            "placeholder_true": "Text is Centered",
-            "default_value": true
+            "label": "Alignment",
+            "placeholder": "",
+            "options": ["Left", "Center", "Right"],
+            "default_value": "Left"
           }
         },
         "overline": {
@@ -867,10 +867,16 @@
                 "type": "Image",
                 "config": {
                   "label": "Image",
-                  "thumbnails": [],
+                  "thumbnails": [
+                    {
+                      "name": "square",
+                      "width": 1440,
+                      "height": 1440
+                    }
+                  ],
                   "constraint": {
                     "width": 1440,
-                    "height": 1440
+                    "height": 960
                   }
                 }
               },

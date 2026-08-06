@@ -298,171 +298,6 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "card",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Bud",
-        "type": "Select"
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "overline": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "overline_text",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "Månadens flaska",
-                  "type": "Text"
-                }
-              ],
-              [
-                "overline_icon",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading2",
-            "content": {
-              "text": "Månadens flaska: en champagne värd att upptäcka",
-              "spans": []
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Varje månad lyfter vi fram en champagne med extra allt — odlarens historia, druvorna bakom och våra bästa serveringstips.",
-              "spans": []
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "ef46a100-8ce9-4904-b533-e20c12b3a505",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://champagnehuset.se/champagne",
-                    "text": "Se flaskan"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "default",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "none",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "chevronLeft",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "media": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "filter",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "Top Left",
-                  "type": "Select"
-                }
-              ],
-              [
-                "image",
-                {
-                  "origin": {
-                    "id": "main",
-                    "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-                    "width": 3882,
-                    "height": 2584
-                  },
-                  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?rect=649%2C0%2C2584%2C2584&w=1440&h=1440",
-                  "width": 1440,
-                  "height": 1440,
-                  "edit": {
-                    "zoom": 1,
-                    "crop": {
-                      "x": 649,
-                      "y": 0
-                    },
-                    "background": "transparent"
-                  },
-                  "alt": "composition",
-                  "credits": null,
-                  "__TYPE__": "ImageContent",
-                  "thumbnails": {}
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
     "variation": "contact",
     "primary": {
       "remove_top_padding": {
@@ -987,6 +822,173 @@
       "image_side": {
         "__TYPE__": "BooleanContent",
         "value": false
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "card",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Bud"
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "overline": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "overline_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Månadens flaska",
+                  "type": "Text"
+                }
+              ],
+              [
+                "overline_icon",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "cherry"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading3",
+            "content": {
+              "text": "Månadens flaska: en champagne värd att upptäcka",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Varje månad lyfter vi fram en champagne med extra allt — odlarens historia, druvorna bakom och våra bästa serveringstips.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "ef46a100-8ce9-4904-b533-e20c12b3a505",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://champagnehuset.se/champagne",
+                    "text": "Se flaskan"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "default",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "none",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "circleStar"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Top Left",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1639048759498-22f2068d00ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1OTY2NTc2fDA&ixlib=rb-4.1.0&q=85&rect=0%2C896%2C3585%2C3585&w=1440&h=1440",
+                  "alt": "a table topped with glasses of wine and lemons",
+                  "origin": {
+                    "id": "cNxObP-3HPE",
+                    "url": "https://images.unsplash.com/photo-1639048759498-22f2068d00ff?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1OTY2NTc2fDA&ixlib=rb-4.1.0&q=85",
+                    "width": 3585,
+                    "height": 5377
+                  },
+                  "width": 1440,
+                  "height": 1440,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 896
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {}
+                }
+              ]
+            ]
+          }
+        ]
       }
     },
     "items": [
