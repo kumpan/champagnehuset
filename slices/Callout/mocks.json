@@ -845,8 +845,9 @@
         "value": "Bud"
       },
       "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Center"
       },
       "overline": {
         "__TYPE__": "GroupContentType",
@@ -880,7 +881,7 @@
           {
             "type": "heading3",
             "content": {
-              "text": "Månadens flaska: en champagne värd att upptäcka",
+              "text": "Kämpa grönska agil trevlig vinter kämpa, pilsner fredagsöl vatten",
               "spans": []
             },
             "direction": "ltr"

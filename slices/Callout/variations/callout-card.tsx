@@ -82,7 +82,7 @@ export function CalloutCard({ slice }: Props) {
                 className={cn(
                   "relative z-20 w-full rounded-2 p-4 md:w-auto md:p-8 md:backdrop-blur-md",
                   containerClasses[section_theme],
-                  isCenter ? "md:max-w-lg" : "md:max-w-md",
+                  isCenter ? "md:max-w-144" : "md:max-w-128",
                 )}
               >
                 {intro}
