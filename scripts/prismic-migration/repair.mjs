@@ -59,7 +59,7 @@ for (const rawProduct of data.products) {
     continue;
   }
   const payload = {
-    title: `Product: ${product.name} (${product.producer})`,
+    title: `${product.name} (${product.producer})`,
     uid: product.uid,
     tags: [TAG],
     data: buildProductData(product, { link_type: "Document", id: producerIds[product.producer] }, assets),

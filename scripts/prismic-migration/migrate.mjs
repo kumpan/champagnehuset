@@ -24,7 +24,20 @@
  */
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import * as prismic from "@prismicio/client";
-import { buildProductData, compact, fetchBottleAssets, fillTestDefaults, REPO, richText, TAG } from "./lib.mjs";
+import {
+  buildProductData,
+  compact,
+  fetchBottleAssets,
+  fetchTempAssets,
+  fillTestDefaults,
+  imageField,
+  META_CONSTRAINT,
+  PRODUCER_IMAGE_CONSTRAINT,
+  pickTemp,
+  REPO,
+  richText,
+  TAG,
+} from "./lib.mjs";
 
 const writeToken = process.env.PRISMIC_WRITE_TOKEN;
 if (!writeToken) {
@@ -49,6 +62,7 @@ const publishedProductUids = new Set(publishedProducts.map((doc) => doc.uid));
 console.log(`Published: ${publishedProducers.length} producers, ${publishedProducts.length} products`);
 
 const assets = await fetchBottleAssets(writeToken);
+const tempAssets = await fetchTempAssets(writeToken);
 const migration = prismic.createMigration();
 
 // --- Producers -----------------------------------------------------------
@@ -72,9 +86,13 @@ for (const producer of data.producers) {
         producer_region: producer.region,
         producer_village: producer.village,
         producer_bio: producer.bio.length > 0 ? richText(producer.bio) : undefined,
+        producer_image: imageField(pickTemp(producer.uid, tempAssets), producer.name, PRODUCER_IMAGE_CONSTRAINT),
+        meta_title: producer.name,
+        meta_description: producer.bio[0]?.slice(0, 150),
+        meta_image: imageField(pickTemp(producer.uid, tempAssets), producer.name, META_CONSTRAINT),
       }),
     },
-    `Producer: ${producer.name}`,
+    producer.name,
   );
 }
 
@@ -96,7 +114,7 @@ for (const rawProduct of data.products) {
       tags: [TAG],
       data: buildProductData(product, producerRefs[product.producer], assets),
     },
-    `Product: ${product.name} (${product.producer})`,
+    `${product.name} (${product.producer})`,
   );
 }
 

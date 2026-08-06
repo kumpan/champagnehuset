@@ -85,6 +85,29 @@ export function pickArticleImage(uid, assets) {
   return assets[hash(`${uid}img`) % assets.length];
 }
 
+// --- Producers / placeholder images --------------------------------------
+
+/** The producer type's Image constraint (customtypes/producer/index.json). */
+export const PRODUCER_IMAGE_CONSTRAINT = { width: 800, height: 600 };
+
+/** Existing temp-0X placeholder assets from the media library (reused, never re-uploaded). */
+export async function fetchTempAssets(writeToken) {
+  const response = await fetch("https://asset-api.prismic.io/assets?limit=100&keyword=temp", {
+    headers: { Authorization: `Bearer ${writeToken}`, repository: REPO },
+  });
+  if (!response.ok) throw new Error(`Asset API ${response.status}: ${await response.text()}`);
+  const assets = (await response.json()).items
+    .filter((asset) => /^temp-\d+\.(png|jpe?g|webp)$/i.test(asset.filename))
+    .sort((a, b) => a.filename.localeCompare(b.filename));
+  if (assets.length === 0) throw new Error("No temp-0X assets found in the media library");
+  return assets;
+}
+
+/** Deterministic temp-0X asset per uid (stable across reruns). */
+export function pickTemp(uid, assets) {
+  return assets[hash(uid) % assets.length];
+}
+
 /**
  * Deterministic "random" date per uid, as an ISO YYYY-MM-DD string.
  * Spread across the window [from, to] so cards sort and read plausibly.
@@ -99,6 +122,48 @@ export function randomDate(uid, from = "2024-08-01", to = "2026-07-20") {
 
 export function richText(paragraphs) {
   return paragraphs.map((text) => ({ type: "paragraph", text, spans: [] }));
+}
+
+// --- Grapes & SEO --------------------------------------------------------
+
+/** Generic SEO meta image constraint, shared by every page-format type. */
+export const META_CONSTRAINT = { width: 2400, height: 1260 };
+
+/**
+ * Maps blend names used in the source ("Pinot Meunier", "Fromenteau") to the
+ * grape Select option values in customtypes/product/index.json. More specific
+ * patterns come first so "Pinot Meunier" isn't caught by the "Pinot …" rules.
+ */
+const GRAPE_ALIASES = [
+  [/pinot\s*meunier|\bmeunier\b/i, "Meunier"],
+  [/chardonnay/i, "Chardonnay"],
+  [/pinot\s*noir/i, "Pinot Noir"],
+  [/pinot\s*blanc/i, "Pinot Blanc"],
+  [/pinot\s*gris|fromenteau/i, "Pinot Gris"],
+  [/petit\s*meslier/i, "Petit Meslier"],
+  [/arbane|arbanne/i, "Arbane"],
+];
+
+/**
+ * Parse a free-text blend ("60% Pinot Noir, 40% Chardonnay") into the product
+ * type's repeatable grape Group: [{ grape: "Pinot Noir" }, { grape: "Chardonnay" }].
+ * Percentages are dropped (the field is varieties-only); order is preserved and
+ * de-duplicated. Returns [] when nothing matches.
+ */
+export function parseGrapes(input) {
+  if (!input) return [];
+  const seen = new Set();
+  const out = [];
+  for (const part of String(input).split(/[,/]|\band\b|\boch\b/i)) {
+    for (const [pattern, value] of GRAPE_ALIASES) {
+      if (pattern.test(part) && !seen.has(value)) {
+        seen.add(value);
+        out.push({ grape: value });
+        break;
+      }
+    }
+  }
+  return out;
 }
 
 /** Drop undefined values so optional fields are simply omitted. */
@@ -117,7 +182,6 @@ export function fillTestDefaults(product) {
   const filled = { ...product };
 
   filled.articleNumber ??= String(70000 + (hash(`${uid}art`) % 29999));
-  filled.price ??= String(399 + (hash(`${uid}price`) % 8) * 50);
   filled.alcohol ??= pickFrom(["12", "12,5"], `${uid}alc`);
   filled.dosageLevel ??= "Brut";
   filled.dosageGrams ??= String(4 + (hash(`${uid}dos`) % 5));
@@ -129,6 +193,7 @@ export function fillTestDefaults(product) {
   filled.consumer ??= pickFrom(["Systembolaget", "Private Import"], `${uid}con`);
   filled.restaurant ??= pickFrom(["Available", "Sold Out"], `${uid}res`);
   filled.grapes ??= "50% Pinot Noir, 30% Chardonnay, 20% Pinot Meunier";
+  filled.ecologic ??= pickFrom(["Yes", "No"], `${uid}eco`);
   filled.year ??= String(2012 + (hash(`${uid}year`) % 10));
   filled.orderUrl ??= "https://www.systembolaget.se/";
   if (filled.description.length === 0) {
@@ -147,9 +212,8 @@ export function buildProductData(product, producerRef, assets) {
     product_image: imageField(pickBottle(product.uid, assets), product.name),
     product_producer: producerRef,
     product_article_number: product.articleNumber,
-    product_price: product.price,
     product_volume: product.volume,
-    product_grapes: product.grapes,
+    product_grapes: parseGrapes(product.grapes),
     product_dosage: product.dosageLevel,
     product_dosage_grams: product.dosageGrams,
     product_alcohol: product.alcohol,
@@ -157,6 +221,7 @@ export function buildProductData(product, producerRef, assets) {
     product_cru: product.cru,
     product_style: product.style,
     product_special_club: product.club,
+    product_ecologic: product.ecologic,
     product_vintage: product.vintage,
     product_year: product.year,
     product_consumer_availability: product.consumer,
@@ -164,7 +229,8 @@ export function buildProductData(product, producerRef, assets) {
     product_storage: product.storage,
     product_order_url: product.orderUrl ? { link_type: "Web", url: product.orderUrl, target: "_blank" } : undefined,
     product_description: product.description.length > 0 ? richText(product.description) : undefined,
-    meta_title: `${product.name} – ChampagneHuset`,
+    meta_title: product.name,
     meta_description: product.description[0]?.slice(0, 150),
+    meta_image: imageField(pickBottle(product.uid, assets), product.name, META_CONSTRAINT),
   });
 }

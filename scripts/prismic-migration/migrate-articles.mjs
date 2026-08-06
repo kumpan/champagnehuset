@@ -85,12 +85,12 @@ for (const article of articles) {
         article_date: randomDate(article.uid),
         tag: article.tag,
         parent: parentRef,
-        meta_title: `${article.title} – ChampagneHuset`,
+        meta_title: article.title,
         meta_description: article.description.slice(0, 150),
         meta_image: imageField(asset, article.title, ARTICLE_META_CONSTRAINT),
       }),
     },
-    `Article: ${article.title} [${article.tag}]`,
+    article.title,
   );
 }
 
