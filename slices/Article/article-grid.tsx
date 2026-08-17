@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, easeInOut, m, spring, useInView, useReducedMotion } from "motion/react";
-import { useMemo, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
@@ -48,6 +49,8 @@ type ArticleGridProps = {
   sectionTheme: SectionTheme;
   showPagination: boolean;
   showChips: boolean;
+  /** Resolved server-side from `?page=N`, so page 2+ is in the server HTML. */
+  currentPage: number;
   className?: string;
 };
 
@@ -57,6 +60,7 @@ export function ArticleGrid({
   sectionTheme,
   showPagination,
   showChips,
+  currentPage: pageFromUrl,
   className,
 }: ArticleGridProps) {
   const reducedMotion = useReducedMotion();
@@ -65,8 +69,14 @@ export function ArticleGrid({
   // instead of waiting for another scroll.
   const inView = useInView(gridRef, { once: true, amount: 0.15 });
 
+  const pathname = usePathname();
+  const router = useRouter();
+  const buildHref = useCallback(
+    (target: number) => (target <= 1 ? pathname : `${pathname}?page=${target}`),
+    [pathname],
+  );
+
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
 
   // Only tags actually present, in canonical order, so no empty chips.
   const availableTags = useMemo(() => {
@@ -80,14 +90,17 @@ export function ArticleGrid({
   );
 
   const totalPages = showPagination ? Math.max(1, Math.ceil(filtered.length / PAGE_SIZE)) : 1;
-  const currentPage = Math.min(page, totalPages);
+  // A filter narrows the feed, so a `?page=` deep-link can land past the end.
+  const currentPage = Math.min(Math.max(1, pageFromUrl), totalPages);
   const visible = showPagination
     ? filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
     : filtered.slice(0, PAGE_SIZE);
 
+  // Chips filter client-side, so a tag change invalidates the current page
+  // window — drop `?page` and fall back to page 1.
   const selectTag = (tag: string | null) => {
     setActiveTag(tag);
-    setPage(1);
+    if (pageFromUrl > 1) router.replace(pathname, { scroll: false });
   };
 
   const chips = showChips && availableTags.length > 0;
@@ -129,7 +142,12 @@ export function ArticleGrid({
       </div>
 
       {showPagination && totalPages > 1 && (
-        <Pagination currentPage={currentPage} totalPages={totalPages} sectionTheme={sectionTheme} onChange={setPage} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          sectionTheme={sectionTheme}
+          buildHref={buildHref}
+        />
       )}
     </div>
   );

@@ -23,10 +23,13 @@ export async function proxy(request: NextRequest) {
 
   const [locales, master] = await Promise.all([getLocales(), getMasterLocale()]);
 
-  // Redirect explicit master locale prefix to clean URL, e.g. /sv-se/about to /about
+  // Redirect explicit master locale prefix to clean URL, e.g. /sv-se/about to /about.
+  // Cloning keeps the query string (?page=2 and friends) — building a fresh URL
+  // from the pathname alone would silently drop it.
   if (pathname.startsWith(`/${master}/`) || pathname === `/${master}`) {
-    const clean = pathname.slice(master.length + 1) || "/";
-    return NextResponse.redirect(new URL(clean, request.url), 301);
+    const clean = request.nextUrl.clone();
+    clean.pathname = pathname.slice(master.length + 1) || "/";
+    return NextResponse.redirect(clean, 301);
   }
 
   const hasNonMasterLocale = locales
@@ -40,8 +43,12 @@ export async function proxy(request: NextRequest) {
     return response;
   }
 
-  // No locale prefix, so rewrite internally to master locale, URL stays clean
-  const response = NextResponse.rewrite(new URL(`/${master}${pathname}`, request.url));
+  // No locale prefix, so rewrite internally to master locale, URL stays clean.
+  // Clone rather than construct, so the search params survive the rewrite —
+  // the article listing reads ?page=N server-side.
+  const rewritten = request.nextUrl.clone();
+  rewritten.pathname = `/${master}${pathname}`;
+  const response = NextResponse.rewrite(rewritten);
   response.headers.set("x-locale", master);
   return response;
 }
