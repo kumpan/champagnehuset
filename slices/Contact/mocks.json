@@ -26,7 +26,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "houseHeart",
+                  "value": "House Heart",
                   "type": "Select"
                 }
               ],
@@ -76,7 +76,7 @@
                 "icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "clock",
+                  "value": "Clock",
                   "type": "Select"
                 }
               ],
@@ -97,7 +97,7 @@
                 "icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "bottleWine",
+                  "value": "Bottle Wine",
                   "type": "Select"
                 }
               ],
@@ -118,7 +118,7 @@
                 "icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "handshake",
+                  "value": "Handshake",
                   "type": "Select"
                 }
               ],
@@ -257,7 +257,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -319,7 +319,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "arrowLeft",
+                  "value": "Arrow Left",
                   "type": "Select"
                 }
               ],
@@ -327,7 +327,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "arrowUpRight",
+                  "value": "Arrow Up Right",
                   "type": "Select"
                 }
               ]
@@ -398,7 +398,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "mail",
+                  "value": "Mail",
                   "type": "Select"
                 }
               ],

@@ -2,12 +2,8 @@
 
 import { AnimatePresence, m } from "motion/react";
 import { useState } from "react";
-import { type IconName, iconMap } from "@/components/icons";
+import { iconMap, resolveIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
-
-function isIconName(v: unknown): v is IconName {
-  return typeof v === "string" && v in iconMap;
-}
 
 export interface InfoItemData {
   icon?: string | null;
@@ -100,7 +96,7 @@ function CopyButton({ value, className }: { value: string; className?: string })
 }
 
 function InfoItemContent({ icon, label, value, theme }: InfoItemData) {
-  const Icon = icon && icon !== "none" && isIconName(icon) ? iconMap[icon] : null;
+  const Icon = resolveIcon(icon);
 
   return (
     <>

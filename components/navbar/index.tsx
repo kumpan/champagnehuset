@@ -8,8 +8,7 @@ import { AnimatePresence, m } from "motion/react";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/button";
-import type { IconName } from "@/components/icons";
-import { iconMap } from "@/components/icons";
+import { resolveIcon } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { cn } from "@/lib/utils";
 import type { NavbarDocument } from "@/prismicio-types";
@@ -160,8 +159,7 @@ export function Navbar({
                     const { cta_link: link, icon, show_on_mobile, alternate_text } = item;
                     if (!isFilled.link(link)) return null;
 
-                    const IconComponent =
-                      icon && typeof icon === "string" && icon in iconMap ? iconMap[icon as IconName] : null;
+                    const IconComponent = resolveIcon(icon);
 
                     return (
                       <Button

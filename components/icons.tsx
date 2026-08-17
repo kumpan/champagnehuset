@@ -47,6 +47,7 @@ import {
   FlaskConical,
   Flower2,
   Gem,
+  Gift,
   GlassWater,
   Globe,
   Grape,
@@ -70,6 +71,7 @@ import {
   Menu,
   Mountain,
   Nut,
+  Package,
   PhoneCall,
   PhoneIncoming,
   PhoneOutgoing,
@@ -85,6 +87,7 @@ import {
   ThermometerSnowflake,
   Trash,
   Trophy,
+  Truck,
   User,
   UserCog,
   UserRoundCheck,
@@ -146,6 +149,7 @@ export const iconMap = {
   flaskConical: FlaskConical,
   flower2: Flower2,
   gem: Gem,
+  gift: Gift,
   glassWater: GlassWater,
   globe: Globe,
   grape: Grape,
@@ -169,6 +173,7 @@ export const iconMap = {
   menu: Menu,
   mountain: Mountain,
   nut: Nut,
+  package: Package,
   phoneCall: PhoneCall,
   phoneIncoming: PhoneIncoming,
   phoneOutgoing: PhoneOutgoing,
@@ -184,6 +189,7 @@ export const iconMap = {
   thermometerSnowflake: ThermometerSnowflake,
   trash: Trash,
   trophy: Trophy,
+  truck: Truck,
   user: User,
   userCog: UserCog,
   userRoundCheck: UserRoundCheck,
@@ -197,3 +203,14 @@ export const iconMap = {
 } as const;
 
 export type IconName = keyof typeof iconMap;
+
+/**
+ * CMS icon Selects store human-readable labels ("Arrow Right", "At Sign").
+ * Resolve one to its component — returns null for "none", empty, or unknown values.
+ */
+export function resolveIcon(name: unknown) {
+  if (typeof name !== "string") return null;
+  const compact = name.replace(/\s+/g, "");
+  const key = compact.charAt(0).toLowerCase() + compact.slice(1);
+  return key in iconMap ? iconMap[key as IconName] : null;
+}

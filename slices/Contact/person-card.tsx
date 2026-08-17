@@ -1,6 +1,6 @@
 import { isFilled } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
 
+import CustomMedia from "@/components/custom-media";
 import type { SectionTheme } from "@/components/section-intro";
 import { cn } from "@/lib/utils";
 import type { EmployeeDocument } from "@/prismicio-types";
@@ -17,10 +17,11 @@ const contactThemeClasses: Record<SectionTheme, string> = {
 type PersonCardProps = {
   employee: EmployeeDocument;
   sectionTheme: SectionTheme;
+  index?: number;
   className?: string;
 };
 
-export function PersonCard({ employee, sectionTheme, className }: PersonCardProps) {
+export function PersonCard({ employee, sectionTheme, index = 0, className }: PersonCardProps) {
   const { employee_name, employee_image, employee_title, employee_location, employee_phone, employee_email } =
     employee.data;
 
@@ -30,9 +31,13 @@ export function PersonCard({ employee, sectionTheme, className }: PersonCardProp
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <div className="relative aspect-square w-full overflow-hidden rounded-1 bg-brand">
-        <PrismicNextImage field={employee_image} className="h-full w-full object-cover" fallbackAlt="" />
-      </div>
+      <CustomMedia
+        imageField={employee_image}
+        indexedDelay
+        index={index}
+        sectionTheme={sectionTheme}
+        className="aspect-square w-full rounded-1"
+      />
 
       <div className="flex flex-col gap-1">
         <p className="font-medium text-xl leading-tight lg:text-2xl">{employee_name}</p>

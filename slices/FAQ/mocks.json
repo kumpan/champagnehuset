@@ -26,7 +26,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "badgeInfo",
+                  "value": "Badge Info",
                   "type": "Select"
                 }
               ],
@@ -214,7 +214,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "none"
+                  "value": "None"
                 }
               ]
             ]

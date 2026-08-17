@@ -22,7 +22,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "briefcaseBusiness"
+                  "value": "Briefcase Business"
                 }
               ]
             ]
@@ -76,7 +76,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "arrowLeft"
+                  "value": "Arrow Left"
                 }
               ]
             ]
@@ -158,7 +158,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -228,7 +228,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -236,7 +236,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "arrowUp",
+                  "value": "Arrow Up",
                   "type": "Select"
                 }
               ]
@@ -367,7 +367,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -437,7 +437,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "phoneCall",
+                  "value": "Phone Call",
                   "type": "Select"
                 }
               ],
@@ -445,7 +445,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ]
@@ -464,7 +464,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "phoneCall"
+                  "value": "Phone Call"
                 }
               ],
               [
@@ -476,19 +476,15 @@
                 }
               ],
               [
-                "value",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "+46 8 555 123 45",
-                  "type": "Text"
-                }
-              ],
-              [
                 "link",
                 {
-                  "__TYPE__": "FieldContent",
-                  "value": "+46 8 555 123 45",
-                  "type": "Text"
+                  "key": "5d8e3fdf-726c-432f-bbe0-9951585ed371",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "tel:+46855512345",
+                    "text": "+46 8 555 123 45"
+                  }
                 }
               ]
             ]
@@ -501,7 +497,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "mail"
+                  "value": "Mail"
                 }
               ],
               [
@@ -515,17 +511,13 @@
               [
                 "link",
                 {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "hej@champagnehuset.se"
-                }
-              ],
-              [
-                "value",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "hej@champagnehuset.se"
+                  "key": "12cc2b62-2489-4fc0-981e-d4459a7afefe",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "mailto:hej@champagnehuset.se",
+                    "text": "hej@champagnehuset.se"
+                  }
                 }
               ]
             ]
@@ -538,7 +530,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "houseHeart"
+                  "value": "House Heart"
                 }
               ],
               [
@@ -550,19 +542,15 @@
                 }
               ],
               [
-                "value",
-                {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": "Champagnegatan 12, 114 55 Stockholm"
-                }
-              ],
-              [
                 "link",
                 {
-                  "__TYPE__": "FieldContent",
-                  "type": "Text",
-                  "value": ""
+                  "key": "5419b377-8739-4c9e-bf5f-a38452374afd",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://maps.google.com/?q=Champagnegatan+12,+114+55+Stockholm",
+                    "text": "Champagnegatan 12, 114 55 Stockholm"
+                  }
                 }
               ]
             ]
@@ -630,7 +618,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "none"
+                  "value": "None"
                 }
               ],
               [
@@ -638,7 +626,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "badgeInfo"
+                  "value": "Badge Info"
                 }
               ],
               [
@@ -668,7 +656,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "check"
+                  "value": "Check"
                 }
               ],
               [
@@ -696,7 +684,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "check"
+                  "value": "Check"
                 }
               ],
               [
@@ -724,7 +712,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "check"
+                  "value": "Check"
                 }
               ],
               [
@@ -752,7 +740,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "bookOpenCheck"
+                  "value": "Book Open Check"
                 }
               ],
               [
@@ -868,7 +856,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "cherry"
+                  "value": "Cherry"
                 }
               ]
             ]
@@ -930,7 +918,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -939,7 +927,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "circleStar"
+                  "value": "Circle Star"
                 }
               ]
             ]

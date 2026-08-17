@@ -3,7 +3,7 @@ import { isFilled } from "@prismicio/client";
 
 import CustomMedia from "@/components/custom-media";
 import { CustomRichText } from "@/components/custom-rich-text";
-import { type IconName, iconMap } from "@/components/icons";
+import { resolveIcon } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
@@ -18,10 +18,6 @@ const containerClasses: Record<string, string> = {
   Slate: "bg-spot-fill-dark",
 };
 
-function isIconName(value: unknown): value is IconName {
-  return typeof value === "string" && value in iconMap;
-}
-
 type Props = CalloutProps & { slice: Content.CalloutSliceDetails };
 
 export function CalloutDetails({ slice }: Props) {
@@ -35,10 +31,7 @@ export function CalloutDetails({ slice }: Props) {
   const detailsList = details.length > 0 && (
     <ul className="flex w-full flex-col">
       {details.map((detail, index) => {
-        const Icon =
-          detail.detail_icon && detail.detail_icon !== "none" && isIconName(detail.detail_icon)
-            ? iconMap[detail.detail_icon]
-            : null;
+        const Icon = resolveIcon(detail.detail_icon);
         return (
           <li key={`${index}-${detail.detail_icon}`} className="flex w-full items-center gap-2 py-2.5 md:py-3">
             {Icon && <Icon className="size-7 shrink-0 md:size-8" />}

@@ -4,8 +4,7 @@ import type { ReactNode } from "react";
 import type { ButtonVariant } from "@/components/button";
 import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
-import type { IconName } from "@/components/icons";
-import { iconMap } from "@/components/icons";
+import { resolveIcon } from "@/components/icons";
 import type { SectionTheme } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { cn } from "@/lib/utils";
@@ -77,10 +76,6 @@ function isVariant(value: unknown): value is ButtonVariant {
   return value === "default" || value === "secondary" || value === "outline" || value === "ghost";
 }
 
-function isIconName(value: unknown): value is IconName {
-  return typeof value === "string" && value in iconMap;
-}
-
 // Component
 export function SectionIntro({
   overline,
@@ -107,19 +102,15 @@ export function SectionIntro({
 
   const overlineItem = Array.isArray(overline) ? overline[0] : undefined;
   const overlineText = typeof overline === "string" ? overline : overlineItem?.overline_text;
-  const overlineIconKey = overlineItem?.overline_icon;
-  const OverlineIcon =
-    overlineIconKey && overlineIconKey !== "none" && isIconName(overlineIconKey) ? iconMap[overlineIconKey] : undefined;
+  const OverlineIcon = resolveIcon(overlineItem?.overline_icon);
 
   function renderButton(btn: CmsButtonItem, index: number) {
     const { link } = btn;
     if (!isFilled.link(link)) return null;
 
     const variant: ButtonVariant = buttonVariant ?? (isVariant(btn.variant) ? btn.variant : "default");
-    const LeftIcon =
-      btn.icon_left && btn.icon_left !== "none" && isIconName(btn.icon_left) ? iconMap[btn.icon_left] : undefined;
-    const RightIcon =
-      btn.icon_right && btn.icon_right !== "none" && isIconName(btn.icon_right) ? iconMap[btn.icon_right] : undefined;
+    const LeftIcon = resolveIcon(btn.icon_left);
+    const RightIcon = resolveIcon(btn.icon_right);
 
     const linkKey = "url" in link && link.url ? link.url : `btn-${index}`;
     return (

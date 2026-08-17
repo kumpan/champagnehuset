@@ -65,7 +65,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "badgeCheck"
+                  "value": "Badge Check"
                 }
               ],
               [
@@ -113,7 +113,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "layers",
+                  "value": "Layers",
                   "type": "Select"
                 }
               ],
