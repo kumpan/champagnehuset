@@ -6,6 +6,7 @@ import { type FormEvent, useState } from "react";
 import { Button, type ButtonVariant } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import type { SectionTheme } from "@/components/layout/section";
+import { markNewsletterSubscribed } from "@/components/modal-context";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Input } from "./input";
@@ -25,8 +26,6 @@ type Props = {
   buttonVariant?: ButtonVariant;
   buttonIcon?: boolean;
   className?: string;
-  onSubscribed?: () => void;
-  /** Signup origin, forwarded to the API and tagged in Mailchimp (e.g. "slice", "modal"). */
   source?: string;
 };
 
@@ -41,7 +40,6 @@ export function NewsletterForm({
   buttonVariant = "default",
   buttonIcon = false,
   className,
-  onSubscribed,
   source,
 }: Props) {
   const [formState, setFormState] = useState<FormState>("initial");
@@ -85,7 +83,8 @@ export function NewsletterForm({
       }
 
       setFormState("submitted");
-      onSubscribed?.();
+      // Any signup, modal or inline slice, silences the popup for a longer period
+      markNewsletterSubscribed();
     } catch (err) {
       setFormState("failed");
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.");

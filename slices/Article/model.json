@@ -103,7 +103,7 @@
           "config": {
             "label": "Filter by Tag",
             "placeholder": "",
-            "options": ["All", "Event", "News", "Guide", "Tasting"],
+            "options": ["All", "Event", "News", "Tips"],
             "default_value": "All"
           }
         },

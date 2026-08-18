@@ -12,6 +12,10 @@ import { createContext, type ReactNode, useCallback, useContext, useEffect, useM
 //   2. cookie banner
 //   3. newsletter  — off the landing page, after a browsing delay
 //
+// The newsletter remembers two things, both in localStorage: a dismissal (hidden
+// for the CMS-configured number of days) and a subscription (hidden far longer,
+// so a subscriber does not keep getting asked).
+//
 // The cookie banner keeps its original `useCookieBanner()` API (used by the
 // banner itself and the footer re-open button) so nothing else has to change.
 // ============================================================================
@@ -20,13 +24,32 @@ type ActiveModal = "age" | "cookie" | "newsletter" | null;
 
 const AGE_KEY = "age-consent";
 const COOKIE_KEY = "cookie-consent";
-const NEWSLETTER_KEY = "newsletter-seen";
-const TIMER_KEY = "newsletter-timer-start"; // sessionStorage — survives navigation
+const NEWSLETTER_KEY = "newsletter-seen"; // dismissal timestamp
+const SUBSCRIBED_KEY = "newsletter-subscribed"; // signup timestamp, outliving a dismissal
+const TIMER_KEY = "newsletter-timer-start"; // sessionStorage, survives navigation
+
+const DAY_MS = 86_400_000;
+/** How long a signup suppresses the popup */
+const SUBSCRIBED_DAYS = 30;
+
+/** True while a stored timestamp is still inside its window. Tolerates legacy ISO values. */
+function isFresh(raw: string | null, days: number) {
+  if (!raw) return false;
+  const stamped = Number(raw) || Date.parse(raw);
+  return Number.isFinite(stamped) && Date.now() - stamped < days * DAY_MS;
+}
+
+const hasSubscribed = () => isFresh(localStorage.getItem(SUBSCRIBED_KEY), SUBSCRIBED_DAYS);
+
+/** Stamped by every newsletter form on success, so subscribers stop seeing the popup. */
+export function markNewsletterSubscribed() {
+  localStorage.setItem(SUBSCRIBED_KEY, String(Date.now()));
+}
 
 interface ModalContextType {
   /** The single modal currently allowed to be visible. */
   active: ActiveModal;
-  /** True once localStorage has been read (client only) — nothing shows before this. */
+  /** True once localStorage has been read, nothing shows before this. */
   hydrated: boolean;
   // Age gate
   confirmAge: () => void;
@@ -37,8 +60,6 @@ interface ModalContextType {
   toggleCookieBanner: () => void;
   // Newsletter
   dismissNewsletter: () => void;
-  /** Persist "seen" without closing (so the success state can stay on screen). */
-  markNewsletterSeen: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
@@ -49,7 +70,8 @@ export function ModalProvider({
   ageGateEnabled = false,
   newsletterEnabled = false,
   newsletterAvailable = false,
-  newsletterDelaySeconds = 45,
+  newsletterDelaySeconds = 10,
+  newsletterDismissDays = 5,
 }: {
   children: ReactNode;
   /** All locale ids (e.g. ["sv-se", "en-gb"]) so a bare-locale home path is detected. */
@@ -58,6 +80,7 @@ export function ModalProvider({
   newsletterEnabled?: boolean;
   newsletterAvailable?: boolean;
   newsletterDelaySeconds?: number;
+  newsletterDismissDays?: number;
 }) {
   const pathname = usePathname();
 
@@ -81,9 +104,9 @@ export function ModalProvider({
   useEffect(() => {
     setAgeDone(ageGateEnabled ? !!localStorage.getItem(AGE_KEY) : true);
     setCookieDone(!!localStorage.getItem(COOKIE_KEY));
-    setNewsletterDone(!!localStorage.getItem(NEWSLETTER_KEY));
+    setNewsletterDone(hasSubscribed() || isFresh(localStorage.getItem(NEWSLETTER_KEY), newsletterDismissDays));
     setHydrated(true);
-  }, [ageGateEnabled]);
+  }, [ageGateEnabled, newsletterDismissDays]);
 
   // Newsletter delay and check if we're off the landing page
   useEffect(() => {
@@ -97,12 +120,16 @@ export function ModalProvider({
       sessionStorage.setItem(TIMER_KEY, String(start));
     }
 
+    const reveal = () => {
+      if (!hasSubscribed()) setNewsletterReady(true);
+    };
+
     const remaining = start + delayMs - Date.now();
     if (remaining <= 0) {
-      setNewsletterReady(true);
+      reveal();
       return;
     }
-    const timer = setTimeout(() => setNewsletterReady(true), remaining);
+    const timer = setTimeout(reveal, remaining);
     return () => clearTimeout(timer);
   }, [
     hydrated,
@@ -139,6 +166,7 @@ export function ModalProvider({
         localStorage.removeItem(AGE_KEY);
         localStorage.removeItem(COOKIE_KEY);
         localStorage.removeItem(NEWSLETTER_KEY);
+        localStorage.removeItem(SUBSCRIBED_KEY);
         sessionStorage.removeItem(TIMER_KEY);
         window.location.reload();
       },
@@ -171,13 +199,9 @@ export function ModalProvider({
   const toggleCookieBanner = useCallback(() => setCookieOverride((v) => !v), []);
 
   const dismissNewsletter = useCallback(() => {
-    localStorage.setItem(NEWSLETTER_KEY, new Date().toISOString());
+    localStorage.setItem(NEWSLETTER_KEY, String(Date.now()));
     setNewsletterReady(false);
     setNewsletterDone(true);
-  }, []);
-
-  const markNewsletterSeen = useCallback(() => {
-    localStorage.setItem(NEWSLETTER_KEY, new Date().toISOString());
   }, []);
 
   const value = useMemo<ModalContextType>(
@@ -190,18 +214,8 @@ export function ModalProvider({
       hideCookieBanner,
       toggleCookieBanner,
       dismissNewsletter,
-      markNewsletterSeen,
     }),
-    [
-      active,
-      hydrated,
-      confirmAge,
-      showCookieBanner,
-      hideCookieBanner,
-      toggleCookieBanner,
-      dismissNewsletter,
-      markNewsletterSeen,
-    ],
+    [active, hydrated, confirmAge, showCookieBanner, hideCookieBanner, toggleCookieBanner, dismissNewsletter],
   );
 
   return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
