@@ -63,7 +63,9 @@ export default async function LocaleLayout({
 
   const newsletterEnabled = !!newsletter?.data.enabled;
   const newsletterDelaySeconds =
-    newsletter?.data.delay_seconds && newsletter.data.delay_seconds > 0 ? newsletter.data.delay_seconds : 45;
+    newsletter?.data.delay_seconds && newsletter.data.delay_seconds > 0 ? newsletter.data.delay_seconds : 10;
+  const newsletterDismissDays =
+    newsletter?.data.dismiss_days && newsletter.data.dismiss_days > 0 ? newsletter.data.dismiss_days : 5;
 
   // The navbar is a Client Component, so its logo is inlined here server-side rendering
   const logoColorOverride = navbarData?.data.logo_color === "System Can Override the Logo Color";
@@ -86,6 +88,7 @@ export default async function LocaleLayout({
             newsletterEnabled={newsletterEnabled}
             newsletterAvailable={!!newsletter}
             newsletterDelaySeconds={newsletterDelaySeconds}
+            newsletterDismissDays={newsletterDismissDays}
           >
             {navbarData && (
               <Navbar
