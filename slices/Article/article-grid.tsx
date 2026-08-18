@@ -4,6 +4,7 @@ import { AnimatePresence, easeInOut, m, spring, useInView, useReducedMotion } fr
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useMemo, useRef, useState } from "react";
 import type { SectionTheme } from "@/components/layout/section";
+import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 import { ArticleCard } from "./article-card";
@@ -49,8 +50,8 @@ type ArticleGridProps = {
   sectionTheme: SectionTheme;
   showPagination: boolean;
   showChips: boolean;
-  /** Resolved server-side from `?page=N`, so page 2+ is in the server HTML. */
   currentPage: number;
+  lang?: string;
   className?: string;
 };
 
@@ -61,12 +62,11 @@ export function ArticleGrid({
   showPagination,
   showChips,
   currentPage: pageFromUrl,
+  lang,
   className,
 }: ArticleGridProps) {
   const reducedMotion = useReducedMotion();
   const gridRef = useRef<HTMLDivElement>(null);
-  // once: true latches on first scroll-in, so later page/filter changes animate on mount
-  // instead of waiting for another scroll.
   const inView = useInView(gridRef, { once: true, amount: 0.15 });
 
   const pathname = usePathname();
@@ -96,8 +96,7 @@ export function ArticleGrid({
     ? filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
     : filtered.slice(0, PAGE_SIZE);
 
-  // Chips filter client-side, so a tag change invalidates the current page
-  // window — drop `?page` and fall back to page 1.
+  // Chips filter client-side, so a tag change invalidates the current page window
   const selectTag = (tag: string | null) => {
     setActiveTag(tag);
     if (pageFromUrl > 1) router.replace(pathname, { scroll: false });
@@ -112,11 +111,11 @@ export function ArticleGrid({
       {chips && (
         <div className="flex flex-wrap gap-1.5">
           <ChipButton active={activeTag === null} theme={sectionTheme} onClick={() => selectTag(null)}>
-            Alla
+            {t(lang).all}
           </ChipButton>
           {availableTags.map((tag) => (
             <ChipButton key={tag} active={activeTag === tag} theme={sectionTheme} onClick={() => selectTag(tag)}>
-              {tagLabel(tag)}
+              {tagLabel(tag, lang)}
             </ChipButton>
           ))}
         </div>

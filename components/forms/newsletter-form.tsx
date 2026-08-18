@@ -6,6 +6,7 @@ import { type FormEvent, useState } from "react";
 import { Button, type ButtonVariant } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import type { SectionTheme } from "@/components/layout/section";
+import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Input } from "./input";
 
@@ -19,6 +20,7 @@ type Props = {
   placeholder?: string | null;
   buttonLabel?: string | null;
   successMessage?: RichTextField;
+  lang?: string;
   sectionTheme?: SectionTheme;
   buttonVariant?: ButtonVariant;
   buttonIcon?: boolean;
@@ -34,6 +36,7 @@ export function NewsletterForm({
   placeholder,
   buttonLabel,
   successMessage,
+  lang,
   sectionTheme = "Bud",
   buttonVariant = "default",
   buttonIcon = false,
@@ -95,9 +98,7 @@ export function NewsletterForm({
         {isFilled.richText(successMessage) ? (
           <CustomRichText field={successMessage} sectionTheme={sectionTheme} />
         ) : (
-          <p className="text-pretty rounded-1 bg-brand/20 p-4 text-center font-medium">
-            Tack! Kolla din inkorg för att bekräfta.
-          </p>
+          <p className="text-pretty rounded-1 bg-brand/20 p-4 text-center font-medium">{t(lang).newsletterThanks}</p>
         )}
       </div>
     );

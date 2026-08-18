@@ -36,16 +36,32 @@ export async function getAllRoutableDocuments(lang?: string) {
 
   return results.flat();
 }
-
-/** Fetches a singleton document by type. Returns null if it doesn't exist yet. */
+/**
+ * Fetches a singleton document by type, falling back to the master locale when
+ * the requested one has no translation yet.
+ *
+ * The fallback is what makes it safe to pass `lang` from the layout before
+ * editors have translated the chrome: `getSingle` throws on a missing locale
+ * variant, and the layout guards on `{navbarData && …}`, so without it a fresh
+ * locale would render with *no* navbar or footer at all. Falling back yields
+ * today's behaviour (master-locale chrome) at worst, the translation at best.
+ *
+ * Returns null only when the singleton doesn't exist in any locale.
+ */
 export async function getSingleton<T extends prismic.PrismicDocument = prismic.PrismicDocument>(
   ...args: Parameters<ReturnType<typeof createBaseClient>["getSingle"]>
 ): Promise<T | null> {
   const client = await createClient();
+  const [documentType, params] = args;
 
   try {
-    return (await client.getSingle(...args)) as unknown as T;
+    return (await client.getSingle(documentType, params)) as unknown as T;
   } catch {
-    return null;
+    if (!params?.lang) return null;
+    try {
+      return (await client.getSingle(documentType)) as unknown as T;
+    } catch {
+      return null;
+    }
   }
 }

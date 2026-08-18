@@ -1,7 +1,6 @@
 import { SliceZone } from "@prismicio/react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { AvailableLocalesSetter } from "@/components/available-locales-setter";
 import { FaqSchema } from "@/components/structured-data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { hasPaginatedListing, parsePageParam } from "@/lib/pagination";
@@ -30,11 +29,8 @@ export default async function HomePage({ params, searchParams }: Props) {
 
   if (!page) return notFound();
 
-  const availableLocales = [page.lang, ...page.alternate_languages.map((a) => a.lang)];
-
   return (
     <>
-      <AvailableLocalesSetter locales={availableLocales} />
       <FaqSchema slices={page.data.slices} />
       <SliceZone slices={page.data.slices} components={components} context={{ lang, page: currentPage }} />
     </>

@@ -6,13 +6,20 @@ import { getRedirects } from "@/lib/redirects";
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Request headers, not response headers: `headers()` in a server component
+  // reads what came *in*, so anything set on the response is invisible there.
+  // Built above the early-return guard so /slice-simulator can still read the
+  // path. x-locale is added lower down, once the locale list is known.
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", pathname);
+
   if (
     pathname.startsWith("/api/") ||
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/slice-simulator") ||
     pathname.includes(".")
   ) {
-    return NextResponse.next();
+    return NextResponse.next({ request: { headers: requestHeaders } });
   }
 
   const redirects = await getRedirects();
@@ -32,23 +39,22 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(clean, 301);
   }
 
-  const hasNonMasterLocale = locales
-    .filter((l) => l.id !== master)
-    .some((l) => pathname.startsWith(`/${l.id}/`) || pathname === `/${l.id}`);
+  const matched = locales.find((l) => l.id !== master && (pathname.startsWith(`/${l.id}/`) || pathname === `/${l.id}`));
 
-  if (hasNonMasterLocale) {
-    const matched = locales.find((l) => pathname.startsWith(`/${l.id}/`) || pathname === `/${l.id}`);
-    const response = NextResponse.next();
-    response.headers.set("x-locale", matched?.id ?? master);
+  if (matched) {
+    requestHeaders.set("x-locale", matched.id);
+    const response = NextResponse.next({ request: { headers: requestHeaders } });
+    response.headers.set("x-locale", matched.id); // debugging / CDN vary
     return response;
   }
 
   // No locale prefix, so rewrite internally to master locale, URL stays clean.
   // Clone rather than construct, so the search params survive the rewrite —
   // the article listing reads ?page=N server-side.
+  requestHeaders.set("x-locale", master);
   const rewritten = request.nextUrl.clone();
   rewritten.pathname = `/${master}${pathname}`;
-  const response = NextResponse.rewrite(rewritten);
+  const response = NextResponse.rewrite(rewritten, { request: { headers: requestHeaders } });
   response.headers.set("x-locale", master);
   return response;
 }

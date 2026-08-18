@@ -10,17 +10,22 @@ import { SearchGrid } from "../search-grid";
 
 type Props = ProductProps & { slice: Content.ProductSliceSearch };
 
-export async function ProductSearch({ slice }: Props) {
+type SearchContext = { lang?: string };
+
+export async function ProductSearch({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, remove_top_padding, search_placeholder, no_results_text } =
     slice.primary;
 
+  const lang = (context as SearchContext | undefined)?.lang;
   const client = await createClient();
   // Only the fields the grid, filters, and search need; whole documents would
   // ship every product's slice zone to the client.
   // getAllByType throws ("No documents were found") when the repo has no products yet.
   const products = await client
     .getAllByType("product", {
+      // with `lang` so Prismic returns the right locale
+      ...(lang ? { lang } : {}),
       fetch: [
         "product.product_name",
         "product.product_image",
@@ -59,7 +64,12 @@ export async function ProductSearch({ slice }: Props) {
             sectionTheme="Bud"
           />
         )}
-        <SearchGrid products={products} searchPlaceholder={search_placeholder} noResultsText={no_results_text} />
+        <SearchGrid
+          products={products}
+          searchPlaceholder={search_placeholder}
+          noResultsText={no_results_text}
+          lang={lang}
+        />
       </Container>
     </Section>
   );

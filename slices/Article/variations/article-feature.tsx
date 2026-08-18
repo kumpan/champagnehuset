@@ -5,6 +5,7 @@ import { Button, cardFocusRing } from "@/components/button";
 import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
@@ -46,7 +47,7 @@ export async function ArticleFeature({ slice }: Props) {
         <div className="flex flex-col">
           {articles.map((article) => {
             const { tag, article_title, article_image, article_date } = article.data;
-            const date = formatArticleDate(article_date ?? article.first_publication_date);
+            const date = formatArticleDate(article_date ?? article.first_publication_date, article.lang);
             return (
               <PrismicNextLink
                 key={article.id}
@@ -76,7 +77,7 @@ export async function ArticleFeature({ slice }: Props) {
                   </div>
                   <Button asChild sectionTheme={section_theme} className="hidden md:inline-flex">
                     <span>
-                      {link_label || "Läs mer"}
+                      {link_label || t(article.lang).readMore}
                       <ArrowRight />
                     </span>
                   </Button>

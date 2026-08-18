@@ -1,5 +1,6 @@
 import { asImageSrc, type ImageField, type PrismicDocument } from "@prismicio/client";
 import type { Metadata } from "next";
+import { t } from "./i18n";
 import { DEFAULT_OG_IMAGE } from "./schema-config";
 
 type DocWithSeo = PrismicDocument<{
@@ -7,9 +8,6 @@ type DocWithSeo = PrismicDocument<{
   meta_description?: string | null;
   meta_image?: ImageField;
 }>;
-
-/** Visitor-facing word for the "– Sida 2" title suffix, per locale. */
-const PAGE_WORD: Record<string, string> = { "sv-se": "Sida" };
 
 /**
  * Builds Next.js Metadata from a Prismic document's SEO fields (shared across
@@ -32,7 +30,7 @@ export function buildPageMetadata(doc: DocWithSeo | null, pageNumber = 1): Metad
   if (!doc) return {};
 
   const paged = pageNumber > 1;
-  const pageSuffix = paged ? ` – ${PAGE_WORD[doc.lang] ?? "Page"} ${pageNumber}` : "";
+  const pageSuffix = paged ? ` – ${t(doc.lang).page} ${pageNumber}` : "";
   const title = doc.data.meta_title ? `${doc.data.meta_title}${pageSuffix}` : undefined;
   const description = doc.data.meta_description || undefined;
   const imageUrl = doc.data.meta_image ? asImageSrc(doc.data.meta_image) : null;

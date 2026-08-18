@@ -15,7 +15,7 @@ type Props = ArticleProps & { slice: Content.ArticleSliceList };
 const TAG_ORDER = articleModel.json.Main.tag.config.options;
 
 /** The dynamic-page template passes the `?page=N` it resolved in as slice context. */
-type ListContext = { page?: number };
+type ListContext = { page?: number; lang?: string };
 
 export async function ArticleList({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
@@ -33,6 +33,7 @@ export async function ArticleList({ slice, context }: Props) {
   } = slice.primary;
 
   const client = await createClient();
+  const lang = (context as ListContext | undefined)?.lang;
 
   // One getByIDs (not getByID per item, which throws on any unresolved reference)
   // so unpublished/deleted/stale featured references are dropped, not fatal.
@@ -52,6 +53,8 @@ export async function ArticleList({ slice, context }: Props) {
     curated.length > 0
       ? curated
       : await client.getAllByType("article", {
+          // lang so we get the right regional articles
+          ...(lang ? { lang } : {}),
           orderings: [{ field: "my.article.article_date", direction: "desc" }],
         });
 
@@ -64,7 +67,6 @@ export async function ArticleList({ slice, context }: Props) {
 
   // Pagination lives in the URL, so the server HTML for ?page=2 already holds
   // page 2's article cards and every page is reachable from a real <a href>.
-  // Falls back to page 1 where there is no page context (the slice simulator).
   const showPagination = show_pagination !== false;
   const currentPage = (context as ListContext | undefined)?.page ?? 1;
 
@@ -93,6 +95,7 @@ export async function ArticleList({ slice, context }: Props) {
           showPagination={showPagination}
           showChips={showChips}
           currentPage={currentPage}
+          lang={lang}
           className="mt-8"
         />
       </Container>

@@ -21,12 +21,16 @@ export function Navbar({
   prismicData,
   locales,
   masterLocale,
+  currentLocale,
+  localePaths,
   desktopLogo,
   mobileLogo,
 }: {
   prismicData: NavbarDocument;
   locales: Language[];
   masterLocale: string;
+  currentLocale: string;
+  localePaths: Record<string, string>;
   desktopLogo?: ReactNode;
   mobileLogo?: ReactNode;
 }) {
@@ -150,7 +154,12 @@ export function Navbar({
 
               <div className="flex items-center gap-1">
                 {language_switcher && locales.length > 1 && (
-                  <LanguageSwitcher locales={locales} masterLocale={masterLocale} />
+                  <LanguageSwitcher
+                    locales={locales}
+                    masterLocale={masterLocale}
+                    currentLocale={currentLocale}
+                    localePaths={localePaths}
+                  />
                 )}
 
                 {/* CTA Buttons */}
