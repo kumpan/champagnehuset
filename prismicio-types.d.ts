@@ -1044,10 +1044,21 @@ interface NewsletterDocumentData {
   enabled: prismic.BooleanField;
 
   /**
+   * Dismiss Days field in *Newsletter Popup*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: How many days before banner shows again
+   * - **API ID Path**: newsletter.dismiss_days
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  dismiss_days: prismic.NumberField;
+
+  /**
    * Delay Seconds field in *Newsletter Popup*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: 45
+   * - **Placeholder**: How many seconds before the banner shows
    * - **API ID Path**: newsletter.delay_seconds
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/number
@@ -2317,7 +2328,7 @@ export interface ArticleSliceListPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   filter_by_tag: prismic.SelectField<
-    "All" | "Event" | "News" | "Guide" | "Tasting",
+    "All" | "Event" | "News" | "Tips",
     "filled"
   >;
 

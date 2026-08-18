@@ -17,7 +17,7 @@ import type { NewsletterDocument } from "@/prismicio-types";
  * cookie banner are resolved. Closable via the backdrop, the X, or Escape.
  */
 export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocument }) {
-  const { active, dismissNewsletter, markNewsletterSeen } = useModal();
+  const { active, dismissNewsletter } = useModal();
   const open = active === "newsletter";
 
   const { tagline, title, description, image, email_label, email_placeholder, button_label, success_message } =
@@ -88,7 +88,6 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
                 lang={prismicData.lang}
                 sectionTheme="Bud"
                 source="modal"
-                onSubscribed={markNewsletterSeen}
               />
             </div>
 
