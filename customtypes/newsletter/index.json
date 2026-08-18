@@ -15,11 +15,18 @@
           "default_value": true
         }
       },
+      "dismiss_days": {
+        "type": "Number",
+        "config": {
+          "label": "Dismiss Days",
+          "placeholder": "How many days before banner shows again"
+        }
+      },
       "delay_seconds": {
         "type": "Number",
         "config": {
           "label": "Delay Seconds",
-          "placeholder": "45"
+          "placeholder": "How many seconds before the banner shows"
         }
       },
       "tagline": {
