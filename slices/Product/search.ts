@@ -1,4 +1,5 @@
 import { isFilled } from "@prismicio/client";
+import { t } from "@/lib/i18n";
 import type { ProductDocument } from "@/prismicio-types";
 
 /**
@@ -35,27 +36,29 @@ const GROUP_IDS: FilterGroupId[] = [
   "volume",
 ];
 
-/** Visitor-facing group labels (site language). */
-const GROUP_LABELS: Record<FilterGroupId, string> = {
-  availability: "Tillgänglighet",
-  producer: "Odlare",
-  region: "Region",
-  style: "Stil",
-  grape: "Druva",
-  club: "Special Club",
-  ecologic: "Ekologisk",
-  year: "Årgång",
-  volume: "Volym",
-};
+/** Visitor-facing group labels, in the locale being browsed. */
+const groupLabels = (lang: string | null | undefined): Record<FilterGroupId, string> => ({
+  availability: t(lang).filterAvailability,
+  producer: t(lang).filterProducer,
+  region: t(lang).filterRegion,
+  style: t(lang).filterStyle,
+  grape: t(lang).filterGrape,
+  club: t(lang).filterClub,
+  ecologic: t(lang).filterEcologic,
+  year: t(lang).filterYear,
+  volume: t(lang).filterVolume,
+});
 
 /**
  * Availability is a merged facet: Systembolaget/Privatimport come from
- * consumer availability, Restaurang from restaurant availability.
+ * consumer availability, Restaurang from restaurant availability. The stored
+ * values stay stable across locales — only the labels translate. Systembolaget
+ * is a proper noun and stays as-is.
  */
-const AVAILABILITY_OPTIONS: FilterOption[] = [
+const availabilityOptions = (lang: string | null | undefined): FilterOption[] => [
   { value: "systembolaget", label: "Systembolaget" },
-  { value: "privatimport", label: "Privatimport" },
-  { value: "restaurang", label: "Restaurang" },
+  { value: "privatimport", label: t(lang).availabilityPrivateImport },
+  { value: "restaurang", label: t(lang).availabilityRestaurant },
 ];
 
 /** Mirrors the curated option order in the product custom type selects. */
@@ -117,32 +120,38 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
   }
 }
 
-function sortByKnownOrder(values: string[], order: string[]): string[] {
+function sortByKnownOrder(values: string[], order: string[], lang: string | null | undefined): string[] {
   const rank = (value: string) => {
     const index = order.indexOf(value);
     return index === -1 ? order.length : index;
   };
-  return values.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b, "sv"));
+  // `Intl`'s collation already knows every locale's alphabet (å/ä/ö sort last
+  // in Swedish, as accents in German), so the locale id is all it needs.
+  const collator = new Intl.Collator(lang ?? undefined);
+  return values.sort((a, b) => rank(a) - rank(b) || collator.compare(a, b));
 }
 
 /** Build the filter groups from what actually exists in the product set. */
-export function deriveFilterGroups(products: ProductDocument[]): FilterGroup[] {
+export function deriveFilterGroups(products: ProductDocument[], lang?: string | null): FilterGroup[] {
+  const labels = groupLabels(lang);
+  const collator = new Intl.Collator(lang ?? undefined);
+
   return GROUP_IDS.map((id) => {
     const present = new Set(products.flatMap((product) => facetValues(product, id)));
 
     let options: FilterOption[];
     switch (id) {
       case "availability":
-        options = AVAILABILITY_OPTIONS.filter((option) => present.has(option.value));
+        options = availabilityOptions(lang).filter((option) => present.has(option.value));
         break;
       case "grape":
-        options = sortByKnownOrder([...present], GRAPE_ORDER).map((value) => ({ value, label: value }));
+        options = sortByKnownOrder([...present], GRAPE_ORDER, lang).map((value) => ({ value, label: value }));
         break;
       case "club":
-        options = present.has("yes") ? [{ value: "yes", label: "Ja" }] : [];
+        options = present.has("yes") ? [{ value: "yes", label: t(lang).yes }] : [];
         break;
       case "ecologic":
-        options = present.has("yes") ? [{ value: "yes", label: "Ja" }] : [];
+        options = present.has("yes") ? [{ value: "yes", label: t(lang).yes }] : [];
         break;
       case "year":
         options = [...present].sort((a, b) => Number(b) - Number(a)).map((value) => ({ value, label: value }));
@@ -151,17 +160,17 @@ export function deriveFilterGroups(products: ProductDocument[]): FilterGroup[] {
         options = [...present].sort((a, b) => volumeToMl(a) - volumeToMl(b)).map((value) => ({ value, label: value }));
         break;
       case "region":
-        options = sortByKnownOrder([...present], REGION_ORDER).map((value) => ({ value, label: value }));
+        options = sortByKnownOrder([...present], REGION_ORDER, lang).map((value) => ({ value, label: value }));
         break;
       case "style":
-        options = sortByKnownOrder([...present], STYLE_ORDER).map((value) => ({ value, label: value }));
+        options = sortByKnownOrder([...present], STYLE_ORDER, lang).map((value) => ({ value, label: value }));
         break;
       case "producer":
-        options = [...present].sort((a, b) => a.localeCompare(b, "sv")).map((value) => ({ value, label: value }));
+        options = [...present].sort((a, b) => collator.compare(a, b)).map((value) => ({ value, label: value }));
         break;
     }
 
-    return { id, label: GROUP_LABELS[id], options };
+    return { id, label: labels[id], options };
   }).filter((group) => group.options.length > 0);
 }
 

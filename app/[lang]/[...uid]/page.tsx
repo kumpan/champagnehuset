@@ -1,16 +1,17 @@
 import { SliceZone } from "@prismicio/react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { AvailableLocalesSetter } from "@/components/available-locales-setter";
 import { ArticleSchema, BreadcrumbSchema, FaqSchema, ProductSchema } from "@/components/structured-data";
 import { buildBreadcrumbs } from "@/lib/breadcrumbs";
 import { getDocumentByUID, isArticle, isProduct } from "@/lib/cms";
 import { buildPageMetadata } from "@/lib/metadata";
+import { hasPaginatedListing, parsePageParam } from "@/lib/pagination";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
 type Params = { lang: string; uid: string[] };
-type Props = { params: Promise<Params> };
+type SearchParams = { page?: string | string[] };
+type Props = { params: Promise<Params>; searchParams: Promise<SearchParams> };
 
 const fetchPage = async (uid: string[], lang: string) => {
   const client = await createClient();
@@ -18,14 +19,16 @@ const fetchPage = async (uid: string[], lang: string) => {
   return getDocumentByUID(pageUid, client, lang);
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang, uid } = await params;
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  const [{ lang, uid }, { page: pageParam }] = await Promise.all([params, searchParams]);
   const page = await fetchPage(uid, lang);
-  return buildPageMetadata(page);
+  const pageNumber = page && hasPaginatedListing(page.data.slices) ? parsePageParam(pageParam) : 1;
+  return buildPageMetadata(page, pageNumber);
 }
 
-export default async function Page({ params }: Props) {
-  const { lang, uid } = await params;
+export default async function Page({ params, searchParams }: Props) {
+  const [{ lang, uid }, { page: pageParam }] = await Promise.all([params, searchParams]);
+  const currentPage = parsePageParam(pageParam);
   const client = await createClient();
 
   const pageUid = uid[uid.length - 1];
@@ -43,16 +46,18 @@ export default async function Page({ params }: Props) {
   }
 
   const breadcrumbs = await buildBreadcrumbs(page, client);
-  const availableLocales = [page.lang, ...page.alternate_languages.map((a) => a.lang)];
 
   return (
     <>
-      <AvailableLocalesSetter locales={availableLocales} />
       <BreadcrumbSchema breadcrumbs={breadcrumbs} />
       {isArticle(page) && <ArticleSchema doc={page} />}
       {isProduct(page) && <ProductSchema doc={page} />}
       <FaqSchema slices={page.data.slices} />
-      <SliceZone slices={page.data.slices} components={components} context={{ breadcrumbs, lang, document: page }} />
+      <SliceZone
+        slices={page.data.slices}
+        components={components}
+        context={{ breadcrumbs, lang, document: page, page: currentPage }}
+      />
     </>
   );
 }

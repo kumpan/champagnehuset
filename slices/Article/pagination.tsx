@@ -1,6 +1,5 @@
-"use client";
-
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 // active = the theme's primary surface, base = its secondary. Same tokens as button.tsx.
@@ -36,10 +35,17 @@ type Props = {
   currentPage: number;
   totalPages: number;
   sectionTheme: keyof typeof pageThemeClasses;
-  onChange: (page: number) => void;
+  /** Builds the crawlable href for a page number — the URL is the source of truth. */
+  buildHref: (page: number) => string;
 };
 
-export function Pagination({ currentPage, totalPages, sectionTheme, onChange }: Props) {
+/**
+ * Every page is a real `<a href="?page=N">`, so a crawler starting at the
+ * listing can reach every article instead of stopping at page one. The current
+ * page and the dead-end arrows render as `<span>` — nothing to click, nothing
+ * to crawl. `scroll={false}` keeps it feeling like an in-place swap.
+ */
+export function Pagination({ currentPage, totalPages, sectionTheme, buildHref }: Props) {
   const theme = pageThemeClasses[sectionTheme];
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   const canPrev = currentPage > 1;
@@ -49,51 +55,58 @@ export function Pagination({ currentPage, totalPages, sectionTheme, onChange }: 
   const mobileEnd = Math.min(totalPages, mobileStart + 2);
   const inMobileWindow = (p: number) => p >= mobileStart && p <= mobileEnd;
 
+  const arrowBase = "flex size-12 items-center justify-center rounded-1 transition-all duration-300 ease-out";
+
   return (
     <nav className="mt-8 flex items-center justify-center gap-1.5" aria-label="Pagination">
-      <button
-        type="button"
-        onClick={() => canPrev && onChange(currentPage - 1)}
-        disabled={!canPrev}
-        aria-label="Previous page"
-        className={cn(
-          "flex size-12 items-center justify-center rounded-1 transition-all duration-300 ease-out",
-          canPrev ? theme.base : theme.disabled,
-          canPrev && "cursor-pointer",
-        )}
-      >
-        <ChevronLeft aria-hidden="true" className="size-5" />
-      </button>
-      {pages.map((page) => (
-        <button
-          key={page}
-          type="button"
-          onClick={() => onChange(page)}
-          aria-current={page === currentPage ? "page" : undefined}
-          className={cn(
-            "h-12 min-w-12 items-center justify-center rounded-1 px-2 transition-all duration-300 ease-out md:flex",
-            inMobileWindow(page) ? "flex" : "hidden",
-            page === currentPage ? theme.active : theme.base,
-            page === currentPage && "-translate-y-1",
-            page !== currentPage && "cursor-pointer",
-          )}
+      {canPrev ? (
+        <Link
+          href={buildHref(currentPage - 1)}
+          scroll={false}
+          rel="prev"
+          aria-label="Previous page"
+          className={cn(arrowBase, theme.base, "cursor-pointer")}
         >
-          {page}
-        </button>
-      ))}
-      <button
-        type="button"
-        onClick={() => canNext && onChange(currentPage + 1)}
-        disabled={!canNext}
-        aria-label="Next page"
-        className={cn(
-          "flex size-12 items-center justify-center rounded-1 transition-all duration-300 ease-out",
-          canNext ? theme.base : theme.disabled,
-          canNext && "cursor-pointer",
-        )}
-      >
-        <ChevronRight aria-hidden="true" className="size-5" />
-      </button>
+          <ChevronLeft aria-hidden="true" className="size-5" />
+        </Link>
+      ) : (
+        <span aria-hidden="true" className={cn(arrowBase, theme.disabled)}>
+          <ChevronLeft className="size-5" />
+        </span>
+      )}
+      {pages.map((page) => {
+        const isCurrent = page === currentPage;
+        const className = cn(
+          "h-12 min-w-12 items-center justify-center rounded-1 px-2 transition-all duration-300 ease-out md:flex",
+          inMobileWindow(page) ? "flex" : "hidden",
+          isCurrent ? theme.active : theme.base,
+          isCurrent ? "-translate-y-1" : "cursor-pointer",
+        );
+        return isCurrent ? (
+          <span key={page} aria-current="page" className={className}>
+            {page}
+          </span>
+        ) : (
+          <Link key={page} href={buildHref(page)} scroll={false} className={className}>
+            {page}
+          </Link>
+        );
+      })}
+      {canNext ? (
+        <Link
+          href={buildHref(currentPage + 1)}
+          scroll={false}
+          rel="next"
+          aria-label="Next page"
+          className={cn(arrowBase, theme.base, "cursor-pointer")}
+        >
+          <ChevronRight aria-hidden="true" className="size-5" />
+        </Link>
+      ) : (
+        <span aria-hidden="true" className={cn(arrowBase, theme.disabled)}>
+          <ChevronRight className="size-5" />
+        </span>
+      )}
     </nav>
   );
 }

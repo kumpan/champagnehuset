@@ -5,6 +5,7 @@ import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { Input } from "@/components/forms/input";
+import { t } from "@/lib/i18n";
 import type { ProductDocument } from "@/prismicio-types";
 import { FilterPanel } from "./filter-panel";
 import { FilterTray } from "./filter-tray";
@@ -23,9 +24,10 @@ type SearchGridProps = {
   products: ProductDocument[];
   searchPlaceholder?: string | null;
   noResultsText?: string | null;
+  lang?: string;
 };
 
-export function SearchGrid({ products, searchPlaceholder, noResultsText }: SearchGridProps) {
+export function SearchGrid({ products, searchPlaceholder, noResultsText, lang }: SearchGridProps) {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<FilterSelection>({});
   const hydratedFromUrl = useRef(false);
@@ -41,7 +43,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
   const enterDelay = (index: number) =>
     isArrival.current ? Math.min(index * 0.06, 0.6) : Math.min(index * 0.025, 0.15);
 
-  const groups = useMemo(() => deriveFilterGroups(products), [products]);
+  const groups = useMemo(() => deriveFilterGroups(products, lang), [products, lang]);
   const searchIndex = useMemo(() => buildSearchIndex(products), [products]);
   const filtered = useMemo(
     () => filterProducts(products, searchIndex, query, selection),
@@ -84,8 +86,8 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder={searchPlaceholder || "Sök"}
-        aria-label={searchPlaceholder || "Sök"}
+        placeholder={searchPlaceholder || t(lang).search}
+        aria-label={searchPlaceholder || t(lang).search}
         className="h-12 rounded-1 border-brand/0 bg-green-10 pl-11 outline-0 hover:border-brand/50 hover:bg-green-10/60 hover:outline-0 focus-visible:border-brand focus-visible:bg-green-10 focus-visible:outline-0 active:outline-0"
       />
     </div>
@@ -106,7 +108,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
             onClick={clearFilters}
             className="cursor-pointer px-1 text-ink-dim text-sm underline underline-offset-4"
           >
-            Rensa filter
+            {t(lang).clearFilters}
           </button>
         </m.div>
       )}
@@ -117,7 +119,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
     <div className="flex flex-col gap-6 lg:flex-row">
       {/* Mobile: sticky filter tray */}
       <div className="sticky top-20 z-10 md:top-23 lg:hidden">
-        <FilterTray activeCount={activeCount}>
+        <FilterTray activeCount={activeCount} lang={lang}>
           {searchInput}
           <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
           {clearButton}
@@ -171,7 +173,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText }: Searc
             >
               {query.trim().toLowerCase() === "ida"
                 ? "Inget hittades, men ring Ida så löser hon det 💪"
-                : noResultsText || "Inga produkter matchar din sökning."}
+                : noResultsText || t(lang).noProductsMatch}
             </m.p>
           )}
         </AnimatePresence>

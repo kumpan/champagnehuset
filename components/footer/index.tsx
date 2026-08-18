@@ -3,24 +3,23 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import type { ReactNode } from "react";
 import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
-import { type IconName, iconMap } from "@/components/icons";
+import { resolveIcon } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { CustomSVG } from "@/components/svg";
 import { cn } from "@/lib/utils";
 import { FooterCookieButton } from "./cookie-button";
 
-/** Human-readable names for the social platforms shown when a single social link is present. */
+/**
+ * Proper brand casing for the social platforms, shown when a single social link is present.
+ * Keyed by the CMS icon value, which only differs from the brand name in casing.
+ */
 const socialLabels: Record<string, string> = {
-  instagram: "Instagram",
-  youtube: "YouTube",
-  linkedin: "LinkedIn",
-  facebook: "Facebook",
-  x: "X",
+  Instagram: "Instagram",
+  Youtube: "YouTube",
+  Linkedin: "LinkedIn",
+  Facebook: "Facebook",
+  X: "X",
 };
-
-function isIconName(value: unknown): value is IconName {
-  return typeof value === "string" && value in iconMap;
-}
 
 /**
  * Link fields authored before they were made repeatable come back as a single value, not an
@@ -95,7 +94,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
                 {socials.length > 0 && (
                   <div className="flex flex-wrap gap-2">
                     {socials.map((item, index) => {
-                      const Icon = isIconName(item.icon) ? iconMap[item.icon] : null;
+                      const Icon = resolveIcon(item.icon);
                       const label =
                         (typeof item.icon === "string" ? socialLabels[item.icon] : undefined) ?? item.link.text ?? "";
 

@@ -56,8 +56,8 @@ export async function ContactPeople({ slice }: Props) {
         )}
         {employees.length > 0 && (
           <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-6 lg:grid-cols-3 lg:gap-x-4 lg:gap-y-8">
-            {employees.map((employee) => (
-              <PersonCard key={employee.id} employee={employee} sectionTheme={section_theme} />
+            {employees.map((employee, index) => (
+              <PersonCard key={employee.id} employee={employee} sectionTheme={section_theme} index={index} />
             ))}
           </div>
         )}

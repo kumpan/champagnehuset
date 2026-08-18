@@ -1,38 +1,38 @@
 import { SliceZone } from "@prismicio/react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { AvailableLocalesSetter } from "@/components/available-locales-setter";
 import { FaqSchema } from "@/components/structured-data";
 import { buildPageMetadata } from "@/lib/metadata";
+import { hasPaginatedListing, parsePageParam } from "@/lib/pagination";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
-type Props = { params: Promise<{ lang: string }> };
+type SearchParams = { page?: string | string[] };
+type Props = { params: Promise<{ lang: string }>; searchParams: Promise<SearchParams> };
 
 const fetchHome = async (lang: string) => {
   const client = await createClient();
   return client.getByUID("page", "home", { lang }).catch(() => null);
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang } = await params;
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  const [{ lang }, { page: pageParam }] = await Promise.all([params, searchParams]);
   const page = await fetchHome(lang);
-  return buildPageMetadata(page);
+  const pageNumber = page && hasPaginatedListing(page.data.slices) ? parsePageParam(pageParam) : 1;
+  return buildPageMetadata(page, pageNumber);
 }
 
-export default async function HomePage({ params }: Props) {
-  const { lang } = await params;
+export default async function HomePage({ params, searchParams }: Props) {
+  const [{ lang }, { page: pageParam }] = await Promise.all([params, searchParams]);
+  const currentPage = parsePageParam(pageParam);
   const page = await fetchHome(lang);
 
   if (!page) return notFound();
 
-  const availableLocales = [page.lang, ...page.alternate_languages.map((a) => a.lang)];
-
   return (
     <>
-      <AvailableLocalesSetter locales={availableLocales} />
       <FaqSchema slices={page.data.slices} />
-      <SliceZone slices={page.data.slices} components={components} context={{ lang }} />
+      <SliceZone slices={page.data.slices} components={components} context={{ lang, page: currentPage }} />
     </>
   );
 }

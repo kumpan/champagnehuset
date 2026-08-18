@@ -92,7 +92,7 @@
               "config": {
                 "label": "Icon",
                 "placeholder": "Select an icon",
-                "options": ["instagram", "youtube", "linkedin", "facebook", "x"]
+                "options": ["Instagram", "Youtube", "Linkedin", "Facebook", "X"]
               }
             },
             "link": {

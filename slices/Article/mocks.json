@@ -126,7 +126,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -188,7 +188,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -196,7 +196,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ]

@@ -8,6 +8,7 @@ import CustomMedia from "@/components/custom-media";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
 import { useModal } from "@/components/modal-context";
+import { t } from "@/lib/i18n";
 import type { NewsletterDocument } from "@/prismicio-types";
 
 /**
@@ -50,7 +51,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
           {/* Backdrop, allowing click to close */}
           <button
             type="button"
-            aria-label="Stäng"
+            aria-label={t(prismicData.lang).close}
             onClick={dismissNewsletter}
             className="absolute inset-0 cursor-default bg-fill-dark/70 backdrop-blur-sm"
           />
@@ -84,6 +85,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
                 buttonLabel={button_label}
                 buttonIcon
                 successMessage={success_message}
+                lang={prismicData.lang}
                 sectionTheme="Bud"
                 source="modal"
                 onSubscribed={markNewsletterSeen}
@@ -92,7 +94,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
 
             <button
               type="button"
-              aria-label="Stäng"
+              aria-label={t(prismicData.lang).close}
               onClick={dismissNewsletter}
               className="absolute top-3 right-3 z-60 cursor-pointer rounded-1 bg-fill/80 p-3 text-ink backdrop-blur-sm transition-colors hover:bg-fill/60"
             >

@@ -1,5 +1,5 @@
 import type { Content } from "@prismicio/client";
-import { isFilled } from "@prismicio/client";
+import { asLink, isFilled } from "@prismicio/client";
 
 import CustomMedia from "@/components/custom-media";
 import { InfoItems } from "@/components/info-items";
@@ -27,12 +27,14 @@ export function CalloutContact({ slice }: Props) {
   const mediaItem = media[0];
   const hasMedia = mediaItem && (isFilled.image(mediaItem.image) || isFilled.linkToMedia(mediaItem.video));
 
+  // The link carries both halves of a row: its text is the displayed value (and what the
+  // copy button copies), its URL the tel:/mailto:/maps target.
   const items = contact_items.map((item) => ({
     icon: item.icon,
     label: item.label,
-    value: item.value,
-    href: item.link,
-    clickable: Boolean(item.link),
+    value: item.link.text,
+    href: asLink(item.link),
+    clickable: isFilled.link(item.link),
     theme: section_theme,
   }));
 

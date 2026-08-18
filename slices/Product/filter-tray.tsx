@@ -3,18 +3,20 @@
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { Children, isValidElement, useState } from "react";
+import { t } from "@/lib/i18n";
 
 type FilterTrayProps = {
   /** Number of active filters, shown on the collapsed button. */
   activeCount: number;
   children: React.ReactNode;
+  lang?: string;
 };
 
 /**
- * Mobile-only sticky tray: a "Filtrera" button that expands into an overlay
+ * Mobile-only sticky tray: a filter button that expands into an overlay
  * holding the search input + filter panel. Same pattern as the longform TOC.
  */
-export function FilterTray({ activeCount, children }: FilterTrayProps) {
+export function FilterTray({ activeCount, children, lang }: FilterTrayProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -77,7 +79,7 @@ export function FilterTray({ activeCount, children }: FilterTrayProps) {
         className="relative flex h-12 w-full cursor-pointer items-center justify-center gap-1.5 rounded-4 px-5 text-ink"
       >
         <SlidersHorizontal className="size-5 shrink-0" />
-        <span>{activeCount > 0 ? `Filtrera · ${activeCount}` : "Filtrera"}</span>
+        <span>{activeCount > 0 ? `${t(lang).filter} · ${activeCount}` : t(lang).filter}</span>
         <m.span
           initial={false}
           animate={{ rotate: open ? -180 : 0 }}

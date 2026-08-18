@@ -1,5 +1,4 @@
 import { type Content, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
@@ -9,14 +8,16 @@ import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
 import type { ArticleProps } from "..";
 import { ArticleGrid } from "../article-grid";
-import { PAGE_SIZE } from "../constants";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceList };
 
 // Canonical chip order comes from the `tag` select field model file.
 const TAG_ORDER = articleModel.json.Main.tag.config.options;
 
-export async function ArticleList({ slice }: Props) {
+/** The dynamic-page template passes the `?page=N` it resolved in as slice context. */
+type ListContext = { page?: number; lang?: string };
+
+export async function ArticleList({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const {
     overline,
@@ -32,6 +33,7 @@ export async function ArticleList({ slice }: Props) {
   } = slice.primary;
 
   const client = await createClient();
+  const lang = (context as ListContext | undefined)?.lang;
 
   // One getByIDs (not getByID per item, which throws on any unresolved reference)
   // so unpublished/deleted/stale featured references are dropped, not fatal.
@@ -51,6 +53,8 @@ export async function ArticleList({ slice }: Props) {
     curated.length > 0
       ? curated
       : await client.getAllByType("article", {
+          // lang so we get the right regional articles
+          ...(lang ? { lang } : {}),
           orderings: [{ field: "my.article.article_date", direction: "desc" }],
         });
 
@@ -61,14 +65,10 @@ export async function ArticleList({ slice }: Props) {
   // Chips are for the open feed, when a fixed tag i set hide the filter chips
   const showChips = Boolean(show_filter_chips) && !tagFilter;
 
-  // ArticleGrid paginates client-side and only renders the current page into the
-  // DOM, so a crawler would otherwise see just the first page of article links.
-  // When this is a full paginated feed with more articles than fit on page one,
-  // emit a server-rendered crawlable <a href> to every article. display:none
-  // keeps it out of the tab order and the a11y tree (the visible grid already
-  // serves those users) while Googlebot still reads the links from the HTML.
+  // Pagination lives in the URL, so the server HTML for ?page=2 already holds
+  // page 2's article cards and every page is reachable from a real <a href>.
   const showPagination = show_pagination !== false;
-  const showCrawlableIndex = showPagination && articles.length > PAGE_SIZE;
+  const currentPage = (context as ListContext | undefined)?.page ?? 1;
 
   return (
     <Section
@@ -94,19 +94,10 @@ export async function ArticleList({ slice }: Props) {
           sectionTheme={section_theme}
           showPagination={showPagination}
           showChips={showChips}
+          currentPage={currentPage}
+          lang={lang}
           className="mt-8"
         />
-        {showCrawlableIndex && (
-          <nav aria-hidden="true" className="hidden">
-            <ul>
-              {articles.map((article) => (
-                <li key={article.id}>
-                  <PrismicNextLink document={article}>{article.data.article_title}</PrismicNextLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
       </Container>
     </Section>
   );

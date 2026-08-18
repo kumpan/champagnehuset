@@ -6,9 +6,14 @@ import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 import { tagLabel } from "./constants";
 
-export function formatArticleDate(date: string | null) {
+/**
+ * `Intl` accepts Prismic's lowercase locale ids ("sv-se") directly and already
+ * knows every locale's month names and day/month order, so a new language needs no entry
+ */
+export function formatArticleDate(date: string | null, lang: string | null | undefined) {
   if (!date) return null;
-  return new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short", year: "numeric" }).format(new Date(date));
+  const locale = lang ?? undefined;
+  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" }).format(new Date(date));
 }
 
 type ArticleCardProps = {
@@ -19,7 +24,7 @@ type ArticleCardProps = {
 
 export function ArticleCard({ article, sectionTheme = "Bud", className }: ArticleCardProps) {
   const { article_image, article_description, tag, article_title, article_date } = article.data;
-  const date = formatArticleDate(article_date ?? article.first_publication_date);
+  const date = formatArticleDate(article_date ?? article.first_publication_date, article.lang);
 
   return (
     <PrismicNextLink
@@ -34,7 +39,7 @@ export function ArticleCard({ article, sectionTheme = "Bud", className }: Articl
         />
       </div>
       <div className="flex items-center gap-2 font-medium text-base">
-        {tag && <span>{tagLabel(tag)}</span>}
+        {tag && <span>{tagLabel(tag, article.lang)}</span>}
         {tag && date && <span aria-hidden="true">•</span>}
         {date && <span>{date}</span>}
       </div>

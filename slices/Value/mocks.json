@@ -13,7 +13,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "fileText",
+                  "value": "File Text",
                   "type": "Select"
                 }
               ],
@@ -83,7 +83,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -91,7 +91,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "circleStar",
+                  "value": "Circle Star",
                   "type": "Select"
                 }
               ]
@@ -265,7 +265,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "shieldEllipsis",
+                  "value": "Shield Ellipsis",
                   "type": "Select"
                 }
               ]
@@ -327,7 +327,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -335,7 +335,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "arrowUp",
+                  "value": "Arrow Up",
                   "type": "Select"
                 }
               ]
@@ -353,7 +353,7 @@
                 "icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "sun",
+                  "value": "Sun",
                   "type": "Select"
                 }
               ],
@@ -383,7 +383,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "none"
+                  "value": "None"
                 }
               ],
               [
@@ -412,7 +412,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "none"
+                  "value": "None"
                 }
               ],
               [
@@ -441,7 +441,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "none"
+                  "value": "None"
                 }
               ],
               [

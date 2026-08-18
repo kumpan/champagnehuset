@@ -22,7 +22,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "badgeCheck"
+                  "value": "Badge Check"
                 }
               ]
             ]
@@ -75,7 +75,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "arrowUpRight"
+                  "value": "Arrow Up Right"
                 }
               ],
               [
@@ -83,7 +83,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "arrowRight"
+                  "value": "Arrow Right"
                 }
               ]
             ]
@@ -223,7 +223,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "none",
+                  "value": "None",
                   "type": "Select"
                 }
               ],
@@ -231,7 +231,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "arrowRight",
+                  "value": "Arrow Right",
                   "type": "Select"
                 }
               ]

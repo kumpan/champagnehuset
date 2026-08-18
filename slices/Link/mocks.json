@@ -22,7 +22,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "shieldCheck"
+                  "value": "Shield Check"
                 }
               ]
             ]
@@ -269,7 +269,7 @@
                 {
                   "__TYPE__": "FieldContent",
                   "type": "Select",
-                  "value": "badgeInfo"
+                  "value": "Badge Info"
                 }
               ],
               [
@@ -422,7 +422,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "circleStar",
+                  "value": "Circle Star",
                   "type": "Select"
                 }
               ]
@@ -723,7 +723,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "shieldCheck",
+                  "value": "Shield Check",
                   "type": "Select"
                 }
               ]
@@ -1281,7 +1281,7 @@
                 "icon_left",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "atSign",
+                  "value": "At Sign",
                   "type": "Select"
                 }
               ],
@@ -1289,7 +1289,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "circleStar",
+                  "value": "Circle Star",
                   "type": "Select"
                 }
               ]

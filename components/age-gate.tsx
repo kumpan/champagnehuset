@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { useModal } from "@/components/modal-context";
+import { t } from "@/lib/i18n";
 import type { AgeGateDocument } from "@/prismicio-types";
 
 export function AgeGate({ prismicData }: { prismicData: AgeGateDocument }) {
@@ -64,10 +65,10 @@ export function AgeGate({ prismicData }: { prismicData: AgeGateDocument }) {
                 </div>
                 <div className="flex w-full flex-col gap-2 sm:flex-row sm:justify-center">
                   <Button type="button" onClick={confirmAge} className="sm:min-w-32">
-                    {confirm_label || "Ja"}
+                    {confirm_label || t(prismicData.lang).ageGateConfirm}
                   </Button>
                   <Button type="button" onClick={() => setDeclined(true)} className="sm:min-w-32">
-                    {decline_label || "Nej"}
+                    {decline_label || t(prismicData.lang).ageGateDecline}
                   </Button>
                 </div>
               </div>
@@ -84,13 +85,13 @@ export function AgeGate({ prismicData }: { prismicData: AgeGateDocument }) {
                   {isFilled.richText(decline_message) ? (
                     <CustomRichText field={decline_message} />
                   ) : (
-                    <p>Du behöver vara 25 år för att besöka sidan.</p>
+                    <p>{t(prismicData.lang).ageGateNotice}</p>
                   )}
                 </div>
                 <div className="flex w-full flex-col gap-2">
                   <Button type="button" variant="outline" onClick={() => setDeclined(false)}>
                     <ArrowLeft />
-                    Tillbaka
+                    {t(prismicData.lang).ageGateBack}
                   </Button>
                 </div>
               </div>

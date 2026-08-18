@@ -1,8 +1,10 @@
 "use client";
 
 import { AnimatePresence, easeInOut, m, spring, useInView, useReducedMotion } from "motion/react";
-import { useMemo, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type { SectionTheme } from "@/components/layout/section";
+import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 import { ArticleCard } from "./article-card";
@@ -48,6 +50,8 @@ type ArticleGridProps = {
   sectionTheme: SectionTheme;
   showPagination: boolean;
   showChips: boolean;
+  currentPage: number;
+  lang?: string;
   className?: string;
 };
 
@@ -57,16 +61,22 @@ export function ArticleGrid({
   sectionTheme,
   showPagination,
   showChips,
+  currentPage: pageFromUrl,
+  lang,
   className,
 }: ArticleGridProps) {
   const reducedMotion = useReducedMotion();
   const gridRef = useRef<HTMLDivElement>(null);
-  // once: true latches on first scroll-in, so later page/filter changes animate on mount
-  // instead of waiting for another scroll.
   const inView = useInView(gridRef, { once: true, amount: 0.15 });
 
+  const pathname = usePathname();
+  const router = useRouter();
+  const buildHref = useCallback(
+    (target: number) => (target <= 1 ? pathname : `${pathname}?page=${target}`),
+    [pathname],
+  );
+
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
 
   // Only tags actually present, in canonical order, so no empty chips.
   const availableTags = useMemo(() => {
@@ -80,14 +90,16 @@ export function ArticleGrid({
   );
 
   const totalPages = showPagination ? Math.max(1, Math.ceil(filtered.length / PAGE_SIZE)) : 1;
-  const currentPage = Math.min(page, totalPages);
+  // A filter narrows the feed, so a `?page=` deep-link can land past the end.
+  const currentPage = Math.min(Math.max(1, pageFromUrl), totalPages);
   const visible = showPagination
     ? filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
     : filtered.slice(0, PAGE_SIZE);
 
+  // Chips filter client-side, so a tag change invalidates the current page window
   const selectTag = (tag: string | null) => {
     setActiveTag(tag);
-    setPage(1);
+    if (pageFromUrl > 1) router.replace(pathname, { scroll: false });
   };
 
   const chips = showChips && availableTags.length > 0;
@@ -99,11 +111,11 @@ export function ArticleGrid({
       {chips && (
         <div className="flex flex-wrap gap-1.5">
           <ChipButton active={activeTag === null} theme={sectionTheme} onClick={() => selectTag(null)}>
-            Alla
+            {t(lang).all}
           </ChipButton>
           {availableTags.map((tag) => (
             <ChipButton key={tag} active={activeTag === tag} theme={sectionTheme} onClick={() => selectTag(tag)}>
-              {tagLabel(tag)}
+              {tagLabel(tag, lang)}
             </ChipButton>
           ))}
         </div>
@@ -129,7 +141,12 @@ export function ArticleGrid({
       </div>
 
       {showPagination && totalPages > 1 && (
-        <Pagination currentPage={currentPage} totalPages={totalPages} sectionTheme={sectionTheme} onChange={setPage} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          sectionTheme={sectionTheme}
+          buildHref={buildHref}
+        />
       )}
     </div>
   );

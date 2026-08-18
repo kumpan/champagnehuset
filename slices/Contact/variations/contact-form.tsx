@@ -1,15 +1,11 @@
 import type { Content } from "@prismicio/client";
 import ContactFormFields from "@/components/forms/contact-form";
-import { type IconName, iconMap } from "@/components/icons";
+import { resolveIcon } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ContactProps } from "..";
-
-function isIconName(value: unknown): value is IconName {
-  return typeof value === "string" && value in iconMap;
-}
 
 type Props = ContactProps & { slice: Content.ContactSliceForm };
 
@@ -60,7 +56,7 @@ export function ContactForm({ slice }: Props) {
               {value_statements.length > 0 && (
                 <ul className="flex flex-col gap-3 md:gap-4">
                   {value_statements.map((item, index) => {
-                    const Icon = item.icon && isIconName(item.icon) ? iconMap[item.icon] : null;
+                    const Icon = resolveIcon(item.icon);
                     if (!item.text && !Icon) return null;
                     return (
                       <li key={`${index}-${item.text}`} className="flex items-center gap-2 md:gap-2">

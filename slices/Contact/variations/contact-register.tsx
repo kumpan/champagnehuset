@@ -9,7 +9,10 @@ import type { ContactProps } from "..";
 
 type Props = ContactProps & { slice: Content.ContactSliceRegister };
 
-export function ContactRegister({ slice }: Props) {
+type RegisterContext = { lang?: string };
+
+export function ContactRegister({ slice, context }: Props) {
+  const lang = (context as RegisterContext | undefined)?.lang;
   const hasIntroContent = hasSectionIntroContent(slice);
   const {
     overline,
@@ -64,6 +67,7 @@ export function ContactRegister({ slice }: Props) {
               placeholder={email_placeholder}
               buttonLabel={button_label}
               successMessage={success_message}
+              lang={lang}
               sectionTheme={contentTheme}
               source="slice"
               buttonIcon
