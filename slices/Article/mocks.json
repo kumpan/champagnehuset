@@ -21,55 +21,11 @@
               [
                 "article",
                 {
-                  "key": "feat-0",
+                  "key": "b841167c-7a0a-4c21-9699-9d454ca31d73",
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "DocumentLink",
-                    "id": "amMK2BEAACwAcD2b",
-                    "type": "article",
-                    "tags": [],
-                    "lang": "sv-se",
-                    "isBroken": false
-                  }
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "article",
-                {
-                  "key": "feat-1",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "DocumentLink",
-                    "id": "amMK2hEAACkAcD2j",
-                    "type": "article",
-                    "tags": [],
-                    "lang": "sv-se",
-                    "isBroken": false
-                  }
-                }
-              ]
-            ]
-          },
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "article",
-                {
-                  "key": "feat-2",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "DocumentLink",
-                    "id": "amMK3hEAAC0AcD2z",
-                    "type": "article",
-                    "tags": [],
-                    "lang": "sv-se",
-                    "isBroken": false
+                    "id": "mock_document_id"
                   }
                 }
               ]
@@ -79,7 +35,7 @@
       },
       "link_label": {
         "__TYPE__": "FieldContent",
-        "value": "Läs hela artikeln",
+        "value": "reader",
         "type": "Text"
       }
     },
@@ -100,21 +56,21 @@
       },
       "section_theme": {
         "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
+        "value": "Leaf",
+        "type": "Select"
       },
       "show_pagination": {
         "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "show_filter_chips": {
-        "__TYPE__": "BooleanContent",
-        "value": true
+        "value": false
       },
       "filter_by_tag": {
         "__TYPE__": "FieldContent",
         "value": "All",
         "type": "Select"
+      },
+      "show_filter_chips": {
+        "__TYPE__": "BooleanContent",
+        "value": false
       },
       "overline": {
         "__TYPE__": "GroupContentType",
@@ -126,7 +82,7 @@
                 "overline_icon",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "None",
+                  "value": "Lock Open",
                   "type": "Select"
                 }
               ],
@@ -134,7 +90,7 @@
                 "overline_text",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "Journalen",
+                  "value": "clothes",
                   "type": "Text"
                 }
               ]
@@ -148,8 +104,7 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Berättelser och guider från Champagnes värld",
-              "spans": []
+              "text": "Theory"
             }
           }
         ]
@@ -160,8 +115,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Tankeväckande texter om regionerna, odlarna och hantverket bakom champagnen i ditt glas.",
-              "spans": []
+              "text": "Cillum quis non amet occaecat dolore. Sint sint consectetur aliqua occaecat commodo proident nisi officia cupidatat minim id sit aliqua."
             }
           }
         ]
@@ -175,12 +129,12 @@
               [
                 "link",
                 {
-                  "key": "bf1556f4-2fe3-43b3-8b50-5eec9a789314",
+                  "key": "50f72c27-573e-460c-ab6d-079f9d1e97ee",
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "ExternalLink",
-                    "url": "https://champagnehuset.se/journal",
-                    "text": "Läs alla artiklar"
+                    "url": "https://slicemachine.dev",
+                    "text": "secret"
                   }
                 }
               ],
@@ -196,7 +150,7 @@
                 "icon_right",
                 {
                   "__TYPE__": "FieldContent",
-                  "value": "None",
+                  "value": "Arrow Left",
                   "type": "Select"
                 }
               ]
@@ -213,7 +167,7 @@
               [
                 "article",
                 {
-                  "key": "1f104657-2275-4649-83c2-569a9f098a80",
+                  "key": "4e91c982-2b21-4e34-8fee-8d911a3e0f15",
                   "__TYPE__": "LinkContent",
                   "value": {
                     "__TYPE__": "DocumentLink",
