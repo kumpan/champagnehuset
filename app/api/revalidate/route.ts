@@ -15,8 +15,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  revalidateTag("prismic", "max");
-  revalidateTag("redirects", "max");
+  revalidateTag("prismic", { expire: 0 });
+  revalidateTag("redirects", { expire: 0 });
 
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }
