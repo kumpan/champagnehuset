@@ -149,7 +149,7 @@ html {
 }
 
 body {
-    @apply font-medium font-stretch-115%;
+    @apply font-normal font-stretch-115%;
     background-color: var(--color-fill);
     color: var(--color-fill-dark);
     font-family: var(--font-secondary), sans-serif;
