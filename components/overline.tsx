@@ -3,9 +3,9 @@ import { Slot } from "@/lib/slot";
 import { cn } from "@/lib/utils";
 
 const baseClasses =
-  "inline-flex w-fit shrink-0 items-center justify-center gap-1 flex text-base [&>svg]:size-4.5 transition-colors duration-200 ease-in-out" +
-  "whitespace-nowrap px-4" +
-  "text-ink" +
+  "inline-flex w-fit shrink-0 items-center justify-center gap-1 flex text-base [&>svg]:size-4.5 transition-colors duration-200 ease-in-out " +
+  "whitespace-nowrap px-4 " +
+  "text-ink " +
   "[&>svg]:pointer-events-none [&>svg]:mb-[0.0rem]";
 
 export function Overline({
