@@ -4,7 +4,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Button, cardFocusRing } from "@/components/button";
 import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { createClient } from "@/prismicio";
@@ -15,7 +15,8 @@ import { formatArticleDate } from "../article-card";
 type Props = ArticleProps & { slice: Content.ArticleSliceFeature };
 
 export async function ArticleFeature({ slice }: Props) {
-  const { section_theme, remove_top_padding, featured_articles, link_label } = slice.primary;
+  const { remove_top_padding, featured_articles, link_label } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
   const ArrowRight = iconMap.arrowRight;
 
   const client = await createClient();

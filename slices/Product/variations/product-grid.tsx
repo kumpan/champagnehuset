@@ -1,7 +1,7 @@
 import { type Content, filter, isFilled } from "@prismicio/client";
 
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
@@ -43,13 +43,13 @@ export async function ProductGrid({ slice, context }: Props) {
     title,
     description,
     button,
-    section_theme,
     remove_top_padding,
     featured_products,
     producer_filter,
     match_current_style,
     product_limit,
   } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   // Select default is "4"; anything unexpected also falls back to 4.
   const limit = product_limit === "No Limit" ? null : product_limit === "8" ? 8 : 4;
@@ -133,7 +133,7 @@ export async function ProductGrid({ slice, context }: Props) {
         {products.length > 0 && (
           <div className={cn("mt-8 grid gap-x-3 gap-y-8 md:gap-x-4", gridColsClass(products.length))}>
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} className="w-full" />
+              <ProductCard key={product.id} product={product} className="w-full" sectionTheme={section_theme} />
             ))}
           </div>
         )}

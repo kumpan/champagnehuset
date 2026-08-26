@@ -1,7 +1,7 @@
 import type { Content } from "@prismicio/client";
 
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
@@ -9,6 +9,7 @@ import type { ValueProps } from "..";
 const statementDescriptionThemeClasses = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
+  Bottle: "text-ink-dim",
   Brand: "text-ink-flip",
   Dust: "text-spot-ink-dim",
   Slate: "text-spot-ink-flip",
@@ -17,6 +18,7 @@ const statementDescriptionThemeClasses = {
 const dividerThemeClasses = {
   Bud: "bg-brand",
   Leaf: "bg-brand",
+  Bottle: "bg-brand",
   Brand: "bg-current",
   Dust: "bg-spot-ink-dim",
   Slate: "bg-current",
@@ -24,8 +26,8 @@ const dividerThemeClasses = {
 
 export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceText }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding, statement } =
-    slice.primary;
+  const { overline, title, description, buttons, alignment, remove_top_padding, statement } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   const gridCols =
     statement.length === 2 || statement.length === 4

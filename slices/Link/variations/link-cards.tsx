@@ -3,7 +3,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { LinkProps } from "..";
@@ -21,7 +21,8 @@ function gridColumns(count: number) {
 
 export function LinkCards({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, section_theme, remove_top_padding, cards } = slice.primary;
+  const { overline, title, description, alignment, remove_top_padding, cards } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   return (
     <Section

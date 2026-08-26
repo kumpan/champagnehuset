@@ -5,25 +5,38 @@ import CustomMedia from "@/components/custom-media";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { resolveIcon } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section, type SectionTheme } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
 
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
-  Leaf: "bg-fill",
+  Leaf: "bg-fill-raised",
+  Bottle: "bg-brand text-brand-ink",
   Brand: "bg-fill-raised/15",
   Dust: "bg-spot-fill-dark/10",
   Slate: "bg-spot-fill-dark",
+};
+
+// Content on the Bottle card sits on brand green, so it renders with the
+// internal on-green "Brand" theme.
+const introClasses: Record<SectionTheme, SectionTheme> = {
+  Bud: "Bud",
+  Leaf: "Leaf",
+  Bottle: "Brand",
+  Brand: "Brand",
+  Dust: "Dust",
+  Slate: "Slate",
 };
 
 type Props = CalloutProps & { slice: Content.CalloutSliceDetails };
 
 export function CalloutDetails({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, section_theme, remove_top_padding, image_side, media, details } =
-    slice.primary;
+  const { overline, title, description, buttons, remove_top_padding, image_side, media, details } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const content_theme = introClasses[section_theme];
 
   const mediaItem = media[0];
   const hasMedia = mediaItem && (isFilled.image(mediaItem.image) || isFilled.linkToMedia(mediaItem.video));
@@ -38,7 +51,7 @@ export function CalloutDetails({ slice }: Props) {
             {isFilled.richText(detail.rich_text) && (
               <CustomRichText
                 field={detail.rich_text}
-                sectionTheme={section_theme}
+                sectionTheme={content_theme}
                 className={cn(
                   "prose-p:my-0 prose-p:font-medium prose-p:text-lg prose-p:leading-tight md:prose-p:text-xl",
                 )}
@@ -80,7 +93,7 @@ export function CalloutDetails({ slice }: Props) {
                 descriptionClassName="text-pretty"
                 buttons={buttons}
                 align="left"
-                sectionTheme={section_theme}
+                sectionTheme={content_theme}
                 buttonWrapperClassName="mt-4 mb-4 md:mb-2"
                 textBalance={true}
               >

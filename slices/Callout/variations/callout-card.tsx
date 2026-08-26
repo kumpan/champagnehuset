@@ -2,7 +2,7 @@ import { type Content, isFilled } from "@prismicio/client";
 
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section, type SectionTheme } from "@/components/layout/section";
+import { normalizeSectionTheme, Section, type SectionTheme } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
@@ -11,7 +11,8 @@ type Props = CalloutProps & { slice: Content.CalloutSliceCard };
 
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
-  Leaf: "bg-fill md:bg-fill/85 md:backdrop-brightness-110",
+  Leaf: "bg-fill-raised md:bg-fill-raised/85 md:backdrop-brightness-110",
+  Bottle: "bg-brand text-brand-ink md:bg-brand/92 md:backdrop-brightness-75",
   Brand: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
   Dust: "bg-spot-fill md:bg-spot-fill/92 md:backdrop-brightness-50",
   Slate: "bg-spot-fill-raised md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
@@ -20,6 +21,7 @@ const containerClasses: Record<string, string> = {
 const introClasses: Record<SectionTheme, SectionTheme> = {
   Bud: "Bud",
   Leaf: "Leaf",
+  Bottle: "Brand",
   Brand: "Leaf",
   Dust: "Slate",
   Slate: "Dust",
@@ -27,7 +29,8 @@ const introClasses: Record<SectionTheme, SectionTheme> = {
 
 export function CalloutCard({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding, media } = slice.primary;
+  const { overline, title, description, buttons, alignment, remove_top_padding, media } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
   const { image, video, filter } = media[0] ?? {};
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
 

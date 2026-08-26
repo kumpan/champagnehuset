@@ -241,7 +241,7 @@
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Brand"
+        "value": "Bottle"
       },
       "alignment": {
         "__TYPE__": "BooleanContent",

@@ -2,7 +2,7 @@ import { type Content, isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ContactProps } from "..";
@@ -18,7 +18,6 @@ export function ContactRegister({ slice, context }: Props) {
     overline,
     title,
     description,
-    section_theme,
     image_side,
     image,
     remove_top_padding,
@@ -27,9 +26,11 @@ export function ContactRegister({ slice, context }: Props) {
     button_label,
     success_message,
   } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
-  const contentTheme = section_theme === "Dust" ? "Dust" : "Leaf";
-  const cardSurface = section_theme === "Dust" ? "bg-spot-fill-raised" : "bg-fill-raised";
+  const contentTheme = section_theme === "Dust" ? "Dust" : section_theme === "Bottle" ? "Brand" : "Leaf";
+  const cardSurface =
+    section_theme === "Dust" ? "bg-spot-fill-raised" : section_theme === "Bottle" ? "bg-brand" : "bg-fill-raised";
 
   const hasImage = isFilled.image(image);
 

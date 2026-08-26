@@ -1,6 +1,6 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import articleModel from "@/customtypes/article/index.json";
 import { hasSectionIntroContent } from "@/lib/utils";
@@ -24,13 +24,13 @@ export async function ArticleList({ slice, context }: Props) {
     title,
     description,
     button,
-    section_theme,
     remove_top_padding,
     featured_articles,
     filter_by_tag,
     show_pagination,
     show_filter_chips,
   } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   const client = await createClient();
   const lang = (context as ListContext | undefined)?.lang;

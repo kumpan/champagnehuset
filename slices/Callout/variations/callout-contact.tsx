@@ -4,25 +4,51 @@ import { asLink, isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { InfoItems } from "@/components/info-items";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section, type SectionTheme } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
 
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
-  Leaf: "bg-fill",
+  Leaf: "bg-fill-raised",
+  Bottle: "bg-brand text-brand-ink",
   Brand: "bg-fill-raised/15",
   Dust: "bg-spot-fill-dark/10",
   Slate: "bg-spot-fill-dark",
+};
+
+// Content on the Bottle card sits on brand green, so it renders with the
+// internal on-green "Brand" theme.
+const introClasses: Record<SectionTheme, SectionTheme> = {
+  Bud: "Bud",
+  Leaf: "Leaf",
+  Bottle: "Brand",
+  Brand: "Brand",
+  Dust: "Dust",
+  Slate: "Slate",
+};
+
+// Info rows need a fill one step apart from the card behind them: "Brand" rows
+// (bg-fill) read on the green Bottle card, "Bud" rows (bg-fill) on the
+// bg-fill-raised Leaf card.
+const itemClasses: Record<SectionTheme, SectionTheme> = {
+  Bud: "Bud",
+  Leaf: "Bud",
+  Bottle: "Brand",
+  Brand: "Brand",
+  Dust: "Dust",
+  Slate: "Slate",
 };
 
 type Props = CalloutProps & { slice: Content.CalloutSliceContact };
 
 export function CalloutContact({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, section_theme, remove_top_padding, image_side, media, contact_items } =
-    slice.primary;
+  const { overline, title, description, buttons, remove_top_padding, image_side, media, contact_items } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const content_theme = introClasses[section_theme];
+  const item_theme = itemClasses[section_theme];
 
   const mediaItem = media[0];
   const hasMedia = mediaItem && (isFilled.image(mediaItem.image) || isFilled.linkToMedia(mediaItem.video));
@@ -35,7 +61,7 @@ export function CalloutContact({ slice }: Props) {
     value: item.link.text,
     href: asLink(item.link),
     clickable: isFilled.link(item.link),
-    theme: section_theme,
+    theme: item_theme,
   }));
 
   return (
@@ -68,12 +94,12 @@ export function CalloutContact({ slice }: Props) {
                 descriptionClassName="text-pretty"
                 buttons={buttons}
                 align="left"
-                sectionTheme={section_theme}
+                sectionTheme={content_theme}
                 buttonWrapperClassName="mt-3 md:mt-4"
                 textBalance={true}
               />
             )}
-            {items.length > 0 && <InfoItems items={items} theme={section_theme} />}
+            {items.length > 0 && <InfoItems items={items} theme={item_theme} />}
           </div>
           {hasMedia && mediaItem && (
             <div className="aspect-square lg:w-1/2">

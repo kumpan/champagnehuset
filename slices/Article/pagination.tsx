@@ -14,6 +14,11 @@ const pageThemeClasses = {
     active: "bg-brand text-brand-ink",
     disabled: "bg-fill/50 text-ink/30",
   },
+  Bottle: {
+    base: "bg-ink/5 text-ink hover:bg-brand/15",
+    active: "bg-brand text-brand-ink",
+    disabled: "bg-ink/5 text-ink/30",
+  },
   Brand: {
     base: "bg-brand-fill text-ink-flip hover:bg-brand-fill/80",
     active: "bg-fill text-ink",

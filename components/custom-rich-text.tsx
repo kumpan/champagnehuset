@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 const proseThemeClass: Record<string, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
+  Bottle: "text-ink-dim",
   Brand: "prose-flip text-ink-flip",
   Dust: "prose-spot text-spot-ink-dim",
   Slate: "prose-spot-flip text-spot-ink-flip",

@@ -9,7 +9,8 @@ import type { CalloutProps } from "..";
 
 const containerClasses = {
   Bud: "bg-fill-raised",
-  Leaf: "bg-fill",
+  Leaf: "bg-fill-raised",
+  Bottle: "bg-brand text-brand-ink",
   Brand: "bg-fill-raised",
   Dust: "bg-spot-fill",
   Slate: "bg-spot-fill-raised",
@@ -18,6 +19,7 @@ const containerClasses = {
 const introClasses: Record<SectionTheme, SectionTheme> = {
   Bud: "Bud",
   Leaf: "Leaf",
+  Bottle: "Brand",
   Brand: "Leaf",
   Dust: "Slate",
   Slate: "Dust",

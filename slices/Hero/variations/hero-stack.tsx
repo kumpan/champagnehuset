@@ -3,7 +3,7 @@ import { isFilled } from "@prismicio/client";
 import { BreadcrumbNav } from "@/components/breadcrumb";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { hasSectionIntroContent } from "@/lib/utils";
 import type { HeroProps } from "..";
@@ -12,7 +12,8 @@ type Props = HeroProps & { slice: Content.HeroSliceStack };
 
 export function HeroStack({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, section_theme, media } = slice.primary;
+  const { overline, title, description, buttons, media } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   const breadcrumbs = context?.breadcrumbs;
 
@@ -50,6 +51,7 @@ export function HeroStack({ slice, context }: Props) {
             imageField={isFilled.linkToMedia(media[0].video) ? undefined : media[0].image}
             videoSrc={isFilled.linkToMedia(media[0].video) ? media[0].video.url : undefined}
             filter={media[0].filter}
+            sectionTheme={section_theme}
           />
         )}
       </Container>

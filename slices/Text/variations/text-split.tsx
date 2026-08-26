@@ -2,7 +2,7 @@ import type { Content } from "@prismicio/client";
 
 import { CustomRichText } from "@/components/custom-rich-text";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { hasSectionIntroContent } from "@/lib/utils";
 import type { TextProps } from "..";
@@ -11,8 +11,8 @@ type Props = TextProps & { slice: Content.TextSliceSplit };
 
 export function TextSplit({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, remove_top_padding, section_theme, first_text_block, second_text_block } =
-    slice.primary;
+  const { overline, title, description, remove_top_padding, first_text_block, second_text_block } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   return (
     <Section

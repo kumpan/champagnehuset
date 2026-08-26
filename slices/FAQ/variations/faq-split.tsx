@@ -1,6 +1,6 @@
 import type { Content } from "@prismicio/client";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { hasSectionIntroContent } from "@/lib/utils";
 import type { FAQProps } from "..";
@@ -10,7 +10,8 @@ type Props = FAQProps & { slice: Content.FaqSliceSplit };
 
 export function FAQSplit({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, section_theme, remove_top_padding, faqlist } = slice.primary;
+  const { overline, title, description, remove_top_padding, faqlist } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   return (
     <Section

@@ -3,7 +3,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import type { SectionTheme } from "@/components/section-intro";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
@@ -16,7 +16,8 @@ type Props = LinkProps & { slice: Content.LinkSliceGrid };
 /** The card itself: a label bar sitting above the image plate. */
 const cardThemeClasses: Record<SectionTheme, string> = {
   Bud: "bg-fill-raised hover:bg-fill-raised/70",
-  Leaf: "bg-fill hover:bg-fill/70",
+  Leaf: "bg-fill-raised text-ink hover:bg-fill-raised/70",
+  Bottle: "bg-brand text-brand-ink hover:bg-brand/90",
   Brand: "bg-fill-raised text-ink hover:bg-fill-raised/90",
   Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90",
   Slate: "bg-spot-fill-raised text-spot-ink hover:bg-spot-fill/90",
@@ -36,8 +37,8 @@ type GridItem = {
 
 export async function LinkGrid({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, section_theme, remove_top_padding, link_source, cards } =
-    slice.primary;
+  const { overline, title, description, alignment, remove_top_padding, link_source, cards } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   let items: GridItem[];
   if (link_source === "All Producers") {

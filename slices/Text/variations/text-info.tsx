@@ -4,7 +4,7 @@ import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { getSingleton } from "@/lib/cms";
 import { formatAlcohol, formatDosage, formatGrapes } from "@/lib/format";
@@ -31,7 +31,7 @@ export async function TextInfo({ slice, context }: Props) {
   const doc = ctx?.document;
   const product = doc?.type === "product" ? doc : undefined;
   const data = product?.data;
-  const { section_theme } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   // The editable Special Club blurb only renders on product pages
   // that are also a Special Club champagnes

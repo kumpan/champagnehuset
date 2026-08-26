@@ -2,7 +2,7 @@ import type { Content } from "@prismicio/client";
 import ContactFormFields from "@/components/forms/contact-form";
 import { resolveIcon } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ContactProps } from "..";
@@ -15,7 +15,6 @@ export function ContactForm({ slice }: Props) {
     overline,
     title,
     description,
-    section_theme,
     remove_top_padding,
     form_side,
     value_statements,
@@ -23,6 +22,7 @@ export function ContactForm({ slice }: Props) {
     success_message,
     consent_items,
   } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   return (
     <Section

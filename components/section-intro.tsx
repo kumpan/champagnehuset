@@ -28,6 +28,7 @@ type Align = "left" | "center" | "side-by-side" | "split";
 const overlineThemeClasses = {
   Bud: "text-ink",
   Leaf: "text-ink",
+  Bottle: "text-ink",
   Brand: "text-ink-flip",
   Dust: "text-spot-ink",
   Slate: "text-spot-ink-flip",

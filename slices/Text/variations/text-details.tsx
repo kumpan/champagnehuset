@@ -14,6 +14,7 @@ const displayHeading = "font-primary! text-3xl text-pretty italic md:text-4xl lg
 const bodyThemeClasses: Record<SectionTheme, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
+  Bottle: "text-ink-dim",
   Brand: "",
   Dust: "text-spot-ink-dim",
   Slate: "",

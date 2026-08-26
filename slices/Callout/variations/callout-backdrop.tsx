@@ -2,7 +2,7 @@ import { type Content, isFilled } from "@prismicio/client";
 
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
@@ -11,7 +11,8 @@ type Props = CalloutProps & { slice: Content.CalloutSliceBackdrop };
 
 export function CalloutBackdrop({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { title, description, buttons, overline, alignment, section_theme, remove_top_padding, media } = slice.primary;
+  const { title, description, buttons, overline, alignment, remove_top_padding, media } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
   const { image, video, filter } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);

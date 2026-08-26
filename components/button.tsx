@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 
 const variantClasses = {
   default:
-    "bg-brand text-brand-ink hover:bg-brand/90 outline-brand/70 font-regular selection:bg-fill-raised selection:text-ink",
+    "bg-brand text-brand-ink hover:bg-brand/90 outline-brand/70 selection:bg-fill-raised selection:text-ink",
   destructive: "bg-error text-ink-flip hover:bg-error/90 outline-error",
-  outline: "border border-brand text-brand hover:bg-brand/5 outline-brand font-regular",
+  outline: "border border-brand text-brand hover:bg-brand/5 outline-brand",
   secondary:
-    "bg-fill-raised hover:bg-fill-raised/70 text-raised-ink outline-brand/70 font-regular selection:bg-brand selection:text-ink-flip",
+    "bg-fill-raised hover:bg-fill-raised/70 text-raised-ink outline-brand/70 selection:bg-brand selection:text-ink-flip",
   ghost: "text-ink hover:bg-fill-raised outline-brand",
   link: "text-brand underline underline-offset-4 hover:no-underline outline-brand",
 } as const;
@@ -20,6 +20,8 @@ const themeClasses: Record<SectionTheme, Partial<Record<ButtonVariant, string>>>
   Leaf: {
     secondary: "bg-fill hover:bg-fill/70",
   },
+
+  Bottle: {},
 
   Brand: {
     default: "bg-fill text-ink hover:bg-fill/90 outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
@@ -58,7 +60,7 @@ const sizeClasses = {
 } as const;
 
 const baseClasses =
-  "inline-flex max-w-full shrink-0 cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-1 " +
+  "inline-flex max-w-full shrink-0 cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-1 font-medium " +
   "transition-all duration-200 ease-in-out " +
   "active:opacity-50 " +
   "outline-0 outline-offset-0 focus-visible:outline-2 focus-visible:outline-offset-2 " +
@@ -75,6 +77,7 @@ export type ButtonSize = keyof typeof sizeClasses;
 const focusRingThemeClasses: Record<SectionTheme, string> = {
   Bud: "focus-visible:outline-brand/70",
   Leaf: "focus-visible:outline-brand/70",
+  Bottle: "focus-visible:outline-brand/70",
   Brand: "focus-visible:outline-fill-raised/70",
   Dust: "focus-visible:outline-spot-fill-dark/70",
   Slate: "focus-visible:outline-spot-fill-raised/70",

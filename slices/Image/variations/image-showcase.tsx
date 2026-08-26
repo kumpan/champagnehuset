@@ -1,7 +1,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ImageProps } from "..";
 
@@ -14,7 +14,8 @@ const getMediaKey = (item: Content.ImageSliceShowcasePrimaryMediaItem, index: nu
 };
 
 export function ImageShowcase({ slice }: ImageShowcaseProps) {
-  const { media, remove_top_padding, section_theme } = slice.primary;
+  const { media, remove_top_padding } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
   const filteredMedia = media.filter((item) => isFilled.image(item.image) || isFilled.linkToMedia(item.video));
   const mediaCount = filteredMedia.length;
 
@@ -23,7 +24,7 @@ export function ImageShowcase({ slice }: ImageShowcaseProps) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      className={section_theme}
+      sectionTheme={section_theme}
     >
       <Container
         className={cn(
@@ -43,6 +44,7 @@ export function ImageShowcase({ slice }: ImageShowcaseProps) {
               indexedDelay={true}
               filter={item.filter}
               index={index}
+              sectionTheme={section_theme}
               className={cn(
                 "aspect-square rounded-lg",
                 mediaCount === 1 && "aspect-square md:aspect-video lg:aspect-video",
