@@ -3,6 +3,12 @@ import { NextResponse } from "next/server";
 import { getLocales, getMasterLocale } from "@/lib/locales";
 import { getRedirects } from "@/lib/redirects";
 
+// Extension allowlist instead of a blanket dot check: Prismic UIDs may contain
+// dots (e.g. /champagner/cl.-de-la-chapelle-brut-instinct) and must still reach
+// the locale rewrite below, while real static/metadata files short-circuit.
+const STATIC_FILE_RE =
+  /\.(?:js|mjs|css|map|json|xml|txt|ico|png|jpg|jpeg|gif|svg|webp|avif|woff|woff2|ttf|otf|eot|webmanifest|pdf|mp4|webm|mp3)$/i;
+
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -17,7 +23,8 @@ export async function proxy(request: NextRequest) {
     pathname.startsWith("/api/") ||
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/slice-simulator") ||
-    pathname.includes(".")
+    pathname.startsWith("/.well-known/") ||
+    STATIC_FILE_RE.test(pathname)
   ) {
     return NextResponse.next({ request: { headers: requestHeaders } });
   }
