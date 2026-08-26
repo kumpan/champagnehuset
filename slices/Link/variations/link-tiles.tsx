@@ -3,21 +3,12 @@ import { PrismicNextLink } from "@prismicio/next";
 import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
-import type { SectionTheme } from "@/components/section-intro";
+import { normalizeSectionTheme, Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceTiles };
-
-const descriptionThemeClasses: Record<SectionTheme, string> = {
-  Bud: "text-ink-dim",
-  Leaf: "text-ink-dim",
-  Brand: "text-ink-flip/80",
-  Dust: "text-spot-ink-dim",
-  Slate: "text-spot-ink-flip/80",
-};
 
 /**
  * Two across by default. Counts divisible by three (3, 6), plus 5 (a tidier last
@@ -29,7 +20,8 @@ function gridColumns(count: number) {
 
 export function LinkTiles({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, section_theme, remove_top_padding, cards } = slice.primary;
+  const { overline, title, description, alignment, remove_top_padding, cards } = slice.primary;
+  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
 
   return (
     <Section
@@ -57,28 +49,35 @@ export function LinkTiles({ slice }: Props) {
             )}
           >
             {cards.map((card, index) => (
-              <li
-                key={`${index}-${card.title}`}
-                className="group border-current/20 not-last:border-b not-last:pb-4 lg:not-last:border-b-0 lg:not-last:pb-0"
-              >
+              <li key={`${index}-${card.title}`} className="group">
                 <PrismicNextLink
                   field={card.links}
-                  className="flex h-full flex-col gap-3 transition-all duration-300 ease-in-out hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
+                  className="relative isolate flex aspect-video flex-col justify-between overflow-hidden rounded-2 p-4 text-ink-flip transition-all duration-300 ease-in-out md:p-5 hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
                 >
-                  <div className="overflow-hidden rounded-2">
-                    <CustomMedia
-                      imageField={card.image}
-                      className="aspect-video w-full rounded-0 object-cover transition-transform duration-1000 ease-out group-hover:scale-103"
-                      sectionTheme={section_theme}
-                    />
+                  <CustomMedia
+                    imageField={card.image}
+                    className="absolute inset-0 size-full rounded-0 object-cover transition-transform duration-1000 ease-out group-hover:scale-103"
+                    sectionTheme={section_theme}
+                  />
+
+                  {/* Top Fade */}
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-6/20">
+                    <div className="absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-spot-fill-dark/75 to-spot-fill-dark/0" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-yellow-600/25 to-yellow-600/0 mix-blend-overlay" />
                   </div>
 
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="font-semibold text-base md:text-lg">{card.title}</h3>
-                      <ArrowRight className="size-5 shrink-0" />
-                    </div>
-                    <p className={cn("text-pretty text-sm leading-snug", descriptionThemeClasses[section_theme])}>
+                  <div className="relative flex items-start justify-between gap-3">
+                    <h3 className="mt-0.25 font-primary text-xl md:mt-0 md:text-2xl">{card.title}</h3>
+                    <ArrowRight className="size-6 shrink-0 md:size-7" />
+                  </div>
+
+                  <div className="relative -mx-4 -mb-4 px-4 pt-12 pb-4 transition-[padding] duration-500 ease-out group-hover:pt-16 md:-mx-5 md:-mb-5 md:px-5 md:pt-16 md:pb-5 md:group-hover:pt-20">
+                    {/* Bottom Fade, grows on hover via the wrapper's top padding */}
+                    <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />
+                    <p className="relative line-clamp-2 text-pretty text-sm leading-snug md:line-clamp-3">
                       {card.description}
                     </p>
                   </div>
