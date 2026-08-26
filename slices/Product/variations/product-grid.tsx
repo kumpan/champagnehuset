@@ -59,7 +59,10 @@ export async function ProductGrid({ slice, context }: Props) {
   const ctx = context as GridContext | undefined;
   const currentProduct = ctx?.document?.type === "product" ? ctx.document : undefined;
   const styleToMatch =
-    match_current_style && currentProduct && isFilled.select(currentProduct.data.product_style)
+    match_current_style &&
+    currentProduct &&
+    isFilled.select(currentProduct.data.product_style) &&
+    currentProduct.data.product_style !== "None"
       ? currentProduct.data.product_style
       : null;
 

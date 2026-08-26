@@ -1,4 +1,5 @@
 import { isFilled } from "@prismicio/client";
+import { normalizeGrape, productVolumes } from "@/lib/format";
 import { t } from "@/lib/i18n";
 import type { ProductDocument } from "@/prismicio-types";
 
@@ -63,8 +64,16 @@ const availabilityOptions = (lang: string | null | undefined): FilterOption[] =>
 
 /** Mirrors the curated option order in the product custom type selects. */
 const REGION_ORDER = ["Côte des Blancs", "Montagne de Reims", "Vallée de la Marne", "Côte des Bar", "Côte de Sézanne"];
-const STYLE_ORDER = ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Special Club"];
-const GRAPE_ORDER = ["Chardonnay", "Pinot Noir", "Meunier", "Arbane", "Petit Meslier", "Pinot Blanc", "Pinot Gris"];
+const STYLE_ORDER = ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Millésime", "Special Club"];
+const GRAPE_ORDER = [
+  "Chardonnay",
+  "Pinot Noir",
+  "Pinot Meunier",
+  "Arbane",
+  "Petit Meslier",
+  "Pinot Blanc",
+  "Pinot Gris",
+];
 
 export function producerNameOf(product: ProductDocument): string | null {
   const producer = product.data.product_producer;
@@ -88,13 +97,14 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
     product_special_club,
     product_ecologic,
     product_year,
-    product_volume,
   } = product.data;
 
   switch (groupId) {
     case "availability": {
       const values: string[] = [];
-      if (product_consumer_availability === "Systembolaget") values.push("systembolaget");
+      // Both assortments share one checkbox; startsWith also catches the
+      // legacy plain "Systembolaget" value stored before the assortment split.
+      if (product_consumer_availability?.startsWith("Systembolaget")) values.push("systembolaget");
       if (product_consumer_availability === "Private Import") values.push("privatimport");
       if (product_restaurant_availability === "Available") values.push("restaurang");
       return values;
@@ -106,9 +116,9 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
     case "region":
       return product_region ? [product_region] : [];
     case "style":
-      return product_style ? [product_style] : [];
+      return product_style && product_style !== "None" ? [product_style] : [];
     case "grape":
-      return (product_grapes ?? []).flatMap((entry) => (entry.grape ? [entry.grape] : []));
+      return (product_grapes ?? []).flatMap((entry) => (entry.grape ? [normalizeGrape(entry.grape)] : []));
     case "club":
       return product_special_club === "Yes" ? ["yes"] : [];
     case "ecologic":
@@ -116,7 +126,7 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
     case "year":
       return product_year?.trim() ? [product_year.trim()] : [];
     case "volume":
-      return product_volume ? [product_volume] : [];
+      return productVolumes(product.data);
   }
 }
 
@@ -215,7 +225,7 @@ export function buildSearchIndex(products: ProductDocument[]): SearchDoc[] {
       [
         producerNameOf(product),
         product_region,
-        product_style,
+        product_style !== "None" ? product_style : null,
         product_dosage,
         product_article_number,
         ...facetValues(product, "grape"),
