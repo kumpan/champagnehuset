@@ -81,6 +81,23 @@
           "options": ["187 ml", "375 ml", "750 ml", "1,5 L", "3 L", "6 L", "9 L", "12 L", "15 L"]
         }
       },
+      "product_volumes": {
+        "type": "Group",
+        "config": {
+          "label": "Volumes",
+          "repeat": true,
+          "fields": {
+            "volume": {
+              "type": "Select",
+              "config": {
+                "label": "Volume",
+                "placeholder": "",
+                "options": ["187 ml", "375 ml", "750 ml", "1,5 L", "3 L", "6 L", "9 L", "12 L", "15 L"]
+              }
+            }
+          }
+        }
+      },
       "product_grapes": {
         "type": "Group",
         "config": {
@@ -95,12 +112,19 @@
                 "options": [
                   "Chardonnay",
                   "Pinot Noir",
-                  "Meunier",
+                  "Pinot Meunier",
                   "Arbane",
                   "Petit Meslier",
                   "Pinot Blanc",
                   "Pinot Gris"
                 ]
+              }
+            },
+            "percentage": {
+              "type": "Text",
+              "config": {
+                "label": "Percentage",
+                "placeholder": "e.g. 25"
               }
             }
           }
@@ -148,7 +172,7 @@
         "config": {
           "label": "Cru",
           "placeholder": "",
-          "options": ["Grand Cru", "Premier Cru"]
+          "options": ["Grand Cru", "Premier Cru", "None"]
         }
       },
       "product_style": {
@@ -156,7 +180,7 @@
         "config": {
           "label": "Style",
           "placeholder": "",
-          "options": ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Special Club"]
+          "options": ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Millésime", "Special Club", "None"]
         }
       },
       "product_special_club": {
@@ -195,7 +219,19 @@
         "config": {
           "label": "Consumer Availability",
           "placeholder": "",
-          "options": ["Systembolaget", "Private Import", "Sold Out"]
+          "options": [
+            "Systembolaget Beställningssortiment",
+            "Systembolaget Tillfälligt Sortiment",
+            "Private Import",
+            "Sold Out"
+          ]
+        }
+      },
+      "product_price_consumer": {
+        "type": "Text",
+        "config": {
+          "label": "Consumer Price",
+          "placeholder": "e.g. 495 kr"
         }
       },
       "product_restaurant_availability": {
@@ -204,6 +240,13 @@
           "label": "Restaurant Availability",
           "placeholder": "",
           "options": ["Available", "Sold Out"]
+        }
+      },
+      "product_price_restaurant": {
+        "type": "Text",
+        "config": {
+          "label": "Restaurant Price",
+          "placeholder": "e.g. 395 kr"
         }
       },
       "product_order_url": {
