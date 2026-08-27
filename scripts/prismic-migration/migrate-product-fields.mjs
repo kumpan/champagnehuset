@@ -78,9 +78,7 @@ for (const doc of documents) {
 
   if (data.product_consumer_availability === "Systembolaget") {
     data.product_consumer_availability = "Systembolaget Beställningssortiment";
-    changes.push(
-      `${docLabel} product_consumer_availability: "Systembolaget" → "Systembolaget Beställningssortiment"`,
-    );
+    changes.push(`${docLabel} product_consumer_availability: "Systembolaget" → "Systembolaget Beställningssortiment"`);
   }
 
   const hasVolumes = (data.product_volumes ?? []).length > 0;
