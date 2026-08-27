@@ -1,4 +1,4 @@
-import type { Content, ImageField, RichTextField } from "@prismicio/client";
+import type { Content, ImageField, LinkField, RichTextField } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
@@ -61,6 +61,11 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
         : undefined;
   }
 
+  // Producer button if a producer is choosen, button will override other button field
+  const producerButtons = producerDoc?.url
+    ? [{ link: { link_type: "Web", url: producerDoc.url, text: "Om odlaren" } as LinkField, icon_right: "Arrow Right" }]
+    : undefined;
+
   const hasIntroContent =
     hasSectionIntroContent(slice) || producerTitle !== undefined || producerDescription !== undefined;
 
@@ -99,7 +104,7 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
                   overline={overline}
                   title={producerDoc ? producerTitle : title}
                   description={producerDoc ? producerDescription : description}
-                  buttons={buttons}
+                  buttons={producerDoc ? producerButtons : buttons}
                   align={alignment ? "center" : "left"}
                   sectionTheme={content_theme}
                   surface={surface}
