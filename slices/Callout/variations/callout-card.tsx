@@ -11,28 +11,39 @@ type Props = CalloutProps & { slice: Content.CalloutSliceCard };
 
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
-  Leaf: "bg-fill md:bg-fill/85 md:backdrop-brightness-110",
-  Brand: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
-  Dust: "bg-spot-fill md:bg-spot-fill/92 md:backdrop-brightness-50",
-  Slate: "bg-spot-fill-raised md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
+  Leaf: "bg-fill-raised md:bg-fill-raised/85 md:backdrop-brightness-110",
+  Bottle: "bg-brand text-brand-ink selection-light md:bg-brand/92 md:backdrop-brightness-75",
+  Dust: "bg-spot-fill selection-spot-raised md:bg-spot-fill/92 md:backdrop-brightness-50",
+  Slate: "bg-spot-fill-raised selection-spot md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
 };
 
-const introClasses: Record<SectionTheme, SectionTheme> = {
-  Bud: "Bud",
-  Leaf: "Leaf",
-  Brand: "Leaf",
-  Dust: "Slate",
-  Slate: "Dust",
+const containerClassesNoMedia: Record<string, string> = {
+  Bud: "bg-fill-raised md:bg-fill-raised",
+  Leaf: "bg-fill-raised md:bg-fill-raised",
+  Bottle: "bg-brand text-brand-ink selection-light md:bg-brand/92 md:backdrop-brightness-75",
+  Dust: "bg-spot-fill selection-spot-raised md:bg-spot-fill/92 md:backdrop-brightness-50",
+  Slate: "bg-spot-fill-raised selection-spot md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
+};
+
+// What the card interior wears per section theme: the nearest real theme plus,
+// for the brand-green card, the surface no theme matches.
+const interior: Record<SectionTheme, { theme: SectionTheme; surface?: "brand" }> = {
+  Bud: { theme: "Bud" },
+  Leaf: { theme: "Leaf" },
+  Bottle: { theme: "Bottle", surface: "brand" },
+  Dust: { theme: "Slate" },
+  Slate: { theme: "Dust" },
 };
 
 export function CalloutCard({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding, media } = slice.primary;
+  const { overline, title, description, buttons, alignment, remove_top_padding, media } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const { theme: content_theme, surface } = interior[section_theme];
   const { image, video, filter } = media[0] ?? {};
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
 
-  // Card horizontal placement over the media (desktop). Text (and the card's items)
-  // are centered only when the card is centered; left and right keep text left-aligned.
+  // Card horizontal placement over the media. Text are centered only when the card is centered
   const isCenter = alignment === "Center";
   const isRight = alignment === "Right";
 
@@ -43,7 +54,8 @@ export function CalloutCard({ slice }: Props) {
       description={description}
       buttons={buttons}
       align={isCenter ? "center" : "left"}
-      sectionTheme={introClasses[section_theme]}
+      sectionTheme={content_theme}
+      surface={surface}
       className="w-full"
       titleMaxWidth={false}
       textBalance
@@ -94,7 +106,7 @@ export function CalloutCard({ slice }: Props) {
           <div
             className={cn(
               "flex min-h-96 items-center rounded-2 p-6 md:min-h-120 md:p-12",
-              containerClasses[section_theme],
+              containerClassesNoMedia[section_theme],
               isCenter ? "justify-center text-center" : isRight ? "justify-end" : "justify-start",
             )}
           >

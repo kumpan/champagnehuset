@@ -15,7 +15,7 @@ type AccordionProps = {
 const frequentlyAskedThemeTextColors: Record<string, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
-  Brand: "text-ink-flip",
+  Bottle: "text-ink-dim",
   Dust: "text-spot-ink-dim",
   Slate: "text-spot-ink-flip",
 };
@@ -29,11 +29,11 @@ const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
       <button
         aria-controls={panelId}
         aria-expanded={isActive}
-        className="flex min-h-20 w-full cursor-pointer items-center justify-between gap-4 py-4 text-left font-semibold lg:min-h-22"
+        className="flex min-h-20 w-full cursor-pointer select-text items-center justify-between gap-4 py-4 text-left font-semibold lg:min-h-22"
         onClick={() => setIsActive(!isActive)}
         type="button"
       >
-        <h4 className="text-pretty font-semibold text-base md:text-lg lg:text-xl">{question}</h4>
+        <h4 className="text-pretty text-base md:text-lg lg:text-xl">{question}</h4>
         <m.div
           initial={{ rotate: 0 }}
           animate={{ rotate: isActive ? -180 : 0 }}

@@ -137,6 +137,40 @@
     }
 }
 
+/* Text selection: one global rule reading two inherited variables. ::selection
+   doesn't inherit, so per-element selection classes fight on specificity —
+   instead, whatever sits nearest in the tree (section, card, button) sets the
+   pair alongside its text colors via the selection-* utilities below. */
+@layer base {
+    :root {
+        --selection-bg: var(--color-brand);
+        --selection-ink: var(--color-brand-ink);
+    }
+
+    ::selection {
+        background-color: var(--selection-bg);
+        color: var(--selection-ink);
+    }
+}
+
+/* The selection pairs — each sets both halves so text and selection travel together. */
+@utility selection-brand {
+    --selection-bg: var(--color-brand);
+    --selection-ink: var(--color-brand-ink);
+}
+@utility selection-light {
+    --selection-bg: var(--color-fill-raised);
+    --selection-ink: var(--color-ink);
+}
+@utility selection-spot {
+    --selection-bg: var(--color-spot-fill);
+    --selection-ink: var(--color-spot-ink-flip);
+}
+@utility selection-spot-raised {
+    --selection-bg: var(--color-spot-fill-raised);
+    --selection-ink: var(--color-spot-ink);
+}
+
 /* Base styles */
 html {
     scroll-behavior: smooth;
@@ -149,7 +183,7 @@ html {
 }
 
 body {
-    @apply font-medium font-stretch-115%;
+    @apply font-normal font-stretch-115%;
     background-color: var(--color-fill);
     color: var(--color-fill-dark);
     font-family: var(--font-secondary), sans-serif;
@@ -180,7 +214,7 @@ h3{
 h4,
 h5,
 h6 {
-    @apply font-semibold;
+    @apply font-medium;
     font-family: var(--font-secondary), sans-serif;
 }
 

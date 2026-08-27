@@ -109,6 +109,36 @@ Migration API gotchas learned the hard way:
 
 <!-- END:naming-rules -->
 
+<!-- BEGIN:comment-rules -->
+
+# Code comments
+
+Comments are written from one human to another. They should read like something a colleague would jot down, not like generated documentation.
+
+- **Keep them short.** One line is the goal. If a comment needs two lines, ask whether the code could explain itself instead.
+- **Plain, easy language.** Simple words, natural sentence flow. If you'd say it out loud to a teammate, it's right.
+- **No em dashes, no colons, no semicolons.** Avoid typographic punctuation and list-style constructions inside comments. Just write a plain sentence.
+- **No decoration.** No banner comments, no `====` dividers, no ALL CAPS headers, no emoji.
+- **Explain why, not what.** Never narrate what the next line does (`// set the flag to true`). Comment only when the code can't carry the reason on its own, like a workaround, a non-obvious constraint, or a gotcha.
+- **Fewer is better.** A file with three good comments beats a file with thirty obvious ones. If a comment adds nothing a reader wouldn't get from the code, delete it.
+
+Good:
+
+```ts
+// Prismic returns null here on unpublished docs
+// Safari needs the explicit height or the flex child collapses
+```
+
+Bad:
+
+```ts
+// Initialize the counter — this tracks how many items we've seen: important!
+// ============ HELPERS ============
+// Loop over the items and render each one
+```
+
+<!-- END:comment-rules -->
+
 <!-- BEGIN:git-rules -->
 
 # Git operations are the developer's, not the agent's

@@ -5,9 +5,9 @@ import { cn, toAnchorId } from "@/lib/utils";
 
 type HeadingNode = { text: string };
 
-export function TocDesktop({ headings, removeTopPadding }: { headings: HeadingNode[]; removeTopPadding?: boolean }) {
+export function TocDesktop({ headings }: { headings: HeadingNode[] }) {
   return (
-    <nav className={cn("sticky top-28 flex flex-col gap-1 rounded-2 bg-fill-raised p-6", removeTopPadding && "top-4")}>
+    <nav className={cn("sticky top-24 flex flex-col gap-1 rounded-2 bg-fill-raised p-6")}>
       {headings.map((h) => (
         <a
           key={h.text}

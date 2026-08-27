@@ -18,7 +18,6 @@ export function ContactRegister({ slice, context }: Props) {
     overline,
     title,
     description,
-    section_theme,
     image_side,
     image,
     remove_top_padding,
@@ -27,6 +26,7 @@ export function ContactRegister({ slice, context }: Props) {
     button_label,
     success_message,
   } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   const contentTheme = section_theme === "Dust" ? "Dust" : "Leaf";
   const cardSurface = section_theme === "Dust" ? "bg-spot-fill-raised" : "bg-fill-raised";

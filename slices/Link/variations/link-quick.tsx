@@ -16,19 +16,10 @@ type Props = LinkProps & { slice: Content.LinkSliceQuick };
  */
 const rowThemeClasses: Record<SectionTheme, string> = {
   Bud: "md:bg-fill-raised md:hover:bg-fill-raised/70",
-  Leaf: "md:bg-fill md:hover:bg-fill/70",
-  Brand: "md:bg-ink-flip/10 md:hover:bg-ink-flip/20",
+  Leaf: "md:bg-fill-raised md:hover:bg-fill-raised/70",
+  Bottle: "md:bg-brand md:text-brand-ink md:selection-light md:hover:bg-brand/90",
   Dust: "md:bg-spot-ink/5 md:hover:bg-spot-ink/10",
   Slate: "md:bg-spot-ink-flip/10 md:hover:bg-spot-ink-flip/20",
-};
-
-/** Divider between rows, mobile only. Filled rows carry their own edges. */
-const _borderThemeClasses: Record<SectionTheme, string> = {
-  Bud: "border-ink/15",
-  Leaf: "border-ink/20",
-  Brand: "border-ink-flip/25",
-  Dust: "border-spot-ink/15",
-  Slate: "border-spot-ink-flip/25",
 };
 
 /**
@@ -61,7 +52,8 @@ function quickLayout(count: number) {
 
 export function LinkQuick({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, section_theme, remove_top_padding, links } = slice.primary;
+  const { overline, title, description, alignment, remove_top_padding, links } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   const layout = quickLayout(links.length);
 

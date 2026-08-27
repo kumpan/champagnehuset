@@ -12,7 +12,8 @@ type Props = HeroProps & { slice: Content.HeroSliceStack };
 
 export function HeroStack({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, section_theme, media } = slice.primary;
+  const { overline, title, description, buttons, media } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   const breadcrumbs = context?.breadcrumbs;
 
@@ -50,6 +51,7 @@ export function HeroStack({ slice, context }: Props) {
             imageField={isFilled.linkToMedia(media[0].video) ? undefined : media[0].image}
             videoSrc={isFilled.linkToMedia(media[0].video) ? media[0].video.url : undefined}
             filter={media[0].filter}
+            sectionTheme={section_theme}
           />
         )}
       </Container>
