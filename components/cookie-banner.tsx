@@ -172,7 +172,7 @@ export function CookieBanner({ prismicData }: { prismicData: CookieBannerDocumen
             y: { type: "spring", stiffness: 250, damping: 20 },
             scale: { type: "spring", stiffness: 250, damping: 20 },
           }}
-          className="pointer-events-none fixed bottom-0 left-0 z-50 w-full origin-bottom p-2 selection:bg-brand selection:text-brand-ink md:origin-bottom-left md:px-6 md:pb-6"
+          className="selection-brand pointer-events-none fixed bottom-0 left-0 z-50 w-full origin-bottom p-2 md:origin-bottom-left md:px-6 md:pb-6"
         >
           <div className="mx-auto max-w-12xl">
             <div className="pointer-events-auto relative max-h-[85dvh] w-full max-w-2xl overflow-y-auto rounded-2 bg-fill shadow-float">

@@ -53,7 +53,6 @@ export async function ProductSearch({ slice, context }: Props) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme="Bud"
     >
       <Container className="flex flex-col gap-6 md:gap-8">
         {hasIntroContent && (
@@ -62,7 +61,6 @@ export async function ProductSearch({ slice, context }: Props) {
             title={title}
             description={description}
             align={alignment ? "center" : "left"}
-            sectionTheme="Bud"
           />
         )}
         <SearchGrid

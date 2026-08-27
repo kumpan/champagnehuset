@@ -20,7 +20,7 @@ export const MobileNavLink = ({
   return (
     <PrismicNextLink
       className={cn(
-        "group relative flex h-16 cursor-pointer items-center justify-between gap-3 rounded-1.5 px-5 text-lg",
+        "group relative flex h-16 cursor-pointer items-center justify-between gap-3 rounded-1.5 px-5 font-medium text-lg",
         className,
       )}
       {...(field ? { field } : { href: href as string })}

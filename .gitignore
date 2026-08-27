@@ -47,3 +47,4 @@ next-env.d.ts
 
 # prismic content backups
 /prismic-backup/
+improvements.md

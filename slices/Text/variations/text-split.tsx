@@ -11,8 +11,8 @@ type Props = TextProps & { slice: Content.TextSliceSplit };
 
 export function TextSplit({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, remove_top_padding, section_theme, first_text_block, second_text_block } =
-    slice.primary;
+  const { overline, title, description, remove_top_padding, first_text_block, second_text_block } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section

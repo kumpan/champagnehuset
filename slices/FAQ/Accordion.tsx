@@ -1,8 +1,8 @@
 "use client";
 import type { RichTextField } from "@prismicio/client";
 import { ChevronDown } from "lucide-react";
-import { AnimatePresence, m } from "motion/react";
-import { useState } from "react";
+import { m } from "motion/react";
+import { useId, useState } from "react";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { cn } from "@/lib/utils";
 
@@ -15,22 +15,25 @@ type AccordionProps = {
 const frequentlyAskedThemeTextColors: Record<string, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
-  Brand: "text-ink-flip",
+  Bottle: "text-ink-dim",
   Dust: "text-spot-ink-dim",
   Slate: "text-spot-ink-flip",
 };
 
 const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
   const [isActive, setIsActive] = useState(false);
+  const panelId = useId();
 
   return (
     <div className="not-last:border-b border-b-current/30">
       <button
-        className="flex min-h-20 w-full cursor-pointer items-center justify-between gap-4 py-4 text-left font-semibold lg:min-h-22"
+        aria-controls={panelId}
+        aria-expanded={isActive}
+        className="flex min-h-20 w-full cursor-pointer select-text items-center justify-between gap-4 py-4 text-left font-semibold lg:min-h-22"
         onClick={() => setIsActive(!isActive)}
         type="button"
       >
-        <h4 className="text-pretty font-semibold text-base md:text-lg lg:text-xl">{question}</h4>
+        <h4 className="text-pretty text-base md:text-lg lg:text-xl">{question}</h4>
         <m.div
           initial={{ rotate: 0 }}
           animate={{ rotate: isActive ? -180 : 0 }}
@@ -40,25 +43,22 @@ const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
         </m.div>
       </button>
 
-      <AnimatePresence initial={false}>
-        {isActive && (
-          <m.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.5, 0, 0.1, 1] }}
-            className="overflow-hidden"
-          >
-            <CustomRichText
-              field={answer}
-              className={cn(
-                frequentlyAskedThemeTextColors[sectionTheme],
-                "easeOut pb-7 font-medium transition-colors duration-500",
-              )}
-            />
-          </m.div>
-        )}
-      </AnimatePresence>
+      <m.div
+        id={panelId}
+        inert={!isActive}
+        initial={false}
+        animate={isActive ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: 0.5, ease: [0.5, 0, 0.1, 1] }}
+        className="overflow-hidden"
+      >
+        <CustomRichText
+          field={answer}
+          className={cn(
+            frequentlyAskedThemeTextColors[sectionTheme],
+            "easeOut pb-7 font-medium transition-colors duration-500",
+          )}
+        />
+      </m.div>
     </div>
   );
 };

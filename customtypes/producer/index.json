@@ -76,6 +76,26 @@
           "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
         }
       },
+      "producer_about": {
+        "type": "StructuredText",
+        "config": {
+          "label": "About",
+          "placeholder": "Longer presentation of the producer",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
+      "producer_feature_image": {
+        "type": "Image",
+        "config": {
+          "label": "Feature Image",
+          "constraint": {
+            "width": 1440,
+            "height": 1440
+          },
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
