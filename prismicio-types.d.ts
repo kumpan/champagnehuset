@@ -1378,6 +1378,28 @@ interface ProducerDocumentData {
   producer_bio: prismic.RichTextField;
 
   /**
+   * About field in *Producer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Longer presentation of the producer
+   * - **API ID Path**: producer.producer_about
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  producer_about: prismic.RichTextField;
+
+  /**
+   * Feature Image field in *Producer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: producer.producer_feature_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  producer_feature_image: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Producer*
    *
    * - **Field Type**: Slice Zone
@@ -3848,6 +3870,29 @@ export interface CalloutSliceSplitPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   media: prismic.GroupField<Simplify<CalloutSliceSplitPrimaryMediaItem>>;
+
+  /**
+   * Producer field in *Callout → Split → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: Optional – fetch about text and image from a producer
+   * - **API ID Path**: callout.split.primary.producer
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  producer: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "producer";
+        fields: [
+          "producer_name",
+          "producer_about",
+          "producer_feature_image",
+          "producer_image",
+          "producer_bio",
+        ];
+      },
+    ]
+  >;
 }
 
 /**

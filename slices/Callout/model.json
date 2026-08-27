@@ -301,6 +301,27 @@
               }
             }
           }
+        },
+        "producer": {
+          "type": "Link",
+          "config": {
+            "label": "Producer",
+            "placeholder": "Optional – fetch about text and image from a producer",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              {
+                "id": "producer",
+                "fields": [
+                  "producer_name",
+                  "producer_about",
+                  "producer_feature_image",
+                  "producer_image",
+                  "producer_bio"
+                ]
+              }
+            ]
+          }
         }
       },
       "items": {}

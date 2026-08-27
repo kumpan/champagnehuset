@@ -22,15 +22,6 @@ const rowThemeClasses: Record<SectionTheme, string> = {
   Slate: "md:bg-spot-ink-flip/10 md:hover:bg-spot-ink-flip/20",
 };
 
-/** Divider between rows, mobile only. Filled rows carry their own edges. */
-const _borderThemeClasses: Record<SectionTheme, string> = {
-  Bud: "border-ink/15",
-  Leaf: "border-ink/20",
-  Bottle: "border-ink/20",
-  Dust: "border-spot-ink/15",
-  Slate: "border-spot-ink-flip/25",
-};
-
 /**
  * Desktop runs on a six-column grid where each link spans two, so three per row.
  * A row that would end short instead stretches its trailing links to fill the
