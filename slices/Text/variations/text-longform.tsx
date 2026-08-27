@@ -72,7 +72,7 @@ export async function TextLongform({ slice }: Props) {
         {/* Desktop */}
         {tocHeadings.length > 0 && (
           <aside className="hidden 3xl:w-144 pb-8 lg:block lg:w-96 lg:shrink-0 xl:w-112">
-            <TocDesktop headings={tocHeadings} removeTopPadding={remove_top_padding} />
+            <TocDesktop headings={tocHeadings} />
           </aside>
         )}
 

@@ -24,13 +24,13 @@ export async function ArticleList({ slice, context }: Props) {
     title,
     description,
     button,
-    section_theme,
     remove_top_padding,
     featured_articles,
     filter_by_tag,
     show_pagination,
     show_filter_chips,
   } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   const client = await createClient();
   const lang = (context as ListContext | undefined)?.lang;

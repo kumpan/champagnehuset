@@ -26,7 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -312,7 +312,13 @@
             "customtypes": [
               {
                 "id": "producer",
-                "fields": ["producer_name", "producer_about", "producer_feature_image", "producer_image", "producer_bio"]
+                "fields": [
+                  "producer_name",
+                  "producer_about",
+                  "producer_feature_image",
+                  "producer_image",
+                  "producer_bio"
+                ]
               }
             ]
           }
@@ -342,7 +348,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -634,7 +640,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -932,7 +938,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -1272,7 +1278,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },

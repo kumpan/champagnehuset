@@ -31,7 +31,7 @@ export async function TextInfo({ slice, context }: Props) {
   const doc = ctx?.document;
   const product = doc?.type === "product" ? doc : undefined;
   const data = product?.data;
-  const { section_theme } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   // The editable Special Club blurb only renders on product pages
   // that are also a Special Club champagnes
@@ -73,6 +73,14 @@ export async function TextInfo({ slice, context }: Props) {
     ? `/api/product-pdf?uid=${encodeURIComponent(product.uid)}&lang=${encodeURIComponent(product.lang)}`
     : null;
 
+  const overlineThemeClasses = {
+    Bud: "text-ink",
+    Leaf: "text-ink",
+    Bottle: "text-ink",
+    Dust: "text-spot-ink",
+    Slate: "text-spot-ink-flip",
+  };
+
   return (
     <Section
       data-slice-type={slice.slice_type}
@@ -84,7 +92,11 @@ export async function TextInfo({ slice, context }: Props) {
         <div className="grid gap-x-12 gap-y-14 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
           {/* Left: overline, display title, purchase actions */}
           <div className="flex flex-col">
-            {overline ? <Overline className="justify-start px-0 font-medium">{overline}</Overline> : null}
+            {overline ? (
+              <Overline className={cn(overlineThemeClasses[section_theme], "justify-start px-0 font-medium")}>
+                {overline}
+              </Overline>
+            ) : null}
             {title ? (
               <h1 className="mt-3 font-primary text-6xl uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl xl:text-10xl">
                 {title}

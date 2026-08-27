@@ -5,8 +5,8 @@
     "primary": {
       "section_theme": {
         "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Leaf"
+        "value": "Bud",
+        "type": "Select"
       },
       "button": {
         "__TYPE__": "GroupContentType",

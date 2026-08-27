@@ -12,7 +12,8 @@ type Props = HeroProps & { slice: Content.HeroSliceBackdrop };
 
 export function HeroBackdrop({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { title, description, buttons, alignment, section_theme, media } = slice.primary;
+  const { title, description, buttons, alignment, media } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
   const { image, video } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
