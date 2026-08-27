@@ -3,7 +3,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { LinkProps } from "..";
@@ -21,7 +21,7 @@ function gridColumns(count: number) {
 export function LinkTiles({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, remove_top_padding, cards } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section
@@ -72,8 +72,8 @@ export function LinkTiles({ slice }: Props) {
                     <ArrowRight className="size-6 shrink-0 md:size-7" />
                   </div>
 
-                  <div className="relative -mx-4 -mb-4 px-4 pt-12 pb-4 transition-[padding] duration-500 ease-out group-hover:pt-16 md:-mx-5 md:-mb-5 md:px-5 md:pt-16 md:pb-5 md:group-hover:pt-20">
-                    {/* Bottom Fade, grows on hover via the wrapper's top padding */}
+                  <div className="relative -mx-4 -mb-4 px-4 pt-12 pb-4 transition-[padding] duration-500 ease-out md:-mx-5 md:-mb-5 md:px-5 md:pt-16 md:pb-5">
+                    {/* Bottom Fade, responsive height */}
                     <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />

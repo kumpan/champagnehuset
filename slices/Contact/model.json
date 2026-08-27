@@ -642,7 +642,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Dust"],
             "default_value": "Bud"
           }
         },

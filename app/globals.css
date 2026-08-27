@@ -180,7 +180,7 @@ h3{
 h4,
 h5,
 h6 {
-    @apply font-semibold;
+    @apply font-medium;
     font-family: var(--font-secondary), sans-serif;
 }
 

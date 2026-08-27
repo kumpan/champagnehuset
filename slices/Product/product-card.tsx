@@ -12,8 +12,7 @@ import { producerNameOf } from "./search";
 const imageSurfaceClasses: Record<SectionTheme, string> = {
   Bud: "bg-green-10",
   Leaf: "bg-fill",
-  Bottle: "bg-fill",
-  Brand: "bg-fill",
+  Bottle: "bg-brand",
   Dust: "bg-green-10",
   Slate: "bg-green-10",
 };

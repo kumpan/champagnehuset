@@ -2,7 +2,7 @@ import { type Content, isFilled } from "@prismicio/client";
 
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section, type SectionTheme } from "@/components/layout/section";
+import { Section, type SectionTheme } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
@@ -12,17 +12,27 @@ type Props = CalloutProps & { slice: Content.CalloutSliceCard };
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
   Leaf: "bg-fill-raised md:bg-fill-raised/85 md:backdrop-brightness-110",
-  Bottle: "bg-brand text-brand-ink md:bg-brand/92 md:backdrop-brightness-75",
-  Brand: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
+  Bottle:
+    "bg-brand text-brand-ink md:bg-brand/92 md:backdrop-brightness-75 selection:bg-fill-raised selection:text-ink",
   Dust: "bg-spot-fill md:bg-spot-fill/92 md:backdrop-brightness-50",
   Slate: "bg-spot-fill-raised md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
 };
 
+const containerClassesNoMedia: Record<string, string> = {
+  Bud: "bg-fill-raised md:bg-fill-raised",
+  Leaf: "bg-fill-raised md:bg-fill-raised",
+  Bottle:
+    "bg-brand text-brand-ink md:bg-brand/92 md:backdrop-brightness-75 selection:bg-fill-raised selection:text-ink",
+  Dust: "bg-spot-fill md:bg-spot-fill/92 md:backdrop-brightness-50",
+  Slate: "bg-spot-fill-raised md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
+};
+
+// Card interiors read the card's surface, not the section's; the Bottle card
+// additionally renders its content with surface="brand".
 const introClasses: Record<SectionTheme, SectionTheme> = {
   Bud: "Bud",
   Leaf: "Leaf",
-  Bottle: "Brand",
-  Brand: "Leaf",
+  Bottle: "Bottle",
   Dust: "Slate",
   Slate: "Dust",
 };
@@ -30,12 +40,11 @@ const introClasses: Record<SectionTheme, SectionTheme> = {
 export function CalloutCard({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, alignment, remove_top_padding, media } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
   const { image, video, filter } = media[0] ?? {};
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
 
-  // Card horizontal placement over the media (desktop). Text (and the card's items)
-  // are centered only when the card is centered; left and right keep text left-aligned.
+  // Card horizontal placement over the media. Text are centered only when the card is centered
   const isCenter = alignment === "Center";
   const isRight = alignment === "Right";
 
@@ -47,6 +56,7 @@ export function CalloutCard({ slice }: Props) {
       buttons={buttons}
       align={isCenter ? "center" : "left"}
       sectionTheme={introClasses[section_theme]}
+      surface={section_theme === "Bottle" ? "brand" : undefined}
       className="w-full"
       titleMaxWidth={false}
       textBalance
@@ -97,7 +107,7 @@ export function CalloutCard({ slice }: Props) {
           <div
             className={cn(
               "flex min-h-96 items-center rounded-2 p-6 md:min-h-120 md:p-12",
-              containerClasses[section_theme],
+              containerClassesNoMedia[section_theme],
               isCenter ? "justify-center text-center" : isRight ? "justify-end" : "justify-start",
             )}
           >

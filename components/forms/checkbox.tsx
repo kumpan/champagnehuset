@@ -8,8 +8,6 @@ const themeClasses = {
   Leaf: "border-ink/80 bg-green-10 outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
   Bottle:
     "border-ink/80 bg-green-10 outline-brand checked:border-brand checked:bg-brand hover:border-brand hover:outline-brand/30 focus-visible:border-brand focus-visible:outline-brand/30",
-  Brand:
-    "border-ink/80 bg-green-10 outline-brand-fill checked:border-brand-fill checked:bg-brand-fill hover:border-brand-fill hover:outline-brand-fill/30 focus-visible:border-brand-fill focus-visible:outline-brand-fill/30",
   Dust: "border-spot-ink/80 bg-spot-fill-raised outline-spot-fill checked:border-spot-fill checked:bg-spot-fill hover:border-spot-fill hover:outline-spot-fill/30 focus-visible:border-spot-fill focus-visible:outline-spot-fill/30",
   Slate:
     "border-spot-ink-flip/80 bg-spot-fill outline-spot-fill-dark checked:border-spot-fill-dark checked:bg-spot-fill-dark hover:border-spot-fill-dark hover:outline-spot-fill-dark/30 focus-visible:border-spot-fill-dark focus-visible:outline-spot-fill-dark/30",
@@ -19,7 +17,6 @@ const iconThemeClasses = {
   Bud: "text-ink-flip",
   Leaf: "text-ink-flip",
   Bottle: "text-ink-flip",
-  Brand: "text-ink-flip",
   Dust: "text-spot-ink-flip",
   Slate: "text-spot-ink-flip",
 };

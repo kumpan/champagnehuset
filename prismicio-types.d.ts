@@ -5201,10 +5201,7 @@ export interface ContactSliceRegisterPrimary {
    * - **API ID Path**: contact.register.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
-    "filled"
-  >;
+  section_theme: prismic.SelectField<"Bud" | "Leaf" | "Dust", "filled">;
 
   /**
    * Image Side field in *Contact → Register → Primary*

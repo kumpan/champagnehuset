@@ -2,7 +2,7 @@ import type { Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section, type SectionTheme } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
@@ -10,25 +10,24 @@ import type { CalloutProps } from "..";
 const containerClasses = {
   Bud: "bg-fill-raised",
   Leaf: "bg-fill-raised",
-  Bottle: "bg-brand text-brand-ink",
-  Brand: "bg-brand text-brand-ink",
+  Bottle: "bg-brand text-brand-ink selection:bg-fill-raised selection:text-ink",
   Dust: "bg-spot-fill",
   Slate: "bg-spot-fill-raised",
 };
 
-const introClasses: Record<SectionTheme, SectionTheme> = {
+// Card interiors read the card surface, not the section
+const introClasses = {
   Bud: "Bud",
   Leaf: "Leaf",
-  Bottle: "Brand",
-  Brand: "Brand",
+  Bottle: "Bottle",
   Dust: "Slate",
   Slate: "Dust",
-};
+} as const;
 
 export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutSliceSplit }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, image_side, section_theme, remove_top_padding, media } =
-    slice.primary;
+  const { overline, title, description, buttons, alignment, image_side, remove_top_padding, media } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section
@@ -60,6 +59,7 @@ export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutS
                 buttons={buttons}
                 align={alignment ? "center" : "left"}
                 sectionTheme={introClasses[section_theme]}
+                surface={section_theme === "Bottle" ? "brand" : undefined}
                 buttonWrapperClassName={cn("mt-4 mb-4 md:mb-2", alignment ? "lg:mt-6" : "lg:mt-auto")}
                 className={cn(!alignment && "h-full")}
                 textBalance={true}

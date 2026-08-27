@@ -50,8 +50,7 @@ function parseThumbnail(value?: string) {
 const imageThemeClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
   Leaf: "bg-fill",
-  Bottle: "bg-fill-raised",
-  Brand: "bg-fill-raised",
+  Bottle: "bg-brand",
   Dust: "bg-spot-fill-dark",
   Slate: "bg-spot-fill-dark",
 };
@@ -108,7 +107,10 @@ export default function CustomMedia({
   const revealed = loaded && isInView;
 
   return (
-    <div className={cn("relative overflow-hidden rounded-2", imageThemeClasses[sectionTheme], className)} ref={ref}>
+    <div
+      className={cn("relative isolate overflow-hidden rounded-2", imageThemeClasses[sectionTheme], className)}
+      ref={ref}
+    >
       <m.div
         variants={blockVariants}
         initial="hidden"

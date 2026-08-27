@@ -16,7 +16,6 @@ const frequentlyAskedThemeTextColors: Record<string, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
   Bottle: "text-ink-dim",
-  Brand: "text-ink-flip",
   Dust: "text-spot-ink-dim",
   Slate: "text-spot-ink-flip",
 };
@@ -31,7 +30,7 @@ const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
         onClick={() => setIsActive(!isActive)}
         type="button"
       >
-        <h4 className="text-pretty font-semibold text-base md:text-lg lg:text-xl">{question}</h4>
+        <h4 className="text-pretty text-base md:text-lg lg:text-xl">{question}</h4>
         <m.div
           initial={{ rotate: 0 }}
           animate={{ rotate: isActive ? -180 : 0 }}

@@ -86,7 +86,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
             {logoNode}
 
             {isFilled.richText(call_to_action_text) && (
-              <CustomRichText field={call_to_action_text} sectionTheme="Brand" className="text-balance" />
+              <CustomRichText field={call_to_action_text} surface="brand" className="text-balance" />
             )}
 
             {(socials.length > 0 || isFilled.keyText(manage_cookies_label)) && (
@@ -99,14 +99,14 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
                         (typeof item.icon === "string" ? socialLabels[item.icon] : undefined) ?? item.link.text ?? "";
 
                       return singleSocial ? (
-                        <Button key={`${index}-${item.icon}`} asChild sectionTheme="Brand">
+                        <Button key={`${index}-${item.icon}`} asChild surface="brand">
                           <PrismicNextLink field={item.link}>
                             <span>{label}</span>
                             {Icon && <Icon aria-hidden="true" />}
                           </PrismicNextLink>
                         </Button>
                       ) : (
-                        <Button key={`${index}-${item.icon}`} asChild size="icon" sectionTheme="Brand">
+                        <Button key={`${index}-${item.icon}`} asChild size="icon" surface="brand">
                           <PrismicNextLink field={item.link} aria-label={label}>
                             {Icon && <Icon aria-hidden="true" />}
                           </PrismicNextLink>

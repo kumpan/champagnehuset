@@ -2,7 +2,6 @@ import type { Content } from "@prismicio/client";
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import type { SectionTheme } from "@/components/section-intro";
 import { getRegion } from "@/lib/regions";
 import { cn } from "@/lib/utils";
 import type { TextProps } from "..";
@@ -11,17 +10,17 @@ type Props = TextProps & { slice: Content.TextSliceDetails };
 
 const displayHeading = "font-primary! text-3xl text-pretty italic md:text-4xl lg:text-5xl 2xl:text-6xl";
 
-const bodyThemeClasses: Record<SectionTheme, string> = {
+const bodyThemeClasses = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
   Bottle: "text-ink-dim",
-  Brand: "text-ink-dim",
   Dust: "text-spot-ink-dim",
   Slate: "",
 };
 
 export function TextDetails({ slice }: Props) {
-  const { section_theme, region: regionName } = slice.primary;
+  const { region: regionName } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
   const region = getRegion(regionName);
 
   if (!region) return null;

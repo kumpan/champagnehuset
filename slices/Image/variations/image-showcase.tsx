@@ -1,7 +1,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { ImageProps } from "..";
 
@@ -15,7 +15,7 @@ const getMediaKey = (item: Content.ImageSliceShowcasePrimaryMediaItem, index: nu
 
 export function ImageShowcase({ slice }: ImageShowcaseProps) {
   const { media, remove_top_padding } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
   const filteredMedia = media.filter((item) => isFilled.image(item.image) || isFilled.linkToMedia(item.video));
   const mediaCount = filteredMedia.length;
 
@@ -36,24 +36,22 @@ export function ImageShowcase({ slice }: ImageShowcaseProps) {
         )}
       >
         {filteredMedia.map((item, index) => (
-          <>
-            <CustomMedia
-              key={getMediaKey(item, index)}
-              imageField={isFilled.linkToMedia(item.video) ? undefined : item.image}
-              videoSrc={isFilled.linkToMedia(item.video) ? item.video.url : undefined}
-              indexedDelay={true}
-              filter={item.filter}
-              index={index}
-              sectionTheme={section_theme}
-              className={cn(
-                "aspect-square rounded-lg",
-                mediaCount === 1 && "aspect-square md:aspect-video lg:aspect-video",
-                mediaCount === 2 && "aspect-square md:aspect-square lg:aspect-3/2",
-                mediaCount === 3 && "aspect-video md:aspect-video lg:aspect-square",
-                mediaCount === 4 && "aspect-square md:aspect-square lg:aspect-video",
-              )}
-            />
-          </>
+          <CustomMedia
+            key={getMediaKey(item, index)}
+            imageField={isFilled.linkToMedia(item.video) ? undefined : item.image}
+            videoSrc={isFilled.linkToMedia(item.video) ? item.video.url : undefined}
+            indexedDelay={true}
+            filter={item.filter}
+            index={index}
+            sectionTheme={section_theme}
+            className={cn(
+              "aspect-square rounded-lg",
+              mediaCount === 1 && "aspect-square md:aspect-video lg:aspect-video",
+              mediaCount === 2 && "aspect-square md:aspect-square lg:aspect-3/2",
+              mediaCount === 3 && "aspect-video md:aspect-video lg:aspect-square",
+              mediaCount === 4 && "aspect-square md:aspect-square lg:aspect-video",
+            )}
+          />
         ))}
       </Container>
     </Section>

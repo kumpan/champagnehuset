@@ -2,7 +2,7 @@ import type { Content } from "@prismicio/client";
 import ContactFormFields from "@/components/forms/contact-form";
 import { resolveIcon } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ContactProps } from "..";
@@ -22,7 +22,7 @@ export function ContactForm({ slice }: Props) {
     success_message,
     consent_items,
   } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section

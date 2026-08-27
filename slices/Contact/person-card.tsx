@@ -10,7 +10,6 @@ const contactThemeClasses: Record<SectionTheme, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
   Bottle: "text-ink-dim",
-  Brand: "text-ink-flip",
   Dust: "text-spot-ink-dim",
   Slate: "text-spot-ink-flip",
 };

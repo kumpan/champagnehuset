@@ -2,7 +2,7 @@ import type { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { ChevronRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import type { SectionTheme } from "@/components/section-intro";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
@@ -18,7 +18,6 @@ const rowThemeClasses: Record<SectionTheme, string> = {
   Bud: "md:bg-fill-raised md:hover:bg-fill-raised/70",
   Leaf: "md:bg-fill-raised md:hover:bg-fill-raised/70",
   Bottle: "md:bg-brand md:text-brand-ink md:hover:bg-brand/90",
-  Brand: "md:bg-ink-flip/10 md:hover:bg-ink-flip/20",
   Dust: "md:bg-spot-ink/5 md:hover:bg-spot-ink/10",
   Slate: "md:bg-spot-ink-flip/10 md:hover:bg-spot-ink-flip/20",
 };
@@ -28,7 +27,6 @@ const _borderThemeClasses: Record<SectionTheme, string> = {
   Bud: "border-ink/15",
   Leaf: "border-ink/20",
   Bottle: "border-ink/20",
-  Brand: "border-ink-flip/25",
   Dust: "border-spot-ink/15",
   Slate: "border-spot-ink-flip/25",
 };
@@ -64,7 +62,7 @@ function quickLayout(count: number) {
 export function LinkQuick({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, remove_top_padding, links } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   const layout = quickLayout(links.length);
 

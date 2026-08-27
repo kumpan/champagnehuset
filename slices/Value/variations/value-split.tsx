@@ -1,6 +1,6 @@
 import type { Content } from "@prismicio/client";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { ValueProps } from "..";
@@ -8,7 +8,7 @@ import type { ValueProps } from "..";
 export function ValueSplit({ slice }: ValueProps & { slice: Content.ValueSliceSplit }) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, alignment, card_side, remove_top_padding, statement } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section

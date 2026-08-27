@@ -1,7 +1,7 @@
 import { type Content, filter, isFilled } from "@prismicio/client";
 
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
@@ -49,7 +49,7 @@ export async function ProductGrid({ slice, context }: Props) {
     match_current_style,
     product_limit,
   } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   // Select default is "4"; anything unexpected also falls back to 4.
   const limit = product_limit === "No Limit" ? null : product_limit === "8" ? 8 : 4;

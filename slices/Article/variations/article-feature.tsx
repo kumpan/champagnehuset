@@ -1,10 +1,11 @@
 import { type Content, isFilled } from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextLink } from "@prismicio/next";
 
 import { Button, cardFocusRing } from "@/components/button";
+import CustomMedia from "@/components/custom-media";
 import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { createClient } from "@/prismicio";
@@ -16,7 +17,7 @@ type Props = ArticleProps & { slice: Content.ArticleSliceFeature };
 
 export async function ArticleFeature({ slice }: Props) {
   const { remove_top_padding, featured_articles, link_label } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
   const ArrowRight = iconMap.arrowRight;
 
   const client = await createClient();
@@ -58,11 +59,11 @@ export async function ArticleFeature({ slice }: Props) {
                   cardFocusRing(section_theme),
                 )}
               >
-                <div className="w-full shrink-0 overflow-hidden rounded-1 md:w-2/5">
-                  <PrismicNextImage
-                    field={article_image}
-                    className="aspect-3/2 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-103 md:aspect-5/4"
-                    fallbackAlt=""
+                <div className="aspect-3/2 w-full shrink-0 overflow-hidden rounded-1 md:aspect-5/4 md:w-2/5">
+                  <CustomMedia
+                    imageField={article_image}
+                    sectionTheme={section_theme}
+                    className="size-full rounded-0 transition-transform duration-500 ease-out group-hover:scale-103"
                   />
                 </div>
                 <div className="flex flex-1 flex-col items-start gap-2 md:gap-6 md:py-8">

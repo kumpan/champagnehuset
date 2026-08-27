@@ -1,6 +1,151 @@
 [
   {
     "__TYPE__": "SharedSliceContent",
+    "variation": "backdrop",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Champagne med ursprung, hantverk och tålamod"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Från de krithaltiga sluttningarna i Côte des Blancs till Montagne de Reims krönta byar — upptäck ett noggrant utvalt sortiment av grower champagne, mognadslagrad och redo att avnjutas.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "b63633a3-d86f-42e4-aa12-aa3a131978de",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://champagnehuset.se/champagne",
+                    "text": "Upptäck husets favoriter"
+                  }
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "default",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_left",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "None",
+                  "type": "Select"
+                }
+              ],
+              [
+                "icon_right",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Arrow Right",
+                  "type": "Select"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "alignment": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "media": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "image",
+                {
+                  "provider": "imgix",
+                  "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85&rect=939%2C3927%2C3036%2C1708&w=1920&h=1080",
+                  "alt": "two glasses of lemonade, a straw hat, and a straw bag on a",
+                  "origin": {
+                    "id": "GeGf2NHNLcw",
+                    "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85",
+                    "width": 4160,
+                    "height": 6240
+                  },
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "background": "transparent",
+                    "zoom": 1.37,
+                    "crop": {
+                      "x": 939,
+                      "y": 3927
+                    }
+                  },
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {
+                    "horizontal": {
+                      "provider": "imgix",
+                      "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85&rect=0%2C347%2C4160%2C5547&w=1440&h=1920",
+                      "alt": "two glasses of lemonade, a straw hat, and a straw bag on a",
+                      "origin": {
+                        "id": "GeGf2NHNLcw",
+                        "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85",
+                        "width": 4160,
+                        "height": 6240
+                      },
+                      "width": 1440,
+                      "height": 1920,
+                      "edit": {
+                        "background": "transparent",
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 347
+                        }
+                      },
+                      "credits": null
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
     "variation": "stack",
     "primary": {
       "overline": {
@@ -92,8 +237,8 @@
       },
       "section_theme": {
         "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
+        "value": "Bud",
+        "type": "Select"
       },
       "media": {
         "__TYPE__": "GroupContentType",
@@ -160,150 +305,6 @@
                 }
               ]
             ]
-          }
-        ]
-      }
-    },
-    "items": []
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "backdrop",
-    "primary": {
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading1",
-            "content": {
-              "text": "Champagne med ursprung, hantverk och tålamod"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Från de krithaltiga sluttningarna i Côte des Blancs till Montagne de Reims krönta byar — upptäck ett noggrant utvalt sortiment av grower champagne, mognadslagrad och redo att avnjutas.",
-              "spans": []
-            }
-          }
-        ]
-      },
-      "buttons": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "link",
-                {
-                  "key": "b63633a3-d86f-42e4-aa12-aa3a131978de",
-                  "__TYPE__": "LinkContent",
-                  "value": {
-                    "__TYPE__": "ExternalLink",
-                    "url": "https://champagnehuset.se/champagne",
-                    "text": "Upptäck husets favoriter"
-                  }
-                }
-              ],
-              [
-                "variant",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "default",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_left",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "None",
-                  "type": "Select"
-                }
-              ],
-              [
-                "icon_right",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "Arrow Right",
-                  "type": "Select"
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "alignment": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Bud"
-      },
-      "media": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "image",
-                {
-                  "__TYPE__": "ImageContent",
-                  "provider": "imgix",
-                  "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85&rect=939%2C3927%2C3036%2C1708&w=1920&h=1080",
-                  "alt": "two glasses of lemonade, a straw hat, and a straw bag on a",
-                  "origin": {
-                    "id": "GeGf2NHNLcw",
-                    "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85",
-                    "width": 4160,
-                    "height": 6240
-                  },
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "background": "transparent",
-                    "zoom": 1.37,
-                    "crop": {
-                      "x": 939,
-                      "y": 3927
-                    }
-                  },
-                  "thumbnails": {
-                    "horizontal": {
-                      "provider": "imgix",
-                      "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85&rect=0%2C347%2C4160%2C5547&w=1440&h=1920",
-                      "alt": "two glasses of lemonade, a straw hat, and a straw bag on a",
-                      "origin": {
-                        "id": "GeGf2NHNLcw",
-                        "url": "https://images.unsplash.com/photo-1639048759615-02ab82ae5fe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzg1MTUxNDkxfDA&ixlib=rb-4.1.0&q=85",
-                        "width": 4160,
-                        "height": 6240
-                      },
-                      "width": 1440,
-                      "height": 1920,
-                      "edit": {
-                        "background": "transparent",
-                        "zoom": 1,
-                        "crop": {
-                          "x": 0,
-                          "y": 347
-                        }
-                      }
-                    }
-                  }
-                }
-              ]
-            ],
-            "key": "e9bc51e3-c635-487d-a6ac-c2a86d42deb5"
           }
         ]
       }

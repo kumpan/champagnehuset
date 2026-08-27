@@ -4,8 +4,7 @@ import { Slot } from "@/lib/slot";
 import { cn } from "@/lib/utils";
 
 const variantClasses = {
-  default:
-    "bg-brand text-brand-ink hover:bg-brand/90 outline-brand/70 selection:bg-fill-raised selection:text-ink",
+  default: "bg-brand text-brand-ink hover:bg-brand/90 outline-brand/70 selection:bg-fill-raised selection:text-ink",
   destructive: "bg-error text-ink-flip hover:bg-error/90 outline-error",
   outline: "border border-brand text-brand hover:bg-brand/5 outline-brand",
   secondary:
@@ -22,14 +21,6 @@ const themeClasses: Record<SectionTheme, Partial<Record<ButtonVariant, string>>>
   },
 
   Bottle: {},
-
-  Brand: {
-    default: "bg-fill text-ink hover:bg-fill/90 outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
-    secondary:
-      "bg-brand-fill text-ink-flip hover:bg-brand-fill/90 outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
-    outline:
-      "border-ink-flip/40 text-ink-flip hover:bg-ink-flip/10 outline-ink-flip/70 selection:bg-brand! selection:text-ink-flip",
-  },
 
   Dust: {
     default:
@@ -48,6 +39,15 @@ const themeClasses: Record<SectionTheme, Partial<Record<ButtonVariant, string>>>
     outline:
       "border-spot-ink-flip/40 text-spot-ink-flip hover:bg-spot-ink-flip/10 outline-spot-ink-flip/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
   },
+};
+
+// Buttons on a brand-green surface
+const brandSurfaceClasses: Partial<Record<ButtonVariant, string>> = {
+  default: "bg-fill text-ink hover:bg-fill/90 outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
+  secondary:
+    "bg-brand-fill text-ink-flip hover:bg-brand-fill/90 outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
+  outline:
+    "border-ink-flip/40 text-ink-flip hover:bg-ink-flip/10 outline-ink-flip/70 selection:bg-brand! selection:text-ink-flip",
 };
 
 const sizeClasses = {
@@ -78,7 +78,6 @@ const focusRingThemeClasses: Record<SectionTheme, string> = {
   Bud: "focus-visible:outline-brand/70",
   Leaf: "focus-visible:outline-brand/70",
   Bottle: "focus-visible:outline-brand/70",
-  Brand: "focus-visible:outline-fill-raised/70",
   Dust: "focus-visible:outline-spot-fill-dark/70",
   Slate: "focus-visible:outline-spot-fill-raised/70",
 };
@@ -94,14 +93,22 @@ export function buttonVariants({
   variant = "default",
   size = "default",
   sectionTheme = "Bud",
+  surface,
   className,
 }: {
   variant?: ButtonVariant;
   size?: ButtonSize;
   sectionTheme?: SectionTheme;
+  surface?: "brand";
   className?: string;
 } = {}) {
-  return cn(baseClasses, variantClasses[variant], themeClasses[sectionTheme]?.[variant], sizeClasses[size], className);
+  return cn(
+    baseClasses,
+    variantClasses[variant],
+    surface === "brand" ? brandSurfaceClasses[variant] : themeClasses[sectionTheme]?.[variant],
+    sizeClasses[size],
+    className,
+  );
 }
 
 export function Button({
@@ -109,15 +116,17 @@ export function Button({
   variant = "default",
   size = "default",
   sectionTheme = "Bud",
+  surface,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> & {
   variant?: ButtonVariant;
   size?: ButtonSize;
   sectionTheme?: SectionTheme;
+  surface?: "brand";
   asChild?: boolean;
 }) {
-  const classes = buttonVariants({ variant, size, sectionTheme, className });
+  const classes = buttonVariants({ variant, size, sectionTheme, surface, className });
   const Comp = asChild ? Slot : "button";
 
   return <Comp data-slot="button" className={classes} {...(props as object)} />;

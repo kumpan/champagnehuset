@@ -1,6 +1,6 @@
 import type { Content } from "@prismicio/client";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { hasSectionIntroContent } from "@/lib/utils";
 import type { FAQProps } from "..";
@@ -11,7 +11,7 @@ type Props = FAQProps & { slice: Content.FaqSliceList };
 export function FAQList({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, section_theme, remove_top_padding, faqlist } = slice.primary;
-  const sectionTheme = normalizeSectionTheme(section_theme);
+  const sectionTheme = (section_theme as string) === "Brand" ? "Bottle" : section_theme;
 
   const column1 = faqlist.filter((_, index) => index % 2 === 0);
   const column2 = faqlist.filter((_, index) => index % 2 === 1);

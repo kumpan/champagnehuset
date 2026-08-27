@@ -29,7 +29,6 @@ const overlineThemeClasses = {
   Bud: "text-ink",
   Leaf: "text-ink",
   Bottle: "text-ink",
-  Brand: "text-ink-flip",
   Dust: "text-spot-ink",
   Slate: "text-spot-ink-flip",
 };
@@ -65,6 +64,7 @@ interface SectionIntroProps {
   className?: string;
   overlineClassName?: string;
   sectionTheme?: SectionTheme;
+  surface?: "brand";
   titleMaxWidth?: boolean;
   textBalance?: boolean;
   buttonVariant?: ButtonVariant;
@@ -89,6 +89,7 @@ export function SectionIntro({
   align = "center",
   className,
   sectionTheme = "Bud",
+  surface,
   titleMaxWidth = true,
   textBalance = false,
   buttonVariant,
@@ -115,7 +116,15 @@ export function SectionIntro({
 
     const linkKey = "url" in link && link.url ? link.url : `btn-${index}`;
     return (
-      <Button key={linkKey} className={buttonClassName} sectionTheme={sectionTheme} variant={variant} size="lg" asChild>
+      <Button
+        key={linkKey}
+        className={buttonClassName}
+        sectionTheme={sectionTheme}
+        surface={surface}
+        variant={variant}
+        size="lg"
+        asChild
+      >
         <PrismicNextLink field={link}>
           {LeftIcon ? <LeftIcon /> : null}
           <span>{link.text}</span>
@@ -130,7 +139,9 @@ export function SectionIntro({
   const introContent = (
     <>
       {isFilled.keyText(overlineText) && (
-        <Overline className={cn(overlineThemeClasses[sectionTheme], overlineClassName)}>
+        <Overline
+          className={cn(surface === "brand" ? "text-ink-flip" : overlineThemeClasses[sectionTheme], overlineClassName)}
+        >
           {OverlineIcon && <OverlineIcon className="size-5" />}
           {overlineText}
         </Overline>
@@ -140,6 +151,7 @@ export function SectionIntro({
         {isFilled.richText(title) && (
           <CustomRichText
             sectionTheme={sectionTheme}
+            surface={surface}
             className={cn(
               "prose-headings:mb-0! transition-colors",
               titleMaxWidth ? TITLE_MAX_W : "max-w-none",
@@ -153,6 +165,7 @@ export function SectionIntro({
         {hasDescription && (
           <CustomRichText
             sectionTheme={sectionTheme}
+            surface={surface}
             className={cn("max-w-xl text-pretty", styles.description, descriptionClassName)}
             field={description}
           />

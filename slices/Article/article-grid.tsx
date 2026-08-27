@@ -34,10 +34,6 @@ const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string 
     active: "bg-brand text-brand-ink",
     inactive: "bg-ink/5 text-ink hover:bg-ink/15",
   },
-  Brand: {
-    active: "bg-fill text-ink",
-    inactive: "bg-brand-fill text-ink-flip hover:bg-brand-fill/55",
-  },
   Dust: {
     active: "bg-spot-fill-dark text-spot-ink-flip",
     inactive: "bg-spot-fill-dark/10 text-spot-ink hover:bg-spot-fill-dark/25",

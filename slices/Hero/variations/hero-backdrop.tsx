@@ -3,7 +3,7 @@ import { type Content, isFilled } from "@prismicio/client";
 import { BreadcrumbNav } from "@/components/breadcrumb";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { HeroProps } from "..";
@@ -13,7 +13,7 @@ type Props = HeroProps & { slice: Content.HeroSliceBackdrop };
 export function HeroBackdrop({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { title, description, buttons, alignment, media } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
   const { image, video } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);

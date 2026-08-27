@@ -4,7 +4,7 @@ import { asLink, isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { InfoItems } from "@/components/info-items";
 import { Container } from "@/components/layout/container";
-import { normalizeSectionTheme, Section, type SectionTheme } from "@/components/layout/section";
+import { Section, type SectionTheme } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
@@ -12,31 +12,27 @@ import type { CalloutProps } from "..";
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
   Leaf: "bg-fill-raised",
-  Bottle: "bg-brand text-brand-ink",
-  Brand: "bg-fill-raised/15",
+  Bottle: "bg-brand text-brand-ink selection:bg-fill-raised selection:text-ink",
   Dust: "bg-spot-fill-dark/10",
   Slate: "bg-spot-fill-dark",
 };
 
-// Content on the Bottle card sits on brand green, so it renders with the
-// internal on-green "Brand" theme.
+// Card insides read the card surface
 const introClasses: Record<SectionTheme, SectionTheme> = {
   Bud: "Bud",
   Leaf: "Leaf",
-  Bottle: "Brand",
-  Brand: "Brand",
+  Bottle: "Bottle",
   Dust: "Dust",
   Slate: "Slate",
 };
 
-// Info rows need a fill one step apart from the card behind them: "Brand" rows
-// (bg-fill) read on the green Bottle card, "Bud" rows (bg-fill) on the
-// bg-fill-raised Leaf card.
+// Info rows need a fill one step apart from the card behind them: light "Bud"
+// rows (bg-fill) read on both the green Bottle card and the bg-fill-raised
+// Leaf card.
 const itemClasses: Record<SectionTheme, SectionTheme> = {
   Bud: "Bud",
   Leaf: "Bud",
-  Bottle: "Brand",
-  Brand: "Brand",
+  Bottle: "Bud",
   Dust: "Dust",
   Slate: "Slate",
 };
@@ -46,7 +42,7 @@ type Props = CalloutProps & { slice: Content.CalloutSliceContact };
 export function CalloutContact({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, remove_top_padding, image_side, media, contact_items } = slice.primary;
-  const section_theme = normalizeSectionTheme(slice.primary.section_theme);
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
   const content_theme = introClasses[section_theme];
   const item_theme = itemClasses[section_theme];
 
@@ -88,13 +84,13 @@ export function CalloutContact({ slice }: Props) {
             {hasIntroContent && (
               <SectionIntro
                 overline={overline}
-                overlineClassName={section_theme}
                 title={title}
                 description={description}
                 descriptionClassName="text-pretty"
                 buttons={buttons}
                 align="left"
                 sectionTheme={content_theme}
+                surface={section_theme === "Bottle" ? "brand" : undefined}
                 buttonWrapperClassName="mt-3 md:mt-4"
                 textBalance={true}
               />
