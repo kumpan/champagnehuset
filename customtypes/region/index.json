@@ -1,0 +1,85 @@
+{
+  "format": "custom",
+  "id": "region",
+  "label": "Region",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": "Côte des Blancs"
+        }
+      },
+      "headline": {
+        "type": "Text",
+        "config": {
+          "label": "Headline",
+          "placeholder": "Chardonnays kungarike"
+        }
+      },
+      "body": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Body",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "map_image": {
+        "type": "Image",
+        "config": {
+          "label": "Map Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "facts": {
+        "type": "Group",
+        "config": {
+          "label": "Facts",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": "Området"
+              }
+            },
+            "item_1": {
+              "type": "Text",
+              "config": {
+                "label": "Item 1",
+                "placeholder": "Söder om Épernay"
+              }
+            },
+            "item_2": {
+              "type": "Text",
+              "config": {
+                "label": "Item 2",
+                "placeholder": "Kritjord i världsklass"
+              }
+            },
+            "item_3": {
+              "type": "Text",
+              "config": {
+                "label": "Item 3",
+                "placeholder": "Sex Grand Cru-byar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
