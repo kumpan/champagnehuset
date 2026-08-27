@@ -39,15 +39,21 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
     producerDoc = await client.getByID<ProducerDocument>(producer.id).catch(() => null);
   }
 
+  let producerTitle: RichTextField | undefined;
   let producerDescription: RichTextField | undefined;
   let producerImage: ImageField<never> | undefined;
   if (producerDoc) {
-    const { producer_about, producer_bio, producer_feature_image, producer_image } = producerDoc.data;
-    producerDescription = isFilled.richText(producer_about)
-      ? producer_about
-      : isFilled.richText(producer_bio)
-        ? producer_bio
+    const { producer_name, producer_about, producer_feature_image, producer_image } = producerDoc.data;
+
+    // A chosen producer replaces the slice's own text entirely
+    const heading = producer_about.find((node) => node.type.startsWith("heading"));
+    const body = producer_about.filter((node) => node !== heading);
+    producerTitle = heading
+      ? [heading]
+      : isFilled.keyText(producer_name)
+        ? [{ type: "heading2", text: producer_name, spans: [] }]
         : undefined;
+    producerDescription = body.length > 0 ? (body as RichTextField) : undefined;
     producerImage = isFilled.image(producer_feature_image)
       ? producer_feature_image
       : isFilled.image(producer_image)
@@ -55,7 +61,8 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
         : undefined;
   }
 
-  const hasIntroContent = hasSectionIntroContent(slice) || producerDescription !== undefined;
+  const hasIntroContent =
+    hasSectionIntroContent(slice) || producerTitle !== undefined || producerDescription !== undefined;
 
   return (
     <Section
@@ -90,8 +97,8 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
               >
                 <SectionIntro
                   overline={overline}
-                  title={title}
-                  description={producerDescription ?? description}
+                  title={producerDoc ? producerTitle : title}
+                  description={producerDoc ? producerDescription : description}
                   buttons={buttons}
                   align={alignment ? "center" : "left"}
                   sectionTheme={content_theme}
