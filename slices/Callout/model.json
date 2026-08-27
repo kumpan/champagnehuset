@@ -26,7 +26,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -327,7 +327,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -619,7 +619,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -917,7 +917,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },
@@ -1257,7 +1257,7 @@
           "config": {
             "label": "Section Theme",
             "placeholder": "",
-            "options": ["Bud", "Leaf", "Brand", "Dust", "Slate"],
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
             "default_value": "Bud"
           }
         },

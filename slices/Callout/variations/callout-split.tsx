@@ -9,24 +9,27 @@ import type { CalloutProps } from "..";
 
 const containerClasses = {
   Bud: "bg-fill-raised",
-  Leaf: "bg-fill",
-  Brand: "bg-fill-raised",
-  Dust: "bg-spot-fill",
-  Slate: "bg-spot-fill-raised",
+  Leaf: "bg-fill-raised",
+  Bottle: "bg-brand text-brand-ink selection-light",
+  Dust: "bg-spot-fill selection-spot-raised",
+  Slate: "bg-spot-fill-raised selection-spot",
 };
 
-const introClasses: Record<SectionTheme, SectionTheme> = {
-  Bud: "Bud",
-  Leaf: "Leaf",
-  Brand: "Leaf",
-  Dust: "Slate",
-  Slate: "Dust",
+// What the card interior wears per section theme: the nearest real theme plus,
+// for the brand-green card, the surface no theme matches.
+const interior: Record<SectionTheme, { theme: SectionTheme; surface?: "brand" }> = {
+  Bud: { theme: "Bud" },
+  Leaf: { theme: "Leaf" },
+  Bottle: { theme: "Bottle", surface: "brand" },
+  Dust: { theme: "Slate" },
+  Slate: { theme: "Dust" },
 };
 
 export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutSliceSplit }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, image_side, section_theme, remove_top_padding, media } =
-    slice.primary;
+  const { overline, title, description, buttons, alignment, image_side, remove_top_padding, media } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const { theme: content_theme, surface } = interior[section_theme];
 
   return (
     <Section
@@ -57,7 +60,8 @@ export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutS
                 description={description}
                 buttons={buttons}
                 align={alignment ? "center" : "left"}
-                sectionTheme={introClasses[section_theme]}
+                sectionTheme={content_theme}
+                surface={surface}
                 buttonWrapperClassName={cn("mt-4 mb-4 md:mb-2", alignment ? "lg:mt-6" : "lg:mt-auto")}
                 className={cn(!alignment && "h-full")}
                 textBalance={true}

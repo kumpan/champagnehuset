@@ -9,7 +9,7 @@ import type { ValueProps } from "..";
 const statementDescriptionThemeClasses = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
-  Brand: "text-ink-flip",
+  Bottle: "text-ink-dim",
   Dust: "text-spot-ink-dim",
   Slate: "text-spot-ink-flip",
 };
@@ -17,15 +17,15 @@ const statementDescriptionThemeClasses = {
 const dividerThemeClasses = {
   Bud: "bg-brand",
   Leaf: "bg-brand",
-  Brand: "bg-current",
+  Bottle: "bg-brand",
   Dust: "bg-spot-ink-dim",
   Slate: "bg-current",
 };
 
 export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceText }) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, buttons, alignment, section_theme, remove_top_padding, statement } =
-    slice.primary;
+  const { overline, title, description, buttons, alignment, remove_top_padding, statement } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   const gridCols =
     statement.length === 2 || statement.length === 4

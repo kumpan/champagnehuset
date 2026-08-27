@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const proseThemeClass: Record<string, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
-  Brand: "prose-flip text-ink-flip",
+  Bottle: "text-ink-dim",
   Dust: "prose-spot text-spot-ink-dim",
   Slate: "prose-spot-flip text-spot-ink-flip",
 };
@@ -17,11 +17,19 @@ interface CustomRichTextProps {
   className?: string;
   inheritSize?: boolean;
   sectionTheme?: string;
+  surface?: "brand";
 }
 
-export function CustomRichText({ field, className, inheritSize, sectionTheme = "Bud" }: CustomRichTextProps) {
+export function CustomRichText({ field, className, inheritSize, sectionTheme = "Bud", surface }: CustomRichTextProps) {
   return (
-    <div className={cn("prose", proseThemeClass[sectionTheme], inheritSize && "prose-inherit-size", className)}>
+    <div
+      className={cn(
+        "prose",
+        surface === "brand" ? "prose-flip text-ink-flip" : proseThemeClass[sectionTheme],
+        inheritSize && "prose-inherit-size",
+        className,
+      )}
+    >
       <PrismicRichText field={field} components={components} />
     </div>
   );

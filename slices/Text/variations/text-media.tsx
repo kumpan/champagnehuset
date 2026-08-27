@@ -9,15 +9,9 @@ import type { TextProps } from "..";
 type Props = TextProps & { slice: Content.TextSliceMedia };
 
 export function TextMedia({ slice }: Props) {
-  const {
-    text_side,
-    remove_top_padding,
-    section_theme,
-    first_text_block,
-    first_image,
-    second_text_block,
-    second_image,
-  } = slice.primary;
+  const { text_side, remove_top_padding, first_text_block, first_image, second_text_block, second_image } =
+    slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section
@@ -40,6 +34,7 @@ export function TextMedia({ slice }: Props) {
             imageField={first_image[0]?.image}
             thumbnail="main md:square"
             filter={first_image[0]?.filter}
+            sectionTheme={section_theme}
           />
         </div>
         <div className={cn("flex w-full flex-1 shrink-0 flex-col gap-2 md:gap-1 md:pt-8 lg:gap-2 lg:pt-24")}>
@@ -48,6 +43,7 @@ export function TextMedia({ slice }: Props) {
             imageField={second_image[0]?.image}
             thumbnail="main md:square"
             filter={second_image[0]?.filter}
+            sectionTheme={section_theme}
           />
           <CustomRichText
             sectionTheme={section_theme}

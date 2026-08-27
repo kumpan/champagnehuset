@@ -69,6 +69,7 @@ export async function ProductSearch({ slice, context }: Props) {
           searchPlaceholder={search_placeholder}
           noResultsText={no_results_text}
           lang={lang}
+          sectionTheme="Bud"
         />
       </Container>
     </Section>

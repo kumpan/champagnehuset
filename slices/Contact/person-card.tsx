@@ -9,7 +9,7 @@ import type { EmployeeDocument } from "@/prismicio-types";
 const contactThemeClasses: Record<SectionTheme, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
-  Brand: "text-ink-flip",
+  Bottle: "text-ink-dim",
   Dust: "text-spot-ink-dim",
   Slate: "text-spot-ink-flip",
 };

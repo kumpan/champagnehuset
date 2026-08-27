@@ -5,6 +5,7 @@ import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { Input } from "@/components/forms/input";
+import type { SectionTheme } from "@/components/layout/section";
 import { t } from "@/lib/i18n";
 import type { ProductDocument } from "@/prismicio-types";
 import { FilterPanel } from "./filter-panel";
@@ -25,9 +26,16 @@ type SearchGridProps = {
   searchPlaceholder?: string | null;
   noResultsText?: string | null;
   lang?: string;
+  sectionTheme?: SectionTheme;
 };
 
-export function SearchGrid({ products, searchPlaceholder, noResultsText, lang }: SearchGridProps) {
+export function SearchGrid({
+  products,
+  searchPlaceholder,
+  noResultsText,
+  lang,
+  sectionTheme = "Bud",
+}: SearchGridProps) {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<FilterSelection>({});
   const hydratedFromUrl = useRef(false);
@@ -156,7 +164,7 @@ export function SearchGrid({ products, searchPlaceholder, noResultsText, lang }:
                   y: { type: "spring", stiffness: 300, damping: 25, delay: enterDelay(index) },
                 }}
               >
-                <ProductCard product={product} priority={index < 6} />
+                <ProductCard product={product} priority={index < 6} sectionTheme={sectionTheme} />
               </m.div>
             ))}
           </AnimatePresence>

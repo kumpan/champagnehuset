@@ -26,6 +26,16 @@ const breadcrumbTheme: Record<string, { dark: BreadcrumbThemeColors; light: Brea
       hover: "group-hover:text-brand-ink",
     },
   },
+  Bottle: {
+    dark: {
+      base: "text-ink-dim bg-brand",
+      hover: "group-hover:text-brand-ink",
+    },
+    light: {
+      base: "text-brand-ink bg-brand",
+      hover: "group-hover:text-brand-ink",
+    },
+  },
   Dust: {
     dark: {
       base: "text-spot-ink-dim bg-spot-fill-dark",
@@ -34,6 +44,16 @@ const breadcrumbTheme: Record<string, { dark: BreadcrumbThemeColors; light: Brea
     light: {
       base: "text-spot-ink-flip bg-spot-fill-dark",
       hover: "group-hover:text-spot-ink-flip",
+    },
+  },
+  Slate: {
+    dark: {
+      base: "text-ink-dim bg-brand",
+      hover: "group-hover:text-brand-ink",
+    },
+    light: {
+      base: "text-brand-ink bg-brand",
+      hover: "group-hover:text-brand-ink",
     },
   },
 };
@@ -53,7 +73,7 @@ export function BreadcrumbNav({
 
   return (
     <nav aria-label="Breadcrumb">
-      <ol className={cn("flex flex-wrap items-center gap-x-1 gap-y-0 text-sm md:text-base", className)}>
+      <ol className={cn("flex flex-wrap items-center gap-x-1 gap-y-0 font-medium text-sm md:text-base", className)}>
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
           return (
