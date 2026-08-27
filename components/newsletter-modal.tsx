@@ -42,7 +42,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
           key="newsletter-modal"
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 selection:bg-brand selection:text-brand-ink"
+          className="selection-brand fixed inset-0 z-50 flex items-center justify-center p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

@@ -1378,6 +1378,28 @@ interface ProducerDocumentData {
   producer_bio: prismic.RichTextField;
 
   /**
+   * About field in *Producer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Longer presentation of the producer
+   * - **API ID Path**: producer.producer_about
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  producer_about: prismic.RichTextField;
+
+  /**
+   * Feature Image field in *Producer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: producer.producer_feature_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  producer_feature_image: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Producer*
    *
    * - **Field Type**: Slice Zone
@@ -2360,7 +2382,7 @@ export interface ArticleSliceFeaturePrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -2425,7 +2447,7 @@ export interface ArticleSliceListPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -3895,7 +3917,7 @@ export interface CalloutSliceSplitPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -3970,6 +3992,29 @@ export interface CalloutSliceSplitPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   media: prismic.GroupField<Simplify<CalloutSliceSplitPrimaryMediaItem>>;
+
+  /**
+   * Producer field in *Callout → Split → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: Optional – fetch about text and image from a producer
+   * - **API ID Path**: callout.split.primary.producer
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  producer: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "producer";
+        fields: [
+          "producer_name",
+          "producer_about",
+          "producer_feature_image",
+          "producer_image",
+          "producer_bio",
+        ];
+      },
+    ]
+  >;
 }
 
 /**
@@ -4010,7 +4055,7 @@ export interface CalloutSliceBackdropPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -4116,7 +4161,7 @@ export interface CalloutSliceCardPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -4220,7 +4265,7 @@ export interface CalloutSliceContactPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -4338,7 +4383,7 @@ export interface CalloutSliceDetailsPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -5229,7 +5274,7 @@ export interface ContactSlicePeoplePrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -5323,10 +5368,7 @@ export interface ContactSliceRegisterPrimary {
    * - **API ID Path**: contact.register.primary.section_theme
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
-    "filled"
-  >;
+  section_theme: prismic.SelectField<"Bud" | "Leaf" | "Dust", "filled">;
 
   /**
    * Image Side field in *Contact → Register → Primary*
@@ -5750,7 +5792,7 @@ export interface FaqSliceListPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -5844,7 +5886,7 @@ export interface FaqSliceSplitPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -6493,7 +6535,7 @@ export interface ImageSliceShowcasePrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -7125,7 +7167,7 @@ export interface LinkSliceCardsPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -7219,7 +7261,7 @@ export interface LinkSliceGridPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -7324,7 +7366,7 @@ export interface LinkSliceQuickPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -7420,7 +7462,7 @@ export interface LinkSliceTilesPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -7854,7 +7896,7 @@ export interface ProductSliceGridPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -8364,7 +8406,7 @@ export interface TextSliceExtendedPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -8447,7 +8489,7 @@ export interface TextSliceSplitPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -8591,7 +8633,7 @@ export interface TextSliceMediaPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -8678,7 +8720,7 @@ export interface TextSliceDetailsPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -8739,7 +8781,7 @@ export interface TextSliceInfoPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -9286,7 +9328,7 @@ export interface ValueSliceTextPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 
@@ -9390,7 +9432,7 @@ export interface ValueSliceSplitPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   section_theme: prismic.SelectField<
-    "Bud" | "Leaf" | "Brand" | "Dust" | "Slate",
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
     "filled"
   >;
 

@@ -15,7 +15,6 @@ export function ContactForm({ slice }: Props) {
     overline,
     title,
     description,
-    section_theme,
     remove_top_padding,
     form_side,
     value_statements,
@@ -23,6 +22,7 @@ export function ContactForm({ slice }: Props) {
     success_message,
     consent_items,
   } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section
@@ -30,7 +30,7 @@ export function ContactForm({ slice }: Props) {
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
       sectionTheme={section_theme}
-      className="selection:bg-brand selection:text-ink-flip"
+      className="selection-brand"
     >
       <Container>
         <div className={cn("flex flex-col gap-2 transition-colors duration-500 ease-in-out lg:gap-0")}>

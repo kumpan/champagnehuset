@@ -21,7 +21,8 @@ function gridColumns(count: number) {
 
 export function LinkCards({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, section_theme, remove_top_padding, cards } = slice.primary;
+  const { overline, title, description, alignment, remove_top_padding, cards } = slice.primary;
+  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
 
   return (
     <Section

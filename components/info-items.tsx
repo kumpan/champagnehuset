@@ -24,7 +24,7 @@ interface InfoItemsProps {
 const textThemeClasses: Record<string, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
-  Brand: "text-ink-dim",
+  Bottle: "text-brand-ink",
   Dust: "text-spot-ink",
   Slate: "text-spot-ink-flip",
 };
@@ -32,7 +32,7 @@ const textThemeClasses: Record<string, string> = {
 const cardThemeClasses: Record<string, string> = {
   Bud: "bg-fill text-ink",
   Leaf: "bg-fill-raised text-ink",
-  Brand: "bg-fill text-ink",
+  Bottle: "bg-brand text-brand-ink",
   Dust: "bg-spot-fill/20 text-spot-ink-flip",
   Slate: "bg-spot-fill text-accent-ink",
 };
@@ -40,9 +40,9 @@ const cardThemeClasses: Record<string, string> = {
 const copyBtnThemeClasses: Record<string, string> = {
   Bud: "bg-brand text-brand-ink hover:bg-brand/90",
   Leaf: "bg-brand text-brand-ink hover:bg-brand/90",
-  Brand: "bg-brand text-brand-ink hover:bg-brand/90",
-  Dust: "bg-spot-fill-dark text-accent-ink-flip hover:bg-spot-fill-dark/80",
-  Slate: "bg-spot-fill-dark text-accent-ink-flip hover:bg-accent/90",
+  Bottle: "bg-fill text-ink hover:bg-fill/90",
+  Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/80",
+  Slate: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/80",
 };
 
 function CopyButton({ value, className }: { value: string; className?: string }) {

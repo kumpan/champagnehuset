@@ -8,7 +8,7 @@ export function FooterCookieButton({ label }: { label: string }) {
   const { showCookieBanner } = useCookieBanner();
 
   return (
-    <Button type="button" sectionTheme="Brand" onClick={showCookieBanner}>
+    <Button type="button" surface="brand" onClick={showCookieBanner}>
       <span>{label}</span>
       <Settings aria-hidden="true" />
     </Button>

@@ -78,7 +78,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
     "text-ink-flip/80 underline underline-offset-3 decoration-ink-flip/20 hover:decoration-ink-flip transition-colors duration-300 hover:text-ink-flip";
 
   return (
-    <footer className="bg-brand py-12 text-ink-flip transition-colors duration-500 ease-in-out selection:bg-fill-raised selection:text-ink md:py-16">
+    <footer className="selection-light bg-brand py-12 text-ink-flip transition-colors duration-500 ease-in-out md:py-16">
       <Container className="flex flex-col gap-12 md:gap-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-16 2xl:gap-32">
           {/* Brand block */}
@@ -86,7 +86,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
             {logoNode}
 
             {isFilled.richText(call_to_action_text) && (
-              <CustomRichText field={call_to_action_text} sectionTheme="Brand" className="text-balance" />
+              <CustomRichText field={call_to_action_text} surface="brand" className="text-balance" />
             )}
 
             {(socials.length > 0 || isFilled.keyText(manage_cookies_label)) && (
@@ -99,14 +99,14 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
                         (typeof item.icon === "string" ? socialLabels[item.icon] : undefined) ?? item.link.text ?? "";
 
                       return singleSocial ? (
-                        <Button key={`${index}-${item.icon}`} asChild sectionTheme="Brand">
+                        <Button key={`${index}-${item.icon}`} asChild surface="brand">
                           <PrismicNextLink field={item.link}>
                             <span>{label}</span>
                             {Icon && <Icon aria-hidden="true" />}
                           </PrismicNextLink>
                         </Button>
                       ) : (
-                        <Button key={`${index}-${item.icon}`} asChild size="icon" sectionTheme="Brand">
+                        <Button key={`${index}-${item.icon}`} asChild size="icon" surface="brand">
                           <PrismicNextLink field={item.link} aria-label={label}>
                             {Icon && <Icon aria-hidden="true" />}
                           </PrismicNextLink>
