@@ -5,7 +5,19 @@
  * for every wine, so they're constants too; change them here if the rep changes.
  */
 
-export type ConsumerAvailability = "Systembolaget" | "Private Import" | "Sold Out" | null;
+export type ConsumerAvailability =
+  | "Systembolaget Beställningssortiment"
+  | "Systembolaget Tillfälligt Sortiment"
+  | "Private Import"
+  | "Sold Out"
+  /** Stored by documents from before the assortment split. */
+  | "Systembolaget"
+  | null;
+
+/** Legacy "Systembolaget" predates the assortment split; it meant the beställningssortiment. */
+export function normalizeConsumerAvailability(value: ConsumerAvailability): ConsumerAvailability {
+  return value === "Systembolaget" ? "Systembolaget Beställningssortiment" : value;
+}
 
 export type RestaurantAvailability = "Available" | "Sold Out" | null;
 
@@ -15,10 +27,17 @@ export const RESTAURANT_CONTACT = {
   email: "ida.timen@twscollective.se",
 } as const;
 
+export const CONTACT_PAGE_PATH = "/kontakt";
+
 export const COPY = {
-  systembolaget: {
+  systembolagetBestallning: {
     heading: "Köp via Systembolaget",
-    body: "Finns i Systembolagets sortiment, beställ på systembolaget.se och hämta i din butik.",
+    body: "Finns i Systembolagets beställningssortiment, beställ på systembolaget.se och hämta i din butik.",
+    button: "Beställ nu",
+  },
+  systembolagetTillfalligt: {
+    heading: "Tillfälligt hos Systembolaget",
+    body: "Släppt i Systembolagets tillfälliga sortiment i begränsad mängd, beställ på systembolaget.se så länge lagret räcker.",
     button: "Beställ nu",
   },
   systembolagetSoldOut: {
@@ -34,14 +53,14 @@ export const COPY = {
   restaurant: {
     heading: "För restaurang och krog",
     body: "Hela vårt sortiment kan beställas av dig som driver restaurang. Hör av dig så hjälper vi dig med priser, tillgång och leverans.",
-    call: "Ring oss",
-    mail: "Skicka mejl",
+    button: "Kom i kontakt",
   },
   soldOut: {
     heading: "Slutsåld",
     body: "Den här årgången är slutsåld. Håll utkik, nya släpp dyker upp löpande.",
   },
   pdf: "Ladda ner PDF",
+  image: "Ladda ner produktbild",
 } as const;
 
 export type ConsumerBlock = {
@@ -70,18 +89,21 @@ export function resolvePurchase(
   restaurant: RestaurantAvailability,
   hasOrderUrl: boolean,
 ): PurchaseState {
+  const normalized = normalizeConsumerAvailability(consumer);
   const restaurantSoldOut = restaurant === "Sold Out";
 
-  if (consumer === "Sold Out" && restaurantSoldOut) {
+  if (normalized === "Sold Out" && restaurantSoldOut) {
     return { kind: "sold-out" };
   }
 
   let consumerBlock: ConsumerBlock | null = null;
-  if (consumer === "Systembolaget") {
-    consumerBlock = { ...COPY.systembolaget, enabled: hasOrderUrl };
-  } else if (consumer === "Private Import") {
+  if (normalized === "Systembolaget Beställningssortiment") {
+    consumerBlock = { ...COPY.systembolagetBestallning, enabled: hasOrderUrl };
+  } else if (normalized === "Systembolaget Tillfälligt Sortiment") {
+    consumerBlock = { ...COPY.systembolagetTillfalligt, enabled: hasOrderUrl };
+  } else if (normalized === "Private Import") {
     consumerBlock = { ...COPY.privatimport, enabled: hasOrderUrl };
-  } else if (consumer === "Sold Out") {
+  } else if (normalized === "Sold Out") {
     consumerBlock = { ...COPY.systembolagetSoldOut, enabled: false };
   }
 

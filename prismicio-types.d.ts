@@ -1459,6 +1459,31 @@ export type ProducerDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Product → Volumes*
+ */
+export interface ProductDocumentDataProductVolumesItem {
+  /**
+   * Volume field in *Product → Volumes*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_volumes[].volume
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  volume: prismic.SelectField<
+    | "187 ml"
+    | "375 ml"
+    | "750 ml"
+    | "1,5 L"
+    | "3 L"
+    | "6 L"
+    | "9 L"
+    | "12 L"
+    | "15 L"
+  >;
+}
+
+/**
  * Item in *Product → Grapes*
  */
 export interface ProductDocumentDataProductGrapesItem {
@@ -1473,12 +1498,22 @@ export interface ProductDocumentDataProductGrapesItem {
   grape: prismic.SelectField<
     | "Chardonnay"
     | "Pinot Noir"
-    | "Meunier"
+    | "Pinot Meunier"
     | "Arbane"
     | "Petit Meslier"
     | "Pinot Blanc"
     | "Pinot Gris"
   >;
+
+  /**
+   * Percentage field in *Product → Grapes*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. 25
+   * - **API ID Path**: product.product_grapes[].percentage
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  percentage: prismic.KeyTextField;
 }
 
 type ProductDocumentDataSlicesSlice =
@@ -1589,6 +1624,19 @@ interface ProductDocumentData {
   >;
 
   /**
+   * Volumes field in *Product*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_volumes[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  product_volumes: prismic.GroupField<
+    Simplify<ProductDocumentDataProductVolumesItem>
+  >;
+
+  /**
    * Grapes field in *Product*
    *
    * - **Field Type**: Group
@@ -1679,7 +1727,7 @@ interface ProductDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  product_cru: prismic.SelectField<"Grand Cru" | "Premier Cru">;
+  product_cru: prismic.SelectField<"Grand Cru" | "Premier Cru" | "None">;
 
   /**
    * Style field in *Product*
@@ -1695,7 +1743,9 @@ interface ProductDocumentData {
     | "Blanc de Noirs"
     | "Rosé"
     | "Assemblage"
+    | "Millésime"
     | "Special Club"
+    | "None"
   >;
 
   /**
@@ -1752,8 +1802,22 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   product_consumer_availability: prismic.SelectField<
-    "Systembolaget" | "Private Import" | "Sold Out"
+    | "Systembolaget Beställningssortiment"
+    | "Systembolaget Tillfälligt Sortiment"
+    | "Private Import"
+    | "Sold Out"
   >;
+
+  /**
+   * Consumer Price field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. 495 kr
+   * - **API ID Path**: product.product_price_consumer
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_price_consumer: prismic.KeyTextField;
 
   /**
    * Restaurant Availability field in *Product*
@@ -1767,6 +1831,17 @@ interface ProductDocumentData {
   product_restaurant_availability: prismic.SelectField<
     "Available" | "Sold Out"
   >;
+
+  /**
+   * Restaurant Price field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g. 395 kr
+   * - **API ID Path**: product.product_price_restaurant
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_price_restaurant: prismic.KeyTextField;
 
   /**
    * Order URL field in *Product*
@@ -9588,6 +9663,7 @@ declare module "@prismicio/client" {
       ProducerDocumentDataSlicesSlice,
       ProductDocument,
       ProductDocumentData,
+      ProductDocumentDataProductVolumesItem,
       ProductDocumentDataProductGrapesItem,
       ProductDocumentDataSlicesSlice,
       RedirectDocument,

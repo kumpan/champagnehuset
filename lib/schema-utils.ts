@@ -1,7 +1,7 @@
 import type { Content, ImageField, RichTextField } from "@prismicio/client";
 import { asImageSrc, asText, isFilled } from "@prismicio/client";
 import type { BreadcrumbItem } from "./breadcrumbs";
-import { formatAlcohol, formatDosage, formatGrapes } from "./format";
+import { formatAlcohol, formatDosage, formatGrapes, productVolumes } from "./format";
 import { ORGANIZATION_CONFIG, SITE_URL } from "./schema-config";
 
 /** Serialize JSON-LD, escaping `<` so it can't break out of the inline script (XSS). */
@@ -121,12 +121,14 @@ export function generateProductSchema(doc: Content.ProductDocument) {
     : undefined;
 
   const grapes = formatGrapes(data.product_grapes);
-  const origin = [data.product_region, data.product_cru].filter(Boolean).join(", ");
+  const cru = data.product_cru === "None" ? null : data.product_cru;
+  const origin = [data.product_region, cru].filter(Boolean).join(", ");
+  const volume = productVolumes(data).join(", ");
   const dosage = formatDosage(data.product_dosage_grams);
   const alcohol = formatAlcohol(data.product_alcohol);
   const additionalProperty = [
     grapes && { "@type": "PropertyValue", name: "Druvor", value: grapes },
-    data.product_volume && { "@type": "PropertyValue", name: "Volym", value: data.product_volume },
+    volume && { "@type": "PropertyValue", name: "Volym", value: volume },
     origin && { "@type": "PropertyValue", name: "Ursprung", value: origin },
     dosage && { "@type": "PropertyValue", name: "Dosage", value: dosage },
     alcohol && { "@type": "PropertyValue", name: "Alkohol", value: alcohol },
@@ -141,7 +143,7 @@ export function generateProductSchema(doc: Content.ProductDocument) {
     ...(url && { url }),
     ...(producerName && { brand: { "@type": "Brand", name: producerName } }),
     ...(data.product_article_number && { sku: data.product_article_number }),
-    ...(data.product_style && { category: data.product_style }),
+    ...(data.product_style && data.product_style !== "None" && { category: data.product_style }),
     ...(additionalProperty.length > 0 && { additionalProperty }),
   };
 }

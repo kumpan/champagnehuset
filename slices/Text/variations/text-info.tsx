@@ -1,5 +1,6 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
+import Link from "next/link";
 import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { iconMap } from "@/components/icons";
@@ -7,15 +8,13 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { getSingleton } from "@/lib/cms";
-import { formatAlcohol, formatDosage, formatGrapes } from "@/lib/format";
+import { formatAlcohol, formatDosage, formatGrapesWithShares, productVolumes } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { SpecialClubDocument } from "@/prismicio-types";
 import type { TextProps } from "..";
-import { COPY, RESTAURANT_CONTACT, resolvePurchase } from "../text-info-config";
+import { CONTACT_PAGE_PATH, COPY, RESTAURANT_CONTACT, resolvePurchase } from "../text-info-config";
 
 const ArrowRight = iconMap.arrowRight;
-const PhoneCall = iconMap.phoneCall;
-const AtSign = iconMap.atSign;
 const Download = iconMap.download;
 
 /** The dynamic-page template passes the current document in as slice context. */
@@ -23,6 +22,19 @@ type InfoContext = {
   lang?: string;
   document?: Content.AllDocumentTypes;
 };
+
+/**
+ * Href for the original high-resolution asset: strip the URL's crop/compression
+ * params, then let imgix's `dl` param set Content-Disposition: attachment so
+ * the browser saves the file (a bare `<a download>` is ignored cross-origin).
+ */
+function imageDownloadHref(url: string, uid: string): string {
+  const src = new URL(url);
+  const ext = src.pathname.match(/\.(\w+)$/)?.[1] ?? "jpg";
+  src.search = "";
+  src.searchParams.set("dl", `${uid}.${ext}`);
+  return src.toString();
+}
 
 type Props = TextProps & { slice: Content.TextSliceInfo };
 
@@ -54,15 +66,20 @@ export async function TextInfo({ slice, context }: Props) {
   };
   if (data) {
     push("Artikelnummer", data.product_article_number);
-    push("Volym", data.product_volume);
-    push("Druvor", formatGrapes(data.product_grapes));
+    push("Volym", productVolumes(data).join(", ") || null);
+    push("Druvor", formatGrapesWithShares(data.product_grapes));
     push("Dosage", formatDosage(data.product_dosage_grams));
     push("Alkohol", formatAlcohol(data.product_alcohol));
     push("Lagring", data.product_storage);
-    push("Ursprung", [data.product_region, data.product_cru].filter(Boolean).join(", ") || null);
+    push(
+      "Ursprung",
+      [data.product_region, data.product_cru === "None" ? null : data.product_cru].filter(Boolean).join(", ") || null,
+    );
   }
 
   const hasOrderUrl = isFilled.link(data?.product_order_url);
+  const consumerPrice = data?.product_price_consumer || null;
+  const restaurantPrice = data?.product_price_restaurant || null;
   const purchase = resolvePurchase(
     data?.product_consumer_availability ?? null,
     data?.product_restaurant_availability ?? null,
@@ -72,6 +89,8 @@ export async function TextInfo({ slice, context }: Props) {
   const pdfHref = product?.uid
     ? `/api/product-pdf?uid=${encodeURIComponent(product.uid)}&lang=${encodeURIComponent(product.lang)}`
     : null;
+  const image = data?.product_image;
+  const imageHref = product?.uid && isFilled.image(image) ? imageDownloadHref(image.url, product.uid) : null;
 
   const overlineThemeClasses = {
     Bud: "text-ink",
@@ -116,6 +135,7 @@ export async function TextInfo({ slice, context }: Props) {
                       <div className="max-w-sm">
                         <h3 className="font-medium text-xl">{purchase.consumer.heading}</h3>
                         <p className="mt-2">{purchase.consumer.body}</p>
+                        {consumerPrice ? <p className="mt-3 font-medium text-lg">{consumerPrice}</p> : null}
                       </div>
                       {purchase.consumer.enabled && hasOrderUrl && data ? (
                         <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="shrink-0">
@@ -140,26 +160,26 @@ export async function TextInfo({ slice, context }: Props) {
                   ) : null}
 
                   {purchase.restaurant ? (
-                    <div className={cn(purchase.consumer && "border-current/20 border-t pt-8")}>
-                      <h3 className="font-medium text-xl">{COPY.restaurant.heading}</h3>
-                      <p className="mt-2 max-w-md">{COPY.restaurant.body}</p>
-                      <p className="mt-4">
-                        {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
-                      </p>
-                      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg">
-                          <a href={RESTAURANT_CONTACT.phoneHref}>
-                            <PhoneCall />
-                            {COPY.restaurant.call}
-                          </a>
-                        </Button>
-                        <Button asChild variant="secondary" sectionTheme={section_theme} size="lg">
-                          <a href={`mailto:${RESTAURANT_CONTACT.email}`}>
-                            <AtSign />
-                            {COPY.restaurant.mail}
-                          </a>
-                        </Button>
+                    <div
+                      className={cn(
+                        "flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between",
+                        purchase.consumer && "border-current/20 border-t pt-8",
+                      )}
+                    >
+                      <div className="max-w-sm">
+                        <h3 className="font-medium text-xl">{COPY.restaurant.heading}</h3>
+                        <p className="mt-2">{COPY.restaurant.body}</p>
+                        <p className="mt-2">
+                          {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
+                        </p>
+                        {restaurantPrice ? <p className="mt-3 font-medium text-lg">{restaurantPrice}</p> : null}
                       </div>
+                      <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="shrink-0">
+                        <Link href={CONTACT_PAGE_PATH}>
+                          {COPY.restaurant.button}
+                          <ArrowRight />
+                        </Link>
+                      </Button>
                     </div>
                   ) : null}
                 </div>
@@ -187,13 +207,25 @@ export async function TextInfo({ slice, context }: Props) {
               </dl>
             ) : null}
 
-            {pdfHref ? (
-              <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="w-full">
-                <a href={pdfHref}>
-                  {COPY.pdf}
-                  <Download />
-                </a>
-              </Button>
+            {pdfHref || imageHref ? (
+              <div className="flex flex-col gap-3">
+                {pdfHref ? (
+                  <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="w-full">
+                    <a href={pdfHref}>
+                      {COPY.pdf}
+                      <Download />
+                    </a>
+                  </Button>
+                ) : null}
+                {imageHref ? (
+                  <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="w-full">
+                    <a href={imageHref}>
+                      {COPY.image}
+                      <Download />
+                    </a>
+                  </Button>
+                ) : null}
+              </div>
             ) : null}
           </div>
         </div>

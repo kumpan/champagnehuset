@@ -1,7 +1,8 @@
 import path from "node:path";
 import { type Content, isFilled, type RichTextField } from "@prismicio/client";
 import { Document, Font, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
-import { formatAlcohol, formatDosage, formatGrapes } from "@/lib/format";
+import { formatAlcohol, formatDosage, formatGrapes, formatGrapesWithShares, productVolumes } from "@/lib/format";
+import { type ConsumerAvailability, normalizeConsumerAvailability } from "@/slices/Text/text-info-config";
 
 /**
  * ChampagneHuset "Produktblad" — a one-page product sheet in the site brand:
@@ -111,6 +112,29 @@ const s = StyleSheet.create({
   specLabel: { fontFamily: "Helvetica-Bold", fontSize: 7, letterSpacing: 1.4, color: c.inkMute, marginBottom: 4 },
   specValue: { fontFamily: "Helvetica", fontSize: 11, color: c.ink },
 
+  // Availability + prices
+  availabilityCard: {
+    marginTop: 10,
+    backgroundColor: c.card,
+    borderWidth: 1,
+    borderColor: c.hairline,
+    borderRadius: 4,
+    paddingVertical: 14,
+    paddingHorizontal: 30,
+  },
+  availabilityLabel: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 7,
+    letterSpacing: 1.4,
+    color: c.inkMute,
+    marginBottom: 6,
+  },
+  availabilityRows: { gap: 5 },
+  availabilityRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "baseline", gap: 12 },
+  availabilityChannel: { fontFamily: "Helvetica", fontSize: 11, color: c.ink },
+  availabilityPrice: { fontFamily: "Helvetica", fontSize: 11, color: c.ink },
+  availabilityPriceLabel: { fontFamily: "Helvetica-Bold", fontSize: 7, letterSpacing: 1.4, color: c.inkMute },
+
   // Footer
   footer: {
     position: "absolute",
@@ -128,21 +152,30 @@ const s = StyleSheet.create({
 
 type Spec = { label: string; value: string };
 
+/** Selects use "None" as their explicit empty option — treat it like an unfilled field. */
+function omitNone(value: string | null | undefined): string | null {
+  return !value || value === "None" ? null : value;
+}
+
 function buildSpecs(data: Content.ProductDocument["data"], producerName?: string, village?: string | null): Spec[] {
   const specs: Spec[] = [];
   const push = (label: string, value?: string | null) => {
-    if (value) specs.push({ label, value });
+    const clean = omitNone(value);
+    if (clean) specs.push({ label, value: clean });
   };
 
   push("Producent", producerName ?? null);
-  push("Region", [data.product_region, data.product_cru].filter(Boolean).join(" · ") || null);
+  push("Region", [omitNone(data.product_region), omitNone(data.product_cru)].filter(Boolean).join(" · ") || null);
   push("By", village ?? null);
-  push("Druvor", formatGrapes(data.product_grapes));
+  push("Druvor", formatGrapesWithShares(data.product_grapes));
   push("Stil", data.product_style);
-  push("Dosage", [data.product_dosage, formatDosage(data.product_dosage_grams)].filter(Boolean).join(" · ") || null);
+  push(
+    "Dosage",
+    [omitNone(data.product_dosage), formatDosage(data.product_dosage_grams)].filter(Boolean).join(" · ") || null,
+  );
   push("Alkohol", formatAlcohol(data.product_alcohol));
   push("Årgång", data.product_vintage === "Yes" ? data.product_year : null);
-  push("Volym", data.product_volume);
+  push("Volym", productVolumes(data).join(", ") || null);
   push("Lagring", data.product_storage);
   push("Land", BRAND.country);
   push("Artikelnummer", data.product_article_number);
@@ -150,10 +183,41 @@ function buildSpecs(data: Content.ProductDocument["data"], producerName?: string
   return specs;
 }
 
+/** Swedish visitor copy for the English-stored consumer availability values. */
+const CONSUMER_CHANNELS: Record<Exclude<ConsumerAvailability, null>, string> = {
+  "Systembolaget Beställningssortiment": "Systembolaget – beställningssortiment",
+  "Systembolaget Tillfälligt Sortiment": "Systembolaget – tillfälligt sortiment",
+  "Private Import": "Privatimport",
+  "Sold Out": "Slutsåld",
+  Systembolaget: "Systembolaget – beställningssortiment",
+};
+
+type AvailabilityRow = { channel: string | null; priceLabel: string; price: string | null };
+
+/** One row per sales channel: availability copy left, price (when filled) right. */
+function buildAvailability(data: Content.ProductDocument["data"]): AvailabilityRow[] {
+  const consumer = normalizeConsumerAvailability(data.product_consumer_availability);
+  const consumerChannel = consumer ? CONSUMER_CHANNELS[consumer] : null;
+  const restaurantChannel = data.product_restaurant_availability === "Available" ? "Tillgänglig för restaurang" : null;
+
+  const rows: AvailabilityRow[] = [];
+  if (consumerChannel || data.product_price_consumer) {
+    rows.push({ channel: consumerChannel, priceLabel: "Pris privat", price: data.product_price_consumer || null });
+  }
+  if (restaurantChannel || data.product_price_restaurant) {
+    rows.push({
+      channel: restaurantChannel,
+      priceLabel: "Pris restaurang",
+      price: data.product_price_restaurant || null,
+    });
+  }
+  return rows;
+}
+
 /** Category / origin line, e.g. "BLANC DE BLANCS · CÔTE DES BLANCS, FRANKRIKE". */
 function buildMetaLine(data: Content.ProductDocument["data"]): string {
-  const lead = data.product_style || formatGrapes(data.product_grapes) || "Champagne";
-  const origin = [data.product_region, BRAND.country].filter(Boolean).join(", ");
+  const lead = omitNone(data.product_style) || formatGrapes(data.product_grapes) || "Champagne";
+  const origin = [omitNone(data.product_region), BRAND.country].filter(Boolean).join(", ");
   return [lead, origin].filter(Boolean).join(" · ").toUpperCase();
 }
 
@@ -161,7 +225,8 @@ type Badge = { text: string; gold?: boolean };
 
 function buildBadges(data: Content.ProductDocument["data"]): Badge[] {
   const badges: Badge[] = [];
-  if (data.product_cru) badges.push({ text: data.product_cru, gold: true });
+  const cru = omitNone(data.product_cru);
+  if (cru) badges.push({ text: cru, gold: true });
   if (data.product_ecologic === "Yes") badges.push({ text: "Ekologisk" });
   if (data.product_vintage === "Yes") badges.push({ text: "Årgångschampagne" });
   return badges;
@@ -284,12 +349,13 @@ export function ProductPdfDocument({
 
   const name = data.product_name || "Champagne";
   const specs = buildSpecs(data, producerName, producerVillage);
+  const availability = buildAvailability(data);
   const metaLine = buildMetaLine(data);
   const badges = buildBadges(data);
   const bio = isFilled.richText(producerBio) ? producerBio : null;
   const description = isFilled.richText(data.product_description) ? data.product_description : null;
 
-  const subMeta = [data.product_dosage, data.product_vintage === "Yes" ? data.product_year : null]
+  const subMeta = [omitNone(data.product_dosage), data.product_vintage === "Yes" ? data.product_year : null]
     .filter(Boolean)
     .join(" · ");
 
@@ -375,6 +441,27 @@ export function ProductPdfDocument({
                 <Text style={s.specValue}>{spec.value}</Text>
               </View>
             ))}
+          </View>
+        ) : null}
+
+        {/* Availability + prices */}
+        {availability.length > 0 ? (
+          <View style={s.availabilityCard} wrap={false}>
+            <Text style={s.availabilityLabel}>TILLGÄNGLIGHET</Text>
+            <View style={s.availabilityRows}>
+              {availability.map((row) => (
+                <View key={row.priceLabel} style={s.availabilityRow}>
+                  {/* Empty spacer keeps a lone price right-aligned under space-between. */}
+                  {row.channel ? <Text style={s.availabilityChannel}>{row.channel}</Text> : <Text />}
+                  {row.price ? (
+                    <Text style={s.availabilityPrice}>
+                      <Text style={s.availabilityPriceLabel}>{`${row.priceLabel.toUpperCase()}  `}</Text>
+                      {row.price}
+                    </Text>
+                  ) : null}
+                </View>
+              ))}
+            </View>
           </View>
         ) : null}
 
