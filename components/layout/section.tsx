@@ -26,16 +26,13 @@ const Section = ({
   return (
     <section
       className={cn(
-        "relative py-12 transition-colors duration-500 ease-in-out md:py-20 lg:py-24",
+        "py-12 transition-colors duration-500 ease-in-out md:py-20 lg:py-24",
         sectionThemeClasses[sectionTheme],
         removeTopPadding && "pt-1 md:pt-2 lg:pt-4",
         removeBottomPadding && "pb-1 md:pb-2 lg:pb-4",
         className,
       )}
     >
-      <div className="absolute top-3 left-3 flex h-10 items-center rounded-2 bg-indigo-100 px-4 font-medium text-indigo-950">
-        {sectionTheme}
-      </div>
       {children}
     </section>
   );
