@@ -306,7 +306,7 @@
           "type": "Link",
           "config": {
             "label": "Producer",
-            "placeholder": "Optional – fetch about text and image from a producer",
+            "placeholder": "Select producer to override text and image",
             "select": "document",
             "repeat": false,
             "customtypes": [
