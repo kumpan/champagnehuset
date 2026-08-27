@@ -33,7 +33,7 @@ export function DesktopNavItem({ linkItem }: { linkItem: NavbarDocumentDataLinks
             : "inset-2 group-hover:inset-0 group-hover:bg-fill-raised",
         )}
       />
-      <span className="relative flex items-center gap-1.5">
+      <span className="relative flex items-center gap-1.5 font-medium">
         {label}
         {hasDropdown && (
           <ChevronDown

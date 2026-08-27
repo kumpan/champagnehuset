@@ -1,10 +1,12 @@
 "use client";
 
 import { asText, type RichTextField } from "@prismicio/client";
-import { animate, type Easing, motion, useInView } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { animate, type Easing, useInView } from "motion/react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
+
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 export interface AnimatedNumberProps {
   field?: RichTextField;
@@ -18,10 +20,10 @@ export interface AnimatedNumberProps {
 }
 
 function splitTextIntoParts(input: string) {
-  // Strip spaces first
+  // We remove any potential spaces first
   const noSpaces = input.replace(/\s+/g, "");
 
-  // First number, decimals included
+  // Find first number, while including decimals
   const match = noSpaces.match(/-?[\d.,]+/);
   if (!match) {
     return { prefix: input, numberStr: "", suffix: "" };
@@ -37,25 +39,28 @@ function splitTextIntoParts(input: string) {
 }
 
 function parseNumber(numberStr: string) {
-  // Drop commas, keep dots for decimals
-  const cleaned = numberStr.replace(/,/g, "");
+  // Normalise comma to dot so "1,5" parses as 1.5 rather than 15.
+  const decimalSeparator = numberStr.includes(",") ? "," : ".";
+  const cleaned = numberStr.replace(",", ".");
   const value = parseFloat(cleaned);
 
-  // Count decimal places
+  // Count decimal places from the normalised string
   const dotIndex = cleaned.lastIndexOf(".");
   const decimals = dotIndex >= 0 ? cleaned.length - dotIndex - 1 : 0;
 
   return {
     value: Number.isFinite(value) ? value : 0,
     decimals,
+    decimalSeparator,
   };
 }
 
-// Group thousands with spaces
-function formatWithSpaces(value: number, decimals: number) {
+// We format the number to have thousand spaces, preserving the author's decimal
+// separator (comma for sv-SE/de-DE, dot for en-EU).
+function formatWithSpaces(value: number, decimals: number, decimalSeparator = ".") {
   const [intStr, fracStr = ""] = value.toFixed(decimals).split(".");
   const intWithSpaces = intStr.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  return fracStr ? `${intWithSpaces}.${fracStr}` : intWithSpaces;
+  return fracStr ? `${intWithSpaces}${decimalSeparator}${fracStr}` : intWithSpaces;
 }
 
 const sizeClasses = {
@@ -75,7 +80,8 @@ export default function AnimatedNumber({
   ease = "easeOut",
 }: AnimatedNumberProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  // Fires ~120px before the number scrolls in, so the reset to 0 happens off-screen.
+  const isInView = useInView(ref, { once: true, amount: 0.3, margin: "0px 0px 120px 0px" });
 
   const text = useMemo(() => {
     if (field) return asText(field);
@@ -87,27 +93,60 @@ export default function AnimatedNumber({
   const parsed = useMemo(() => parseNumber(numberStr), [numberStr]);
   const target = parsed.value;
   const resolvedDecimals = decimals === "auto" ? parsed.decimals : (decimals ?? 0);
+  const separator = parsed.decimalSeparator;
 
-  const [display, setDisplay] = useState<string>(formatWithSpaces(0, resolvedDecimals));
+  const hasNumber = numberStr !== "";
+
+  // Seeded with the final value so the SSR/no-JS HTML never carries a fallback zero.
+  const [display, setDisplay] = useState<string>(() => formatWithSpaces(target, resolvedDecimals, separator));
+
+  // A counter already on screen at load keeps its value rather than snapping back to 0.
+  const visibleAtMount = useRef(false);
+  useIsomorphicLayoutEffect(() => {
+    const rect = ref.current?.getBoundingClientRect();
+    visibleAtMount.current = Boolean(rect && rect.top < window.innerHeight && rect.bottom > 0);
+  }, []);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!hasNumber) return;
+
+    const finalValue = formatWithSpaces(target, resolvedDecimals, separator);
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Skipping the count-up still writes the value, or a reused instance keeps
+    // the old number.
+    if (!isInView || visibleAtMount.current || reducedMotion) {
+      setDisplay(finalValue);
+      return;
+    }
 
     const controls = animate(0 as number, target as number, {
       duration: durationMs / 1000,
       ease: ease,
       onUpdate: (latest: number) => {
-        setDisplay(formatWithSpaces(latest, resolvedDecimals));
+        setDisplay(formatWithSpaces(latest, resolvedDecimals, separator));
       },
     });
 
     return () => controls.stop();
-  }, [isInView, target, resolvedDecimals, durationMs, ease]);
+  }, [isInView, hasNumber, target, resolvedDecimals, separator, durationMs, ease]);
+
+  const classes = cn(sizeClasses[size], className, "font-semibold tabular-nums leading-none");
+
+  // No digits to count, so render the author string as it was written.
+  if (!hasNumber) {
+    return (
+      <div ref={ref} className={classes}>
+        {text}
+      </div>
+    );
+  }
 
   return (
-    <div ref={ref} className={cn(sizeClasses[size], className, "font-semibold tabular-nums leading-none")}>
+    <div ref={ref} className={classes}>
       {prefix && <span>{prefix} </span>}
-      <motion.span className={cn(numberClassName, "")}>{display}</motion.span>
+      <span className={numberClassName}>{display}</span>
       {suffix && <span> {suffix}</span>}
     </div>
   );
