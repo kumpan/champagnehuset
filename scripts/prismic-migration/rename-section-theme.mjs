@@ -45,9 +45,7 @@ for (const model of await res.json()) {
   }
 }
 if (stale.length > 0) {
-  console.error(
-    `Model drift: ${stale.length} section_theme Select(s) in Prismic still offer "${OLD}":\n`,
-  );
+  console.error(`Model drift: ${stale.length} section_theme Select(s) in Prismic still offer "${OLD}":\n`);
   for (const field of stale) console.error(`  ${field}`);
   console.error("\nPush your models with Slice Machine (pnpm dev → localhost:9999) before migrating.");
   process.exit(1);

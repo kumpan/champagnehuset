@@ -29,7 +29,13 @@ type SearchGridProps = {
   sectionTheme?: SectionTheme;
 };
 
-export function SearchGrid({ products, searchPlaceholder, noResultsText, lang, sectionTheme = "Bud" }: SearchGridProps) {
+export function SearchGrid({
+  products,
+  searchPlaceholder,
+  noResultsText,
+  lang,
+  sectionTheme = "Bud",
+}: SearchGridProps) {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<FilterSelection>({});
   const hydratedFromUrl = useRef(false);
