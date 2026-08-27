@@ -15,7 +15,7 @@ const bodyThemeClasses: Record<SectionTheme, string> = {
   Bud: "text-ink-dim",
   Leaf: "text-ink-dim",
   Bottle: "text-ink-dim",
-  Brand: "",
+  Brand: "text-ink-dim",
   Dust: "text-spot-ink-dim",
   Slate: "",
 };

@@ -11,7 +11,7 @@ const containerClasses = {
   Bud: "bg-fill-raised",
   Leaf: "bg-fill-raised",
   Bottle: "bg-brand text-brand-ink",
-  Brand: "bg-fill-raised",
+  Brand: "bg-brand text-brand-ink",
   Dust: "bg-spot-fill",
   Slate: "bg-spot-fill-raised",
 };
@@ -20,7 +20,7 @@ const introClasses: Record<SectionTheme, SectionTheme> = {
   Bud: "Bud",
   Leaf: "Leaf",
   Bottle: "Brand",
-  Brand: "Leaf",
+  Brand: "Brand",
   Dust: "Slate",
   Slate: "Dust",
 };

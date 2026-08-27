@@ -7,8 +7,11 @@ export type SectionTheme = "Bud" | "Leaf" | "Bottle" | "Brand" | "Dust" | "Slate
 const sectionThemeClasses: Record<string, string> = {
   Bud: "bg-fill text-ink selection:bg-brand selection:text-brand-ink",
   Leaf: "bg-spot-fill-raised text-ink selection:bg-brand selection:text-brand-ink",
+  // Section-level "Brand" only occurs via stale stored values in the two slices
+  // that skip normalizeSectionTheme; render those as Bottle. The on-green Brand
+  // styling lives in per-component maps (Button, SectionIntro, CustomRichText).
   Bottle: "bg-spot-fill-raised text-ink selection:bg-brand selection:text-brand-ink",
-  Brand: "bg-brand text-ink-flip selection:bg-fill-raised selection:text-ink",
+  Brand: "bg-spot-fill-raised text-ink selection:bg-brand selection:text-brand-ink",
   Dust: "bg-spot-fill-raised text-spot-ink selection:bg-spot-fill selection:text-spot-ink-flip",
   Slate: "bg-spot-fill text-spot-ink-flip selection:bg-spot-fill-raised selection:text-spot-ink",
 };
