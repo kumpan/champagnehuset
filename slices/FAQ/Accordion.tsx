@@ -26,7 +26,7 @@ const Accordion = ({ question, answer, sectionTheme }: AccordionProps) => {
   return (
     <div className="not-last:border-b border-b-current/30">
       <button
-        className="flex min-h-20 w-full cursor-pointer items-center justify-between gap-4 py-4 text-left font-semibold lg:min-h-22"
+        className="flex min-h-20 w-full cursor-pointer select-text items-center justify-between gap-4 py-4 text-left font-semibold lg:min-h-22"
         onClick={() => setIsActive(!isActive)}
         type="button"
       >

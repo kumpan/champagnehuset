@@ -130,7 +130,7 @@ export function Navbar({
         </AnimatePresence>
 
         <Container>
-          <nav className="flex items-center justify-between rounded-2 border border-border bg-fill py-1 pr-1 pl-3 selection:bg-brand selection:text-ink-flip md:py-2 md:pr-2 md:pl-4 lg:bg-primary/85 lg:pl-4">
+          <nav className="selection-brand flex items-center justify-between rounded-2 border border-border bg-fill py-1 pr-1 pl-3 md:py-2 md:pr-2 md:pl-4 lg:bg-primary/85 lg:pl-4">
             {/* Logo */}
             <PrismicNextLink
               field={

@@ -12,35 +12,34 @@ type Props = CalloutProps & { slice: Content.CalloutSliceCard };
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised md:bg-fill/85 md:backdrop-brightness-110",
   Leaf: "bg-fill-raised md:bg-fill-raised/85 md:backdrop-brightness-110",
-  Bottle:
-    "bg-brand text-brand-ink md:bg-brand/92 md:backdrop-brightness-75 selection:bg-fill-raised selection:text-ink",
-  Dust: "bg-spot-fill md:bg-spot-fill/92 md:backdrop-brightness-50",
-  Slate: "bg-spot-fill-raised md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
+  Bottle: "bg-brand text-brand-ink selection-light md:bg-brand/92 md:backdrop-brightness-75",
+  Dust: "bg-spot-fill selection-spot-raised md:bg-spot-fill/92 md:backdrop-brightness-50",
+  Slate: "bg-spot-fill-raised selection-spot md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
 };
 
 const containerClassesNoMedia: Record<string, string> = {
   Bud: "bg-fill-raised md:bg-fill-raised",
   Leaf: "bg-fill-raised md:bg-fill-raised",
-  Bottle:
-    "bg-brand text-brand-ink md:bg-brand/92 md:backdrop-brightness-75 selection:bg-fill-raised selection:text-ink",
-  Dust: "bg-spot-fill md:bg-spot-fill/92 md:backdrop-brightness-50",
-  Slate: "bg-spot-fill-raised md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
+  Bottle: "bg-brand text-brand-ink selection-light md:bg-brand/92 md:backdrop-brightness-75",
+  Dust: "bg-spot-fill selection-spot-raised md:bg-spot-fill/92 md:backdrop-brightness-50",
+  Slate: "bg-spot-fill-raised selection-spot md:bg-spot-fill-raised/85 md:backdrop-brightness-125",
 };
 
-// Card interiors read the card's surface, not the section's; the Bottle card
-// additionally renders its content with surface="brand".
-const introClasses: Record<SectionTheme, SectionTheme> = {
-  Bud: "Bud",
-  Leaf: "Leaf",
-  Bottle: "Bottle",
-  Dust: "Slate",
-  Slate: "Dust",
+// What the card interior wears per section theme: the nearest real theme plus,
+// for the brand-green card, the surface no theme matches.
+const interior: Record<SectionTheme, { theme: SectionTheme; surface?: "brand" }> = {
+  Bud: { theme: "Bud" },
+  Leaf: { theme: "Leaf" },
+  Bottle: { theme: "Bottle", surface: "brand" },
+  Dust: { theme: "Slate" },
+  Slate: { theme: "Dust" },
 };
 
 export function CalloutCard({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, alignment, remove_top_padding, media } = slice.primary;
   const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const { theme: content_theme, surface } = interior[section_theme];
   const { image, video, filter } = media[0] ?? {};
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
 
@@ -55,8 +54,8 @@ export function CalloutCard({ slice }: Props) {
       description={description}
       buttons={buttons}
       align={isCenter ? "center" : "left"}
-      sectionTheme={introClasses[section_theme]}
-      surface={section_theme === "Bottle" ? "brand" : undefined}
+      sectionTheme={content_theme}
+      surface={surface}
       className="w-full"
       titleMaxWidth={false}
       textBalance

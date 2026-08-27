@@ -4,11 +4,10 @@ import { Slot } from "@/lib/slot";
 import { cn } from "@/lib/utils";
 
 const variantClasses = {
-  default: "bg-brand text-brand-ink hover:bg-brand/90 outline-brand/70 selection:bg-fill-raised selection:text-ink",
+  default: "bg-brand text-brand-ink hover:bg-brand/90 outline-brand/70 selection-light",
   destructive: "bg-error text-ink-flip hover:bg-error/90 outline-error",
   outline: "border border-brand text-brand hover:bg-brand/5 outline-brand",
-  secondary:
-    "bg-fill-raised hover:bg-fill-raised/70 text-raised-ink outline-brand/70 selection:bg-brand selection:text-ink-flip",
+  secondary: "bg-fill-raised hover:bg-fill-raised/70 text-raised-ink outline-brand/70 selection-brand",
   ghost: "text-ink hover:bg-fill-raised outline-brand",
   link: "text-brand underline underline-offset-4 hover:no-underline outline-brand",
 } as const;
@@ -23,31 +22,26 @@ const themeClasses: Record<SectionTheme, Partial<Record<ButtonVariant, string>>>
   Bottle: {},
 
   Dust: {
-    default:
-      "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90 outline-spot-fill-dark/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
-    secondary:
-      "bg-spot-fill-dark/15 text-spot-ink hover:bg-spot-fill-dark/20 outline-spot-fill-dark/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
-    outline:
-      "border-spot-ink/40 text-spot-ink hover:bg-spot-ink/5 outline-spot-ink/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
+    default: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90 outline-spot-fill-dark/70 selection-spot",
+    secondary: "bg-spot-fill-dark/15 text-spot-ink hover:bg-spot-fill-dark/20 outline-spot-fill-dark/70 selection-spot",
+    outline: "border-spot-ink/40 text-spot-ink hover:bg-spot-ink/5 outline-spot-ink/70 selection-spot",
   },
 
   Slate: {
     default:
-      "bg-spot-fill-raised text-spot-ink hover:bg-spot-fill-raised/90 outline-spot-fill-raised/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
+      "bg-spot-fill-raised text-spot-ink hover:bg-spot-fill-raised/90 outline-spot-fill-raised/70 selection-spot",
     secondary:
-      "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90 outline-spot-fill-raised/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
+      "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90 outline-spot-fill-raised/70 selection-spot",
     outline:
-      "border-spot-ink-flip/40 text-spot-ink-flip hover:bg-spot-ink-flip/10 outline-spot-ink-flip/70 selection:bg-spot-fill! selection:text-spot-ink-flip",
+      "border-spot-ink-flip/40 text-spot-ink-flip hover:bg-spot-ink-flip/10 outline-spot-ink-flip/70 selection-spot",
   },
 };
 
 // Buttons on a brand-green surface
 const brandSurfaceClasses: Partial<Record<ButtonVariant, string>> = {
-  default: "bg-fill text-ink hover:bg-fill/90 outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
-  secondary:
-    "bg-brand-fill text-ink-flip hover:bg-brand-fill/90 outline-fill-raised/70 selection:bg-brand! selection:text-ink-flip",
-  outline:
-    "border-ink-flip/40 text-ink-flip hover:bg-ink-flip/10 outline-ink-flip/70 selection:bg-brand! selection:text-ink-flip",
+  default: "bg-fill text-ink hover:bg-fill/90 outline-fill-raised/70 selection-brand",
+  secondary: "bg-brand-fill text-ink-flip hover:bg-brand-fill/90 outline-fill-raised/70 selection-brand",
+  outline: "border-ink-flip/40 text-ink-flip hover:bg-ink-flip/10 outline-ink-flip/70 selection-brand",
 };
 
 const sizeClasses = {
@@ -60,7 +54,7 @@ const sizeClasses = {
 } as const;
 
 const baseClasses =
-  "inline-flex max-w-full shrink-0 cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-1 font-medium " +
+  "inline-flex max-w-full shrink-0 cursor-pointer select-text items-center justify-center gap-1 whitespace-nowrap rounded-1 font-medium " +
   "transition-all duration-200 ease-in-out " +
   "active:opacity-50 " +
   "outline-0 outline-offset-0 focus-visible:outline-2 focus-visible:outline-offset-2 " +

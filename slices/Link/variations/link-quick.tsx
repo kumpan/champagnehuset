@@ -17,7 +17,7 @@ type Props = LinkProps & { slice: Content.LinkSliceQuick };
 const rowThemeClasses: Record<SectionTheme, string> = {
   Bud: "md:bg-fill-raised md:hover:bg-fill-raised/70",
   Leaf: "md:bg-fill-raised md:hover:bg-fill-raised/70",
-  Bottle: "md:bg-brand md:text-brand-ink md:hover:bg-brand/90",
+  Bottle: "md:bg-brand md:text-brand-ink md:selection-light md:hover:bg-brand/90",
   Dust: "md:bg-spot-ink/5 md:hover:bg-spot-ink/10",
   Slate: "md:bg-spot-ink-flip/10 md:hover:bg-spot-ink-flip/20",
 };

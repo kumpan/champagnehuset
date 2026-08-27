@@ -2,7 +2,7 @@ import type { Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { Section, type SectionTheme } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
 import { cn, hasSectionIntroContent } from "@/lib/utils";
 import type { CalloutProps } from "..";
@@ -10,24 +10,26 @@ import type { CalloutProps } from "..";
 const containerClasses = {
   Bud: "bg-fill-raised",
   Leaf: "bg-fill-raised",
-  Bottle: "bg-brand text-brand-ink selection:bg-fill-raised selection:text-ink",
-  Dust: "bg-spot-fill",
-  Slate: "bg-spot-fill-raised",
+  Bottle: "bg-brand text-brand-ink selection-light",
+  Dust: "bg-spot-fill selection-spot-raised",
+  Slate: "bg-spot-fill-raised selection-spot",
 };
 
-// Card interiors read the card surface, not the section
-const introClasses = {
-  Bud: "Bud",
-  Leaf: "Leaf",
-  Bottle: "Bottle",
-  Dust: "Slate",
-  Slate: "Dust",
-} as const;
+// What the card interior wears per section theme: the nearest real theme plus,
+// for the brand-green card, the surface no theme matches.
+const interior: Record<SectionTheme, { theme: SectionTheme; surface?: "brand" }> = {
+  Bud: { theme: "Bud" },
+  Leaf: { theme: "Leaf" },
+  Bottle: { theme: "Bottle", surface: "brand" },
+  Dust: { theme: "Slate" },
+  Slate: { theme: "Dust" },
+};
 
 export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutSliceSplit }) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, alignment, image_side, remove_top_padding, media } = slice.primary;
   const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const { theme: content_theme, surface } = interior[section_theme];
 
   return (
     <Section
@@ -58,8 +60,8 @@ export function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutS
                 description={description}
                 buttons={buttons}
                 align={alignment ? "center" : "left"}
-                sectionTheme={introClasses[section_theme]}
-                surface={section_theme === "Bottle" ? "brand" : undefined}
+                sectionTheme={content_theme}
+                surface={surface}
                 buttonWrapperClassName={cn("mt-4 mb-4 md:mb-2", alignment ? "lg:mt-6" : "lg:mt-auto")}
                 className={cn(!alignment && "h-full")}
                 textBalance={true}

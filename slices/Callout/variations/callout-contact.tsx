@@ -12,18 +12,19 @@ import type { CalloutProps } from "..";
 const containerClasses: Record<string, string> = {
   Bud: "bg-fill-raised",
   Leaf: "bg-fill-raised",
-  Bottle: "bg-brand text-brand-ink selection:bg-fill-raised selection:text-ink",
+  Bottle: "bg-brand text-brand-ink selection-light",
   Dust: "bg-spot-fill-dark/10",
   Slate: "bg-spot-fill-dark",
 };
 
-// Card insides read the card surface
-const introClasses: Record<SectionTheme, SectionTheme> = {
-  Bud: "Bud",
-  Leaf: "Leaf",
-  Bottle: "Bottle",
-  Dust: "Dust",
-  Slate: "Slate",
+// What the card interior wears per section theme: the nearest real theme plus,
+// for the brand-green card, the surface no theme matches.
+const interior: Record<SectionTheme, { theme: SectionTheme; surface?: "brand" }> = {
+  Bud: { theme: "Bud" },
+  Leaf: { theme: "Leaf" },
+  Bottle: { theme: "Bottle", surface: "brand" },
+  Dust: { theme: "Dust" },
+  Slate: { theme: "Slate" },
 };
 
 // Info rows need a fill one step apart from the card behind them: light "Bud"
@@ -43,7 +44,7 @@ export function CalloutContact({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, remove_top_padding, image_side, media, contact_items } = slice.primary;
   const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
-  const content_theme = introClasses[section_theme];
+  const { theme: content_theme, surface } = interior[section_theme];
   const item_theme = itemClasses[section_theme];
 
   const mediaItem = media[0];
@@ -90,7 +91,7 @@ export function CalloutContact({ slice }: Props) {
                 buttons={buttons}
                 align="left"
                 sectionTheme={content_theme}
-                surface={section_theme === "Bottle" ? "brand" : undefined}
+                surface={surface}
                 buttonWrapperClassName="mt-3 md:mt-4"
                 textBalance={true}
               />

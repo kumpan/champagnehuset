@@ -13,13 +13,14 @@ import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceGrid };
 
-/** The card itself: a label bar sitting above the image plate. */
+/** The card itself: a label bar sitting above the image plate. Inverted cards
+ * carry the selection pair of the palette they wear, not the section's. */
 const cardThemeClasses: Record<SectionTheme, string> = {
   Bud: "bg-fill-raised hover:bg-fill-raised/70",
   Leaf: "bg-fill-raised text-ink hover:bg-fill-raised/70",
-  Bottle: "bg-brand text-brand-ink hover:bg-brand/90",
-  Dust: "bg-spot-fill-dark text-spot-ink-flip hover:bg-spot-fill-dark/90",
-  Slate: "bg-spot-fill-raised text-spot-ink hover:bg-spot-fill/90",
+  Bottle: "bg-brand text-brand-ink selection-light hover:bg-brand/90",
+  Dust: "bg-spot-fill-dark text-spot-ink-flip selection-spot-raised hover:bg-spot-fill-dark/90",
+  Slate: "bg-spot-fill-raised text-spot-ink selection-spot hover:bg-spot-fill-raised/90",
 };
 
 /**

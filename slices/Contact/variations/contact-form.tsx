@@ -30,7 +30,7 @@ export function ContactForm({ slice }: Props) {
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
       sectionTheme={section_theme}
-      className="selection:bg-brand selection:text-ink-flip"
+      className="selection-brand"
     >
       <Container>
         <div className={cn("flex flex-col gap-2 transition-colors duration-500 ease-in-out lg:gap-0")}>

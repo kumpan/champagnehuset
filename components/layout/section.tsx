@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 export type SectionTheme = "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate";
 
 const sectionThemeClasses: Record<string, string> = {
-  Bud: "bg-fill text-ink selection:bg-brand selection:text-brand-ink",
-  Leaf: "bg-spot-fill-raised text-ink selection:bg-brand selection:text-brand-ink",
-  Bottle: "bg-spot-fill-raised text-ink selection:bg-brand selection:text-brand-ink",
-  Dust: "bg-spot-fill-raised text-spot-ink selection:bg-spot-fill selection:text-spot-ink-flip",
-  Slate: "bg-spot-fill text-spot-ink-flip selection:bg-spot-fill-raised selection:text-spot-ink",
+  Bud: "bg-fill text-ink selection-brand",
+  Leaf: "bg-spot-fill-raised text-ink selection-brand",
+  Bottle: "bg-spot-fill-raised text-ink selection-brand",
+  Dust: "bg-spot-fill-raised text-spot-ink selection-spot",
+  Slate: "bg-spot-fill text-spot-ink-flip selection-spot-raised",
 };
 
 const Section = ({

@@ -78,7 +78,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
     "text-ink-flip/80 underline underline-offset-3 decoration-ink-flip/20 hover:decoration-ink-flip transition-colors duration-300 hover:text-ink-flip";
 
   return (
-    <footer className="bg-brand py-12 text-ink-flip transition-colors duration-500 ease-in-out selection:bg-fill-raised selection:text-ink md:py-16">
+    <footer className="selection-light bg-brand py-12 text-ink-flip transition-colors duration-500 ease-in-out md:py-16">
       <Container className="flex flex-col gap-12 md:gap-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-16 2xl:gap-32">
           {/* Brand block */}
