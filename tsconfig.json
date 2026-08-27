@@ -34,5 +34,5 @@
     ".next-auto/types/**/*.ts",
     ".next-auto/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "prismic-backup"]
 }
