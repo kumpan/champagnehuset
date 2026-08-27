@@ -80,9 +80,9 @@
         "type": "StructuredText",
         "config": {
           "label": "About",
-          "placeholder": "Longer presentation of the producer",
+          "placeholder": "Heading and presentation shown where the producer is featured",
           "allowTargetBlank": true,
-          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          "multi": "heading2,heading3,paragraph,strong,em,hyperlink,list-item,o-list-item"
         }
       },
       "producer_feature_image": {
