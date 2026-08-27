@@ -67,14 +67,16 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
       <Container>
         <div
           className={cn(
-            "-mx-4 flex flex-col overflow-hidden rounded-none transition-colors duration-500 ease-in-out md:-mx-6 lg:mx-0 lg:rounded-2",
+            // Contained card by default; bleeds to the full viewport on lg/xl
+            // (cancelling Container's lg gutter), contained again from 2xl.
+            "flex flex-col overflow-hidden rounded-2 transition-colors duration-500 ease-in-out lg:-mx-8 lg:rounded-none 2xl:mx-0 2xl:rounded-2",
             containerClasses[section_theme],
             image_side ? "lg:flex-row-reverse" : "lg:flex-row",
           )}
         >
           <div
             className={cn(
-              "flex px-4 py-6 md:px-6 md:py-10 lg:aspect-square lg:w-1/2 lg:p-12",
+              "flex p-6 md:p-10 lg:aspect-square lg:w-1/2 lg:p-16 2xl:p-12",
               alignment && "items-center justify-center",
             )}
           >
