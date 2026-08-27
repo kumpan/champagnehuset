@@ -2013,6 +2013,21 @@ export type RedirectDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Region → Facts → Items*
+ */
+export interface RegionDocumentDataFactsItemsItem {
+  /**
+   * Item field in *Region → Facts → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Söder om Épernay
+   * - **API ID Path**: region.facts[].items[].item
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  item: prismic.KeyTextField;
+}
+
+/**
  * Item in *Region → Facts*
  */
 export interface RegionDocumentDataFactsItem {
@@ -2027,34 +2042,14 @@ export interface RegionDocumentDataFactsItem {
   label: prismic.KeyTextField;
 
   /**
-   * Item 1 field in *Region → Facts*
+   * Items field in *Region → Facts*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: Söder om Épernay
-   * - **API ID Path**: region.facts[].item_1
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: region.facts[].items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  item_1: prismic.KeyTextField;
-
-  /**
-   * Item 2 field in *Region → Facts*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Kritjord i världsklass
-   * - **API ID Path**: region.facts[].item_2
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  item_2: prismic.KeyTextField;
-
-  /**
-   * Item 3 field in *Region → Facts*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Sex Grand Cru-byar
-   * - **API ID Path**: region.facts[].item_3
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  item_3: prismic.KeyTextField;
+  items: prismic.NestedGroupField<Simplify<RegionDocumentDataFactsItemsItem>>;
 }
 
 /**
@@ -2127,11 +2122,7 @@ interface RegionDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type RegionDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<RegionDocumentData>,
-    "region",
-    Lang
-  >;
+  prismic.PrismicDocumentWithUID<Simplify<RegionDocumentData>, "region", Lang>;
 
 /**
  * Content for Special Club Text documents
@@ -9671,6 +9662,7 @@ declare module "@prismicio/client" {
       RedirectDocumentDataRedirectsItem,
       RegionDocument,
       RegionDocumentData,
+      RegionDocumentDataFactsItemsItem,
       RegionDocumentDataFactsItem,
       SpecialClubDocument,
       SpecialClubDocumentData,

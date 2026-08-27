@@ -56,25 +56,20 @@
                 "placeholder": "Området"
               }
             },
-            "item_1": {
-              "type": "Text",
+            "items": {
+              "type": "Group",
               "config": {
-                "label": "Item 1",
-                "placeholder": "Söder om Épernay"
-              }
-            },
-            "item_2": {
-              "type": "Text",
-              "config": {
-                "label": "Item 2",
-                "placeholder": "Kritjord i världsklass"
-              }
-            },
-            "item_3": {
-              "type": "Text",
-              "config": {
-                "label": "Item 3",
-                "placeholder": "Sex Grand Cru-byar"
+                "label": "Items",
+                "repeat": true,
+                "fields": {
+                  "item": {
+                    "type": "Text",
+                    "config": {
+                      "label": "Item",
+                      "placeholder": "Söder om Épernay"
+                    }
+                  }
+                }
               }
             }
           }
