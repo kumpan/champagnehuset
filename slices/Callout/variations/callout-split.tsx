@@ -63,23 +63,17 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
       sectionTheme={section_theme}
+      className="overflow-x-clip lg:py-0 2xl:py-24"
     >
       <Container>
         <div
           className={cn(
-            // Contained card by default; bleeds to the full viewport on lg/xl
-            // (cancelling Container's lg gutter), contained again from 2xl.
-            "flex flex-col overflow-hidden rounded-2 transition-colors duration-500 ease-in-out lg:-mx-8 lg:rounded-none 2xl:mx-0 2xl:rounded-2",
+            "flex flex-col overflow-hidden rounded-2 transition-colors duration-500 ease-in-out lg:mx-[calc(50%-50vw)] lg:rounded-none 2xl:mx-0 2xl:rounded-2",
             containerClasses[section_theme],
             image_side ? "lg:flex-row-reverse" : "lg:flex-row",
           )}
         >
-          <div
-            className={cn(
-              "flex p-6 md:p-10 lg:aspect-square lg:w-1/2 lg:p-16 2xl:p-12",
-              alignment && "items-center justify-center",
-            )}
-          >
+          <div className={cn("flex p-6 md:p-10 lg:w-1/2 lg:p-16 2xl:p-12", alignment && "items-center justify-center")}>
             {/* Content */}
             {hasIntroContent && (
               <SectionIntro
