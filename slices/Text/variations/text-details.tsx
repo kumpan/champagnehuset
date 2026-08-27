@@ -117,9 +117,12 @@ function RegionDetails({ slice, region }: { slice: Props["slice"]; region: Regio
                     "easeOut transition-colors duration-500",
                   )}
                 >
-                  {[list.item_1, list.item_2, list.item_3].filter(isFilled.keyText).map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
+                  {list.items
+                    .map((row) => row.item)
+                    .filter(isFilled.keyText)
+                    .map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
                 </ul>
               </div>
             ))}
