@@ -4063,7 +4063,7 @@ export interface CalloutSliceSplitPrimary {
    * Producer field in *Callout → Split → Primary*
    *
    * - **Field Type**: Content Relationship
-   * - **Placeholder**: Optional – fetch about text and image from a producer
+   * - **Placeholder**: Select producer to override text and image
    * - **API ID Path**: callout.split.primary.producer
    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
