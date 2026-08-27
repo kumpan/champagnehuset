@@ -29,7 +29,7 @@ export function HeroBackdrop({ slice, context }: Props) {
       sectionTheme={theme}
       className={cn(
         "relative isolate flex flex-col justify-end overflow-hidden border-t-0",
-        "3xl:min-h-256 min-h-144 pt-24 pb-12 md:min-h-192 md:pt-28 md:pb-16 lg:min-h-208 lg:pt-32 xl:min-h-232",
+        "3xl:min-h-256 min-h-144 pt-80 pb-12 md:min-h-192 md:pt-28 md:pb-16 lg:min-h-208 lg:pt-32 xl:min-h-232",
       )}
     >
       {hasMedia && (
@@ -44,9 +44,9 @@ export function HeroBackdrop({ slice, context }: Props) {
           />
 
           {/* Bottom fade layers: blur → overlay blend → color fade */}
-          <div className="absolute inset-x-0 top-1/3 bottom-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black,black_30%,transparent)]" />
-          <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/65 to-spot-fill-dark/0 mix-blend-overlay" />
-          <div className="absolute inset-x-0 top-1/4 bottom-0 bg-linear-to-t from-spot-fill-dark/90 via-spot-fill-dark/40 to-spot-fill-dark/0" />
+          <div className="absolute inset-x-0 top-1/4 bottom-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black,black_30%,transparent)]" />
+          <div className="absolute inset-x-0 top-1/5 bottom-0 bg-linear-to-t from-spot-fill-dark/75 to-spot-fill-dark/0 mix-blend-overlay" />
+          <div className="absolute inset-x-0 top-1/5 bottom-0 bg-linear-to-t from-spot-fill-dark/90 via-spot-fill-dark/40 to-spot-fill-dark/0" />
         </div>
       )}
 
