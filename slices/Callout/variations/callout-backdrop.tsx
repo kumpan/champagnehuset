@@ -1,5 +1,4 @@
 import { type Content, isFilled } from "@prismicio/client";
-
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -16,26 +15,22 @@ export function CalloutBackdrop({ slice }: Props) {
   const { image, video, filter } = media[0] ?? {};
 
   const hasMedia = isFilled.linkToMedia(video) || isFilled.image(image);
-  // With media, the image is the surface, so force the dark Slate theme and text,
-  // buttons and selection flip to light. Without media, honour the editor's chosen theme.
+  // With media, the image is the surface, so we force the Slate theme and text
   const theme = hasMedia ? "Slate" : section_theme;
 
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      sectionTheme={theme}
-      // Full-bleed hero below 2xl (no section padding); contained rounded block
-      // from 2xl, where Remove Top Padding applies like on other sections. The
-      // clip swallows the half-scrollbar overshoot of the 50vw margins.
-      className={cn("overflow-x-clip py-0 2xl:py-24", remove_top_padding && "2xl:pt-4")}
+      sectionTheme={section_theme}
+      className={cn("py-0 md:py-0 lg:py-0 2xl:py-24", remove_top_padding && "2xl:pt-4")}
     >
-      <Container>
+      <Container className="max-w-none 2xl:max-w-360">
         <div
           className={cn(
             "relative isolate flex flex-col justify-end overflow-hidden",
             "min-h-112 md:min-h-144 lg:min-h-172",
-            "mx-[calc(50%-50vw)] rounded-none 2xl:mx-0 2xl:rounded-2",
+            "-mx-4 rounded-none md:-mx-6 lg:-mx-8 2xl:mx-0 2xl:rounded-2",
           )}
         >
           {hasMedia && (
@@ -58,10 +53,12 @@ export function CalloutBackdrop({ slice }: Props) {
           )}
 
           {hasIntroContent && (
-            // A nested Container keeps the text on the same content columns as
-            // every other section while the block itself bleeds; from 2xl the
-            // block is contained and the text pads like the split's interior.
-            <Container className="relative flex w-full flex-col justify-end py-12 md:py-20 lg:py-24 2xl:p-12">
+            <Container
+              className={cn(
+                "relative flex w-full flex-col justify-end py-12 md:py-20 lg:py-24 2xl:p-12",
+                !hasMedia && "2xl:px-0",
+              )}
+            >
               <SectionIntro
                 overline={overline}
                 title={title}

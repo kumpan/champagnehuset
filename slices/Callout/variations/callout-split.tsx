@@ -63,34 +63,47 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
       sectionTheme={section_theme}
-      className="overflow-x-clip lg:py-0 2xl:py-24"
+      className="lg:py-0 2xl:py-24"
     >
-      <Container>
+      <Container className="max-w-none 2xl:max-w-360">
         <div
           className={cn(
-            "flex flex-col overflow-hidden rounded-2 transition-colors duration-500 ease-in-out lg:mx-[calc(50%-50vw)] lg:rounded-none 2xl:mx-0 2xl:rounded-2",
+            "flex flex-col overflow-hidden rounded-2 transition-colors duration-500 ease-in-out lg:-mx-8 lg:rounded-none 2xl:mx-0 2xl:rounded-2",
             containerClasses[section_theme],
             image_side ? "lg:flex-row-reverse" : "lg:flex-row",
           )}
         >
-          <div className={cn("flex p-6 md:p-10 lg:w-1/2 lg:p-16 2xl:p-12", alignment && "items-center justify-center")}>
+          <div
+            className={cn(
+              "flex p-6 md:p-10 lg:w-1/2 lg:px-0 lg:py-16 2xl:p-12",
+              alignment && "items-center justify-center",
+            )}
+          >
             {/* Content */}
             {hasIntroContent && (
-              <SectionIntro
-                overline={overline}
-                title={title}
-                description={producerDescription ?? description}
-                buttons={buttons}
-                align={alignment ? "center" : "left"}
-                sectionTheme={content_theme}
-                surface={surface}
-                buttonWrapperClassName="mt-4 mb-4 md:mb-2 lg:mt-6"
-                className={cn(!alignment && "h-full justify-end")}
-                textBalance={true}
-              />
+              <div
+                className={cn(
+                  "flex w-full lg:max-w-180 lg:px-8",
+                  image_side ? "lg:mr-auto" : "lg:ml-auto",
+                  "2xl:m-0 2xl:max-w-none 2xl:p-0",
+                )}
+              >
+                <SectionIntro
+                  overline={overline}
+                  title={title}
+                  description={producerDescription ?? description}
+                  buttons={buttons}
+                  align={alignment ? "center" : "left"}
+                  sectionTheme={content_theme}
+                  surface={surface}
+                  buttonWrapperClassName="mt-4 mb-4 md:mb-2 lg:mt-6"
+                  className={cn(!alignment && "h-full justify-end")}
+                  textBalance={true}
+                />
+              </div>
             )}
           </div>
-          <div className="aspect-square lg:w-1/2">
+          <div className="aspect-square md:aspect-3/2 lg:aspect-square lg:w-1/2">
             {producerImage ? (
               <CustomMedia
                 imageField={producerImage}
