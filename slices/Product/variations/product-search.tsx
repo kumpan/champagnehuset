@@ -38,7 +38,6 @@ export async function ProductSearch({ slice, context }: Props) {
         "product.product_style",
         "product.product_special_club",
         "product.product_ecologic",
-        "product.product_volume",
         "product.product_volumes",
         "product.product_consumer_availability",
         "product.product_restaurant_availability",

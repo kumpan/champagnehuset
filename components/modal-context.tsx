@@ -32,11 +32,11 @@ const DAY_MS = 86_400_000;
 /** How long a signup suppresses the popup */
 const SUBSCRIBED_DAYS = 30;
 
-/** True while a stored timestamp is still inside its window. Tolerates legacy ISO values. */
+/** True while a stored timestamp is still inside its window. */
 function isFresh(raw: string | null, days: number) {
   if (!raw) return false;
-  const stamped = Number(raw) || Date.parse(raw);
-  return Number.isFinite(stamped) && Date.now() - stamped < days * DAY_MS;
+  const stamped = Number(raw);
+  return Number.isFinite(stamped) && stamped > 0 && Date.now() - stamped < days * DAY_MS;
 }
 
 const hasSubscribed = () => isFresh(localStorage.getItem(SUBSCRIBED_KEY), SUBSCRIBED_DAYS);

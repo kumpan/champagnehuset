@@ -73,14 +73,6 @@
           "placeholder": "7721"
         }
       },
-      "product_volume": {
-        "type": "Select",
-        "config": {
-          "label": "Volume",
-          "placeholder": "",
-          "options": ["187 ml", "375 ml", "750 ml", "1,5 L", "3 L", "6 L", "9 L", "12 L", "15 L"]
-        }
-      },
       "product_volumes": {
         "type": "Group",
         "config": {

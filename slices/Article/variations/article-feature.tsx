@@ -17,7 +17,7 @@ type Props = ArticleProps & { slice: Content.ArticleSliceFeature };
 
 export async function ArticleFeature({ slice }: Props) {
   const { remove_top_padding, featured_articles, link_label } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
   const ArrowRight = iconMap.arrowRight;
 
   const client = await createClient();

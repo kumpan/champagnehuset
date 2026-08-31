@@ -1,5 +1,5 @@
 import { isFilled } from "@prismicio/client";
-import { normalizeGrape, productVolumes } from "@/lib/format";
+import { productVolumes } from "@/lib/format";
 import { t } from "@/lib/i18n";
 import type { ProductDocument } from "@/prismicio-types";
 
@@ -102,8 +102,7 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
   switch (groupId) {
     case "availability": {
       const values: string[] = [];
-      // Both assortments share one checkbox; startsWith also catches the
-      // legacy plain "Systembolaget" value stored before the assortment split.
+      // Both assortments share one checkbox
       if (product_consumer_availability?.startsWith("Systembolaget")) values.push("systembolaget");
       if (product_consumer_availability === "Private Import") values.push("privatimport");
       if (product_restaurant_availability === "Available") values.push("restaurang");
@@ -118,7 +117,7 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
     case "style":
       return product_style && product_style !== "None" ? [product_style] : [];
     case "grape":
-      return (product_grapes ?? []).flatMap((entry) => (entry.grape ? [normalizeGrape(entry.grape)] : []));
+      return (product_grapes ?? []).flatMap((entry) => (entry.grape ? [entry.grape] : []));
     case "club":
       return product_special_club === "Yes" ? ["yes"] : [];
     case "ecologic":

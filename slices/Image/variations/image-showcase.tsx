@@ -15,7 +15,7 @@ const getMediaKey = (item: Content.ImageSliceShowcasePrimaryMediaItem, index: nu
 
 export function ImageShowcase({ slice }: ImageShowcaseProps) {
   const { media, remove_top_padding } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
   const filteredMedia = media.filter((item) => isFilled.image(item.image) || isFilled.linkToMedia(item.video));
   const mediaCount = filteredMedia.length;
 

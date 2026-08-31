@@ -10,14 +10,7 @@ export type ConsumerAvailability =
   | "Systembolaget Tillfälligt Sortiment"
   | "Private Import"
   | "Sold Out"
-  /** Stored by documents from before the assortment split. */
-  | "Systembolaget"
   | null;
-
-/** Legacy "Systembolaget" predates the assortment split; it meant the beställningssortiment. */
-export function normalizeConsumerAvailability(value: ConsumerAvailability): ConsumerAvailability {
-  return value === "Systembolaget" ? "Systembolaget Beställningssortiment" : value;
-}
 
 export type RestaurantAvailability = "Available" | "Sold Out" | null;
 
@@ -89,21 +82,20 @@ export function resolvePurchase(
   restaurant: RestaurantAvailability,
   hasOrderUrl: boolean,
 ): PurchaseState {
-  const normalized = normalizeConsumerAvailability(consumer);
   const restaurantSoldOut = restaurant === "Sold Out";
 
-  if (normalized === "Sold Out" && restaurantSoldOut) {
+  if (consumer === "Sold Out" && restaurantSoldOut) {
     return { kind: "sold-out" };
   }
 
   let consumerBlock: ConsumerBlock | null = null;
-  if (normalized === "Systembolaget Beställningssortiment") {
+  if (consumer === "Systembolaget Beställningssortiment") {
     consumerBlock = { ...COPY.systembolagetBestallning, enabled: hasOrderUrl };
-  } else if (normalized === "Systembolaget Tillfälligt Sortiment") {
+  } else if (consumer === "Systembolaget Tillfälligt Sortiment") {
     consumerBlock = { ...COPY.systembolagetTillfalligt, enabled: hasOrderUrl };
-  } else if (normalized === "Private Import") {
+  } else if (consumer === "Private Import") {
     consumerBlock = { ...COPY.privatimport, enabled: hasOrderUrl };
-  } else if (normalized === "Sold Out") {
+  } else if (consumer === "Sold Out") {
     consumerBlock = { ...COPY.systembolagetSoldOut, enabled: false };
   }
 

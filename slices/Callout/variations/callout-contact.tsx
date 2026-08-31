@@ -43,7 +43,7 @@ type Props = CalloutProps & { slice: Content.CalloutSliceContact };
 export function CalloutContact({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, remove_top_padding, image_side, media, contact_items } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
   const { theme: content_theme, surface } = interior[section_theme];
   const item_theme = itemClasses[section_theme];
 

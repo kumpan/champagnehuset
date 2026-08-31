@@ -30,7 +30,7 @@ export async function ArticleList({ slice, context }: Props) {
     show_pagination,
     show_filter_chips,
   } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   const client = await createClient();
   const lang = (context as ListContext | undefined)?.lang;

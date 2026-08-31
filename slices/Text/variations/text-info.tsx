@@ -38,12 +38,22 @@ function imageDownloadHref(url: string, uid: string): string {
 
 type Props = TextProps & { slice: Content.TextSliceInfo };
 
+/** Appends a price like ", 555 kr" to a purchase heading */
+function HeadingPrice({ price }: { price: string | null }) {
+  if (!price) return null;
+  return (
+    <>
+      ,<span className="ml-2.5">{price} kr</span>
+    </>
+  );
+}
+
 export async function TextInfo({ slice, context }: Props) {
   const ctx = context as InfoContext | undefined;
   const doc = ctx?.document;
   const product = doc?.type === "product" ? doc : undefined;
   const data = product?.data;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   // The editable Special Club blurb only renders on product pages
   // that are also a Special Club champagnes
@@ -133,9 +143,11 @@ export async function TextInfo({ slice, context }: Props) {
                   {purchase.consumer ? (
                     <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                       <div className="max-w-sm">
-                        <h3 className="font-medium text-xl">{purchase.consumer.heading}</h3>
+                        <h3 className="font-medium text-xl lg:text-2xl">
+                          {purchase.consumer.heading}
+                          <HeadingPrice price={consumerPrice} />
+                        </h3>
                         <p className="mt-2">{purchase.consumer.body}</p>
-                        {consumerPrice ? <p className="mt-3 font-medium text-lg">{consumerPrice}</p> : null}
                       </div>
                       {purchase.consumer.enabled && hasOrderUrl && data ? (
                         <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="shrink-0">
@@ -167,12 +179,14 @@ export async function TextInfo({ slice, context }: Props) {
                       )}
                     >
                       <div className="max-w-sm">
-                        <h3 className="font-medium text-xl">{COPY.restaurant.heading}</h3>
+                        <h3 className="font-medium text-xl lg:text-2xl">
+                          {COPY.restaurant.heading}
+                          <HeadingPrice price={restaurantPrice} />
+                        </h3>
                         <p className="mt-2">{COPY.restaurant.body}</p>
                         <p className="mt-2">
                           {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
                         </p>
-                        {restaurantPrice ? <p className="mt-3 font-medium text-lg">{restaurantPrice}</p> : null}
                       </div>
                       <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="shrink-0">
                         <Link href={CONTACT_PAGE_PATH}>

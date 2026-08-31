@@ -14,7 +14,7 @@ type Props = ContactProps & { slice: Content.ContactSlicePeople };
 export async function ContactPeople({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, button, remove_top_padding, featured_employees } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   const client = await createClient();
 

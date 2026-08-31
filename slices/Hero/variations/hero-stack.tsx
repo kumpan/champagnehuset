@@ -13,7 +13,7 @@ type Props = HeroProps & { slice: Content.HeroSliceStack };
 export function HeroStack({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, media } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   const breadcrumbs = context?.breadcrumbs;
 

@@ -67,15 +67,6 @@
           "placeholder": "Verzy, Ambonnay, Avize"
         }
       },
-      "producer_bio": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Bio",
-          "placeholder": "Heritage, philosophy, vineyard practices",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-        }
-      },
       "producer_about": {
         "type": "StructuredText",
         "config": {

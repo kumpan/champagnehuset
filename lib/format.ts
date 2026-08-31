@@ -13,14 +13,9 @@ function extractNumber(input: string): string | null {
   return match ? match[0] : null;
 }
 
-/** Documents from before the select was renamed still store "Meunier". */
-export function normalizeGrape(grape: string): string {
-  return grape === "Meunier" ? "Pinot Meunier" : grape;
-}
-
 /** Join a product's grapes into "Pinot Noir, Chardonnay" (null when empty). */
 export function formatGrapes(grapes: Content.ProductDocument["data"]["product_grapes"]): string | null {
-  const names = grapes.flatMap((entry) => (entry.grape ? [normalizeGrape(entry.grape)] : []));
+  const names = grapes.flatMap((entry) => (entry.grape ? [entry.grape] : []));
   return names.length > 0 ? names.join(", ") : null;
 }
 
@@ -33,18 +28,16 @@ export function formatGrapes(grapes: Content.ProductDocument["data"]["product_gr
 export function formatGrapesWithShares(grapes: Content.ProductDocument["data"]["product_grapes"]): string | null {
   const parts = grapes.flatMap((entry) => {
     if (!entry.grape) return [];
-    const name = normalizeGrape(entry.grape);
+    const name = entry.grape;
     const share = entry.percentage ? extractNumber(entry.percentage) : null;
     return [share !== null ? `${name} (${share}${NBSP}%)` : name];
   });
   return parts.length > 0 ? parts.join(", ") : null;
 }
 
-/** All volumes a product comes in — the repeating group, else the legacy single select. */
+/** All volumes a product comes in. */
 export function productVolumes(data: Content.ProductDocument["data"]): string[] {
-  const volumes = (data.product_volumes ?? []).flatMap((entry) => (entry.volume ? [entry.volume] : []));
-  if (volumes.length > 0) return volumes;
-  return data.product_volume ? [data.product_volume] : [];
+  return (data.product_volumes ?? []).flatMap((entry) => (entry.volume ? [entry.volume] : []));
 }
 
 /** "6" | "6 g/l" | "6g/l" → "6 g/l". Preserves decimals ("4,5" → "4,5 g/l"). */

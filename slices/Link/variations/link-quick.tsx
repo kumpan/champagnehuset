@@ -53,7 +53,7 @@ function quickLayout(count: number) {
 export function LinkQuick({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, remove_top_padding, links } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   const layout = quickLayout(links.length);
 

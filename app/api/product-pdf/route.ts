@@ -19,7 +19,9 @@ async function fetchProducer(
   if (!isFilled.contentRelationship(producer) || !producer.id) return {};
   try {
     const doc = await client.getByID<Content.ProducerDocument>(producer.id);
-    return { village: doc.data.producer_village, bio: doc.data.producer_bio };
+    // The About field opens with the producer name as a heading, the sheet prints its own
+    const bio = doc.data.producer_about.filter((node) => !node.type.startsWith("heading")) as RichTextField;
+    return { village: doc.data.producer_village, bio };
   } catch {
     return {};
   }
