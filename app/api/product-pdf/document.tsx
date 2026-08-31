@@ -2,7 +2,7 @@ import path from "node:path";
 import { type Content, isFilled, type RichTextField } from "@prismicio/client";
 import { Document, Font, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { formatAlcohol, formatDosage, formatGrapes, formatGrapesWithShares, productVolumes } from "@/lib/format";
-import { type ConsumerAvailability, normalizeConsumerAvailability } from "@/slices/Text/text-info-config";
+import type { ConsumerAvailability } from "@/slices/Text/text-info-config";
 
 /**
  * ChampagneHuset "Produktblad" — a one-page product sheet in the site brand:
@@ -189,14 +189,13 @@ const CONSUMER_CHANNELS: Record<Exclude<ConsumerAvailability, null>, string> = {
   "Systembolaget Tillfälligt Sortiment": "Systembolaget – tillfälligt sortiment",
   "Private Import": "Privatimport",
   "Sold Out": "Slutsåld",
-  Systembolaget: "Systembolaget – beställningssortiment",
 };
 
 type AvailabilityRow = { channel: string | null; priceLabel: string; price: string | null };
 
 /** One row per sales channel: availability copy left, price (when filled) right. */
 function buildAvailability(data: Content.ProductDocument["data"]): AvailabilityRow[] {
-  const consumer = normalizeConsumerAvailability(data.product_consumer_availability);
+  const consumer = data.product_consumer_availability;
   const consumerChannel = consumer ? CONSUMER_CHANNELS[consumer] : null;
   const restaurantChannel = data.product_restaurant_availability === "Available" ? "Tillgänglig för restaurang" : null;
 
