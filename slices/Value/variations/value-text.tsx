@@ -25,7 +25,7 @@ const dividerThemeClasses = {
 export function ValueText({ slice }: ValueProps & { slice: Content.ValueSliceText }) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, alignment, remove_top_padding, statement } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   const gridCols =
     statement.length === 2 || statement.length === 4

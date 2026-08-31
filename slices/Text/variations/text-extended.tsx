@@ -11,7 +11,7 @@ type Props = TextProps & { slice: Content.TextSliceExtended };
 export function TextExtended({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, remove_top_padding, rich_text } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   return (
     <Section

@@ -30,7 +30,7 @@ const interior: Record<SectionTheme, { theme: SectionTheme; surface?: "brand" }>
 export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.CalloutSliceSplit }) {
   const { overline, title, description, buttons, alignment, image_side, remove_top_padding, media, producer } =
     slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
   const { theme: content_theme, surface } = interior[section_theme];
 
   let producerDoc: ProducerDocument | null = null;

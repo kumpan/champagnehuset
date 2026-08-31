@@ -11,7 +11,6 @@ type Props = FAQProps & { slice: Content.FaqSliceList };
 export function FAQList({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, section_theme, remove_top_padding, faqlist } = slice.primary;
-  const sectionTheme = (section_theme as string) === "Brand" ? "Bottle" : section_theme;
 
   const column1 = faqlist.filter((_, index) => index % 2 === 0);
   const column2 = faqlist.filter((_, index) => index % 2 === 1);
@@ -21,7 +20,7 @@ export function FAQList({ slice }: Props) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
-      sectionTheme={sectionTheme}
+      sectionTheme={section_theme}
     >
       <Container>
         {hasIntroContent && (
@@ -30,7 +29,7 @@ export function FAQList({ slice }: Props) {
             title={title}
             description={description}
             align={alignment ? "center" : "left"}
-            sectionTheme={sectionTheme}
+            sectionTheme={section_theme}
             textBalance={true}
           />
         )}
@@ -41,7 +40,7 @@ export function FAQList({ slice }: Props) {
               key={`faq-${item.question}-${index}`}
               question={item.question}
               answer={item.answer}
-              sectionTheme={sectionTheme}
+              sectionTheme={section_theme}
             />
           ))}
         </div>
@@ -53,7 +52,7 @@ export function FAQList({ slice }: Props) {
                 key={`faq-col1-${item.question}-${index * 2}`}
                 question={item.question}
                 answer={item.answer}
-                sectionTheme={sectionTheme}
+                sectionTheme={section_theme}
               />
             ))}
           </div>
@@ -63,7 +62,7 @@ export function FAQList({ slice }: Props) {
                 key={`faq-col2-${item.question}-${index * 2 + 1}`}
                 question={item.question}
                 answer={item.answer}
-                sectionTheme={sectionTheme}
+                sectionTheme={section_theme}
               />
             ))}
           </div>

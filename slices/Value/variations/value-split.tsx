@@ -8,7 +8,7 @@ import type { ValueProps } from "..";
 export function ValueSplit({ slice }: ValueProps & { slice: Content.ValueSliceSplit }) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, alignment, card_side, remove_top_padding, statement } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   return (
     <Section

@@ -33,7 +33,7 @@ type Props = CalloutProps & { slice: Content.CalloutSliceDetails };
 export function CalloutDetails({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, buttons, remove_top_padding, image_side, media, details } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
   const { theme: content_theme, surface } = interior[section_theme];
 
   const mediaItem = media[0];

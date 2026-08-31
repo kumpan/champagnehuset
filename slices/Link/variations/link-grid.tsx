@@ -38,7 +38,7 @@ type GridItem = {
 export async function LinkGrid({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, remove_top_padding, link_source, cards } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   let items: GridItem[];
   if (link_source === "All Producers") {

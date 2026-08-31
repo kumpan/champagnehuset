@@ -22,7 +22,7 @@ export function ContactForm({ slice }: Props) {
     success_message,
     consent_items,
   } = slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   return (
     <Section

@@ -11,7 +11,7 @@ type Props = TextProps & { slice: Content.TextSliceMedia };
 export function TextMedia({ slice }: Props) {
   const { text_side, remove_top_padding, first_text_block, first_image, second_text_block, second_image } =
     slice.primary;
-  const section_theme = (slice.primary.section_theme as string) === "Brand" ? "Bottle" : slice.primary.section_theme;
+  const section_theme = slice.primary.section_theme;
 
   return (
     <Section
