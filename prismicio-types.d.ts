@@ -2400,7 +2400,7 @@ export interface ArticleSliceFeaturePrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: article.feature.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -2465,7 +2465,7 @@ export interface ArticleSliceListPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: article.list.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -3935,7 +3935,7 @@ export interface CalloutSliceSplitPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: callout.split.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -4072,7 +4072,7 @@ export interface CalloutSliceBackdropPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: callout.backdrop.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -4178,7 +4178,7 @@ export interface CalloutSliceCardPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: callout.card.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -4282,7 +4282,7 @@ export interface CalloutSliceContactPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: callout.contact.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -4400,7 +4400,7 @@ export interface CalloutSliceDetailsPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: callout.details.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -5105,7 +5105,7 @@ export interface ContactSliceFormPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: contact.form.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -5291,7 +5291,7 @@ export interface ContactSlicePeoplePrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: contact.people.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -5386,7 +5386,7 @@ export interface ContactSliceRegisterPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: contact.register.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -5809,7 +5809,7 @@ export interface FaqSliceListPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: faq.list.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -5903,7 +5903,7 @@ export interface FaqSliceSplitPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: faq.split.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -6552,7 +6552,7 @@ export interface ImageSliceShowcasePrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: image.showcase.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -7184,7 +7184,7 @@ export interface LinkSliceCardsPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: link.cards.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -7278,7 +7278,7 @@ export interface LinkSliceGridPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: link.grid.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -7383,7 +7383,7 @@ export interface LinkSliceQuickPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: link.quick.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -7479,7 +7479,7 @@ export interface LinkSliceTilesPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: link.tiles.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -7913,7 +7913,7 @@ export interface ProductSliceGridPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: product.grid.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -8042,7 +8042,7 @@ export interface ProductSliceSearchPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: product.search.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -8423,7 +8423,7 @@ export interface TextSliceExtendedPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: text.extended.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -8506,7 +8506,7 @@ export interface TextSliceSplitPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: text.split.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -8599,7 +8599,7 @@ export interface TextSliceLongformPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: text.longform.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -8650,7 +8650,7 @@ export interface TextSliceMediaPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: text.media.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -8744,6 +8744,17 @@ export type TextSliceMedia = prismic.SharedSliceVariation<
  */
 export interface TextSliceDetailsPrimary {
   /**
+   * Remove Top Padding field in *Text → Details → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: text.details.primary.remove_top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  remove_top_padding: prismic.BooleanField;
+
+  /**
    * Section Theme field in *Text → Details → Primary*
    *
    * - **Field Type**: Select
@@ -8798,7 +8809,7 @@ export interface TextSliceInfoPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: text.info.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -9345,7 +9356,7 @@ export interface ValueSliceTextPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: value.text.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
@@ -9449,7 +9460,7 @@ export interface ValueSliceSplitPrimary {
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **Default Value**: false
+   * - **Default Value**: true
    * - **API ID Path**: value.split.primary.remove_top_padding
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */

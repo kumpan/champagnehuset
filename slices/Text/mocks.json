@@ -472,6 +472,10 @@
     "__TYPE__": "SharedSliceContent",
     "variation": "details",
     "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",

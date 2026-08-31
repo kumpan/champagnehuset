@@ -18,7 +18,7 @@
             "label": "Remove Top Padding",
             "placeholder_false": "Keep Padding",
             "placeholder_true": "Padding is Removed",
-            "default_value": false
+            "default_value": true
           }
         },
         "section_theme": {
@@ -334,7 +334,7 @@
             "label": "Remove Top Padding",
             "placeholder_false": "Keep Padding",
             "placeholder_true": "Padding is Removed",
-            "default_value": false
+            "default_value": true
           }
         },
         "section_theme": {
@@ -626,7 +626,7 @@
             "label": "Remove Top Padding",
             "placeholder_false": "Keep Padding",
             "placeholder_true": "Padding is Removed",
-            "default_value": false
+            "default_value": true
           }
         },
         "section_theme": {
@@ -924,7 +924,7 @@
             "label": "Remove Top Padding",
             "placeholder_false": "Keep Padding",
             "placeholder_true": "Padding is Removed",
-            "default_value": false
+            "default_value": true
           }
         },
         "section_theme": {
@@ -1264,7 +1264,7 @@
             "label": "Remove Top Padding",
             "placeholder_false": "Keep Padding",
             "placeholder_true": "Padding is Removed",
-            "default_value": false
+            "default_value": true
           }
         },
         "section_theme": {

@@ -1,4 +1,4 @@
-# Champagnehuset
+# ChampagneHuset
 
 Next.js + Prismic site for [ChampagneHuset](https://champagnehuset.se) — _små odlare, stora champagner._ Built on the Kumpan Next.js + Prismic starter template.
 
@@ -88,15 +88,15 @@ Semantic colors use a theme-first **ink / fill** vocabulary. `fill` = background
 
 Every section takes a `Section Theme` from a Prismic dropdown. Theme names are drawn from the brand guidelines and the vineyard — concrete nouns rather than color words, so the palette stays recognizable even as the underlying hex values shift.
 
-| Theme   | Tone                                         |
-| ------- | -------------------------------------------- |
-| `Bud`   | Lightest green — near-white, barely tinted   |
-| `Leaf`  | Light green — a visible step deeper than Bud |
-| `Brand` | Colorful green — the saturated brand green   |
-| `Dust`  | Light yellows — warm and pale                |
-| `Slate` | Dark browns — deep, grounding                |
+| Theme    | Tone                                         |
+| -------- | -------------------------------------------- |
+| `Bud`    | Lightest green — near-white, barely tinted   |
+| `Leaf`   | Light green — a visible step deeper than Bud |
+| `Bottle` | Bottle green — the saturated brand green     |
+| `Dust`   | Light yellows — warm and pale                |
+| `Slate`  | Dark browns — deep, grounding                |
 
-`Dust` comes straight from the brand guidelines, where it stands for the origin behind the product — knowledge, craft, and time. The greens follow the vine's own growth calendar, so the names carry their own order: a bud is paler than a leaf. Editors picking from the dropdown know which is lighter without needing a preview.
+`Dust` comes straight from the brand guidelines, where it stands for the origin behind the product — knowledge, craft, and time. The greens follow the vine's own growth calendar, so the names carry their own order: a bud is paler than a leaf, and everything ends up in the bottle — the deepest green of the three. Editors picking from the dropdown know which is lighter without needing a preview.
 
 ## Border Radius
 

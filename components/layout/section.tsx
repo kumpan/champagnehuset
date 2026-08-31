@@ -16,15 +16,19 @@ const Section = ({
   removeTopPadding = false,
   removeBottomPadding = false,
   sectionTheme = "Bud",
-}: {
-  children: React.ReactNode;
-  className?: string;
+  ...props
+}: React.ComponentProps<"section"> & {
   removeTopPadding?: boolean;
   removeBottomPadding?: boolean;
   sectionTheme?: string;
+  "data-slice-type"?: string;
+  "data-slice-variation"?: string;
 }) => {
+  const sliceName = [props["data-slice-type"], props["data-slice-variation"]].filter(Boolean).join("-");
+
   return (
     <section
+      {...props}
       className={cn(
         "py-12 transition-colors duration-500 ease-in-out md:py-20 lg:py-24",
         sectionThemeClasses[sectionTheme],
@@ -34,6 +38,14 @@ const Section = ({
       )}
     >
       {children}
+
+      {process.env.NODE_ENV !== "production" && sliceName && (
+        <div className="pointer-events-none sticky bottom-4 z-50 h-0">
+          <span className="absolute right-16 bottom-0 flex h-10 items-center rounded-3 bg-indigo-400/20 px-3 font-medium text-indigo-950/70 text-sm backdrop-blur-lg backdrop-brightness-200">
+            {sliceName}
+          </span>
+        </div>
+      )}
     </section>
   );
 };

@@ -20,7 +20,7 @@ export const RESTAURANT_CONTACT = {
   email: "ida.timen@twscollective.se",
 } as const;
 
-export const CONTACT_PAGE_PATH = "/kontakt";
+export const CONTACT_PAGE_PATH = "/om-oss/kontakt";
 
 export const COPY = {
   systembolagetBestallning: {

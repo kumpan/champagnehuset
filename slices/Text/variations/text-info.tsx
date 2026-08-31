@@ -1,6 +1,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { Button } from "@/components/button";
 import { CustomRichText } from "@/components/custom-rich-text";
 import { iconMap } from "@/components/icons";
@@ -8,6 +9,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { getSingleton } from "@/lib/cms";
+import { widestWordEm } from "@/lib/display-fit";
 import { formatAlcohol, formatDosage, formatGrapesWithShares, productVolumes } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { SpecialClubDocument } from "@/prismicio-types";
@@ -126,10 +128,16 @@ export async function TextInfo({ slice, context }: Props) {
                 {overline}
               </Overline>
             ) : null}
+            {/* Title shrinks until its longest word fits in one line */}
             {title ? (
-              <h1 className="mt-3 font-primary text-6xl uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl xl:text-10xl">
-                {title}
-              </h1>
+              <div className="@container mt-3 text-6xl sm:text-7xl lg:text-8xl xl:text-10xl">
+                <h1
+                  className="break-words font-primary text-[length:min(1em,var(--fit))] uppercase leading-[0.9] tracking-tight"
+                  style={{ "--fit": `calc(100cqw / ${widestWordEm(title).toFixed(2)})` } as CSSProperties}
+                >
+                  {title}
+                </h1>
+              </div>
             ) : null}
 
             <div className="mt-10 lg:mt-16">
