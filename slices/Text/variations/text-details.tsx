@@ -40,10 +40,15 @@ function RegionDetails({ slice, region }: { slice: Props["slice"]; region: Regio
   const regionName = name?.trim();
 
   return (
-    <Section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} sectionTheme={section_theme}>
+    <Section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      sectionTheme={section_theme}
+      removeTopPadding={slice.primary.remove_top_padding}
+    >
       <Container className="grid gap-10 md:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
         {/* Name, key facts and map */}
-        <div className="flex flex-col gap-4 lg:gap-4">
+        <div className="flex flex-col gap-4">
           <h2 className={displayHeading}>{regionName}</h2>
 
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
