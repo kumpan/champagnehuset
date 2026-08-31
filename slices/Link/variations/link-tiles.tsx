@@ -72,7 +72,7 @@ export function LinkTiles({ slice }: Props) {
                     <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />
-                    <p className="relative line-clamp-4 text-pretty leading-snug lg:line-clamp-2 xl:line-clamp-3">
+                    <p className="relative line-clamp-3 text-pretty leading-snug lg:line-clamp-2 xl:line-clamp-3">
                       {card.description}
                     </p>
                   </div>
