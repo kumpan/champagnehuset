@@ -1367,17 +1367,6 @@ interface ProducerDocumentData {
   producer_village: prismic.KeyTextField;
 
   /**
-   * Bio field in *Producer*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Heritage, philosophy, vineyard practices
-   * - **API ID Path**: producer.producer_bio
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  producer_bio: prismic.RichTextField;
-
-  /**
    * About field in *Producer*
    *
    * - **Field Type**: Rich Text
@@ -1601,27 +1590,6 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   product_article_number: prismic.KeyTextField;
-
-  /**
-   * Volume field in *Product*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.product_volume
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  product_volume: prismic.SelectField<
-    | "187 ml"
-    | "375 ml"
-    | "750 ml"
-    | "1,5 L"
-    | "3 L"
-    | "6 L"
-    | "9 L"
-    | "12 L"
-    | "15 L"
-  >;
 
   /**
    * Volumes field in *Product*
@@ -4076,7 +4044,6 @@ export interface CalloutSliceSplitPrimary {
           "producer_about",
           "producer_feature_image",
           "producer_image",
-          "producer_bio",
         ];
       },
     ]
