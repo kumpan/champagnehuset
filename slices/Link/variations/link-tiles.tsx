@@ -42,17 +42,12 @@ export function LinkTiles({ slice }: Props) {
         )}
 
         {cards.length > 0 && (
-          <ul
-            className={cn(
-              "grid list-none grid-cols-1 gap-x-6 gap-y-5 lg:gap-x-8 lg:gap-y-6",
-              gridColumns(cards.length),
-            )}
-          >
+          <ul className={cn("grid list-none grid-cols-1 gap-2 lg:gap-4", gridColumns(cards.length))}>
             {cards.map((card, index) => (
               <li key={`${index}-${card.title}`} className="group">
                 <PrismicNextLink
                   field={card.links}
-                  className="relative isolate flex aspect-video flex-col justify-between overflow-hidden rounded-2 p-4 text-ink-flip transition-all duration-300 ease-in-out md:p-5 hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
+                  className="relative isolate flex aspect-3/2 flex-col justify-between overflow-hidden rounded-2 p-4 text-ink-flip transition-all duration-300 ease-in-out md:p-5 hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
                 >
                   <CustomMedia
                     imageField={card.image}
@@ -77,7 +72,7 @@ export function LinkTiles({ slice }: Props) {
                     <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />
-                    <p className="relative line-clamp-2 text-pretty text-sm leading-snug md:line-clamp-3">
+                    <p className="relative line-clamp-4 text-pretty leading-snug lg:line-clamp-2 xl:line-clamp-3">
                       {card.description}
                     </p>
                   </div>
