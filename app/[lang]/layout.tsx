@@ -28,8 +28,7 @@ const BREAKPOINTS = [
   { label: "lg", range: "hidden lg:max-xl:flex", theme: "bg-red-300 text-red-700" },
   { label: "xl", range: "hidden xl:max-2xl:flex", theme: "bg-green-300 text-green-700" },
   { label: "2xl", range: "hidden 2xl:max-3xl:flex", theme: "bg-teal-300 text-teal-700" },
-  { label: "3xl", range: "hidden 3xl:max-4xl:flex", theme: "bg-blue-300 text-blue-700" },
-  { label: "4xl", range: "hidden 4xl:flex", theme: "bg-purple-300 text-purple-700" },
+  { label: "3xl", range: "hidden 3xl:flex", theme: "bg-blue-300 text-blue-700" },
 ];
 
 const ResponsiveIndicator = () =>
@@ -37,7 +36,7 @@ const ResponsiveIndicator = () =>
     <div
       key={label}
       className={cn(
-        "fixed right-4 bottom-4 z-50 size-10 animate-wiggle-grow items-center justify-center rounded-3 text-sm",
+        "fixed right-4 bottom-4 z-50 size-10 animate-wiggle-grow items-center justify-center rounded-3 font-medium text-sm",
         range,
         theme,
       )}
@@ -83,9 +82,6 @@ export default async function LocaleLayout({
       getSingleton<Content.FooterDocument>("footer", { lang }),
       getLocales(),
       getMasterLocale(),
-      // Resolved here rather than in the page because the navbar lives in the
-      // layout, which never sees the fetched document. The underlying lookups
-      // dedupe with the page's within the same request.
       getLocalePathsForPath(pathname, lang),
     ]);
 
