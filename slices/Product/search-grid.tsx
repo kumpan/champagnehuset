@@ -2,7 +2,7 @@
 
 import { Search } from "lucide-react";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Input } from "@/components/forms/input";
 import type { SectionTheme } from "@/components/layout/section";
@@ -21,6 +21,7 @@ import {
   filterProducts,
   readStateFromSearch,
 } from "./search";
+import { SearchParamsSync } from "./search-params-sync";
 
 // Muted text and the search field's border accent, per section theme
 const themeClasses: Record<SectionTheme, { dim: string; input: string }> = {
@@ -49,7 +50,6 @@ export function SearchGrid({
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<FilterSelection>({});
   const theme = themeClasses[sectionTheme];
-  const hydratedFromUrl = useRef(false);
   const reducedMotion = useReducedMotion();
 
   // The first render gets the full arrival cascade; cards entering on later
@@ -70,33 +70,58 @@ export function SearchGrid({
   );
   const activeCount = countActiveFilters(selection);
 
-  // Restore state from the URL once on mount. The page is static, so we read
-  // window.location instead of useSearchParams (which would force a CSR bailout).
-  useEffect(() => {
-    const state = readStateFromSearch(window.location.search, groups);
-    if (state.query) setQuery(state.query);
-    if (countActiveFilters(state.selection) > 0) setSelection(state.selection);
-    hydratedFromUrl.current = true;
-  }, [groups]);
+  // The query string we last read from or wrote to the address bar, with its
+  // leading "?". Lets the URL sync below ignore its own writes.
+  const urlSearch = useRef<string | null>(null);
+  const urlWriteTimer = useRef<number | undefined>(undefined);
+
+  // Adopt state from the URL: on arrival, and when a link navigates here with
+  // new params while the grid is already mounted.
+  const syncFromUrl = useCallback(
+    (search: string) => {
+      const next = search ? `?${search}` : "";
+      if (next === urlSearch.current) return;
+      urlSearch.current = next;
+      const state = readStateFromSearch(next, groups);
+      setQuery(state.query);
+      setSelection(state.selection);
+    },
+    [groups],
+  );
 
   // Reflect state back into the URL so filtered views are shareable and
-  // survive back-navigation from a product page.
-  useEffect(() => {
-    if (!hydratedFromUrl.current) return;
-    const url = `${window.location.pathname}${buildSearchString(query, selection)}${window.location.hash}`;
-    window.history.replaceState(window.history.state, "", url);
-  }, [query, selection]);
+  // survive back-navigation from a product page. Typing is debounced because
+  // browsers rate limit history writes, Safari hard-errors past 100 per 30s.
+  const writeUrl = (search: string, delay = 0) => {
+    window.clearTimeout(urlWriteTimer.current);
+    const write = () => {
+      urlSearch.current = search;
+      const { pathname, hash } = window.location;
+      window.history.replaceState(window.history.state, "", `${pathname}${search}${hash}`);
+    };
+    if (delay > 0) urlWriteTimer.current = window.setTimeout(write, delay);
+    else write();
+  };
+  useEffect(() => () => window.clearTimeout(urlWriteTimer.current), []);
 
-  const toggleFilter = (groupId: FilterGroupId, value: string) => {
-    setSelection((prev) => {
-      const current = prev[groupId] ?? [];
-      const next = current.includes(value) ? current.filter((v) => v !== value) : [...current, value];
-      const { [groupId]: _removed, ...rest } = prev;
-      return next.length > 0 ? { ...rest, [groupId]: next } : rest;
-    });
+  const changeQuery = (next: string) => {
+    setQuery(next);
+    writeUrl(buildSearchString(next, selection), 300);
   };
 
-  const clearFilters = () => setSelection({});
+  const changeSelection = (next: FilterSelection) => {
+    setSelection(next);
+    writeUrl(buildSearchString(query, next));
+  };
+
+  const toggleFilter = (groupId: FilterGroupId, value: string) => {
+    const current = selection[groupId] ?? [];
+    const next = current.includes(value) ? current.filter((v) => v !== value) : [...current, value];
+    const { [groupId]: _removed, ...rest } = selection;
+    changeSelection(next.length > 0 ? { ...rest, [groupId]: next } : rest);
+  };
+
+  const clearFilters = () => changeSelection({});
 
   const searchInput = (
     <div className="relative">
@@ -104,7 +129,7 @@ export function SearchGrid({
       <Input
         type="search"
         value={query}
-        onChange={(event) => setQuery(event.target.value)}
+        onChange={(event) => changeQuery(event.target.value)}
         placeholder={searchPlaceholder || t(lang).search}
         aria-label={searchPlaceholder || t(lang).search}
         className={cn(
@@ -139,6 +164,10 @@ export function SearchGrid({
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
+      <Suspense fallback={null}>
+        <SearchParamsSync onChange={syncFromUrl} />
+      </Suspense>
+
       {/* Mobile: sticky filter tray */}
       <div className="sticky top-20 z-10 md:top-23 lg:hidden">
         <FilterTray activeCount={activeCount} lang={lang} sectionTheme={sectionTheme}>
