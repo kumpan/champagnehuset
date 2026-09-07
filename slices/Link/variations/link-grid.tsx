@@ -115,6 +115,7 @@ export async function LinkGrid({ slice }: Props) {
                       imageField={item.image}
                       className="aspect-[4/3] w-full rounded-0 object-contain duration-1000 ease-out group-hover:scale-103"
                       sectionTheme={section_theme}
+                      sizes="(min-width: 64rem) 25vw, (min-width: 48rem) 33vw, 50vw"
                     />
                   </div>
                 </PrismicNextLink>

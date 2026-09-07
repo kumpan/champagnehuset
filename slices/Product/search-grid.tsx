@@ -207,7 +207,7 @@ export function SearchGrid({
                   y: { type: "spring", stiffness: 300, damping: 25, delay: enterDelay(index) },
                 }}
               >
-                <ProductCard product={product} priority={index < 6} sectionTheme={sectionTheme} />
+                <ProductCard product={product} preload={index < 6} sectionTheme={sectionTheme} />
               </m.div>
             ))}
           </AnimatePresence>

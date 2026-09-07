@@ -63,6 +63,7 @@ export async function ArticleFeature({ slice }: Props) {
                   <CustomMedia
                     imageField={article_image}
                     sectionTheme={section_theme}
+                    sizes="(min-width: 48rem) 40vw, 100vw"
                     className="size-full rounded-0 transition-transform duration-500 ease-out group-hover:scale-103"
                   />
                 </div>

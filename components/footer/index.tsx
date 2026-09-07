@@ -62,7 +62,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
         className="h-16 w-auto text-ink-flip md:h-20"
       />
     ) : (
-      <PrismicNextImage field={logo} className="h-16 w-auto md:h-20" fallbackAlt="" />
+      <PrismicNextImage field={logo} className="h-16 w-auto md:h-20" height={80} fallbackAlt="" />
     );
 
     logoNode = isFilled.link(logo_link) ? (

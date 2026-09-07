@@ -36,6 +36,14 @@ function gridColsClass(count: number): string {
   );
 }
 
+// Same column rules as above, but as their share of the viewport
+function gridSizes(count: number): string {
+  const base = count === 1 || count === 3 ? "100vw" : "50vw";
+  const md = count === 2 || count === 4 || count === 6 ? "50vw" : "33vw";
+  const lg = count === 3 ? "33vw" : "25vw";
+  return `(min-width: 64rem) ${lg}, (min-width: 48rem) ${md}, ${base}`;
+}
+
 export async function ProductGrid({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const {
@@ -136,7 +144,13 @@ export async function ProductGrid({ slice, context }: Props) {
         {products.length > 0 && (
           <div className={cn("mt-8 grid gap-x-3 gap-y-8 md:gap-x-4", gridColsClass(products.length))}>
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} className="w-full" sectionTheme={section_theme} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                className="w-full"
+                sectionTheme={section_theme}
+                sizes={gridSizes(products.length)}
+              />
             ))}
           </div>
         )}
