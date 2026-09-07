@@ -265,7 +265,7 @@ h6 {
 
 .prose {
     h1 {
-        @apply mb-4 text-4xl leading-[1.1] font-stretch-120% md:text-5xl lg:text-7xl 2xl:text-8xl;
+        @apply mb-4 text-4xl leading-[1.1] font-stretch-120% md:text-6xl lg:text-8xl 2xl:text-9xl;
         &:not(:first-child) {
             @apply mt-12;
         }
