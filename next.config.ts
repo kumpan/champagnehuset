@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   // Allows a second dev server in the same folder (the dev lock lives in distDir).
   distDir: process.env.NEXT_DIST_DIR,
   images: {
+    // Define the src set, max img src 2560
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2560],
     remotePatterns: [
       {
         protocol: "https",
