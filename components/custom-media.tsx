@@ -18,10 +18,41 @@ type CustomMediaProps = {
   thumbnail?: string;
   sectionTheme?: string;
   filter?: string | null;
+  sizes?: string;
 };
 
+// Mirrors the breakpoints in globals.css, in px
+const breakpointPx: Record<string, number> = {
+  xxs: 352,
+  xs: 384,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  "2xl": 1536,
+  "3xl": 2048,
+};
+
+// Hidden variants still download, so scope each variant's sizes to the range it is shown in
+// and fall back to 1px elsewhere so the browser grabs the smallest candidate.
+function scopeSizes(sizes: string, min?: string, max?: string) {
+  const range = [min && `(min-width: ${breakpointPx[min]}px)`, max && `(max-width: ${breakpointPx[max] - 1}px)`]
+    .filter(Boolean)
+    .join(" and ");
+  if (!range) return sizes;
+
+  const scoped = sizes.split(",").map((entry) => {
+    const trimmed = entry.trim();
+    const split = trimmed.lastIndexOf(" ");
+    const condition = split === -1 ? "" : trimmed.slice(0, split);
+    const length = split === -1 ? trimmed : trimmed.slice(split + 1);
+    return `${condition ? `${condition} and ${range}` : range} ${length}`;
+  });
+  return [...scoped, "1px"].join(", ");
+}
+
 function parseThumbnail(value?: string) {
-  if (!value) return [{ name: undefined, visibility: "" }];
+  if (!value) return [{ name: undefined, visibility: "", min: undefined, max: undefined }];
 
   const segments = value.split(/\s+/).map((part) => {
     const colonIndex = part.indexOf(":");
@@ -43,7 +74,12 @@ function parseThumbnail(value?: string) {
       classes.push(`${next.breakpoint}:hidden`);
     }
 
-    return { name: seg.name, visibility: classes.join(" ") };
+    return {
+      name: seg.name,
+      visibility: classes.join(" "),
+      min: seg.breakpoint === "base" ? undefined : seg.breakpoint,
+      max: next?.breakpoint,
+    };
   });
 }
 
@@ -82,6 +118,7 @@ export default function CustomMedia({
   thumbnail,
   sectionTheme = "Bud",
   filter,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw",
 }: CustomMediaProps) {
   const [loaded, setLoaded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -139,7 +176,9 @@ export default function CustomMedia({
                 onLoad={() => setLoaded(true)}
                 fill
                 className={cn("object-cover", seg.visibility)}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                sizes={scopeSizes(sizes, seg.min, seg.max)}
+                // Without an explicit q, Prismic's auto=compress drops imgix to quality 45
+                quality={75}
                 fallbackAlt=""
               />
             );
@@ -156,14 +195,7 @@ export default function CustomMedia({
           />
         )}
         {videoSrc && !isActuallyVideo && (
-          <Image
-            src={videoSrc}
-            alt=""
-            fill
-            className="object-cover"
-            onLoad={() => setLoaded(true)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-          />
+          <Image src={videoSrc} alt="" fill className="object-cover" onLoad={() => setLoaded(true)} sizes={sizes} />
         )}
 
         {/* Filter */}
