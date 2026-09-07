@@ -192,8 +192,7 @@ body {
 /* Headings default to the primary display font */
 h1,
 h2,
-h3{
-    @apply italic;
+h3 {
     font-family: var(--font-primary), sans-serif;
 }
 
@@ -205,7 +204,7 @@ h3{
     h1,
     h2,
     h3 {
-        @apply mt-0 mb-4 tracking-tight lg:mb-6 text-ink italic;
+        @apply mt-0 mb-4 tracking-tight lg:mb-6 text-ink;
         font-family: var(--font-primary), sans-serif;
     }
 }

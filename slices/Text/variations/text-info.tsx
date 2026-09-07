@@ -132,7 +132,7 @@ export async function TextInfo({ slice, context }: Props) {
             {title ? (
               <div className="@container mt-3 text-6xl sm:text-7xl lg:text-8xl xl:text-10xl">
                 <h1
-                  className="break-words font-primary text-[length:min(1em,var(--fit))] uppercase leading-[0.9] tracking-tight"
+                  className="break-words font-primary text-[length:min(1em,var(--fit))] uppercase italic leading-[0.9] tracking-tight"
                   style={{ "--fit": `calc(100cqw / ${widestWordEm(title).toFixed(2)})` } as CSSProperties}
                 >
                   {title}

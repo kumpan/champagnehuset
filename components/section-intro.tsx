@@ -153,7 +153,7 @@ export function SectionIntro({
             sectionTheme={sectionTheme}
             surface={surface}
             className={cn(
-              "prose-headings:mb-0! transition-colors",
+              "prose-headings:mb-0! italic transition-colors",
               titleMaxWidth ? TITLE_MAX_W : "max-w-none",
               textBalance ? "text-balance" : "text-pretty",
               styles.title,
