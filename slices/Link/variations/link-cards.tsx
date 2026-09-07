@@ -19,6 +19,11 @@ function gridColumns(count: number) {
   return count === 2 || count === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3";
 }
 
+function gridSizes(count: number) {
+  const lg = count === 2 || count === 4 ? "50vw" : "33vw";
+  return `(min-width: 64rem) ${lg}, (min-width: 48rem) 40vw, (min-width: 40rem) 52vw, 78vw`;
+}
+
 export function LinkCards({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
   const { overline, title, description, alignment, remove_top_padding, cards } = slice.primary;
@@ -69,6 +74,7 @@ export function LinkCards({ slice }: Props) {
                     imageField={card.image}
                     className="absolute inset-0 size-full rounded-0 object-cover transition-transform duration-1500 ease-out group-hover:scale-103"
                     sectionTheme={section_theme}
+                    sizes={gridSizes(cards.length)}
                   />
 
                   {/* Top Fade */}

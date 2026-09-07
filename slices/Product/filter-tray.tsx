@@ -3,24 +3,37 @@
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { Children, isValidElement, useState } from "react";
+import type { SectionTheme } from "@/components/layout/section";
 import { t } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
+
+// Tray surface per theme. Dust has no raised token between cream and its dark fill, so it uses the palette directly.
+const themeClasses: Record<SectionTheme, string> = {
+  Bud: "bg-fill-raised text-ink",
+  Leaf: "bg-fill text-ink",
+  Bottle: "bg-fill-raised text-ink",
+  Dust: "bg-yellow-100 text-spot-ink",
+  Slate: "bg-spot-fill-raised text-spot-ink",
+};
 
 type FilterTrayProps = {
   /** Number of active filters, shown on the collapsed button. */
   activeCount: number;
   children: React.ReactNode;
   lang?: string;
+  sectionTheme?: SectionTheme;
 };
 
 /**
  * Mobile-only sticky tray: a filter button that expands into an overlay
  * holding the search input + filter panel. Same pattern as the longform TOC.
  */
-export function FilterTray({ activeCount, children, lang }: FilterTrayProps) {
+export function FilterTray({ activeCount, children, lang, sectionTheme = "Bud" }: FilterTrayProps) {
   const [open, setOpen] = useState(false);
+  const surface = themeClasses[sectionTheme];
 
   return (
-    <div className="flex flex-col rounded-2 bg-fill-raised p-1">
+    <div className={cn("flex flex-col rounded-2 p-1", surface)}>
       <AnimatePresence>
         {open && (
           <m.div
@@ -28,7 +41,7 @@ export function FilterTray({ activeCount, children, lang }: FilterTrayProps) {
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
             transition={{ duration: 0.15, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full overflow-hidden rounded-2 bg-fill-raised p-1 pt-13"
+            className={cn("absolute top-0 left-0 w-full overflow-hidden rounded-2 p-1 pt-13", surface)}
           >
             <m.div
               initial="hidden"
@@ -76,7 +89,7 @@ export function FilterTray({ activeCount, children, lang }: FilterTrayProps) {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="relative flex h-12 w-full cursor-pointer items-center justify-center gap-1.5 rounded-4 px-5 text-ink"
+        className="relative flex h-12 w-full cursor-pointer items-center justify-center gap-1.5 rounded-4 px-5"
       >
         <SlidersHorizontal className="size-5 shrink-0" />
         <span>{activeCount > 0 ? `${t(lang).filter} · ${activeCount}` : t(lang).filter}</span>

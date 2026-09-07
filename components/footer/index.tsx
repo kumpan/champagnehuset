@@ -62,7 +62,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
         className="h-16 w-auto text-ink-flip md:h-20"
       />
     ) : (
-      <PrismicNextImage field={logo} className="h-16 w-auto md:h-20" fallbackAlt="" />
+      <PrismicNextImage field={logo} className="h-16 w-auto md:h-20" height={80} fallbackAlt="" />
     );
 
     logoNode = isFilled.link(logo_link) ? (
@@ -75,7 +75,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
   }
 
   const linkStyles =
-    "text-ink-flip/80 underline underline-offset-3 decoration-ink-flip/20 hover:decoration-ink-flip transition-colors duration-300 hover:text-ink-flip";
+    "text-ink-flip/95 underline underline-offset-3 decoration-ink-flip/25 hover:decoration-ink-flip transition-colors duration-300 hover:text-ink-flip";
 
   return (
     <footer className="selection-light bg-brand py-12 text-ink-flip transition-colors duration-500 ease-in-out md:py-16">
@@ -156,7 +156,7 @@ export function Footer({ prismicData }: { prismicData: Content.FooterDocument })
 
         {/* Bottom bar: contact info (CTA links) + policies */}
         {(ctaLinks.length > 0 || policyLinks.length > 0) && (
-          <div className="flex flex-col gap-4 border-ink-flip/15 border-t pt-6 text-ink-flip/70 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-4 border-ink-flip/15 border-t pt-6 text-ink-flip md:flex-row md:items-center md:justify-between">
             {company_name && <p>{company_name}</p>}
 
             {ctaLinks.length > 0 && (

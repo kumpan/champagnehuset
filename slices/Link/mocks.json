@@ -1300,7 +1300,11 @@
       "link_source": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "All Producers"
+        "value": "Producers"
+      },
+      "featured_producers": {
+        "__TYPE__": "GroupContentType",
+        "value": []
       }
     },
     "items": [

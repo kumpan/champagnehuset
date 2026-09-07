@@ -84,7 +84,12 @@ export async function TextLongform({ slice }: Props) {
             </div>
             {authorDoc && (
               <Link href={authorDoc.url ?? "#"} className="mt-8 flex items-center gap-3">
-                <PrismicNextImage className="size-16 rounded-4" field={authorDoc.data.employee_image} />
+                <PrismicNextImage
+                  className="size-16 rounded-4"
+                  field={authorDoc.data.employee_image}
+                  width={64}
+                  height={64}
+                />
                 <div className="space-y-0">
                   {authorDoc.data.employee_name && (
                     <p className="font-bold md:text-lg">{authorDoc.data.employee_name}</p>

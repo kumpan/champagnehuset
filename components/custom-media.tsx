@@ -18,6 +18,7 @@ type CustomMediaProps = {
   thumbnail?: string;
   sectionTheme?: string;
   filter?: string | null;
+  sizes?: string;
 };
 
 function parseThumbnail(value?: string) {
@@ -82,6 +83,7 @@ export default function CustomMedia({
   thumbnail,
   sectionTheme = "Bud",
   filter,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw",
 }: CustomMediaProps) {
   const [loaded, setLoaded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -139,7 +141,9 @@ export default function CustomMedia({
                 onLoad={() => setLoaded(true)}
                 fill
                 className={cn("object-cover", seg.visibility)}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                sizes={sizes}
+                // Without an explicit q, Prismic's auto=compress drops imgix to quality 45
+                quality={75}
                 fallbackAlt=""
               />
             );
@@ -156,14 +160,7 @@ export default function CustomMedia({
           />
         )}
         {videoSrc && !isActuallyVideo && (
-          <Image
-            src={videoSrc}
-            alt=""
-            fill
-            className="object-cover"
-            onLoad={() => setLoaded(true)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-          />
+          <Image src={videoSrc} alt="" fill className="object-cover" onLoad={() => setLoaded(true)} sizes={sizes} />
         )}
 
         {/* Filter */}

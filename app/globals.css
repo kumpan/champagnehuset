@@ -192,8 +192,7 @@ body {
 /* Headings default to the primary display font */
 h1,
 h2,
-h3{
-    @apply italic;
+h3 {
     font-family: var(--font-primary), sans-serif;
 }
 
@@ -205,7 +204,7 @@ h3{
     h1,
     h2,
     h3 {
-        @apply mt-0 mb-4 tracking-tight lg:mb-6 text-ink italic;
+        @apply mt-0 mb-4 tracking-tight lg:mb-6 text-ink;
         font-family: var(--font-primary), sans-serif;
     }
 }
@@ -265,7 +264,7 @@ h6 {
 
 .prose {
     h1 {
-        @apply mb-4 text-4xl leading-[1.1] font-stretch-120% md:text-5xl lg:text-7xl 2xl:text-8xl;
+        @apply mb-4 text-4xl leading-[1.1] font-stretch-120% md:text-6xl lg:text-8xl 2xl:text-9xl;
         &:not(:first-child) {
             @apply mt-12;
         }

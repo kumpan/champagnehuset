@@ -41,18 +41,34 @@ export function HeroBackdrop({ slice, context }: Props) {
             preload
             sectionTheme="Slate"
             thumbnail="horizontal md:main"
+            sizes="100vw"
           />
 
           {/* Bottom fade layers: blur → overlay blend → color fade */}
-          <div className="absolute inset-x-0 top-1/4 bottom-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black,black_30%,transparent)]" />
-          <div className="absolute inset-x-0 top-1/5 bottom-0 bg-linear-to-t from-spot-fill-dark/75 to-spot-fill-dark/0 mix-blend-overlay" />
-          <div className="absolute inset-x-0 top-1/5 bottom-0 bg-linear-to-t from-spot-fill-dark/90 via-spot-fill-dark/40 to-spot-fill-dark/0" />
+          <div
+            className={cn(
+              "absolute inset-x-0 top-1/4 bottom-0 [mask-image:linear-gradient(to_top,black,black_30%,transparent)]",
+              hasIntroContent && "backdrop-blur-[3px]",
+            )}
+          />
+          <div
+            className={cn(
+              "absolute inset-x-0 top-1/5 bottom-0 bg-linear-to-t to-spot-fill-dark/0 mix-blend-overlay",
+              hasIntroContent ? "from-spot-fill-dark/75" : "from-spot-fill-dark/25",
+            )}
+          />
+          <div
+            className={cn(
+              "absolute inset-x-0 top-1/5 bottom-0 bg-linear-to-t via-spot-fill-dark/40 to-spot-fill-dark/0",
+              hasIntroContent ? "from-spot-fill-dark/90" : "from-spot-fill-dark/30",
+            )}
+          />
         </div>
       )}
 
       <Container className="relative flex w-full flex-col justify-end">
         <div className={cn("flex w-full max-w-200 flex-col", alignment && "mx-auto items-center")}>
-          {breadcrumbs && breadcrumbs.length > 1 && (
+          {hasIntroContent && breadcrumbs && breadcrumbs.length > 1 && (
             <BreadcrumbNav
               items={breadcrumbs}
               colorMode={hasMedia ? "light" : "dark"}
@@ -64,6 +80,7 @@ export function HeroBackdrop({ slice, context }: Props) {
             <SectionIntro
               title={title}
               description={description}
+              descriptionClassName="md:text-lg lg:text-xl"
               buttons={buttons}
               align={alignment ? "center" : "left"}
               sectionTheme={theme}

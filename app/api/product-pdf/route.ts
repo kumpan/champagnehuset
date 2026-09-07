@@ -90,15 +90,14 @@ export async function GET(request: Request) {
     fetchProducer(client, doc.data.product_producer),
   ]);
 
-  const buffer = await renderToBuffer(
-    ProductPdfDocument({
-      product: doc,
-      imageSrc,
-      contacts,
-      producerVillage: producer.village,
-      producerBio: producer.bio,
-    }),
-  );
+  const document = await ProductPdfDocument({
+    product: doc,
+    imageSrc,
+    contacts,
+    producerVillage: producer.village,
+    producerBio: producer.bio,
+  });
+  const buffer = await renderToBuffer(document);
   const filename = `${doc.uid ?? "product"}.pdf`;
 
   return new Response(new Uint8Array(buffer), {

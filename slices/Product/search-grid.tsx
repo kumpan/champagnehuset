@@ -2,11 +2,12 @@
 
 import { Search } from "lucide-react";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Input } from "@/components/forms/input";
 import type { SectionTheme } from "@/components/layout/section";
 import { t } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import type { ProductDocument } from "@/prismicio-types";
 import { FilterPanel } from "./filter-panel";
 import { FilterTray } from "./filter-tray";
@@ -20,6 +21,16 @@ import {
   filterProducts,
   readStateFromSearch,
 } from "./search";
+import { SearchParamsSync } from "./search-params-sync";
+
+// Muted text and the search field's border accent, per section theme
+const themeClasses: Record<SectionTheme, { dim: string; input: string }> = {
+  Bud: { dim: "text-ink-dim", input: "hover:border-brand/50 focus-visible:border-brand" },
+  Leaf: { dim: "text-ink-dim", input: "hover:border-brand/50 focus-visible:border-brand" },
+  Bottle: { dim: "text-ink-dim", input: "hover:border-brand/50 focus-visible:border-brand" },
+  Dust: { dim: "text-spot-ink-dim", input: "hover:border-spot-fill/50 focus-visible:border-spot-fill" },
+  Slate: { dim: "text-spot-ink-flip", input: "hover:border-spot-fill-dark/50 focus-visible:border-spot-fill-dark" },
+};
 
 type SearchGridProps = {
   products: ProductDocument[];
@@ -38,7 +49,7 @@ export function SearchGrid({
 }: SearchGridProps) {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<FilterSelection>({});
-  const hydratedFromUrl = useRef(false);
+  const theme = themeClasses[sectionTheme];
   const reducedMotion = useReducedMotion();
 
   // The first render gets the full arrival cascade; cards entering on later
@@ -59,44 +70,72 @@ export function SearchGrid({
   );
   const activeCount = countActiveFilters(selection);
 
-  // Restore state from the URL once on mount. The page is static, so we read
-  // window.location instead of useSearchParams (which would force a CSR bailout).
-  useEffect(() => {
-    const state = readStateFromSearch(window.location.search, groups);
-    if (state.query) setQuery(state.query);
-    if (countActiveFilters(state.selection) > 0) setSelection(state.selection);
-    hydratedFromUrl.current = true;
-  }, [groups]);
+  // The query string we last read from or wrote to the address bar, with its
+  // leading "?". Lets the URL sync below ignore its own writes.
+  const urlSearch = useRef<string | null>(null);
+  const urlWriteTimer = useRef<number | undefined>(undefined);
+
+  // Adopt state from the URL: on arrival, and when a link navigates here with
+  // new params while the grid is already mounted.
+  const syncFromUrl = useCallback(
+    (search: string) => {
+      const next = search ? `?${search}` : "";
+      if (next === urlSearch.current) return;
+      urlSearch.current = next;
+      const state = readStateFromSearch(next, groups);
+      setQuery(state.query);
+      setSelection(state.selection);
+    },
+    [groups],
+  );
 
   // Reflect state back into the URL so filtered views are shareable and
-  // survive back-navigation from a product page.
-  useEffect(() => {
-    if (!hydratedFromUrl.current) return;
-    const url = `${window.location.pathname}${buildSearchString(query, selection)}${window.location.hash}`;
-    window.history.replaceState(window.history.state, "", url);
-  }, [query, selection]);
+  // survive back-navigation from a product page. Typing is debounced because
+  // browsers rate limit history writes, Safari hard-errors past 100 per 30s.
+  const writeUrl = (search: string, delay = 0) => {
+    window.clearTimeout(urlWriteTimer.current);
+    const write = () => {
+      urlSearch.current = search;
+      const { pathname, hash } = window.location;
+      window.history.replaceState(window.history.state, "", `${pathname}${search}${hash}`);
+    };
+    if (delay > 0) urlWriteTimer.current = window.setTimeout(write, delay);
+    else write();
+  };
+  useEffect(() => () => window.clearTimeout(urlWriteTimer.current), []);
 
-  const toggleFilter = (groupId: FilterGroupId, value: string) => {
-    setSelection((prev) => {
-      const current = prev[groupId] ?? [];
-      const next = current.includes(value) ? current.filter((v) => v !== value) : [...current, value];
-      const { [groupId]: _removed, ...rest } = prev;
-      return next.length > 0 ? { ...rest, [groupId]: next } : rest;
-    });
+  const changeQuery = (next: string) => {
+    setQuery(next);
+    writeUrl(buildSearchString(next, selection), 300);
   };
 
-  const clearFilters = () => setSelection({});
+  const changeSelection = (next: FilterSelection) => {
+    setSelection(next);
+    writeUrl(buildSearchString(query, next));
+  };
+
+  const toggleFilter = (groupId: FilterGroupId, value: string) => {
+    const current = selection[groupId] ?? [];
+    const next = current.includes(value) ? current.filter((v) => v !== value) : [...current, value];
+    const { [groupId]: _removed, ...rest } = selection;
+    changeSelection(next.length > 0 ? { ...rest, [groupId]: next } : rest);
+  };
+
+  const clearFilters = () => changeSelection({});
 
   const searchInput = (
     <div className="relative">
-      <Search className="absolute top-1/2 left-4 size-5 -translate-y-1/2 text-ink-dim" />
+      <Search className={cn("absolute top-1/2 left-4 size-5 -translate-y-1/2", theme.dim)} />
       <Input
         type="search"
         value={query}
-        onChange={(event) => setQuery(event.target.value)}
+        onChange={(event) => changeQuery(event.target.value)}
         placeholder={searchPlaceholder || t(lang).search}
         aria-label={searchPlaceholder || t(lang).search}
-        className="h-12 rounded-1 border-brand/0 bg-green-10 pl-11 outline-0 hover:border-brand/50 hover:bg-green-10/60 hover:outline-0 focus-visible:border-brand focus-visible:bg-green-10 focus-visible:outline-0 active:outline-0"
+        className={cn(
+          "h-12 rounded-1 border-brand/0 bg-green-10 pl-11 outline-0 hover:bg-green-10/60 hover:outline-0 focus-visible:bg-green-10 focus-visible:outline-0 active:outline-0",
+          theme.input,
+        )}
       />
     </div>
   );
@@ -114,7 +153,7 @@ export function SearchGrid({
           <button
             type="button"
             onClick={clearFilters}
-            className="cursor-pointer px-1 text-ink-dim text-sm underline underline-offset-4"
+            className={cn("cursor-pointer px-1 text-sm underline underline-offset-4", theme.dim)}
           >
             {t(lang).clearFilters}
           </button>
@@ -125,11 +164,15 @@ export function SearchGrid({
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
+      <Suspense fallback={null}>
+        <SearchParamsSync onChange={syncFromUrl} />
+      </Suspense>
+
       {/* Mobile: sticky filter tray */}
       <div className="sticky top-20 z-10 md:top-23 lg:hidden">
-        <FilterTray activeCount={activeCount} lang={lang}>
+        <FilterTray activeCount={activeCount} lang={lang} sectionTheme={sectionTheme}>
           {searchInput}
-          <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
+          <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} sectionTheme={sectionTheme} />
           {clearButton}
         </FilterTray>
       </div>
@@ -137,7 +180,7 @@ export function SearchGrid({
       {/* Desktop: filter sidebar, scrolls with the page */}
       <aside className="hidden lg:flex lg:w-80 lg:shrink-0 lg:flex-col lg:gap-1">
         {searchInput}
-        <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
+        <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} sectionTheme={sectionTheme} />
         {clearButton}
       </aside>
 
@@ -164,7 +207,7 @@ export function SearchGrid({
                   y: { type: "spring", stiffness: 300, damping: 25, delay: enterDelay(index) },
                 }}
               >
-                <ProductCard product={product} priority={index < 6} sectionTheme={sectionTheme} />
+                <ProductCard product={product} preload={index < 6} sectionTheme={sectionTheme} />
               </m.div>
             ))}
           </AnimatePresence>
@@ -177,7 +220,7 @@ export function SearchGrid({
               // last ghosts are gone instead of on top of them.
               animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.2 } }}
               exit={{ opacity: 0, transition: { duration: 0.1 } }}
-              className="py-8 text-center text-ink-dim"
+              className={cn("py-8 text-center", theme.dim)}
             >
               {query.trim().toLowerCase() === "ida"
                 ? "Inget hittades, men ring Ida så löser hon det 💪"

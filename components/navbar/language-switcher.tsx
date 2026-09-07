@@ -54,14 +54,14 @@ export function LanguageSwitcher({
         onMouseEnter={handleOpen}
         onMouseLeave={handleClose}
         onFocus={handleOpen}
-        className="group relative flex h-14 cursor-pointer items-center justify-center gap-1.5 rounded-2 pr-4 pl-5 text-primary-foreground leading-snug focus-visible:outline-2 focus-visible:outline-primary-foreground focus-visible:outline-offset-2"
+        className="group relative flex h-14 cursor-pointer items-center justify-center gap-1.5 rounded-2 pr-4 pl-5 leading-snug focus-visible:outline-2 focus-visible:outline-spot-fill-dark/70 focus-visible:outline-offset-2"
       >
         <div
           className={cn(
             "absolute rounded-2 [transition:inset_500ms_var(--ease-spring-bounce),background-color_200ms_ease-in]",
             open
-              ? "inset-1 bg-fill-raised group-hover:inset-0"
-              : "inset-2 group-hover:inset-0 group-hover:bg-fill-raised",
+              ? "inset-1 bg-spot-fill-dark/10 group-hover:inset-0"
+              : "inset-2 group-hover:inset-0 group-hover:bg-spot-fill-dark/10",
           )}
         />
         <span className="relative flex items-center gap-1.5">
@@ -95,7 +95,7 @@ export function LanguageSwitcher({
               },
             },
           }}
-          className="z-50 min-w-32 rounded-3 bg-fill-raised p-1"
+          className="z-50 min-w-32 rounded-3 border border-spot-fill-dark/10 bg-spot-fill-raised p-1"
         >
           {otherLocales.map((locale) => (
             <m.li
@@ -117,7 +117,7 @@ export function LanguageSwitcher({
                 hrefLang={locale.id}
                 role="menuitem"
                 onClick={() => setOpen(false)}
-                className="flex w-full items-center rounded-2 px-4 py-3 text-primary-foreground/80 transition-colors duration-400 ease-in-out hover:bg-fill hover:text-primary-foreground"
+                className="flex w-full items-center rounded-2 px-4 py-3 text-spot-ink/80 transition-colors duration-400 ease-in-out hover:bg-spot-fill-dark/10 hover:text-spot-ink"
               >
                 {getLocaleLabel(locale.id, locale.name)}
               </Link>

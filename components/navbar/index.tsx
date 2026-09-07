@@ -52,7 +52,7 @@ export function Navbar({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-fill md:bg-fill-dark/80 xl:hidden"
+            className="fixed inset-0 z-40 bg-spot-fill-raised md:bg-spot-fill-dark/80 xl:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
         )}
@@ -71,7 +71,7 @@ export function Navbar({
                 opacity: { duration: 0.25, ease: "easeInOut" },
                 scale: { type: "spring", stiffness: 200, damping: 20 },
               }}
-              className="absolute top-20 right-4 left-4 z-50 mt-2 origin-top rounded-1 md:top-20 md:right-6 md:left-auto md:min-w-96 md:origin-top-right md:bg-fill-raised lg:top-23 lg:right-8 xl:hidden"
+              className="selection-spot absolute top-20 right-4 left-4 z-50 mt-2 origin-top rounded-1 text-spot-ink md:top-20 md:right-6 md:left-auto md:min-w-96 md:origin-top-right md:bg-spot-fill-raised lg:top-23 lg:right-8 xl:hidden"
             >
               <ul className="flex flex-col gap-2 overflow-hidden md:p-2">
                 {prismicData.data.links.map((linkItem, index) => {
@@ -130,13 +130,13 @@ export function Navbar({
         </AnimatePresence>
 
         <Container>
-          <nav className="selection-brand flex items-center justify-between rounded-2 border border-border bg-fill py-1 pr-1 pl-3 md:py-2 md:pr-2 md:pl-4 lg:bg-primary/85 lg:pl-4">
+          <nav className="selection-spot flex items-center justify-between rounded-2 border border-spot-fill-dark/10 bg-spot-fill-raised py-1 pr-1 pl-3 text-spot-ink md:py-2 md:pr-2 md:pl-4 lg:pl-4">
             {/* Logo */}
             <PrismicNextLink
               field={
                 isFilled.link(prismicData.data.logo_link) ? prismicData.data.logo_link : { link_type: "Web", url: "/" }
               }
-              className="h-12 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 lg:focus-visible:outline-primary-foreground"
+              className="h-12 cursor-pointer focus-visible:outline-2 focus-visible:outline-spot-fill-dark/70 focus-visible:outline-offset-2"
               aria-label="Go to home page"
             >
               {desktopLogo}
@@ -174,6 +174,7 @@ export function Navbar({
                       <Button
                         key={link.url || `cta-${index}`}
                         asChild
+                        sectionTheme="Dust"
                         className={cn(show_on_mobile ? "hidden" : "xs:flex hidden")}
                       >
                         <PrismicNextLink field={link}>
@@ -189,7 +190,7 @@ export function Navbar({
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex size-12 cursor-pointer items-center justify-center rounded-1 bg-brand p-2 text-brand-ink lg:text-primary xl:hidden"
+                  className="flex size-12 cursor-pointer items-center justify-center rounded-1 bg-spot-fill-dark p-2 text-spot-ink-flip xl:hidden"
                   aria-label="Toggle mobile menu"
                   aria-expanded={mobileMenuOpen}
                   aria-controls="mobile-menu"

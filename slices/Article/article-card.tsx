@@ -34,6 +34,7 @@ export function ArticleCard({ article, sectionTheme = "Bud", className }: Articl
       <div className="aspect-3/2 w-full overflow-hidden rounded-1">
         <PrismicNextImage
           field={article_image}
+          sizes="(min-width: 64rem) 25vw, (min-width: 40rem) 50vw, 100vw"
           className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-103"
           fallbackAlt=""
         />

@@ -20,11 +20,18 @@ const imageSurfaceClasses: Record<SectionTheme, string> = {
 type ProductCardProps = {
   product: ProductDocument;
   className?: string;
-  priority?: boolean;
+  preload?: boolean;
   sectionTheme?: SectionTheme;
+  sizes?: string;
 };
 
-export function ProductCard({ product, className, priority = false, sectionTheme = "Bud" }: ProductCardProps) {
+export function ProductCard({
+  product,
+  className,
+  preload = false,
+  sectionTheme = "Bud",
+  sizes = "(min-width: 48rem) 33vw, 50vw",
+}: ProductCardProps) {
   const { product_image, product_name, product_year } = product.data;
   // Requires fetchLinks: ["producer.producer_name"] on the query; renders without it otherwise.
   const producerName = producerNameOf(product);
@@ -35,7 +42,8 @@ export function ProductCard({ product, className, priority = false, sectionTheme
       <div className={cn("aspect-3/4 w-full overflow-hidden rounded-1", imageSurfaceClasses[sectionTheme])}>
         <PrismicNextImage
           field={product_image}
-          priority={priority}
+          preload={preload}
+          sizes={sizes}
           onLoad={() => setImageLoaded(true)}
           className={cn(
             "size-full object-cover group-hover:scale-103",

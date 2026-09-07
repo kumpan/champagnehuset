@@ -25,7 +25,7 @@ export function HeroStack({ slice, context }: Props) {
       sectionTheme={section_theme}
     >
       <Container>
-        {breadcrumbs && breadcrumbs.length > 1 && (
+        {hasIntroContent && breadcrumbs && breadcrumbs.length > 1 && (
           <BreadcrumbNav
             className="mx-auto mb-8 flex justify-center md:mb-4"
             items={breadcrumbs}
@@ -38,6 +38,7 @@ export function HeroStack({ slice, context }: Props) {
             overline={overline}
             title={title}
             description={description}
+            descriptionClassName="md:text-lg lg:text-xl"
             buttons={buttons}
             align="center"
             textBalance={true}

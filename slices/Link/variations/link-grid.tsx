@@ -1,4 +1,4 @@
-import type { Content, ImageFieldImage } from "@prismicio/client";
+import { type Content, type ImageFieldImage, isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
@@ -37,13 +37,28 @@ type GridItem = {
 
 export async function LinkGrid({ slice }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, remove_top_padding, link_source, cards } = slice.primary;
+  const { overline, title, description, alignment, remove_top_padding, link_source, featured_producers, cards } =
+    slice.primary;
   const section_theme = slice.primary.section_theme;
 
   let items: GridItem[];
-  if (link_source === "All Producers") {
+  if (link_source === "Producers") {
     const client = await createClient();
-    const producers = await client.getAllByType("producer");
+    const featured = (
+      await Promise.all(
+        featured_producers.map((item) =>
+          isFilled.contentRelationship(item.producer) ? client.getByID<ProducerDocument>(item.producer.id) : null,
+        ),
+      )
+    ).filter((producer): producer is ProducerDocument => producer !== null);
+
+    // A curated list keeps the editor's order. Otherwise every producer, A to Z.
+    const producers =
+      featured.length > 0
+        ? featured
+        : (await client.getAllByType("producer")).sort((a, b) =>
+            (a.data.producer_name ?? "").localeCompare(b.data.producer_name ?? "", "sv"),
+          );
     items = producers.map((producer) => ({
       key: producer.id,
       title: producer.data.producer_name,
@@ -94,14 +109,14 @@ export async function LinkGrid({ slice }: Props) {
                     {/* Hidden on mobile: cards are too narrow to spare the width. */}
                     <ArrowRight className="hidden size-4 shrink-0 md:block" />
                   </div>
-                  <div className="px-1 pb-1 md:px-2 md:pb-2">
-                    <div className="overflow-hidden rounded-1">
-                      <CustomMedia
-                        imageField={item.image}
-                        className="aspect-[4/3] w-full rounded-0 object-contain duration-1000 ease-out group-hover:scale-103"
-                        sectionTheme={section_theme}
-                      />
-                    </div>
+
+                  <div className="overflow-hidden">
+                    <CustomMedia
+                      imageField={item.image}
+                      className="aspect-[4/3] w-full rounded-0 object-contain duration-1000 ease-out group-hover:scale-103"
+                      sectionTheme={section_theme}
+                      sizes="(min-width: 64rem) 25vw, (min-width: 48rem) 33vw, 50vw"
+                    />
                   </div>
                 </PrismicNextLink>
               </li>

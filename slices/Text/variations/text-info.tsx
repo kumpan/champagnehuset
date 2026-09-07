@@ -10,7 +10,7 @@ import { Section } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
 import { getSingleton } from "@/lib/cms";
 import { widestWordEm } from "@/lib/display-fit";
-import { formatAlcohol, formatDosage, formatGrapesWithShares, productVolumes } from "@/lib/format";
+import { formatAlcohol, formatDosage, formatGrapesWithShares, formatPrice, productVolumes } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { SpecialClubDocument } from "@/prismicio-types";
 import type { TextProps } from "..";
@@ -45,7 +45,7 @@ function HeadingPrice({ price }: { price: string | null }) {
   if (!price) return null;
   return (
     <>
-      ,<span className="ml-2.5">{price} kr</span>
+      ,<span className="ml-2.5">{price}</span>
     </>
   );
 }
@@ -90,8 +90,8 @@ export async function TextInfo({ slice, context }: Props) {
   }
 
   const hasOrderUrl = isFilled.link(data?.product_order_url);
-  const consumerPrice = data?.product_price_consumer || null;
-  const restaurantPrice = data?.product_price_restaurant || null;
+  const consumerPrice = formatPrice(data?.product_price_consumer);
+  const restaurantPrice = formatPrice(data?.product_price_restaurant);
   const purchase = resolvePurchase(
     data?.product_consumer_availability ?? null,
     data?.product_restaurant_availability ?? null,
@@ -132,7 +132,7 @@ export async function TextInfo({ slice, context }: Props) {
             {title ? (
               <div className="@container mt-3 text-6xl sm:text-7xl lg:text-8xl xl:text-10xl">
                 <h1
-                  className="break-words font-primary text-[length:min(1em,var(--fit))] uppercase leading-[0.9] tracking-tight"
+                  className="break-words font-primary text-[length:min(1em,var(--fit))] uppercase italic leading-[0.9] tracking-tight"
                   style={{ "--fit": `calc(100cqw / ${widestWordEm(title).toFixed(2)})` } as CSSProperties}
                 >
                   {title}

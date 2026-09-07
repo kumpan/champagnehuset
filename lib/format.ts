@@ -55,3 +55,15 @@ export function formatAlcohol(input: string | null | undefined): string | null {
   if (num === null) return null;
   return `${num}%`;
 }
+
+/**
+ * Prices are free-text too ("659 kr", "1 000kr", "1000"). Keep only the digits
+ * and re-format as "1 000 kr" with Swedish thousands grouping.
+ */
+export function formatPrice(input: string | null | undefined): string | null {
+  if (!input) return null;
+  const digits = input.replace(/\D/g, "");
+  if (!digits) return null;
+  const grouped = digits.replace(/\B(?=(\d{3})+(?!\d))/g, NBSP);
+  return `${grouped}${NBSP}kr`;
+}

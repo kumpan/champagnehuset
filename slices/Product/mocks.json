@@ -99,6 +99,11 @@
         "__TYPE__": "BooleanContent",
         "value": false
       },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
       "alignment": {
         "__TYPE__": "BooleanContent",
         "value": false

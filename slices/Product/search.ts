@@ -17,6 +17,7 @@ export type FilterGroupId =
   | "grape"
   | "club"
   | "ecologic"
+  | "vintage"
   | "year"
   | "volume";
 
@@ -33,6 +34,7 @@ const GROUP_IDS: FilterGroupId[] = [
   "grape",
   "club",
   "ecologic",
+  "vintage",
   "year",
   "volume",
 ];
@@ -46,6 +48,7 @@ const groupLabels = (lang: string | null | undefined): Record<FilterGroupId, str
   grape: t(lang).filterGrape,
   club: t(lang).filterClub,
   ecologic: t(lang).filterEcologic,
+  vintage: t(lang).filterVintage,
   year: t(lang).filterYear,
   volume: t(lang).filterVolume,
 });
@@ -96,6 +99,7 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
     product_grapes,
     product_special_club,
     product_ecologic,
+    product_vintage,
     product_year,
   } = product.data;
 
@@ -122,6 +126,8 @@ function facetValues(product: ProductDocument, groupId: FilterGroupId): string[]
       return product_special_club === "Yes" ? ["yes"] : [];
     case "ecologic":
       return product_ecologic === "Yes" ? ["yes"] : [];
+    case "vintage":
+      return product_vintage === "Yes" ? ["yes"] : [];
     case "year":
       return product_year?.trim() ? [product_year.trim()] : [];
     case "volume":
@@ -160,6 +166,9 @@ export function deriveFilterGroups(products: ProductDocument[], lang?: string | 
         options = present.has("yes") ? [{ value: "yes", label: t(lang).yes }] : [];
         break;
       case "ecologic":
+        options = present.has("yes") ? [{ value: "yes", label: t(lang).yes }] : [];
+        break;
+      case "vintage":
         options = present.has("yes") ? [{ value: "yes", label: t(lang).yes }] : [];
         break;
       case "year":
@@ -271,6 +280,17 @@ export function filterProducts(
 }
 
 /* ------------------------------ URL state ------------------------------ */
+
+/**
+ * The URL is the public API for preselected filters, so links elsewhere on the
+ * site (footer, campaigns) can deep-link into a filtered view. Each group id is
+ * a query param and repeats for multiple values, e.g.
+ *   ?style=Blanc+de+Blancs
+ *   ?availability=restaurang
+ *   ?vintage=yes
+ *   ?volume=1,5+L&volume=3+L
+ * Values are the raw CMS values, so a link must match them exactly.
+ */
 
 const QUERY_PARAM = "q";
 
