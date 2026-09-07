@@ -30,17 +30,17 @@ export const COPY = {
   },
   systembolagetTillfalligt: {
     heading: "Tillfälligt hos Systembolaget",
-    body: "Släppt i Systembolagets tillfälliga sortiment i begränsad mängd, beställ på systembolaget.se så länge lagret räcker.",
+    body: "Lanserad i Systembolagets tillfälliga sortiment i begränsad mängd. Hitta din närmaste butik eller beställ på systembolaget.se så länge lagret räcker.",
     button: "Beställ nu",
   },
   systembolagetSoldOut: {
-    heading: "Köp via Systembolaget",
-    body: "Den här årgången är slutsåld hos Systembolaget. Håll utkik, nya släpp dyker upp löpande.",
+    heading: "Tillfälligt slut",
+    body: "Champagnen är tyvärr uppdrucken. Men håll utkik, nya lanseringar sker löpande.",
     button: "Beställ nu",
   },
   privatimport: {
-    heading: "Beställ via privatimport",
-    body: "Flaskan finns inte i Systembolagets sortiment, men kan beställas via deras privatimportservice. Vi och vår importör sköter resten.",
+    heading: "Beställ via Privatimport",
+    body: "Flaskan finns inte i Systembolagets ordinarie sortiment, men kan beställas från oss. Skicka din förfrågan via formuläret för privatimport.",
     button: "Beställ nu",
   },
   restaurant: {
