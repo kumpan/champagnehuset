@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Input } from "@/components/forms/input";
 import type { SectionTheme } from "@/components/layout/section";
 import { t } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import type { ProductDocument } from "@/prismicio-types";
 import { FilterPanel } from "./filter-panel";
 import { FilterTray } from "./filter-tray";
@@ -20,6 +21,15 @@ import {
   filterProducts,
   readStateFromSearch,
 } from "./search";
+
+// Muted text and the search field's border accent, per section theme
+const themeClasses: Record<SectionTheme, { dim: string; input: string }> = {
+  Bud: { dim: "text-ink-dim", input: "hover:border-brand/50 focus-visible:border-brand" },
+  Leaf: { dim: "text-ink-dim", input: "hover:border-brand/50 focus-visible:border-brand" },
+  Bottle: { dim: "text-ink-dim", input: "hover:border-brand/50 focus-visible:border-brand" },
+  Dust: { dim: "text-spot-ink-dim", input: "hover:border-spot-fill/50 focus-visible:border-spot-fill" },
+  Slate: { dim: "text-spot-ink-flip", input: "hover:border-spot-fill-dark/50 focus-visible:border-spot-fill-dark" },
+};
 
 type SearchGridProps = {
   products: ProductDocument[];
@@ -38,6 +48,7 @@ export function SearchGrid({
 }: SearchGridProps) {
   const [query, setQuery] = useState("");
   const [selection, setSelection] = useState<FilterSelection>({});
+  const theme = themeClasses[sectionTheme];
   const hydratedFromUrl = useRef(false);
   const reducedMotion = useReducedMotion();
 
@@ -89,14 +100,17 @@ export function SearchGrid({
 
   const searchInput = (
     <div className="relative">
-      <Search className="absolute top-1/2 left-4 size-5 -translate-y-1/2 text-ink-dim" />
+      <Search className={cn("absolute top-1/2 left-4 size-5 -translate-y-1/2", theme.dim)} />
       <Input
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder={searchPlaceholder || t(lang).search}
         aria-label={searchPlaceholder || t(lang).search}
-        className="h-12 rounded-1 border-brand/0 bg-green-10 pl-11 outline-0 hover:border-brand/50 hover:bg-green-10/60 hover:outline-0 focus-visible:border-brand focus-visible:bg-green-10 focus-visible:outline-0 active:outline-0"
+        className={cn(
+          "h-12 rounded-1 border-brand/0 bg-green-10 pl-11 outline-0 hover:bg-green-10/60 hover:outline-0 focus-visible:bg-green-10 focus-visible:outline-0 active:outline-0",
+          theme.input,
+        )}
       />
     </div>
   );
@@ -114,7 +128,7 @@ export function SearchGrid({
           <button
             type="button"
             onClick={clearFilters}
-            className="cursor-pointer px-1 text-ink-dim text-sm underline underline-offset-4"
+            className={cn("cursor-pointer px-1 text-sm underline underline-offset-4", theme.dim)}
           >
             {t(lang).clearFilters}
           </button>
@@ -127,9 +141,9 @@ export function SearchGrid({
     <div className="flex flex-col gap-6 lg:flex-row">
       {/* Mobile: sticky filter tray */}
       <div className="sticky top-20 z-10 md:top-23 lg:hidden">
-        <FilterTray activeCount={activeCount} lang={lang}>
+        <FilterTray activeCount={activeCount} lang={lang} sectionTheme={sectionTheme}>
           {searchInput}
-          <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
+          <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} sectionTheme={sectionTheme} />
           {clearButton}
         </FilterTray>
       </div>
@@ -137,7 +151,7 @@ export function SearchGrid({
       {/* Desktop: filter sidebar, scrolls with the page */}
       <aside className="hidden lg:flex lg:w-80 lg:shrink-0 lg:flex-col lg:gap-1">
         {searchInput}
-        <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} />
+        <FilterPanel groups={groups} selection={selection} onToggle={toggleFilter} sectionTheme={sectionTheme} />
         {clearButton}
       </aside>
 
@@ -177,7 +191,7 @@ export function SearchGrid({
               // last ghosts are gone instead of on top of them.
               animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.2 } }}
               exit={{ opacity: 0, transition: { duration: 0.1 } }}
-              className="py-8 text-center text-ink-dim"
+              className={cn("py-8 text-center", theme.dim)}
             >
               {query.trim().toLowerCase() === "ida"
                 ? "Inget hittades, men ring Ida så löser hon det 💪"

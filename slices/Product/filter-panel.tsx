@@ -5,8 +5,27 @@ import { AnimatePresence, m } from "motion/react";
 import { useId, useState } from "react";
 
 import { Checkbox } from "@/components/forms/checkbox";
+import type { SectionTheme } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 import type { FilterGroup, FilterGroupId, FilterSelection } from "./search";
+
+const themeClasses: Record<SectionTheme, { panel: string; count: string; option: string; checked: string }> = {
+  Bud: { panel: "text-ink", count: "text-ink-dim", option: "hover:bg-fill", checked: "bg-fill" },
+  Leaf: { panel: "text-ink", count: "text-ink-dim", option: "hover:bg-fill", checked: "bg-fill" },
+  Bottle: { panel: "text-ink", count: "text-ink-dim", option: "hover:bg-fill", checked: "bg-fill" },
+  Dust: {
+    panel: "text-spot-ink",
+    count: "text-spot-ink-dim",
+    option: "hover:bg-spot-fill-raised",
+    checked: "bg-spot-fill-raised",
+  },
+  Slate: {
+    panel: "text-spot-ink",
+    count: "text-spot-ink-dim",
+    option: "hover:bg-spot-fill-raised",
+    checked: "bg-spot-fill-raised",
+  },
+};
 
 type FilterPanelProps = {
   groups: FilterGroup[];
@@ -14,9 +33,17 @@ type FilterPanelProps = {
   onToggle: (groupId: FilterGroupId, value: string) => void;
   /** Groups expanded on first render. Tillgänglighet by default, to invite filtering. */
   defaultOpen?: FilterGroupId[];
+  sectionTheme?: SectionTheme;
 };
 
-export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["availability"] }: FilterPanelProps) {
+export function FilterPanel({
+  groups,
+  selection,
+  onToggle,
+  defaultOpen = ["availability"],
+  sectionTheme = "Bud",
+}: FilterPanelProps) {
+  const theme = themeClasses[sectionTheme];
   // The panel renders twice (desktop sidebar + mobile tray), so ids must not collide.
   const panelId = useId();
   const [openGroups, setOpenGroups] = useState<FilterGroupId[]>(defaultOpen);
@@ -31,7 +58,7 @@ export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["avail
         const selectedCount = selection[group.id]?.length ?? 0;
 
         return (
-          <div key={group.id} className="flex flex-col rounded-1 bg-green-10 text-ink">
+          <div key={group.id} className={cn("flex flex-col rounded-1 bg-green-10", theme.panel)}>
             <button
               type="button"
               onClick={() => toggleGroup(group.id)}
@@ -40,7 +67,7 @@ export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["avail
             >
               <span>
                 {group.label}
-                {selectedCount > 0 && <span className="text-ink-dim"> · {selectedCount}</span>}
+                {selectedCount > 0 && <span className={theme.count}> · {selectedCount}</span>}
               </span>
               <m.span
                 initial={false}
@@ -69,14 +96,16 @@ export function FilterPanel({ groups, selection, onToggle, defaultOpen = ["avail
                           <label
                             htmlFor={optionId}
                             className={cn(
-                              "flex min-h-10 cursor-pointer items-center gap-2 rounded-1 px-2 transition-colors duration-200 ease-out hover:bg-fill",
-                              isChecked && "bg-fill hover:bg-fill",
+                              "flex min-h-10 cursor-pointer items-center gap-2 rounded-1 px-2 transition-colors duration-200 ease-out",
+                              theme.option,
+                              isChecked && theme.checked,
                             )}
                           >
                             <Checkbox
                               id={optionId}
                               checked={isChecked}
                               onChange={() => onToggle(group.id, option.value)}
+                              sectionTheme={sectionTheme}
                             />
                             <span>{option.label}</span>
                           </label>

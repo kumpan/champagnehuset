@@ -14,8 +14,16 @@ type SearchContext = { lang?: string };
 
 export async function ProductSearch({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
-  const { overline, title, description, alignment, remove_top_padding, search_placeholder, no_results_text } =
-    slice.primary;
+  const {
+    overline,
+    title,
+    description,
+    alignment,
+    remove_top_padding,
+    section_theme,
+    search_placeholder,
+    no_results_text,
+  } = slice.primary;
 
   const lang = (context as SearchContext | undefined)?.lang;
   const client = await createClient();
@@ -52,6 +60,7 @@ export async function ProductSearch({ slice, context }: Props) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
+      sectionTheme={section_theme}
     >
       <Container className="flex flex-col gap-6 md:gap-8">
         {hasIntroContent && (
@@ -60,6 +69,7 @@ export async function ProductSearch({ slice, context }: Props) {
             title={title}
             description={description}
             align={alignment ? "center" : "left"}
+            sectionTheme={section_theme}
           />
         )}
         <SearchGrid
@@ -67,6 +77,7 @@ export async function ProductSearch({ slice, context }: Props) {
           searchPlaceholder={search_placeholder}
           noResultsText={no_results_text}
           lang={lang}
+          sectionTheme={section_theme}
         />
       </Container>
     </Section>
