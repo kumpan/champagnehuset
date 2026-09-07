@@ -127,7 +127,7 @@ export default async function LocaleLayout({
                       src={desktopLogoUrl}
                       processColor={logoColorOverride}
                       title={navbarData.data.desktop_logo.alt}
-                      className="hidden h-full w-auto md:block md:text-brand"
+                      className="hidden h-full w-auto md:block"
                     />
                   ) : null
                 }
@@ -137,7 +137,7 @@ export default async function LocaleLayout({
                       src={mobileLogoUrl}
                       processColor={logoColorOverride}
                       title={navbarData.data.mobile_logo.alt}
-                      className="h-full w-auto text-brand md:hidden"
+                      className="h-full w-auto md:hidden"
                     />
                   ) : null
                 }

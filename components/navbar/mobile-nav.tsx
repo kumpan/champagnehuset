@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { MobileNavLink } from "./mobile-nav-link";
 
 export const mobileItemClass =
-  "bg-fill-raised md:bg-fill transition-colors duration-300 ease-in-out hover:bg-fill-raised/60 md:hover:bg-fill/60";
+  "bg-spot-fill-dark/10 transition-colors duration-300 ease-in-out hover:bg-spot-fill-dark/5";
 
 export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose: () => void }) {
   return (
@@ -29,10 +29,7 @@ export function MobileDropdown({ links, onClose }: { links: LinkField[]; onClose
       className="flex flex-col gap-2 overflow-hidden p-2"
     >
       {links.map((dropLink) => (
-        <li
-          key={dropLink.text}
-          className="rounded-1 bg-fill-raised transition-colors duration-300 ease-in-out hover:bg-fill-raised/60 md:bg-fill md:hover:bg-fill/60"
-        >
+        <li key={dropLink.text} className={cn(mobileItemClass, "rounded-1")}>
           <MobileNavLink field={dropLink} onClose={onClose}>
             <span className="text-base">{dropLink.text}</span>
             <ChevronRight className="size-6" aria-hidden="true" />
@@ -76,7 +73,7 @@ export function MobileNavItemSplit({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex size-16 shrink-0 cursor-pointer items-center justify-center rounded-1 bg-fill-raised text-primary transition-colors duration-300 hover:bg-fill-raised/60 md:bg-fill md:hover:bg-fill/60"
+        className={cn(mobileItemClass, "flex size-16 shrink-0 cursor-pointer items-center justify-center rounded-1")}
       >
         <ChevronDown
           aria-hidden="true"
@@ -104,7 +101,7 @@ export function MobileNavItemToggle({
       aria-expanded={isOpen}
       className={cn(
         mobileItemClass,
-        "flex h-16 w-full cursor-pointer items-center justify-between rounded-1 px-5 text-lg text-primary",
+        "flex h-16 w-full cursor-pointer items-center justify-between rounded-1 px-5 text-lg",
       )}
     >
       {label}
