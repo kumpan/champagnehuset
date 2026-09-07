@@ -379,8 +379,31 @@
           "config": {
             "label": "Link Source",
             "placeholder": "",
-            "options": ["All Producers", "Manual Links"],
-            "default_value": "All Producers"
+            "options": ["Producers", "Manual Links"],
+            "default_value": "Producers"
+          }
+        },
+        "featured_producers": {
+          "type": "Group",
+          "config": {
+            "label": "Featured Producers",
+            "repeat": true,
+            "fields": {
+              "producer": {
+                "type": "Link",
+                "config": {
+                  "label": "Producer",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "producer",
+                      "fields": ["producer_name"]
+                    }
+                  ]
+                }
+              }
+            }
           }
         },
         "cards": {

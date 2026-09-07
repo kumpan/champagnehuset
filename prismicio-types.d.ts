@@ -28,8 +28,7 @@ type PickContentRelationshipFieldData<
       TSubRelationship["customtypes"],
       TLang
     >;
-  } & // Group
-  {
+  } & { // Group
     [TGroup in Extract<
       TRelationship["fields"][number],
       | prismic.CustomTypeModelFetchGroupLevel1
@@ -41,8 +40,7 @@ type PickContentRelationshipFieldData<
           PickContentRelationshipFieldData<TGroup, TGroupData, TLang>
         >
       : never;
-  } & // Other fields
-  {
+  } & { // Other fields
     [TFieldKey in Extract<
       TRelationship["fields"][number],
       string
@@ -261,7 +259,7 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice>; /**
+  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice> /**
    * Meta Title field in *Article*
    *
    * - **Field Type**: Text
@@ -269,7 +267,7 @@ interface ArticleDocumentData {
    * - **API ID Path**: article.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */
+   */;
   meta_title: prismic.KeyTextField;
 
   /**
@@ -791,7 +789,7 @@ interface FourOhFourDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<FourOhFourDocumentDataSlicesSlice>; /**
+  slices: prismic.SliceZone<FourOhFourDocumentDataSlicesSlice> /**
    * Meta Title field in *404*
    *
    * - **Field Type**: Text
@@ -799,7 +797,7 @@ interface FourOhFourDocumentData {
    * - **API ID Path**: four_oh_four.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */
+   */;
   meta_title: prismic.KeyTextField;
 
   /**
@@ -1230,7 +1228,7 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>; /**
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
    * Meta Title field in *Page*
    *
    * - **Field Type**: Text
@@ -1238,7 +1236,7 @@ interface PageDocumentData {
    * - **API ID Path**: page.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */
+   */;
   meta_title: prismic.KeyTextField;
 
   /**
@@ -1397,7 +1395,7 @@ interface ProducerDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ProducerDocumentDataSlicesSlice>; /**
+  slices: prismic.SliceZone<ProducerDocumentDataSlicesSlice> /**
    * Meta Title field in *Producer*
    *
    * - **Field Type**: Text
@@ -1405,7 +1403,7 @@ interface ProducerDocumentData {
    * - **API ID Path**: producer.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */
+   */;
   meta_title: prismic.KeyTextField;
 
   /**
@@ -1848,7 +1846,7 @@ interface ProductDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>; /**
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice> /**
    * Meta Title field in *Product*
    *
    * - **Field Type**: Text
@@ -1856,7 +1854,7 @@ interface ProductDocumentData {
    * - **API ID Path**: product.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */
+   */;
   meta_title: prismic.KeyTextField;
 
   /**
@@ -6876,6 +6874,23 @@ export interface LinkSliceGridPrimaryOverlineItem {
 }
 
 /**
+ * Item in *Link → Grid → Primary → Featured Producers*
+ */
+export interface LinkSliceGridPrimaryFeaturedProducersItem {
+  /**
+   * Producer field in *Link → Grid → Primary → Featured Producers*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: link.grid.primary.featured_producers[].producer
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  producer: ContentRelationshipFieldWithData<
+    [{ id: "producer"; fields: ["producer_name"] }]
+  >;
+}
+
+/**
  * Item in *Link → Grid → Primary → Cards*
  */
 export interface LinkSliceGridPrimaryCardsItem {
@@ -7344,11 +7359,23 @@ export interface LinkSliceGridPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: All Producers
+   * - **Default Value**: Producers
    * - **API ID Path**: link.grid.primary.link_source
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  link_source: prismic.SelectField<"All Producers" | "Manual Links", "filled">;
+  link_source: prismic.SelectField<"Producers" | "Manual Links", "filled">;
+
+  /**
+   * Featured Producers field in *Link → Grid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: link.grid.primary.featured_producers[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  featured_producers: prismic.GroupField<
+    Simplify<LinkSliceGridPrimaryFeaturedProducersItem>
+  >;
 
   /**
    * Cards field in *Link → Grid → Primary*
@@ -8047,6 +8074,17 @@ export interface ProductSliceSearchPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   remove_top_padding: prismic.BooleanField;
+
+  /**
+   * Section Theme field in *Product → Search → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: product.search.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<"Bud" | "Bottle" | "Dust", "filled">;
 
   /**
    * Center Text field in *Product → Search → Primary*
@@ -9731,6 +9769,7 @@ declare module "@prismicio/client" {
       LinkSliceCardsPrimaryCardsItem,
       LinkSliceCardsPrimary,
       LinkSliceGridPrimaryOverlineItem,
+      LinkSliceGridPrimaryFeaturedProducersItem,
       LinkSliceGridPrimaryCardsItem,
       LinkSliceGridPrimary,
       LinkSliceQuickPrimaryOverlineItem,
