@@ -3,8 +3,6 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-// Outline colour stays fixed and only the width animates, otherwise the ring
-// darkens mid-transition while it grows. Same approach as the buttons.
 const themeClasses = {
   Bud: "border-ink/80 bg-green-10 outline-brand/30 checked:border-brand checked:bg-brand hover:border-brand focus-visible:border-brand",
   Leaf: "border-ink/80 bg-green-10 outline-brand/30 checked:border-brand checked:bg-brand hover:border-brand focus-visible:border-brand",
