@@ -37,6 +37,7 @@ export function HeroStack({ slice, context }: Props) {
           <SectionIntro
             overline={overline}
             title={title}
+            titleAs="h1"
             description={description}
             descriptionClassName="md:text-lg lg:text-xl"
             buttons={buttons}
