@@ -230,7 +230,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
+            "multi": "heading2,heading3,heading4,em"
           }
         },
         "description": {
