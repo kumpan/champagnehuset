@@ -46,10 +46,21 @@
         "config": {
           "label": "Image",
           "constraint": {
-            "width": 800,
-            "height": 600
+            "width": 1080,
+            "height": 1440
           },
-          "thumbnails": []
+          "thumbnails": [
+            {
+              "name": "square",
+              "width": 1440,
+              "height": 1440
+            },
+            {
+              "name": "horizontal",
+              "width": 1440,
+              "height": 960
+            }
+          ]
         }
       },
       "producer_region": {
@@ -74,17 +85,6 @@
           "placeholder": "Heading and presentation shown where the producer is featured",
           "allowTargetBlank": true,
           "multi": "heading2,heading3,paragraph,strong,em,hyperlink,list-item,o-list-item"
-        }
-      },
-      "producer_feature_image": {
-        "type": "Image",
-        "config": {
-          "label": "Feature Image",
-          "constraint": {
-            "width": 1440,
-            "height": 1440
-          },
-          "thumbnails": []
         }
       },
       "slices": {
