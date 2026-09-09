@@ -1,7 +1,7 @@
 import type { RichTextField } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 
-import { components } from "@/components/rich-text/rich-text-components";
+import { components, createComponents, type HeadingTag } from "@/components/rich-text/rich-text-components";
 import { cn } from "@/lib/utils";
 
 const proseThemeClass: Record<string, string> = {
@@ -18,9 +18,19 @@ interface CustomRichTextProps {
   inheritSize?: boolean;
   sectionTheme?: string;
   surface?: "brand";
+  headingAs?: HeadingTag;
 }
 
-export function CustomRichText({ field, className, inheritSize, sectionTheme = "Bud", surface }: CustomRichTextProps) {
+export function CustomRichText({
+  field,
+  className,
+  inheritSize,
+  sectionTheme = "Bud",
+  surface,
+  headingAs,
+}: CustomRichTextProps) {
+  const comps = headingAs ? createComponents({ headingAs }) : components;
+
   return (
     <div
       className={cn(
@@ -30,7 +40,7 @@ export function CustomRichText({ field, className, inheritSize, sectionTheme = "
         className,
       )}
     >
-      <PrismicRichText field={field} components={components} />
+      <PrismicRichText field={field} components={comps} />
     </div>
   );
 }
