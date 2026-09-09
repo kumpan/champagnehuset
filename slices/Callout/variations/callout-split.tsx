@@ -1,4 +1,4 @@
-import type { Content, ImageField, LinkField, RichTextField } from "@prismicio/client";
+import type { Content, LinkField, RichTextField } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
@@ -41,9 +41,9 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
 
   let producerTitle: RichTextField | undefined;
   let producerDescription: RichTextField | undefined;
-  let producerImage: ImageField<never> | undefined;
+  let producerImage: ProducerDocument["data"]["producer_image"] | undefined;
   if (producerDoc) {
-    const { producer_name, producer_about, producer_feature_image, producer_image } = producerDoc.data;
+    const { producer_name, producer_about, producer_image } = producerDoc.data;
 
     // A chosen producer replaces the slice's own text entirely
     const heading = producer_about.find((node) => node.type.startsWith("heading"));
@@ -54,11 +54,7 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
         ? [{ type: "heading2", text: producer_name, spans: [] }]
         : undefined;
     producerDescription = body.length > 0 ? (body as RichTextField) : undefined;
-    producerImage = isFilled.image(producer_feature_image)
-      ? producer_feature_image
-      : isFilled.image(producer_image)
-        ? producer_image
-        : undefined;
+    producerImage = isFilled.image(producer_image) ? producer_image : undefined;
   }
 
   // Producer button if a producer is choosen, button will override other button field
@@ -119,6 +115,7 @@ export async function CalloutSplit({ slice }: CalloutProps & { slice: Content.Ca
             {producerImage ? (
               <CustomMedia
                 imageField={producerImage}
+                thumbnail="square md:horizontal lg:square"
                 className="h-full w-full rounded-0"
                 preload
                 sectionTheme={section_theme}
