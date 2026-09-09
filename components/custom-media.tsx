@@ -135,7 +135,6 @@ export default function CustomMedia({
             if (!thumb) return null;
             return (
               <PrismicNextImage
-                // The same view can serve several breakpoints, so the name alone is not unique
                 key={`${seg.breakpoint}:${seg.name ?? "main"}`}
                 field={thumb}
                 preload={preload || false}
