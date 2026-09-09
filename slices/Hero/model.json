@@ -36,7 +36,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading1,heading2,heading3"
+            "multi": "heading1,heading2,heading3,em"
           }
         },
         "description": {
@@ -299,7 +299,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
+            "multi": "heading2,heading3,heading4,em"
           }
         },
         "description": {
