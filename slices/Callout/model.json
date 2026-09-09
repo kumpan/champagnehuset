@@ -312,7 +312,7 @@
             "customtypes": [
               {
                 "id": "producer",
-                "fields": ["producer_name", "producer_about", "producer_feature_image", "producer_image"]
+                "fields": ["producer_name", "producer_about", "producer_image"]
               }
             ]
           }
