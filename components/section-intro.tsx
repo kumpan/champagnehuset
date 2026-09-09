@@ -7,6 +7,7 @@ import { CustomRichText } from "@/components/custom-rich-text";
 import { resolveIcon } from "@/components/icons";
 import type { SectionTheme } from "@/components/layout/section";
 import { Overline } from "@/components/overline";
+import type { HeadingTag } from "@/components/rich-text/rich-text-components";
 import { cn } from "@/lib/utils";
 
 type CmsButtonItem = {
@@ -70,6 +71,7 @@ interface SectionIntroProps {
   buttonVariant?: ButtonVariant;
   buttonClassName?: string;
   buttonWrapperClassName?: string;
+  titleAs?: HeadingTag;
 }
 
 // Helpers
@@ -95,6 +97,7 @@ export function SectionIntro({
   buttonVariant,
   buttonClassName,
   buttonWrapperClassName,
+  titleAs,
 }: SectionIntroProps) {
   const isSplit = align === "split";
   const styles = alignClasses[align];
@@ -152,8 +155,9 @@ export function SectionIntro({
           <CustomRichText
             sectionTheme={sectionTheme}
             surface={surface}
+            headingAs={titleAs}
             className={cn(
-              "prose-headings:mb-0! italic transition-colors",
+              "prose-headings:mb-0! transition-colors",
               titleMaxWidth ? TITLE_MAX_W : "max-w-none",
               textBalance ? "text-balance" : "text-pretty",
               styles.title,

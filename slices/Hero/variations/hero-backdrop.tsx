@@ -79,6 +79,7 @@ export function HeroBackdrop({ slice, context }: Props) {
           {hasIntroContent && (
             <SectionIntro
               title={title}
+              titleAs="h1"
               description={description}
               descriptionClassName="md:text-lg lg:text-xl"
               buttons={buttons}
