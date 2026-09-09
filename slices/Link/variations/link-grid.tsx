@@ -4,24 +4,13 @@ import { ArrowRight } from "lucide-react";
 import CustomMedia from "@/components/custom-media";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import type { SectionTheme } from "@/components/section-intro";
 import { SectionIntro } from "@/components/section-intro";
-import { cn, hasSectionIntroContent } from "@/lib/utils";
+import { hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { ProducerDocument } from "@/prismicio-types";
 import type { LinkProps } from "..";
 
 type Props = LinkProps & { slice: Content.LinkSliceGrid };
-
-/** The card itself: a label bar sitting above the image plate. Inverted cards
- * carry the selection pair of the palette they wear, not the section's. */
-const cardThemeClasses: Record<SectionTheme, string> = {
-  Bud: "bg-fill-raised hover:bg-fill-raised/70",
-  Leaf: "bg-fill-raised text-ink hover:bg-fill-raised/70",
-  Bottle: "bg-brand text-brand-ink selection-light hover:bg-brand/90",
-  Dust: "bg-spot-fill-dark text-spot-ink-flip selection-spot-raised hover:bg-spot-fill-dark/90",
-  Slate: "bg-spot-fill-raised text-spot-ink selection-spot hover:bg-spot-fill-raised/90",
-};
 
 /**
  * Cards render the same whether they link to an authored link or a producer
@@ -93,30 +82,30 @@ export async function LinkGrid({ slice }: Props) {
         )}
 
         {items.length > 0 && (
-          <ul className="grid list-none grid-cols-2 gap-1 md:grid-cols-3 md:gap-2 lg:grid-cols-4">
+          <ul className="grid list-none grid-cols-2 gap-2 md:grid-cols-3 md:gap-3 lg:grid-cols-4">
             {items.map((item) => (
               <li key={item.key}>
                 <PrismicNextLink
                   {...item.link}
-                  className={cn(
-                    "group flex h-full flex-col overflow-hidden rounded-2 transition-all duration-500 ease-in-out",
-                    "hover:[&_svg]:[animation:var(--animate-wiggle-grow)]",
-                    cardThemeClasses[section_theme],
-                  )}
+                  className="group relative isolate flex aspect-3/4 flex-col justify-end overflow-hidden rounded-2 p-4 text-ink-flip transition-all duration-300 ease-in-out md:p-5 hover:[&_svg]:[animation:var(--animate-wiggle-grow)]"
                 >
-                  <div className="flex items-center justify-between gap-2 px-3 py-2.5 md:px-4 md:py-3">
-                    <span className="line-clamp-1 font-medium text-xs md:text-sm">{item.title}</span>
-                    {/* Hidden on mobile: cards are too narrow to spare the width. */}
-                    <ArrowRight className="hidden size-4 shrink-0 md:block" />
-                  </div>
+                  <CustomMedia
+                    imageField={item.image}
+                    className="absolute inset-0 size-full rounded-0 object-cover transition-transform duration-1500 ease-out group-hover:scale-103"
+                    sectionTheme={section_theme}
+                    sizes="(min-width: 64rem) 25vw, (min-width: 48rem) 33vw, 50vw"
+                  />
 
-                  <div className="overflow-hidden">
-                    <CustomMedia
-                      imageField={item.image}
-                      className="aspect-[4/3] w-full rounded-0 object-contain duration-1000 ease-out group-hover:scale-103"
-                      sectionTheme={section_theme}
-                      sizes="(min-width: 64rem) 25vw, (min-width: 48rem) 33vw, 50vw"
-                    />
+                  <div className="relative -mx-4 -mb-4 px-4 pt-12 pb-4 md:-mx-5 md:-mb-5 md:px-5 md:pt-16 md:pb-5">
+                    {/* Bottom Fade */}
+                    <div className="pointer-events-none absolute inset-0 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill-dark/50 to-spot-fill-dark/0" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />
+                    <div className="relative flex items-end justify-between gap-3">
+                      <h3 className="text-pretty font-primary text-lg md:text-xl">{item.title}</h3>
+                      {/* Hidden on mobile: cards are too narrow to spare the width. */}
+                      <ArrowRight className="mb-0.5 size-5 shrink-0 md:mb-0 md:block md:size-6.5" />
+                    </div>
                   </div>
                 </PrismicNextLink>
               </li>
