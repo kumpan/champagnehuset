@@ -1334,7 +1334,7 @@ interface ProducerDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  producer_image: prismic.ImageField<never>;
+  producer_image: prismic.ImageField<"square" | "horizontal">;
 
   /**
    * Region field in *Producer*
@@ -1374,17 +1374,6 @@ interface ProducerDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   producer_about: prismic.RichTextField;
-
-  /**
-   * Feature Image field in *Producer*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: producer.producer_feature_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  producer_feature_image: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Producer*
@@ -4037,12 +4026,7 @@ export interface CalloutSliceSplitPrimary {
     [
       {
         id: "producer";
-        fields: [
-          "producer_name",
-          "producer_about",
-          "producer_feature_image",
-          "producer_image",
-        ];
+        fields: ["producer_name", "producer_about", "producer_image"];
       },
     ]
   >;
