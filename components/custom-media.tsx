@@ -22,7 +22,7 @@ type CustomMediaProps = {
 };
 
 function parseThumbnail(value?: string) {
-  if (!value) return [{ name: undefined, visibility: "" }];
+  if (!value) return [{ name: undefined, breakpoint: "base", visibility: "" }];
 
   const segments = value.split(/\s+/).map((part) => {
     const colonIndex = part.indexOf(":");
@@ -44,7 +44,7 @@ function parseThumbnail(value?: string) {
       classes.push(`${next.breakpoint}:hidden`);
     }
 
-    return { name: seg.name, visibility: classes.join(" ") };
+    return { name: seg.name, breakpoint: seg.breakpoint, visibility: classes.join(" ") };
   });
 }
 
@@ -135,7 +135,8 @@ export default function CustomMedia({
             if (!thumb) return null;
             return (
               <PrismicNextImage
-                key={seg.name ?? "original"}
+                // The same view can serve several breakpoints, so the name alone is not unique
+                key={`${seg.breakpoint}:${seg.name ?? "main"}`}
                 field={thumb}
                 preload={preload || false}
                 onLoad={() => setLoaded(true)}
