@@ -103,7 +103,6 @@ export async function LinkGrid({ slice }: Props) {
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-spot-fill/50 to-spot-fill/0 mix-blend-overlay" />
                     <div className="relative flex items-end justify-between gap-3">
                       <h3 className="text-pretty font-primary text-lg md:text-xl">{item.title}</h3>
-                      {/* Hidden on mobile: cards are too narrow to spare the width. */}
                       <ArrowRight className="mb-0.5 size-5 shrink-0 md:mb-0 md:block md:size-6.5" />
                     </div>
                   </div>
