@@ -2,7 +2,6 @@ import { type Content, isFilled } from "@prismicio/client";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionIntro } from "@/components/section-intro";
-import articleModel from "@/customtypes/article/index.json";
 import { hasSectionIntroContent } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { ArticleDocument } from "@/prismicio-types";
@@ -11,11 +10,7 @@ import { ArticleGrid } from "../article-grid";
 
 type Props = ArticleProps & { slice: Content.ArticleSliceList };
 
-// Canonical chip order comes from the `tag` select field model file.
-const TAG_ORDER = articleModel.json.Main.tag.config.options;
-
-/** The dynamic-page template passes the `?page=N` it resolved in as slice context. */
-type ListContext = { page?: number; lang?: string };
+type ListContext = { lang?: string };
 
 export async function ArticleList({ slice, context }: Props) {
   const hasIntroContent = hasSectionIntroContent(slice);
@@ -29,6 +24,7 @@ export async function ArticleList({ slice, context }: Props) {
     filter_by_tag,
     show_pagination,
     show_filter_chips,
+    articles_per_page,
   } = slice.primary;
   const section_theme = slice.primary.section_theme;
 
@@ -62,13 +58,13 @@ export async function ArticleList({ slice, context }: Props) {
   const tagFilter = filter_by_tag && filter_by_tag !== "All" ? filter_by_tag : null;
   const articles = tagFilter ? pool.filter((article) => article.data.tag === tagFilter) : pool;
 
-  // Chips are for the open feed, when a fixed tag i set hide the filter chips
+  // Chips are for the open feed, when a fixed tag is set hide the filter chips
   const showChips = Boolean(show_filter_chips) && !tagFilter;
 
-  // Pagination lives in the URL, so the server HTML for ?page=2 already holds
-  // page 2's article cards and every page is reachable from a real <a href>.
+  // The filter and page live in the URL, which the grid reads itself, so the server
+  // HTML for ?tag=event&page=2 already holds the right cards behind real <a href>s.
   const showPagination = show_pagination !== false;
-  const currentPage = (context as ListContext | undefined)?.page ?? 1;
+  const pageSize = Number(articles_per_page);
 
   return (
     <Section
@@ -90,11 +86,10 @@ export async function ArticleList({ slice, context }: Props) {
         )}
         <ArticleGrid
           articles={articles}
-          tagOrder={TAG_ORDER}
           sectionTheme={section_theme}
           showPagination={showPagination}
           showChips={showChips}
-          currentPage={currentPage}
+          pageSize={pageSize}
           lang={lang}
           className="mt-8"
         />

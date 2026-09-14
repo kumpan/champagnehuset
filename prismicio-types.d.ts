@@ -235,7 +235,7 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  tag: prismic.SelectField<"Event" | "News" | "Tips", "filled">;
+  tag: prismic.SelectField<"Event" | "Tips" | "Nyheter" | "Kunskap", "filled">;
 
   /**
    * Parent field in *Article*
@@ -2484,6 +2484,17 @@ export interface ArticleSliceListPrimary {
   show_pagination: prismic.BooleanField;
 
   /**
+   * Articles Per Page field in *Article → List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 4
+   * - **API ID Path**: article.list.primary.articles_per_page
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  articles_per_page: prismic.SelectField<"4" | "8" | "12", "filled">;
+
+  /**
    * Filter by Tag field in *Article → List → Primary*
    *
    * - **Field Type**: Select
@@ -2493,7 +2504,7 @@ export interface ArticleSliceListPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   filter_by_tag: prismic.SelectField<
-    "All" | "Event" | "News" | "Tips",
+    "All" | "Event" | "Tips" | "Nyheter" | "Kunskap",
     "filled"
   >;
 

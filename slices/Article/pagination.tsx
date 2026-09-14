@@ -37,6 +37,8 @@ type Props = {
   sectionTheme: keyof typeof pageThemeClasses;
   /** Builds the crawlable href for a page number — the URL is the source of truth. */
   buildHref: (page: number) => string;
+  /** Lets the grid swap pages in place instead of navigating, the href stays for crawlers. */
+  onNavigate?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
 /**
@@ -45,7 +47,7 @@ type Props = {
  * page and the dead-end arrows render as `<span>` — nothing to click, nothing
  * to crawl. `scroll={false}` keeps it feeling like an in-place swap.
  */
-export function Pagination({ currentPage, totalPages, sectionTheme, buildHref }: Props) {
+export function Pagination({ currentPage, totalPages, sectionTheme, buildHref, onNavigate }: Props) {
   const theme = pageThemeClasses[sectionTheme];
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   const canPrev = currentPage > 1;
@@ -62,6 +64,8 @@ export function Pagination({ currentPage, totalPages, sectionTheme, buildHref }:
       {canPrev ? (
         <Link
           href={buildHref(currentPage - 1)}
+          prefetch={false}
+          onClick={onNavigate}
           scroll={false}
           rel="prev"
           aria-label="Previous page"
@@ -87,7 +91,14 @@ export function Pagination({ currentPage, totalPages, sectionTheme, buildHref }:
             {page}
           </span>
         ) : (
-          <Link key={page} href={buildHref(page)} scroll={false} className={className}>
+          <Link
+            key={page}
+            href={buildHref(page)}
+            prefetch={false}
+            onClick={onNavigate}
+            scroll={false}
+            className={className}
+          >
             {page}
           </Link>
         );
@@ -95,6 +106,8 @@ export function Pagination({ currentPage, totalPages, sectionTheme, buildHref }:
       {canNext ? (
         <Link
           href={buildHref(currentPage + 1)}
+          prefetch={false}
+          onClick={onNavigate}
           scroll={false}
           rel="next"
           aria-label="Next page"

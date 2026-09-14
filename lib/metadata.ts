@@ -1,6 +1,7 @@
 import { asImageSrc, type ImageField, type PrismicDocument } from "@prismicio/client";
 import type { Metadata } from "next";
 import { t } from "./i18n";
+import type { ListingParams } from "./pagination";
 import { DEFAULT_OG_IMAGE } from "./schema-config";
 
 type DocWithSeo = PrismicDocument<{
@@ -22,15 +23,16 @@ type DocWithSeo = PrismicDocument<{
  * the layout's title.template and default description still cascade when the CMS
  * leaves them empty.
  *
- * `pageNumber` is the listing's `?page=N` (see `lib/pagination.ts`). Page 2+ is
- * a distinct URL with distinct articles, so it gets its own title and a
- * self-referencing canonical rather than reading as a duplicate of page 1.
+ * `listing` is the listing's `?tag=` and `?page=N` (see `lib/pagination.ts`).
+ * A filtered or paged view is a distinct URL with distinct articles, so it gets
+ * a self-referencing canonical rather than reading as a duplicate of the open
+ * feed, and page 2+ gets its own title.
  */
-export function buildPageMetadata(doc: DocWithSeo | null, pageNumber = 1): Metadata {
+export function buildPageMetadata(doc: DocWithSeo | null, listing: ListingParams = { page: 1, tag: null }): Metadata {
   if (!doc) return {};
 
-  const paged = pageNumber > 1;
-  const pageSuffix = paged ? ` – ${t(doc.lang).page} ${pageNumber}` : "";
+  const paged = listing.page > 1;
+  const pageSuffix = paged ? ` – ${t(doc.lang).page} ${listing.page}` : "";
   const title = doc.data.meta_title ? `${doc.data.meta_title}${pageSuffix}` : undefined;
   const description = doc.data.meta_description || undefined;
   const imageUrl = doc.data.meta_image ? asImageSrc(doc.data.meta_image) : null;
@@ -39,15 +41,20 @@ export function buildPageMetadata(doc: DocWithSeo | null, pageNumber = 1): Metad
   // Prismic locale (sv-se) -> Open Graph locale (sv_SE)
   const ogLocale = doc.lang.replace(/-(\w+)$/, (_, region) => `_${region.toUpperCase()}`);
 
-  const url = doc.url ? `${doc.url}${paged ? `?page=${pageNumber}` : ""}` : undefined;
+  // Same param order as the listing's own links, so the canonical matches the address bar
+  const query = new URLSearchParams();
+  if (listing.tag) query.set("tag", listing.tag.toLowerCase());
+  if (paged) query.set("page", String(listing.page));
+  const search = query.toString();
+  const url = doc.url ? `${doc.url}${search ? `?${search}` : ""}` : undefined;
 
   const metadata: Metadata = {};
   if (title) metadata.title = title;
   if (description) metadata.description = description;
 
-  // Only paginated URLs get a canonical for now — the site emits none otherwise
-  // (see improvements.md), and page N must not be mistaken for page 1.
-  if (paged && url) metadata.alternates = { canonical: url };
+  // Only filtered and paginated URLs get a canonical for now — the site emits none
+  // otherwise (see improvements.md), and a narrowed view must not be mistaken for the open feed.
+  if (search && url) metadata.alternates = { canonical: url };
 
   metadata.openGraph = {
     type: doc.type === "article" ? "article" : "website",
