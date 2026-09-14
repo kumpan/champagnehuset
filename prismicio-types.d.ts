@@ -1150,6 +1150,17 @@ interface NewsletterDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   success_message: prismic.RichTextField;
+
+  /**
+   * Privacy Notice field in *Newsletter Popup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Short note on what the email is used for, with a link to the privacy policy
+   * - **API ID Path**: newsletter.privacy_notice
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  privacy_notice: prismic.RichTextField;
 }
 
 /**
@@ -5488,6 +5499,16 @@ export interface ContactSliceRegisterPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   success_message: prismic.RichTextField;
+
+  /**
+   * Privacy Notice field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Short note on what the email is used for, with a link to the privacy policy
+   * - **API ID Path**: contact.register.primary.privacy_notice
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  privacy_notice: prismic.RichTextField;
 }
 
 /**
