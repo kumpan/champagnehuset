@@ -221,7 +221,15 @@ h2 {
     }
 
     .prose-size-h2 {
-        @apply italic;
+        @apply normal-case italic;
+    }
+
+    .prose-size-h3,
+    .prose-size-h4,
+    .prose-size-h5,
+    .prose-size-h6 {
+        @apply font-medium normal-case not-italic;
+        font-family: var(--font-secondary), sans-serif;
     }
 }
 
