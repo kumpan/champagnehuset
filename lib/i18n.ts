@@ -53,6 +53,8 @@ const sv = {
   yes: "Ja",
   close: "Stäng",
   search: "Sök",
+  openQuickNav: "Öppna snabbnavigering",
+  closeQuickNav: "Stäng snabbnavigering",
 
   // Product search + filters
   filter: "Filtrera",
@@ -108,6 +110,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Yes",
     close: "Close",
     search: "Search",
+    openQuickNav: "Open quick navigation",
+    closeQuickNav: "Close quick navigation",
 
     // Product search + filters
     filter: "Filter",
@@ -152,6 +156,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Schließen",
     search: "Suchen",
+    openQuickNav: "Schnellnavigation öffnen",
+    closeQuickNav: "Schnellnavigation schließen",
 
     // Product search + filters
     filter: "Filtern",
@@ -196,6 +202,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Oui",
     close: "Fermer",
     search: "Rechercher",
+    openQuickNav: "Ouvrir la navigation rapide",
+    closeQuickNav: "Fermer la navigation rapide",
 
     // Product search + filters
     filter: "Filtrer",
@@ -240,6 +248,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Sì",
     close: "Chiudi",
     search: "Cerca",
+    openQuickNav: "Apri navigazione rapida",
+    closeQuickNav: "Chiudi navigazione rapida",
 
     // Product search + filters
     filter: "Filtra",
@@ -284,6 +294,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Sí",
     close: "Cerrar",
     search: "Buscar",
+    openQuickNav: "Abrir navegación rápida",
+    closeQuickNav: "Cerrar navegación rápida",
 
     // Product search + filters
     filter: "Filtrar",
@@ -328,6 +340,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Sim",
     close: "Fechar",
     search: "Pesquisar",
+    openQuickNav: "Abrir navegação rápida",
+    closeQuickNav: "Fechar navegação rápida",
 
     // Product search + filters
     filter: "Filtrar",
@@ -372,6 +386,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Sluiten",
     search: "Zoeken",
+    openQuickNav: "Snelle navigatie openen",
+    closeQuickNav: "Snelle navigatie sluiten",
 
     // Product search + filters
     filter: "Filteren",
@@ -416,6 +432,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Luk",
     search: "Søg",
+    openQuickNav: "Åbn hurtignavigation",
+    closeQuickNav: "Luk hurtignavigation",
 
     // Product search + filters
     filter: "Filtrér",
@@ -460,6 +478,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Lukk",
     search: "Søk",
+    openQuickNav: "Åpne hurtignavigering",
+    closeQuickNav: "Lukk hurtignavigering",
 
     // Product search + filters
     filter: "Filtrer",
@@ -504,6 +524,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Lukk",
     search: "Søk",
+    openQuickNav: "Opne snøggnavigering",
+    closeQuickNav: "Lukk snøggnavigering",
 
     // Product search + filters
     filter: "Filtrer",
@@ -548,6 +570,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Kyllä",
     close: "Sulje",
     search: "Hae",
+    openQuickNav: "Avaa pikavalikko",
+    closeQuickNav: "Sulje pikavalikko",
 
     // Product search + filters
     filter: "Suodata",
@@ -592,6 +616,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Tak",
     close: "Zamknij",
     search: "Szukaj",
+    openQuickNav: "Otwórz szybką nawigację",
+    closeQuickNav: "Zamknij szybką nawigację",
 
     // Product search + filters
     filter: "Filtruj",
