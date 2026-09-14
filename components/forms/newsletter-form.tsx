@@ -74,7 +74,7 @@ export function NewsletterForm({
       const res = await fetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), website: honeypot, source }),
+        body: JSON.stringify({ email: email.trim(), website: honeypot, source, page: window.location.pathname }),
       });
 
       if (!res.ok) {
@@ -83,6 +83,9 @@ export function NewsletterForm({
       }
 
       setFormState("submitted");
+      // GTM forwards this to GA4
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "newsletter_signup", signup_source: source ?? "unknown" });
       // Any signup, modal or inline slice, silences the popup for a longer period
       markNewsletterSubscribed();
     } catch (err) {
