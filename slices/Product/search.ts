@@ -67,7 +67,7 @@ const availabilityOptions = (lang: string | null | undefined): FilterOption[] =>
 
 /** Mirrors the curated option order in the product custom type selects. */
 const REGION_ORDER = ["Côte des Blancs", "Montagne de Reims", "Vallée de la Marne", "Côte des Bar", "Côte de Sézanne"];
-const STYLE_ORDER = ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Millésime", "Special Club"];
+const STYLE_ORDER = ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Millésime"];
 const GRAPE_ORDER = [
   "Chardonnay",
   "Pinot Noir",
