@@ -20,8 +20,17 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
   const { active, dismissNewsletter } = useModal();
   const open = active === "newsletter";
 
-  const { tagline, title, description, image, email_label, email_placeholder, button_label, success_message } =
-    prismicData.data;
+  const {
+    tagline,
+    title,
+    description,
+    image,
+    email_label,
+    email_placeholder,
+    button_label,
+    success_message,
+    privacy_notice,
+  } = prismicData.data;
 
   const hasImage = isFilled.image(image);
 
@@ -85,6 +94,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
                 buttonLabel={button_label}
                 buttonIcon
                 successMessage={success_message}
+                privacyNotice={privacy_notice}
                 lang={prismicData.lang}
                 sectionTheme="Bud"
                 source="modal"

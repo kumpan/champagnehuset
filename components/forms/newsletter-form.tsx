@@ -21,6 +21,7 @@ type Props = {
   placeholder?: string | null;
   buttonLabel?: string | null;
   successMessage?: RichTextField;
+  privacyNotice?: RichTextField;
   lang?: string;
   sectionTheme?: SectionTheme;
   buttonVariant?: ButtonVariant;
@@ -35,6 +36,7 @@ export function NewsletterForm({
   placeholder,
   buttonLabel,
   successMessage,
+  privacyNotice,
   lang,
   sectionTheme = "Bud",
   buttonVariant = "default",
@@ -155,6 +157,10 @@ export function NewsletterForm({
       {showErrors && emailError && <p className="text-error text-sm">{emailError}</p>}
 
       {errorMessage && <p className="text-error text-sm">{errorMessage}</p>}
+
+      {isFilled.richText(privacyNotice) && (
+        <CustomRichText field={privacyNotice} sectionTheme={sectionTheme} className="text-ink-dim text-sm" />
+      )}
     </form>
   );
 }
