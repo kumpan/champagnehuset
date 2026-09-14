@@ -189,11 +189,17 @@ body {
     font-family: var(--font-secondary), sans-serif;
 }
 
-/* Headings default to the primary display font */
 h1,
-h2,
-h3 {
+h2 {
     font-family: var(--font-primary), sans-serif;
+}
+
+h1 {
+    @apply uppercase not-italic;
+}
+
+h2 {
+    @apply italic;
 }
 
 /* Prose Styles */
@@ -209,9 +215,16 @@ h3 {
         @apply mt-0 mb-4 tracking-tight lg:mb-6 text-ink;
         font-family: var(--font-primary), sans-serif;
     }
+
+    .prose-size-h1 {
+        @apply uppercase not-italic;
+    }
+
+    .prose-size-h2 {
+        @apply italic;
+    }
 }
 
-/* Headings default to the primary display font */
 h3,
 h4,
 h5,
@@ -279,7 +292,7 @@ h6 {
 
     h2,
     .prose-size-h2 {
-        @apply mb-2 text-3xl italic leading-[1.12] font-stretch-120% md:text-4xl lg:text-6xl 2xl:text-7xl;
+        @apply mb-2 text-3xl leading-[1.12] font-stretch-120% md:text-4xl lg:text-6xl 2xl:text-7xl;
         &:not(:first-child) {
             @apply mt-10;
         }
