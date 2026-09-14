@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
+import { SITE_URL } from "@/lib/schema-config";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const host = (await headers()).get("host") ?? "";
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const productionHost = siteUrl ? new URL(siteUrl).host : "";
-  const isIndexable = host === productionHost;
+  // Only the real domain gets indexed, so a staging host stays hidden even without env
+  const isIndexable = host === new URL(SITE_URL).host;
 
   if (!isIndexable) {
     return {
@@ -19,6 +19,6 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       allow: "/",
       disallow: ["/api/", "/slice-simulator/"],
     },
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

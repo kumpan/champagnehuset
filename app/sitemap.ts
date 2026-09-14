@@ -1,6 +1,7 @@
 import type { PrismicDocument } from "@prismicio/client";
 import type { MetadataRoute } from "next";
 import { getMasterLocale } from "@/lib/locales";
+import { SITE_URL } from "@/lib/schema-config";
 import { createClient } from "@/prismicio";
 
 type Resolved<T> = T & { url: string; uid: string };
@@ -9,7 +10,6 @@ const isResolvable = <T extends PrismicDocument>(doc: T): doc is Resolved<T> => 
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const client = await createClient();
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const masterLocale = await getMasterLocale();
 
   const [pages, articles, products, producers] = await Promise.all([
