@@ -150,3 +150,11 @@ Never create branches, commit, or push on the developer's behalf. The developer 
 - If a task seems to require a commit or push, ask first — do not proceed.
 
 <!-- END:git-rules -->
+
+# No legacy fallbacks in code
+
+When a model changes (a new field, a renamed option, a removed value), the code reads the new shape only. Do not add fallbacks for documents saved before the change, such as "this field is empty on old documents so default it" or "map the old option name to the new one at render time". That is a hot fix that hides broken content and lives forever.
+
+- Fix the content instead. Write a migration in `scripts/prismic-migration/` that backfills or renames the stored values, and run it after the model is pushed.
+- Defaults belong in the model's `default_value`, which only covers new documents. Existing documents get the value through the migration.
+- Validating outside input (a `?page=` or `?tag=` URL param, form data) is not a fallback. Guard that as usual.
