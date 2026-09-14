@@ -25,6 +25,7 @@ export function ContactRegister({ slice, context }: Props) {
     email_placeholder,
     button_label,
     success_message,
+    privacy_notice,
   } = slice.primary;
   const section_theme = slice.primary.section_theme;
 
@@ -67,6 +68,7 @@ export function ContactRegister({ slice, context }: Props) {
               placeholder={email_placeholder}
               buttonLabel={button_label}
               successMessage={success_message}
+              privacyNotice={privacy_notice}
               lang={lang}
               sectionTheme={contentTheme}
               source="slice"

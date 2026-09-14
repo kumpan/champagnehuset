@@ -41,7 +41,7 @@ const Section = ({
 
       {process.env.NODE_ENV !== "production" && sliceName && (
         <div className="pointer-events-none sticky bottom-4 z-50 h-0">
-          <span className="absolute right-16 bottom-0 flex h-10 items-center rounded-3 bg-indigo-400/20 px-3 font-medium text-indigo-950/70 text-sm backdrop-blur-lg backdrop-brightness-200">
+          <span className="absolute right-4 bottom-8 flex h-7 items-center rounded-3 bg-indigo-400/20 px-2 font-medium text-indigo-950/70 text-xs backdrop-blur-lg backdrop-brightness-200 md:right-16 md:bottom-0 md:h-10 md:px-3 md:text-sm">
             {sliceName}
           </span>
         </div>

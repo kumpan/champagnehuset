@@ -6,6 +6,7 @@ import CustomMedia from "@/components/custom-media";
 import { iconMap } from "@/components/icons";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { tagLabel } from "@/lib/article-tags";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { createClient } from "@/prismicio";
@@ -70,7 +71,7 @@ export async function ArticleFeature({ slice }: Props) {
                 <div className="flex flex-1 flex-col items-start gap-2 md:gap-6 md:py-8">
                   <div className="flex flex-col gap-2 md:pb-4">
                     <div className="flex items-center gap-2 text-base md:text-lg">
-                      {tag && <span>{tag}</span>}
+                      {tag && <span>{tagLabel(tag, article.lang)}</span>}
                       {tag && date && <span aria-hidden="true">•</span>}
                       {date && <span>{date}</span>}
                     </div>

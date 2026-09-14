@@ -2,9 +2,9 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 import { cardFocusRing } from "@/components/button";
 import type { SectionTheme } from "@/components/layout/section";
+import { tagLabel } from "@/lib/article-tags";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
-import { tagLabel } from "./constants";
 
 /**
  * `Intl` accepts Prismic's lowercase locale ids ("sv-se") directly and already

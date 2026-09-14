@@ -1,8 +1,7 @@
 /**
  * All purchase-flow microcopy for the Text → Info (product detail) variation
  * lives here, so a CMS editor only picks the availability on the product
- * document and never retypes this copy. The sales-rep phone/email are the same
- * for every wine, so they're constants too; change them here if the rep changes.
+ * document and never retypes this copy.
  */
 
 export type ConsumerAvailability =
@@ -13,12 +12,6 @@ export type ConsumerAvailability =
   | null;
 
 export type RestaurantAvailability = "Available" | "Sold Out" | null;
-
-export const RESTAURANT_CONTACT = {
-  phoneLabel: "+46 (0) 70 724 34 74",
-  phoneHref: "tel:+46707243474",
-  email: "ida.timen@twscollective.se",
-} as const;
 
 export const CONTACT_PAGE_PATH = "/om-oss/kontakt";
 

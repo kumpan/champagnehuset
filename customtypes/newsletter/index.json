@@ -90,9 +90,18 @@
         "type": "StructuredText",
         "config": {
           "label": "Success Message",
-          "placeholder": "Tack! Kolla din inkorg för att bekräfta.",
+          "placeholder": "Tack för att du prenumererar!",
           "allowTargetBlank": true,
           "multi": "paragraph,heading4,strong,em,hyperlink"
+        }
+      },
+      "privacy_notice": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Privacy Notice",
+          "placeholder": "Short note on what the email is used for, with a link to the privacy policy",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
         }
       }
     }

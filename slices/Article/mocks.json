@@ -63,6 +63,11 @@
         "__TYPE__": "BooleanContent",
         "value": false
       },
+      "articles_per_page": {
+        "__TYPE__": "FieldContent",
+        "value": "4",
+        "type": "Select"
+      },
       "filter_by_tag": {
         "__TYPE__": "FieldContent",
         "value": "All",

@@ -3,11 +3,12 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { useState } from "react";
+import { t } from "@/lib/i18n";
 import { cn, toAnchorId } from "@/lib/utils";
 
 type HeadingNode = { text: string };
 
-export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
+export function TocAccordion({ headings, lang }: { headings: HeadingNode[]; lang?: string }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -19,7 +20,7 @@ export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
             transition={{ duration: 0.15, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full overflow-hidden rounded-1 bg-fill-raised p-1 pt-13"
+            className="absolute top-0 left-0 flex max-h-[calc(100svh-7rem)] w-full flex-col overflow-hidden rounded-2 bg-fill-raised p-1 pt-13 md:max-h-[calc(100svh-8rem)]"
           >
             <m.div
               initial="hidden"
@@ -35,7 +36,7 @@ export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
                   },
                 },
               }}
-              className="flex flex-col gap-1"
+              className="flex min-h-0 flex-col gap-1 overflow-y-auto overscroll-contain rounded-1"
             >
               {headings.map((h) => (
                 <m.a
@@ -59,7 +60,7 @@ export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
                       document.getElementById(toAnchorId(h.text))?.scrollIntoView({ block: "start" });
                     });
                   }}
-                  className="flex h-12 items-center gap-1.5 rounded-1 bg-fill pr-4 pl-3 text-ink leading-snug hover:text-ink-raised"
+                  className="flex h-12 shrink-0 items-center gap-1.5 rounded-1 bg-fill pr-4 pl-3 text-ink leading-snug hover:text-ink-raised"
                 >
                   <ChevronRight className="size-5 shrink-0" />
                   <span className="truncate">{h.text}</span>
@@ -84,7 +85,7 @@ export function TocAccordion({ headings }: { headings: HeadingNode[] }) {
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              {open ? "Close quick navigation" : "Open quick navigation"}
+              {open ? t(lang).closeQuickNav : t(lang).openQuickNav}
             </m.span>
           </AnimatePresence>
           <m.div

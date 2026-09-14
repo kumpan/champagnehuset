@@ -36,7 +36,7 @@ const ResponsiveIndicator = () =>
     <div
       key={label}
       className={cn(
-        "fixed right-4 bottom-4 z-50 size-10 animate-wiggle-grow items-center justify-center rounded-3 font-medium text-sm",
+        "fixed right-4 bottom-4 z-50 size-7 animate-wiggle-grow items-center justify-center rounded-3 font-medium text-xs md:size-10 md:text-sm",
         range,
         theme,
       )}

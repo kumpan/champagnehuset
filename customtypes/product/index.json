@@ -172,7 +172,7 @@
         "config": {
           "label": "Style",
           "placeholder": "",
-          "options": ["Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Millésime", "Special Club", "None"]
+          "options": ["None", "Blanc de Blancs", "Blanc de Noirs", "Rosé", "Assemblage", "Millésime"]
         }
       },
       "product_special_club": {

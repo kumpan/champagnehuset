@@ -98,12 +98,21 @@
             "default_value": true
           }
         },
+        "articles_per_page": {
+          "type": "Select",
+          "config": {
+            "label": "Articles Per Page",
+            "placeholder": "",
+            "options": ["4", "8", "12"],
+            "default_value": "4"
+          }
+        },
         "filter_by_tag": {
           "type": "Select",
           "config": {
             "label": "Filter by Tag",
             "placeholder": "",
-            "options": ["All", "Event", "News", "Tips"],
+            "options": ["All", "Event", "Tips", "Nyheter", "Kunskap"],
             "default_value": "All"
           }
         },
@@ -230,7 +239,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4,em"
+            "multi": "heading2,heading3,heading4"
           }
         },
         "description": {
@@ -239,7 +248,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+            "multi": "strong,em,paragraph,heading3,heading4,heading5,hyperlink,list-item,o-list-item"
           }
         },
         "button": {

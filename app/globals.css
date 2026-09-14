@@ -189,11 +189,17 @@ body {
     font-family: var(--font-secondary), sans-serif;
 }
 
-/* Headings default to the primary display font */
 h1,
-h2,
-h3 {
+h2 {
     font-family: var(--font-primary), sans-serif;
+}
+
+h1 {
+    @apply uppercase not-italic;
+}
+
+h2 {
+    @apply italic;
 }
 
 /* Prose Styles */
@@ -201,19 +207,33 @@ h3 {
     /* Let long, unbreakable tokens wrap instead of */
     overflow-wrap: break-word;
 
-    /* The .prose-size-h1 to h6 twins keep the editor-chosen size when the rendered tag is forced (e.g. SEO <h1>) */
+    /* The .prose-size-h1 to h6 twins keep the editor-chosen size when the rendered tag is forced */
     h1,
     h2,
-    h3,
     .prose-size-h1,
-    .prose-size-h2,
-    .prose-size-h3 {
+    .prose-size-h2 {
         @apply mt-0 mb-4 tracking-tight lg:mb-6 text-ink;
         font-family: var(--font-primary), sans-serif;
     }
+
+    .prose-size-h1 {
+        @apply uppercase not-italic;
+    }
+
+    .prose-size-h2 {
+        @apply normal-case italic;
+    }
+
+    .prose-size-h3,
+    .prose-size-h4,
+    .prose-size-h5,
+    .prose-size-h6 {
+        @apply font-medium normal-case not-italic;
+        font-family: var(--font-secondary), sans-serif;
+    }
 }
 
-/* Headings default to the primary display font */
+h3,
 h4,
 h5,
 h6 {

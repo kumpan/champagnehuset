@@ -21,6 +21,7 @@ type Props = {
   placeholder?: string | null;
   buttonLabel?: string | null;
   successMessage?: RichTextField;
+  privacyNotice?: RichTextField;
   lang?: string;
   sectionTheme?: SectionTheme;
   buttonVariant?: ButtonVariant;
@@ -35,6 +36,7 @@ export function NewsletterForm({
   placeholder,
   buttonLabel,
   successMessage,
+  privacyNotice,
   lang,
   sectionTheme = "Bud",
   buttonVariant = "default",
@@ -74,7 +76,7 @@ export function NewsletterForm({
       const res = await fetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), website: honeypot, source }),
+        body: JSON.stringify({ email: email.trim(), website: honeypot, source, page: window.location.pathname }),
       });
 
       if (!res.ok) {
@@ -83,6 +85,9 @@ export function NewsletterForm({
       }
 
       setFormState("submitted");
+      // GTM forwards this to GA4
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "newsletter_signup", signup_source: source ?? "unknown" });
       // Any signup, modal or inline slice, silences the popup for a longer period
       markNewsletterSubscribed();
     } catch (err) {
@@ -152,6 +157,10 @@ export function NewsletterForm({
       {showErrors && emailError && <p className="text-error text-sm">{emailError}</p>}
 
       {errorMessage && <p className="text-error text-sm">{errorMessage}</p>}
+
+      {isFilled.richText(privacyNotice) && (
+        <CustomRichText field={privacyNotice} sectionTheme={sectionTheme} className="text-ink-dim text-sm" />
+      )}
     </form>
   );
 }

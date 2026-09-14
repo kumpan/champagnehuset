@@ -1,14 +1,16 @@
 "use client";
 
 import { AnimatePresence, easeInOut, m, spring, useInView, useReducedMotion } from "motion/react";
-import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useMemo, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useMemo, useRef } from "react";
 import type { SectionTheme } from "@/components/layout/section";
+import { ARTICLE_TAGS, parseTagParam, tagLabel } from "@/lib/article-tags";
 import { t } from "@/lib/i18n";
+import { parsePageParam } from "@/lib/pagination";
 import { cn } from "@/lib/utils";
 import type { ArticleDocument } from "@/prismicio-types";
 import { ArticleCard } from "./article-card";
-import { PAGE_SIZE, tagLabel } from "./constants";
 import { Pagination } from "./pagination";
 
 // Entering cards hold ENTER_LEAD before their staggered entrance.
@@ -44,24 +46,35 @@ const chipThemeClasses: Record<SectionTheme, { active: string; inactive: string 
   },
 };
 
+/**
+ * Plain left clicks filter in place and push the new URL, so nothing waits on a
+ * server round trip. Modified clicks and middle clicks fall through to the real
+ * href so "open in new tab" keeps working. pushState is wired into the Next
+ * router, so useSearchParams below picks the change up and Back steps through filters.
+ */
+export function navigateInPlace(event: React.MouseEvent<HTMLAnchorElement>) {
+  if (event.defaultPrevented || event.button !== 0) return;
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  window.history.pushState(null, "", event.currentTarget.getAttribute("href"));
+}
+
 type ArticleGridProps = {
   articles: ArticleDocument[];
-  tagOrder: readonly string[];
   sectionTheme: SectionTheme;
   showPagination: boolean;
   showChips: boolean;
-  currentPage: number;
+  pageSize: number;
   lang?: string;
   className?: string;
 };
 
 export function ArticleGrid({
   articles,
-  tagOrder,
   sectionTheme,
   showPagination,
   showChips,
-  currentPage: pageFromUrl,
+  pageSize,
   lang,
   className,
 }: ArticleGridProps) {
@@ -69,38 +82,41 @@ export function ArticleGrid({
   const gridRef = useRef<HTMLDivElement>(null);
   const inView = useInView(gridRef, { once: true, amount: 0.15 });
 
+  // The filter and the page both live in the URL, so a copied address reopens the
+  // same view and the server HTML for it already holds the right cards. Same param
+  // order as the canonical in lib/metadata.ts so the two never disagree.
   const pathname = usePathname();
-  const router = useRouter();
-  const buildHref = useCallback(
-    (target: number) => (target <= 1 ? pathname : `${pathname}?page=${target}`),
-    [pathname],
-  );
-
-  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const buildHref = (tag: string | null, page: number) => {
+    const params = new URLSearchParams();
+    if (tag) params.set("tag", tag.toLowerCase());
+    if (page > 1) params.set("page", String(page));
+    const search = params.toString();
+    return search ? `${pathname}?${search}` : pathname;
+  };
 
   // Only tags actually present, in canonical order, so no empty chips.
   const availableTags = useMemo(() => {
     const present = new Set<string>(articles.map((article) => article.data.tag).filter(Boolean));
-    return tagOrder.filter((tag) => present.has(tag));
-  }, [articles, tagOrder]);
+    return ARTICLE_TAGS.filter((tag) => present.has(tag));
+  }, [articles]);
+
+  // The URL tag is the chips' state, so it only applies where the chips render. A deep
+  // link to a tag with no articles would show an empty grid and no matching chip.
+  const tagFromUrl = showChips ? parseTagParam(searchParams.get("tag")) : null;
+  const activeTag = tagFromUrl && availableTags.includes(tagFromUrl) ? tagFromUrl : null;
 
   const filtered = useMemo(
     () => (activeTag ? articles.filter((article) => article.data.tag === activeTag) : articles),
     [articles, activeTag],
   );
 
-  const totalPages = showPagination ? Math.max(1, Math.ceil(filtered.length / PAGE_SIZE)) : 1;
+  const totalPages = showPagination ? Math.max(1, Math.ceil(filtered.length / pageSize)) : 1;
   // A filter narrows the feed, so a `?page=` deep-link can land past the end.
-  const currentPage = Math.min(Math.max(1, pageFromUrl), totalPages);
+  const currentPage = Math.min(Math.max(1, parsePageParam(searchParams.get("page"))), totalPages);
   const visible = showPagination
-    ? filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
-    : filtered.slice(0, PAGE_SIZE);
-
-  // Chips filter client-side, so a tag change invalidates the current page window
-  const selectTag = (tag: string | null) => {
-    setActiveTag(tag);
-    if (pageFromUrl > 1) router.replace(pathname, { scroll: false });
-  };
+    ? filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    : filtered.slice(0, pageSize);
 
   const chips = showChips && availableTags.length > 0;
 
@@ -109,16 +125,16 @@ export function ArticleGrid({
   return (
     <div className={cn("flex flex-col gap-8", className)}>
       {chips && (
-        <div className="flex flex-wrap gap-1.5">
-          <ChipButton active={activeTag === null} theme={sectionTheme} onClick={() => selectTag(null)}>
+        <nav aria-label={t(lang).filter} className="flex flex-wrap gap-1.5">
+          <Chip href={buildHref(null, 1)} active={activeTag === null} theme={sectionTheme}>
             {t(lang).all}
-          </ChipButton>
+          </Chip>
           {availableTags.map((tag) => (
-            <ChipButton key={tag} active={activeTag === tag} theme={sectionTheme} onClick={() => selectTag(tag)}>
+            <Chip key={tag} href={buildHref(tag, 1)} active={activeTag === tag} theme={sectionTheme}>
               {tagLabel(tag, lang)}
-            </ChipButton>
+            </Chip>
           ))}
-        </div>
+        </nav>
       )}
 
       <div ref={gridRef} className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -145,36 +161,37 @@ export function ArticleGrid({
           currentPage={currentPage}
           totalPages={totalPages}
           sectionTheme={sectionTheme}
-          buildHref={buildHref}
+          buildHref={(page) => buildHref(activeTag, page)}
+          onNavigate={navigateInPlace}
         />
       )}
     </div>
   );
 }
 
-function ChipButton({
+// The active chip is a plain span like the current page number, nothing clickable that changes nothing
+function Chip({
+  href,
   active,
   theme,
-  onClick,
   children,
 }: {
+  href: string;
   active: boolean;
   theme: SectionTheme;
-  onClick: () => void;
   children: React.ReactNode;
 }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={cn(
-        "h-12 rounded-1 px-4 font-medium text-base transition-colors duration-300 ease-out",
-        active ? chipThemeClasses[theme].active : chipThemeClasses[theme].inactive,
-        !active && "cursor-pointer",
-      )}
-    >
+  const className = cn(
+    "inline-flex h-12 items-center rounded-1 px-4 font-medium text-base transition-colors duration-300 ease-out",
+    active ? chipThemeClasses[theme].active : chipThemeClasses[theme].inactive,
+  );
+  return active ? (
+    <span aria-current="true" className={className}>
       {children}
-    </button>
+    </span>
+  ) : (
+    <Link href={href} prefetch={false} onClick={navigateInPlace} className={className}>
+      {children}
+    </Link>
   );
 }

@@ -144,7 +144,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4,em"
+            "multi": "heading2,heading3,heading4"
           }
         },
         "description": {
@@ -153,7 +153,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+            "multi": "strong,em,paragraph,heading3,heading4,heading5,hyperlink,list-item,o-list-item"
           }
         },
         "rich_text": {
@@ -309,7 +309,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4,em"
+            "multi": "heading2,heading3,heading4"
           }
         },
         "description": {
@@ -318,7 +318,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "strong,em,paragraph,hyperlink,list-item,o-list-item,embed,preformatted"
+            "multi": "strong,em,paragraph,heading3,heading4,heading5,hyperlink,list-item,o-list-item"
           }
         },
         "first_text_block": {

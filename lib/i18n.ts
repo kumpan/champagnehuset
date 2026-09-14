@@ -53,6 +53,8 @@ const sv = {
   yes: "Ja",
   close: "Stäng",
   search: "Sök",
+  openQuickNav: "Öppna snabbnavigering",
+  closeQuickNav: "Stäng snabbnavigering",
 
   // Product search + filters
   filter: "Filtrera",
@@ -71,10 +73,11 @@ const sv = {
   availabilityPrivateImport: "Privatimport",
   availabilityRestaurant: "Restaurang",
 
-  // Article tags (CMS stores the English value, visitors see this)
+  // Article tags (keyed by the stored CMS value, see lib/article-tags.ts)
   tagEvent: "Event",
   tagNews: "Nyheter",
   tagTips: "Tips",
+  tagKnowledge: "Kunskap",
 
   // Age gate
   ageGateConfirm: "Ja",
@@ -83,7 +86,7 @@ const sv = {
   ageGateNotice: "Du behöver vara 25 år för att besöka sidan.",
 
   // Newsletter
-  newsletterThanks: "Tack! Kolla din inkorg för att bekräfta.",
+  newsletterThanks: "Tack för att du prenumererar!",
 };
 
 export type Dict = typeof sv;
@@ -107,6 +110,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Yes",
     close: "Close",
     search: "Search",
+    openQuickNav: "Open quick navigation",
+    closeQuickNav: "Close quick navigation",
 
     // Product search + filters
     filter: "Filter",
@@ -129,6 +134,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Event",
     tagNews: "News",
     tagTips: "Tips",
+    tagKnowledge: "Knowledge",
 
     // Age gate
     ageGateConfirm: "Yes",
@@ -137,7 +143,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "You must be 25 or older to visit this site.",
 
     // Newsletter
-    newsletterThanks: "Thanks! Check your inbox to confirm.",
+    newsletterThanks: "Thanks for subscribing!",
   },
 
   de: {
@@ -150,6 +156,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Schließen",
     search: "Suchen",
+    openQuickNav: "Schnellnavigation öffnen",
+    closeQuickNav: "Schnellnavigation schließen",
 
     // Product search + filters
     filter: "Filtern",
@@ -172,6 +180,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Event",
     tagNews: "Neuigkeiten",
     tagTips: "Tipps",
+    tagKnowledge: "Wissen",
 
     // Age gate
     ageGateConfirm: "Ja",
@@ -180,7 +189,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Sie müssen 25 Jahre alt sein, um diese Seite zu besuchen.",
 
     // Newsletter
-    newsletterThanks: "Danke! Bitte bestätigen Sie über den Link in Ihrem Posteingang.",
+    newsletterThanks: "Danke für Ihr Abonnement!",
   },
 
   fr: {
@@ -193,6 +202,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Oui",
     close: "Fermer",
     search: "Rechercher",
+    openQuickNav: "Ouvrir la navigation rapide",
+    closeQuickNav: "Fermer la navigation rapide",
 
     // Product search + filters
     filter: "Filtrer",
@@ -215,6 +226,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Événement",
     tagNews: "Actualités",
     tagTips: "Conseils",
+    tagKnowledge: "Savoir",
 
     // Age gate
     ageGateConfirm: "Oui",
@@ -223,7 +235,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Vous devez avoir 25 ans pour visiter ce site.",
 
     // Newsletter
-    newsletterThanks: "Merci ! Vérifiez votre boîte de réception pour confirmer.",
+    newsletterThanks: "Merci pour votre inscription !",
   },
 
   it: {
@@ -236,6 +248,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Sì",
     close: "Chiudi",
     search: "Cerca",
+    openQuickNav: "Apri navigazione rapida",
+    closeQuickNav: "Chiudi navigazione rapida",
 
     // Product search + filters
     filter: "Filtra",
@@ -258,6 +272,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Evento",
     tagNews: "Notizie",
     tagTips: "Consigli",
+    tagKnowledge: "Conoscenza",
 
     // Age gate
     ageGateConfirm: "Sì",
@@ -266,7 +281,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Devi avere 25 anni per visitare questo sito.",
 
     // Newsletter
-    newsletterThanks: "Grazie! Controlla la tua casella di posta per confermare.",
+    newsletterThanks: "Grazie per esserti iscritto!",
   },
 
   es: {
@@ -279,6 +294,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Sí",
     close: "Cerrar",
     search: "Buscar",
+    openQuickNav: "Abrir navegación rápida",
+    closeQuickNav: "Cerrar navegación rápida",
 
     // Product search + filters
     filter: "Filtrar",
@@ -301,6 +318,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Evento",
     tagNews: "Noticias",
     tagTips: "Consejos",
+    tagKnowledge: "Conocimiento",
 
     // Age gate
     ageGateConfirm: "Sí",
@@ -309,7 +327,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Debes tener 25 años para visitar este sitio.",
 
     // Newsletter
-    newsletterThanks: "¡Gracias! Revisa tu bandeja de entrada para confirmar.",
+    newsletterThanks: "¡Gracias por suscribirte!",
   },
 
   pt: {
@@ -322,6 +340,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Sim",
     close: "Fechar",
     search: "Pesquisar",
+    openQuickNav: "Abrir navegação rápida",
+    closeQuickNav: "Fechar navegação rápida",
 
     // Product search + filters
     filter: "Filtrar",
@@ -344,6 +364,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Evento",
     tagNews: "Notícias",
     tagTips: "Dicas",
+    tagKnowledge: "Conhecimento",
 
     // Age gate
     ageGateConfirm: "Sim",
@@ -352,7 +373,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Tem de ter 25 anos para visitar este site.",
 
     // Newsletter
-    newsletterThanks: "Obrigado! Verifique a sua caixa de entrada para confirmar.",
+    newsletterThanks: "Obrigado pela sua subscrição!",
   },
 
   nl: {
@@ -365,6 +386,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Sluiten",
     search: "Zoeken",
+    openQuickNav: "Snelle navigatie openen",
+    closeQuickNav: "Snelle navigatie sluiten",
 
     // Product search + filters
     filter: "Filteren",
@@ -387,6 +410,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Evenement",
     tagNews: "Nieuws",
     tagTips: "Tips",
+    tagKnowledge: "Kennis",
 
     // Age gate
     ageGateConfirm: "Ja",
@@ -395,7 +419,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Je moet 25 jaar zijn om deze site te bezoeken.",
 
     // Newsletter
-    newsletterThanks: "Bedankt! Check je inbox om te bevestigen.",
+    newsletterThanks: "Bedankt voor je aanmelding!",
   },
 
   da: {
@@ -408,6 +432,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Luk",
     search: "Søg",
+    openQuickNav: "Åbn hurtignavigation",
+    closeQuickNav: "Luk hurtignavigation",
 
     // Product search + filters
     filter: "Filtrér",
@@ -430,6 +456,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Event",
     tagNews: "Nyheder",
     tagTips: "Tips",
+    tagKnowledge: "Viden",
 
     // Age gate
     ageGateConfirm: "Ja",
@@ -438,7 +465,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Du skal være 25 år for at besøge siden.",
 
     // Newsletter
-    newsletterThanks: "Tak! Tjek din indbakke for at bekræfte.",
+    newsletterThanks: "Tak for din tilmelding!",
   },
 
   nb: {
@@ -451,6 +478,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Lukk",
     search: "Søk",
+    openQuickNav: "Åpne hurtignavigering",
+    closeQuickNav: "Lukk hurtignavigering",
 
     // Product search + filters
     filter: "Filtrer",
@@ -473,6 +502,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Event",
     tagNews: "Nyheter",
     tagTips: "Tips",
+    tagKnowledge: "Kunnskap",
 
     // Age gate
     ageGateConfirm: "Ja",
@@ -481,7 +511,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Du må være 25 år for å besøke siden.",
 
     // Newsletter
-    newsletterThanks: "Takk! Sjekk innboksen din for å bekrefte.",
+    newsletterThanks: "Takk for at du abonnerer!",
   },
 
   nn: {
@@ -494,6 +524,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Ja",
     close: "Lukk",
     search: "Søk",
+    openQuickNav: "Opne snøggnavigering",
+    closeQuickNav: "Lukk snøggnavigering",
 
     // Product search + filters
     filter: "Filtrer",
@@ -516,6 +548,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Event",
     tagNews: "Nyheiter",
     tagTips: "Tips",
+    tagKnowledge: "Kunnskap",
 
     // Age gate
     ageGateConfirm: "Ja",
@@ -524,7 +557,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Du må vere 25 år for å vitje sida.",
 
     // Newsletter
-    newsletterThanks: "Takk! Sjekk innboksen din for å stadfeste.",
+    newsletterThanks: "Takk for at du abonnerer på nyhendebrevet!",
   },
 
   fi: {
@@ -537,6 +570,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Kyllä",
     close: "Sulje",
     search: "Hae",
+    openQuickNav: "Avaa pikavalikko",
+    closeQuickNav: "Sulje pikavalikko",
 
     // Product search + filters
     filter: "Suodata",
@@ -559,6 +594,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Tapahtuma",
     tagNews: "Uutiset",
     tagTips: "Vinkit",
+    tagKnowledge: "Tieto",
 
     // Age gate
     ageGateConfirm: "Kyllä",
@@ -567,7 +603,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Sinun on oltava 25-vuotias vieraillaksesi sivustolla.",
 
     // Newsletter
-    newsletterThanks: "Kiitos! Vahvista tilaus sähköpostistasi.",
+    newsletterThanks: "Kiitos tilauksesta!",
   },
 
   pl: {
@@ -580,6 +616,8 @@ const byLanguage: Record<string, Dict> = {
     yes: "Tak",
     close: "Zamknij",
     search: "Szukaj",
+    openQuickNav: "Otwórz szybką nawigację",
+    closeQuickNav: "Zamknij szybką nawigację",
 
     // Product search + filters
     filter: "Filtruj",
@@ -602,6 +640,7 @@ const byLanguage: Record<string, Dict> = {
     tagEvent: "Wydarzenie",
     tagNews: "Aktualności",
     tagTips: "Porady",
+    tagKnowledge: "Wiedza",
 
     // Age gate
     ageGateConfirm: "Tak",
@@ -610,7 +649,7 @@ const byLanguage: Record<string, Dict> = {
     ageGateNotice: "Musisz mieć 25 lat, aby odwiedzić tę stronę.",
 
     // Newsletter
-    newsletterThanks: "Dziękujemy! Sprawdź skrzynkę odbiorczą, aby potwierdzić.",
+    newsletterThanks: "Dziękujemy za zapisanie się!",
   },
 };
 

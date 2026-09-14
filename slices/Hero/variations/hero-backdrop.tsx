@@ -67,7 +67,7 @@ export function HeroBackdrop({ slice, context }: Props) {
       )}
 
       <Container className="relative flex w-full flex-col justify-end">
-        <div className={cn("flex w-full max-w-200 flex-col", alignment && "mx-auto items-center")}>
+        <div className={cn("flex w-full max-w-208 flex-col", alignment && "mx-auto items-center")}>
           {hasIntroContent && breadcrumbs && breadcrumbs.length > 1 && (
             <BreadcrumbNav
               items={breadcrumbs}

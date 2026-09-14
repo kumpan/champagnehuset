@@ -28,7 +28,8 @@ type PickContentRelationshipFieldData<
       TSubRelationship["customtypes"],
       TLang
     >;
-  } & { // Group
+  } & // Group
+  {
     [TGroup in Extract<
       TRelationship["fields"][number],
       | prismic.CustomTypeModelFetchGroupLevel1
@@ -40,7 +41,8 @@ type PickContentRelationshipFieldData<
           PickContentRelationshipFieldData<TGroup, TGroupData, TLang>
         >
       : never;
-  } & { // Other fields
+  } & // Other fields
+  {
     [TFieldKey in Extract<
       TRelationship["fields"][number],
       string
@@ -235,7 +237,7 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  tag: prismic.SelectField<"Event" | "News" | "Tips", "filled">;
+  tag: prismic.SelectField<"Event" | "Tips" | "Nyheter" | "Kunskap", "filled">;
 
   /**
    * Parent field in *Article*
@@ -259,7 +261,7 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice>; /**
    * Meta Title field in *Article*
    *
    * - **Field Type**: Text
@@ -267,7 +269,7 @@ interface ArticleDocumentData {
    * - **API ID Path**: article.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -789,7 +791,7 @@ interface FourOhFourDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<FourOhFourDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<FourOhFourDocumentDataSlicesSlice>; /**
    * Meta Title field in *404*
    *
    * - **Field Type**: Text
@@ -797,7 +799,7 @@ interface FourOhFourDocumentData {
    * - **API ID Path**: four_oh_four.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -1144,12 +1146,23 @@ interface NewsletterDocumentData {
    * Success Message field in *Newsletter Popup*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Tack! Kolla din inkorg för att bekräfta.
+   * - **Placeholder**: Tack för att du prenumererar!
    * - **API ID Path**: newsletter.success_message
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   success_message: prismic.RichTextField;
+
+  /**
+   * Privacy Notice field in *Newsletter Popup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Short note on what the email is used for, with a link to the privacy policy
+   * - **API ID Path**: newsletter.privacy_notice
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  privacy_notice: prismic.RichTextField;
 }
 
 /**
@@ -1228,7 +1241,7 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>; /**
    * Meta Title field in *Page*
    *
    * - **Field Type**: Text
@@ -1236,7 +1249,7 @@ interface PageDocumentData {
    * - **API ID Path**: page.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -1368,7 +1381,7 @@ interface ProducerDocumentData {
    * About field in *Producer*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Longer presentation of the producer
+   * - **Placeholder**: Heading and presentation shown where the producer is featured
    * - **API ID Path**: producer.producer_about
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
@@ -1384,7 +1397,7 @@ interface ProducerDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ProducerDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<ProducerDocumentDataSlicesSlice>; /**
    * Meta Title field in *Producer*
    *
    * - **Field Type**: Text
@@ -1392,7 +1405,7 @@ interface ProducerDocumentData {
    * - **API ID Path**: producer.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -1694,13 +1707,12 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   product_style: prismic.SelectField<
+    | "None"
     | "Blanc de Blancs"
     | "Blanc de Noirs"
     | "Rosé"
     | "Assemblage"
     | "Millésime"
-    | "Special Club"
-    | "None"
   >;
 
   /**
@@ -1835,7 +1847,7 @@ interface ProductDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>; /**
    * Meta Title field in *Product*
    *
    * - **Field Type**: Text
@@ -1843,7 +1855,7 @@ interface ProductDocumentData {
    * - **API ID Path**: product.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -2484,6 +2496,17 @@ export interface ArticleSliceListPrimary {
   show_pagination: prismic.BooleanField;
 
   /**
+   * Articles Per Page field in *Article → List → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 4
+   * - **API ID Path**: article.list.primary.articles_per_page
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  articles_per_page: prismic.SelectField<"4" | "8" | "12", "filled">;
+
+  /**
    * Filter by Tag field in *Article → List → Primary*
    *
    * - **Field Type**: Select
@@ -2493,7 +2516,7 @@ export interface ArticleSliceListPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   filter_by_tag: prismic.SelectField<
-    "All" | "Event" | "News" | "Tips",
+    "All" | "Event" | "Tips" | "Nyheter" | "Kunskap",
     "filled"
   >;
 
@@ -5477,6 +5500,16 @@ export interface ContactSliceRegisterPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   success_message: prismic.RichTextField;
+
+  /**
+   * Privacy Notice field in *Contact → Register → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Short note on what the email is used for, with a link to the privacy policy
+   * - **API ID Path**: contact.register.primary.privacy_notice
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  privacy_notice: prismic.RichTextField;
 }
 
 /**

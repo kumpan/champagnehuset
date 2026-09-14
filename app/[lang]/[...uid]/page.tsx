@@ -5,13 +5,12 @@ import { ArticleSchema, BreadcrumbSchema, FaqSchema, ProductSchema } from "@/com
 import { buildBreadcrumbs } from "@/lib/breadcrumbs";
 import { getDocumentByUID, isArticle, isProduct } from "@/lib/cms";
 import { buildPageMetadata } from "@/lib/metadata";
-import { hasPaginatedListing, parsePageParam } from "@/lib/pagination";
+import { type ListingSearchParams, listingParamsForMetadata } from "@/lib/pagination";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
 type Params = { lang: string; uid: string[] };
-type SearchParams = { page?: string | string[] };
-type Props = { params: Promise<Params>; searchParams: Promise<SearchParams> };
+type Props = { params: Promise<Params>; searchParams: Promise<ListingSearchParams> };
 
 const fetchPage = async (uid: string[], lang: string) => {
   const client = await createClient();
@@ -20,15 +19,13 @@ const fetchPage = async (uid: string[], lang: string) => {
 };
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
-  const [{ lang, uid }, { page: pageParam }] = await Promise.all([params, searchParams]);
+  const [{ lang, uid }, search] = await Promise.all([params, searchParams]);
   const page = await fetchPage(uid, lang);
-  const pageNumber = page && hasPaginatedListing(page.data.slices) ? parsePageParam(pageParam) : 1;
-  return buildPageMetadata(page, pageNumber);
+  return buildPageMetadata(page, listingParamsForMetadata(page?.data.slices ?? [], search));
 }
 
-export default async function Page({ params, searchParams }: Props) {
-  const [{ lang, uid }, { page: pageParam }] = await Promise.all([params, searchParams]);
-  const currentPage = parsePageParam(pageParam);
+export default async function Page({ params }: Props) {
+  const { lang, uid } = await params;
   const client = await createClient();
 
   const pageUid = uid[uid.length - 1];
@@ -53,11 +50,7 @@ export default async function Page({ params, searchParams }: Props) {
       {isArticle(page) && <ArticleSchema doc={page} />}
       {isProduct(page) && <ProductSchema doc={page} />}
       <FaqSchema slices={page.data.slices} />
-      <SliceZone
-        slices={page.data.slices}
-        components={components}
-        context={{ breadcrumbs, lang, document: page, page: currentPage }}
-      />
+      <SliceZone slices={page.data.slices} components={components} context={{ breadcrumbs, lang, document: page }} />
     </>
   );
 }

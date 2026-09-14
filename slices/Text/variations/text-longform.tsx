@@ -38,7 +38,8 @@ const articleComponents: JSXMapSerializer = {
 
 const HEADING_TYPES = new Set(["heading1", "heading2", "heading3", "heading4", "heading5", "heading6"]);
 
-export async function TextLongform({ slice }: Props) {
+export async function TextLongform({ slice, context }: Props) {
+  const lang = (context as { lang?: string } | undefined)?.lang;
   const { remove_top_padding, rich_text, author } = slice.primary;
 
   const tocHeadings = (rich_text ?? [])
@@ -64,8 +65,8 @@ export async function TextLongform({ slice }: Props) {
       <Container className="flex flex-col gap-8 lg:flex-row">
         {/* Mobile */}
         {tocHeadings.length > 0 && (
-          <aside className="sticky top-21 md:top-24 lg:hidden">
-            <TocAccordion headings={tocHeadings} />
+          <aside className="sticky top-20 md:top-24 lg:hidden">
+            <TocAccordion headings={tocHeadings} lang={lang} />
           </aside>
         )}
 

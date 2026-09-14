@@ -20,8 +20,17 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
   const { active, dismissNewsletter } = useModal();
   const open = active === "newsletter";
 
-  const { tagline, title, description, image, email_label, email_placeholder, button_label, success_message } =
-    prismicData.data;
+  const {
+    tagline,
+    title,
+    description,
+    image,
+    email_label,
+    email_placeholder,
+    button_label,
+    success_message,
+    privacy_notice,
+  } = prismicData.data;
 
   const hasImage = isFilled.image(image);
 
@@ -57,7 +66,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
           />
 
           <m.div
-            className="relative flex w-full max-w-md flex-col overflow-hidden rounded-2 bg-fill shadow-float lg:max-w-256 lg:flex-row"
+            className="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-md flex-col overflow-y-auto overflow-x-hidden rounded-2 bg-fill shadow-float lg:max-w-256 lg:flex-row"
             initial={{ y: "2rem", scale: 0.92 }}
             animate={{ y: 0, scale: 1 }}
             exit={{ y: "1rem", scale: 0.92 }}
@@ -85,6 +94,7 @@ export function NewsletterModal({ prismicData }: { prismicData: NewsletterDocume
                 buttonLabel={button_label}
                 buttonIcon
                 successMessage={success_message}
+                privacyNotice={privacy_notice}
                 lang={prismicData.lang}
                 sectionTheme="Bud"
                 source="modal"
