@@ -14,7 +14,7 @@ import { formatAlcohol, formatDosage, formatGrapesWithShares, formatPrice, produ
 import { cn } from "@/lib/utils";
 import type { SpecialClubDocument } from "@/prismicio-types";
 import type { TextProps } from "..";
-import { CONTACT_PAGE_PATH, COPY, RESTAURANT_CONTACT, resolvePurchase } from "../text-info-config";
+import { CONTACT_PAGE_PATH, COPY, resolvePurchase } from "../text-info-config";
 
 const ArrowRight = iconMap.arrowRight;
 const Download = iconMap.download;
@@ -192,9 +192,6 @@ export async function TextInfo({ slice, context }: Props) {
                           <HeadingPrice price={restaurantPrice} />
                         </h3>
                         <p className="mt-2">{COPY.restaurant.body}</p>
-                        <p className="mt-2">
-                          {RESTAURANT_CONTACT.phoneLabel}, {RESTAURANT_CONTACT.email}
-                        </p>
                       </div>
                       <Button asChild variant="secondary" sectionTheme={section_theme} size="lg" className="shrink-0">
                         <Link href={CONTACT_PAGE_PATH}>
