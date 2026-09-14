@@ -5,9 +5,8 @@ import { type NextRequest, NextResponse } from "next/server";
 // Mailchimp newsletter subscribe
 // ----------------------------------------------------------------------------
 // Upserts the email into a Mailchimp audience via the Marketing API. New members
-// are added as "pending" so Mailchimp sends its own double opt-in confirmation
-// (GDPR-friendly). Existing members are left untouched (status omitted), so we
-// never force a re-subscribe on someone who unsubscribed.
+// are subscribed directly without a confirmation email. Existing members are left
+// untouched, so we never force a re-subscribe on someone who unsubscribed.
 //
 // Required env (see .env.example):
 //   MAILCHIMP_API_KEY      e.g. "abc123def456...-us21"
@@ -53,8 +52,8 @@ export async function POST(req: NextRequest) {
     // Where the signup came from → a Mailchimp tag. Allowlisted so a client can't
     // create arbitrary tags. Drives the Tags filter / segments in the audience.
     const SOURCE_TAGS: Record<string, string> = {
-      slice: "Newsletter Slice",
-      modal: "Newsletter Modal",
+      slice: "Slice",
+      modal: "Modal",
     };
     const tag = typeof source === "string" ? SOURCE_TAGS[source] : undefined;
 
@@ -63,7 +62,7 @@ export async function POST(req: NextRequest) {
       headers: { "Content-Type": "application/json", Authorization: authHeader },
       body: JSON.stringify({
         email_address: normalized,
-        status_if_new: "pending",
+        status_if_new: "subscribed",
       }),
     });
 
