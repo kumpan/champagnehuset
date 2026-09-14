@@ -56,7 +56,7 @@
         "type": "Select",
         "config": {
           "label": "Tag",
-          "options": ["Event", "News", "Tips"],
+          "options": ["Event", "Tips", "Nyheter", "Kunskap"],
           "default_value": "Event"
         }
       },
