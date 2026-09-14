@@ -184,7 +184,7 @@
                   "label": "Answer",
                   "placeholder": "Describe the answer to this question.",
                   "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,hyperlink,embed,list-item,o-list-item,rtl"
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item,rtl"
                 }
               }
             }
@@ -364,7 +364,7 @@
                   "label": "Answer",
                   "placeholder": "Describe the answer to this question.",
                   "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,hyperlink,embed,list-item,o-list-item,rtl"
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item,rtl"
                 }
               }
             }
