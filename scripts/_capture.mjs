@@ -1,9 +1,6 @@
-// TEMPORARY slice-screenshot engine — safe to delete.
-// Renders each slice variation via /slice-simulator/shot?state=... in headless
-// Chrome (CDP over Node's built-in WebSocket — no npm deps), waits for fonts +
-// images, then captures a fixed 1200x700 top-aligned frame to
-// slices/<Slice>/screenshot-<id>.png. Slices taller than 700px are cropped at
-// the bottom; shorter slices sit at the top of the frame.
+// Generates the Slice Machine thumbnails from each variation's mock.
+// Renders /slice-simulator/shot in headless Chrome and saves a 1200x700 frame
+// to slices/<Slice>/screenshot-<id>.png. Taller slices get cropped at the bottom.
 //
 // Usage:
 //   node scripts/_capture.mjs <baseUrl> [SliceDir[:variation] ...]
