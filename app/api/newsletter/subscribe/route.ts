@@ -24,7 +24,7 @@ function serverPrefix(apiKey: string): string | null {
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, website, source } = await req.json();
+    const { email, website, source, page } = await req.json();
 
     // Honeypot: silently accept bots without hitting Mailchimp.
     if (typeof website === "string" && website.trim() !== "") {
@@ -49,13 +49,15 @@ export async function POST(req: NextRequest) {
     const authHeader = `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`;
     const memberUrl = `https://${dc}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`;
 
-    // Where the signup came from → a Mailchimp tag. Allowlisted so a client can't
-    // create arbitrary tags. Drives the Tags filter / segments in the audience.
+    // Tags come from an allowlist or a path shape so a client can't invent arbitrary ones
     const SOURCE_TAGS: Record<string, string> = {
       slice: "Slice",
       modal: "Modal",
     };
-    const tag = typeof source === "string" ? SOURCE_TAGS[source] : undefined;
+    const tags: string[] = [];
+    if (typeof source === "string" && SOURCE_TAGS[source]) tags.push(SOURCE_TAGS[source]);
+    // Mailchimp caps tag names at 100 characters
+    if (typeof page === "string" && /^\/\S{0,89}$/.test(page)) tags.push(`Page: ${page}`);
 
     const res = await fetch(memberUrl, {
       method: "PUT",
@@ -69,11 +71,11 @@ export async function POST(req: NextRequest) {
     if (res.ok) {
       // Best-effort additive tag write (its own endpoint, so it never disturbs a
       // returning subscriber's existing tags). A tag failure must not fail signup.
-      if (tag) {
+      if (tags.length) {
         await fetch(`${memberUrl}/tags`, {
           method: "POST",
           headers: { "Content-Type": "application/json", Authorization: authHeader },
-          body: JSON.stringify({ tags: [{ name: tag, status: "active" }] }),
+          body: JSON.stringify({ tags: tags.map((name) => ({ name, status: "active" })) }),
         }).catch(() => {});
       }
       return NextResponse.json({ ok: true });
