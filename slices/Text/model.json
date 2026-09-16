@@ -361,6 +361,15 @@
             "default_value": true
           }
         },
+        "section_theme": {
+          "type": "Select",
+          "config": {
+            "label": "Section Theme",
+            "placeholder": "",
+            "options": ["Bud", "Leaf", "Bottle", "Dust", "Slate"],
+            "default_value": "Bud"
+          }
+        },
         "rich_text": {
           "type": "StructuredText",
           "config": {

@@ -8661,6 +8661,20 @@ export interface TextSliceLongformPrimary {
   remove_top_padding: prismic.BooleanField;
 
   /**
+   * Section Theme field in *Text → Longform → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bud
+   * - **API ID Path**: text.longform.primary.section_theme
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  section_theme: prismic.SelectField<
+    "Bud" | "Leaf" | "Bottle" | "Dust" | "Slate",
+    "filled"
+  >;
+
+  /**
    * Rich Text field in *Text → Longform → Primary*
    *
    * - **Field Type**: Rich Text

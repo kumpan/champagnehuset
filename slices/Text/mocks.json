@@ -186,6 +186,265 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
+    "variation": "media",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Bud",
+        "type": "Select"
+      },
+      "text_side": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "first_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading3",
+            "content": {
+              "text": "Från vingård till press",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ord tillsammans med en bild gör poängen tydligare. Det här blocket introducerar vinifikationen vid sidan av sin bild.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "first_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Top Right",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41",
+                    "width": 4000,
+                    "height": 2667
+                  },
+                  "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41?q=80&w=1920&h=1080&fit=crop",
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "Citroner som mognar på trädet",
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {
+                    "square": {
+                      "origin": {
+                        "id": "square",
+                        "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41",
+                        "width": 4000,
+                        "height": 2667
+                      },
+                      "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41?q=80&w=1440&h=1440&fit=crop",
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "background": "transparent"
+                      },
+                      "alt": "Citroner som mognar på trädet",
+                      "credits": null
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "second_text_block": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading3",
+            "content": {
+              "text": "Lagring i kritkällaren",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Det andra blocket fortsätter berättelsen med sin egen bild — från pressning till lång lagring i svala kritkällare.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "second_image": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "filter",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Bottom Left",
+                  "type": "Select"
+                }
+              ],
+              [
+                "image",
+                {
+                  "origin": {
+                    "id": "main",
+                    "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f",
+                    "width": 3000,
+                    "height": 4000
+                  },
+                  "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f?q=80&w=1920&h=1080&fit=crop",
+                  "width": 1920,
+                  "height": 1080,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "background": "transparent"
+                  },
+                  "alt": "Citroner på mörk stenyta",
+                  "credits": null,
+                  "__TYPE__": "ImageContent",
+                  "thumbnails": {
+                    "square": {
+                      "origin": {
+                        "id": "square",
+                        "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f",
+                        "width": 3000,
+                        "height": 4000
+                      },
+                      "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f?q=80&w=1440&h=1440&fit=crop",
+                      "width": 1440,
+                      "height": 1440,
+                      "edit": {
+                        "zoom": 1,
+                        "crop": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "background": "transparent"
+                      },
+                      "alt": "Citroner på mörk stenyta",
+                      "credits": null
+                    }
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "details",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Dust"
+      },
+      "region": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Côte des Bar"
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "info",
+    "primary": {
+      "remove_top_padding": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "section_theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Dust",
+        "type": "Select"
+      },
+      "overline": {
+        "__TYPE__": "FieldContent",
+        "value": "Bra att veta",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Allt om leverans och förvaring",
+        "type": "Text"
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ett kompakt block för det praktiska — leveranstider, förvaringstips och serveringstemperatur, samlat på ett ställe nära till hands.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
     "variation": "longform",
     "primary": {
       "remove_top_padding": {
@@ -261,268 +520,18 @@
         ]
       },
       "author": {
-        "__TYPE__": "LinkContent",
         "key": "9eb089e5-982f-4cb1-a69a-41e6fd965729",
+        "__TYPE__": "LinkContent",
         "value": {
           "__TYPE__": "DocumentLink",
           "id": "mock_document_id",
           "text": "Redaktionen på ChampagneHuset"
         }
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "media",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Bud",
-        "type": "Select"
-      },
-      "text_side": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "first_text_block": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Från vingård till press",
-              "spans": []
-            }
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ord tillsammans med en bild gör poängen tydligare. Det här blocket introducerar vinifikationen vid sidan av sin bild.",
-              "spans": []
-            }
-          }
-        ]
-      },
-      "first_image": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "filter",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "Top Right",
-                  "type": "Select"
-                }
-              ],
-              [
-                "image",
-                {
-                  "__TYPE__": "ImageContent",
-                  "origin": {
-                    "id": "main",
-                    "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41",
-                    "width": 4000,
-                    "height": 2667
-                  },
-                  "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41?q=80&w=1920&h=1080&fit=crop",
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 0
-                    },
-                    "background": "transparent"
-                  },
-                  "alt": "Citroner som mognar på trädet",
-                  "thumbnails": {
-                    "square": {
-                      "origin": {
-                        "id": "square",
-                        "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41",
-                        "width": 4000,
-                        "height": 2667
-                      },
-                      "url": "https://images.unsplash.com/photo-1605185189315-fc269c231e41?q=80&w=1440&h=1440&fit=crop",
-                      "width": 1440,
-                      "height": 1440,
-                      "edit": {
-                        "zoom": 1,
-                        "crop": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "background": "transparent"
-                      },
-                      "alt": "Citroner som mognar på trädet"
-                    }
-                  }
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "second_text_block": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading3",
-            "content": {
-              "text": "Lagring i kritkällaren",
-              "spans": []
-            }
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Det andra blocket fortsätter berättelsen med sin egen bild — från pressning till lång lagring i svala kritkällare.",
-              "spans": []
-            }
-          }
-        ]
-      },
-      "second_image": {
-        "__TYPE__": "GroupContentType",
-        "value": [
-          {
-            "__TYPE__": "GroupItemContent",
-            "value": [
-              [
-                "filter",
-                {
-                  "__TYPE__": "FieldContent",
-                  "value": "Bottom Left",
-                  "type": "Select"
-                }
-              ],
-              [
-                "image",
-                {
-                  "__TYPE__": "ImageContent",
-                  "origin": {
-                    "id": "main",
-                    "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f",
-                    "width": 3000,
-                    "height": 4000
-                  },
-                  "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f?q=80&w=1920&h=1080&fit=crop",
-                  "width": 1920,
-                  "height": 1080,
-                  "edit": {
-                    "zoom": 1,
-                    "crop": {
-                      "x": 0,
-                      "y": 0
-                    },
-                    "background": "transparent"
-                  },
-                  "alt": "Citroner på mörk stenyta",
-                  "thumbnails": {
-                    "square": {
-                      "origin": {
-                        "id": "square",
-                        "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f",
-                        "width": 3000,
-                        "height": 4000
-                      },
-                      "url": "https://images.unsplash.com/photo-1598960809231-5504c3b90a6f?q=80&w=1440&h=1440&fit=crop",
-                      "width": 1440,
-                      "height": 1440,
-                      "edit": {
-                        "zoom": 1,
-                        "crop": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "background": "transparent"
-                      },
-                      "alt": "Citroner på mörk stenyta"
-                    }
-                  }
-                }
-              ]
-            ]
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "details",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": true
       },
       "section_theme": {
         "__TYPE__": "FieldContent",
         "type": "Select",
-        "value": "Dust"
-      },
-      "region": {
-        "__TYPE__": "FieldContent",
-        "type": "Select",
-        "value": "Côte des Bar"
-      }
-    },
-    "items": []
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "info",
-    "primary": {
-      "remove_top_padding": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
-      "section_theme": {
-        "__TYPE__": "FieldContent",
-        "value": "Dust",
-        "type": "Select"
-      },
-      "overline": {
-        "__TYPE__": "FieldContent",
-        "value": "Bra att veta",
-        "type": "Text"
-      },
-      "title": {
-        "__TYPE__": "FieldContent",
-        "value": "Allt om leverans och förvaring",
-        "type": "Text"
-      },
-      "body": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ett kompakt block för det praktiska — leveranstider, förvaringstips och serveringstemperatur, samlat på ett ställe nära till hands.",
-              "spans": []
-            }
-          }
-        ]
+        "value": "Bud"
       }
     },
     "items": [

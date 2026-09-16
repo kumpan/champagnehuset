@@ -3,16 +3,27 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { useState } from "react";
+import type { SectionTheme } from "@/components/layout/section";
 import { t } from "@/lib/i18n";
 import { cn, toAnchorId } from "@/lib/utils";
+import { tocTheme } from "./toc-desktop";
 
 type HeadingNode = { text: string };
 
-export function TocAccordion({ headings, lang }: { headings: HeadingNode[]; lang?: string }) {
+export function TocAccordion({
+  headings,
+  lang,
+  sectionTheme,
+}: {
+  headings: HeadingNode[];
+  lang?: string;
+  sectionTheme: SectionTheme;
+}) {
   const [open, setOpen] = useState(false);
+  const theme = tocTheme[sectionTheme];
 
   return (
-    <div className="flex flex-col rounded-2 bg-fill-raised p-1">
+    <div className={cn("flex flex-col rounded-2 p-1", theme.panel)}>
       <AnimatePresence>
         {open && (
           <m.div
@@ -20,7 +31,10 @@ export function TocAccordion({ headings, lang }: { headings: HeadingNode[]; lang
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
             transition={{ duration: 0.15, ease: "easeInOut" }}
-            className="absolute top-0 left-0 flex max-h-[calc(100svh-7rem)] w-full flex-col overflow-hidden rounded-2 bg-fill-raised p-1 pt-13 md:max-h-[calc(100svh-8rem)]"
+            className={cn(
+              "absolute top-0 left-0 flex max-h-[calc(100svh-7rem)] w-full flex-col overflow-hidden rounded-2 p-1 pt-13 md:max-h-[calc(100svh-8rem)]",
+              theme.panel,
+            )}
           >
             <m.div
               initial="hidden"
@@ -60,7 +74,11 @@ export function TocAccordion({ headings, lang }: { headings: HeadingNode[]; lang
                       document.getElementById(toAnchorId(h.text))?.scrollIntoView({ block: "start" });
                     });
                   }}
-                  className="flex h-12 shrink-0 items-center gap-1.5 rounded-1 bg-fill pr-4 pl-3 text-ink leading-snug hover:text-ink-raised"
+                  className={cn(
+                    "flex h-12 shrink-0 items-center gap-1.5 rounded-1 pr-4 pl-3 leading-snug",
+                    theme.item,
+                    theme.hover,
+                  )}
                 >
                   <ChevronRight className="size-5 shrink-0" />
                   <span className="truncate">{h.text}</span>
@@ -74,7 +92,7 @@ export function TocAccordion({ headings, lang }: { headings: HeadingNode[]; lang
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="relative flex h-12 w-full items-center justify-center rounded-4 px-5 text-ink"
+        className="relative flex h-12 w-full items-center justify-center rounded-4 px-5"
       >
         <m.span layout transition={{ duration: 0.2, ease: "easeInOut" }} className="flex items-center gap-1.5">
           <AnimatePresence mode="wait" initial={false}>

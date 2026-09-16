@@ -5,9 +5,9 @@ import type { JSXMapSerializer } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { Section, type SectionTheme } from "@/components/layout/section";
 import { components as richTextComponents } from "@/components/rich-text/rich-text-components";
-import { toAnchorId } from "@/lib/utils";
+import { cn, toAnchorId } from "@/lib/utils";
 import { createClient } from "@/prismicio";
 import type { EmployeeDocument } from "@/prismicio-types";
 import type { TextProps } from "..";
@@ -36,11 +36,20 @@ const articleComponents: JSXMapSerializer = {
   heading6: heading("h6"),
 };
 
+// Prose headings are pinned to text-ink, so the yellow themes need the modifier to lift them.
+const proseThemeClass: Record<SectionTheme, string> = {
+  Bud: "",
+  Leaf: "",
+  Bottle: "",
+  Dust: "prose-spot",
+  Slate: "prose-spot-flip",
+};
+
 const HEADING_TYPES = new Set(["heading1", "heading2", "heading3", "heading4", "heading5", "heading6"]);
 
 export async function TextLongform({ slice, context }: Props) {
   const lang = (context as { lang?: string } | undefined)?.lang;
-  const { remove_top_padding, rich_text, author } = slice.primary;
+  const { remove_top_padding, section_theme, rich_text, author } = slice.primary;
 
   const tocHeadings = (rich_text ?? [])
     .filter((node) => HEADING_TYPES.has(node.type) && "text" in node)
@@ -61,26 +70,27 @@ export async function TextLongform({ slice, context }: Props) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       removeTopPadding={remove_top_padding}
+      sectionTheme={section_theme}
     >
       <Container className="flex flex-col gap-8 lg:flex-row">
         {/* Mobile */}
         {tocHeadings.length > 0 && (
           <aside className="sticky top-20 md:top-24 lg:hidden">
-            <TocAccordion headings={tocHeadings} lang={lang} />
+            <TocAccordion headings={tocHeadings} lang={lang} sectionTheme={section_theme} />
           </aside>
         )}
 
         {/* Desktop */}
         {tocHeadings.length > 0 && (
           <aside className="hidden 3xl:w-144 pb-8 lg:block lg:w-96 lg:shrink-0 xl:w-112">
-            <TocDesktop headings={tocHeadings} />
+            <TocDesktop headings={tocHeadings} sectionTheme={section_theme} />
           </aside>
         )}
 
         {/* Text Content */}
         {rich_text && (
           <div>
-            <div className="prose w-full min-w-0">
+            <div className={cn("prose w-full min-w-0", proseThemeClass[section_theme])}>
               <PrismicRichText field={rich_text} components={articleComponents} />
             </div>
             {authorDoc && (
