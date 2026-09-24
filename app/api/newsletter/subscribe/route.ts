@@ -69,6 +69,20 @@ export async function POST(req: NextRequest) {
     });
 
     if (res.ok) {
+      // Set pending users to subscribed if they are already in the list
+      const member = (await res.json().catch(() => ({}))) as { status?: string };
+      if (member.status === "pending") {
+        const patch = await fetch(memberUrl, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json", Authorization: authHeader },
+          body: JSON.stringify({ status: "subscribed" }),
+        }).catch(() => null);
+        if (!patch?.ok) {
+          const err = (await patch?.json().catch(() => ({}))) as { title?: string; detail?: string } | undefined;
+          console.error("Mailchimp pending->subscribed failed:", patch?.status, err?.title, err?.detail);
+        }
+      }
+
       // Best-effort additive tag write (its own endpoint, so it never disturbs a
       // returning subscriber's existing tags). A tag failure must not fail signup.
       if (tags.length) {
